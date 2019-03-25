@@ -1,0 +1,69 @@
+%!TEX root = forallxadl.tex
+\part*{Appendices}
+\addcontentsline{toc}{part}{Appendices}\partmark{Appendices}
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+
+% Æ: made lots of changes of detail because of our choice of name of languages, and added a couple of other pieces of terminology to what is in effect an impromptu logic thesaurus.
+
+\chapter{Alternative terminology and notation}\label{app.notation}
+
+\section*{Alternative terminology}
+\paragraph{Sentential logic.} The study of \TFL\ goes by other names. The name we have given it – sentential logic – derives from the fact that it deals with whole sentences as its most basic building blocks. Other features motivate different names.  Sometimes it is called \emph{truth-functional logic}, because it deals only with assignments of truth and falsity to sentences, and its connectives are all truth-functional. Sometimes it is called \emph{propositional logic}, which strikes me as a misleading choice. This may sometimes be innocent, as some people  use `proposition' to mean `sentence'. However, noting that different sentences can mean the same thing, many people use the term  `proposition' as a useful way of referring to the meaning of a sentence, what that sentence expresses. In \emph{this} sense of `proposition', `propositional logic' is not a good name for the study of \TFL, since synonymous but not truth-functionally equivalent sentences like `Vixens are bold' and `Female foxes are bold' will be logically distinguished even though they express the same proposition.
+
+
+\paragraph{Quantifier logic.} The study of \FOL\ goes by other names. Sometimes it is called \emph{predicate logic}, because it allows us to apply  predicates to objects. Sometimes it is called \emph{first-order logic}, because it makes use only of quantifiers over objects, and variables that can be substituted for constants. This is to be distinguished from \emph{higher-order logic}, which introduces quantification over properties, and variables that can be substituted for predicates. (This device would allow us to formalise such sentences as `Jane and Kane are alike in \emph{every respect}', treating the italicised phrase as a quantifier over `respects', i.e., properties. This results in something like $\forall P (Pj \leftrightarrow Pk)$, which is \emph{not} a sentence of \FOL.)
+
+\paragraph{Atomic Sentences.} Some texts call atomic sentences \emph{sentence letters}.
+
+\paragraph{Formulas.} Some texts call formulas \emph{well-formed formulas}. Since `well-formed formula' is such a long and cumbersome phrase, they then abbreviate this as \emph{wff}. This is both barbarous and unnecessary (such texts do not make any important use of the contrasting class of `ill-formed formulas'). I have stuck with `formula'. 
+
+In §\ref{s:TFLSentences}, I defined \emph{sentences} of \TFL. These are also sometimes called `formulas' (or `well-formed formulas') since in \TFL, unlike \FOL, there is no distinction between a formula and a sentence.
+
+\paragraph{Valuations.} Some texts call valuations \emph{truth-assignments}; others call them \emph{structures}.
+
+\paragraph{Expressive adequacy.} Some texts describe \TFL\ as \emph{truth-functionally complete}, rather than expressively adequate. 
+
+\paragraph{n-place predicates.} I have called predicates `one-place', `two-place', `three-place', etc. Other texts respectively call them `monadic', `dyadic', `triadic', etc. Still other texts call them `unary', `binary', `ternary', etc.
+
+\paragraph{Names.} In \FOL, I have used `$a$', `$b$', `$c$', for names. Some texts call these `constants', because they have a constant referent in a given interpretation, as opposed to variables which have variable referents. Other texts do not mark any difference between names and variables in the syntax. Those texts focus simply on  whether the symbol occurs \emph{bound} or \emph{unbound}. 
+
+\paragraph{Domains.} Some texts describe a domain as a `domain of discourse', or a `universe of discourse'.
+
+\paragraph{Interpretations.} Some texts call interpretations \emph{models}; others call them \emph{structures}.
+
+\section*{Alternative notation}
+In the history of formal logic, different symbols have been used at different times and by different authors. Often, authors were forced to use notation that their printers could typeset.
+
+This appendix presents some common symbols, so that you can recognise them if you encounter them in an article or in another book. Unless you are reading a research article in philosophical or mathematical logic, these symbols are merely different notations for the very same underlying things. So the truth-functional connective we refer to with `$\wedge$' is the very same one that another textbook might refer to with `$\&$'. Compare: the number six can be referred to by the numeral `$6$', the Roman numeral `VI', the English word `six', the German word `sechs', the kanji character `{\cjkfont 六}', etc.
+
+
+\paragraph{Negation.} Two commonly used symbols are the \emph{not sign}, `$¬$', and the \emph{tilde operator}, `$∼$'. In some more advanced formal systems it is necessary to distinguish between two kinds of negation; the distinction is sometimes represented by using both `$\enot$' and `$∼$'. 
+
+Some texts use an overline to indicate negation, so that `$\overline{\mathscr{A}}$'' expresses the same thing as `$¬\mathscr{A}$'. This is clear enough if $\mathscr{A}$ is an atomic sentence, but quickly becomes cumbersome if we attempt to nest negations: `$¬(A \wedge ¬(¬¬B \wedge C))$' becomes the unwieldy $$\overline{A \wedge \overline{(\overline{\overline{B}}\wedge C)}}.$$
+
+\paragraph{Disjunction.} The symbol `$\vee$' is typically used to symbolize inclusive disjunction. One etymology is from the Latin word `vel', meaning `or'.%In some systems, disjunction is written as addition.
+
+\paragraph{Conjunction.}
+Conjunction is often symbolized with the \emph{ampersand}, `{\&}'. The ampersand is a decorative form of the Latin word `et', which means `and'.  (Its etymology still lingers in certain fonts, particularly in italic fonts; thus an italic ampersand might appear as `\emph{\&}'.) Using this symbol is not recommended, since it is commonly used in natural English writing (e.g., `Smith \& Sons'). As a symbol in a formal system, the ampersand is not the English word `\&', so it is much neater to use a completely different symbol. The most common choice now is `$\wedge$', which is a counterpart to the symbol used for disjunction. Sometimes a single dot, `{\scriptsize\textbullet}', is used (you may have seen this in \emph{Argument and Critical Thinking}). In some older texts, there is no symbol for conjunction at all; `$A$ and $B$' is simply written `$AB$'. (These are often texts that use the overlining notation for negation. Such texts often involve languages in which conjunction and negation are the only connectives, and they typically also dispense with parentheses which are unnecessary in such austere languages.)
+
+\paragraph{Material Conditional.} There are two common symbols for the material conditional: the \emph{arrow}, `$\rightarrow$', and the \emph{hook}, `$\supset$'. Rarely you might see `$\Rightarrow$'.
+
+\paragraph{Material Biconditional.} The \emph{double-headed arrow}, `$\leftrightarrow$', is used in systems that use the arrow to represent the material conditional. Systems that use the hook for the conditional typically use the \emph{triple bar}, `$\equiv$', for the biconditional.
+
+\paragraph{Quantifiers.} The universal quantifier is typically symbolised `$\forall$' (a rotated `\textsf{A}'), and the existential quantifier as `$\exists$' (a rotated `\textsf{E}'). In some texts, there is no separate symbol for the universal quantifier. Instead, the variable is just written in parentheses in front of the formula that it binds. For example, they might write `$(x)Px$' where we would write `$\forall x Px$'.
+
+\
+\\These alternative notations are summarised below:
+
+\begin{center}
+\begin{tabular}{rl} \toprule 
+negation & $\neg$, $∼$, $\overline{\mathscr{A}}$\\
+conjunction & $\wedge$, $\&$, {\scriptsize\textbullet}\\
+disjunction & $\vee$\\
+conditional & $\rightarrow$, $\supset$, $\Rightarrow$\\
+biconditional & $\leftrightarrow$, $\equiv$\\
+universal quantifier & $\forall x$, $(x)$\\ \bottomrule
+\end{tabular}
+\end{center}
+
+

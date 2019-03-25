@@ -1,0 +1,55 @@
+%!TEX program = xelatex
+%!encoding=UTF-8 Unicode
+\documentclass[twoside, openany, 11pt, a4paper]{memoir}
+\usepackage{forallxadl}
+\makeindex
+\begin{document}
+
+\renewcommand{\partname}{Chapter} %TB: to make the chapters (which LaTeX regards as parts) labelled "chapter" Æ: moved here because redefinition was inexplicably overwritten when left in the .sty file.
+
+\pagestyle{forallxpage}
+
+
+\frontmatter
+\include{forallx-adl-frontmatter}
+
+\newpage
+\tableofcontents*
+
+\chapter*{How to use this book}
+
+This book has been designed for use in conjunction with the University of Adelaide course \textsc{phil} 1110 \emph{Introduction to Logic}. But it is suitable for self-study as well. We have included a number of features to assist your learning. \begin{itemize}
+	\item \forallx\ is divided into seven chapters, each further divided into sections and subsections. The sections are continuously numbered. \begin{itemize}
+		\item Chapter \ref{ch.intro} gives an overview of how I understand the project of formal logic;
+		\item Chapters \ref{ch.TFL}–\ref{ch.TruthTables} cover sentential or truth-functional logic;
+		\item Chapters \ref{ch.FOL}–\ref{ch.semantics} cover quantified or predicate logic;
+		\item and Chapters \ref{ch.NDTFL}–\ref{ch.NDFOL} cover the formal proof systems for our logical languages.
+	\end{itemize}
+	\item The book contains many cross-references to other sections. So a reference to `§\ref{s.sentencesTFL}' indicates that you should consult section 6, subsection 2 – you will find this on page \pageref{s.sentencesTFL}. Cross-references are hyperlinked, as are entries in the table of contents.
+	\item When we first use a new piece of technical terminology, it is introduced like this in \textsc{small caps}. You can find an index of defined terms in Appendix \ref{app.index}.
+	\item A quick reference to many of the aspects of the logical systems we introduce can be found in Appendix \ref{ch.qr}.
+	\item Logical ideas and notation are pretty ubiquitous in philosophy, and there are a lot of different systems. We cannot cover all the alternatives, but some indication of other terminology and notation is contained in Appendix \ref{app.notation}.
+	\item Each chapter in the book conclude with a box labelled `Key Ideas in §xx'. These are not a summary of the chapter, but contain some indication of what we regard as the main ideas that you should be taking away from your reading of the chapter. 
+	\item The book is the product of a number of authors. `I' doesn't always mean me, but `we' mostly means you and me.
+\end{itemize}
+I would appreciate any comments or corrections you may have: \href{mailto:antony.eagle@adelaide.edu.au}{\nolinkurl{antony.eagle@adelaide.edu.au}}.
+
+\mainmatter
+\include{forallx-adl-what}
+\include{forallx-adl-tfl}
+\include{forallx-adl-truthtables}
+\include{forallx-adl-fol}
+\include{forallx-adl-interpretations}
+\include{forallx-adl-prooftfl}
+\include{forallx-adl-prooffol}
+
+\appendix % don't need to do this by hand Æ
+
+
+\include{forallx-adl-notation}
+%\include{forallx-adl-alternatives} % omitted Æ
+\include{forallx-adl-quickreference}
+\renewcommand{\indexname}{Index of defined terms}\printindex % added 2018 Æ
+\include{forallx-adl-backmatter}
+
+\end{document}

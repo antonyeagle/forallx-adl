@@ -1,0 +1,1105 @@
+%!TEX root = forallxadl.tex
+\part{Truth tables}
+\label{ch.TruthTables}
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+
+ 
+
+
+\chapter{Truth-functional connectives}\label{s:TruthFunctionality}
+
+\section{The idea of truth-functionality}
+So much for the grammar or syntax of \TFL. We turn now to the meaning of \TFL\ sentences. For technical reasons, it is best to  start with the intended intepretation of the connectives. 
+
+I want to start by introducing an important idea about sentence connectives.
+	\factoidbox{\label{def.truthfunction}
+		A connective is \define{truth-functional} iff the truth value of a sentence with that connective as its main connective is uniquely determined by the truth value(s) of the constituent sentence(s).
+	}
+
+It is a fact that \emph{every connective in \TFL\ is truth-functional}. It turns out that we don't need to know anything more about the atomic sentences of \TFL\ than their truth values to assign a truth value to those non-atomic, or \define{compound}, sentences. More generally, the truth value of any compound sentence depends only on the truth value of the subsentences that comprise it. In order to know the truth value of `$(D \eand E)$', for instance, you only need to know the truth value of `$D$' and the truth value of `$E$'. In order to know the truth value of `$\bigl( (D \eand E) \eor F\bigr)$', you need only know the truth value of `$(D \eand E)$' and `$F$'. And so on. This is fact a good part of the reason why we chose these connectives, and chose their English near-equivalents as our structural words. To determine the truth value of some \TFL\ sentence, we only need to know the truth value of its components. This is why the study of \TFL\ is termed \emph{truth-functional logic}.
+
+\section{Schematic truth tables}\label{s:SchematicTruthTables}
+
+We introduced five connectives in chapter \ref{ch.TFL}. To give substance to the claim that they are truth-functional, we simply need to explain how each connective yields a truth value for a compound sentence, when supplied with the truth values of its \define{immediate subsentences}. In any sentence of the form $\meta{A} \eif \meta{B}$, $\meta{A}$ and $\meta{B}$ are the immediate subsentences, since those combine with the main connective to form the sentence.
+
+Not only does the truth value of a compound sentence of \TFL\ depend only on the truth values assigned to its subsentences, it does so \emph{uniquely}. We may happily refer to \emph{the} truth value of \meta{A} as determined by its constituents. This means we may represent the pattern of dependence of compound sentence truth values on immediate subsentence truth values in a simple table.  For convenience, we shall represent `True' by `T' and `False' by `F'. (But just to be clear, the two truth values are True and False; the truth values are not \emph{letters}!) 
+
+These truth tables completely characterise how the connectives of \TFL\ behave. Accordingly, we can take these schematic truth tables as giving the \emph{meanings} of the connectives. 
+
+\paragraph{Negation.} For any sentence \meta{A}: If \meta{A} is true, then `\enot\meta{A}' is false. If `\enot\meta{A}' is true, then \meta{A} is false. We can summarize this dependence in the \define{schematic truth table} for negation, which shows how any sentence with negation as its main connective has a truth value depending on the truth value of its immediate subsentence:
+\begin{center}
+\begin{tabular}{c|c} \toprule 
+\meta{A} & \enot\meta{A}\\
+\midrule
+T & F\\
+F & T\\ \bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Conjunction.} For any sentences \meta{A} and \meta{B}, \meta{A}\eand\meta{B} is true if and only if both \meta{A} and \meta{B} are true. We can summarize this in the schematic truth table for conjunction:
+\begin{center}
+\begin{tabular}{c c |c} \toprule 
+\meta{A} & \meta{B} & $\meta{A}\eand\meta{B}$\\
+\midrule
+T & T & T\\
+T & F & F\\
+F & T & F\\
+F & F & F\\
+\bottomrule \end{tabular}
+\end{center}
+Note that conjunction is \define{commutative}. The truth value for $\meta{A} \eand \meta{B}$ is always the same as the truth value for $\meta{B} \eand \meta{A}$. 
+
+\paragraph{Disjunction.} Recall that `$\eor$' always represents inclusive or. So, for any sentences \meta{A} and \meta{B}, $\meta{A}\eor \meta{B}$ is true if and only if either \meta{A} or \meta{B} is true. We can summarize this in the schematic truth table for disjunction:
+\begin{center}
+\begin{tabular}{c c|c} \toprule 
+\meta{A} & \meta{B} & $\meta{A}\eor\meta{B}$ \\
+\midrule
+T & T & T\\
+T & F & T\\
+F & T & T\\
+F & F & F\\
+\bottomrule \end{tabular}
+\end{center}
+Like conjunction, disjunction is commutative. 
+
+\paragraph{Conditional.} I'm just going to come clean and admit it. Conditionals are a problem in \TFL. This is not because there is any problem finding a truth table for the connective `\eif', but rather because the truth table we put forward seems to make `\eif' behave in ways that are different to the way that the English counterpart `if … then …' behaves. Exactly how much of a problem this poses is a matter of \emph{philosophical} contention. I shall discuss a few of the subtleties  in \S§\ref{s:IndicativeSubjunctive} and \ref{s:ParadoxesOfMaterialConditional}. (It is no problem for \TFL\ itself, of course – the only potential difficulty arises when we try to use the \TFL\ conditional to represent `if …, then …'.
+
+We know at least this much from a parallel with the English conditional: if \meta{A} is true and \meta{B} is false, then $\meta{A}\eif\meta{B}$ should be false. (The conditional claim `if I study hard, then I'll pass' is clearly false if you study hard and still fail.) For now, I am going to stipulate that this is the only type of case in which $\meta{A}\eif\meta{B}$ is false.  We can summarize this with a schematic truth table for the \TFL\ conditional.
+\begin{center}
+\begin{tabular}{c c|c} \toprule 
+\meta{A} & \meta{B} & $\meta{A}\eif\meta{B}$\\
+\midrule
+T & T & T\\
+T & F & F\\
+F & T & T\\
+F & F & T\\\bottomrule
+\end{tabular}
+\end{center}
+The conditional is \emph{not} commutative. You cannot swap the antecedent and consequent in general without changing the truth value, because $\meta{A}\eif\meta{B}$ has a different truth table from $\meta{B}\eif\meta{A}$. 
+
+\paragraph{Biconditional.} Since a biconditional is to be the same as the conjunction of a conditional running in each direction, we shall want the truth table for the biconditional to be:
+\begin{center}
+\begin{tabular}{c c|c} \toprule 
+\meta{A} & \meta{B} & $\meta{A}\eiff\meta{B}$\\
+\midrule
+T & T & T\\
+T & F & F\\
+F & T & F\\
+F & F & T\\\bottomrule
+\end{tabular}
+\end{center}
+Unsurprisingly, the biconditional is commutative.
+
+
+
+
+\section{Symbolising versus translating} \label{sec:symvstrans}
+
+
+We have seen how to use a symbolisation key in §\ref{s:ValidityInVirtueOfForm} to \emph{temporarily} assign an interpretation to some of the atomic sentences of \TFL. This symbolisation key will at the very least assign a truth-value to those atomic sentences – the same one as the English sentence it symbolises.
+
+
+But since the connectives of \TFL\ are truth-functional, they really care about nothing \emph{but} the truth values of the symbolised sentences. So when we are symbolising a sentence or an argument in \TFL, we  are ignoring everything \emph{besides} the contribution that the truth values of a subsentence might make to the truth value of the whole. 
+
+There are subtleties to natural language sentences that far outstrip their mere truth values. Sarcasm; poetry; snide implicature; emphasis; these are important parts of everyday discourse. But none of this is retained in \TFL. As remarked in §\ref{s:TFLConnectives}, \TFL\ cannot capture the subtle differences between the following English sentences:
+	\begin{earg}
+		\item Jon is elegant and Jon is quick
+		\item Although Jon is elegant, Jon is quick
+		\item Despite being elegant, Jon is quick
+		\item Jon is quick, albeit elegant
+		\item Jon's elegance notwithstanding, he is quick
+	\end{earg}
+All of the above sentences will be symbolised with the same \TFL\ sentence, perhaps `$F \eand Q$'.
+
+I keep saying that we use \TFL\ sentences to \emph{symbolise} English sentences. Many other textbooks talk about \emph{translating} English sentences into \TFL. But a good translation should preserve certain facets of meaning, and – as I have just pointed out – \TFL\ just cannot do that. This is why I shall speak of \emph{symbolising} English sentences, rather than of \emph{translating} them.
+
+This affects how we should understand our symbolisation keys. Consider a key like:
+	\begin{ekey}
+		\item[F] Jon is elegant.
+		\item[Q] Jon is quick.
+	\end{ekey}
+Other textbooks will understand this as a stipulation that the \TFL\ sentence `$F$' should \emph{mean} that Jon is elegant, and that the \TFL\ sentence `$Q$' should \emph{mean} that Jon is quick. But \TFL\ just is totally unequipped to deal with \emph{meaning}. The preceding symbolisation key is doing no more nor less than stipulating that the \TFL\ sentence `$F$' should take the same truth value as the English sentence `Jon is elegant' (whatever that might be), and that the \TFL\ sentence `$Q$' should take the same truth value as the English sentence `Jon is quick' (whatever that might be). 
+	\factoidbox{
+		When we treat an atomic \TFL\ sentence as \emph{symbolising} an English sentence, we are stipulating that the \TFL\ sentence is to take the same truth value as that English sentence.
+
+		When we treat a compound \TFL\ sentence as symbolising an English sentence, we are claiming that they share a truth-functional structure, and that the atomic sentences of the \TFL\ sentence symbolise those sentences which play a corresponding role in the structure of the English sentence.
+	}
+
+\section{Non-truth-functional connectives}
+
+In plenty of languages there are connectives that are not truth-functional. In English, for example, we can form a new sentence from any simpler sentence by prefixing it with `It is necessarily the case that …'. The truth value of this new sentence is not fixed solely by the truth value of the original sentence. For consider two true sentences:
+	\begin{earg}
+		\item $2 + 2 = 4$.
+		\item Shostakovich wrote fifteen string quartets.
+	\end{earg}
+Whereas it is necessarily the case that $2 + 2 = 4$,\footnote{Given that the English numeral `$2$' names the number two, and the numeral `$4$' names the number four, and `$+$' names addition, then it must be that the result of adding two to itself is four. This is not to say that `$2$' had to be used in the way we actually use it – if `$2$' had named three, the sentence would have been false. But in its actual use, it is a necessary truth.} it is not \emph{necessarily} the case that Shostakovich wrote fifteen string quartets. If Shostakovich had died earlier, he would have failed to finish Quartet no.\ 15; if he had lived longer, he might have written a few more. So `It is necessarily the case that …' is a connective of English, but it is not \emph{truth-functional}.
+
+\section{Indicative versus subjunctive conditionals}\label{s:IndicativeSubjunctive}
+I want to bring home the point that \TFL\ \emph{only} deals with truth functions by considering the case of the conditional. When I introduced the schematic truth table for the material conditional in §\ref{s:SchematicTruthTables}, I did not say much to justify it. Let me now offer a justification, which follows Dorothy Edgington.\footnote{Dorothy Edgington, `Conditionals', 2006, in the \emph{Stanford Encyclopedia of Philosophy} (\url{http://plato.stanford.edu/entries/conditionals/}).} 
+
+Suppose that Lara has drawn some shapes on a piece of paper, and coloured some of them in. I have not seen them, but I claim:
+	\begin{quote}
+		If any shape is grey, then that shape is also circular.
+	\end{quote}
+As it happens, Lara has drawn the following:
+\begin{center}
+\begin{tikzpicture}
+	\node[circle, grey_shape] (cat1) {A};
+	\node[right=10pt of cat1, diamond, phantom_shape] (cat2)  { } ;
+	\node[right=10pt of cat2, circle, white_shape] (cat3)  {C} ;
+	\node[right=10pt of cat3, diamond, white_shape] (cat4)  {D};
+\end{tikzpicture}
+\end{center}
+In this case, my claim is surely true.  Shapes C and D are not grey, and so can hardly present \emph{counterexamples} to my claim. Shape A \emph{is} grey, but fortunately it is also circular. So my claim has no counterexamples. It must be true. And that means that each of the following \emph{instances} of my claim must be true too:
+	\begin{itemize}
+		\item If A is grey, then it is circular \hfill (true antecedent, true consequent)
+		\item If C is grey, then it is circular\hfill (false antecedent, true consequent)
+		\item If D is grey, then it is circular \hfill (false antecedent, false consequent)
+	\end{itemize}
+However, if Lara had drawn a fourth shape, thus:
+\begin{center}
+\begin{tikzpicture}
+	\node[circle, grey_shape] (cat1) {A};
+	\node[right=10pt of cat1, diamond, grey_shape] (cat2)  {B};
+	\node[right=10pt of cat2, circle, white_shape] (cat3)  {C};
+	\node[right=10pt of cat3, diamond, white_shape] (cat4)  {D};
+\end{tikzpicture}
+\end{center}
+then my claim would have be false. So it must be that this claim is false:
+	\begin{itemize}
+		\item If B is grey, then it is a circular \hfill (true antecedent, false consequent)
+	\end{itemize}
+Now, recall that every connective of \TFL\ has to be truth-functional. This means that the mere truth value of the antecedent and consequent must uniquely determine the truth value of the conditional as a whole. Thus, from the truth values of our four claims – which provide us with all possible combinations of truth and falsity in antecedent and consequent – we can read off the truth table for the material conditional.
+
+What this argument shows is that `$\eif$' is the \emph{only} candidate for a truth-functional conditional. Otherwise put, \emph{it is the best conditional that \TFL\ can provide}. But is it any good, as a surrogate for the conditionals we use in everyday language? Consider two sentences:
+	\begin{earg}
+		\item[\ex{brownwins1}] If Mitt Romney had won the 2012 election, then he would have been the 45th President of the USA.
+		\item[\ex{brownwins2}] If Mitt Romney had won the 2012 election, then he would have turned into a helium-filled balloon and floated away into the night sky.
+	\end{earg}
+Sentence \ref{brownwins1} is true; sentence \ref{brownwins2} is false. But both have false antecedents and false consequents. So the truth value of the whole sentence is not uniquely determined by the truth value of the parts. Do not just blithely assume that you can adequately symbolise an English `if …, then …' with \TFL's `$\eif$'. 
+
+The crucial point is that sentences \ref{brownwins1} and \ref{brownwins2} employ \define{subjunctive} conditionals, rather than \define{indicative} conditionals. Subjunctive conditionals are also sometimes known as \define{counterfactuals}. They ask us to imagine something contrary to what we are assuming as fact – that Mitt Romney lost the 2012 election – and then ask us to evaluate what \emph{would} have happened in that case. The classic illustration of the difference between the indicative and subjunctive conditional comes from pairs like these:
+\begin{earg}
+	\item[\ex{indcond}] If a dingo \emph{didn't take} Azaria Chamberlain, something else \emph{did}.
+	\item[\ex{subjcond}] If a dingo \emph{hadn't taken} Azaria Chamberlain, something else \emph{would have}.
+\end{earg} The indicative conditional in \ref{indcond} is true, given the actual historical fact that she was taken, and given that we are not assuming at this point anything about how she was taken. But is the subjunctive in \ref{subjcond} also true? It seems not. She was not destined to be taken by something or other, and if the dingo hadn't intervened, she wouldn't have disappeared at all.\footnote{If we are assuming as fact that a dingo took her, then when we consider what would have happened had the dingo not been involved, we imagine a situation in which all the actual consequences of the dingo's action are removed.}
+
+The point to take away from this is that subjunctive conditionals cannot be tackled using `$\eif$'. This is not to say that they cannot be tackled by any formal logical language, only that \TFL\ is not up to the job.\footnote{There are in fact logical treatments of counterfactuals, the most influential of which is David Lewis (1973) \emph{Counterfactuals}, Blackwell.}
+
+So the \eif connective of \TFL is at best able to model the indicative conditional of English, as in \ref{indcond}.
+
+In fact there are even difficulties with indicatives in \TFL. I shall say a little more about those difficulties in §\ref{s:ParadoxesOfMaterialConditional} and in §\ref{cond.proof}. For now, I shall content myself with the observation that `$\eif$' is the only plausible candidate for a truth-functional conditional, but that many English conditionals cannot be represented adequately using `$\eif$'. \TFL\ is an intrinsically limited language. But this is only a problem if you try to use it to do things it wasn't designed to do.
+
+
+\keyideas{
+	\item The connectives of \TFL\ are all truth-functional, and have their meanings specified by the truth-tables laid out in §\ref{s:SchematicTruthTables}.
+	\item When we treat a sentence of \TFL\ as symbolising an English sentence, we need only say that as far as truth value is concerned and truth-functional structure is concerned, they are alike. 
+	\item  English has many non-truth-functional connectives. Some uses of the conditional `if' are non-truth-functional. But as long as we remain aware of the limitations of \TFL, it can be a very powerful tool for modelling a significant class of arguments.
+}
+
+
+\chapter{Complete truth tables}\label{s:CompleteTruthTables}
+
+\section{Valuations}\label{s:valuations}
+
+So far, we have considered assigning truth values to \TFL\ sentences indirectly. We have said, for example, that a \TFL\ sentence such as `$B$' is to take the same truth value as the English sentence `Big Ben is in London' (whatever that truth value may be). But we can also assign truth values \emph{directly}. We can simply stipulate that `$B$' is to be true, or stipulate that it is to be false – at least for present purposes. 
+	\factoidbox{
+		A \define{valuation} is any assignment of truth values to some atomic sentences of \TFL. It assigns exactly one truth value, either True or False, to each of the sentences in question. 
+	}
+A valuation is a temporary assignment of `meanings' to \TFL\ sentences, in much the same way as a symbolisation key might be. What is distinctive about \TFL\ is that almost all of its basic vocabulary – the atomic sentences – only get their meanings in this temporary fashion. The only parts of \TFL\ that get their meanings permanently are the connectives, which always have a fixed interpretation. 
+
+This is rather unlike English, where most words have their meanings on a permanent basis. But there are some words in English – like pronouns (`he', `she', `it') and demonstratives (`this', `that') – that get their meaning assigned temporarily, and then can be reused with a different meaning in another context. Such expressions are called \define{context sensitive}. In this sense, all the atomic sentences of \TFL\ are context sensitive expressions. Of course we don't have anything so explicit and deliberate as a valuation or a symbolisation key in English to assign a meaning to a particular use of `this' or `that' – the circumstances of a conversation automatically assign an appropriate object (usually). In \TFL, however, we need to explicitly set out the interpretations of the atomic sentences we are concerned with. 
+
+\section{Truth tables}
+
+We introduced schematic truth tables in §\ref{s:SchematicTruthTables}. These showed what truth value a compound sentence with a certain structure was determined to have by the truth values of its subsentences, whatever they might be. We now introduce a closely related idea, that of a truth table. This shows how a specific compound sentence has its truth value determined by the truth values of its specific \emph{atomic subsentences}, across all the possible ways that those atomic subsentences might be assigned True and False.
+
+You will no doubt have realised that a way of assigning True and False to atomic sentences is a valuation. So we can say: a \define{truth table} summarises how the truth value of a compound sentence depends on the possible valuations of its atomic subsentences. Each row of a truth table represents a possible valuation. The entire complete truth table represents all possible valuations. And the truth table provides us with a means to calculate the truth value of complex sentences, on each possible valuation. This is pretty abstract. So it might be easiest to explain with an example.
+
+\section{A worked example}
+Consider the sentence `$(H\eand I)\eif H$'. There are four possible ways to assign True and False to the atomic sentences `$H$' and `$I$': both true, both false, `$H$' true and `$I$' false, and `$I$' true and `$H$' false. So there are four possible valuations of these two atomic sentences. We can lay out these valuations as follows:
+\begin{center}
+\begin{tabular}{c c|d e e e f} \toprule 
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\midrule
+ T & T\\
+ T & F\\
+ F & T\\
+ F & F\\\bottomrule
+\end{tabular}
+\end{center}
+To calculate the truth value of the entire sentence `$(H \eand I) \eif H$', we first copy the truth values for the atomic sentences and write them underneath the letters in the sentence:
+\begin{center}
+\begin{tabular}{c c|d e e e f} \toprule 
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\midrule
+ T & T & {T} & & {T} & & {T}\\
+ T & F & {T} & & {F} & & {T}\\
+ F & T & {F} & & {T} & & {F}\\
+ F & F & {F} & & {F} & & {F}\\
+\bottomrule \end{tabular}
+\end{center}
+Now consider the subsentence `$(H\eand I)$'. This is a conjunction, $(\meta{A}\eand\meta{B})$, with `$H$' as \meta{A} and with `$I$' as \meta{B}. The schematic truth table for conjunction gives the truth conditions for \emph{any} sentence of the form $(\meta{A}\eand\meta{B})$, whatever $\meta{A}$ and $\meta{B}$ might be. It summarises the point that a conjunction is true iff both conjuncts are true. In this case, our conjuncts are just `$H$' and `$I$'. They are both true on (and only on) the first line of the truth table. Accordingly, we can calculate the truth value of the conjunction on all four rows.
+\begin{center}
+\begin{tabular}{c c|d e e e f} \toprule 
+ & & \meta{A} & \eand & \meta{B} & & \\
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\midrule
+ T & T & T & {T} & T & & T\\
+ T & F & T & {F} & F & & T\\
+ F & T & F & {F} & T & & F\\
+ F & F & F & {F} & F & & F\\\bottomrule
+\end{tabular}
+\end{center}
+Now, the entire sentence that we are dealing with is a conditional, $\meta{C}\eif\meta{D}$, with `$(H \eand I)$' as \meta{C} and with `$H$' as \meta{D}. On the second row, for example, `$(H\eand I)$' is false and `$H$' is true. Since a conditional is true when the antecedent is false, we write a `T' in the second row underneath the conditional symbol. We continue for the other three rows and get this:
+\begin{center}
+\begin{tabular}{c c| d e e e f} \toprule 
+ & &  & \meta{C} &  &\eif &\,\meta{D} \\
+$H$&$I$&$(H$&\eand&$I)$&\eif&\,$H$\\
+\midrule
+ T & T &  & {T} &  &{T} & T\\
+ T & F &  & {F} &  &{T} & T\\
+ F & T &  & {F} &  &{T} & F\\
+ F & F &  & {F} &  &{T} & F\\\bottomrule
+\end{tabular}
+\end{center}
+The conditional is the main logical connective of the sentence. And the column of `T's underneath the conditional tells us that the sentence `$(H \eand I)\eif H$' is true regardless of the truth values of `$H$' and `$I$'. They can be true or false in any combination, and the compound sentence still comes out true. Since we have considered all four possible assignments of truth and falsity to `$H$' and `$I$' – since, that is, we have considered all the different \emph{valuations} – we can say that `$(H \eand I)\eif H$' is true on every valuation.
+
+In this example, I have not repeated all of the entries in every column in every successive table. When actually writing truth tables on paper, however, it is impractical to erase whole columns or rewrite the whole table for every step. Although it is more crowded, the truth table can be written in this way:
+\begin{center}
+\begin{tabular}{c c| d e e e f} \toprule 
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\midrule
+ T & T & T & {T} & T & \TTbf{T} & T\\
+ T & F & T & {F} & F & \TTbf{T} & T\\
+ F & T & F & {F} & T & \TTbf{T} & F\\
+ F & F & F & {F} & F & \TTbf{T} & F\\\bottomrule
+\end{tabular}
+\end{center}
+Most of the columns underneath the sentence are only there for bookkeeping purposes. The column that matters most is the column underneath the \emph{main connective} for the sentence, since this tells you the truth value of the entire sentence. I have emphasised this, by putting this column in bold. When you work through truth tables yourself, you should similarly emphasise it (perhaps by drawing a box around the relevant column).
+
+\section{Building complete truth tables}
+A \define{complete truth table} has a line for every possible assignment of True and False to the relevant atomic sentences. Each line represents a \emph{valuation}, and a complete truth table has a line for all the different valuations. 
+
+The size of the complete truth table depends on the number of different atomic sentences in the table. A sentence that contains only one atomic sentence requires only two rows, as in the schematic truth table for negation. This is true even if the same letter is repeated many times, as in the sentence
+`$\bigl( (C\eiff C) \eif C \bigr) \eand \enot(C \eif C)$'.
+The complete truth table requires only two lines because there are only two possibilities: `$C$' can be true or it can be false. The truth table for this sentence looks like this:
+\begin{center}
+\begin{tabular}{c| d e e e e e e e e e e e e e e f} \toprule 
+$C$&$\bigl( ($&$C$&\eiff&$C$&$)$&\eif&$C$&$\bigr)$&\eand&\enot&$($&$C$&\eif&$C$&$)$\\
+\midrule
+ T &    & T &  T  & T &   & T  & T & &\TTbf{F}&  F& &   T &  T  & T &   \\
+ F &    & F &  T  & F &   & F  & F & &\TTbf{F}&  F& &   F &  T  & F &   \\
+\bottomrule \end{tabular}
+\end{center}
+Looking at the column underneath the main connective, we see that the sentence is false on both rows of the table; i.e., the sentence is false regardless of whether `$C$' is true or false. It is false on every valuation.
+
+A sentence that contains two atomic sentences requires four lines for a complete truth table, as in the schematic truth tables, and as in the complete truth table for `$(H \eand I)\eif H$'.
+
+A sentence that contains three atomic sentences requires eight lines:
+\begin{center}
+\begin{tabular}{c c c|d e e e f} \toprule 
+$M$&$N$&$P$&$M$&\eand&$(N$&\eor&$P)$\\
+\midrule
+%           M        &     N   v   P
+T & T & T & T & \TTbf{T} & T & T & T\\
+T & T & F & T & \TTbf{T} & T & T & F\\
+T & F & T & T & \TTbf{T} & F & T & T\\
+T & F & F & T & \TTbf{F} & F & F & F\\
+F & T & T & F & \TTbf{F} & T & T & T\\
+F & T & F & F & \TTbf{F} & T & T & F\\
+F & F & T & F & \TTbf{F} & F & T & T\\
+F & F & F & F & \TTbf{F} & F & F & F\\\bottomrule
+\end{tabular}
+\end{center}
+From this table, we know that the sentence `$M\eand(N\eor P)$' can be true or false, depending on the truth values of `$M$', `$N$', and `$P$'.
+
+A complete truth table for a sentence that contains four different atomic sentences requires 16 lines. Five letters, 32 lines. Six letters, 64 lines. And so on. To be perfectly general: If a complete truth table has $n$ different atomic sentences, then it must have $2^n$ lines.\footnote{Since the values of atomic sentences are independent of each other, each new atomic sentence $\meta{A}_{n+1}$ we consider is capable of being true or false on every existing valuation on $\meta{A}_{1},…,\meta{A}_{n}$, and so there must be twice as many valuations on $\meta{A}_{1},…,\meta{A}_{n},\meta{A}_{n+1}$ as on $\meta{A}_{1},…,\meta{A}_{n}$.}
+
+In order to fill in the columns of a complete truth table, begin with the right-most atomic sentence and alternate between `T' and `F'. In the next column to the left, write two `T's, write two `F's, and repeat. For the third atomic sentence, write four `T's followed by four `F's. This yields an eight line truth table like the one above. For a 16 line truth table, the next column of atomic sentences should have eight `T's followed by eight `F's. For a 32 line table, the next column would have 16 `T's followed by 16 `F's. And so on.
+
+
+
+
+\keyideas{
+	\item A valuation of some atomic sentences associates of them with exactly one of our truth values; it is like an extremely stripped down version of a symbolisation key. In there are $n$ atomic sentences, there are $2^{n}$ valuations of them.
+	\item A truth table lays out the truth values of a particular \TFL\ sentence in each of the distinct possible valuations of its constituent atomic sentences.
+
+}
+
+
+\practiceproblems\label{pr.TT.TTorC}
+\problempart
+Offer complete truth tables for each of the following:
+\begin{earg}
+\item $A \eif A$ %taut
+\item $C \eif\enot C$ %contingent
+\item $(A \eiff B) \eiff \enot(A\eiff \enot B)$ %tautology
+\item $(A \eif B) \eor (B \eif A)$ % taut
+\item $(A \eand B) \eif (B \eor A)$  %taut
+\item $\enot(A \eor B) \eiff (\enot A \eand \enot B)$ %taut
+\item $\bigl( (A\eand B) \eand\enot(A\eand B) \bigr) \eand C$ %contradiction
+\item $\bigl( (A \eand B) \eand C\bigr) \eif B$ %taut
+\item $\enot\bigl( (C\eor A) \eor B\bigr)$ %contingent
+\end{earg}
+
+If you want additional practice, you can construct truth tables for any of the sentences and arguments in the exercises for the previous chapter.
+
+
+\chapter{Semantic concepts}
+In §\ref{s:valuations}, we introduced the idea of a valuation and showed how to determine the truth value of any \TFL\ sentence on any valuation using a truth table in the remainder of the chapter. In this section, we shall introduce some related ideas, and show how to use truth tables to test whether or not they apply.
+
+
+\section{Tautologies and contradictions}
+In §\ref{s:BasicNotions}, I explained \emph{necessary truth} and \emph{necessary falsity}. Both notions have close but imperfect surrogates in \TFL. We shall start with a surrogate for necessary truth.
+	\factoidbox{
+		$\meta{A}$ is a \define{tautology} iff it is true on every valuation (among those valuations on which it has a truth value).	}
+We need the parenthetical clause because of the way we have defined valuations. A given valuation $v$ might only assign truth values to some atomic sentences and not all. For any sentence $\meta{A}$ which contains an atomic sentence to which $v$ doesn't assign a truth value, $\meta{A}$ will not have any truth value on or according to $v$.
+
+We can determine whether a sentence is a tautology just by using truth tables. If the sentence is true on every line of a complete truth table, then it is true on every valuation for its constituent atomic sentences, so it is a tautology. In the example of §\ref{s:CompleteTruthTables}, `$(H \eand I) \eif H$' is a tautology. 
+
+
+
+This is only, though, a surrogate for necessary truth. There are some necessary truths that we cannot adequately symbolise in \TFL. An example is `$2 + 2 = 4$'. This \emph{must} be true, but if we try to symbolise it in \TFL, the best we can offer is an atomic sentence, and no atomic sentence is a tautology.\footnote{At this risk of repeating myself: $2+2=4$ is necessarily true, but it is not necessarily true \emph{in virtue of its structure}. A necessary truth is true, \emph{with its actual meaning}, in every possible situation. A \TFL-tautology is true \emph{in the actual situation} on every possible way of interpreting its atomic sentences. These are interestingly different notions.} Still, if we can adequately symbolise some English sentence using a \TFL\ sentence which is a tautology, then that English sentence expresses a necessary truth.
+
+We have a similar surrogate for necessary falsity:
+	\factoidbox{
+		$\meta{A}$ is a \define{contradiction} iff it is false on every valuation (among those on which it has a truth value).
+	}
+We can determine whether a sentence is a contradiction just by using truth tables. If the sentence is false on every line of a complete truth table, then it is false on every valuation, so it is a contradiction. In the example of §\ref{s:CompleteTruthTables}, `$\bigl( (C\eiff C) \eif C\bigr)  \eand \enot(C \eif C)$' is a contradiction.
+
+
+\section{Equivalence}
+Here is a similar, useful notion:
+	\factoidbox{
+		$\meta{A}$ and $\meta{B}$ are \define{equivalent} iff they have the same truth value on every valuation among those which assign both of them a truth value.
+	}
+We have already made use of this notion, in effect, in §\ref{s:MoreBracketingConventions}; the point was that `$(A \eand B) \eand C$' and  `$A \eand (B \eand C)$' are equivalent. Again, it is easy to test for equivalence using truth tables. Consider the sentences `$\enot(P \eor Q)$' and `$\enot P \eand \enot Q$'. Are they equivalent? To find out, we may construct a truth table.
+\begin{center}
+\begin{tabular}{c c|d e e f |d e e e f} \toprule 
+$P$&$Q$&\enot&$(P$&\eor&$Q)$&\enot&$P$&\eand&\enot&$Q$\\
+\midrule
+ T & T & \TTbf{F} & T & T & T & F & T & \TTbf{F} & F & T\\
+ T & F & \TTbf{F} & T & T & F & F & T & \TTbf{F} & T & F\\
+ F & T & \TTbf{F} & F & T & T & T & F & \TTbf{F} & F & T\\
+ F & F & \TTbf{T} & F & F & F & T & F & \TTbf{T} & T & F\\\bottomrule
+\end{tabular}
+\end{center}
+Look at the columns for the main connectives; negation for the first sentence, conjunction for the second. On the first three rows, both are false. On the final row, both are true. Since they match on every row, the two sentences are equivalent. 
+
+\section{More bracketing conventions}\label{s:MoreBracketingConventions}
+Consider these two sentences:
+	\begin{align*}
+		((A \eand B) \eand C)\\
+		(A \eand (B \eand C))
+	\end{align*}
+These have the same truth table, and are equivalent. Consequently, it will never make any difference from the perspective of truth value – which is all that \TFL\ cares about (see §\ref{s:TruthFunctionality}) – which of the two sentences we assert (or deny). And since the order of the brackets does not matter, I shall allow us to drop them.  In short, we can save some ink and some eyestrain by writing:
+	\begin{align*}
+		A \eand B \eand C
+	\end{align*}
+The general point is that, if we just have a long list of conjunctions, we can drop the inner brackets. (I already allowed us to drop outermost brackets in §\ref{s:TFLSentences}.) The same observation holds for disjunctions. Since the following sentences are equivalent:
+	\begin{align*}
+		((A \eor B) \eor C)\\
+		(A \eor (B \eor C))
+	\end{align*}
+we can simply write:
+	\begin{align*}
+		A \eor B \eor C
+	\end{align*}
+And generally, if we just have a long list of disjunctions, we can drop the inner brackets. \emph{But be careful}. These two sentences have \emph{different} truth tables, so are not equivalent:
+	\begin{align*}
+		((A \eif B) \eif C)\\
+		(A \eif (B \eif C))
+	\end{align*}
+So if we were to write:
+	\begin{align*}
+		A \eif B \eif C
+	\end{align*}
+it would be dangerously ambiguous. So we must not do the same with conditionals. Equally, these sentences have different truth tables:
+	\begin{align*}
+		((A \eor B) \eand C)\\
+		(A \eor (B \eand C))
+	\end{align*}
+So if we were to write:
+	\begin{align*}
+		A \eor B \eand C
+	\end{align*}
+it would be dangerously ambiguous. \emph{Never write this.} The moral is: you can drop brackets when dealing with a long list of conjunctions, or when dealing with a long list of disjunctions. But that's it.
+
+
+\section{Consistency}
+In §\ref{s:BasicNotions}, I said that sentences are jointly consistent iff it is possible for all of them to be true at once. We can offer a surrogate for this notion too:
+	\factoidbox{
+		$\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ are \define{jointly consistent} iff there is some valuation which makes them all true.
+	}
+Derivatively, sentences are \define{jointly inconsistent} if there is no valuation that makes them all true. Note that this notion applies to a single sentence as well: a sentence is consistent iff it is true on some valuation.
+
+ Again, it is easy to test for joint consistency using truth tables. If we draw up a truth table for all the sentences together, if there is some row on which each of them gets a `T', then they are consistent. 
+
+So, for example, consider these sentences: $¬P$, $P \to Q$, $Q$:
+\begin{center}
+\begin{tabular}{c c|d f |d e f| d} \toprule 
+$P$&$Q$&\enot&$P$&$P$&\eif&$Q$&$Q$\\
+\midrule
+ T & T & \TTbf{F} & T & T & \TTbf{T} & T & \TTbf{T} \\
+ T & F & \TTbf{F} & T & F & \TTbf{F} & T & \TTbf{F} \\
+ F & T & \TTbf{T} & F & T & \TTbf{T} & F & \TTbf{T} \\
+ F & F & \TTbf{T} & F & F & \TTbf{T} & F & \TTbf{F} \\\bottomrule
+\end{tabular}
+\end{center} We can see on the third row, the valuation which assigns F to `$P$' and T to `$Q$', each of the sentences is true. So these are jointly consistent.
+
+\keyideas{
+	\item A tautology is a sentence true on every valuation of its atomic constituents; a contradiction is true on no valuation of its atomic constituents.
+	\item A sentence (collection of sentences) is consistent iff there is a valuation on which it is (they are all) true.
+	\item Two sentences are equivalent iff they are true on exactly the same valuations. We can use the notion of equivalence to motivate further bracketing conventions.
+}
+
+
+\practiceproblems
+\problempart
+Check all the claims made in introducing the new notational conventions in §\ref{s:MoreBracketingConventions}, i.e., show that:
+\begin{earg}
+	\item `$((A \eand B) \eand C)$' and `$(A \eand (B \eand C))$' have the same truth table
+	\item `$((A \eor B) \eor C)$' and `$(A \eor (B \eor C))$' have the same truth table
+	\item `$((A \eor B) \eand C)$' and `$(A \eor (B \eand C))$' do not have the same truth table
+	\item `$((A \eif B) \eif C)$' and `$(A \eif (B \eif C))$' do not have the same truth table
+\end{earg}
+Also, check whether:
+\begin{earg}
+	\item[5.] `$((A \eiff B) \eiff C)$' and `$(A \eiff (B \eiff C))$' have the same truth table
+\end{earg}
+\problempart
+Revisit your answers to §\ref{s:CompleteTruthTables}\textbf{A}. Determine which sentences were tautologies, which were contradictions, and which were neither tautologies nor contradictions.
+\problempart
+\label{pr.TT.consistent}
+Use truth tables to determine whether these sentences are jointly consistent, or jointly inconsistent:
+\begin{earg}
+\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ %consistent
+\item $A\eor B$, $A\eif C$, $B\eif C$ %consistent
+\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$  %inconsistent
+\item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$ %consistent
+\end{earg}
+
+\chapter{Entailment and validity}\label{c:entvalid}
+
+\section{Entailment}\label{s:entailmentdt}
+
+The following idea is related to joint consistency, but is of great interest in its own right:
+	\factoidbox{
+		The sentences $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ \define{entail} the sentence $\meta{C}$ if there is no valuation of the atomic sentences which makes all of $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ true and $\meta{C}$ false.
+	}
+	(Why is this not a biconditional? The full answer will have to wait until \ref{FOL.semantics}.)
+
+Again, it is easy to test this with a truth table. Let us check whether `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$', we simply need to check whether there is any valuation which makes both `$\enot L \eif (J \eor L)$' and `$\enot L$' true whilst making `$J$' false. So we use a truth table: 
+\begin{center}
+\begin{tabular}{c c|d e e e e f|d f| c} \toprule 
+$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
+\midrule
+%J   L   -   L      ->     (J   v   L)
+ T & T & F & T & \TTbf{T} & T & T & T & \TTbf{F} & T & \TTbf{T}\\
+ T & F & T & F & \TTbf{T} & T & T & F & \TTbf{T} & F & \TTbf{T}\\
+ F & T & F & T & \TTbf{T} & F & T & T & \TTbf{F} & T & \TTbf{F}\\
+ F & F & T & F & \TTbf{F} & F & F & F & \TTbf{T} & F & \TTbf{F}\\ \bottomrule
+\end{tabular}
+\end{center}
+The only row on which both`$\enot L \eif (J \eor L)$' and `$\enot L$' are true is the second row, and that is a row on which `$J$' is also true. So `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$'.
+
+
+
+\section{The double-turnstile}
+We are going to use the notion of entailment rather a lot in this book. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the \TFL\ sentences $\meta{A}_1, \meta{A}_2, …$ and $\meta{A}_n$ together entail $\meta{C}$, we shall abbreviate this by:
+	\[\meta{A}_1, \meta{A}_2, …, \meta{A}_n \entails \meta{C}.\]
+The symbol `$\entails$' is known as \emph{the double-turnstile}, since it looks like a turnstile with two horizontal beams.
+
+But let me be clear. `$\entails$' is not a symbol of \TFL. Rather, it is a symbol of our metalanguage, augmented English (recall the difference between object language and metalanguage from §\ref{s:UseMention}). So the metalanguage sentence:
+	\begin{earg}
+		\item[\ex{turnstile}] $P, P \eif Q \entails Q$
+	\end{earg}
+is just an abbreviation for the English sentence: 
+	\begin{earg}
+		\item[\ex{turnstile.trans}] The \TFL\ sentences `$P$' and `$P \eif Q$' entail `$Q$'.
+	\end{earg}
+Note that there is no limit on the number of \TFL\ sentences that can be mentioned before the symbol `$\entails$'. Indeed, we can even consider the limiting case:
+	\begin{earg}
+	\item[\ex{entails.taut}] $\entails \meta{C}$.\end{earg}
+\ref{entails.taut}  is false if there is a valuation which makes all the sentences appearing on the left hand side of `$\entails$' true and makes $\meta{C}$ false. Since \emph{no} sentences appear on the left side of `$\entails$' in \ref{entails.taut}, it is trivial to make `them' all true. So it is false if there is a valuation which makes $\meta{C}$ false – and so \ref{entails.taut} is true iff every valuation makes $\meta{C}$ true. Otherwise put, \ref{entails.taut} says that $\meta{C}$ is a tautology. Equally:
+	\begin{earg}
+		\item[\ex{incon.entails}] $\meta{A}_{1},…,\meta{A}_{n} \entails$
+	\end{earg}
+says that $\meta{A}_{1},…,\meta{A}_{n}$ are jointly inconsistent. It follows that
+	\begin{earg}
+		\item[\ex{cont.entails}] $\meta{A} \entails$
+	\end{earg}
+says that $\meta{A}$ is individually inconsistent. That is to say, \meta{A} is a contradiction.\footnote{If you find it difficult to see why `$\entails\meta{A}$' should say that \meta{A} is a tautology, you should just take \ref{entails.taut} as an abbreviation for that claim. Likewise you should take  `$\meta{A}\entails$' as abbreviating the claim that \meta{A} is a contradiction.}
+
+Here is the important connection between inconsistency and entailment, expressed using this new notation. \factoidbox{
+	$\meta{A}_{1}, …, \meta{A}_{n} \entails \meta{C}$ iff $\meta{A}_{1}, …, \meta{A}_{n}, \enot\meta{C} \entails$.
+} If every valuation which makes each of $\meta{A}_{1},…,\meta{A}_{n}$ true also makes \meta{C} true, then all of those valuations also make `$\enot\meta{C}$' false. So there can be no valuation which makes each of $\meta{A}_{1}, …, \meta{A}_{n}, \enot\meta{C}$ true. So those sentences are jointly inconsistent.
+
+\section{`$\entails$' versus `$\eif$'}
+I now want to compare and contrast `$\entails$' and `$\eif$'. 
+
+Observe: $\meta{A} \entails \meta{C}$ iff there is no valuation of the atomic sentences that makes $\meta{A}$ true and $\meta{C}$ false. 
+
+Observe: $\meta{A} \eif \meta{C}$ is a tautology iff there is no valuation of the atomic sentences that makes $\meta{A} \eif \meta{C}$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\meta{A} \eif \meta{C}$ is a tautology iff there is no valuation that makes $\meta{A}$ true and $\meta{C}$ false. 
+
+Combining these two observations, we see that $\meta{A} \eif \meta{C}$  is a tautology iff  $\meta{A} \entails \meta{C}$\label{ded.thm}.\footnote{This result sometimes goes under a fancy title: \emph{the Deduction Theorem for \TFL}. It is easy to see that this more general result follows from the Deduction Theorem: $\meta{B}_{1},…,\meta{B}_{n},\meta{A}\entails \meta{C}$ iff $\meta{B}_{1},…,\meta{B}_{n},\entails \meta{A}\eif\meta{C}$.} But there is a really important difference between `$\entails$' and `$\eif$':
+	\factoidbox{`$\eif$' is a sentential connective of \TFL.\\ `$\entails$' is a symbol of augmented English.
+	}
+Indeed, when `$\eif$' is flanked with two \TFL\ sentences, the result is a longer \TFL\ sentence. By contrast, when we use `$\entails$', we form a metalinguistic sentence that \emph{mentions} the surrounding \TFL\ sentences. 
+
+If $\meta{A}\eif\meta{C}$ is a tautology, then $\meta{A}\entails\meta{C}$. But $\meta{A}\eif\meta{C}$ can be true on a valuation without being a tautology, and so can be true on a valuation even when $\meta{A}$ doesn't entail $\meta{C}$. Sometimes people are inclined to confuse entailment and conditionals, perhaps because they are tempted by the thought that we can only establish the truth of a conditional by \emph{logically deriving} the consequent from the antecedent. But while this is the way to establish the truth of a tautologous conditional, most conditionals posit a weaker relation between antecedent and consequent than that – for example, a causal or statistical relationship might be enough to justify the truth of the conditional `If you smoke, then you'll lower your life expectancy'.
+
+\section{Entailment and Validity} \label{s:entailvalid}
+
+We now make an important observation:
+	\factoidbox{
+		If $\meta{A}_1, \meta{A}_2, …, \meta{A}_n \entails \meta{C}$, then $\meta{A}_1, \meta{A}_2, …, \meta{A}_n \ttherefore \meta{C}$ is valid.
+	}
+Here's why. If $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ entail $\meta{C}$, then there is no valuation which makes all of $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ true whilst making $\meta{C}$ false. It is thus not possible – given the actual meanings of the connectives of \TFL\ – for the sentences $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ to jointly be true without $\meta{C}$ being true too, so the argument $\meta{A}_1, \meta{A}_2, …, \meta{A}_n\ttherefore \meta{C}$ is conclusive. Furthermore, because the conclusiveness of this argument doesn't depend on anything other that the structure of the sentences in the argument, it is also valid. 
+
+The only conclusive arguments in \TFL\ are valid ones. Because we consider every valuation, the conclusiveness of an argument cannot turn on the particular truth values assigned to the  atomic sentences. For any collection of atomic sentences, there is a valuation corresponding to any way of assigning them truth values. This means that we treat the atomic sentences as all independent of one another. So there is no possibility that there might be some connection in meaning between sentences of \TFL\ \emph{unless} it is in virtue of those sentences having shared constituents and the right structure.   
+
+In short, we have a way to test for the validity of some English arguments. First, we symbolise them in \TFL, as having premises $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$, and conclusion $\meta{C}$. Then we test for entailment using truth tables. If there is an entailment, then we can conclude that the argument we symbolised has the right kind of structure to count as valid.
+
+
+\section{The limits of these tests}\label{s:ParadoxesOfMaterialConditional}
+We have reached an important milestone: a test for the validity of arguments! But, we should not get carried away just yet. It is important to understand the \emph{limits} of our achievement. I shall illustrate these limits with three examples.
+
+First, consider the argument: 
+	\begin{earg}
+		\item[\ex{daisy}] Daisy is a small cow. So, Daisy is a cow.
+	\end{earg}
+To symbolise this argument in \TFL, we would have to use two different atomic sentences – perhaps `$S$'  and `$C$' – for the premise and the conclusion respectively. Now, it is obvious that `$S$' does not entail `$C$'. But the English argument surely seems valid – the structure of `Daisy is a small cow' guarantees that `Daisy is a cow' is true. (Note that a small cow might still be rather large, so we cannot fudge things by symbolising `Daisy is a small cow' as a conjunction of `Daisy is small' and `Daisy is a cow'. We'll return to this sort of case in §\ref{s:MoreMonadic}.) So our \TFL-based test for validity in English will have some \emph{false negatives}: it will classify some valid English arguments as invalid. But any argument that it classifies as valid will indeed be valid – it will not exhibit \emph{false positives}.
+
+Second, consider the sentence:
+	\begin{earg}
+		\item[\ex{n:JanBald}] Jan is neither bald nor not-bald.
+	\end{earg}
+To symbolise this sentence in \TFL, we would offer something like `$\enot (J \eor \enot J)$'. This a contradiction (check this with a truth-table). But sentence \ref{n:JanBald} does not itself seem like a contradiction; for we might have happily go on to add `Jan is on the borderline of baldness'! To make this point another way: as is easily seen by truth tables, `$\enot (J \eor \enot J)$' is equivalent to `$\enot J \eand \enot \enot J$'. This latter sentence symbolises an obvious contradiction in English:
+	\begin{earg}
+		\item[\ex{n:JanBald2}]  Jan is both not-bald and also not not-bald.
+	\end{earg}
+It is so obvious, though, that \ref{n:JanBald} is synonymous with \ref{n:JanBald2}? It seems like it may not be, even though our test will classify any English argument from one to the other as valid. 
+
+Third, consider the following sentence:
+	\begin{earg}
+		\item[\ex{n:GodParadox}]	It's not the case that, if God exists, She answers malevolent prayers.
+%	Aaliyah wants to kill Zebedee. She knows that, if she puts chemical A into Zebedee's water bottle, Zebedee will drink the contaminated water and die. Equally, Bathsehba wants to kill Zebedee. She knows that, if she puts chemical B into Zebedee's water bottle, then Zebedee will drink the contaminated water and die. But chemicals A and B neutralise each other; so that if both are added to the water bottle, then Zebedee will not die.
+	\end{earg}
+Symbolising this in \TFL, we would offer something like `$\enot (G \eif M)$'. Now, `$\enot (G \eif M)$' entails `$G$' (again, check this with a truth table). So if we symbolise sentence \ref{n:GodParadox} in \TFL, it seems to entail that God exists. But that's strange: surely even the atheist can accept sentence \ref{n:GodParadox}, without contradicting herself! Some say that \ref{n:GodParadox} would be better symbolised by `$G \eif \enot M$', even though that doesn't reflect the apparent form of the English sentence. `$G \eif \enot M$' does not entail $G$. This symbolisation does a better job of reflecting the intuitive consequences of the English sentence \ref{n:GodParadox}, but at the cost of abandoning a straightforward correspondence between the structure of English sentences and their \TFL\ symbolisations. 
+
+
+In different ways, these three examples highlight some of the limits of working with a language (like \TFL) that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse. The case of the atheist raises the question of how to deal with the (so-called) \emph{paradoxes of material implication}. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using \TFL, before we can adequately discuss its limits, and consider alternatives. I will return one final time to the relation between `if' and {\eif} in §\ref{cond.proof}.
+
+
+
+
+
+
+
+\keyideas{
+	\item If every valuation which makes some sentences all true is also one that makes some further sentence true, then those sentences entail the further sentence. We use the symbol `$\entails$' for entailment.
+	\item We can test for entailment using truth tables, in the same sort of way that we test for consistency.
+	\item If an argument when symbolised turns out to be an entailment, then the original argument is valid in virture of its truth-functional structure. So we can test for validity using the truth table tests for entailment.
+	\item These tests nevertheless have limitations: not every valid argument can be symbolised as a \TFL\ entailment.
+}
+
+
+\practiceproblems
+
+
+
+
+\problempart
+\label{pr.TT.valid}
+Use truth tables to determine whether each argument is valid or invalid.
+\begin{earg}
+\item $A\eif A \ttherefore A$ %invalid
+\item $A\eif(A\eand\enot A) \ttherefore \enot A$ %valid
+\item $A\eor(B\eif A) \ttherefore \enot A \eif \enot B$ %valid
+\item $A\eor B, B\eor C, \enot A \ttherefore B \eand C$ %invalid
+\item $(B\eand A)\eif C, (C\eand A)\eif B \ttherefore (C\eand B)\eif A$ %invalid
+\end{earg}
+
+
+
+\problempart
+\label{pr.TT.concepts}
+Answer each of the questions below and justify your answer.
+\begin{earg}
+\item Suppose that \meta{A} and \meta{B} are equivalent. What can you say about $\meta{A}\eiff\meta{B}$?
+%\meta{A} and \meta{B} have the same truth value on every line of a complete truth table, so $\meta{A}\eiff\meta{B}$ is true on every line. It is a tautology.
+\item Suppose that $(\meta{A}\eand\meta{B})\eif\meta{C}$ is neither a tautology nor a contradiction. What can you say about whether $\meta{A}, \meta{B} \ttherefore\meta{C}$ is valid?
+%The sentence is false on some line of a complete truth table. On that line, \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is invalid.
+\item Suppose that $\meta{A}$, $\meta{B}$ and $\meta{C}$  are jointly inconsistent. What can you say about $(\meta{A}\eand\meta{B}\eand\meta{C})$?
+\item Suppose that \meta{A} is a contradiction. What can you say about whether $\meta{A}, \meta{B} \entails \meta{C}$?
+%Since \meta{A} is false on every line of a complete truth table, there is no line on which \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is valid.
+\item Suppose that \meta{C} is a tautology. What can you say about whether $\meta{A}, \meta{B}\entails \meta{C}$?
+%Since \meta{C} is true on every line of a complete truth table, there is no line on which \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is valid.
+\item Suppose that \meta{A} and \meta{B} are equivalent. What can you say about $(\meta{A}\eor\meta{B})$?
+%Not much. $(\meta{A}\eor\meta{B})$ is a tautology if \meta{A} and \meta{B} are tautologies; it is a contradiction if they are contradictions; it is contingent if they are contingent.
+\item Suppose that \meta{A} and \meta{B} are \emph{not} equivalent. What can you say about $(\meta{A}\eor\meta{B})$?
+%\meta{A} and \meta{B} have different truth values on at least one line of a complete truth table, and $(\meta{A}\eor\meta{B})$ will be true on that line. On other lines, it might be true or false. So $(\meta{A}\eor\meta{B})$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
+\end{earg}
+\problempart 
+Consider the following principle:
+	\begin{itemize}
+		\item Suppose $\meta{A}$ and $\meta{B}$ are equivalent. Suppose an argument contains $\meta{A}$ (either as a premise, or as the conclusion). The validity of the argument would be unaffected, if we replaced $\meta{A}$ with $\meta{B}$.
+	\end{itemize}
+Is this principle correct? Explain your answer.
+
+
+
+\chapter{Truth table shortcuts}
+With practice, you will quickly become adept at filling out truth tables. In this section, I want to give you some permissible shortcuts to help you along the way. 
+
+\section{Working through truth tables}
+You will quickly find that you do not need to copy the truth value of each atomic sentence, but can simply refer back to them. So you can speed things up by writing:
+\begin{center}
+\begin{tabular}{c c|d e e e e f} \toprule 
+$P$&$Q$&$(P$&\eor&$Q)$&\eiff&\enot&$P$\\
+\midrule
+ T & T &  & T &  & \TTbf{F} & F\\
+ T & F &  & T &  & \TTbf{F} & F\\
+ F & T &  & T & & \TTbf{T} & T\\
+ F & F &  & F &  & \TTbf{F} & T\\\bottomrule
+\end{tabular}
+\end{center}
+You also know for sure that a disjunction is true whenever one of the disjuncts is true. So if you find a true disjunct, there is no need to work out the truth values of the other disjuncts. Thus you might offer:
+\begin{center}
+\begin{tabular}{c c|d e e e e e e f} \toprule 
+$P$&$Q$& $(\enot$ & $P$&\eor&\enot&$Q)$&\eor&\enot&$P$\\
+\midrule
+ T & T & F & & F & F& & \TTbf{F} & F\\
+ T & F &  F & & T& T& &  \TTbf{T} & F\\
+ F & T & & &  & & & \TTbf{T} & T\\
+ F & F & & & & & &\TTbf{T} & T\\\bottomrule
+\end{tabular}
+\end{center}
+Equally, you know for sure that a conjunction is false whenever one of the conjuncts is false. So if you find a false conjunct, there is no need to work out the truth value of the other conjunct. Thus you might offer:
+\begin{center}
+\begin{tabular}{c c|d e e e e e e f} \toprule 
+$P$&$Q$&\enot &$(P$&\eand&\enot&$Q)$&\eand&\enot&$P$\\
+\midrule
+ T & T &  &  & &  & & \TTbf{F} & F\\
+ T & F &   &  &&  & & \TTbf{F} & F\\
+ F & T & T &  & F &  & & \TTbf{T} & T\\
+ F & F & T &  & F & & & \TTbf{T} & T\\\bottomrule
+\end{tabular}
+\end{center}
+A similar short cut is available for conditionals. You immediately know that a conditional is true if either its consequent is true, or its antecedent is false. Thus you might present:
+\begin{center}
+\begin{tabular}{c c|d e e e e e f} \toprule 
+$P$&$Q$& $((P$&\eif&$Q$)&\eif&$P)$&\eif&$P$\\
+\midrule
+ T & T & &  & & & & \TTbf{T} & \\
+ T & F &  &  & && & \TTbf{T} & \\
+ F & T & & T & & F & & \TTbf{T} & \\
+ F & F & & T & & F & &\TTbf{T} & \\ \bottomrule
+\end{tabular}
+\end{center}
+So `$((P \eif Q) \eif P) \eif P$' is a tautology. In fact, it is an instance of \emph{Peirce's Law}, named after Charles Sanders Peirce.
+
+\section{Testing for validity and entailment}
+When we use truth tables to test for validity or entailment, we are checking for \emph{bad} lines: lines where the premises are all true and the conclusion is false. Note:
+	\begin{earg}
+		\item[\textbullet] Any line where the conclusion is true is not a bad line. 
+		\item[\textbullet] Any line where some premise is false is not a bad line. 
+	\end{earg}
+Since \emph{all} we are doing is looking for bad lines, we should bear this in mind. So: if we find a line where the conclusion is true, we do not need to evaluate anything else on that line: that line definitely isn't bad. Likewise, if we find a line where some premise is false, we do not need to evaluate anything else on that line. 
+
+With this in mind, consider how we might test the following claimed entailment:
+	$$\enot L \eif (J \eor L), \enot L \entails J.$$
+The \emph{first} thing we should do is evaluate the conclusion on the right of the turnstile. If we find that the conclusion is \emph{true} on some line, then that is not a bad line. So we can simply ignore the rest of the line. So at our first stage, we are left with something like:
+\begin{center}
+\begin{tabular}{c c|d e e e e f |d f|c} \toprule 
+$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
+\midrule
+%J   L   -   L      ->     (J   v   L)
+ T & T & &&&&&&&& {T}\\
+ T & F & &&&&&&&& {T}\\
+ F & T & &&?&&&&?&& {F}\\
+ F & F & &&?&&&&?&& {F}\\ \bottomrule
+\end{tabular}
+\end{center}
+where the blanks indicate that we are not going to bother doing any more investigation (since the line is not bad) and the question-marks indicate that we need to keep investigating. 
+
+The easiest premise on the left of the turnstile to evaluate is the second, so we next do that:
+\begin{center}
+\begin{tabular}{c c|d e e e e f |d f|c} \toprule 
+$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
+\midrule
+%J   L   -   L      ->     (J   v   L)
+ T & T & &&&&&&&& {T}\\
+ T & F & &&&&&&&& {T}\\
+ F & T & &&&&&&{F}&& {F}\\
+ F & F & &&?&&&&{T}&& {F}\\ \bottomrule
+\end{tabular}
+\end{center}
+Note that we no longer need to consider the third line on the table: it will not be a bad line, because (at least) one of premises is false on that line. And finally, we complete the truth table:
+\begin{center}
+\begin{tabular}{c c|d e e e e f |d f|c} \toprule 
+$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
+\midrule
+%J   L   -   L      ->     (J   v   L)
+ T & T & &&&&&&&& {T}\\
+ T & F & &&&&&&&& {T}\\
+ F & T & &&&&&&{F}& & {F}\\
+ F & F & T &  & \TTbf{F} &  & F & & {T} & & {F}\\ \bottomrule
+\end{tabular}
+\end{center}
+The truth table has no bad lines, so this claimed entailment is genuine. (Any valuation on which all the premises are true is a valuation on which the conclusion is true.)
+
+It might be worth illustrating the tactic again, this time for validity. Let us check whether the following argument is valid
+$$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \ttherefore (\enot C\eor D).$$ So we need to check whether the premises entail the conclusion.
+
+At the first stage, we determine the truth value of the conclusion. Since this is a disjunction, it is true whenever either disjunct is true, so we can speed things along a bit. We can then ignore every line apart from the few lines where the conclusion is false.
+\begin{center}
+\begin{tabular}[t]{c c c c | c|c|c|d e e f } \toprule 
+$A$ & $B$ & $C$ & $D$ & $A\eor B$ & $\enot (A\eand C)$ & $\enot (B\eand \enot D)$ & $(\enot$ &$C$& $\eor$ & $D)$\\
+\midrule
+T & T & T & T & & & & &  &  \TTbf{T} & \\
+T & T & T & F & ? & ? & ? & F & &  \TTbf{F} & \\
+T & T & F & T &  & &   & & &  \TTbf{T} & \\
+T & T & F & F &  &  &   & T & &  \TTbf{T} &\\
+T & F & T & T &  &  &  & & &  \TTbf{T} & \\
+T & F & T & F & ? & ? & ?  & F &  &  \TTbf{F} &\\
+T & F & F & T & & & & & & \TTbf{T} &\\
+T & F & F & F & & & & T &  & \TTbf{T} & \\
+F & T & T & T & & & & & & \TTbf{T} & \\
+F & T & T & F & ? & ? & ? & F &  & \TTbf{F} &\\
+F & T & F & T & & &  & & & \TTbf{T} & \\
+F & T & F & F & & & &T & & \TTbf{T} & \\
+F & F & T & T & & & & & & \TTbf{T} & \\
+F & F & T & F & ? & ? & ? & F & & \TTbf{F} & \\
+F & F & F & T & & & & & & \TTbf{T} & \\
+F & F & F & F & & & & T& & \TTbf{T} & \\
+\bottomrule \end{tabular}
+\end{center}
+We must now evaluate the premises. We use shortcuts where we can:
+\begin{center}
+\begin{tabular}[t]{c c c c | d e f |d e e f |d e e e f |d e e f } \toprule 
+$A$ & $B$ & $C$ & $D$ & $A$ & $\eor$ & $B$ & $\enot$ & $(A$ &$\eand$ &$ C)$ & $\enot$ & $(B$ & $\eand$ & $\enot$ & $D)$ & $(\enot$ &$C$& $\eor$ & $D)$\\
+\midrule
+T & T & T & T & & && & && & && & & & &  &  \TTbf{T} & \\
+T & T & T & F & &\TTbf{T}& & \TTbf{F}& &T& & & & & & & F & &  \TTbf{F} & \\
+T & T & F & T & & && & && & &&  & &   & & &  \TTbf{T} & \\
+T & T & F & F & & && & && & &&  &  &   & T & &  \TTbf{T} & \\
+T & F & T & T & & && & && & &&  &  &  & & &  \TTbf{T} & \\
+T & F & T & F & &\TTbf{T}& &\TTbf{F}& &T& &  && & & & F & & \TTbf{F} & \\
+T & F & F & T & & && & && & && & & & & & \TTbf{T} & \\
+T & F & F & F & & && & && & && & & & T &  & \TTbf{T} & \\
+F & T & T & T& & && & && & & & & & & & & \TTbf{T} & \\
+F & T & T & F & &\TTbf{T}& & \TTbf{T}& & F& & \TTbf{F}& & T& T&  & F &  & \TTbf{F} & \\
+F & T & F & T & & && & && & && & &  & & & \TTbf{T} & \\
+F & T & F & F& & && & && & && & & &T & & \TTbf{T} & \\
+F & F & T & T & & && & && & && & & & & & \TTbf{T} & \\
+F & F & T & F & & \TTbf{F} & & & & & & &&  &  &  & F & & \TTbf{F} & \\
+F & F & F & T & & && & && & && & & & & & \TTbf{T} & \\
+F & F & F & F & & && & && & && & & & T& & \TTbf{T} & \\
+\bottomrule \end{tabular}
+\end{center}
+If we had used no shortcuts, we would have had to write 256 `T's or `F's on this table. Using shortcuts, we only had to write 37. We have saved ourselves a \emph{lot} of work.
+
+By the notion of a \emph{bad} lines – a potential \emph{counterexample} to a purported entailment – you can save yourself a huge amount of work in testing for validity. There is still lots of work involved in symbolising any natural language argument into \TFL, but once that task is undertaken it is a relatively automatic process to determine whether the symbolisation is an entailment.
+
+\keyideas{
+	\item Some shortcuts are available in constructing truth tables. For example, if a conjunction has one false conjunct, we needn't check the truth value of the other in order to determine that the whole conjunction is false.
+	\item When applying our test for entailment, we need only check those lines on which all the premises are true to see if the conclusion is false on those lines. So we needn't check any line where the conclusion is true, or where a premise is false. 
+}
+
+
+\practiceproblems
+\problempart
+\label{pr.TT.TTorCS}
+Using shortcuts, determine whether each sentence is a tautology, a contradiction, or neither. 
+\begin{earg}
+\item $\enot B \eand B$ %contra
+\item $\enot D \eor D$ %taut
+\item $(A\eand B) \eor (B\eand A)$ %contingent
+\item $\enot\bigl(A \eif (B \eif A) \bigr)$ %contra
+\item $A \eiff \bigl(A \eif (B \eand \enot B) \bigr)$ %contra
+\item $\enot(A\eand B) \eiff A$ %contingent
+\item $A\eif(B\eor C)$ %contingent
+\item $(A \eand\enot A) \eif (B \eor C)$ %tautology
+\item $(B\eand D) \eiff \bigl(A \eiff(A \eor C) \bigr)$%contingent
+\end{earg}
+
+
+\chapter{Partial truth tables}\label{s:PartialTruthTable}
+
+Sometimes, we do not need to know what happens on every line of a truth table. Sometimes, just a single line or two will do. 
+
+\paragraph{Tautology.} 
+In order to show that a sentence is a tautology, we need to show that it is true on every valuation. That is to say, we need to know that it comes out true on every line of the truth table. So we need a complete truth table. 
+
+To show that a sentence is \emph{not} a tautology, however, we only need one line: a line on which the sentence is false. Therefore, in order to show that some sentence is not a tautology, it is enough to provide a single valuation – a single line of the truth table – which makes the sentence false. 
+
+Suppose that we want to show that the sentence `$(U \eand T) \eif (S \eand W)$' is \emph{not} a tautology. We set up a \define{partial truth table}:
+\begin{center}
+\begin{tabular}{c c c c |d e e e e e f} \toprule 
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\midrule
+   &   &   &   &    &   &    &\TTbf{F}&    &   &   \\ \bottomrule
+\end{tabular}
+\end{center}
+We have only left space for one line, rather than 16, since we are only looking for one line, on which the sentence is false. For just that reason, we have filled in `F' for the entire sentence.  A partial truth table is a device for `reverse engineering' a valuation from a truth value to a sentence. We work backward from that truth value to what the valuation must or could be.
+
+The main connective of the sentence is a conditional. In order for the conditional to be false, the antecedent must be true and the consequent must be false. So we fill these in on the table:
+\begin{center}
+\begin{tabular}{c c c c |d e e e e e f} \toprule 
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\midrule
+   &   &   &   &    &  T  &    &\TTbf{F}&    &   F &   \\ \bottomrule
+\end{tabular}
+\end{center}
+In order for the `$(U\eand T)$' to be true, both `$U$' and `$T$' must be true.
+\begin{center}
+\begin{tabular}{c c c c|d e e e e e f} \toprule 
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\midrule
+   & T & T &   &  T &  T  & T  &\TTbf{F}&    &   F &   \\ \bottomrule
+\end{tabular}
+\end{center}
+Now we just need to make `$(S\eand W)$' false. To do this, we need to make at least one of `$S$' and `$W$' false. We can make both `$S$' and `$W$' false if we want. All that matters is that the whole sentence turns out false on this line. Making an arbitrary decision, we finish the table in this way:
+\begin{center}
+\begin{tabular}{c c c c|d e e e e e f} \toprule 
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\midrule
+ F & T & T & F &  T &  T  & T  &\TTbf{F}&  F &   F & F  \\ \bottomrule
+\end{tabular}
+\end{center}
+So we now have a partial truth table, which shows that `$(U \eand T) \eif (S \eand W)$' is not a tautology. Put otherwise, we have shown that there is a valuation which makes `$(U \eand T) \eif (S \eand W)$' false, namely, the valuation which makes `$S$' false, `$T$' true, `$U$' true and `$W$' false. 
+
+\paragraph{Contradiction.}
+Showing that something is a contradiction requires a complete truth table: we need to show that there is no valuation which makes the sentence true; that is, we need to show that the sentence is false on every line of the truth table. 
+
+However, to show that something is \emph{not} a contradiction, all we need to do is find a valuation which makes the sentence true, and a single line of a truth table will suffice. We can illustrate this with the same example.
+\begin{center}
+\begin{tabular}{c c c c|d e e e e e f} \toprule 
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\midrule
+  &  &  &  &   &   &   &\TTbf{T}&  &  &\\ \bottomrule
+\end{tabular}
+\end{center}
+To make the sentence true, it will suffice to ensure that the antecedent is false. Since the antecedent is a conjunction, we can just make one of them false. For no particular reason, we choose to make `$U$' false; and then we can assign whatever truth value we like to the other atomic sentences.
+\begin{center}
+\begin{tabular}{c c c c|d e e e e e f} \toprule 
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\midrule
+ F & T & F & F &  F &  F  & T  &\TTbf{T}&  F &   F & F\\\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{equivalence.}
+To show that two sentences are equivalent, we must show that the sentences have the same truth value on every valuation. So this requires a  complete truth table.
+
+To show that two sentences are \emph{not} equivalent, we only need to show that there is a valuation on which they have different truth values. So this requires only a one-line partial truth table: make the table so that one sentence is true and the other false.
+
+\paragraph{Consistency.}
+To show that some sentences are jointly consistent, we must show that there is a valuation which makes all of the sentence true. So this requires only a partial truth table with a single line. 
+
+To show that some sentences are jointly inconsistent, we must show that there is no valuation which makes all of the sentence true. So this requires a complete truth table: You must show that on every row of the table at least one of the sentences is false.
+
+\paragraph{Validity.}
+To show that an argument is valid, we must show that there is no valuation which makes all of the premises true and the conclusion false. So this  requires a complete truth table.  (Likewise for entailment.)
+
+To show that argument is \emph{invalid}, we must show that there is a valuation which makes all of the premises true and the conclusion false. So this requires only a one-line partial truth table on which all of the premises are true and the conclusion is false. (Likewise for a failure of entailment.)
+
+
+
+This table summarises what is required to test for our various semantic notions:
+\begin{center}
+\begin{tabular}{l l l} \toprule 
+%\cline{2-3}
+ & \textbf{Yes} & \textbf{No}\\
+ \midrule
+%\cline{2-3}
+tautology? & complete truth table & one-line partial truth table\\
+contradiction? &  complete truth table  & one-line partial truth table\\
+%contingent? & two-line partial truth table & complete truth table\\
+equivalent? & complete truth table & one-line partial truth table\\
+consistent? & one-line partial truth table & complete truth table\\
+valid? & complete truth table & one-line partial truth table\\
+entailment? & complete truth table & one-line partial truth table\\
+\bottomrule \end{tabular}
+\end{center}
+\label{table.CompleteVsPartial}
+
+\keyideas{
+	\item A partial truth table is a way to reverse engineer a valuation, given a truth value for a sentence.
+	\item Partial truth tables can be effective tests for the absence of most of the semantic properties of sentences and arguments; and they can provide a test for the presence of consistency in some sentences.
+}
+\newpage
+\practiceproblems
+
+
+
+\problempart
+\label{pr.TT.equiv}
+Use complete or partial truth tables (as appropriate) to determine whether these pairs of sentences are equivalent:
+\begin{earg}
+\item $A$, $\enot A$ %No
+\item $A$, $A \eor A$ %Yes
+\item $A\eif A$, $A \eiff A$ %Yes
+\item $A \eor \enot B$, $A\eif B$ %No
+\item $A \eand \enot A$, $\enot B \eiff B$ %Yes
+\item $\enot(A \eand B)$, $\enot A \eor \enot B$ %Yes
+\item $\enot(A \eif B)$, $\enot A \eif \enot B$ %No
+\item $(A \eif B)$, $(\enot B \eif \enot A)$ %Yes
+\end{earg}
+
+
+\problempart
+\label{pr.TT.consistent.partial}
+Use complete or partial truth tables (as appropriate) to determine whether these sentences are jointly consistent, or jointly inconsistent:
+\begin{earg}
+\item $A \eand B$, $C\eif \enot B$, $C$ %inconsistent
+\item $A\eif B$, $B\eif C$, $A$, $\enot C$ %inconsistent
+\item $A \eor B$, $B\eor C$, $C\eif \enot A$ %consistent
+\item $A$, $B$, $C$, $\enot D$, $\enot E$, $F$ %consistent
+\end{earg}
+
+
+\problempart
+\label{pr.TT.valid.partial}
+Use complete or partial truth tables (as appropriate) to determine whether each argument is valid or invalid:
+\begin{earg}
+\item $A\eor\bigl(A\eif(A\eiff A) \bigr) \ttherefore A$ %invalid
+\item $A\eiff\enot(B\eiff A) \ttherefore A$ %invalid
+\item $A\eif B, B \ttherefore A$ %invalid
+\item $A\eor B, B\eor C, \enot B \ttherefore A \eand C$ %valid
+\item $A\eiff B, B\eiff C \ttherefore A\eiff C$ %valid
+\end{earg}
+
+\chapter{Expressiveness of \textnormal{\TFL}}\label{s:expressiveness} 
+% chapter added by Æ
+
+When we introduced the idea of truth-functionality in §\ref{def.truthfunction}, we observed that every sentence connective in \TFL\ was truth-functional. As we noted, that property allows us to represent complex sentences involving only these connectives using truth tables.
+
+
+\section{Other truth-functional connectives}
+Are there other truth functional connectives than those in \TFL? If there were, they would have schematic truth tables that differ from those for any of our connectives. And it is easy to see that there are. Consider this proposed connective:
+
+\paragraph{The Sheffer Stroke} For any sentences \meta{A} and \meta{B}, $\meta{A}\downarrow\meta{B}$ is true if and only if both \meta{A} and \meta{B} are false. We can summarize this in the {schematic truth table} for the Sheffer Stroke:
+\begin{center}
+\begin{tabular}{c c |c} \toprule 
+\meta{A} & \meta{B} & $\meta{A}\downarrow\meta{B}$\\
+\midrule
+T & T & F\\
+T & F & F\\
+F & T & F\\
+F & F & T\\
+\bottomrule \end{tabular}
+\end{center}
+Inspection of the schematic truth tables for $\eand$, $\eor$, etc., shows that their truth tables are different from this one, and hence the Sheffer Stroke is not one of the connectives of \TFL. It is a connective of English however: it is the `neither … nor …' connective that features in `Siya is neither an archer nor a jockey', which is false iff she is either.
+
+\paragraph{`Whether or not'} The connective `… whether or not …', as in the sentence `Sam is happy whether or not she's rich' seems to have this schematic truth table:
+\begin{center}
+\begin{tabular}{c c |c} \toprule 
+\meta{A} & \meta{B} & \meta{A} whether or not \meta{B} \\
+\midrule
+T & T & T\\
+T & F & T\\
+F & T & F\\
+F & F & F\\
+\bottomrule \end{tabular}
+\end{center} This too corresponds to no existing connective of \TFL.
+
+In fact, it can be shown that there are many other potential truth-functional connectives that are not included in the language \TFL.\footnote{There are in fact sixteen truth-functional connectives that join two simpler sentences into a complex sentence, but \TFL\ only includes four. (Why sixteen? Because there are four rows of the schematic truth table for such a connective, and each row can have either a T or an F recorded against it, independent of the other rows, so there are $2\times 2 \times 2 \times 2 = 16$ ways of constructing such a truth-table.)} 
+
+\section{The expressive power of \TFL}
+
+Should we be worried about this, and attempt to add new connectives to \TFL? It turns out we already have enough connectives to say \emph{anything} we wish to say that makes use of only truth-functional connectives. The connectives that are already in \TFL\ are \define{truth-functionally complete}: \factoidbox{For any truth-functional connective in any language – that is, which has a truth-table – there is a schematic sentence of \TFL\ which has the same truth table.} Remember that a schematic sentence is something like $\meta{A} \eor \enot \meta{B}$, where arbitrary \TFL\ sentences can fill the places indicated by \meta{A} and \meta{B}.
+
+ 
+
+This is actually not very difficult to show. We'll start with an example. Suppose we have the English sentence `Siya is exactly one of an archer and a jockey'. This sentence features the connective `Exactly one of … and …'. In this case, the simpler sentences which are connected to form the complex sentence are `Siya is an archer' and `Siya is a jockey'. The schematic truth table for this connective is as follows:
+\begin{center}
+\begin{tabular}{c c|c} \toprule 
+$\meta{A}$&$\meta{B}$& `Exactly one of $\meta{A}$ and $\meta{B}$'\\
+\midrule
+ T & T &  \TTbf{F}\\
+ T & F &  \TTbf{T}\\
+ F & T & \TTbf{T} \\
+ F & F &  \TTbf{F}\\\bottomrule
+\end{tabular}
+\end{center} 
+
+We want now to find a schematic \TFL\ sentence that has this same truth table. So we shall want the sentence to be true on the second row, and true on the third row, and false on the other rows. In other words, we want a sentence which is true on \emph{either} the second row \emph{or} the third row.
+
+Let's begin by  focusing on that second row, or rather the family of  valuations corresponding to it. Those valuations include only those that make $\meta{A}$ true and and $\meta{B}$ false. These are the only valuations among those we are considering which make  $\meta{A}$ true and $\meta{B}$ false. So they are the only valuations which make both $\meta{A}$ and $\enot \meta{B}$ true. So we can construct a sentence which is true on valuations in that family, and those valuations alone: the conjunction of $\meta{A}$ and $\enot \meta{B}$, $(\meta{A} \eand \enot \meta{B})$. 
+
+Now look at the third row and its associated family of valuations. Those valuations make $\meta{A}$ false and $\meta{B}$ true. They are the only valuations among those we are considering which make $\meta{A}$ false and $\meta{B}$ true. So they are the only valuations among those we are considering which make both of $\enot \meta{A}$ and $\meta{B}$ true. So we can construct a schematic sentence which is true on valuations in that family, and only those valuations: the conjunction of $\enot \meta{A}$ and $\meta{B}$, $(\enot \meta{A} \eand \meta{B})$. 
+
+Our target sentence, the one with the same truth table as `Exactly one of $\meta{A}$ and $\meta{B}$', is true on either the second or third valuations. So it is true if either $(\meta{A} \eand \enot \meta{B})$ is true or if $(\enot \meta{A} \eand \meta{B})$ is true. And there is of course a schematic \TFL\ sentence with just this profile: $(\meta{A} \eand \enot \meta{B}) \eor (\enot \meta{A} \eand \meta{B})$. 
+
+Let us summarise this construction by adding to our truth table:
+\begin{center}
+\begin{tabular}{c c|c| d e f} \toprule 
+$\meta{A}$&$\meta{B}$& `Exactly one of $\meta{A}$ and $\meta{B}$' &  $(\meta{A} \eand \enot \meta{B})$ & $\eor$ & $(\enot \meta{A} \eand \meta{B})$\\
+\midrule
+ T & T &  \TTbf{F} & F & \TTbf{F} & F  \\
+ T & F &  \TTbf{T} & T & \TTbf{T} & F  \\
+ F & T & \TTbf{T} & F & \TTbf{T} & T   \\
+ F & F &  \TTbf{F} & F & \TTbf{F} & F  \\
+ \bottomrule
+\end{tabular}
+\end{center} 
+As we can see, we have come up with a schematic \TFL\ sentence with the intended truth table. 
+
+\section{The disjunctive normal form procedure}
+
+
+The procedure sketched above can be generalised: \begin{enumerate}
+	\item First, identify the truth table of the target connective;
+	\item Then, identify which families of valuations (schematic truth table rows) the target sentence is true on, and for each such row, construct a conjunctive schematic \TFL\ sentence true on that row alone. (It will be a conjunction of schematic letters sentences of those schematic letters which are true on the valuation, and negated schematic letters, for those schematic letters false on the valuation). \begin{itemize}
+		\item What if the target connective is true on no valuations? Then let the schematic \TFL\ sentence $(\meta{A} \wedge ¬\meta{A})$ represent it – it too is true on no valuation.
+	\end{itemize}
+	\item Finally, the schematic \TFL\ sentence will be a disjunction of those conjunctions, because the target sentence is true according to any of those valuations. \begin{itemize}
+		\item What if there is only one such conjunction, because the target sentence is true in only one valuation? Then just take that conjunction to be the \TFL\ rendering of the target sentence.
+	\end{itemize}
+\end{enumerate}  
+Logicians say that the schematic sentences that this procedure spits out are in \define{disjunctive normal form}.
+
+
+This procedure doesn't always give the simplest schematic \TFL\ sentence with a given truth table, but for any truth table you like this procedure gives us a schematic \TFL\ sentence with that truth table. Indeed, we can see that the \TFL\ sentence $¬(\meta{A} \eiff \meta{B})$ has the same truth table as our target sentence too.
+
+The procedure can be used to show that there is some redundancy in \TFL\ itself. Take the connective $\eiff$. Our procedure, applied to the schematic truth table for $\meta{A}\eiff\meta{B}$, yields the following schematic sentence: \[(\meta{A}\eand\meta{B})\eor(\enot\meta{A}\eand\enot\meta{B}).\] This schematic sentence says the same thing as the original schematic sentence with the biconditional as its main connective, without using the biconditional. This could be used as the basis of a program to remove the biconditional from the language. But that would make \TFL\ more difficult to use, and we will not pursue this idea further.
+
+\keyideas{
+	\item There are truth-functional connectives, such as `neither … nor …', which don't correspond to any of the official connectives of \TFL.
+	\item Nevertheless for any sentence structure $\meta{A} \oplus \meta{B}$, where `$\oplus$' is a truth-functional connective, it is possible to construct a \TFL\ schematic sentence which has the same truth table. (Indeed, one can do this making use only of negation, conjunction, and disjunction.)
+	\item So \TFL\ is in fact able to express any truth-functional connective.
+
+}
+
+\practiceproblems
+
+\problempart
+\label{pr.dnf}
+For  each of  columns (i), (ii) and (iii) below, use the procedure just outlined to find a \TFL\ sentence that has the truth table depicted:
+\begin{center}
+\begin{tabular}{c c|c| c | c } \toprule 
+$\meta{A}$&$\meta{B}$& (i) &  (ii) & (iii) \\
+\midrule
+ T & T &  T & T & F \\
+ T & F &  T & T & T\\
+ F & T &  T & F & F\\
+ F & F &  T & T & T \\
+ \bottomrule
+\end{tabular}
+\end{center} 
+
+
+\problempart
+\label{pr.dnf2}
+Can you find \TFL\ schematic sentences which have the same truth table as these English connectives?
+\begin{earg}
+\item `\meta{A} whether or not \meta{B}';
+\item `Not both \meta{A} and \meta{B}';
+\item `Neither \meta{A} nor \meta{B}, but at least one of them';
+\item `If \meta{A} then \meta{B}, else \meta{C}'.
+\end{earg}
+
