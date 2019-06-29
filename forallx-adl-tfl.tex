@@ -207,8 +207,8 @@ You might be wondering why I am putting brackets around the conjunctions. The re
 	\end{earg}
 Sentence \ref{negcon1} can be paraphrased as `It is not the case that: both you will get soup and you will get salad'. Using this symbolisation key:
 	\begin{ekey}
-		\item[S_1] You get soup.
-		\item[S_2] You get salad.
+		\item[S_1] You will get soup.
+		\item[S_2] You will get salad.
 	\end{ekey}
 We would symbolise `both you will get soup and you will get salad' as `$(S_1 \eand S_2)$'. To symbolise sentence \ref{negcon1}, then, we simply negate the whole sentence, thus: `$\enot (S_1 \eand S_2)$'. 
 
@@ -216,12 +216,12 @@ Sentence \ref{negcon2} is a conjunction: you \emph{will not} get soup, and you \
 
 These English sentences are very different, and their symbolisations differ accordingly. In one of them, the entire conjunction is negated. In the other, just one conjunct is negated. Brackets help us to avoid ambiguity by clear distinguishing these two cases.
 
-Again, English is subject to this sort of ambiguity. Suppose instead of \ref{negcon1}, we'd just said \begin{earg}
-	\item[\ex{negcon3}] It is not the case that you will get soup and salad.
+Once again, however, English does feature this sort of ambiguity. Suppose instead of \ref{negcon1}, we'd just said \begin{earg}
+	\item[\ex{negcon3}] You won't get soup with salad.
 \end{earg}
-The sentence \ref{negcon3} is ambiguous; one of its readings says the same thing as \ref{negcon1}, the other says the same thing as \ref{negcon2}. Brackets enable \TFL\ to avoid precisely this ambiguity.
+The sentence \ref{negcon3} is arguably ambiguous; one of its readings says the same thing as \ref{negcon1}, the other says the same thing as \ref{negcon2}. Brackets enable \TFL\ to avoid precisely this ambiguity.
 
-The introduction of brackets prompts us to define some other useful concepts. If a sentence of \TFL\ has the form $(\meta{A} \wedge \meta{B})$, we say that its \define{main connective} is conjunction – even if other connectives occur within $\meta{A}$ or $\meta{B}$. Likewise, if the sentence has the form $¬\meta{A}$, its main connective is negation. We define the \define{scope} of an occurrence of a connective in a sentence as the subsentence which has that connective as its main connective. So the scope of `$¬$' in `$¬(S_{1} \wedge S_{2})$' is the whole sentence (because negation is the main connective), while the scope of `$¬$' in `$(¬S_{1}\wedge S_{2})$' is just the subsentence `$¬S_{1}$' – the main connective of the whole sentence is conjunction. Brackets help us keep track of things the scope of our connectives, and which connective in a sentence is the main connective. I say more about the notions of a main connective and the scope of a connective in §\ref{s.sentencesTFL}.
+The introduction of brackets prompts us to define some other useful concepts. If a sentence of \TFL\ has the overall form $(\meta{A} \wedge \meta{B})$, we say that its \define{main connective} is conjunction – even if other connectives occur within $\meta{A}$ or $\meta{B}$. Likewise, if the sentence has the form $¬\meta{A}$, its main connective is negation. We define the \define{scope} of an occurrence of a connective in a sentence as the subsentence which has that connective as its main connective. So the scope of `$¬$' in `$¬(S_{1} \wedge S_{2})$' is the whole sentence (because negation is the main connective), while the scope of `$¬$' in `$(¬S_{1}\wedge S_{2})$' is just the subsentence `$¬S_{1}$' – the main connective of the whole sentence is conjunction. Brackets help us keep track of things the scope of our connectives, and which connective in a sentence is the main connective. I say more about the notions of a main connective and the scope of a connective in §\ref{s.sentencesTFL}.
 
 \section{Disjunction}
 Consider these sentences:
@@ -318,8 +318,7 @@ A word of caution. Ordinary speakers of English often use `if …, then …' whe
 
 
 \section{Unless}
-We have now introduced all of the connectives of \TFL. We can use them together to symbolise many kinds of sentences. But a typically nasty case is when we use the English-language connective `unless':
-
+We have now introduced all of the connectives of \TFL. We can use them together to symbolise many kinds of sentences, but not every kind. It is a matter of judgement whether a given English connective can be symbolised in \TFL. One rather tricky case is the English-language connective `unless':
 \begin{earg}
 \item[\ex{unless1}] Unless you wear a jacket, you will catch cold. 
 \item[\ex{unless2}] You will catch cold unless you wear a jacket. 
@@ -329,9 +328,9 @@ These two sentences are clearly equivalent. To symbolise them, we shall use the 
 		\item[J] You will wear a jacket.
 		\item[D] You will catch a cold.
 	\end{ekey}
-Both sentences mean that if you do not wear a jacket, then you will catch cold. With this in mind, we might symbolise them as `$\enot J \eif D$'. 
+How should we try to symbolise these in \TFL? Note that \ref{unless2} seems to say: 'either you will catch cold, or if you don't catch cold, it will be because you wear a jacket'. That would have this symbolisation in \TFL: `$(D \eor (\enot D \eif J)$'. This turns out to be just a long-winded way of saying `$(\enot D \eif J)$', i.e., if you don't catch cold, then you will have worn a jacket. 
 
-Equally, both sentences mean that if you do not catch a cold, then you must have worn a jacket. With this in mind, we might symbolise them as `$\enot D \eif J$'.
+Equally, however, both sentences mean that if you do not wear a jacket, then you will catch cold. With this in mind, we might symbolise them as `$\enot J \eif D$'. 
 
 Equally, both sentences mean that either you will wear a jacket or you will catch a cold. With this in mind, we might symbolise them as `$J \eor D$'.
 
@@ -341,12 +340,15 @@ All three are correct symbolisations. Indeed, in chapter \ref{ch.TruthTables} we
 	}
 Again, though, there is a little complication. `Unless' can be symbolised as a conditional; but as I said above, people often use the conditional (on its own) when they mean to use the biconditional. Equally, `unless' can be symbolised as a disjunction; but there are two kinds of disjunction (exclusive and inclusive). So it will not surprise you to discover that ordinary speakers of English often use `unless' to mean something more like the biconditional, or like exclusive disjunction. Suppose I say: `I shall go running unless it rains'. I probably mean something like `I shall go running iff it does not rain' (i.e., the biconditional), or  `either I shall go running or it will rain, but not both' (i.e., exclusive disjunction). Again: be aware of this when interpreting what other people have said, but be precise in your writing, unless you want to be deliberately ambiguous.
 
-
+We should not take `unless' to always have the stronger biconditional form. Consider this example: 
+\begin{earg}
+\item[\ex{unless4}] We'll capture the castle, unless the Duke tries to stop us.
+\end{earg} This certainly says that if we fail to capture the castle, it will have been because of that pesky Duke. But what if the Duke tries \emph{but fails} to stop us? We might in that case capture the castle even though he tried to stop us. While \ref{unless4} is still true, it is not the case that `if the Duke tries to stop us, we won't capture the castle' is true.
 
 \keyideas{
 	\item \TFL\ features five connectives: `$\eand$' (`and'), `$eor$' (`or'), `$\enot$' (`not'), `$\eif$' (`if …, then …') and `$\eiff$' (`if and only if' or `iff').
 	\item These connectives, alone and in combination, can be used to symbolise many English constructions, even some which do not feature the English counterparts of the connectives – as when we approached the symbolisation of sentences involving `unless'.
-	\item Figuring out how to symbolise a given natural language sentence might not be straightforward, however, as in the case of `A if B' and `A only if B', which have quite different symbolisations into \TFL.
+	\item Figuring out how to symbolise a given natural language sentence might not be straightforward, however, as in the cases of `A if B' and `A only if B', which have quite different symbolisations into \TFL. `A unless B' is perhaps even trickier, being sometimes used ambiguously by English speakers and being able to be symbolised in many good ways.
 }
 
 

@@ -1,7 +1,7 @@
 Forall*x* Adelaide
 ==================
 
-This is [Antony Eagle](https://antonyeagle.org)'s version of [Tim Button](http://nottub.com)'s version of [PD Magnus](https://www.fecundity.com/job/)'s forall*x*. There are pervasive differences, big and small.
+This is [Antony Eagle](https://antonyeagle.org)'s version of [Tim Button](http://nottub.com)'s version of [PD Magnus](https://www.fecundity.com/job/)'s forall*x*. There are pervasive differences, big and small, cosmetic and substantial.
 
 License
 -------
@@ -23,7 +23,6 @@ This text is under active yet sporadic revision. The list of items below is prim
 
 * Chapter 1
 * Chapter 2
-	- Add to §5.6 discussion of 'unless'. Note that 'A unless B' entails 'A or if ¬A, then \[because\] B'. But 'A ∨ (¬A → B)' is equivalent to '¬A → B'. A further question: should we understand 'A unless B' to also entail 'B → ¬A'? Can I say 'We'll succeed, unless X tries to stop us' – when we did succeed and X did try (but failed) to stop us?
 	- Add examples of expressions which are not sentences; explain why.
 * Chapter 3
 	- Add the use of partial truth tables as a test for validity: e.g., when you can construct one, it is invalid, when you cannot construct one, it is valid. Explain why this works – only finitely many valuations to consider.
