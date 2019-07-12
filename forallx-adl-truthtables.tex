@@ -911,14 +911,14 @@ To show that argument is \emph{invalid}, we must show that there is a valuation 
 
 
 
-This table summarises what is required to directly construct valuations demonstrating the presence of absence of various semantic notions:
+This table summarises what we need to consider in order to demonstrate the presence or absence of various semantic features of sentences and arguments. So, checking a sentence for contradictoriness involves considering all valuations, and we can directly do that by constructing a complete truth table. 
 \begin{center}
-\begin{tabular}{l l l} \toprule 
+\begin{tabular}{l p{4cm} p{4cm}} \toprule 
 %\cline{2-3}
- & \textbf{Yes} & \textbf{No}\\
+ & \textbf{Check if yes} & \textbf{Check if no}\\
  \midrule
 %\cline{2-3}
-tautology? & all valuations: complete truth table & one valuation: one-line partial truth table\\
+tautology? & all valuations: complete truth table & one valuation: partial truth table\\
 contradiction? &  all valuations: complete truth table  & one valuation: partial truth table\\
 equivalent? & all valuations: complete truth table & one valuation: partial truth table\\
 consistent? & one valuation: partial truth table & all valuations: complete truth table\\
@@ -958,7 +958,7 @@ $P$ & $Q$ & $R$ & $(P$ & $\eand$ & $R)$ & $(Q$ & $\eiff$ & $P)$ & $Q$\\
 
 I call this an \define{indirect} use of partial truth tables. We do not construct the valuations which actually demonstrate the presence or absence of a semantic property of an argument or set of sentences. Rather, we show that the assumption that there is a valuation that meets a certain condition is not coherent. So in the above case, we conclude that nowhere among the 8 lines of the complete truth table for that argument is one that makes the premises true and the conclusion false.
 
-This procedure works because our partial truth table test is guaranteed to succeed in demonstrating the absence of validity, for an invalid argument. Accordingly, if our test fails to demonstrate the absence of validity, that must be because the argument is in fact valid. 
+This procedure works because our partial truth table test is guaranteed to succeed in demonstrating the absence of validity, for an invalid argument. Accordingly, if our test fails to demonstrate the absence of validity, that must be because the argument is in fact valid. (This is in keeping with the table at the end of the previous section, becaue our failure to construct a valuation showing the argument invalid in implicitly to consider all valuations.)
 
 
 \keyideas{
