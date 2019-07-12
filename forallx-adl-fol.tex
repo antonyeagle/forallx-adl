@@ -162,7 +162,14 @@ In permitting multiple domains, \FOL\ follows the lead of natural languages like
 \chapter{Sentences with one quantifier}\label{s:MoreMonadic}
 We now have all of the pieces of \FOL. Symbolising many sentences of English will only be a matter of knowing the right way to combine predicates, names, quantifiers, and the truth-functional connectives. There is a knack to this, and there is no substitute for practice.
 
-	
+As I emphasised in §\ref{ss.idargstr}, a single English sentence has many structures, depending on how fine-grained one is in the analysis of that sentence. We could symbolise `Antony owns a car' in a number of different ways given the resources we have so far, in increasingly finer detail: \begin{enumerate}
+	\item We could symbolise it as an atomic sentence of \TFL\ like `$A$', ignoring all internal structure of the sentence (because it has no internal truth-functional structure). This is also a zero-place predicate, so is also a sentence of \FOL. 
+	\item We could symbolise it as another atomic sentence of \FOL, but one which does recognise the internal subject-predicate struture of the English sentence. For example, we could symbolise it as `$Wa$', where `$W\meta{x}$' symbolises `$\gap{x}$ owns a car' and `$a$' symbolises `Antony'.
+	\item Or we could symbolise it as a complex quantified sentence `$\exists y (Cy \eand Oay)$', where `$a$' is as before, but `$C\meta{x}$' means `$\gap{x}$ is a car' and `$O\meta{xy}$' is `$\gap{x}$ owns $\gap{y}$'.
+	\item We could imaginably symbolise it at even finer levels of structure, distinguishing the `is' and `a' and `car' in the predicate we symbolised as `$C\meta{x}$'.
+\end{enumerate} Note that any structure identified is preserved: the name `$a$' continues to appear in more fine-grained symbolisations once it has appeared. A one-place predicate, having appeared in the second symbolisation, still appears in the third symbolisation, in the form of the complex one-place predicate `$\exists y (Cy \eand O\meta{x}y)$' (see that `\meta{x}' is not associated with any quantifier).
+
+How to symbolise the structure of a sentence very much depends on what purpose you have in symbolising. What matters is that you manage to represent enough structure to determine whether the target argument you are symbolising is valid. We just observed that any more fine-grained analysis of the structure of a sentence retains the coarser structure (as it just adds more detailed substructure). So if you can show an argument is valid (conclusive in virtue of its structure) at some level of analysis, it will remain valid according to any more fine-grained understanding of the structure of that sentence. So you should aim to symbolise \emph{just enough} structure in an argument to be able to demonstrate its validity – if indeed it is valid.
 
 \section{Common quantifier phrases}
 Consider these sentences:
