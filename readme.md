@@ -23,7 +23,6 @@ This text is under active yet sporadic revision. The list of items below is prim
 * Chapter 1 (`forallx-adl-what.tex`) 
 * Chapter 2 (`forallx-adl-tfl.tex`)
 * Chapter 3 (`forallx-adl-truthtables.tex`)
-	- Add the use of partial truth tables as a test for validity: e.g., when you can construct one, it is invalid, when you cannot construct one, it is valid. Explain why this works – only finitely many valuations to consider.
 * Chapter 4 (`forallx-adl-fol.tex`)
 	- Add something on sentence structure to §15, e.g.,
 
