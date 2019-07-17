@@ -48,7 +48,7 @@ This text is under active yet sporadic revision. The list of items below is prim
 * Backmatter
 	* In quick reference, add page numbers for original introduction of relevant rules.
 * Everywhere
-	* Incorporate JO tutorial questions into text
+	* Incorporate JO tutorial questions into text chs. 4, 5, 6, 7
 
 
 

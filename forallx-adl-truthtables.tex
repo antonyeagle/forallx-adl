@@ -324,13 +324,15 @@ In order to fill in the columns of a complete truth table, begin with the right-
 \keyideas{
 	\item A valuation of some atomic sentences associates of them with exactly one of our truth values; it is like an extremely stripped down version of a symbolisation key. In there are $n$ atomic sentences, there are $2^{n}$ valuations of them.
 	\item A truth table lays out the truth values of a particular \TFL\ sentence in each of the distinct possible valuations of its constituent atomic sentences.
-
 }
 
 
-\practiceproblems\label{pr.TT.TTorC}
+\label{pr.TT.TTorC.p}\practiceproblems
 \problempart
-Offer complete truth tables for each of the following:
+How does a \emph{schematic} truth table differ from a regular truth table? What is a \emph{complete} truth table?
+
+\problempart\label{pr.TT.TTorC}
+Offer complete truth tables for each of the following: 
 \begin{earg}
 \item $A \eif A$ %taut
 \item $C \eif\enot C$ %contingent
@@ -469,9 +471,21 @@ Also, check whether:
 	\item[5.] `$((A \eiff B) \eiff C)$' and `$(A \eiff (B \eiff C))$' have the same truth table
 \end{earg}
 \problempart
-Revisit your answers to §\ref{s:CompleteTruthTables}\textbf{A}. Determine which sentences were tautologies, which were contradictions, and which were neither tautologies nor contradictions.
+What is the difference between a tautology and a contradiction? Are there any other kinds of sentence in Sentential?
+
+Revisit your answers to exercise §\ref{s:CompleteTruthTables}\ref{pr.TT.TTorC} (page \pageref{pr.TT.TTorC.p}). Determine which sentences were tautologies, which were contradictions, and which, if any, were neither tautologies nor contradictions.
+
 \problempart
-\label{pr.TT.consistent}
+What does  it  mean  to  say  that  two sentences  of  Sentential  are \emph{equivalent}? Use  truth  tables  to  decide  if  the  following  pairs  of sentences are equivalent:
+\begin{earg}
+	\item $\enot(P \eand Q), (\enot P \eor \enot Q)$;
+	\item $(P \eif Q), \enot(Q \eif P)$;
+	\item $\enot (P \eiff Q), ((P \eor Q) \eand \enot (P \eand Q))$.
+\end{earg}
+
+\problempart
+\label{pr.TT.consistent} What does it mean to say that some sentences of \TFL\ are jointly inconsistent?
+
 Use truth tables to determine whether these sentences are jointly consistent, or jointly inconsistent:
 \begin{earg}
 \item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ %consistent
@@ -479,6 +493,7 @@ Use truth tables to determine whether these sentences are jointly consistent, or
 \item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$  %inconsistent
 \item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$ %consistent
 \end{earg}
+
 
 \chapter{Entailment and validity}\label{c:entvalid}
 
@@ -608,7 +623,9 @@ In different ways, these three examples highlight some of the limits of working 
 
 \practiceproblems
 
+\problempart What does it mean to say that sentences $\meta{A}_{1}, \meta{A}_{2},\ldots,\meta{A}_{n}$ of \TFL\ entail a further sentence $\meta{C}$?
 
+\problempart If $\meta{A}_{1}, \meta{A}_{2},\ldots,\meta{A}_{n} \entails \meta{C}$, what  can  you  say  about  the  argument  with premises $\meta{A}_{1}, \meta{A}_{2},\ldots, \meta{A}_{n}$ and conclusion $\meta{C}$?
 
 
 \problempart
@@ -642,6 +659,10 @@ Answer each of the questions below and justify your answer.
 \item Suppose that \meta{A} and \meta{B} are \emph{not} equivalent. What can you say about $(\meta{A}\eor\meta{B})$?
 %\meta{A} and \meta{B} have different truth values on at least one line of a complete truth table, and $(\meta{A}\eor\meta{B})$ will be true on that line. On other lines, it might be true or false. So $(\meta{A}\eor\meta{B})$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
 \end{earg}
+
+\problempart 
+If two sentences of \TFL, $\meta{A}$ and $\meta{D}$, are equivalent, what can you say about $(\meta{A}\eif \meta{D})$? What about the argument $\meta{A}\ttherefore \meta{D}$?
+
 \problempart 
 Consider the following principle:
 	\begin{itemize}
