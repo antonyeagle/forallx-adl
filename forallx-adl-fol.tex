@@ -174,26 +174,26 @@ How to symbolise the structure of a sentence very much depends on what purpose y
 \section{Common quantifier phrases}
 Consider these sentences:
 	\begin{earg}
-		\item[\ex{quan1}] Every coin in my pocket is a quarter.
-		\item[\ex{quan2}] Some coin on the table is a dime.
-		\item[\ex{quan3}] Not all the coins on the table are dimes.
-		\item[\ex{quan4}] None of the coins in my pocket are dimes.
+		\item[\ex{quan1}] Every coin in my pocket is a 20¢ piece.
+		\item[\ex{quan2}] Some coin on the table is a dollar.
+		\item[\ex{quan3}] Not all the coins on the table are dollars.
+		\item[\ex{quan4}] None of the coins in my pocket are dollars.
 	\end{earg}
 In providing a symbolisation key, we need to specify a domain. Since we are talking about coins in my pocket and on the table, the domain must at least contain all of those coins. Since we are not talking about anything besides coins, we let the domain be all coins. Since we are not talking about any specific coins, we do not need to need to deal with any names. So here is our key:
 	\begin{ekey}
 		\item[\text{domain}] all coins
 		\item[P\meta{x}] \gap{x} is in my pocket
 		\item[T\meta{x}] \gap{x} is on the table
-		\item[Q\meta{x}] \gap{x} is a quarter
-		\item[D\meta{x}] \gap{x} is a dime
+		\item[Q\meta{x}] \gap{x} is a 20¢ piece
+		\item[D\meta{x}] \gap{x} is a dollar
 	\end{ekey}
-Sentence \ref{quan1} is most naturally symbolised using a universal quantifier. The universal quantifier says something about everything in the domain, not just about the coins in my pocket. Sentence \ref{quan1} can be paraphrased as `for any coin, \emph{if} that coin is in my pocket \emph{then} it is a quarter'. So we can symbolise it as `$\forall x(Px \eif Qx)$'.
+Sentence \ref{quan1} is most naturally symbolised using a universal quantifier. The universal quantifier says something about everything in the domain, not just about the coins in my pocket. Sentence \ref{quan1} can be paraphrased as `for any coin, \emph{if} that coin is in my pocket \emph{then} it is a 20¢ piece'. So we can symbolise it as `$\forall x(Px \eif Qx)$'.
 
-Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} that are quarters, it might be tempting to translate it using a conjunction. However, the sentence `$\forall x(Px \eand Qx)$' would symbolise the sentence `every coin is both a quarter and in my pocket'. This obviously means something very different than sentence \ref{quan1}. And so we see:
+Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} that are 20¢ pieces, it might be tempting to translate it using a conjunction. However, the sentence `$\forall x(Px \eand Qx)$' would symbolise the sentence `every coin is both a 20¢ piece and in my pocket'. This obviously means something very different than sentence \ref{quan1}. And so we see:
 	\factoidbox{
 		A sentence can be symbolised as $\forall x (\meta{F}x \eif \meta{G}x)$ if it can be paraphrased in English as `every F is G'.
 	}
-Sentence \ref{quan2} is most naturally symbolised using an existential quantifier. It can be paraphrased as `there is some coin which is both on the table and which is a dime'. So we can symbolise it as `$\exists x(Tx \eand Dx)$'.
+Sentence \ref{quan2} is most naturally symbolised using an existential quantifier. It can be paraphrased as `there is some coin which is both on the table and which is a dollar'. So we can symbolise it as `$\exists x(Tx \eand Dx)$'.
 
 Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. Suppose we had instead written `$\exists x(Tx \eif Dx)$'. That would mean that there is some object in the domain such that  \emph{if} it is $T$, then it is also $D$. For this to be true, we just need something to not be $T$. So it is \emph{very easy} for `$\exists x(Tx \eif Dx)$' to be true. Given our symbolisation, it will be true if some coin is not on the table. Of course there is a coin that is not on the table: there are coins lots of other places.  That is rather less demanding than the claim that something is both $T$ and $D$.
 
@@ -203,9 +203,9 @@ A conditional will usually be the natural connective to use with a universal qua
 	\factoidbox{
 		A sentence can be symbolised as $\exists x (\meta{F}x \eand \meta{G}x)$ if it can be paraphrased in English as `some F is G'.
 	}		
-Sentence \ref{quan3} can be paraphrased as, `It is not the case that every coin on the table is a dime'. So we can symbolise it by `$\enot \forall x(Tx \eif Dx)$'. You might look at sentence \ref{quan3} and paraphrase it instead as, `Some coin on the table is not a dime'. You would then symbolise it by `$\exists x(Tx \eand \enot Dx)$'. Although it is probably not immediately obvious yet, these two sentences are logically equivalent. (This is due to the logical equivalence between $\enot\forall x\meta{A}$ and $\exists x\enot\meta{A}$, mentioned in §\ref{s:FOLBuildingBlocks}, along with the equivalence between $\enot(\meta{A}\eif\meta{B})$ and $\meta{A}\eand\enot\meta{B}$.)
+Sentence \ref{quan3} can be paraphrased as, `It is not the case that every coin on the table is a dollar'. So we can symbolise it by `$\enot \forall x(Tx \eif Dx)$'. You might look at sentence \ref{quan3} and paraphrase it instead as, `Some coin on the table is not a dollar'. You would then symbolise it by `$\exists x(Tx \eand \enot Dx)$'. Although it is probably not immediately obvious yet, these two sentences are logically equivalent. (This is due to the logical equivalence between $\enot\forall x\meta{A}$ and $\exists x\enot\meta{A}$, mentioned in §\ref{s:FOLBuildingBlocks}, along with the equivalence between $\enot(\meta{A}\eif\meta{B})$ and $\meta{A}\eand\enot\meta{B}$.)
 
-Sentence \ref{quan4} can be paraphrased as, `It is not the case that there is some dime in my pocket'. This can be symbolised by `$\enot\exists x(Px \eand Dx)$'. It might also be paraphrased as, `Everything in my pocket is a non-dime', and then could be symbolised by `$\forall x(Px \eif \enot Dx)$'. Again the two symbolisations are logically equivalent. Both are correct symbolisations of sentence \ref{quan4}.
+Sentence \ref{quan4} can be paraphrased as, `It is not the case that there is some dollar in my pocket'. This can be symbolised by `$\enot\exists x(Px \eand Dx)$'. It might also be paraphrased as, `Everything in my pocket is a non-dollar', and then could be symbolised by `$\forall x(Px \eif \enot Dx)$'. Again the two symbolisations are logically equivalent. Both are correct symbolisations of sentence \ref{quan4}.
 
 
 \section{Empty predicates}
@@ -260,7 +260,7 @@ Second, we can let the domain contain things besides roses: rhododendrons; rats;
 	\begin{earg}
 		\item[\ex{pickdomaincowboy}] Every cowboy sings a sad, sad song.
 	\end{earg}
-Our domain must now include both all the roses (so that we can symbolise sentence \ref{pickdomainrose}) and all the cowboys (so that we can symbolise sentence \ref{pickdomaincowboy}). So we might offer the following symbolisation key:
+Our domain must now include both all the roses (so that we can symbolise sentence \ref{pickdomainrose}) and all the cowboys (so that we can symbolise sentence \ref{pickdomaincowboy}). So we might offer the following symbolisation key:\label{poison}
 	\begin{ekey}
 		\item[\text{domain}] people and plants
 		\item[C\meta{x}] \gap{x} is a cowboy
@@ -397,11 +397,31 @@ The upshot is this: though you can symbolise `Daisy is a small cow' as a conjunc
 
 The overall message is not particularly specific: treat adjectives with care, and always think about whether a conjunction or some other symbolisation best captures what is going on in the English. There is no substitute for practice in developing a good sense of how symbolise arguments. 
 
+\section{Generics} % (fold)
+\label{sec:generics}
+One final complication presents itself. In English, there seems to be a difference between these sentences: \begin{earg}
+	\item[\ex{gen1}] Ducks lay eggs;
+	\item[\ex{gen2}] All ducks lay eggs.
+\end{earg}
+The sentence in \ref{gen2} is false: drakes and ducklings do not, for example. But nevertheless \ref{gen1} seems to be true, for all that. That sentence lacks an explicit quantifier – it doesn't say `\emph{all} ducks lay eggs'. It is what is known as a \define{generic} claim: it shares a structure with examples like `cows eat grass' or `rocks are hard'. Generic claims concern what is typical or normal: the typical duck lays eggs, the typical rock is hard, the typical cow eats grass. Unlike universally quantified claims, generics are \emph{exception-tolerant}: even if drakes don't lay eggs, still, ducks lay eggs.
+
+We cannot represent this exception-tolerance very easily in \FOL. The initial idea is to use the universal quantifier, but this will give the wrong results in some cases. For it will make this argument come out valid, when it should be ruled invalid: \begin{quote}
+Ducks lay eggs. Donald Duck is a duck. So Donald Duck lays eggs.
+\end{quote} One alternative idea that we can implement is that the word `ducks' in \ref{gen2} is referring to a natural kind, the species of ducks. So in fact rather than being a quantified sentence, it is in fact just a subject-predicate sentence, saying something more or less like `The duck is an oviparous species'. This certainly works for some cases, such as `Rabbits are abundant', where we have to be understood as saying something about the kind. (How could an individual be abundant?) 
+
+But this cannot handle every aspect of `ducks lay eggs'. People do treat those generics as quantified, because they are often willing to conclude things about individuals given the generic claim. Given the information that ducks lay eggs, and that Wilhelmina is a duck, most people conclude that Wilhelmina lays eggs – thus apparently treating the generic as having the kind of logical role of a universal quantifier.
+
+The proper treatment of generics in English remains a wide-open question.\footnote{See, for example, Sarah-Jane Leslie and Adam Lerner (2016) `Generic Generalizations', in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy}, \url{https://plato.stanford.edu/archives/win2016/entries/generics/}.} We will not delve into it further, but you should be careful when symbolising not to be drawn into the trap of unwarily treating a generic as a universal.
+
+
+
+% section generics (end)
+
 \keyideas{
 	\item Our quantifiers, together with truth-functional connectives, suffice to symbolise many natural language quantifier phrases including `all', `some', and `none'.
 	\item Judicious choice of domain can save you trouble when symbolising, but can also hamper your ability to symbolise all the sentences you'd like to.
 	\item Paraphrasing natural language sentences can often reveal their quantifier structure, even if the surface form is misleading.
-	\item Complexities in symbolising arise from adjectival modification of predicates and empty predicates (relative to a chosen domain) – take care. 
+	\item Complexities in symbolising arise from adjectival modification of predicates, empty predicates (relative to a chosen domain), and generics – take care. 
 }
 \practiceproblems
 \problempart
