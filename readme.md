@@ -33,6 +33,9 @@ This text is under active yet sporadic revision. The list of items below is prim
 		* Pro: dispense with subproofs for disjunction elimination (proof by cases); elimation rule produces a constituent of original sentence, rather than some new 'C'. 
 	* Make sure proof rules use brackets! And maybe note some structural rules explicitly: e.g., that A, B ⊦ A ∧ B and A, B ⊦ B ∧ A$, etc.
 	* Give an official introduction to the idea of how to prove an argument in ND – i.e., how to apply the proof system after symbolisation of an argument.
+	* return to arguments introduced in §27 once we have all the rules.
+	* key ideas for §27 and §28, exercises for §28
+	* clean up exercises to make sure they only use the proper rules
 * Chapter 7 (`forallx-adl-prooffol.tex`)
 * Backmatter
 * Everywhere

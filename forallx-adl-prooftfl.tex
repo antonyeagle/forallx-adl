@@ -8,9 +8,14 @@
 
 \chapter{The very idea of natural deduction}\label{s:NDVeryIdea}
 
-Way back in §\ref{s:Valid}, we said that an argument is valid iff it is impossible to make all of the premises true and the conclusion false. 
+\section{Arguments and Reasoning Revisited} % (fold)
+\label{sec:arguments_and_reasoning_revisited}
 
-In the case of \TFL, this led us to develop truth tables. Each line of a complete truth table corresponds to a valuation. So, when faced with a \TFL\ argument, we have a very direct way to assess whether it is possible to make all of the premises true and the conclusion false: just thrash through the truth table.
+% section arguments_and_reasoning_revisited (end)
+
+Way back in §\ref{s:Valid}, we said that an argument is valid iff it is impossible to make all of the premises true in a valuation, while the conclusion is false. 
+
+In the case of \TFL, this led us to develop truth tables. Each line of a complete truth table corresponds to a valuation. So, when faced with a \TFL\ argument, we have a very direct way to assess whether it is possible to make all of the premises true and the conclusion false: just plod through the truth table.
 
 But truth tables do not necessarily give us much \emph{insight}. Consider two arguments in \TFL:
 	\begin{align*}
@@ -22,8 +27,7 @@ Clearly, these are valid arguments. You can confirm that they are valid by const
 Certainly human reasoning treats disjunctions very differently from biconditionals. While logic is not really about human reasoning, which is more properly a subject matter for psychology, nevertheless we can formally study the different forms of reasoning involved in arguing from sentences with different structures, by asking: \emph{what would it be acceptable to conclude from a premise with a certain formal structure, supposing one cannot give up one's committment to that premise?} 
 
 
-
-With truth tables, we directly consider different ways to make sentences true or false. With natural deduction systems, we manipulate sentences in accordance with rules that we regard as acceptable. Indeed, with just a small `starter pack' of rules of implication, just characterising what a sentence implies, or is implied by, in virtue of its main connective, we might hope to capture all valid arguments. 
+With truth tables, we only really care about the truth values assigned to whole sentences, since that is what ultimately determines whether there is an entailment. With natural deduction systems, we are thinking more directly about reasoning \emph{from} premises \emph{to} conclusions. We see what the premises ultimately commit us to, and see whether those consequences are sufficient to establish the conclusion. To do this, we manipulate sentences in accordance with rules that we regard as acceptable. Indeed, with just a small `starter pack' of rules of implication, just characterising what a sentence implies, or is implied by, in virtue of its main connective, we might hope to capture all valid arguments. 
 
 \emph{This is a very different way of thinking about arguments.} 
 
@@ -33,6 +37,10 @@ Natural deduction systems promise to give us a better insight – or at least, a
 		P \eif Q, P & \ttherefore Q.
 	\end{align*} From a truth-table perspective, these arguments are indistinguishable: their premises are true in the same valuations, and so are their conclusions. Yet they are distinct from an implicational point of view, since one will involve consideration of the consequences of disjunctions and negations, and the other consideration of the consequences of the conditional. So the natural deduction perspective on arguments promises to give us a more fine-grained analysis of how valid arguments function. 
 
+\section{Efficiency in Natural Deduction} % (fold)
+\label{sec:efficiency_in_natural_deduction}
+
+% section efficiency_in_natural_deduction (end)
 
 The move to natural deduction might be motivated by more than the search for insight. It might also be motivated by \emph{practicality}. Consider:
 	$$A_1 \eif C_1 \ttherefore (A_1 \eand A_2) \eif (C_1 \eor C_2).$$
@@ -45,8 +53,13 @@ This argument is also valid – as you can probably tell – but to test it requ
 
 When we get to \FOL, though, the problem gets dramatically worse. There is nothing like the truth table test for \FOL. To assess whether or not an argument is valid, we have to reason about \emph{all} interpretations. But there are infinitely many possible interpretations. We cannot even in principle set a machine to grind through infinitely many possible interpretations and report back when it is finished: it will \emph{never} finish. We either need to come up with some more efficient way of reasoning about all interpretations, or we need to look for something different. Since we already have some motivation for considering the role in arguments of particular premises, rather than all the premises collectively as in the truth-table approach, we will opt for the `something different' path – natural deduction.
 
+\section{Our System of Natural Deduction and its History} % (fold)
+\label{sec:our_system_of_natural_deduction_and_its_history}
+
+% section our_system_of_natural_deduction_and_its_history (end)
 
 Rather than reasoning directly about all valuations (in the case of \TFL) or all interpretations (in the case of \FOL), we shall try to select a few basic rules of implication. Some of these will govern the behaviour of the sentential connectives. Others will govern the behaviour of the quantifiers and identity. The resulting system of rules will give us a new way to think about the validity of arguments. 
+
 The modern development of natural deduction dates from simultaneous and unrelated papers by Gerhard Gentzen and Stanisław Jaśkowski in the 1930s.\footnote{Gerhard Gentzen (1934) `Untersuchungen über das logische Schließen', translated as `Investigations into Logical Deduction' in M. E. Szabo (ed.), \emph{The Collected Works of Gerhard Gentzen}, North-Holland, 1969. Stanisław Jaśkowski (1934). `On the rules of suppositions in formal logic', reprinted in Storrs McCall (ed.), \emph{Polish logic 1920–39}, Oxford University Press, 1967.} However, the natural deduction system that we shall consider is based on slightly later work by Frederic Fitch.\footnote{Frederic Fitch (1952) \emph{Symbolic Logic: An introduction}, Ronald Press Company. 
 
 In the design of the present proof system, I drew on earlier versions of \forallx, but also on the natural deduction systems of Jon Barwise and John Etchemendy (1992) \emph{The Language of First-Order Logic}, CSLI; and of Volker Halbach (2010) \emph{The Logic Manual}, Oxford University Press.} 
@@ -63,13 +76,18 @@ One further thing about the rules we shall give is that they are extremely \emph
 }
 
 
-\chapter{Basic rules for \textnormal{\TFL}}\label{s:BasicTFL}
-We will develop a \define{natural deduction} system. For each connective, there will be \define{introduction} rules, that allow us to prove a sentence that has that connective as the main connective, and \define{elimination} rules, that allow us to prove something given a sentence that has that connective as the main connective
 
-\section{The idea of a formal proof}
-Very abstractly, a \define{formal proof} in a natural deduction system is a sequence of sentences, each accompanied by a `commentary' on that sentence.\footnote{There are lots of different systems for constructing formal proofs in \TFL, including axiomatic systems, semantic tableaux, Gentzen-style natural deduction, and sequent calculus. Different systems may be more efficient, or simpler to use, or better when one is reasoning about formal proofs rather than constructing them. The system we use here is best for some purposes – it is easy to understand that the rules are correct, it is fairly straightforward, and it has the nice feature that one can reuse one proof within the course of constructing another.} Some of those sentences may be initial \define{assumptions}, or suppositions that we are making `for the sake of argument'. Other sentences will follow from earlier sentences in the formal proof by applying the natural deduction rules we will detail below. The commentary tells us whether the sentence is an assumption, or whether it follows from one of the rules from an earlier sentence or sentences, and specifies which sentence(s) it follows from, and which assumptions it relies on. The last line of the formal proof is the conclusion. Some of the initial assumptions may remain as assumptions or suppositions even at the end of the formal proof –  these \define{undischarged assumptions} will be the premises of an argument that the formal proof demonstrates to be valid and whose conclusion is the last line of the proof. Henceforth, I shall simply call these `proofs', but you should be aware that there are \emph{informal proofs} too.\footnote{Many of the arguments we offer in our metalanguage, quasi-mathematical arguments \emph{about} our formal languages, are proofs. Sometimes people call formal proofs `deductions' or `derivations', to ensure that no one will confuse the metalanguage activity of proving things about our logical languages with the activity of constructing arguments within those languages. But it seems unlikely that anyone in this course will be confused on this point, since we are not offering very many proofs in the metalanguage in the first place!}
+\chapter{The Idea of a Formal Proof: Reasoning from Assumptions}\label{c:ass}
+We will develop a \define{natural deduction} system. The fundamental idea is that a formal proof involves reasoning from \emph{assumptions} – seeing which sentences follows from which, in virtue of their main connectives. For each connective, there will be \define{introduction} rules, that allow us to prove a sentence that has that connective as the main connective, and \define{elimination} rules, that allow us to prove something given a sentence that has that connective as the main connective. 
 
-We will use a particular graphical representation of natural deduction proofs, one which makes use of graphical nesting of sentences to vividly represent which assumptions a particular sentence in a proof is relying on at any given stage, and uses a device of horizontal marks to distinguish assumptions from derived sentences. It will be easier to see how this works by considering some examples!
+Very abstractly, any \define{formal proof} is a sequence of sentences, each accompanied by a `commentary' on that sentence. There are lots of different systems for constructing formal proofs in \TFL, including axiomatic systems, semantic tableaux, Gentzen-style natural deduction, and sequent calculus. Different systems may be more efficient, or simpler to use, or better when one is reasoning about formal proofs rather than constructing them. The system we use here is best for some purposes – it is easy to understand that the rules are correct, it is fairly straightforward, and it has the nice feature that one can reuse one proof within the course of constructing another. All formal proof systems share two important features: \begin{itemize}
+	\item The rules are unambiguous; and
+	\item The rules apply at some stage of a proof only because of the syntactic structure of the sentences involved.. This makes them ideal for computers to use. 
+\end{itemize} These two features make it easy to design a computer program that produces formal proofs, as long as it can parse and analyse expressions of \TFL. No consideration of meanings need be involved, which makes it quite unlike the earlier ways we had of analysing arguments in \TFL, such as truth-tables, which essentially involved understanding the truth-functions that characterise the meanings of the logical connectives of the language.
+
+ In a natural deduction system, some of those sentences may be initial \define{assumptions}, or suppositions that we are making `for the sake of argument'. Other sentences will follow from earlier sentences in the formal proof by applying certain rules we will detail below. The commentary tells us whether the sentence is an assumption, or whether it follows from one of the rules from an earlier sentence or sentences, and specifies which sentence(s) it follows from, and which assumptions it relies on. The last line of the formal proof is the conclusion. Some of the initial assumptions may remain as assumptions or suppositions even at the end of the formal proof –  these \define{undischarged assumptions} will be the premises of an argument that the formal proof demonstrates to be valid and whose conclusion is the last line of the proof. Henceforth, I shall simply call these `proofs', but you should be aware that there are \emph{informal proofs} too.\footnote{Many of the arguments we offer in our metalanguage, quasi-mathematical arguments \emph{about} our formal languages, are proofs. Sometimes people call formal proofs `deductions' or `derivations', to ensure that no one will confuse the metalanguage activity of proving things about our logical languages with the activity of constructing arguments within those languages. But it seems unlikely that anyone in this course will be confused on this point, since we are not offering very many proofs in the metalanguage in the first place!}
+
+We will use a particular graphical representation of natural deduction proofs, one which makes use of `nesting' of sentences to vividly represent which assumptions a particular sentence in a proof is relying on at any given stage, and uses a device of horizontal marks to distinguish assumptions from derived sentences. It will be easier to see how this works by considering some examples!
 
 So consider:
 	$$\enot (A \eor B) \ttherefore \enot A \eand \enot B.$$
@@ -81,98 +99,131 @@ Note that we have numbered the premise, since we shall want to refer back to it.
 
 
 
-Note also that we have drawn a line underneath the premise. Everything written above the line is an \emph{assumption}. Everything written below the line will either be something which follows from the assumptions, or it will be some new assumption. 
+Note also that we have drawn a line underneath the premise. Everything written above the line is an \emph{assumption}. Everything written below the line will either be something which follows from the assumptions we have already made, or it will be some new assumption. 
 
-The vertical line at the side marks the range of this assumption: any subsequent sentence which is adjacent to a continuation of this vertical line is understood to lie in the \emph{range} of this assumption. If we are going to write down some sentence that follows from our assumption, we will involve first extending that vertical line to indicate that it rests on this assumption, or at least is playing a role in the argument connected with this assumption. (As we will see, not every sentence in the range of an assumption will intuitively \emph{depend} on the assumption, but many will.)
+The vertical line at the side marks the scope of this assumption: any subsequent sentence which is adjacent to a continuation of this vertical line is understood to lie in the \define{range} of this assumption. We might call these vertical lines \define{assumption lines}. If some line in a proof is in the range of an assumption, we will say that it is an \define{active assumption} at that point in the proof. If we are going to write down some sentence that follows from an assumption, we will involve first extending the corresponding assumption line to indicate that it rests on this assumption, or at least is playing a role in the argument connected with this assumption. As we will see, not every sentence in the range of an assumption will intuitively \emph{depend} on the assumption, but many will. \label{nondependence}
 
 We are hoping to conclude that `$\enot A \eand \enot B$'; so we are hoping ultimately to conclude our proof with
 \begin{proof}
+\hypo{a1}{\enot (A \eor B)}
+\have[ ]{c}{\vdots}
 	\have[n]{con}{\enot A \eand \enot B}
 \end{proof}
-for some number $n$. It doesn't matter which line we end on, but we would obviously prefer a short proof to a long one.
+for some number $n$. It doesn't matter which line we end on, but we would obviously prefer a short proof to a long one!
 
-Similarly, suppose we wanted to consider:
+Suppose we wanted to consider an argument with more than one premise:
 $$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \ttherefore \enot C\eor D.$$
-The argument has three premises, so we start by writing them all down, numbered, and drawing a line under them:
+If our argument has more than one premise, we can write more than one assumption down on successive lines, as long as the small horizontal line comes after all of the assumptions we are making at some stage. The argument has three premises, so we start by writing them all down, numbered, and drawing a line under them. We are hoping to conclude with $C \eor D$ at the end, so we put that down too, though we cannot yet fill in the middle of the proof:
 \begin{proof}
 	\hypo{a1}{A \eor B}
 	\hypo{a2}{\enot (A\eand C)}
 	\hypo{a3}{\enot (B \eand \enot D)}
-\end{proof}
-and we are hoping to conclude with some line:
-\begin{proof}
+\have[ ]{m}{\vdots}
 	\have[n]{con}{\enot C \eor D}
 \end{proof}
-All that remains to do is to explain each of the rules that we can use along the way from premises to conclusion. The rules are broken down by our logical connectives.
+Note that the single vertical line to the left indicates the range of all of the assumptions lying above the small horizontal line. We could, if we want, have introduced each of the premises as a separate assumption, with its own range: 
+\begin{proof}
+	\hypo{a1}{A \eor B}
+	\open\hypo{a2}{\enot (A\eand C)}
+	\open\hypo{a3}{\enot (B \eand \enot D)}
+\have[ ]{m}{\vdots}
+	\have[n]{con}{\enot C \eor D}
+\end{proof}
+This can sometimes be useful when we want to see which conclusions follow from some but not all of the premises. It looks a bit different to the earlier proof, but in fact represents the same dependencies: the conclusion is in the range of three assumptions, all of which remain in force throughout the proof.
 
 
+What remains to do is to explain each of the rules that we can use along the way from premises to conclusion. The rules are divided into two families: those rules that involve making or getting rid of further assumptions that are made `for the sake of argument', and those that do not. The latter class of rules are simpler, so we will begin with those.
 
-\section{Conjunction}
+\keyideas{
+	\item Any formal proof is a sequence of sentences, each of which follows by some relatively simple rules from previous sentences or is licensed in some other way. The final sentence is the conclusion of the proof.
+	\item The rules are unambiguous and apply only because of the syntactic structure of the sentences involved: no consideration of meanings need be involved. This makes them ideal for computers to use. 
+	\item A formal natural deduction proof is a graphical representation of reasoning from assumptions, in accordance with a strict set of rules for deriving further claims and managing which assumptions are active (`undischarged') at a given point in the proof.
+	\item 
+	}
+
+\chapter{Basic rules for \textnormal{\TFL}: Rules Without Subproofs}\label{s:BasicTFLns}
+
+
+\section{Conjunction Introduction}\label{conjint}
 Suppose I want to show that Ludwig is reactionary \emph{and} libertarian. One obvious way to do this would be as follows: first I show that Ludwig is reactionary; then I show that Ludwig is libertarian; then I put these two demonstrations together, to obtain the conjunction.
 
-Our natural deduction system will capture this thought straightforwardly. In the example given, I might adopt the following symbolisation key:
+Our natural deduction system will capture this thought straightforwardly. In the example given, I might adopt the following symbolisation key to represent the argument in \TFL:
 	\begin{ekey}
 		\item[R] Ludwig is reactionary
 		\item[L] Ludwig is libertarian
 	\end{ekey}
-Perhaps I am working through a proof, and I have obtained `$R$' on line 8 and `$L$' on line 15. Then on any subsequent line I can obtain `$R \eand L$' thus:
+Perhaps I am working through a proof, and I have obtained `$R$' on line 8 and `$L$' on line 15. Then on any subsequent line I can obtain `$(R \eand L)$' thus:
 \begin{proof}
 	\have[8]{a}{R}
+	\have[ ]{v}{\vdots}
 	\have[15]{b}{L}
-	\have[\ ]{c}{R \eand L} \ai{a, b}
+	\have[16]{c}{(R \eand L)} \ai{a, b}
 \end{proof}
-Note that every line of our proof must either be an assumption, or must be justified by some rule. We cite `$\eand$I 8, 15' here to indicate that the line is obtained by the rule of conjunction introduction ($\eand$I) applied to lines 8 and 15. This is our way of representing what I earlier called the \emph{commentary} on this sentence as it appears in the proof. The vertical and horizontal lines are also parts of this commentary.
+Note that every line of our proof must either be an assumption, or must be justified by some rule. We add the commentary `$\eand$I 8, 15' here to indicate that the line is obtained by the rule of conjunction introduction ($\eand$I) applied to lines 8 and 15. 
 
-I could equally well have obtained:
+Since the order of conjuncts does not matter in a conjunction, I could equally well have obtained `$(L \eand R)$' as `$(R \eand L)$'. I can use the same rule with the commentary reversed, to reflect the reversed order of the conjuncts:
 \begin{proof}
 	\have[8]{a}{R}
+	\have[ ]{v}{\vdots}
 	\have[15]{b}{L}
-	\have[\ ]{c}{L \eand R} \ai{b, a}
+	\have[16]{c}{(L \eand R)} \ai{b, a}
 \end{proof}
-with the commentary reversed, to reflect the order of the conjuncts. More generally, here is our \define{conjunction introduction} rule:
+ More generally, here is our \define{conjunction introduction} rule: if we have obtained \meta{A} and \meta{B} by some stage in a proof, whether by proof or assumption, that justifies us in introducing their conjunction. Abstractly, the rule looks like this:
 \factoidbox{
 \begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[\ ]{}{\vdots}
 	\have[n]{c}{\meta{B}}
 	\have[\ ]{}{\vdots}
-	\have[\ ]{e}{\meta{A}\eand\meta{B}} \ai{a, c}
+	\have[\ ]{e}{(\meta{A}\eand\meta{B})} \ai{a, c}
 \end{proof}}
-To be clear, the statement of the rule is \emph{schematic}. It is not itself a proof.  `$\meta{A}$' and `$\meta{B}$' are not sentences of \TFL. Rather, they are symbols in the metalanguage, which we use when we want to talk about any sentence of \TFL\ (see §\ref{s:UseMention}). Similarly, `$m$' and `$n$' are not a numerals that will appear on any actual proof. Rather, they are symbols in the metalanguage, which we use when we want to talk about any line number of any proof. In an actual proof, the lines are numbered `$1$', `$2$', `$3$', and so forth. But when we define the rule, we use variables to emphasise that the rule may be applied at any point. The rule requires only that we have both conjuncts available to us somewhere in the proof, earlier than the line that results from the application of the rule. They can be separated from one another, and they can appear in any order. So $m$ might be less than $n$, or greater than $n$. Indeed, $m$ might even equal $n$, as in this proof:
+To be clear, the statement of the rule is \emph{schematic}. It is not itself a proof. `$\meta{A}$' and `$\meta{B}$' are not sentences of \TFL. Rather, they are symbols in the metalanguage, which we use when we want to talk about any sentence of \TFL\ (see §\ref{s:UseMention}). Similarly, `$m$' and `$n$' are not a numerals that will appear on any actual proof. Rather, they are symbols in the metalanguage, which we use when we want to talk about any line number of any proof. In an actual proof, the lines are numbered `$1$', `$2$', `$3$', and so forth. But when we define the rule, we use variables to emphasise that the rule may be applied at any point. The rule requires only that we have both conjuncts available to us somewhere in the proof, earlier than the line that results from the application of the rule. They can be separated from one another, and they can appear in any order. So $m$ might be less than $n$, or greater than $n$. Indeed, $m$ might even equal $n$, as in this proof:
 \begin{proof}
 	\hypo[1]{a}{P}
 	\have[2]{b}{P\eand P} \ai{a, a}
 \end{proof}
 
+Note that the rule involves extending the vertical line to cover the newly introduced sentence. This is because what has been derived depends on the same assumptions as what it was derived from, and so it must also be in the range of those assumptions. \factoidbox{All of the rules in this section justify a new claim which inherits all the assumptions of anything from which it has been derived by a natural deduction rule.} 
 
-The rule is called `conjunction \emph{introduction}' because it introduces the symbol `$\eand$' into our proof where it may have been absent. Correspondingly, we have a rule that \emph{eliminates} that symbol.  Suppose you have shown that Ludwig is both reactionary and libertarian. You are entitled to conclude that Ludwig is reactionary. Equally, you are entitled to conclude that Ludwig is libertarian. Putting this together, we obtain our \define{conjunction elimination} rules:
+\section{Conjunction Elimination}\label{conjelim}
+
+The above rule is called `conjunction \emph{introduction}' because it introduces a sentence with `$\eand$' as its main connective into our proof, prior to which it may have been absent. Correspondingly, we also have a rule that \emph{eliminates} a conjunction. Not that the earlier conjunction is somehow removed! It's just that we use a sentence whose main connective is a conjunction to justify further sentences in which that conjunction does not feature.
+
+Suppose you have shown that Ludwig is both reactionary and libertarian. You are entitled to conclude that Ludwig is reactionary. Equally, you are entitled to conclude that Ludwig is libertarian. Putting these observations together, we obtain our \define{conjunction elimination} rules:
 \factoidbox{\begin{minipage}{0.35\textwidth}
 	\begin{proof}
-	\have[m]{ab}{\meta{A}\eand\meta{B}}
+	\have[m]{ab}{(\meta{A}\eand\meta{B})}
 	\have[\ ]{}{\vdots}
 	\have[\ ]{a}{\meta{A}} \ae{ab}
 \end{proof}
 \end{minipage}\qquad\begin{minipage}{0.35\textwidth}
 	\begin{proof}
-	\have[m]{ab}{\meta{A}\eand\meta{B}}
+	\have[m]{ab}{(\meta{A}\eand\meta{B})}
 	\have[\ ]{}{\vdots}
 	\have[\ ]{b}{\meta{B}} \ae{ab}
 \end{proof}
 \end{minipage}
 }
+The point is simply that, when you have a conjunction on some line of a proof, you can obtain either of the conjuncts by {\eand}E later on. There are two rules, because each conjunction justifies us in deriving either of its conjuncts. We could have called them {\eand}E-\textsc{left} and {\eand}E-\textsc{right}, to distinguish them, but in the following we will mostly not distinguish them.\footnote{Why do we have two rules at all, rather than one rule that allows us to derive either conjunct? The answer is that we want our rules to have an unambiguous result when applied to some prior lines of the proof. This is important if, for example, we are implementing a computer system to produce formal proofs.}
 
-The point is simply that, when you have a conjunction on some line of a proof, you can obtain either of the conjuncts by {\eand}E. (One point might be worth emphasising: you can only apply this rule when conjunction is the main connective. So you cannot derive `$D$' just from `$C \eor (D \eand E)$'! Nor can you derive `$D$' from `$C \eand (D \eand E)$', because it is not one of the conjuncts of the main connective of this sentence. You would have to first obtain `$(D \eand E)$' by {\eand}E, and then obtain `$D$' by a second application of that rule.)
 
-Even with just these two rules, we can start to see some of the power of our formal proof system. Consider:
+ One point might be worth emphasising: you can only apply this rule when conjunction is the main connective. So you cannot derive `$D$' just from `$C \eor (D \eand E)$'! Nor can you derive `$D$' directly from `$C \eand (D \eand E)$', because it is not one of the conjuncts of the main connective of this sentence. You would have to first obtain `$(D \eand E)$' by {\eand}E, and then obtain `$D$' by a second application of that rule, as in this proof: \begin{proof}
+ 	\hypo{a}{C \eand (D \eand E)} 
+ 	\have{b}{D \eand E}\ae{a}
+ 	\have{c}{D}\ae{b}
+ \end{proof}
+
+Even with just these two rules, we can start to see some of the power of our formal proof system. Consider this tricky-looking argument:
 \begin{earg}
 \item[] $\bigl( (A\eor B)\eif(C\eor D) \bigr) \eand \bigl( (E \eor F) \eif (G\eor H) \bigr)$
 \item[\ttherefore] $\bigl( (E \eor F) \eif (G\eor H) \bigr) \eand \bigl( (A\eor B)\eif(C\eor D) \bigr)$
-\end{earg}
+\end{earg} Dealing with this argument using truth-tables would be a very tedious exercise, given that there are 8 sentence letters in the premise and we would thus require a $2^{8}=256$ line truth table! But we can deal with it swiftly using our natural deduction rules.
+
 The main connective in both the premise and conclusion of this argument is `$\eand$'. In order to provide a proof, we begin by writing down the premise, which is our assumption. We draw a line below this: everything after this line must follow from our assumptions by (successive applications of) our rules of implication. So the beginning of the proof looks like this:
 \begin{proof}
 	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
 \end{proof}
-From the premise, we can get each of the conjuncts by {\eand}E. The proof now looks like this:
+From the premise, we can get each of its conjuncts by {\eand}E. The proof now looks like this:
 \begin{proof}
 	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
 	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
@@ -186,7 +237,7 @@ So by applying the {\eand}I rule to lines 3 and 2 (in that order), we arrive at 
 	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
 	\have{ba}{{[}(E \eor F) \eif (G\eor H){]} \eand {[}(A\eor B)\eif(C\eor D){]}} \ai{b,a}
 \end{proof}
-This is a very simple proof, but it shows how we can chain rules of proof together into longer proofs. In passing, note that investigating this argument with a truth table would have required a staggering 256 lines; our formal proof required only four lines. 
+This is a very simple proof, but it shows how we can chain rules of proof together into longer proofs. Our formal proof requires just four lines, a far cry from the 256 lines that would have been required had we approached the argument using the techniques from chapter \ref{ch.TruthTables}.
 
 It is worth giving another example. Way back in §\ref{s:MoreBracketingConventions}, we noted that this argument is valid:
 	$$A \eand (B \eand C) \ttherefore (A \eand B) \eand C.$$
@@ -202,7 +253,7 @@ From the premise, we can get each of the conjuncts by applying $\eand$E twice. A
 	\have{b}{B} \ae{bc}
 	\have{c}{C} \ae{bc}
 \end{proof}
-But now we can merrily reintroduce conjunctions in the order we wanted them, so that our final proof is:
+But now we can merrily reintroduce conjunctions in the order we want them, so that our final proof is:
 \begin{proof}
 	\hypo{abc}{A \eand (B \eand C)}
 	\have{a}{A} \ae{abc}
@@ -212,25 +263,28 @@ But now we can merrily reintroduce conjunctions in the order we wanted them, so 
 	\have{ab}{A \eand B}\ai{a, b}
 	\have{con}{(A \eand B) \eand C}\ai{ab, c}
 \end{proof}
-Recall that our official definition of sentences in \TFL\ only allowed conjunctions with two conjuncts. When we discussed semantics, we became a bit more relaxed, and allowed ourselves to drop inner brackets in long conjunctions, since the order of the brackets did not affect the truth table. The proof just given suggests that we could also drop inner brackets in all of our proofs. However, this is not standard, and we shall not do this. Instead, we shall return to the more austere bracketing conventions. (Though we will allow ourselves to drop outermost brackets, for legibility.)
+Recall that our official definition of sentences in \TFL\ only allowed conjunctions with two conjuncts. When we discussed semantics, we became a bit more relaxed, and allowed ourselves to drop inner brackets in long conjunctions, since the order of the brackets did not affect the truth table. The proof just given suggests that we could also drop inner brackets in all of our proofs. However, this is not standard, and we shall not do this. Instead, we shall return to the more austere bracketing conventions. (Though we will allow ourselves to drop outermost brackets most of the time, for legibility.)
 
-Our conjunction rules correspond to intuitively correct patterns of implication. But they are also demonstrably good in another sense, for our rules can be vindicated by considering facts about entailment. Each of these is easily demonstrated: \begin{itemize}
+Our conjunction rules correspond to intuitively correct patterns of implication. But they are also demonstrably good in another sense. Each of our rules can be vindicated by considering facts about entailment. Each of these schematic entailments is easily demonstrated: \begin{itemize}
 	\item $\meta{A}, \meta{B} \entails \meta{A} \eand \meta{B}$;
 	\item 	$\meta{A} \eand \meta{B} \entails \meta{A}$;
 	\item $\meta{A} \eand \meta{B} \entails \meta{B}$.
-\end{itemize} It can be recognised, then, that our proof rules correspond to valid arguments in \TFL, and so our conjunction rules will never permit us to derive a false sentence from true sentences. (There is no guarantee of course that the assumptions we make in our formal proofs are in fact true, only that if they were true, what we derive from them would also be true.)
+\end{itemize} For example, the first of these says that \meta{A} and \meta{B} separately suffice to entail the truth of their conjunction. This justifies the proof rule of conjunction introduction, since at a stage in the proof where we are assuming both \meta{A} and \meta{B} to be true, we are then permitted to conclude that $\meta{A}\eand\meta{B}$ is true – just as conjunction introduction says we can.
+
+It can be recognised, then, that our proof rules correspond to valid arguments in \TFL, and so our conjunction rules will never permit us to derive a false sentence from true sentences. There is no guarantee of course that the assumptions we make in our formal proofs are in fact true – only that if they were true, what we derive from them would also be true. So despite the fact that our proof rules are a \emph{syntactic} procedure, that rely only on recognising the main connective of a sentence and applying an appropriate rule to introduce or eliminate it, each of our rules corresponds to an acceptable entailment.
 
 
-
-\section{Conditional}
+\section{Conditional Elimination}\label{condelim}
 Consider the following argument:
 	\begin{quote}
 		If Jane is smart then she is fast. Jane is smart. So Jane is fast.
 	\end{quote}
-This argument is certainly valid. And it suggests a straightforward \define{conditional elimination} rule ($\eif$E):
+This argument is certainly valid. If you have a conditional claim, that commits you to the consequent given the antecedent, and you also have the antecedent, then you have sufficient material to derive the consequent. 
+
+This suggests a straightforward \define{conditional elimination} rule ({\eif}E):
 \factoidbox{
 \begin{proof}
-	\have[m]{ab}{\meta{A}\eif\meta{B}}
+	\have[m]{ab}{(\meta{A}\eif\meta{B})}
 	\have[\ ]{}{\vdots}
 	\have[n]{a}{\meta{A}}
 	\have[\ ]{}{\vdots}
@@ -238,15 +292,166 @@ This argument is certainly valid. And it suggests a straightforward \define{cond
 \end{proof}}
 This rule is also sometimes called \emph{modus ponens}. Again, this is an elimination rule, because it allows us to obtain a sentence that may not contain `$\eif$', having started with a sentence that did contain `$\eif$'. Note that the conditional, and the antecedent, can be separated from one another, and they can appear in any order. However, in the commentary for $\eif$E, we always cite the conditional first, followed by the antecedent.
 
-The rule for conditional introduction is also quite easy to motivate.\label{ci.motivate} The following argument should be valid:
+Here is an illustration of the rules we have so far in action, applied to this intuitively correct argument: $$P, \bigl((P \eif Q)\eand(P \eif R)\bigr) \ttherefore (R \eand Q).$$ \begin{proof}
+	\hypo{a}{P}
+	\open
+	\hypo{b}{\bigl((P \eif Q)\eand(P \eif R)\bigr)}
+	\have{c}{(P \eif Q)}\ae{b}
+	\have{d}{(P \eif R)}\ae{b}
+	\have{e}{Q}\ce{c,a}
+	\have{f}{R}\ce{d,a}
+	\have{g}{(R \eand Q)}\ai{f,e}
+\end{proof}
+
+The correctness of our proof rule of conditional elimination is supported by the easily demonstrated validity of the corresponding entailment: \begin{itemize}
+	\item  $\meta{A}, \meta{A}\eif\meta{B}\entails \meta{B}$.
+\end{itemize} So applying this rule can never produce false conclusions if we began with true assumptions.
+
+\section{Biconditional Elimination}\label{bielim}
+
+The \define{biconditional elimination} rule ({\eiff}E) lets you do a much the same as the conditional rule. Unofficially, a biconditional is like two conditionals running in each direction. So, thought of informally, our biconditional rules correspond to the left-to-right conditional elimination rule, the other of which corresponds to a right-to-left application of conditional elimination. 
+
+If we know that Alice is coming to the party iff Bob is, then if we knew that either of them was coming, we'd know that the other was coming. If you have the left-hand subsentence of the biconditional, you can obtain the right-hand subsentence. If you have the right-hand subsentence, you can obtain the left-hand subsentence. So we have these two instances of the rule:
+\factoidbox{\begin{minipage}{0.35\textwidth}
+	\begin{proof}
+	\have[m]{ab}{(\meta{A}\eiff\meta{B})}
+	\have[\ ]{}{\vdots}
+	\have[n]{a}{\meta{A}}
+	\have[\ ]{}{\vdots}
+	\have[\ ]{b}{\meta{B}} \be{ab,a}
+\end{proof}
+\end{minipage}\qquad\begin{minipage}{0.35\textwidth}
+	\begin{proof}
+	\have[m]{ab}{(\meta{A}\eiff\meta{B})}
+	\have[\ ]{}{\vdots}
+	\have[n]{a}{\meta{B}}
+	\have[\ ]{}{\vdots}
+	\have[\ ]{b}{\meta{A}} \be{ab,a}
+\end{proof}
+\end{minipage}
+}
+Note that the biconditional, and the right or left half, can be distant from one another in the proof, and they can appear in any order. However, in the commentary for $\eiff$E, we always cite the biconditional first. 
+
+Here is an example of the biconditional rules in action, demonstrating the following argument: $$P, (P\eiff Q), (Q \eif R) \ttherefore R.$$ \begin{proof}
+	\hypo{pq}{(P\eiff Q)}
+	\open \hypo{p}{P}
+	\open \hypo{qr}{(Q \eif R)}
+	\have{q}{Q}\be{pq,p}
+	\have{r}{R}\ce{qr,q}
+\end{proof}
+
+Note the way that our conjunction and conditional elimination rules can be used to parallel the biconditional elimination rules:
+
+\begin{tabular}{p{0.45\textwidth}p{0.45\textwidth}} \begin{proof}
+	\hypo{a}{((P \eif Q)\eand (Q \eif P))}
+	\hypo{p}{Q}
+	\have{pq}{(Q \eif P)}\ae{a}
+	\have{q}{P}\ce{pq,p}
+\end{proof} & \begin{proof}
+	\hypo{a}{(P \eiff Q)}
+	\hypo{p}{Q}
+	\have{q}{P}\be{a,p}
+\end{proof}\end{tabular}
+
+
+
+The correctness of our proof rules of biconditional elimination is supported by the easily demonstrated validity of the corresponding entailments:
+\begin{itemize}
+	\item $\meta{A}\eiff\meta{B},\meta{A}\vDash\meta{B}$;
+	\item  $\meta{A}\eiff\meta{B},\meta{B}\vDash\meta{A}$.
+\end{itemize}
+
+
+\section{Disjunction Introduction}\label{disjint}
+
+Suppose Ludwig is reactionary. Then Ludwig is either reactionary or libertarian. After all, to say that Ludwig is either reactionary or libertarian is to say something weaker than to say that Ludwig is reactionary. (\meta{A} is weaker than \meta{B} if \meta{A} follows from \meta{B}, but not \emph{vice versa}.) 
+
+Let me emphasise this point. Suppose Ludwig is reactionary. It follows that Ludwig is \emph{either} reactionary \emph{or} a kumquat. Equally, it follows that \emph{either} Ludwig is reactionary \emph{or} that kumquats are the only fruit.  Equally, it follows that \emph{either} Ludwig is reactionary \emph{or} that God is dead. Many of these things would be strange \emph{inferences} to draw. Since the truth of the assumption does guarantee that the disjunction is true, there is nothing \emph{logically} wrong with the implications. This can be so even if drawing these implications may violate all sorts of implicit conversational norms, or that inferring in accordance with logic in this manner would be more likely a sign of psychosis than rationality.
+
+Armed with all this, I present the \define{disjunction introduction} rule(s):
+\factoidbox{\begin{minipage}{0.35\textwidth}
+	\begin{proof}
+	\have[m]{a}{\meta{A}}
+	\have[\ ]{}{\vdots}
+	\have[\ ]{ab}{\meta{A}\eor\meta{B}}\oi{a}
+\end{proof}
+\end{minipage}\qquad\begin{minipage}{0.35\textwidth}
+	\begin{proof}
+	\have[m]{a}{\meta{A}}
+	\have[\ ]{}{\vdots}
+	\have[\ ]{ba}{\meta{B}\eor\meta{A}}\oi{a}
+\end{proof}
+\end{minipage}}
+Notice that \meta{B} can be \emph{any} sentence of \TFL\ whatsoever. So the following is a perfectly good proof:
+\begin{proof}
+	\hypo{m}{M}
+	\have{mmm}{M \eor \Bigl( \bigl( (A\eiff B) \eif (C \eand D)\bigr)  \eiff \bigl( E \eand F\bigr) \Bigr)}\oi{m}
+\end{proof}
+Using a truth table to show this would have taken 128 lines. 
+
+
+\section{Reiteration}\label{reit}
+
+The last natural deduction rule in this category is \define{reiteration} (R). This just allows us to repeat an assumption or claim \meta{A} we have already established, so long as the current stage of the proof remains in the range of any assumption which \meta{A} is in the range of.
+\factoidbox{\begin{proof}
+	\have[m]{a}{\meta{A}}
+	\have[\ ]{c}{\vdots}
+	\have[\ ]{b}{\meta{A}} \by{R}{a}
+\end{proof}}
+Such a rule is obviously legitimate; but one might well wonder how such a rule could ever be useful. Here is an example of it in action: \begin{proof}
+	\hypo{p}{P}
+	\hypo{ppq}{((P \eand P) \eif Q)}
+	\have{p1}{P}\by{R}{p}
+	\have{pp}{(P \eand P)}\ai{p,p1}
+	\have{q}{Q}\ce{ppq,pp}
+\end{proof}
+This rule is unnecessary at this point in the proof (we could have applied conjunction introduction and cited line 1 twice in our commentary), but it can be easier in practice to have two distinct lines to which to apply conjunction introduction. The real benefits of reiteration come when we have multiple subproofs, as we will see in the following section (§\ref{s.subproof}) – particularly when it comes to the negation rules. But we will also see later in §\ref{der.reit} that, strictly speaking, we don't need the reiteration rule – though for convenience we will keep it.
+
+
+
+
+\chapter{Basic rules for \textnormal{\TFL}: Rules With Subproofs}\label{s:BasicTFLs}
+
+We've already seen in §\ref{c:ass} how to start a proof by making assumptions. But the true power of natural deduction relies on its rules governing when you can make additional assumptions during the course of the proof, and how you can \emph{discharge} those assumptions when you no longer need them. 
+
+
+\section{Additional assumptions and subproofs}\label{s.subproof}
+
+In natural deduction, both making and discharging additional assumptions are handled using \define{subproofs}. These are subsidiary proofs within the main proof, which encapsulate that part of a larger proof that depends on an assumption that is not among the premises. (Conversely, we can think of the premises of an argument as those assumptions left undischarged at the conclusion of a proof.)
+
+When we start a subproof, we draw another vertical line (to the right of any existing assumption lines) to indicate that we are no longer in the main proof. Then we write in the assumption upon which the subproof will be based. A subproof can be thought of as essentially posing this question: \emph{what could we show, if we also make this additional assumption?} We've already seen this in action earlier (§\ref{c:ass}), when we said that we could indicate the range of several premises in an argument by either attaching them all to one vertical assumption line, or introducing a new vertical line for each new assumption. In that case, we never got rid of the new assumptions: they remained as premises. 
+
+What will be new in this section is that some rules take us \emph{back out} of a subproof. So the rules we will now consider are quite different from the rules covered in §\ref{s:BasicTFLns}, none of which have this feature of being able to escape from a previously introduced assumption.
+
+When we are working within a subproof, we can refer to the additional assumption that we made in introducing the subproof, and to anything that we obtained from our original assumptions. (After all, those original assumptions are still in effect.) But at some point, we shall want to stop working with the additional assumption: we shall want to return from the subproof to the main proof. To indicate that we have returned to the main proof, the vertical line for the subproof comes to an end. At this point, we say that the subproof is \define{closed}. Having closed a subproof, we have set aside the additional assumption, so it will be illegitimate to draw upon anything that depends upon that additional assumption. This has been implicit in our discussion all along, but it is good to make it very clear:
+\factoidbox{Any point in a natural deduction proof is in the range of some currently active assumptions, and the natural deduction rules can be applied only to sentences which do not rely on any other assumptions than those.
+
+Equivalently, any rule can be applied to any earlier lines in a proof, \emph{except} for those lines which occur within a closed subproof. }
+Closing a subproof is called \define{discharging} the assumptions of that subproof. So we can put the point this way: \emph{at no stage of a proof can you apply a rule to a sentence that occurs only in the range of an already discharged assumption}. 
+
+Subproofs, then, allow us to think about what we could show, if we made additional assumptions. The point to take away from this is not surprising – in the course of a proof, we have to keep very careful track of what assumptions we are making, at any given moment. Our proof system does this very graphically, with those vertical assumption lines that indicate the range of an assumption. (Indeed, that's precisely why we have chosen to use \emph{this} proof system.)
+
+When can we begin a new subproof? \emph{Whenever we want.} At any stage in a proof it is legitimate to assume something new, as long as we begin keeping track of what in our proof rests on this new assumption. No rule is needed to justify making an assumption, though there are guidelines that help us decide when it might be particularly appropriate to make a new assumption. Some of these are discussed in §\ref{c:proof.strat}.
+
+Even without any new rules, the idea of opening subproofs by making new assumptions can be used to illustrate a remark I made above about when a claim depends on assumptions (p.\ \pageref{nondependence}). Consider this proof: \begin{proof}
+	\hypo{pq}{(P \eand Q)}
+	\have{q}{Q}\ae{pq}
+	\open \hypo{r}{R}
+	\have{q2}{Q}\by{R}{q}
+\end{proof} In this proof, even though the occurrence of `$Q$' on line 4 occurs within the range of the assumption `$R$', it does not intuitively depend on it. We used reiteration to show that `$R$' is still derivable from active assumptions at line 4, but it does not follow that `$R$' depends in any robust way on every assumption that is active at line 4. 
+
+
+\section{Conditional Introduction}\label{condint}
+
+To illustrate the use of subproofs, we will begin with the rule of conditional introduction. It is fairly easy to motivate informally.\label{ci.motivate} The following argument in English should be valid:
 	\begin{quote}
 		Ludwig is reactionary. Therefore if Ludwig is libertarian, then Ludwig is both reactionary \emph{and} libertarian.
 	\end{quote}
 If someone doubted that this was valid, we might try to convince them otherwise by explaining ourselves as follows:
 	\begin{quote}
-		Assume that Ludwig is reactionary. Now, \emph{additionally} assume that Ludwig is libertarian. Then by conjunction introduction – which we just discussed – Ludwig is both reactionary and libertarian. Of course, that's conditional on the assumption that Ludwig is libertarian. But this just means that, if Ludwig is libertarian, then he is both reactionary and libertarian (at least, given our initial assumption).
+		Assume that Ludwig is reactionary. Now, \emph{additionally} assume that Ludwig is libertarian. Then by conjunction introduction, it follows that Ludwig is both reactionary and libertarian. Of course, that only follows \emph{conditional} on the assumption that Ludwig is libertarian. But this just means that, if Ludwig is libertarian, then he is both reactionary and libertarian – at least, that follows given our initial assumption that he is reactionary.
 	\end{quote}
-Transferred into natural deduction format, here is the pattern of reasoning that we just used. We started with one premise, `Ludwig is reactionary', thus:
+Transferred into natural deduction format, here is the pattern of reasoning that we just used. We started with one premise, `Ludwig is reactionary', symbolised `$R$'. Thus:
 	\begin{proof}
 		\hypo{r}{R}
 	\end{proof}
@@ -256,9 +461,9 @@ The next thing we did is to make an \emph{additional} assumption (`Ludwig is lib
 		\open
 			\hypo{l}{L}
 	\end{proof}
-Note that we are \emph{not} claiming, on line 2, to have proved `$L$' from line 1. So we do not need to write in any justification for the additional assumption on line 2. We do, however, need to mark that it is an additional assumption. We do this by drawing a line under it (to indicate that it is an assumption) and by indenting it with a further vertical line (to indicate that it is additional). 
+We are \emph{not} claiming, on line 2, to have proved `$L$' from line 1. We are just making another assumption. So we do not need to write in any justification for the additional assumption on line 2. We do, however, need to mark that it is an additional assumption. We do this in the usual way, by drawing a line under it (to indicate that it is an assumption) and by indenting it with a further assumption line (to indicate that it is additional). 
 
-With this extra assumption in place, we are in a position to use $\eand$I. So we could continue our proof:
+With this extra assumption in place, we are in a position to use {\eand}I. So we could continue our proof:
 	\begin{proof}
 		\hypo{r}{R}
 		\open
@@ -277,7 +482,7 @@ So we have now shown that, on the additional assumption, `$L$', we can obtain `$
 			\close
 		\have{con}{L \eif (R \eand L)}\ci{l-rl}
 	\end{proof}
-Observe that we have dropped back to using one vertical line.  We are no longer relying on the additional assumption, `$L$', since the conditional itself follows just from our original assumption, `$R$'. The final line of this proof relies only on the initial assumption `$R$' – we made use of the assumption `$L$' only in the nested subproof, and the range of that assumption is restricted to sentences in that subproof. 
+Observe that we have dropped back to using one vertical line.  We are no longer relying on the additional assumption, `$L$', since the conditional itself follows just from our original assumption, `$R$'. The use of conditional introduction has discharged the temporary assumption, so that the final line of this proof relies only on the initial assumption `$R$' – we made use of the assumption `$L$' only in the nested subproof, and the range of that assumption is restricted to sentences in that subproof. 
 
 The general pattern at work here is the following. We first make an additional assumption, A; and from that additional assumption, we prove B. In that case, we have established the following: If is does in fact turn out that A, then it also turns out that B. This is wrapped up in the rule for \define{conditional introduction}:
 \factoidbox{
@@ -288,9 +493,9 @@ The general pattern at work here is the following. We first make an additional a
 			\have[j]{b}{\meta{B}}
 		\close
 		\have[\ ]{}{\vdots}
-		\have[\ ]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
+		\have[\ ]{ab}{(\meta{A}\eif\meta{B})}\ci{a-b}
 	\end{proof}}
-There can be as many or as few lines as you like between lines $i$ and $j$. Notice that in our presentation of the rule, discharging the assumption \meta{A} takes us out of the subproof in which \meta{B} is derived from \meta{A}. If \meta{A} is the initial assumption of a proof, then discharging it may well leave us with a conditional claim that depends on no undischarged assumptions at all. We see an example in this proof, where the main proof, marked by the leftmost vertical line, features no horizontal line marking an assumption:
+There can be as many or as few lines as you like between lines $i$ and $j$. Notice that in our presentation of the rule, discharging the assumption \meta{A} takes us out of the subproof in which \meta{B} is derived from \meta{A}. If \meta{A} is the initial assumption of a proof, then discharging it may well leave us with a conditional claim that depends on \emph{no undischarged assumptions at all}. We see an example in this proof, where the main proof, marked by the leftmost vertical line, features no horizontal line marking an assumption:
 \begin{proof}
 	\open \hypo{a}{P \eand P}
 	\have{b}{P}\ae{a}
@@ -298,7 +503,7 @@ There can be as many or as few lines as you like between lines $i$ and $j$. Noti
 	\have{}{(P\eand P) \eif P}\ci{a-b}
 \end{proof} It might come as no surprise that the conclusion of this proof – being provable from no undischarged assumptions at all - turns out to be a tautology. 
 
-It will help to offer a final  illustration of $\eif$I in action. Suppose we want to consider the following:
+It will help to offer a further  illustration of {\eif}I in action. Suppose we want to consider the following:
 	$$P \eif Q, Q \eif R \ttherefore P \eif R.$$
 We start by listing \emph{both} of our premises. Then, since we want to arrive at a conditional (namely, `$P \eif R$'), we additionally assume the antecedent to that conditional. Thus our main proof starts:
 \begin{proof}
@@ -322,12 +527,51 @@ Note that we have made `$P$' available, by treating it as an additional assumpti
 \end{proof}
 
 
+We now have all the rules we need to show that the argument on page \pageref{longtt} is valid. Here is the six line proof,  some 175,000 times shorter  than the corresponding truth table:\label{ndshort}
+
+\hspace{-2.7cm}
+\begin{minipage}{\textwidth}\small\begin{proof}
+	\hypo{a1c1}{A_{1} \eif C_{1}}
+	\open
+		\hypo{ai}{(A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10})}
+		\have{a1}{A_{1}}\ae{ai}
+		\have{c1}{C_{1}}\ce{a1c1,a1}
+		\have{ci}{(C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5 \eor C_6 \eor C_7 \eor C_8 \eor C_9 \eor C_{10})}\oi{c1}
+		\close
+	\have{c}{(A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10})\eif (C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5 \eor C_6 \eor C_7 \eor C_8 \eor C_9 \eor C_{10})}\ci{ai-ci}
+\end{proof}\end{minipage}
+
+\subsection{Import-Export}
+Our rules so far can be used to demonstrate two important and rather controversial principles governing the conditional. The principle of \define{importation} is the claim that from `if $P$ then, if also $Q$, then $R$' it follows that `if $P$ and also $Q$, then $R$'. The principle of \define{exportation} is the converse, that from `if $P$ and also $Q$, then $R$' it follows that `if $P$, then if also $Q$, then $R$'. First, we prove importation holds for our conditional: \begin{proof}
+	\hypo{ipiqr}{(P \eif (Q \eif R))}
+	\open
+	\hypo{paq}{(P \eand Q)}
+	\have{p}{P}\ae{paq}
+	\have{qr}{(Q \eif R)}\ce{ipiqr,p}
+	\have{q}{Q}\ae{paq}
+	\have{r}{R}\ce{qr,q}
+	\close
+	\have{c}{((P\eand Q)\eif R)}\ci{paq-r}
+\end{proof}
+Second, we show exportation holds. Here, we need to open two nested subproofs:
+\begin{proof}
+	\hypo{paqr}{((P\eand Q)\eif R)}
+	\open
+	\hypo{p}{P}
+	\open
+	\hypo{q}{Q}
+	\have{pq}{(P \eand Q)}\ai{p,q}
+	\have{r}{R}\ce{paqr,pq}
+	\close
+	\have{qr}{(Q \eif R)}\ci{q-r}
+	\close
+	\have{pqr}{(P \eif (Q \eif R))}\ci{p-qr}
+\end{proof}
 
 
+\section{Pitfalls of additional assumptions}
 
 
-
-\section{Additional assumptions and subproofs}
 The rule $\eif$I invoked the idea of making additional assumptions in the range of an assumption. These need to be handled with some care.
 
 Consider this proof:
@@ -355,15 +599,7 @@ But suppose we now tried to continue the proof as follows:
 \end{proof}
 If we were allowed to do this, it would be a disaster. It would allow us to prove any atomic sentence letter from any other atomic sentence letter. But if you tell me that Anne is fast (symbolised by `$A$'), I shouldn't be able to conclude that Queen Boudica stood twenty-feet tall (symbolised by `$B$')! So we must be prohibited from doing this. But how are we to implement the prohibition?
 
-We can describe the process of making an additional assumption as one of performing a \emph{subproof}: a subsidiary proof within the main proof. When we start a subproof, we draw another vertical line to indicate that we are no longer in the main proof. Then we write in the assumption upon which the subproof will be based. A subproof can be thought of as essentially posing this question: \emph{what could we show, if we also make this additional assumption?}
-
-When we are working within the subproof, we can refer to the additional assumption that we made in introducing the subproof, and to anything that we obtained from our original assumptions. (After all, those original assumptions are still in effect.) But at some point, we shall want to stop working with the additional assumption: we shall want to return from the subproof to the main proof. To indicate that we have returned to the main proof, the vertical line for the subproof comes to an end. At this point, we say that the subproof is \define{closed}. Having closed a subproof, we have set aside the additional assumption, so it will be illegitimate to draw upon anything that depends upon that additional assumption. Thus we stipulate:
-\factoidbox{Any rule whose commentary requires mentioning individual lines can mention any earlier lines, \emph{except} for those lines which occur within a closed subproof.}
 This stipulation rules out the disastrous attempted proof above. The rule of $\eif$E requires that we cite two individual lines from earlier in the proof. In the purported proof, above, one of these lines (namely, line 4) occurs within a subproof that has (by line 6) been closed. This is illegitimate. 
-
-Closing a subproof is called \define{discharging} the assumptions of that subproof. So we can put the point this way: \emph{at no stage of a proof can you apply a rule to a sentence that occurs only in the range of an already discharged assumption}. 
-
-Subproofs, then, allow us to think about what we could show, if we made additional assumptions. The point to take away from this is not surprising – in the course of a proof, we have to keep very careful track of what assumptions we are making, at any given moment. Our proof system does this very graphically. (Indeed, that's precisely why we have chosen to use \emph{this} proof system.)
 
 Once we have started thinking about what we can show by making additional assumptions, nothing stops us from posing the question of what we could show if we were to make \emph{even more} assumptions? This might motivate us to introduce a subproof within a subproof. Here is an example which only uses the rules of proof that we have considered so far:
 \begin{proof}
@@ -464,7 +700,7 @@ There is much more to be said about this example. What is beyond doubt is that {
 
 
 
-\section{Biconditional}
+\section{Biconditional Introduction} \label{biint} 
 The rules for the biconditional will be like double-barrelled versions of the rules for the conditional.
 
 In order to prove `$W \eiff X$', for instance, you must be able to prove `$X$' on the assumption `$W$' \emph{and} prove `$W$' on the assumption `$X$'. The \define{biconditional introduction} rule ({\eiff}I) therefore requires two subproofs. Schematically, the rule works like this:
@@ -485,73 +721,16 @@ In order to prove `$W \eiff X$', for instance, you must be able to prove `$X$' o
 \end{proof}}
 There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first. Again, this rule permits us to discharge assumptions, and the same restrictions on making use of claims derived in a closed subproof outside of that subproof apply.
 
-The \define{biconditional elimination} rule ({\eiff}E) lets you do a bit more than the conditional rule. If you have the left-hand subsentence of the biconditional, you can obtain the right-hand subsentence. If you have the right-hand subsentence, you can obtain the left-hand subsentence. So we have these two instances of the rule:
-\factoidbox{\begin{minipage}{0.35\textwidth}
-	\begin{proof}
-	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-	\have[\ ]{}{\vdots}
-	\have[n]{a}{\meta{A}}
-	\have[\ ]{}{\vdots}
-	\have[\ ]{b}{\meta{B}} \be{ab,a}
-\end{proof}
-\end{minipage}\qquad\begin{minipage}{0.35\textwidth}
-	\begin{proof}
-	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-	\have[\ ]{}{\vdots}
-	\have[n]{a}{\meta{B}}
-	\have[\ ]{}{\vdots}
-	\have[\ ]{b}{\meta{A}} \be{ab,a}
-\end{proof}
-\end{minipage}
-}
-Note that the biconditional, and the right or left half, can be separated from one another, and they can appear in any order. However, in the commentary for $\eiff$E, we always cite the biconditional first.
 
-The acceptability of our proof rules is grounded in the fact that they will never lead us from truth to falsehood. The acceptability of the biconditional rules is demonstrated by the following facts, each of which may be shown by consideration of schematic truth tables: \begin{itemize}
-	\item $\meta{A}\eiff\meta{B},\meta{A}\vDash\meta{B}$ and $\meta{B}\eiff\meta{B},\meta{A}\vDash\meta{A}$;
+The acceptability of our proof rules is grounded in the fact that they will never lead us from truth to falsehood. The acceptability of the biconditional introduction rule is demonstrated by the following fact, which may be shown by consideration of schematic truth tables: \begin{itemize}
 	\item If $\meta{C}_{1},…,\meta{C}_{n},\meta{A}\vDash\meta{B}$ and $\meta{C}_{1},…,\meta{C}_{n},\meta{B}\vDash\meta{A}$, then $\meta{C}_{1},…,\meta{C}_{n}\vDash\meta{A}\eiff\meta{B}$.
 \end{itemize}
 
 
 
-\section{Disjunction}
-Suppose Ludwig is reactionary. Then Ludwig is either reactionary or libertarian. After all, to say that Ludwig is either reactionary or libertarian is to say something weaker than to say that Ludwig is reactionary. 
+\section{Disjunction Elimination}\label{disjelim}
 
-Let me emphasise this point. Suppose Ludwig is reactionary. It follows that Ludwig is \emph{either} reactionary \emph{or} a kumquat. Equally, it follows that \emph{either} Ludwig is reactionary \emph{or} that kumquats are the only fruit.  Equally, it follows that \emph{either} Ludwig is reactionary \emph{or} that God is dead. Many of these things are strange inferences to draw. But there is nothing \emph{logically} wrong with them (even if they maybe violate all sorts of implicit conversational norms).
 
-Armed with all this, I present the \define{disjunction introduction} rule(s):
-\factoidbox{\begin{minipage}{0.35\textwidth}
-	\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{}{\vdots}
-	\have[\ ]{ab}{\meta{A}\eor\meta{B}}\oi{a}
-\end{proof}
-\end{minipage}\qquad\begin{minipage}{0.35\textwidth}
-	\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{}{\vdots}
-	\have[\ ]{ba}{\meta{B}\eor\meta{A}}\oi{a}
-\end{proof}
-\end{minipage}}
-Notice that \meta{B} can be \emph{any} sentence whatsoever. So the following is a perfectly good proof:
-\begin{proof}
-	\hypo{m}{M}
-	\have{mmm}{M \eor \Bigl( \bigl( (A\eiff B) \eif (C \eand D)\bigr)  \eiff \bigl( E \eand F\bigr) \Bigr)}\oi{m}
-\end{proof}
-Using a truth table to show this would have taken 128 lines. 
-
-We now have all the rules we need to show that the argument on page \pageref{longtt} is valid. Here is the six line proof,  some 175,000 times shorter  than the corresponding truth table:\label{ndshort}
-
-\hspace{-2.7cm}
-\begin{minipage}{\textwidth}\small\begin{proof}
-	\hypo{a1c1}{A_{1} \eif C_{1}}
-	\open
-		\hypo{ai}{(A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10})}
-		\have{a1}{A_{1}}\ae{ai}
-		\have{c1}{C_{1}}\ce{a1c1,a1}
-		\have{ci}{(C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5 \eor C_6 \eor C_7 \eor C_8 \eor C_9 \eor C_{10})}\oi{c1}
-		\close
-	\have{c}{(A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10})\eif (C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5 \eor C_6 \eor C_7 \eor C_8 \eor C_9 \eor C_{10})}\ci{ai-ci}
-\end{proof}\end{minipage}
 
 
 The disjunction elimination rule is, though, slightly trickier. Suppose that either Ludwig is reactionary or he is libertarian. What can you conclude? Not that Ludwig is reactionary; it might be that he is libertarian instead. And equally, not that Ludwig is libertarian; for he might merely be reactionary. Disjunctions, just by themselves, are hard to work with. 
@@ -708,6 +887,22 @@ Here is a proof corresponding with the argument:
 		\have{dn}{(P \eand D) \eor (P \eand \enot D)}\ne{b-ff}
 	\end{proof} I make two comments. In line 6, the justification cites line 2 which lies outside the subproof. That is okay, since  the application of the rule lies within the range of the assumption of line 2. In line 9, the justification only cites the subproof from 2 to 8, rather than two ranges of line numbers. This is because in this application of our rule, we have the special case where the sentence such that both it and its negation can be derived from the assumption \emph{is} that assumption. It would be trivial to derive it from itself.
 
+Well, consider:
+\begin{proof}
+	\hypo{a}{\enot(P \eor Q)}
+	\open
+		\hypo{p}{P}
+		\have{na}{P \eor Q}\oi{p}
+		\have{r}{\enot (P \eor Q)}\by{R}{a}
+	\close
+	\have{np}{\enot P}\ni{p-r}
+\end{proof}
+This is a fairly typical use of the R rule. If we had not used it, we would have had an awkward (though by no means incorrect) appeal to the instance of `$\enot(P\eor Q)$' in line 1 as part of the application of the $\enot$I rule to line 2. The use of reiteration makes it obvious that a contradiction really is derivable in the range of the assumption `$P$'. The primary use of reiteration is simply to make clear when a sentence falls in the range of an assumption.
+
+
+
+
+
 The negation rules are supported by these valid \TFL\ argument forms: \begin{itemize}
 	\item If $\meta{C}_{1},…,\meta{C}_{n},\meta{A} \vDash \meta{B}$ and $\meta{C}_{1},…,\meta{C}_{n},\meta{A} \vDash \enot\meta{B}$, then $\meta{C}_{1},…,\meta{C}_{n} \vDash \enot\meta{A}$;
 	\item If $\meta{C}_{1},…,\meta{C}_{n},\enot\meta{A} \vDash \meta{B}$ and $\meta{C}_{1},…,\meta{C}_{n},\enot\meta{A} \vDash \enot\meta{B}$, then $\meta{C}_{1},…,\meta{C}_{n} \vDash \meta{A}$;
@@ -799,7 +994,6 @@ You will notice that `tonk' has an introduction rule like `\eor', and an elimina
 If we are to rule out such deviant connectives as `tonk', Prior argues, we have to accept that  `an expression must have some independently determined meaning before we can discover whether inferences involving it are valid or invalid' (Prior, \emph{op}. \emph{cit}., p. 38). We cannot, that is, accept the inferentialist position that the rules of implication come first and the meaning comes second. Inferentialists have replied, but we must unfortunately leave this interesting debate here for now.\footnote{The interested reader might wish to start with this reply to Prior: Nuel D Belnap, Jr (1962) `Tonk, Plonk and Plink', \emph{Analysis} \textbf{22}: 130–34.}
 
 \keyideas{
-	\item A formal natural deduction proof is a graphical representation of reasoning from assumptions, in accordance with a strict set of rules for deriving further claims and managing which assumptions are active (`undischarged') at a given point in the proof.
 	\item The rules for our system are summarised on page \pageref{ProofRules}.
 	\item It is important that we keep track of restrictions on when we can make use of claims derived in a subproof, since those subproofs may be making use of assumptions we are no longer accepting.
 	\item Our proof rules match the interpretation of \TFL\ we have given – they will not permit us to say that some claim is provable from some assumptions when that claim isn't entailed by those assumptions. 
@@ -1007,7 +1201,7 @@ If you know that $\meta{A}\proves\meta{B}$, what can you say about $(\meta{A}\ea
 
 
 
-\chapter{Proof strategies}
+\chapter{Proof strategies}\label{c:proof.strat}
 There is no simple recipe for proofs, and there is no substitute for practice. Here, though, are some rules of thumb and strategies to keep in mind.
 
 \paragraph{Work backwards from what you want.}
@@ -1045,37 +1239,20 @@ Neither of these heuristics is sacrosanct. You will get a sense of how to constr
 
 
 \chapter{Derived rules for \textnormal{\TFL}}\label{s:Further}\label{s:Derived}
-In §\ref{s:BasicTFL}, we introduced the basic rules of our proof system for \TFL. In this section, we shall consider some alternative or additional rules for our system.
+In §§\ref{s:BasicTFLs}–\ref{s:BasicTFLns}, we introduced the basic rules of our proof system for \TFL. In this section, we shall consider some alternative or additional rules for our system.
 
 None of these rules adds anything fundamentally to our system. They are all \define{derived} rules, which means that anything we can prove by using them, we could have proved using just the rules in our original official system of natural deduction proofs. Any of these rules is a \emph{conservative} addition to our proof system, because none of them would enable us to prove anything we could not already prove. (Adding the rules for `tonk' from §\ref{inferentialism}, by contrast, would allow us to prove many new things – any system which includes those rules is not a conservative extension of our original system of proof rules.)
 
  But sometimes adding new rules can shorten proofs, or make them more readable and user-friendly. And some of them are of interest in their own right, as arguably independently plausible rules of implication as they stand, or as alternative rules we could have taken as basic instead.
 
-\section{Reiteration}
-The first additional rule is \define{reiteration} (R). This just allows us to repeat ourselves:
-\factoidbox{\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{b}{\meta{A}} \by{R}{a}
-\end{proof}}
-Such a rule is obviously legitimate; but one might well wonder how such a rule could ever be useful. Well, consider:
-\begin{proof}
-	\hypo{a}{\enot(P \eor Q)}
-	\open
-		\hypo{p}{P}
-		\have{na}{P \eor Q}\oi{p}
-		\have{r}{\enot (P \eor Q)}\by{R}{a}
-	\close
-	\have{np}{\enot P}\ni{p-r}
-\end{proof}
-This is a fairly typical use of the R rule. If we had not used it, we would have had an awkward (though by no means incorrect) appeal to the instance of `$\enot(P\eor Q)$' in line 1 as part of the application of the $\enot$I rule to line 2. The use of reiteration makes it obvious that a contradiction really is derivable in the range of the assumption `$P$'. The primary use of reiteration is simply to make clear when a sentence falls in the range of an assumption.
-
-But we need not have used a rule of reiteration. We could replace each application of the reiteration rule on some line $k+1$ (reiterating some prior line $m$) with the following combination of moves deploying just the \emph{basic} rules of §\ref{s:BasicTFL}:
+\section{Reiteration}\label{der.reit}
+The first derived rule is actually one of our main proof rules: \emph{reiteration}. It turns out that we need not have assumed a rule of reiteration. We can replace each application of the reiteration rule on some line $k+1$ (reiterating some prior line $m$) with the following combination of moves deploying just the \emph{other} basic rules of §§\ref{s:BasicTFLs}–\ref{s:BasicTFLns}:
 \begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[k]{aa}{\meta{A} \eand \meta{A}}\ai{a}
 	\have{a2}{\meta{A}}\ae{aa}
 \end{proof}
-To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses a variable, $\meta{A}$, rather than a sentence of \TFL. But the point is simple. Whatever sentences of \TFL\ we plugged in for $\meta{A}$, and whatever lines we were working on, we could produce a legitimate proof. So you can think of this as a recipe for producing proofs. Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the \emph{basic} rules of §\ref{s:BasicTFL}. So we can describe the rule R as a derived rule, since its justification is derived from our basic rules.
+To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses a variable, $\meta{A}$, rather than a sentence of \TFL. But the point is simple. Whatever sentences of \TFL\ we plugged in for $\meta{A}$, and whatever lines we were working on, we could produce a legitimate proof. So you can think of this as a recipe for producing proofs. Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the \emph{basic} rules of §§\ref{s:BasicTFLs}–\ref{s:BasicTFLns}. So we can describe the rule R as a derived rule, since its justification is derived from our basic rules.
 
 You might note that in lines 5–7 in the complicated proof in Figure~\ref{fig:vi}, we in effect made use of this proof scheme, introducing a conjunction from prior lines only to immediately eliminate again, just to ensure that the relevant sentences appeared directly in the range of the assumption `$Q$'.
 
