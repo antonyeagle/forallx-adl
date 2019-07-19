@@ -35,9 +35,8 @@ This text is under active yet sporadic revision. The list of items below is prim
 	* Give an official introduction to the idea of how to prove an argument in ND – i.e., how to apply the proof system after symbolisation of an argument.
 * Chapter 7 (`forallx-adl-prooffol.tex`)
 * Backmatter
-	* In quick reference, add page numbers for original introduction of relevant rules.
 * Everywhere
-	* Incorporate JO tutorial questions into text chs. 6, 7
+	* Incorporate JO tutorial questions into text ch. 6
 
 
 
