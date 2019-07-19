@@ -124,11 +124,15 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 \subsection*{Conjunction}
 
+\paragraph{Conjunction Introduction, p.\ \pageref{conjint}}
 \begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[n]{b}{\meta{B}}
 	\have[\ ]{c}{\meta{A}\eand\meta{B}} \ai{a, b}
+\end{proof}
 
+\paragraph{Conjunction Elimination, p.\ \pageref{conjelim}}
+\begin{proof}
 	\have[m]{ab}{\meta{A}\eand\meta{B}}
 \\	\have[\ ]{a}{\meta{A}} \ae{ab}
 
@@ -138,19 +142,26 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 \subsection*{Conditional}
 
+\paragraph{Conditional Introduction, p.\ \pageref{condint}}
 \begin{proof}
 	\open
 		\hypo[i]{a}{\meta{A}}
 		\have[j]{b}{\meta{B}}
 	\close
 	\have[\ ]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
+\end{proof}
 
+\paragraph{Conditional Elimination, p.\ \pageref{condelim}}
+\begin{proof}
 	\have[m]{ab}{\meta{A}\eif\meta{B}}
 \\	\have[n]{a}{\meta{A}}
 	\have[\ ]{b}{\meta{B}} \ce{ab,a}
 \end{proof}
 
 \subsection*{Negation}
+
+\paragraph{Negation Introduction, p.\ \pageref{negint}}
+
 \begin{proof}
 \open
 	\hypo[i]{a}{\meta{A}}
@@ -160,6 +171,8 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \have[\ ]{na}{\enot\meta{A}}\ni{a-b,a-nb}
 \end{proof}
 
+
+\paragraph{Negation Elimination, p.\ \pageref{negelim}}
 \begin{proof}
 \open
 	\hypo[i]{a}{\neg\meta{A}}
@@ -173,13 +186,18 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 \subsection*{Disjunction}
 
+\paragraph{Disjunction Introduction, p.\ \pageref{disjint}}
+
 \begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[\ ]{ab}{\meta{A}\eor\meta{B}}\oi{a}
 
 	\have[m]{a}{\meta{A}}
 \\	\have[\ ]{ba}{\meta{B}\eor\meta{A}}\oi{a}
+\end{proof}
 
+\paragraph{Disjunction Elimination, p.\ \pageref{disjelim}}
+\begin{proof}
 	\have[m]{ab}{\meta{A}\eor\meta{B}}
 \\	\open
 		\hypo[i]{a}{\meta{A}}
@@ -194,6 +212,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 \subsection*{Biconditional}
 
+\paragraph{Biconditional Introduction, p.\ \pageref{biint}}
 \begin{proof}
 	\open
 		\hypo[i]{a1}{\meta{A}} 
@@ -204,7 +223,10 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 		\have[l]{a2}{\meta{A}}
 	\close
 	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
+\end{proof}
 
+\paragraph{Biconditional Elimination, p.\ \pageref{bielim}}
+\begin{proof}
 	\have[m]{ab}{\meta{A}\eiff\meta{B}}
 \\	\have[n]{a}{\meta{A}}
 	\have[\ ]{b}{\meta{B}} \be{ab,a}
@@ -214,17 +236,19 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{b}{\meta{A}} \be{ab,a}
 \end{proof}
 
-\end{multicols}
-
-
-\section*{Derived rules for \TFL}
-\begin{multicols}{2}
-\subsection*{Reiteration}
+\subsection*{Reiteration, p.\ \pageref{reit}}
 
 \begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[\ ]{c}{\meta{A}} \by{R}{a}
 \end{proof}
+
+
+\end{multicols}
+
+
+\section*{Derived rules for \TFL, §\ref{s:Derived}}
+\begin{multicols}{2}
 
 \subsection*{Disjunctive syllogism}
 \begin{proof}
