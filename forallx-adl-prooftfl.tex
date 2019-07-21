@@ -6,9 +6,9 @@
 \label{ch.NDTFL}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
-\chapter{The very idea of natural deduction}\label{s:NDVeryIdea}
+\chapter{Proof and Reasoning}\label{s:NDVeryIdea}
 
-\section{Arguments and Reasoning Revisited} % (fold)
+\section{Arguments and reasoning revisited} % (fold)
 \label{sec:arguments_and_reasoning_revisited}
 
 % section arguments_and_reasoning_revisited (end)
@@ -37,7 +37,7 @@ Natural deduction systems promise to give us a better insight – or at least, a
 		P \eif Q, P & \ttherefore Q.
 	\end{align*} From a truth-table perspective, these arguments are indistinguishable: their premises are true in the same valuations, and so are their conclusions. Yet they are distinct from an implicational point of view, since one will involve consideration of the consequences of disjunctions and negations, and the other consideration of the consequences of the conditional. So the natural deduction perspective on arguments promises to give us a more fine-grained analysis of how valid arguments function. 
 
-\section{Efficiency in Natural Deduction} % (fold)
+\section{Efficiency in natural deduction} % (fold)
 \label{sec:efficiency_in_natural_deduction}
 
 % section efficiency_in_natural_deduction (end)
@@ -53,7 +53,7 @@ This argument is also valid – as you can probably tell – but to test it requ
 
 When we get to \FOL, though, the problem gets dramatically worse. There is nothing like the truth table test for \FOL. To assess whether or not an argument is valid, we have to reason about \emph{all} interpretations. But there are infinitely many possible interpretations. We cannot even in principle set a machine to grind through infinitely many possible interpretations and report back when it is finished: it will \emph{never} finish. We either need to come up with some more efficient way of reasoning about all interpretations, or we need to look for something different. Since we already have some motivation for considering the role in arguments of particular premises, rather than all the premises collectively as in the truth-table approach, we will opt for the `something different' path – natural deduction.
 
-\section{Our System of Natural Deduction and its History} % (fold)
+\section{Our system of natural deduction and its history} % (fold)
 \label{sec:our_system_of_natural_deduction_and_its_history}
 
 % section our_system_of_natural_deduction_and_its_history (end)
@@ -144,7 +144,7 @@ What remains to do is to explain each of the rules that we can use along the way
 \chapter{Basic rules for \textnormal{\TFL}: Rules Without Subproofs}\label{s:BasicTFLns}
 
 
-\section{Conjunction Introduction}\label{conjint}
+\section{Conjunction introduction}\label{conjint}
 Suppose I want to show that Ludwig is reactionary \emph{and} libertarian. One obvious way to do this would be as follows: first I show that Ludwig is reactionary; then I show that Ludwig is libertarian; then I put these two demonstrations together, to obtain the conjunction.
 
 Our natural deduction system will capture this thought straightforwardly. In the example given, I might adopt the following symbolisation key to represent the argument in \TFL:
@@ -185,7 +185,7 @@ To be clear, the statement of the rule is \emph{schematic}. It is not itself a p
 
 Note that the rule involves extending the vertical line to cover the newly introduced sentence. This is because what has been derived depends on the same assumptions as what it was derived from, and so it must also be in the range of those assumptions. \factoidbox{All of the rules in this section justify a new claim which inherits all the assumptions of anything from which it has been derived by a natural deduction rule.} 
 
-\section{Conjunction Elimination}\label{conjelim}
+\section{Conjunction elimination}\label{conjelim}
 
 The above rule is called `conjunction \emph{introduction}' because it introduces a sentence with `$\eand$' as its main connective into our proof, prior to which it may have been absent. Correspondingly, we also have a rule that \emph{eliminates} a conjunction. Not that the earlier conjunction is somehow removed! It's just that we use a sentence whose main connective is a conjunction to justify further sentences in which that conjunction does not feature.
 
@@ -274,7 +274,7 @@ Our conjunction rules correspond to intuitively correct patterns of implication.
 It can be recognised, then, that our proof rules correspond to valid arguments in \TFL, and so our conjunction rules will never permit us to derive a false sentence from true sentences. There is no guarantee of course that the assumptions we make in our formal proofs are in fact true – only that if they were true, what we derive from them would also be true. So despite the fact that our proof rules are a \emph{syntactic} procedure, that rely only on recognising the main connective of a sentence and applying an appropriate rule to introduce or eliminate it, each of our rules corresponds to an acceptable entailment.
 
 
-\section{Conditional Elimination}\label{condelim}
+\section{Conditional elimination}\label{condelim}
 Consider the following argument:
 	\begin{quote}
 		If Jane is smart then she is fast. Jane is smart. So Jane is fast.
@@ -293,21 +293,21 @@ This suggests a straightforward \define{conditional elimination} rule ({\eif}E):
 This rule is also sometimes called \emph{modus ponens}. Again, this is an elimination rule, because it allows us to obtain a sentence that may not contain `$\eif$', having started with a sentence that did contain `$\eif$'. Note that the conditional, and the antecedent, can be separated from one another, and they can appear in any order. However, in the commentary for $\eif$E, we always cite the conditional first, followed by the antecedent.
 
 Here is an illustration of the rules we have so far in action, applied to this intuitively correct argument: $$P, \bigl((P \eif Q)\eand(P \eif R)\bigr) \ttherefore (R \eand Q).$$ \begin{proof}
-	\hypo{a}{P}
-	\open
 	\hypo{b}{\bigl((P \eif Q)\eand(P \eif R)\bigr)}
+	\open
+	\hypo{a}{P}
 	\have{c}{(P \eif Q)}\ae{b}
 	\have{d}{(P \eif R)}\ae{b}
 	\have{e}{Q}\ce{c,a}
 	\have{f}{R}\ce{d,a}
 	\have{g}{(R \eand Q)}\ai{f,e}
-\end{proof}
+\end{proof}\label{proof.within}
 
 The correctness of our proof rule of conditional elimination is supported by the easily demonstrated validity of the corresponding entailment: \begin{itemize}
 	\item  $\meta{A}, \meta{A}\eif\meta{B}\entails \meta{B}$.
 \end{itemize} So applying this rule can never produce false conclusions if we began with true assumptions.
 
-\section{Biconditional Elimination}\label{bielim}
+\section{Biconditional elimination}\label{bielim}
 
 The \define{biconditional elimination} rule ({\eiff}E) lets you do a much the same as the conditional rule. Unofficially, a biconditional is like two conditionals running in each direction. So, thought of informally, our biconditional rules correspond to the left-to-right conditional elimination rule, the other of which corresponds to a right-to-left application of conditional elimination. 
 
@@ -362,7 +362,7 @@ The correctness of our proof rules of biconditional elimination is supported by 
 \end{itemize}
 
 
-\section{Disjunction Introduction}\label{disjint}
+\section{Disjunction introduction}\label{disjint}
 
 Suppose Ludwig is reactionary. Then Ludwig is either reactionary or libertarian. After all, to say that Ludwig is either reactionary or libertarian is to say something weaker than to say that Ludwig is reactionary. (\meta{A} is weaker than \meta{B} if \meta{A} follows from \meta{B}, but not \emph{vice versa}.) 
 
@@ -373,13 +373,13 @@ Armed with all this, I present the \define{disjunction introduction} rule(s):
 	\begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[\ ]{}{\vdots}
-	\have[\ ]{ab}{\meta{A}\eor\meta{B}}\oi{a}
+	\have[\ ]{ab}{(\meta{A}\eor\meta{B})}\oi{a}
 \end{proof}
 \end{minipage}\qquad\begin{minipage}{0.35\textwidth}
 	\begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[\ ]{}{\vdots}
-	\have[\ ]{ba}{\meta{B}\eor\meta{A}}\oi{a}
+	\have[\ ]{ba}{(\meta{B}\eor\meta{A})}\oi{a}
 \end{proof}
 \end{minipage}}
 Notice that \meta{B} can be \emph{any} sentence of \TFL\ whatsoever. So the following is a perfectly good proof:
@@ -389,6 +389,14 @@ Notice that \meta{B} can be \emph{any} sentence of \TFL\ whatsoever. So the foll
 \end{proof}
 Using a truth table to show this would have taken 128 lines. 
 
+Here is an example, to show our rules in action: \begin{proof}
+	\hypo{ab}{(A \eand B)}
+	\have{a}{A}\ae{ab}
+	\have{b}{B}\ae{ab}
+	\have{ac}{(A \eor C)}\oi{a}
+	\have{bc}{(B \eor C)}\oi{b}
+	\have{abc}{((A \eor C)\eand(B\eor C))}\ai{ac,bc}
+\end{proof}
 
 \section{Reiteration}\label{reit}
 
@@ -407,6 +415,25 @@ Such a rule is obviously legitimate; but one might well wonder how such a rule c
 \end{proof}
 This rule is unnecessary at this point in the proof (we could have applied conjunction introduction and cited line 1 twice in our commentary), but it can be easier in practice to have two distinct lines to which to apply conjunction introduction. The real benefits of reiteration come when we have multiple subproofs, as we will see in the following section (§\ref{s.subproof}) – particularly when it comes to the negation rules. But we will also see later in §\ref{der.reit} that, strictly speaking, we don't need the reiteration rule – though for convenience we will keep it.
 
+\practiceproblems
+\problempart
+The following `proof' is \emph{incorrect}. Explain the mistakes it makes.
+
+\begin{proof}
+\hypo{abc}{A \eand (B \eand C)}
+\hypo{bcd}{(B \eor C) \eif D}
+\have{b}{B}\ae{abc}
+\have{bc}{B \eor C}\oi{b}
+\have{d}{D}\ce{bc, bcd}
+\end{proof}
+
+\problempart
+Give natural deduction proofs for the following arguments: \begin{earg}
+	\item $P \ttherefore ((P \eor Q) \eand P)$;
+	\item $((P \eand Q) \eand (R \eand P)) \ttherefore ((R \eand Q) \eand P)$;
+	\item $(A \eif (A \eif B)), A \ttherefore B$;
+	\item $(B \eiff (A \eiff B)), B \ttherefore A$.
+\end{earg}
 
 
 
@@ -424,7 +451,7 @@ When we start a subproof, we draw another vertical line (to the right of any exi
 What will be new in this section is that some rules take us \emph{back out} of a subproof. So the rules we will now consider are quite different from the rules covered in §\ref{s:BasicTFLns}, none of which have this feature of being able to escape from a previously introduced assumption.
 
 When we are working within a subproof, we can refer to the additional assumption that we made in introducing the subproof, and to anything that we obtained from our original assumptions. (After all, those original assumptions are still in effect.) But at some point, we shall want to stop working with the additional assumption: we shall want to return from the subproof to the main proof. To indicate that we have returned to the main proof, the vertical line for the subproof comes to an end. At this point, we say that the subproof is \define{closed}. Having closed a subproof, we have set aside the additional assumption, so it will be illegitimate to draw upon anything that depends upon that additional assumption. This has been implicit in our discussion all along, but it is good to make it very clear:
-\factoidbox{Any point in a natural deduction proof is in the range of some currently active assumptions, and the natural deduction rules can be applied only to sentences which do not rely on any other assumptions than those.
+\factoidbox{\label{subproof.rule}Any point in a natural deduction proof is in the range of some currently active assumptions, and the natural deduction rules can be applied only to sentences which do not rely on any other assumptions than those.
 
 Equivalently, any rule can be applied to any earlier lines in a proof, \emph{except} for those lines which occur within a closed subproof. }
 Closing a subproof is called \define{discharging} the assumptions of that subproof. So we can put the point this way: \emph{at no stage of a proof can you apply a rule to a sentence that occurs only in the range of an already discharged assumption}. 
@@ -441,7 +468,7 @@ Even without any new rules, the idea of opening subproofs by making new assumpti
 \end{proof} In this proof, even though the occurrence of `$Q$' on line 4 occurs within the range of the assumption `$R$', it does not intuitively depend on it. We used reiteration to show that `$R$' is still derivable from active assumptions at line 4, but it does not follow that `$R$' depends in any robust way on every assumption that is active at line 4. 
 
 
-\section{Conditional Introduction}\label{condint}
+\section{Conditional introduction}\label{condint}
 
 To illustrate the use of subproofs, we will begin with the rule of conditional introduction. It is fairly easy to motivate informally.\label{ci.motivate} The following argument in English should be valid:
 	\begin{quote}
@@ -503,6 +530,7 @@ There can be as many or as few lines as you like between lines $i$ and $j$. Noti
 	\have{}{(P\eand P) \eif P}\ci{a-b}
 \end{proof} It might come as no surprise that the conclusion of this proof – being provable from no undischarged assumptions at all - turns out to be a tautology. 
 
+
 It will help to offer a further  illustration of {\eif}I in action. Suppose we want to consider the following:
 	$$P \eif Q, Q \eif R \ttherefore P \eif R.$$
 We start by listing \emph{both} of our premises. Then, since we want to arrive at a conditional (namely, `$P \eif R$'), we additionally assume the antecedent to that conditional. Thus our main proof starts:
@@ -526,11 +554,20 @@ Note that we have made `$P$' available, by treating it as an additional assumpti
 	\have{pr}{P \eif R}\ci{p-r}
 \end{proof}
 
+Let's consider another example, this one demonstrating why reiteration can be so useful in subproofs. We know that $P \ttherefore Q \eif P$ is a valid argument, from truth-tables. This is a proof: \begin{proof}
+	\hypo{a}{P}
+	\open
+	\hypo{q}{Q}
+	\have{p}{P}\by{R}{a}
+	\close
+	\have{pq}{(Q \eif P)}\ci{q-p}
+\end{proof} Note that strictly speaking we needn't have used reiteration here: the assumption of `$P$' remains active at line 2, so technically we could apply {\eif}I to close the subproof and introduce the conditional immediately after line 2. But the use of reiteration makes it much clearer what is going on in the proof – even though all it does it repeat the earlier assumption and remind us that it is still an active assumption. 
+
 
 We now have all the rules we need to show that the argument on page \pageref{longtt} is valid. Here is the six line proof,  some 175,000 times shorter  than the corresponding truth table:\label{ndshort}
 
-\hspace{-2.7cm}
-\begin{minipage}{\textwidth}\small\begin{proof}
+
+\hspace{-3cm}	\begin{minipage}{\textwidth}\small\begin{proof}
 	\hypo{a1c1}{A_{1} \eif C_{1}}
 	\open
 		\hypo{ai}{(A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10})}
@@ -541,7 +578,8 @@ We now have all the rules we need to show that the argument on page \pageref{lon
 	\have{c}{(A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10})\eif (C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5 \eor C_6 \eor C_7 \eor C_8 \eor C_9 \eor C_{10})}\ci{ai-ci}
 \end{proof}\end{minipage}
 
-\subsection{Import-Export}
+
+\subsection{Import-Export}\label{import.export}
 Our rules so far can be used to demonstrate two important and rather controversial principles governing the conditional. The principle of \define{importation} is the claim that from `if $P$ then, if also $Q$, then $R$' it follows that `if $P$ and also $Q$, then $R$'. The principle of \define{exportation} is the converse, that from `if $P$ and also $Q$, then $R$' it follows that `if $P$, then if also $Q$, then $R$'. First, we prove importation holds for our conditional: \begin{proof}
 	\hypo{ipiqr}{(P \eif (Q \eif R))}
 	\open
@@ -569,10 +607,10 @@ Second, we show exportation holds. Here, we need to open two nested subproofs:
 \end{proof}
 
 
-\section{Pitfalls of additional assumptions}
+\section{Some pitfalls of additional assumptions}\label{pitfalls}
 
 
-The rule $\eif$I invoked the idea of making additional assumptions in the range of an assumption. These need to be handled with some care.
+Making additional assumptions in the range of an assumption needs to be handled with some care, as I said in §\ref{s.subproof}. Now that we have a rule that discharges assumptions in our repertoire, we can describe some of the potential pitfalls.
 
 Consider this proof:
 \begin{proof}
@@ -584,7 +622,7 @@ Consider this proof:
 	\close
 	\have{con}{B \eif B}\ci{b1-b2}
 \end{proof}
-This is perfectly in keeping with the rules we have laid down already. And it should not seem particularly strange. Since `$B \eif B$' is a tautology, no particular premises should be required to prove it. 
+This is perfectly in keeping with the rules we have laid down already. And it should not seem particularly strange. Since `$B \eif B$' is a tautology, no particular premises should be required to prove it – note that `$A$' plays no particular role in the proof apart from beginning it. 
 
 But suppose we now tried to continue the proof as follows:
 \begin{proof}
@@ -597,9 +635,9 @@ But suppose we now tried to continue the proof as follows:
 	\have{con}{B \eif B}\ci{b1-b2}
 	\have{b}{B}\by{naughty attempt to invoke $\eif$E}{con, b2}
 \end{proof}
-If we were allowed to do this, it would be a disaster. It would allow us to prove any atomic sentence letter from any other atomic sentence letter. But if you tell me that Anne is fast (symbolised by `$A$'), I shouldn't be able to conclude that Queen Boudica stood twenty-feet tall (symbolised by `$B$')! So we must be prohibited from doing this. But how are we to implement the prohibition?
+If we were allowed to do this, it would be a disaster. It would allow us to prove any atomic sentence letter from any other atomic sentence letter. But if you tell me that Anne is fast (symbolised by `$A$'), I shouldn't be able to conclude that Queen Boudica stood twenty-feet tall (symbolised by `$B$')! So we must be prohibited from doing this. The rule on page \pageref{subproof.rule} stipulation rules out the disastrous attempted proof above. The rule of $\eif$E requires that we cite two individual lines from earlier in the proof. In the purported proof, above, one of these lines (namely, line 4) occurs within a subproof that has (by line 6) been closed. This is illegitimate. 
 
-This stipulation rules out the disastrous attempted proof above. The rule of $\eif$E requires that we cite two individual lines from earlier in the proof. In the purported proof, above, one of these lines (namely, line 4) occurs within a subproof that has (by line 6) been closed. This is illegitimate. 
+\section{Subproofs within subproofs}
 
 Once we have started thinking about what we can show by making additional assumptions, nothing stops us from posing the question of what we could show if we were to make \emph{even more} assumptions? This might motivate us to introduce a subproof within a subproof. Here is an example which only uses the rules of proof that we have considered so far:
 \begin{proof}
@@ -632,9 +670,7 @@ Again, though, we need to keep careful track of what we are assuming at any give
 \end{proof}
 This would be awful. If I tell you that Anne is smart, you should not be able to derive that, if Cath is smart (symbolised by `$C$') then \emph{both} Anne is smart and Queen Boudica stood 20-feet tall! But this is just what such a proof would suggest, if it were permissible.
 
-The essential problem is that the subproof that began with the assumption `$C$' depended crucially on the fact that we had assumed `$B$' on line 2. By line 6, we have \emph{discharged} the assumption `$B$': we have stopped asking ourselves what we could show, if we also assumed `$B$'. So it is simply cheating, to try to help ourselves (on line 7) to the subproof that began with the assumption `$C$'. Thus we stipulate, much as before:
-\factoidbox{Any rule whose commentary requires mentioning an entire subproof can mention any earlier subproof, \emph{except} for those subproofs which occur within some \emph{other} closed subproof.}
-The attempted disastrous proof violates this stipulation. The subproof of lines 3–4 occurs within a subproof that ends on line 5. So it cannot be invoked in line 7.
+The essential problem is that the subproof that began with the assumption `$C$' depended crucially on the fact that we had assumed `$B$' on line 2. By line 6, we have \emph{discharged} the assumption `$B$': we have stopped asking ourselves what we could show, if we also assumed `$B$'. So it is simply cheating, to try to help ourselves (on line 7) to the subproof that began with the assumption `$C$'. The attempted disastrous proof violates, as before, the rule in the box on page \pageref{subproof.rule}. The subproof of lines 3–4 occurs within a subproof that ends on line 5. Its assumptions are discharged before line 7, so they cannot be invoked in any rule which applies to produce line 7.
 
 It is always permissible to open a subproof with any assumption. However, there is some strategy involved in picking a useful assumption. Starting a subproof with an arbitrary, wacky assumption would just waste lines of the proof. In order to obtain a conditional by {\eif}I, for instance, you must assume the antecedent of the conditional in a subproof. 
 
@@ -668,42 +704,41 @@ Recall the proof of the argument $$P \eif Q, Q \eif R \ttherefore P \eif R$$ fro
 \end{proof} 
 While it is permissible, and often convenient, to have several assumptions with the same range and without nesting, I recommend always trying to construct your proofs so that each assumption begins its own subproof. That way, if you later wish to apply rules which discharge a single assumption, you may always do so.
 
-\section{Conditional introduction and the English conditional} \label{cond.proof}%Æ added
+\section{Proofs within proofs}
 
-We motivated the conditional introduction rule back on page \pageref{ci.motivate} by giving a English argument, using the English word `if'. Now, {\eif}I is a stipulated rule for our conditional connective \eif; it doesn't really need motivation since we could simply postulate that such a rule is part of our formal proof system. It is justified, if justification is needed, by the Deduction Theorem (a result noted in §\ref{ded.thm}). (Likewise, $\eif$E may be justified by a schematic truth table demonstration that $\meta{A}, \meta{A}\eif\meta{C} \vDash \meta{C}$.)
+One interesting feature of a natural deduction system like ours is that because we can make any assumption at any point, and thereafter continue in accordance with the rules, any correctly formed proof can be \emph{re-used} as a subproof in a later proof. For example, suppose we wanted to give a proof of this argument:  $$\bigl((P \eif Q)\eand(P \eif R)\bigr) \ttherefore (P \eif (R \eand Q)).$$ We begin by opening our proof by assuming the premise. We also note that the conclusion is a conditional, and so we'll assume that it is obtained by an instance of conditional introduction. That will give us this `skeleton' of a proof before we begin filling in the details:
+ \begin{proof}
+	\hypo{b}{\bigl((P \eif Q)\eand(P \eif R)\bigr)}
+	\open
+	\hypo{a}{P}
+	\have[\ ]{c}{\vdots}
+	\have[m]{g}{(R \eand Q)}\ai{f,e}
+	\close
+	\have{h}{(P \eif (R \eand Q))}\ci{a-g}
+\end{proof}
+Then we recall – perhaps! – that we already have a proof that looks very much like this. On page \pageref{proof.within} we have a proof that uses the same premise as ours, but also uses the premise `$P$' to derive `$(R \eand Q)$' – which is what we need. So we can simply copy that whole proof over to fill in the missing section of our proof:
+ \begin{proof}
+	\hypo{b}{\bigl((P \eif Q)\eand(P \eif R)\bigr)}
+	\open
+	\hypo{a}{P}
+	\have{c}{(P \eif Q)}\ae{b}
+	\have{d}{(P \eif R)}\ae{b}
+	\have{e}{Q}\ce{c,a}
+	\have{f}{R}\ce{d,a}
+	\have{g}{(R \eand Q)}\ai{f,e}
+	\close
+	\have{h}{(P \eif (R \eand Q))}\ci{a-g}
+\end{proof}
+This is a very useful feature: for if you have proved something once, you can re-use that proof whenever you need to, as a subproof in some other proof. 
 
-But if we are to offer a motivation for our rule in English, then we must be relying on the plausibility of this English analog of {\eif}I, known as \define{conditional proof}: \factoidbox{
-	If you can establish $\meta{C}$, given the assumption that $\meta{A}$ and perhaps some supplementary assumptions $\meta{B}_{1},…,\meta{B}_{n}$, then you can establish `if $\meta{A}$, $\meta{C}$' solely on the basis of the assumptions $\meta{B}_{1},…,\meta{B}_{n}$.
-} Conditional proof captures a significant aspect of the English `if': the way that  conditional helps us neatly summarise reasoning from assumptions, and then store that reasoning for later use in a conditional form.
-
-
-
-But if conditional proof is a good rule for English `if', then we can argue that `if' is actually synonymous with `$\to$':\ \begin{quote}
-Suppose that $\meta{A} \eif \meta{C}$. Assume $\meta{A}$. We can now derive $\meta{C}$, by {\eif}E. But we have now established $\meta{C}$ on the basis of the assumption $\meta{A}$, together with the supplementary assumption $\meta{A}\eif \meta{C}$. By conditional proof, then, we can establish `if $\meta{A}$, $\meta{C}$' on the basis of the supplementary assumption $\meta{A}\eif \meta{C}$ alone. But that of course means that we can derive (in English) an English conditional sentence from a \TFL\ conditional sentence, with the appropriate interpretation of the constituents \meta{A} and \meta{C}. Since the English conditional sentence obviously suffices for the \TFL\ conditional sentence, we have shown them to be synonymous. 
-\end{quote}  
-
-Our discussion in §\ref{s:ParadoxesOfMaterialConditional} seemed to indicate that the English conditional was not synonymous with `\eif'. That is hard to reconcile with the above argument. Most philosophers have concluded that, contrary to appearances, conditional proof is not always a good way of reasoning for English `if'. Here is an example which shows this, though it requires some background.
-
-It is clearly valid in English, though rather pointless, to argue from a claim to itself. So when \meta{C} is some English sentence, $\meta{C} \ttherefore \meta{C}$ is a valid argument in English. And we cannot make a valid argument invalid by adding more premises:  if premises we already have are conclusive grounds for the conclusion, adding more premises while keeping the conclusive grounds cannot make the argument less conclusive. So $\meta{C},\meta{A} \ttherefore \meta{C}$ is a valid argument in English. 
-
-If conditional proof were a good way of arguing in English, we could convert this valid argument into another valid argument with this form: $\meta{C} \ttherefore \text{if }\meta{A}, \meta{C}$. But then conditional proof would then allow us to convert this valid argument: \begin{earg}
-	\item[\ex{ski1}] I will go skiing tomorrow;
-	\item[\ex{ski2}] I break my leg tonight;
-	\item[So:] I will go skiing tomorrow. \qquad(which is just repeating \ref{ski1} again)
-\end{earg} into this intuitively invalid argument:
-\begin{earg}
-	\item[\ref{ski1}.] I will go skiing tomorrow;
-	\item[So:] If I break my leg tonight, I will go skiing tomorrow.
-\end{earg} This is invalid, because even if the premise is true, the conclusion seems to be actually false. If conditional proof enables us to convert a valid English argument into an invalid argument, so much the worse for conditional proof. 
-
-There is much more to be said about this example. What is beyond doubt is that {\eif}I is a good rule for \TFL, regardless of the fortunes of conditional proof in English. It does seem that instances of conditional proof in mathematical reasoning are all acceptable, which again shows the roots of natural deduction as a formalisation of existing mathematical practice. This would suggest that \eif\ might be a good representation of mathematical uses of `if'.
-
+The converse isn't always true, because sometimes in a subproof you use an assumption from outside the subproof, and if you don't make the same assumption in your other proof, the displaced subproof may no longer correctly follow all the rules it uses. 
 
 
-\section{Biconditional Introduction} \label{biint} 
-The rules for the biconditional will be like double-barrelled versions of the rules for the conditional.
 
-In order to prove `$W \eiff X$', for instance, you must be able to prove `$X$' on the assumption `$W$' \emph{and} prove `$W$' on the assumption `$X$'. The \define{biconditional introduction} rule ({\eiff}I) therefore requires two subproofs. Schematically, the rule works like this:
+\section{Biconditional introduction} \label{biint} 
+Because the biconditional is like a two-way conditional, the introduction rule for the biconditional will be like a two instances of conditional introduction, one for each direction.
+
+In order to prove `$W \eiff X$', for instance, you must be able to prove `$X$' on the assumption `$W$' \emph{and} prove `$W$' on the assumption `$X$'. The \define{biconditional introduction} rule ({\eiff}I) therefore requires two subproofs to license the introduction. Schematically, the rule works like this:
 \factoidbox{
 \begin{proof}
 	\open
@@ -717,9 +752,68 @@ In order to prove `$W \eiff X$', for instance, you must be able to prove `$X$' o
 		\have[l]{a2}{\meta{A}}
 	\close
 	\have[\ ]{}{\vdots}
-	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
+	\have[\ ]{ab}{(\meta{A}\eiff\meta{B})}\bi{a1-b1,b2-a2}
 \end{proof}}
 There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first. Again, this rule permits us to discharge assumptions, and the same restrictions on making use of claims derived in a closed subproof outside of that subproof apply.
+
+We can now prove that a biconditional is like two conjoined conditionals. Using the conditional and biconditional rules, we can prove that a biconditional entails a conjunction of conditionals, and \emph{vice versa}: 
+
+\hspace{-1cm}\begin{minipage}{0.5\textwidth}
+	 \begin{proof}
+	\open \hypo{pq}{(A \eiff B)}
+	\open \hypo{p}{A}
+	\have{b}{B}\be{pq,p}
+	\close
+	\have{ab}{(A \eif B)}\ci{p-b}
+	\open
+	\hypo{b1}{B}
+	\have{a}{A}\be{pq,b1}
+	\close
+	\have{ba}{(B\eif A)}\ci{b1-a}
+	\have{aba}{\bigl((A \eif B) \eand (B \eif A)\bigr)}\ai{ab,ba}
+\end{proof}\end{minipage}\quad \begin{minipage}{0.5\textwidth}
+	\begin{proof}
+		\hypo{aba}{\bigl((A \eif B) \eand (B \eif A)\bigr)}
+		\have{ab}{(A \eif B)}\ae{aba}
+		\open \hypo{a}{A}
+		\have{b}{B}\ce{ab,a}
+		\close
+		\have{ba}{(B \eif A)}\ae{aba}
+		\open \hypo{b1}{B}
+		\have{a1}{A}\ce{ba,b1}
+		\close
+		\have{pq}{(A \eiff B)}\bi{a-b,b1-a1}
+	\end{proof}
+\end{minipage}
+
+Another informative example demonstrates the logical equivalence of `$((P \eand Q) \eif R)$' and `$(P \eif (Q \eif R))$' given importation and exportation (page \pageref{import.export}). We will simply re-use both of our earlier proofs, stitching them together using biconditional introduction in the final line: \begin{proof}
+\open	\hypo{ipiqr}{(P \eif (Q \eif R))}
+	\open
+	\hypo{paq}{(P \eand Q)}
+	\have{p1}{P}\ae{paq}
+	\have{qr1}{(Q \eif R)}\ce{ipiqr,p1}
+	\have{q1}{Q}\ae{paq}
+	\have{r1}{R}\ce{qr1,q1}
+	\close
+	\have{c}{((P\eand Q)\eif R)}\ci{paq-r1}
+\close
+\open
+	\hypo{paqr}{((P\eand Q)\eif R)}
+	\open
+	\hypo{p}{P}
+	\open
+	\hypo{q}{Q}
+	\have{pq}{(P \eand Q)}\ai{p,q}
+	\have{r}{R}\ce{paqr,pq}
+	\close
+	\have{qr}{(Q \eif R)}\ci{q-r}
+	\close
+	\have{pqr}{(P \eif (Q \eif R))}\ci{p-qr}
+	\close
+	\have{bic}{\bigl((P\eand Q)\eif R)\eiff (P \eif (Q \eif R))\bigr)}\bi{paqr-pqr,ipiqr-c}
+\end{proof}
+Note the small gap between the nested vertical lines between lines 7 and 8 – that shows we have two subproofs here, not one. (That would also be indicated by the fact that the sentence on line 8 has a horizontal line under it – no vertical assumption line has two makers of where the assumptions cease.)
+
 
 
 The acceptability of our proof rules is grounded in the fact that they will never lead us from truth to falsehood. The acceptability of the biconditional introduction rule is demonstrated by the following fact, which may be shown by consideration of schematic truth tables: \begin{itemize}
@@ -728,7 +822,7 @@ The acceptability of our proof rules is grounded in the fact that they will neve
 
 
 
-\section{Disjunction Elimination}\label{disjelim}
+\section{Disjunction elimination}\label{disjelim}
 
 
 
@@ -738,7 +832,7 @@ The disjunction elimination rule is, though, slightly trickier. Suppose that eit
 But suppose that we could somehow show both of the following: first, that Ludwig's being reactionary entails that he is an Austrian economist: second, that Ludwig's being libertarian entails that he is an Austrian economist. Then if we know that Ludwig is either reactionary or libertarian, then we know that, whichever he is, Ludwig is an Austrian economist.\footnote{This we might call `no matter whether' reasoning: if each of \meta{A} and \meta{B} imply \meta{C}, then \emph{no matter whether} \meta{A} \emph{or} \meta{B}, still \meta{C}.} This insight can be expressed in the following rule, which is our \define{disjunction elimination} ($\eor$E) rule:
 \factoidbox{
 	\begin{proof}
-		\have[m]{ab}{\meta{A}\eor\meta{B}}
+		\have[m]{ab}{(\meta{A}\eor\meta{B})}
 		\open
 			\hypo[i]{a}{\meta{A}} {}
 			\have[\ ]{}{\vdots}
@@ -951,60 +1045,24 @@ The negation rules are supported by these valid \TFL\ argument forms: \begin{ite
 			\close
 		\have{npvq4}{\enot P \eor Q}\ne{nnpvq-nnpvq,nnpvq-npvq3}
 		\close
-		\have{z}{(\enot P \eor Q)\eiff(P \eif Q)}\bi{npvq-ipq3,ipq4-npvq4}
-\end{proof}\caption{Proof from no assumptions of $(\enot P \eor Q)\eiff(P \eif Q)$\label{fig:vi}}
+		\have{z}{((\enot P \eor Q)\eiff(P \eif Q))}\bi{npvq-ipq3,ipq4-npvq4}
+\end{proof}\caption{A complicated proof\label{fig:vi}}
 \end{figure}
 
 
 
-\section{Inferentialism}\label{inferentialism}
-
-You will have noticed that our rules come in pairs: an introduction rule that tells you how to introduce a connective into a proof from what you have already, and an elimination rule that tells you how to remove it in favour of its consequences. These rules can be justified by consideration of the meanings we assigned to the connectives of \TFL\ in the schematic truth tables of §\ref{s:SchematicTruthTables}.
-
-But perhaps we should invert this order of justification. After all, the proof rules already seem to capture (more or less) how `and', `or', `not', `if', and `iff' work in conversation. We make some claims and assumptions. The introduction and elimination rules summarise how we might proceed in our conversation against the background of those claims and assumptions. Many philosophers have thought that the meaning of an expression is entirely governed by how it is or might be used in a conversation by competent speakers – in slogan form, \emph{meaning is fixed by use}. If these proof rules describe how we might bring an expression into a conversation, and what we may do with it once it is there, then these proof rules describe the totality of facts on which meaning depends. The meaning of a connective, according to this \define{inferentialist} picture, is represented by its introduction and elimination rules – and not by the truth-function that a schematic truth table represents. On this view, it is the correctness of the schematic proof of $\meta{A}\vee\meta{B}$ from $\meta{A}$ which explains \emph{why} the schematic truth table for `$\eor$' has a T on every row on which at least one of its constituents gets a T. 
-
-There is a significant debate on just this issue in the philosophy of language, about the nature of \emph{meaning}. Is the meaning of a word what it represents, the view sometimes called \define{representationalism}? Or is the meaning of a word, rather, given by some rules for how to use it, as inferentialism says? We cannot go deeply into this issue here, but I will say a little. The representationalist view seems to accomodate some expressions very well: the meaning of a name, for example, seems very plausibly to be identified with what it names; the meaning of a predicate might be thought of as the corresponding property. But inferentialism seems more natural as an approach to the logical connectives: 
-\begin{quote}
-	Anyone who has learnt to perform [conjunction introduction and conjunction elimination] knows the meaning of ‘and’, for there is simply nothing more to knowing the meaning of ‘and’ than being able to perform these inferences.\footnote{A N Prior (1961) `The Runabout Inference-Ticket', \emph{Analysis} \textbf{21}: 38.}
-\end{quote} It seems rather unnatural, by contrast, to think that the meaning of `and' is some abstract mathematical `thing' represented by a truth table.
-
-
-Can the inferentialist distinguish good systems of rules, such as those governing `and', from bad systems? The problem is that without appealing to truth tables or the like, we seem to be committed to the legitimacy of rather problematic connectives. The most famous example is Prior's `tonk' governed by these rules:
-
-\begin{minipage}{0.35\textwidth}
-	\begin{proof}
-		\have[m]{a}{\meta{A}}
-		\have[\ ]{}{\vdots}
-		\have[n]{}{\meta{A}\text{ tonk }\meta{B}} \by{tonk-I}{a}
-	\end{proof}
-\end{minipage}\qquad\begin{minipage}{0.35\textwidth}
-	\begin{proof}
-		\have[m]{a}{\meta{A}\text{ tonk }\meta{B}}
-		\have[\ ]{}{\vdots}
-		\have[n]{}{\meta{B}} \by{tonk-E}{a}
-	\end{proof}
-\end{minipage}
-
-You will notice that `tonk' has an introduction rule like `\eor', and an elimination rule like `\eand'. Of course `tonk' is a connective we would not like in a language, since pairing the introduction and elimination rules would allow us to prove any arbitrary sentence from any assumption whatsover: \begin{proof}
-	\hypo{a}{P}
-	\have{b}{P\text{ tonk }Q}\by{tonk-I}{a}
-	\have{c}{Q}\by{tonk-E}{b}
-\end{proof}
-
-If we are to rule out such deviant connectives as `tonk', Prior argues, we have to accept that  `an expression must have some independently determined meaning before we can discover whether inferences involving it are valid or invalid' (Prior, \emph{op}. \emph{cit}., p. 38). We cannot, that is, accept the inferentialist position that the rules of implication come first and the meaning comes second. Inferentialists have replied, but we must unfortunately leave this interesting debate here for now.\footnote{The interested reader might wish to start with this reply to Prior: Nuel D Belnap, Jr (1962) `Tonk, Plonk and Plink', \emph{Analysis} \textbf{22}: 130–34.}
 
 \keyideas{
 	\item The rules for our system are summarised on page \pageref{ProofRules}.
 	\item It is important that we keep track of restrictions on when we can make use of claims derived in a subproof, since those subproofs may be making use of assumptions we are no longer accepting.
 	\item Our proof rules match the interpretation of \TFL\ we have given – they will not permit us to say that some claim is provable from some assumptions when that claim isn't entailed by those assumptions. 
-	\item The philosophical question of whether connectives are given meaning by their truth tables or by their natural deduction rules is an interesting one.
 }
 
 \practiceproblems
 
 \problempart
-The following two `proofs' are \emph{incorrect}. Explain the mistakes they make.
-\begin{multicols}{2}
+The following `proof' is \emph{incorrect}. Explain the mistakes it makes.
+
 \begin{proof}
 \hypo{abc}{\enot L \eif (A \eand L)}
 \open
@@ -1024,14 +1082,7 @@ The following two `proofs' are \emph{incorrect}. Explain the mistakes they make.
 \have{con}{A}\oe{nl-a, l-a2}
 \end{proof}
 
-\begin{proof}
-\hypo{abc}{A \eand (B \eand C)}
-\hypo{bcd}{(B \eor C) \eif D}
-\have{b}{B}\ae{abc}
-\have{bc}{B \eor C}\oi{b}
-\have{d}{D}\ce{bc, bcd}
-\end{proof}
-\end{multicols}
+
 \problempart
 The following three proofs are missing their commentaries (rule and line numbers). Add them, to turn them into bona fide proofs. Additionally, write down the argument that corresponds to each proof.
 \begin{multicols}{2}
@@ -1077,7 +1128,7 @@ The following three proofs are missing their commentaries (rule and line numbers
 \end{proof}
 \end{multicols}
 
-\solutions
+
 \problempart
 \label{pr.solvedTFLproofs}
 Give a proof for each of the following arguments:
@@ -1097,6 +1148,80 @@ Give a proof for each of the following arguments:
 \end{earg}
 
 
+\chapter{Some philosophical issues about conditionals and meaning}
+
+
+\section{Conditional introduction and the English conditional} \label{cond.proof}%Æ added
+
+We motivated the conditional introduction rule back on page \pageref{ci.motivate} by giving a English argument, using the English word `if'. Now, {\eif}I is a stipulated rule for our conditional connective \eif; it doesn't really need motivation since we could simply postulate that such a rule is part of our formal proof system. It is justified, if justification is needed, by the Deduction Theorem (a result noted in §\ref{ded.thm}). (Likewise, $\eif$E may be justified by a schematic truth table demonstration that $\meta{A}, \meta{A}\eif\meta{C} \vDash \meta{C}$.)
+
+But if we are to offer a motivation for our rule in English, then we must be relying on the plausibility of this English analog of {\eif}I, known as \define{conditional proof}: \factoidbox{
+	If you can establish $\meta{C}$, given the assumption that $\meta{A}$ and perhaps some supplementary assumptions $\meta{B}_{1},…,\meta{B}_{n}$, then you can establish `if $\meta{A}$, $\meta{C}$' solely on the basis of the assumptions $\meta{B}_{1},…,\meta{B}_{n}$.
+} Conditional proof captures a significant aspect of the English `if': the way that  conditional helps us neatly summarise reasoning from assumptions, and then store that reasoning for later use in a conditional form.
+
+
+
+But if conditional proof is a good rule for English `if', then we can argue that `if' is actually synonymous with `$\to$':\ \begin{quote}
+Suppose that $\meta{A} \eif \meta{C}$. Assume $\meta{A}$. We can now derive $\meta{C}$, by {\eif}E. But we have now established $\meta{C}$ on the basis of the assumption $\meta{A}$, together with the supplementary assumption $\meta{A}\eif \meta{C}$. By conditional proof, then, we can establish `if $\meta{A}$, $\meta{C}$' on the basis of the supplementary assumption $\meta{A}\eif \meta{C}$ alone. But that of course means that we can derive (in English) an English conditional sentence from a \TFL\ conditional sentence, with the appropriate interpretation of the constituents \meta{A} and \meta{C}. Since the English conditional sentence obviously suffices for the \TFL\ conditional sentence, we have shown them to be synonymous. 
+\end{quote}  
+
+Our discussion in §\ref{s:ParadoxesOfMaterialConditional} seemed to indicate that the English conditional was not synonymous with `\eif'. That is hard to reconcile with the above argument. Most philosophers have concluded that, contrary to appearances, conditional proof is not always a good way of reasoning for English `if'. Here is an example which seems to show this, though it requires some background.
+
+It is clearly valid in English, though rather pointless, to argue from a claim to itself. So when \meta{C} is some English sentence, $\meta{C} \ttherefore \meta{C}$ is a valid argument in English. And we cannot make a valid argument invalid by adding more premises:  if premises we already have are conclusive grounds for the conclusion, adding more premises while keeping the conclusive grounds cannot make the argument less conclusive. So $\meta{C},\meta{A} \ttherefore \meta{C}$ is a valid argument in English. 
+
+If conditional proof were a good way of arguing in English, we could convert this valid argument into another valid argument with this form: $\meta{C} \ttherefore \text{if }\meta{A}, \meta{C}$. But then conditional proof would then allow us to convert this valid argument: \begin{earg}
+	\item[\ex{ski1}] I will go skiing tomorrow;
+	\item[\ex{ski2}] I break my leg tonight;
+	\item[So:] I will go skiing tomorrow. \qquad(which is just repeating \ref{ski1} again)
+\end{earg} into this intuitively invalid argument:
+\begin{earg}
+	\item[\ref{ski1}.] I will go skiing tomorrow;
+	\item[So:] If I break my leg tonight, I will go skiing tomorrow.
+\end{earg} This is invalid, because even if the premise is true, the conclusion seems to be actually false. If conditional proof enables us to convert a valid English argument into an invalid argument, so much the worse for conditional proof. 
+
+There is much more to be said about this example. What is beyond doubt is that {\eif}I is a good rule for \TFL, regardless of the fortunes of conditional proof in English. It does seem that instances of conditional proof in mathematical reasoning are all acceptable, which again shows the roots of natural deduction as a formalisation of existing mathematical practice. This would suggest that \eif\ might be a good representation of mathematical uses of `if'.
+
+
+\section{Inferentialism}\label{inferentialism}
+
+You will have noticed that our rules come in pairs: an introduction rule that tells you how to introduce a connective into a proof from what you have already, and an elimination rule that tells you how to remove it in favour of its consequences. These rules can be justified by consideration of the meanings we assigned to the connectives of \TFL\ in the schematic truth tables of §\ref{s:SchematicTruthTables}.
+
+But perhaps we should invert this order of justification. After all, the proof rules already seem to capture (more or less) how `and', `or', `not', `if', and `iff' work in conversation. We make some claims and assumptions. The introduction and elimination rules summarise how we might proceed in our conversation against the background of those claims and assumptions. Many philosophers have thought that the meaning of an expression is entirely governed by how it is or might be used in a conversation by competent speakers – in slogan form, \emph{meaning is fixed by use}. If these proof rules describe how we might bring an expression into a conversation, and what we may do with it once it is there, then these proof rules describe the totality of facts on which meaning depends. The meaning of a connective, according to this \define{inferentialist} picture, is represented by its introduction and elimination rules – and not by the truth-function that a schematic truth table represents. On this view, it is the correctness of the schematic proof of $\meta{A}\vee\meta{B}$ from $\meta{A}$ which explains \emph{why} the schematic truth table for `$\eor$' has a T on every row on which at least one of its constituents gets a T. 
+
+There is a significant debate on just this issue in the philosophy of language, about the nature of \emph{meaning}. Is the meaning of a word what it represents, the view sometimes called \define{representationalism}? Or is the meaning of a word, rather, given by some rules for how to use it, as inferentialism says? We cannot go deeply into this issue here, but I will say a little. The representationalist view seems to accomodate some expressions very well: the meaning of a name, for example, seems very plausibly to be identified with what it names; the meaning of a predicate might be thought of as the corresponding property. But inferentialism seems more natural as an approach to the logical connectives: 
+\begin{quote}
+	Anyone who has learnt to perform [conjunction introduction and conjunction elimination] knows the meaning of ‘and’, for there is simply nothing more to knowing the meaning of ‘and’ than being able to perform these inferences.\footnote{A N Prior (1961) `The Runabout Inference-Ticket', \emph{Analysis} \textbf{21}: 38.}
+\end{quote} It seems rather unnatural, by contrast, to think that the meaning of `and' is some abstract mathematical `thing' represented by a truth table.
+
+
+Can the inferentialist distinguish good systems of rules, such as those governing `and', from bad systems? The problem is that without appealing to truth tables or the like, we seem to be committed to the legitimacy of rather problematic connectives. The most famous example is Prior's `tonk' governed by these rules:
+
+\begin{minipage}{0.35\textwidth}
+	\begin{proof}
+		\have[m]{a}{\meta{A}}
+		\have[\ ]{}{\vdots}
+		\have[n]{}{\meta{A}\text{ tonk }\meta{B}} \by{tonk-I}{a}
+	\end{proof}
+\end{minipage}\qquad\begin{minipage}{0.35\textwidth}
+	\begin{proof}
+		\have[m]{a}{\meta{A}\text{ tonk }\meta{B}}
+		\have[\ ]{}{\vdots}
+		\have[n]{}{\meta{B}} \by{tonk-E}{a}
+	\end{proof}
+\end{minipage}
+
+You will notice that `tonk' has an introduction rule like `\eor', and an elimination rule like `\eand'. Of course `tonk' is a connective we would not like in a language, since pairing the introduction and elimination rules would allow us to prove any arbitrary sentence from any assumption whatsover: \begin{proof}
+	\hypo{a}{P}
+	\have{b}{P\text{ tonk }Q}\by{tonk-I}{a}
+	\have{c}{Q}\by{tonk-E}{b}
+\end{proof}
+
+If we are to rule out such deviant connectives as `tonk', Prior argues, we have to accept that  `an expression must have some independently determined meaning before we can discover whether inferences involving it are valid or invalid' (Prior, \emph{op}. \emph{cit}., p. 38). We cannot, that is, accept the inferentialist position that the rules of implication come first and the meaning comes second. Inferentialists have replied, but we must unfortunately leave this interesting debate here for now.\footnote{The interested reader might wish to start with this reply to Prior: Nuel D Belnap, Jr (1962) `Tonk, Plonk and Plink', \emph{Analysis} \textbf{22}: 130–34.}
+
+\keyideas{
+	\item The question of how to understand conditionals in natural language is a tricky one. The natural deduction rules we adopt are suitable to understand the logical conditional `$\eif$', but this may only be an approximation of English `if'.
+	\item The philosophical question of whether connectives are given meaning by their truth tables or by their natural deduction rules is an interesting one.
+}
 
 
 \chapter{Proof-theoretic concepts}\label{s:ProofTheoreticConcepts}
@@ -1264,13 +1389,13 @@ Here is a very natural argument form.
 This inference pattern is called \define{disjunctive syllogism}. We could add it to our proof system:
 \factoidbox{\begin{minipage}{0.35\textwidth}
 	\begin{proof}
-	\have[m]{ab}{\meta{A} \eor \meta{B}}
+	\have[m]{ab}{(\meta{A} \eor \meta{B})}
 	\have[n]{nb}{\enot \meta{A}}
 	\have[\ ]{con}{\meta{B}}\by{DS}{ab, nb}
 \end{proof}
 \end{minipage}\qquad\begin{minipage}{0.35\textwidth}
 	\begin{proof}
-	\have[m]{ab}{\meta{A} \eor \meta{B}}
+	\have[m]{ab}{(\meta{A} \eor \meta{B})}
 	\have[n]{nb}{\enot \meta{B}}
 	\have[\ ]{con}{\meta{A}}\by{DS}{ab, nb}
 \end{proof}
@@ -1305,7 +1430,7 @@ Another useful pattern of inference is embodied in the following argument:
 	\end{quote}
 This inference pattern is called \define{\emph{modus tollens}}. The corresponding rule is:
 \factoidbox{\begin{proof}
-	\have[m]{ab}{\meta{A}\eif\meta{B}}
+	\have[m]{ab}{(\meta{A}\eif\meta{B})}
 	\have[n]{a}{\enot\meta{B}}
 	\have[\ ]{b}{\enot\meta{A}}\mt{ab,a}
 \end{proof}}
@@ -1325,7 +1450,7 @@ This rule is, again, a conservative addition to our stock of proof rules. Any ap
 \end{proof}
 Again, we made a dispensible use of reiteration.
 
-\section{Double Negation Elimination}
+\section{Double negation elimination}
 
 In \TFL, the double negation $\enot\enot\meta{A}$ is equivalent to \meta{A}. In natural languages, too, double negations tend to cancel out – Malcolm is not unaware that his leadership is under threat iff he is aware that it is. That said, you should be aware that context and emphasis can prevent them from doing so. Consider: `Jane is not \emph{not} happy'. Arguably, one cannot derive `Jane is happy', since the first sentence should be understood as meaning the same as  `Jane is not \emph{un}happy'. This is compatible with `Jane is in a state of profound indifference'. As usual, moving to \TFL\ forces us to sacrifice certain nuances of English expressions – we have, in \TFL, just one resource for translating negative expressions like `not' and the suffix `un-', even if they are not synonyms in English.
 
@@ -1417,16 +1542,16 @@ Again a dispensible use of reiteration occurs in this proof just to make it more
 
 
 
-\section{De Morgan Rules}
+\section{De Morgan rules}
 Our final additional rules are called De Morgan's Laws. (These are named after the nineteenth century logician August De Morgan.) The first two De Morgan rules show the provable equivalence of a negated conjunction and a disjunction of negations.
 \factoidbox{\begin{minipage}{0.35\textwidth}
 	\begin{proof}
 	\have[m]{ab}{\enot (\meta{A} \eand \meta{B})}
-	\have[\ ]{dm}{\enot \meta{A} \eor \enot \meta{B}}\dem{ab}
+	\have[\ ]{dm}{(\enot \meta{A} \eor \enot \meta{B})}\dem{ab}
 \end{proof}
 \end{minipage}\qquad\begin{minipage}{0.35\textwidth}
 	\begin{proof}
-	\have[m]{ab}{\enot \meta{A} \eor \enot \meta{B}}
+	\have[m]{ab}{(\enot \meta{A} \eor \enot \meta{B})}
 	\have[\ ]{dm}{\enot (\meta{A} \eand \meta{B})}\dem{ab}
 \end{proof}
 \end{minipage}}
@@ -1434,11 +1559,11 @@ The second pair of De Morgan rules are dual to the first pair: they show the pro
 \factoidbox{\begin{minipage}{0.35\textwidth}
 	\begin{proof}
 	\have[m]{ab}{\enot (\meta{A} \eor \meta{B})}
-	\have[\ ]{dm}{\enot \meta{A} \eand \enot \meta{B}}\dem{ab}
+	\have[\ ]{dm}{(\enot \meta{A} \eand \enot \meta{B})}\dem{ab}
 \end{proof}
 \end{minipage}\qquad\begin{minipage}{0.35\textwidth}
 	\begin{proof}
-	\have[m]{ab}{\enot \meta{A} \eand \enot \meta{B}}
+	\have[m]{ab}{(\enot \meta{A} \eand \enot \meta{B})}
 	\have[\ ]{dm}{\enot (\meta{A} \eor \meta{B})}\dem{ab}
 \end{proof}
 \end{minipage}}
