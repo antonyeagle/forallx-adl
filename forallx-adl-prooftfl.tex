@@ -132,7 +132,7 @@ Note that the single vertical line to the left indicates the range of all of the
 This can sometimes be useful when we want to see which conclusions follow from some but not all of the premises. It looks a bit different to the earlier proof, but in fact represents the same dependencies: the conclusion is in the range of three assumptions, all of which remain in force throughout the proof.
 
 
-What remains to do is to explain each of the rules that we can use along the way from premises to conclusion. The rules are divided into two families: those rules that involve making or getting rid of further assumptions that are made `for the sake of argument', and those that do not. The latter class of rules are simpler, so we will begin with those.
+What remains to do is to explain each of the rules that we can use along the way from premises to conclusion. The rules are divided into two families: those rules that involve making or getting rid of further assumptions that are made `for the sake of argument', and those that do not. The latter class of rules are simpler, so we will begin with those. After introducing the rules, I will return in §\ref{c:putting} to the two incomplete proofs above, to see how they may be completed.
 
 \keyideas{
 	\item Any formal proof is a sequence of sentences, each of which follows by some relatively simple rules from previous sentences or is licensed in some other way. The final sentence is the conclusion of the proof.
@@ -420,6 +420,12 @@ Such a rule is obviously legitimate; but one might well wonder how such a rule c
 \end{proof}
 This rule is unnecessary at this point in the proof (we could have applied conjunction introduction and cited line 1 twice in our commentary), but it can be easier in practice to have two distinct lines to which to apply conjunction introduction. The real benefits of reiteration come when we have multiple subproofs, as we will see in the following section (§\ref{s.subproof}) – particularly when it comes to the negation rules. But we will also see later in §\ref{der.reit} that, strictly speaking, we don't need the reiteration rule – though for convenience we will keep it.
 
+\keyideas{
+	\item Natural deduction gives us rules that tell us how to infer \emph{from} a sentence with a certain main connective (elimination rules), and rules that tell us how to infer \emph{to} a sentence with a certain main connective (introduction rules).
+	\item Proofs using the rules so far retain all the assumptions made during the course of the proof, and so correspond to an argument with those assumptions as premises and the final line of the proof as a conclusion.
+	\item Reiteration is an optional rule, but useful for housekeeping in proofs.
+}
+
 \practiceproblems
 \problempart
 The following `proof' is \emph{incorrect}. Explain the mistakes it makes.
@@ -471,7 +477,6 @@ Even without any new rules, the idea of opening subproofs by making new assumpti
 	\open \hypo{r}{R}
 	\have{q2}{Q}\by{R}{q}
 \end{proof} In this proof, even though the occurrence of `$Q$' on line 4 occurs within the range of the assumption `$R$', it does not intuitively depend on it. We used reiteration to show that `$R$' is still derivable from active assumptions at line 4, but it does not follow that `$R$' depends in any robust way on every assumption that is active at line 4. 
-
 
 \section{Conditional introduction}\label{condint}
 
@@ -741,7 +746,7 @@ The converse isn't always true, because sometimes in a subproof you use an assum
 
 
 \section{Biconditional introduction} \label{biint} 
-Because the biconditional is like a two-way conditional, the introduction rule for the biconditional will be like a two instances of conditional introduction, one for each direction.
+The biconditional is like a two-way conditional. The introduction rule for the biconditional resembles two instances of conditional introduction, one for each direction.
 
 In order to prove `$W \eiff X$', for instance, you must be able to prove `$X$' on the assumption `$W$' \emph{and} prove `$W$' on the assumption `$X$'. The \define{biconditional introduction} rule ({\eiff}I) therefore requires two subproofs to license the introduction. Schematically, the rule works like this:
 \factoidbox{
@@ -791,7 +796,7 @@ We can now prove that a biconditional is like two conjoined conditionals. Using 
 	\end{proof}
 \end{minipage}
 
-Another informative example demonstrates the logical equivalence of `$((P \eand Q) \eif R)$' and `$(P \eif (Q \eif R))$' given importation and exportation (page \pageref{import.export}). We will simply re-use both of our earlier proofs, stitching them together using biconditional introduction in the final line: \begin{proof}
+Another informative example demonstrates the logical equivalence of `$((P \eand Q) \eif R)$' and `$(P \eif (Q \eif R))$' given importation and exportation (page \pageref{import.export}). We will re-use both of our earlier proofs, stitching them together using biconditional introduction in the final line: \begin{proof}
 \open	\hypo{ipiqr}{(P \eif (Q \eif R))}
 	\open
 	\hypo{paq}{(P \eand Q)}
@@ -821,7 +826,7 @@ Note the small gap between the nested vertical lines between lines 7 and 8 – t
 
 
 
-The acceptability of our proof rules is grounded in the fact that they will never lead us from truth to falsehood. The acceptability of the biconditional introduction rule is demonstrated by the following fact, which may be shown by consideration of schematic truth tables: \begin{itemize}
+The acceptability of our proof rules is grounded in the fact that they will never lead us from truth to falsehood. The acceptability of the biconditional introduction rule is demonstrated by the following correct entailment: \begin{itemize}
 	\item If $\meta{C}_{1},…,\meta{C}_{n},\meta{A}\vDash\meta{B}$ and $\meta{C}_{1},…,\meta{C}_{n},\meta{B}\vDash\meta{A}$, then $\meta{C}_{1},…,\meta{C}_{n}\vDash\meta{A}\eiff\meta{B}$.
 \end{itemize}
 
@@ -923,13 +928,11 @@ This disjunction rule is supported by the following valid \TFL\ argument form: \
 
 \section{Negation introduction}\label{negint}
 
-Our negation rules are inspired by the informal form of reasoning known as \emph{reductio} – we encountered this earlier on page \pageref{reductio}. In \emph{reductio} reasoning, we make an assumption that \meta{A} for the sake of argument, and show that something absurd or contradictory follows from it. Then we can conclude that our assumption was false. And if a claim is false, then its negation must be true. There are lots of approaches to negation in natural deduction, but all of them stem from this same basic insight: when assuming \meta{A} goes awry in some way, conclude $\enot \meta{A}$.
+Our negation rules are inspired by the form of reasoning known as \emph{reductio} (recall page \pageref{reductio}). In \emph{reductio} reasoning, we make an assumption that \meta{A} for the sake of argument, and show that something contradictory follows from it. Then we can conclude that our assumption was false, and that its negation must be true. There are lots of approaches to negation in natural deduction, but all of them stem from this same basic insight: when an assumption that \meta{A} goes awry, conclude $\enot \meta{A}$.
 
-So if 
+We see \emph{reductio} reasoning used a lot in mathematics. For example: Suppose there is a largest number, call it $n$. Since $n$ is the largest number, $n+1 \leqslant n$. But then, subtracting $n$ from both sides, $1 \leqslant 0$. And that is absurd. So there is no largest number. Here, we make an assumption, for the sake of argument. We derive from it a claim, in this case that $1 \leqslant 0$. And we note that claim is absurd, \emph{given what we already know}. So we conclude that the negation of our assumption holds, and cease to rely on the problematic assumption.
 
-
-
-Our \define{negation introduction} rule fits this pattern very clearly: \factoidbox{
+The only claims in logic that it is safe to say are absurd are contradictions. So in a logical version of \emph{reductio} reasoning, we will want to show that claims that contradict one another will be derivable in the range of an assumption, in order to prove the negation of that assumption. Our \define{negation introduction} rule fits this pattern very clearly: \factoidbox{
 	\begin{proof}
 	\open
 	\hypo[i]{a}{\meta{A}}
@@ -938,10 +941,38 @@ Our \define{negation introduction} rule fits this pattern very clearly: \factoid
 	\have[\ ]{}{\vdots}
 	\have[k]{c}{\enot\meta{B}}
 	\close
-	\have[\ ]{}{\vdots}
 	\have[\ ]{}{\enot\meta{A}}\ni{a-b,a-c}	
 	\end{proof}
-} Here, we can derive a sentence and its negation both within the range of the assumption that \meta{A}. So if \meta{A} were assumed, something contradictory would be derivable under that assumption. (We could apply conjunction introduction to lines $j$ and $k$ to make the contradiction explicit, but that wouldn't be strictly necessary.) Since contradictions are fundamentally unacceptable as the termination of a chain of argument, we must have begun with an inappropriate starting point when we assumed \meta{A}. So, in fact, we conclude, $\enot \meta{A}$, discharging our erroneous assumption that \meta{A}. There is no need for the line with \meta{B} on it to occur before the line with $\enot\meta{B}$ on it.
+} Here, we can prove a sentence and its negation both within the range of the assumption that \meta{A}. So if \meta{A} were assumed, something contradictory would be derivable under that assumption. (We could apply conjunction introduction to lines $j$ and $k$ to make the contradiction explicit, but that wouldn't be strictly necessary.) Since contradictions are fundamentally unacceptable as the termination of a chain of argument, we must have begun with an inappropriate starting point when we assumed \meta{A}. So, in fact, we conclude, $\enot \meta{A}$, discharging our erroneous assumption that \meta{A}. There is no need for the line with \meta{B} on it to occur before the line with $\enot\meta{B}$ on it.
+
+Almost always the contradiction arises because of a clash between the claim we assume and some bit of prior knowledge – typically, some claim we have established earlier in the proof. We will thus make frequent use of the rule of reiteration in applications of negation introduction, to get the contradictory claims in the right place to make the rule easy to apply. Here is an example of the rule in action, showing that this argument is provable: $$A, \enot B \ttherefore \enot (A \eif B).$$ \begin{proof}
+	\hypo{a}{A}
+	\hypo{nb}{\enot B}
+	\open
+	\hypo{ab}{A \eif B}
+	\have{b}{B}\ce{ab,a}
+	\have{nbb}{\enot B}\by{R}{nb}
+	\close
+	\have{e}{\enot(A \eif B)}\ni{ab-b,ab-nbb}
+\end{proof}
+
+Another example, for practice. Let's prove this argument: $$(C \eif \enot A) \therefore (A \eif \enot C).$$ \begin{proof}
+	\hypo{cna}{(C \eif \enot A)}
+	\open
+	\hypo{a}{A}
+	\open
+	\hypo{c}{C}
+	\have{na}{\enot A}\ce{cna,c}
+	\have{ar}{A}\by{R}{a}
+	\close
+	\have{nc}{\enot C}\ni{c-ar,c-na}
+	\close
+	\have{ac}{(A \eif \enot C)}\ci{a-nc}
+\end{proof}
+
+
+The correctness of the negation introduction rule is demonstrated by this valid \TFL\ argument form: \begin{itemize}
+	\item If $\meta{C}_{1},…,\meta{C}_{n},\meta{A} \vDash \meta{B}$ and $\meta{C}_{1},…,\meta{C}_{n},\meta{A} \vDash \enot\meta{B}$, then $\meta{C}_{1},…,\meta{C}_{n} \vDash \enot\meta{A}$. \end{itemize}
 
 \section{Negation elimination}\label{negelim}
 
@@ -954,7 +985,7 @@ The rule of negation introduction is interesting, because it is \emph{almost} it
 	\have[k]{c}{\enot\meta{B}}
 	\close
 	\have{}{\enot\enot\meta{A}}\ni{a-b,a-c}
-\end{proof} This proof terminates with a sentence that is logically equivalent to \meta{A}, discharing the assumption that $\enot\meta{A}$ because it leads to contradictory conclusions. This looks awfully close to a rule of negation elimination – if only we could find a way to replace a doubly-negated sentence $\enot\enot\meta{A}$ by the logically equivalent sentence \meta{A}, which would have eliminated the negation from the problematic assumption $\enot\meta{A}$.
+\end{proof} This proof terminates with a sentence that is logically equivalent to \meta{A}, discharging the assumption that $\enot\meta{A}$ because it leads to contradictory conclusions. This looks awfully close to a rule of negation elimination – if only we could find a way to replace a doubly-negated sentence $\enot\enot\meta{A}$ by the logically equivalent sentence \meta{A}, which would have eliminated the negation from the problematic assumption $\enot\meta{A}$.
 
 
 In our system, we approach this problem by the brute force method – we allow ourselves to use the derivation of contradictory sentences from a negated sentence to motivate the elimination of that negation. This leads to our rule of \define{negation elimination}:
@@ -967,12 +998,26 @@ In our system, we approach this problem by the brute force method – we allow o
 	\have[\ ]{}{\vdots}
 	\have[k]{c}{\enot\meta{B}}
 	\close
-	\have[\ ]{}{\vdots}
 	\have[\ ]{}{\meta{A}}\ne{a-b,a-c}	
 	\end{proof}
 } 
 
-This is also  reductio reasoning:  and likewise, if assuming  $\enot \meta{A}$ goes awry, conclude \meta{A}.
+This is also \emph{reductio} reasoning, though in this case from a negated assumption. But again, if the assumption of $\enot \meta{A}$ goes awry and allows us to derive contradictory claims (perhaps given what we've already shown), that licenses us to conclude \meta{A}.
+
+With the rule of negation elimination, we can prove some claims that are hard to prove directly. For example, suppose we wanted to prove the law of \define{excluded middle}, that `$(P \eor \enot P)$'. You might initially have thought: \emph{it is a disjunction, so should be proved by disjunction introduction}. But we cannot prove either the sentence letter `$P$' or its negation from no assumptions – so we could not prove excluded middle from no assumptions if it was by disjunction introduction from one of its disjuncts. So we proceed indirectly: we show that supposing the negation of the law of excluded middle leads to contradiction, and conclude it by negation elimination: \begin{proof}
+	\open \hypo{ne}{\enot(P \eor \enot P)}
+	\open
+	\hypo{p}{P}
+	\have{e}{(P \eor \enot P)}\oi{p}
+	\have{ner}{\enot(P \eor \enot P)}\by{R}{ne}
+	\close
+	\have{np}{\enot P}\ni{p-e,p-ner}
+	\have{npo}{(P \eor \enot P)}\oi{np}
+	\have{ner2}{\enot(P \eor \enot P)}\by{R}{ne}
+	\close
+	\have{ec}{(P \eor \enot P)}\ne{ne-npo,ne-ner2}
+\end{proof}
+One interesting feature of this proof is that one of the contradictory sentences is the assumption itself. When the assumption that \enot\meta{A} goes wrong, it might be because we have the resources to prove \meta{A}!
 
 
 To see our negation rules in action, consider:
@@ -994,28 +1039,22 @@ Here is a proof corresponding with the argument:
 		\have{dn}{(P \eand D) \eor (P \eand \enot D)}\ne{b-ff}
 	\end{proof} I make two comments. In line 6, the justification cites line 2 which lies outside the subproof. That is okay, since  the application of the rule lies within the range of the assumption of line 2. In line 9, the justification only cites the subproof from 2 to 8, rather than two ranges of line numbers. This is because in this application of our rule, we have the special case where the sentence such that both it and its negation can be derived from the assumption \emph{is} that assumption. It would be trivial to derive it from itself.
 
-Well, consider:
-\begin{proof}
-	\hypo{a}{\enot(P \eor Q)}
-	\open
-		\hypo{p}{P}
-		\have{na}{P \eor Q}\oi{p}
-		\have{r}{\enot (P \eor Q)}\by{R}{a}
-	\close
-	\have{np}{\enot P}\ni{p-r}
-\end{proof}
-This is a fairly typical use of the R rule. If we had not used it, we would have had an awkward (though by no means incorrect) appeal to the instance of `$\enot(P\eor Q)$' in line 1 as part of the application of the $\enot$I rule to line 2. The use of reiteration makes it obvious that a contradiction really is derivable in the range of the assumption `$P$'. The primary use of reiteration is simply to make clear when a sentence falls in the range of an assumption.
-
-
-
-
-
-The negation rules are supported by these valid \TFL\ argument forms: \begin{itemize}
-	\item If $\meta{C}_{1},…,\meta{C}_{n},\meta{A} \vDash \meta{B}$ and $\meta{C}_{1},…,\meta{C}_{n},\meta{A} \vDash \enot\meta{B}$, then $\meta{C}_{1},…,\meta{C}_{n} \vDash \enot\meta{A}$;
+The negation elimination rule is supported by this valid \TFL\ argument form: \begin{itemize}
 	\item If $\meta{C}_{1},…,\meta{C}_{n},\enot\meta{A} \vDash \meta{B}$ and $\meta{C}_{1},…,\meta{C}_{n},\enot\meta{A} \vDash \enot\meta{B}$, then $\meta{C}_{1},…,\meta{C}_{n} \vDash \meta{A}$;
 \end{itemize}
 
-\emph{These are all of the basic rules for the proof system for \TFL.} Figure \ref{fig:vi} shows a long proof involving most of our rules in action. \begin{figure}
+\section{Putting it All Together}\label{c:putting}
+
+\emph{We have now explained all of the basic rules for the proof system for \TFL.} Let's return to some of the arguments from §\ref{c:ass} with which we began our exploration of this system, to see how they can be proved.
+
+TBD
+
+$$\enot (A \eor B) \ttherefore \enot A \eand \enot B.$$
+
+$$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \ttherefore \enot C\eor D.$$
+
+
+Figure \ref{fig:vi} shows a long proof involving most of our rules in action. \begin{figure}
 	\begin{proof}
 	\open
 	\hypo{npvq}{\enot P \eor Q}
@@ -1260,7 +1299,7 @@ To illustrate this, suppose I want to prove that `$\enot (A \eand \enot A)$' is 
 		\close
 		\have{lnc}{\enot (A \eand \enot A)}\ni{con-a,con-na}
 	\end{proof}
-We have therefore proved `$\enot (A \eand \enot A)$' on no (undischarged) assumptions. This particular theorem is an instance of what is sometimes called \emph{the Law of Non-Contradiction}, that for any \meta{A}, $\enot(\meta{A}\eand\enot\meta{A})$.
+We have therefore proved `$\enot (A \eand \enot A)$' on no (undischarged) assumptions. This particular theorem is an instance of what is sometimes called \emph{the Law of Non-Contradiction}, that for any \meta{A}, $\enot(\meta{A}\eand\enot\meta{A})$. We actually already saw a proof showing that the law of excluded middle is a theorem in §\ref{negelim}.
 
 To show that something is a theorem, you just have to find a suitable proof. It is typically much harder to show that something is \emph{not} a theorem. To do this, you would have to demonstrate, not just that certain proof strategies fail, but that \emph{no} proof is possible. Even if you fail in trying to prove a sentence in a thousand different ways, perhaps the proof is just too long and complex for you to make out. Perhaps you just didn't try hard enough.
 
@@ -1304,7 +1343,6 @@ provable & one proof & all possible proofs\\
 Give a proof showing that each of the following sentences is a theorem:
 \begin{earg}
 \item $O \eif O$;
-\item $N \eor \enot N$;
 \item $J \eiff \bigl(J\eor (L\eand\enot L) \bigr)$;
 \item $((A \eif B) \eif A) \eif A$;
 \item $\bigl((P \eif P) \eif Q)\bigr) \eif Q$;
