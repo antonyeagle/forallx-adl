@@ -398,6 +398,11 @@ Here is an example, to show our rules in action: \begin{proof}
 	\have{abc}{((A \eor C)\eand(B\eor C))}\ai{ac,bc}
 \end{proof}
 
+This disjunction rule is supported by the following valid \TFL\ argument forms: \begin{itemize}
+	\item $\meta{A}\vDash\meta{A}\eor\meta{B}$; and 
+	\item $\meta{B}\vDash\meta{A}\eor\meta{B}$.
+\end{itemize}
+
 \section{Reiteration}\label{reit}
 
 The last natural deduction rule in this category is \define{reiteration} (R). This just allows us to repeat an assumption or claim \meta{A} we have already established, so long as the current stage of the proof remains in the range of any assumption which \meta{A} is in the range of.
@@ -825,19 +830,22 @@ The acceptability of our proof rules is grounded in the fact that they will neve
 \section{Disjunction elimination}\label{disjelim}
 
 
+The disjunction elimination rule is slightly trickier than those we've seen so far. Suppose that either Ludwig is reactionary or he is libertarian. What can you conclude? Not that Ludwig is reactionary; it might be that he is libertarian instead. And equally, not that Ludwig is libertarian; for he might merely be reactionary. It can be hard to draw a definite conclusion from a disjunction just by itself.
+
+But suppose that we could somehow show both of the following: first, that Ludwig's being reactionary entails that he is an Austrian economist: second, that Ludwig's being libertarian \emph{also} entails that he is an Austrian economist. Then if we know that Ludwig is either reactionary or libertarian, then we know that, whichever he is, Ludwig is an Austrian economist. This we might call `no matter whether' reasoning: if each of \meta{A} and \meta{B} imply \meta{C}, then \emph{no matter whether} \meta{A} \emph{or} \meta{B}, still \meta{C}. Sometimes this kind of reasoning is called \emph{proof by cases}, since you start with the assumption that either of two cases holds, and then show something follows no matter which case is actual. 
 
 
-The disjunction elimination rule is, though, slightly trickier. Suppose that either Ludwig is reactionary or he is libertarian. What can you conclude? Not that Ludwig is reactionary; it might be that he is libertarian instead. And equally, not that Ludwig is libertarian; for he might merely be reactionary. Disjunctions, just by themselves, are hard to work with. 
-
-But suppose that we could somehow show both of the following: first, that Ludwig's being reactionary entails that he is an Austrian economist: second, that Ludwig's being libertarian entails that he is an Austrian economist. Then if we know that Ludwig is either reactionary or libertarian, then we know that, whichever he is, Ludwig is an Austrian economist.\footnote{This we might call `no matter whether' reasoning: if each of \meta{A} and \meta{B} imply \meta{C}, then \emph{no matter whether} \meta{A} \emph{or} \meta{B}, still \meta{C}.} This insight can be expressed in the following rule, which is our \define{disjunction elimination} ($\eor$E) rule:
+This insight can be expressed in the following rule, which is our \define{disjunction elimination} ($\eor$E) rule:
 \factoidbox{
 	\begin{proof}
 		\have[m]{ab}{(\meta{A}\eor\meta{B})}
+		\have[\ ]{}{\vdots}
 		\open
 			\hypo[i]{a}{\meta{A}} {}
 			\have[\ ]{}{\vdots}
 			\have[j]{c1}{\meta{C}}
 		\close
+		\have[\ ]{}{\vdots}
 		\open
 			\hypo[k]{b}{\meta{B}}{}
 			\have[\ ]{}{\vdots}
@@ -848,7 +856,8 @@ But suppose that we could somehow show both of the following: first, that Ludwig
 	\end{proof}}
 This is obviously a bit clunkier to write down than our previous rules, but the point is fairly simple. Suppose we have some disjunction, $\meta{A} \eor \meta{B}$. Suppose we have two subproofs, showing us that $\meta{C}$ follows from the assumption that $\meta{A}$, and that $\meta{C}$ follows from the assumption that $\meta{B}$. Then we can derive $\meta{C}$ itself. As usual, there can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs and the disjunction can come in any order, and do not have to be adjacent.
 
-Some examples might help illustrate this. Consider this argument:
+
+Some examples might help illustrate the rule in action. Consider this argument:
 $$(P \eand Q) \eor (P \eand R) \ttherefore P.$$
 An example proof might run thus:
 	\begin{proof}
@@ -863,7 +872,30 @@ An example proof might run thus:
 			\close
 		\have{con}{P}\oe{prem, pq-p1, pr-p2}
 	\end{proof}
-Here is a slightly harder example. Consider:
+An adaptation of the previous proof can be used to establish a proof for this argument: $$(P \eand Q) \eor (P \eand R) \ttherefore (P \eand(Q \eor R)).$$
+We begin the cases in the same way as above, but as we continue please note the use of the disjunction introduction rule to get the last line of each subproof in the right format to use disjunction elimination. 
+	\begin{proof}
+		\hypo{prem}{(P \eand Q) \eor (P \eand R) }
+			\open
+				\hypo{pq}{P \eand Q}
+				\have{p1}{P}\ae{pq}
+				\have{q}{Q}\ae{pq}
+				\have{qr}{(Q \eor R)}\oi{q}
+				\have{ca}{P \eand (Q \eor R)}\ai{p1,qr}
+			\close
+			\open
+				\hypo{pr}{P \eand R}
+				\have{p2}{P}\ae{pr}
+				\have{r}{R}\ae{pr}
+				\have{rq}{(Q \eor R)}\oi{r}
+				\have{cb}{P \eand (Q \eor R)}\ai{p2,rq}
+			\close
+		\have{con}{P \eand (Q \eor R)}\oe{prem, pq-ca, pr-cb}
+	\end{proof}
+
+Don't be alarmed if you think that you wouldn't have been able to come up with this proof yourself. The ability to come up with novel proofs will come with practice. The key question at this stage is whether, looking at the proof, you can see that it conforms with the rules that we have laid down. And that just involves checking every line, and making sure that it is justified in accordance with the rules we have laid down.
+
+Another slightly tricky example. Consider:
 	$$ A \eand (B \eor C) \ttherefore (A \eand B) \eor (A \eand C).$$
 Here is a proof corresponding to this argument:
 	\begin{proof}
@@ -882,45 +914,20 @@ Here is a proof corresponding to this argument:
 		\close
 	\have{con}{(A \eand B) \eor (A \eand C)}\oe{boc, b-abo, c-aco}
 	\end{proof}
-Don't be alarmed if you think that you wouldn't have been able to come up with this proof yourself. The ability to come up with novel proofs will come with practice. The key question at this stage is whether, looking at the proof, you can see that it conforms with the rules that we have laid down. And that just involves checking every line, and making sure that it is justified in accordance with the rules we have laid down.
 
-Again, our disjunction rules are supported by some valid \TFL\ argument forms: \begin{itemize}
-	\item $\meta{A}\vDash\meta{A}\eor\meta{B}$ and $\meta{B}\vDash\meta{A}\eor\meta{B}$;
+
+This disjunction rule is supported by the following valid \TFL\ argument form: \begin{itemize}
 	\item If $\meta{D}_{1},…,\meta{D}_{n},\meta{A}\eor\meta{B},\meta{A}\vDash\meta{C}$ and $\meta{D}_{1},…,\meta{D}_{n},\meta{A}\eor\meta{B},\meta{B}\vDash\meta{C}$, then $\meta{D}_{1},…,\meta{D}_{n},\meta{A}\eor\meta{B}\vDash\meta{C}$.
 \end{itemize}
 
 
-% \section{Contradiction}
-% We have only one connective left to deal with: negation. But we shall not tackle negation directly. Instead, we shall first think about \emph{contradiction}. 
+\section{Negation introduction}\label{negint}
 
-% An effective form of argument is to argue your opponent into contradicting themselves. At that point, you have them on the ropes. They have to give up at least one of their assumptions. We are going to make use of this idea in our proof system, by adding a new symbol, `$\ered$', to our proofs. This should be read as something like `contradiction!'\ or `reductio!'\ or `but that's absurd!'  And the rule for introducing this symbol is that we can use it whenever we explicitly contradict ourselves, i.e., whenever we find both a sentence and its negation appearing in our proof:
-% \factoidbox{
-% \begin{proof}
-% \have[m]{a}{\meta{A}}
-% \have[n]{na}{\enot\meta{A}}
-% \have[ ]{bot}{\ered}\ri{a, na}
-% \end{proof}}
-% It does not matter what order the sentence and its negation appear in, and they do not need to appear on adjacent lines. However, we always cite the sentence first, followed by its negation. 
+Our negation rules are inspired by the informal form of reasoning known as \emph{reductio} – we encountered this earlier on page \pageref{reductio}. In \emph{reductio} reasoning, we make an assumption that \meta{A} for the sake of argument, and show that something absurd or contradictory follows from it. Then we can conclude that our assumption was false. And if a claim is false, then its negation must be true. There are lots of approaches to negation in natural deduction, but all of them stem from this same basic insight: when assuming \meta{A} goes awry in some way, conclude $\enot \meta{A}$.
 
-% Our elimination rule for `$\ered$' is known as \emph{ex falso quod libet}. This means `anything follows from a contradiction'. And the idea is precisely that: if we obtained a contradiction, symbolised by `$\ered$', then we can derive whatever we like. How can this be motivated, as a rule of argumentation? Well, consider the English rhetorical device `… and if \emph{that's} true, I'll eat my hat'. Since contradictions simply cannot be true, if one \emph{i}s true then not only will I eat my hat, I'll have it too.\footnote{Thanks to Adam Caulton for this.} Here is the formal rule:
-% \factoidbox{\begin{proof}
-% \have[m]{bot}{\ered}
-% \have[ ]{}{\meta{A}}\re{bot}
-% \end{proof}}
-% Note that \meta{A} can be \emph{any} sentence whatsoever. 
-
-% A final remark. I have said that `$\ered$' should be read as something like `contradiction!' But this does not tell us much about the symbol. There are, roughly, three ways to approach the symbol. 
-% 	\begin{itemize}
-% 		\item We might regard `$\ered$' as a new atomic sentence of \TFL, but one which can only ever have the truth value False. 
-% 		\item We might regard `$\ered$' as an abbreviation for some canonical contradiction, such as `$A \eand \enot A$'. This will have the same effect as the above – obviously, `$A \eand \enot A$' only ever has the truth value False – but it means that, officially, we do not need to add a new symbol to \TFL.
-% 		\item We might regard `$\ered$', not as a symbol of \TFL, but as something more like a \emph{punctuation mark} that appears in our proofs. (It is on a par with the line numbers and the vertical lines, say.)
-% 	\end{itemize}
-% There is something very philosophically attractive about the third option. But here I shall \emph{officially} plump for the second. `$\ered$' is to be read as abbreviating some canonical contradiction. This means that we can manipulate it, in our proofs, just like any other sentence.
+So if 
 
 
-\section{Negation}
-
-Natural deduction rules for negation are tricky, in part because there are so many options. All of them stem from the same basic insight: when assuming \meta{A} goes awry in some way, conclude $\enot \meta{A}$; and likewise, if assuming  $\enot \meta{A}$ goes awry, conclude \meta{A}.
 
 Our \define{negation introduction} rule fits this pattern very clearly: \factoidbox{
 	\begin{proof}
@@ -936,7 +943,9 @@ Our \define{negation introduction} rule fits this pattern very clearly: \factoid
 	\end{proof}
 } Here, we can derive a sentence and its negation both within the range of the assumption that \meta{A}. So if \meta{A} were assumed, something contradictory would be derivable under that assumption. (We could apply conjunction introduction to lines $j$ and $k$ to make the contradiction explicit, but that wouldn't be strictly necessary.) Since contradictions are fundamentally unacceptable as the termination of a chain of argument, we must have begun with an inappropriate starting point when we assumed \meta{A}. So, in fact, we conclude, $\enot \meta{A}$, discharging our erroneous assumption that \meta{A}. There is no need for the line with \meta{B} on it to occur before the line with $\enot\meta{B}$ on it.
 
-This rule is interesting, because it is \emph{almost} its own elimination rule too! Consider this schematic proof: \begin{proof}
+\section{Negation elimination}\label{negelim}
+
+The rule of negation introduction is interesting, because it is \emph{almost} its own elimination rule too! Consider this schematic proof: \begin{proof}
 	\open 
 	\hypo[i]{a}{\enot\meta{A}}
 	\have[\ ]{}{\vdots}
@@ -946,6 +955,7 @@ This rule is interesting, because it is \emph{almost} its own elimination rule t
 	\close
 	\have{}{\enot\enot\meta{A}}\ni{a-b,a-c}
 \end{proof} This proof terminates with a sentence that is logically equivalent to \meta{A}, discharing the assumption that $\enot\meta{A}$ because it leads to contradictory conclusions. This looks awfully close to a rule of negation elimination – if only we could find a way to replace a doubly-negated sentence $\enot\enot\meta{A}$ by the logically equivalent sentence \meta{A}, which would have eliminated the negation from the problematic assumption $\enot\meta{A}$.
+
 
 In our system, we approach this problem by the brute force method – we allow ourselves to use the derivation of contradictory sentences from a negated sentence to motivate the elimination of that negation. This leads to our rule of \define{negation elimination}:
 \factoidbox{
@@ -961,6 +971,9 @@ In our system, we approach this problem by the brute force method – we allow o
 	\have[\ ]{}{\meta{A}}\ne{a-b,a-c}	
 	\end{proof}
 } 
+
+This is also  reductio reasoning:  and likewise, if assuming  $\enot \meta{A}$ goes awry, conclude \meta{A}.
+
 
 To see our negation rules in action, consider:
 	$$P \ttherefore (P \eand D) \eor (P \eand \enot D).$$
@@ -1236,9 +1249,9 @@ Derivatively, we shall write:
 $$\proves \meta{A}$$
 to mean that there is a proof of $\meta{A}$ which ends up having no undischarged assumptions. We now define:
 	\factoidbox{
-		$\meta{A}$ is a \define{theorem} iff $\proves \meta{A}$
+		$\meta{A}$ is a \define{theorem} iff $\proves \meta{A}$.
 	}
-To illustrate this, suppose I want to prove that `$\enot (A \eand \enot A)$' is a theorem. So I must start my proof without \emph{any} assumptions. However, since I want to prove a sentence whose main connective is a negation, I shall want to  immediately begin a subproof, with the additional assumption `$A \eand \enot A$', and show that this leads to contradictory consequences. All told, then, the proof looks like this:
+To illustrate this, suppose I want to prove that `$\enot (A \eand \enot A)$' is a theorem. So I must start my proof without \emph{any} assumptions. However, since I want to prove a sentence whose main connective is a negation, I shall want to  immediately begin a subproof by making the additional assumption `$A \eand \enot A$' for the sake of argument, and show that this leads to contradictory consequences. All told, then, the proof looks like this:
 	\begin{proof}
 		\open
 			\hypo{con}{A \eand \enot A}
@@ -1288,12 +1301,14 @@ provable & one proof & all possible proofs\\
 
 \practiceproblems
 \problempart
-Show that each of the following sentences is a theorem:
+Give a proof showing that each of the following sentences is a theorem:
 \begin{earg}
-\item $O \eif O$
-\item $N \eor \enot N$
-\item $J \eiff \bigl(J\eor (L\eand\enot L) \bigr)$
-\item $((A \eif B) \eif A) \eif A$ 
+\item $O \eif O$;
+\item $N \eor \enot N$;
+\item $J \eiff \bigl(J\eor (L\eand\enot L) \bigr)$;
+\item $((A \eif B) \eif A) \eif A$;
+\item $\bigl((P \eif P) \eif Q)\bigr) \eif Q$;
+\item $\bigl((C \eand D) \eiff (D \eand C)\bigr)$.
 \end{earg}
 
 \problempart
