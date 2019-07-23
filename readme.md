@@ -26,10 +26,6 @@ This text is under active yet sporadic revision. The list of items below is prim
 * Chapter 4 (`forallx-adl-fol.tex`)
 * Chapter 5 (`forallx-adl-interpretations.tex`)
 * Chapter 6 (`forallx-adl-prooftfl.tex`)
-	*  A section on alternate systems: e.g., a system with DS for disjunction elimination, with different negation rules.
-		* Con: destroys the nice feature of the rules that only one connective is used in any rule, which means that can be discussed separately from one another.
-		* Pro: dispense with subproofs for disjunction elimination (proof by cases); elimation rule produces a constituent of original sentence, rather than some new 'C'. 
-	* Give an official introduction to the idea of how to prove an argument in ND – i.e., how to apply the proof system after symbolisation of an argument.
 * Chapter 7 (`forallx-adl-prooffol.tex`)
 	- integrate barber
 * Backmatter

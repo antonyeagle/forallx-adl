@@ -1806,16 +1806,88 @@ Since we've shown {\enot\enot}E to be a derived rule in our original system, thi
 \section{Replacing disjunction elimination with disjunctive syllogism} % (fold)
 \label{sec:replacing_disjunction_elimination_with_disjunctive_syllogism}
 
-Another alternative system results from replacing disjunction elimination {\eor}E (proof by cases) by disjunctive syllogism DS. We already know that DS is a derived rule: any proof which uses disjunctive syllogism can be converted into a proof that uses just the basic rules. So to show the alternative system proves the same things as our original system, we just need to show that we can emulate the effects of {\eor}E by using DS, as follows: \begin{proof}
-	\hypo{ab}{(\meta{A}\eor\meta{B})}
+Another alternative system results from replacing disjunction elimination {\eor}E (proof by cases) by disjunctive syllogism DS. We already know that DS is a derived rule: any proof which uses disjunctive syllogism can be converted into a proof that uses just the basic rules. So to show the alternative system proves the same things as our original system, we just need to show that we can emulate the effects of {\eor}E by using DS.
 
+Recall that a schematic proof that makes use of {\eor}E has the structure in Figure \ref{DSa}. To transform this into a proof that makes use instead of DS, we are going to use those two subproofs, but in the scope of an assumption that \enot\meta{C}. The schematic proof looks like that in Figure \ref{DSb}. You can see that the proof is the same as the original at lines $i$–$j$ and $k$–$l$, which mirror the original two subproofs. But they play a quite different role now. The subproof deriving \meta{C} from \meta{A} is now used in the service of a \emph{reductio} of \meta{A}, deriving $\enot\meta{A}$ on line $j+1$ in order to put us in a position to apply DS and derive \meta{B}, and then derive \meta{C} in line with the original subproof, which conflicts with the \emph{reductio} assumption $\enot\meta{C}$ on line 2, allowing us to use {\enot}E to derive the same conclusion as in the original proof. This shows us that – at least if we have our negation rules (or their equivalents) – we can replace {\eor}E with DS and be able to prove all the same things.
+	\begin{figure}
+\begin{minipage}{0.5\textwidth}
+	\begin{proof}
+	\hypo{d}{\meta{A}\eor\meta{B}}
+	\have[\ ]{}{\vdots}
+	\open
+	\hypo[i]{a}{\meta{A}}
+	\have[\ ]{v}{\vdots}
+	\have[j]{c1}{\meta{C}}
+	\close
+	\have[\ ]{vv}{\vdots}
+	\open
+	\hypo[k]{b}{\meta{B}}
+	\have[\ ]{vvv}{\vdots}
+	\have[l]{c2}{\meta{C}}
+	\close
+	\have[\ ]{c}{\meta{C}}\oe{d,a-c1,b-c2}
 \end{proof}
+\caption{Schematic {\eor}E proof.\label{DSa}}
+\end{minipage}\qquad \begin{minipage}{0.5\textwidth}
+		\begin{proof}
+	\hypo{d}{\meta{A}\eor\meta{B}}
+	\open
+	\hypo{nc}{\enot\meta{C}}
+	\have[\ ]{}{\vdots}
+	\open
+	\hypo[i]{a}{\meta{A}}
+	\have[\ ]{}{\vdots}
+	\have[j]{c1}{\meta{C}}
+	\have{ncr}{\enot\meta{C}}\by{R}{nc}
+	\close
+	\have{na}{\enot\meta{A}}\ni{a-c1,a-ncr}
+	\have[k]{b}{\meta{B}}\by{DS}{d,na}
+	\have[\ ]{}{\vdots}
+	\have[l]{c2}{\meta{C}}
+	\have{cr}{\enot\meta{C}}\by{R}{nc}
+	\close
+	\have[\ ]{c}{\meta{C}}\ne{nc-c2,nc-cr}
+\end{proof}
+		\caption{Schematic proof using DS to emulate {\eor}E.\label{DSb}}
+\end{minipage}
+	\end{figure}
+
+There are pros and cons to using DS as our disjunction elimination rule. You can already see that proof by cases is much clunkier – though perhaps you are not too concerned (maybe you suspect proof by cases is not much used in natural argumentation anyway). \begin{description}
+	\item[Pro] Using DS as an elimination rule for {\eor} has the nice feature that we eliminate a disjunction in favour of one of its disjuncts, rather than the unprecedented \meta{C} that appears as if from nowhere in the original {\eor}E rule. We also dispense with the use of subproofs in the statement of the disjunction rules.
+	\item[Con] Adopting DS as a basic rule destroys the nice feature of our standard rules that only one connective is used in any rule. DS needs both disjunction and negation. We cannot, therefore, consider a system which lacks negation rules but has disjunction – the rules are no longer \emph{modular}. This is not especially important for \TFL, but could be important if you go on to consider other logical systems which may vary the rules for one connective independently of all the others. DS shackles negation and disjunction together – even arguments which have, intuitively nothing to do with negation, end up having to use negation in their proof. This is illustrated by the following two proofs that $(A\eor B)\proves (B \eor A)$, the first using our original system, the second using the system which has DS as a basic rule:
+
+		\begin{proof}
+			\hypo{ab}{(A \eor B)}
+			\open
+			\hypo{a}{A}
+			\have{c1}{(B \eor A)}\oi{a}
+			\close
+			\open
+			\hypo{b}{B}
+			\have{c2}{(B \eor A)}\oi{b}
+			\close
+			\have{c}{(B \eor A)}\oe{ab,a-c1,b-c2}
+		\end{proof}
+
+		\begin{proof}
+			\hypo{ab}{(A \eor B)}
+			\open
+			\hypo{nc}{\enot (B \eor A)}
+			\open
+			\hypo{a}{A}
+			\have{c1}{(B \eor A)}\oi{a}
+			\have{cr}{\enot(B \eor A)}\by{R}{nc}
+			\close
+			\have{na}{\enot A}\ni{a-c1,a-cr}
+			\have{b}{B}\by{DS}{ab,na}
+			\have{c2}{(B \eor A)}\oi{b}
+			\have{nr}{\enot (B \eor A)}\by{R}{nc}
+			\close
+			\have{c}{(B \eor A)}\ne{nc-c2,nc-nr}
+		\end{proof}
+
+\end{description}
 
 
-Actually what did JO want?
-
-A section on alternate systems: e.g., a system with DS for disjunction elimination, with different negation rules.
-		* Con: destroys the nice feature of the rules that only one connective is used in any rule, which means that can be discussed separately from one another.
-		* Pro: dispense with subproofs for disjunction elimination (proof by cases); elimation rule produces a constituent of original sentence, rather than some new 'C'.
 
 % section replacing_disjunction_elimination_with_disjunctive_syllogism (end)
