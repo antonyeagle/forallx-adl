@@ -241,7 +241,7 @@ The last line of the proof would still not be allowed. For the name that we used
 
 The moral of the story is this. \factoidbox{If you want to squeeze information out of an existentially quantified claim $\exists\meta{x}\meta{A}$, choose a \emph{new} name, never before used in the proof, to substitute for the variable in \meta{A}.} That way, you can guarantee that you meet all the constraints on the rule for $\exists$E.
 
-An argument that makes use of both patterns of arbitrary reasoning is this example due to Breckenridge and Magidor: `from the premise that there is someone who loves everyone to the conclusion that everyone is such that someone loves them'. Here is a proof in our system, letting `$Lxy$' symbolise `\gap{x} loves \gap{y}', letting `$h$' symbolise the arbitrarily chosen name `Hiccup' and letting `$a$' symbolise the arbitrarily chosen name `Astrid': \begin{proof}
+An argument that makes use of both patterns of arbitrary reasoning is this example due to Breckenridge and Magidor: `from the premise that there is someone who loves everyone to the conclusion that everyone is such that someone loves them'. Here is a proof in our system, letting `$Lxy$' symbolise `\gap{1} loves \gap{2}', letting `$h$' symbolise the arbitrarily chosen name `Hiccup' and letting `$a$' symbolise the arbitrarily chosen name `Astrid': \begin{proof}
 	\hypo{a}{\exists x \forall y Lxy}
 	\open
 		\hypo{b}{\forall y Lhy}

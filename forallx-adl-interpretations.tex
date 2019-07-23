@@ -22,17 +22,17 @@ The point that I emphasised is that \TFL\ cannot handle differences in meaning t
 
 When we provide a symbolisation key for some \FOL\ predicates, such as:
 	\begin{ekey}
-		\item[C\meta{x}] \gap{x} lectures on logic in Adelaide in Semester 2, 2018
+		\item[C] \gap{1} lectures on logic in Adelaide in Semester 2, 2018
 	\end{ekey} 
 we do not carry the \emph{meaning} of the English predicate across into our \FOL\ predicate. We are simply stipulating something like the following:
 	\begin{itemize}
-		\item `$C\meta{x}$' and `\gap{x} lectures on logic in Adelaide in Semester 2, 2018' are to be \emph{true of} exactly the same things. 
+		\item `$C$' and `\gap{1} lectures on logic in Adelaide in Semester 2, 2018' are to be \emph{true of} exactly the same things. 
 	\end{itemize}
 So, in particular:
 	\begin{itemize}
-		\item `$C\meta{x}$' is to be true of all and only those things which lecture on logic in Adelaide in Semester 2, 2018 (whatever those things might be).
+		\item `$C$' is to be true of all and only those things which lecture on logic in Adelaide in Semester 2, 2018 (whatever those things might be).
 	\end{itemize}
-This is an indirect stipulation. Alternatively we can stipulate predicate extensions directly. We can stipulate that `$C\meta{x}$' is to be true of Antony Eagle and Jon Opie, and only them. As it happens, this direct stipulation would have the same effect as the indirect stipulation. But note that the English predicates `\blank\ is Antony Eagle or Jon Opie' and `\blank\ lectures on logic in Adelaide in Semester 2, 2018' have very different meanings!
+This is an indirect stipulation. Alternatively we can stipulate predicate extensions directly. We can stipulate that `$C$' is to be true of Antony Eagle and Jon Opie, and only them. As it happens, this direct stipulation would have the same effect as the indirect stipulation. But note that the English predicates `\blank\ is Antony Eagle or Jon Opie' and `\blank\ lectures on logic in Adelaide in Semester 2, 2018' have very different meanings!
 
 The point is that \FOL\ does not give us any resources for dealing with nuances of meaning. When we interpret \FOL, all we are considering is what the predicates are actually true of. For this reason, I say only that \FOL\ sentences \emph{symbolise} English sentences. It is doubtful that we are \emph{translating} English into \FOL, for translations should preserve meanings.
 
@@ -45,13 +45,13 @@ Another construction with apparently similar effects is when a true identity, su
 
 
 \section{A word on extensions}
-We can stipulate directly which things in our domain our predicates are to be true of. So it is worth noting that our stipulations can be as arbitrary as we like. For example, we could stipulate that `$H\meta{x}$' should be true of, and only of, the following objects:
+We can stipulate directly which things in our domain our predicates are to be true of. So it is worth noting that our stipulations can be as arbitrary as we like. For example, we could stipulate that `$H$' should be true of, and only of, the following objects:
 	\begin{center}
 		David Cameron\\
 		the number $\pi$\\
 		every top-F key on every piano ever made
 	\end{center}
-Now, the objects that we have listed have nothing particularly in common. But this doesn't matter. Logic doesn't care about what strikes us mere humans as `natural' or `similar'. Armed with this interpretation of `$H\meta{x}$', suppose I now add to my symbolisation key:
+Now, the objects that we have listed have nothing particularly in common. But this doesn't matter. Logic doesn't care about what strikes us mere humans as `natural' or `similar'. Armed with this interpretation of `$H$', suppose I now add to my symbolisation key:
 	\begin{ekey}
 		\item[d] David Cameron
 		\item[n] Julia Gillard
@@ -65,27 +65,27 @@ This process of explicit stipulation is just giving the extension of a predicate
 \section{Many-place predicates}
 All of this is quite easy to understand when it comes to one-place predicates. But it gets much messier when we consider two-place predicates. Consider a symbolisation key like:
 	\begin{ekey}
-		\item[L\meta{xy}] \gap{x} loves \gap{y}
+		\item[L] \gap{1} loves \gap{2}
 	\end{ekey}
 Given what I said above, this symbolisation key should be read as saying:
-	\begin{earg}
-		\item[\textbullet] `$L\meta{xy}$' and `\gap{x} loves \gap{y}' are to be true of exactly the same things in the domain
-	\end{earg}
+	\begin{itemize}
+		\item `$L$' and `\gap{1} loves \gap{2}' are to be true of exactly the same things in the domain
+	\end{itemize}
 So, in particular:
-	\begin{earg}
-		\item[\textbullet] `$L\meta{xy}$' is to be true of x and y (in that order) iff x loves y. 
-	\end{earg}
-It is important that we insist upon the order here, since love – famously – is not always reciprocated. (Note that `\meta{x}' and `\meta{y}' here are symbols of augmented English, and that they are being \emph{used}. By contrast, `$x$' and `$y$' are symbols of \FOL, and they are being \emph{mentioned}.)
+	\begin{itemize}
+		\item `$L$' is to be true of a and b (in that order) iff a loves b. 
+	\end{itemize}
+It is important that we insist upon the order here, since love – famously – is not always reciprocated. (Note that `a' and `b' here are symbols of English, and that they are being \emph{used} to talk about particular things in the domain.)
 
-That is an indirect stipulation. What about a direct stipulation? This is slightly harder. If we \emph{simply} list objects that fall under `$L\meta{xy}$', we will not know whether they are the lover or the beloved (or both). We have to find a way to include the order in our explicit stipulation. 
+That is an indirect stipulation. What about a direct stipulation? This is slightly harder. If we \emph{simply} list objects that fall under `$L$', we will not know whether they are the lover or the beloved (or both). We have to find a way to include the order in our explicit stipulation. 
 
-To do this, we can specify that two-place predicates are true of \define{ordered pairs} of objects, which differ from two-membered collections in that the order of a pair is important. Thus we might stipulate that `$B\meta{xy}$' is to be true of, and only of, the following pairs of objects:
+To do this, we can specify that two-place predicates are true of \define{ordered pairs} of objects, which differ from two-membered collections in that the order of a pair is important. Thus we might stipulate that `$B$' is to be true of, and only of, the following pairs of objects:
 	\begin{center}
 		\ntuple{Lenin, Marx}\\
 		\ntuple{Heidegger, Sartre}\\
 		\ntuple{Sartre, Heidegger}
 	\end{center}
-Here the angle-brackets keep us informed concerning order – $\ntuple{a,b}$ is a different pair from $\ntuple{b,a}$ even though they correspond to the same collection of two things, $a$ and $b$. Suppose I now add the following stipulations:
+Here the angle-brackets keep us informed concerning order – $\ntuple{a,b}$ is a different pair from $\ntuple{b,a}$ even though they correspond to the same collection of two things, a and b. Suppose I now add the following stipulations:
 	\begin{ekey}
 		\item[l] Lenin
 		\item[m] Marx
@@ -121,20 +121,23 @@ I defined a \emph{valuation} in \TFL\ as any assignment of truth and falsity to 
 	\begin{itemize}	
 		\item the specification of a domain;
 		\item for each name that we care to consider, an assignment of exactly one object within the domain as its extension;
-		\item for each non-logical $n$-place predicate $\meta{Ax}_{1}…\meta{x}_{n}$ (i.e., any predicate other than `$=$') that we care to consider, a specification of its extension: what things (or pairs of things, or triples of thing, etc.) the predicate is to be true of – where all those things must be in the domain.
+		\item for each non-logical $n$-place predicate $\meta{A}$ (i.e., any predicate other than `$=$') that we care to consider, a specification of its extension: what things (or pairs of things, or triples of thing, etc.) the predicate is to be true of – where all those things must be in the domain.
 	\end{itemize}
 A $0$-place predicate (what we called `atomic sentences' in \TFL) has a truth value, either T or F, as its extension – thus the valuations of \TFL\ are intepretations of a very restricted part of \FOL\ – those interpretations which only care to consider $0$-place predicates.
 
 The symbolisation keys that I considered in chapter \ref{ch.FOL} consequently give us one very convenient way to present an interpretation. We shall continue to use them throughout this chapter. It is important to note, however, that the symbolisation key tends to associate each predicate with a \emph{property}, and then uses that property as a classification rule to determine the extension of the predicate. We can, and sometimes do, offer an interpretation by simply giving the extensions of the intepreted \FOL\ expressions directly. We can simply list the items, pairs, triples, etc., in the extension assigned to a predicate. So the following two symbolisation keys give the same intepretation: 
-\noindent\begin{tabular}{p{0.36\textwidth} p{0.58\textwidth}}
-\begin{ekey}
+\begin{itemize}
+	\item \begin{ekey}
 	\item[\text{domain}] Days of the week
-	\item[B\meta{xy}] \gap{x} is the day before \gap{y}
-\end{ekey} & \begin{ekey}
+	\item[B] \gap{1} is the day before \gap{2}
+\end{ekey} 
+\item \begin{ekey}
 	\item[\text{domain}] Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
-	\item[B\meta{xy}] $\ntuple{\text{Sunday}, \text{Monday}}$, $\ntuple{\text{Monday}, \text{Tuesday}}$, $\ntuple{\text{Tuesday}, \text{Wednesday}}$, $\ntuple{\text{Wednesday}, \text{Thursday}}$, $\ntuple{\text{Thursday}, \text{Friday}}$, $\ntuple{\text{Friday}, \text{Saturday}}$, $\ntuple{\text{Saturday}, \text{Sunday}}$.
+	\item[B] $\ntuple{\text{Sunday}, \text{Monday}}$, $\ntuple{\text{Monday}, \text{Tuesday}}$, $\ntuple{\text{Tuesday}, \text{Wednesday}}$, $\ntuple{\text{Wednesday}, \text{Thursday}}$, $\ntuple{\text{Thursday}, \text{Friday}}$, $\ntuple{\text{Friday}, \text{Saturday}}$, $\ntuple{\text{Saturday}, \text{Sunday}}$.
 \end{ekey}
-\end{tabular}
+
+\end{itemize}
+
 
 \section{Representing interpretations}
 
@@ -145,7 +148,7 @@ One way of presenting an interpretation that is often convenient is to present i
 The definition of an interpretation in §\ref{ss.int} entailed that a one-place predicate should have as its extension a collection of things drawn from the domain. That is, the extension of a predicate is a \define{subset} of the domain. We can represent subsets graphically using a \define{Euler diagram}, without having to specify each of the items which is in the domain.
 
 We begin by demarcating a region on the page to represent the domain – typically, a rectangle. Then for each one-place predicate, we can represent it by a sub-region of the domain, subject to the following rules: \begin{itemize}
-\item The interior of a region associated with predicate $\meta{Px}$ represents the members of the domain that are in the extension of $\meta{Px}$; the exterior – the region within the domain but outside the given region – represents those members of the domain that are not in the extension of $\meta{Px}$;
+\item The interior of a region associated with predicate $\meta{P}$ represents the members of the domain that are in the extension of $\meta{P}$; the exterior – the region within the domain but outside the given region – represents those members of the domain that are not in the extension of $\meta{P}$;
 	\item If two predicates have extensions that overlap, the regions that represent them in the diagram should overlap.
 	\item If one predicate has an extension that is entirely within the extension of another predicate, the region associated with the first should be entirely within the region associated with the second;
 	\item If two predicates have non-overlapping extensions, the regions that represent them should not overlap.
@@ -153,9 +156,9 @@ We begin by demarcating a region on the page to represent the domain – typical
 
 These rules are quite abstract, but they are easy to apply in practice. Suppose we are given the following interpretation: \begin{ekey}
 	\item[\text{domain}] animal species
-	\item[E\meta{x}] \gap{x} lays eggs;
-	\item[M\meta{x}] \gap{x} is a mammal;
-	\item[B\meta{x}] \gap{x} is a bird;
+	\item[E] \gap{1} lays eggs;
+	\item[M] \gap{1} is a mammal;
+	\item[B] \gap{1} is a bird;
 \end{ekey}
 Then we may represent them as follows: \begin{center}
 	\begin{tikzpicture}
@@ -173,10 +176,10 @@ Then we may represent them as follows: \begin{center}
 Another example. Consider this interpretation, discussed earlier on page \pageref{poison}: 
 		\begin{ekey}
 		\item[\text{domain}] people and plants
-		\item[C\meta{x}] \gap{x} is a cowboy
-		\item[S\meta{x}] \gap{x} sings a sad, sad song
-		\item[R\meta{x}] \gap{x} is a rose
-		\item[T\meta{x}] \gap{x} has a thorn
+		\item[C] \gap{1} is a cowboy
+		\item[S] \gap{1} sings a sad, sad song
+		\item[R] \gap{1} is a rose
+		\item[T] \gap{1} has a thorn
 	\end{ekey}
 The wisdom of Bret Michaels then tells us that the Euler diagram should look like this: \begin{center}
 	\begin{tikzpicture}
@@ -199,12 +202,12 @@ If you would like a real challenge, you might try to figure out the interpretati
 
 \paragraph{Representing Two-Place Predicates: Directed Graphs}
 
-Suppose we want to consider just a single two-place predicate, `$R\meta{xy}$'. Then we can represent it, in some cases, by depicting the members of the domain by writing them down, and drawing a single-headed arrow between items just in case the relation holds between them (in the right order). Such a diagram is known as a \define{directed graph}, which is given by a collection of \emph{nodes} (the objects in the domain we are representing) and a collection of arrows between them (which represent how the relation holds on that domain.) We stipulate that `$R\meta{xy}$' is to hold of \meta{x} and \meta{y} just in case there is an arrow running from \meta{x} to \meta{y} in our diagram. As an example, consider the following interpretation, written in the more standard manner:
+Suppose we want to consider just a single two-place predicate, `$R$'. Then we can represent it, in some cases, by depicting the members of the domain by writing them down, and drawing a single-headed arrow between items just in case the relation holds between them (in the right order). Such a diagram is known as a \define{directed graph}, which is given by a collection of \emph{nodes} (the objects in the domain we are representing) and a collection of arrows between them (which represent how the relation holds on that domain.) We stipulate that `$R$' is to hold of \meta{x} and \meta{y} just in case there is an arrow running from \meta{x} to \meta{y} in our diagram. As an example, consider the following interpretation, written in the more standard manner:
 \begin{ekey}
 	\item[\text{domain}] $1, 2, 3, 4$
-	\item[R\meta{xy}] \ntuple{1, 2}, \ntuple{2, 3}, \ntuple{3, 4}, \ntuple{4, 1}, \ntuple{1, 3}.
+	\item[R] \ntuple{1, 2}, \ntuple{2, 3}, \ntuple{3, 4}, \ntuple{4, 1}, \ntuple{1, 3}.
 \end{ekey}
-That is, an interpretation whose domain is the first four positive whole numbers, and which interprets `$R\meta{xy}$' as being true of and only of the specified pairs of numbers. This might be represented by the following simple graph:
+That is, an interpretation whose domain is the first four positive whole numbers, and which interprets `$R$' as being true of and only of the specified pairs of numbers. This might be represented by the following simple graph:
 \begin{center}
 \begin{tikzpicture}
 \node (atom1) at (0,2) {1};
@@ -221,7 +224,7 @@ That is, an interpretation whose domain is the first four positive whole numbers
 
 Another example; consider the following interpretation: \begin{ekey}
 	\item[\text{domain}] $1, 2, 3, 4$
-	\item[R\meta{xy}] \ntuple{1, 3}, \ntuple{3, 1}, \ntuple{3, 4}, \ntuple{1, 1},\ntuple{3, 3}.
+	\item[R] \ntuple{1, 3}, \ntuple{3, 1}, \ntuple{3, 4}, \ntuple{1, 1},\ntuple{3, 3}.
 \end{ekey} We might offer this graph to represent it:
 \begin{center}
 \begin{tikzpicture}
@@ -235,19 +238,19 @@ Another example; consider the following interpretation: \begin{ekey}
 \draw[->, thick] (atom1) .. controls (0.75,0.75) .. (atom3);
 \draw[->, thick] (atom3) .. controls (1.75,1.75) .. (atom1);
 \end{tikzpicture}
-\end{center} Notice that 2 is in the domain, and hence included as a node in the graph, but it has no arrows attached to it, because it is not included in the relation assigned to $R\meta{xy}$. 
+\end{center} Notice that 2 is in the domain, and hence included as a node in the graph, but it has no arrows attached to it, because it is not included in the relation assigned to $R$. 
 
 
-If we wanted, we could make our diagrams more complex. For example, we could introduce another kind of arrow to represent an additional two-place relation. Or, we could add names as labels attached to particular objects. Or, to symbolise the extension of a one-place predicate, we might simply draw a ring around some particular objects and stipulate that the thus encircled objects (and only them) are to fall under the predicate `$H\meta{x}$', say.  
+If we wanted, we could make our diagrams more complex. For example, we could introduce another kind of arrow to represent an additional two-place relation. Or, we could add names as labels attached to particular objects. Or, to symbolise the extension of a one-place predicate, we might simply draw a ring around some particular objects and stipulate that the thus encircled objects (and only them) are to fall under the predicate `$H$', say.  
 
 Consider how we we might graphically represent the following interpretation, which will make use of all these graphical innovations: \begin{ekey}
 	\item[\text{domain}] $2,3,4,5,6$
-	\item[G\meta{x}] $\gap{x} \geqslant 4$. 
-	\item[D\meta{xy}] \gap{x} is distinct from and exactly divisible by \gap{y};
-	\item[T\meta{xy}] $\gap{x} + 3 = \gap{y}$;
+	\item[G] $\gap{1} \geqslant 4$. 
+	\item[D] \gap{1} is distinct from and exactly divisible by \gap{2};
+	\item[T] $\gap{1} + 3 = \gap{2}$;
 	\item[f] $4$;
 \end{ekey} 
-This graph represents that interpretation, where the label `$f$' represents the name attached to 4, the blue dotted arrow represents the relation assigned to $T\meta{xy}$, the black solid arrow represents the relation assigned to $D\meta{xy}$, and the grey ellipse represents the collection of things in the domain which have the property assigned to $G\meta{x}$:
+This graph represents that interpretation, where the label `$f$' represents the name attached to 4, the blue dotted arrow represents the relation assigned to $T$, the black solid arrow represents the relation assigned to $D$, and the grey ellipse represents the collection of things in the domain which have the property assigned to $G$:
 \begin{center}
 \begin{tikzpicture}
 \node (atom2) at (1,2) {2};
@@ -285,21 +288,21 @@ Since \FOL\ is an extensional language, if let the \FOL\ name `$s$' denote Super
 Using some of the methods introduced in this section, give a graphical representation of the following interpretations. You will need to rely on your general knowledge to prepare these diagrams. \begin{earg}
 	\item \begin{ekey}
 		\item[\text{domain}] people
-		\item[M\meta{x}] \gap{x} is a musician;
-		\item[W\meta{x}] \gap{x} is a woman;
-		\item[E\meta{x}] \gap{x} is an economist.
+		\item[M] \gap{1} is a musician;
+		\item[W] \gap{1} is a woman;
+		\item[E] \gap{1} is an economist.
 	\end{ekey}
 	\item \begin{ekey}
 \item[\text{domain}] cards in a standard deck
-\item[S\meta{x}] \gap{x} is a seven;
-\item[F\meta{x}] \gap{x} is a face card;
-\item[R\meta{x}] \gap{x} is red;
+\item[S] \gap{1} is a seven;
+\item[F] \gap{1} is a face card;
+\item[R] \gap{1} is red;
 \item[j] the Jack of Hearts.
 	\end{ekey}
 	\item \begin{ekey}
 		\item[\text{domain}] Australian states
-		\item[L\meta{xy}] \gap{x} is larger in population than \gap{y};
-		\item[V\meta{x}] \gap{x}'s name ends in a vowel;
+		\item[L] \gap{1} is larger in population than \gap{2};
+		\item[V] \gap{1}'s name ends in a vowel;
 		\item[a] South Australia;
 		\item[q] Queensland.
 	\end{ekey}
@@ -321,13 +324,13 @@ I shall offer a completely general explanation in this section. However, to try 
 		\item[\text{domain}] all people born before 2000\textsc{ce}
 		\item[a] Aristotle
 		\item[b] Bush
-		\item[W\meta{x}] \gap{x} is wise
-		\item[R\meta{xy}] \gap{x} was born before \gap{y}
+		\item[W] \gap{1} is wise
+		\item[R] \gap{1} was born before \gap{2}
 	\end{ekey}
 This will be my \emph{go-to example} in what follows.
 
 \section{Atomic sentences}\label{fol.truth.atom}
-The truth of atomic sentences should be fairly straightforward. The sentence `$Wa$' should be true just in case `$W\meta{x}$' is true of `$a$'. Given our go-to interpretation, this is true iff Aristotle is wise. Aristotle is wise. So the sentence is true. Equally, `$Wb$' is false on our go-to interpretation.
+The truth of atomic sentences should be fairly straightforward. The sentence `$Wa$' should be true just in case `$W$' is true of `$a$'. Given our go-to interpretation, this is true iff Aristotle is wise. Aristotle is wise. So the sentence is true. Equally, `$Wb$' is false on our go-to interpretation.
 
 Likewise, on this interpretation, `$Rab$' is true iff the object named by `$a$' was born before the object named by `$b$'. Well, Aristotle was born before Bush. So `$Rab$' is true. Equally, `$Raa$' is false: Aristotle was not born before Aristotle. 
 
@@ -367,21 +370,21 @@ We saw in §\ref{s:FOLSentences} that \FOL\ sentences can be built up from simpl
 \item $\meta{A} \eiff \meta{B}$ is true in an interpretation \textbf{iff} \\$\meta{A}$ has the same truth value as $\meta{B}$ in that interpretation
 	\end{itemize}}
 This presents the very same information as the schematic truth tables for the connectives; it just does it in a slightly different way. Some examples will probably help to illustrate the idea. On our go-to interpretation:
-	\begin{earg}
-		\item[\textbullet] `$a = a \eand Wa$' is true
-		\item[\textbullet] `$Rab \eand Wb$' is false because, although `$Rab$' is true, `$Wb$' is false
-		\item[\textbullet] `$a = b \eor Wa$' is true
-		\item[\textbullet] `$\enot a = b$' is true
-		\item[\textbullet] `$Wa \eand \enot( a= b \eand Rab)$' is true, because `$Wa$' is true and `$a = b$' is false
-	\end{earg}
+	\begin{itemize}
+		\item `$a = a \eand Wa$' is true
+		\item `$Rab \eand Wb$' is false because, although `$Rab$' is true, `$Wb$' is false
+		\item `$a = b \eor Wa$' is true
+		\item `$\enot a = b$' is true
+		\item `$Wa \eand \enot( a= b \eand Rab)$' is true, because `$Wa$' is true and `$a = b$' is false
+	\end{itemize}
 Make sure you understand these examples.
 
 \section{When the main connective is a quantifier}\label{fol.truth.quant}
 The exciting innovation in \FOL, though, is the use of \emph{quantifiers}. And in fact, expressing the truth conditions for quantified sentences is a bit more fiddly than one might expect. 
 
-Here is a naïve first thought. We want to say that `$\forall x Fx$' is true iff `$F\meta{x}$' is true of everything in the domain. This should not be too problematic: our interpretation will specify directly what `$F\meta{x}$' is true of. 
+Here is a naïve first thought. We want to say that `$\forall x Fx$' is true iff `$F$' is true of everything in the domain. This should not be too problematic: our interpretation will specify directly what `$F$' is true of. 
 
-Unfortunately, this naïve first thought is not general enough. For example, we want to be able to say that `$\forall x \exists y Lxy$' is true just in case `$\exists y Lxy$' is true of everything in the domain. And this is problematic, since our interpretation does not directly specify what `$\exists y Lxy$' is to be true of. Instead, whether or not this is true of something should follow just from the interpretation of `$L\meta{xy}$', the domain, and the meanings of the quantifiers. 
+Unfortunately, this naïve first thought is not general enough. For example, we want to be able to say that `$\forall x \exists y Lxy$' is true just in case `$\exists y Lxy$' is true of everything in the domain. And this is problematic, since our interpretation does not directly specify what `$\exists y Lxy$' is to be true of. Instead, whether or not this is true of something should follow just from the interpretation of `$L$', the domain, and the meanings of the quantifiers. 
 
 So here is a naïve second thought. We might try to say that `$\forall x \exists y Lxy$' is to be true in an interpretation iff $\exists y L\meta{a}y$ is true for \emph{every} name \meta{a} that we have included in our interpretation. And similarly, we might try to say that $\exists y L\meta{a}y$ is true just in case $L\meta{a}\meta{b}$ is true for \emph{some} name \meta{b} that we have included in our interpretation.
 
@@ -460,7 +463,7 @@ We now have the idea of truth on a variable assignment over an intepretation. Bu
 	 \meta{A} is a sentence of \FOL, and \meta{A} is true on any (or every) variable assignment over that interpretation.
 } 
 
-Here's how this works in practice. Suppose we want to figure out whether the sentence `$\forall x \exists y Lxy$' is true on an interpretation which  associates the two-place predicate `$L\meta{xy}$' with the relation `\gap{x} is no heavier than \gap{y}', and has as its domain the planets in our solar system. We might reason as follows: \begin{quote}
+Here's how this works in practice. Suppose we want to figure out whether the sentence `$\forall x \exists y Lxy$' is true on an interpretation which  associates the two-place predicate `$L$' with the relation `\gap{1} is no heavier than \gap{2}', and has as its domain the planets in our solar system. We might reason as follows: \begin{quote}
 	\emph{For each way of picking planets to be the values of `$x$' and `$y$', either we pick two different planets, and one is lighter than the other (no two planets have the same mass); or we pick the same planet, and `they' are identical in mass. In either case, we can always find something no heavier than anything we pick. So for any variable assignment to `$x$' over this interpretation,  we can then assign something to `$y$' so as to make `$Lxy$' true on that joint assignment. Hence no matter what we assign to `$x$', `$\exists y Lxy$' is true on that assignment. But since that is true no matter what we assign to `$x$', `$\forall x \exists y Lxy$' is true on every variable assignment over this interpretation. But that latter is a sentence, so is true in this interpretation.}
 \end{quote}
 
@@ -480,9 +483,9 @@ Let us say that a sequence of objects \ntuple{$a_{1},…,a_{n}$} \define{satisfi
 Consider the following interpretation:
 	\begin{ekey}
 		\item[\text{domain}] The domain comprises only Corwin and Benedict
-		\item[A\meta{x}] is to be true of both Corwin and Benedict
-		\item[B\meta{x}] is to be true of Benedict only
-		\item[N\meta{x}] is to be true of no one
+		\item[A] is to be true of both Corwin and Benedict
+		\item[B] is to be true of Benedict only
+		\item[N] is to be true of no one
 		\item[c] is to refer to Corwin
 	\end{ekey}
 Determine whether each of the following sentences is true or false in that interpretation:
@@ -503,9 +506,9 @@ Determine whether each of the following sentences is true or false in that inter
 Consider the following interpretation:	
 	\begin{ekey}
 		\item[\text{domain}] The domain comprises only Lemmy, Courtney and Eddy
-		\item[G\meta{x}] is to be true of Lemmy, Courtney and Eddy.
-		\item[H\meta{x}] is to be true of and only of Courtney
-		\item[M\meta{x}] is to be true of and only of Lemmy and Eddy
+		\item[G] is to be true of Lemmy, Courtney and Eddy.
+		\item[H] is to be true of and only of Courtney
+		\item[M] is to be true of and only of Lemmy and Eddy
 		\item[c] is to refer to Courtney
 		\item[e] is to refer to Eddy
 	\end{ekey}
@@ -629,13 +632,13 @@ The name `$d$' must name something in the domain, so we have no option but:
 	\begin{ekey}
 		\item[d] Paris
 	\end{ekey}
-Recall that we want `$\exists x Axx$' to be true, so we want all members of the domain to be paired with themselves in the extension of `$A\meta{xy}$'. We can offer:
+Recall that we want `$\exists x Axx$' to be true, so we want all members of the domain to be paired with themselves in the extension of `$A$'. We can offer:
 	\begin{ekey}
-		\item[A\meta{xy}] \gap{x} is in the same place as \gap{y}
+		\item[A] \gap{1} is in the same place as \gap{2}
 	\end{ekey}
 Now `$Add$' is true, so it is surely true that `$\exists x Axx$'. Next, we want `$Bd$' to be false, so the referent of `$d$' must not be in the extension of `$B$'. We might simply offer:
 	\begin{ekey}
-		\item[B\meta{x}] \gap{x} is in Germany
+		\item[B] \gap{1} is in Germany
 	\end{ekey}
 Now we have an interpretation where `$\exists x Axx$' is true, but where `$Bd$' is false. So there is an interpretation where `$\exists x Axx \eif Bd$' is false. So `$\exists x Axx \eif Bd$' is not a logical truth.
 
@@ -643,8 +646,8 @@ We can just as easily show that `$\exists xAxx \eif Bd$' is not a contradiction.
 	\begin{ekey}
 		\item[\text{domain}] Paris
 		\item[d] Paris
-		\item[A\meta{xy}] \gap{x} is in the same place as \gap{y}
-		\item[B\meta{x}] \gap{x} is in France
+		\item[A] \gap{1} is in the same place as \gap{2}
+		\item[B] \gap{1} is in France
 	\end{ekey}
 This shows that there is an interpretation where `$\exists xAxx \eif Bd$' is true. So `$\exists x Axx \eif Bd$' is not a contradiction.
 
@@ -655,9 +658,9 @@ Suppose we want to show that `$\forall x Sx$' and `$\exists x Sx$' are not logic
 	\end{ekey}
 We can make `$\exists x Sx$' true by including something in the extension of `$S$', and we can make `$\forall x Sx$' false by leaving something out of the extension of `$S$'. For concreteness we shall offer:
 	\begin{ekey}
-		\item[S\meta{x}] \gap{x} plays saxophone
+		\item[S] \gap{1} plays saxophone
 	\end{ekey}
-Now `$\exists x Sx$' is true, because `$S\meta{x}$' is true of Ornette Coleman. Slightly more precisely, extend our interpretation by allowing `$c$' to name Ornette Coleman.  `$Sc$' is true in this extended interpretation, so `$\exists x Sx$' was true in the original interpretation. Similarly, `$\forall x Sx$' is false, because `$S\meta{x}$' is false of Sarah Vaughan. Slightly more precisely, extend our interpretation by allowing `$d$' to name Sarah Vaughan, and `$Sd$' is false in this extended interpretation, so `$\forall x Sx$' was false in the original interpretation. We have provided a counter-interpretation to the claim that `$\forall x Sx$' and `$\exists x Sx$' are logically equivalent.
+Now `$\exists x Sx$' is true, because `$S$' is true of Ornette Coleman. Slightly more precisely, extend our interpretation by allowing `$c$' to name Ornette Coleman.  `$Sc$' is true in this extended interpretation, so `$\exists x Sx$' was true in the original interpretation. Similarly, `$\forall x Sx$' is false, because `$S$' is false of Sarah Vaughan. Slightly more precisely, extend our interpretation by allowing `$d$' to name Sarah Vaughan, and `$Sd$' is false in this extended interpretation, so `$\forall x Sx$' was false in the original interpretation. We have provided a counter-interpretation to the claim that `$\forall x Sx$' and `$\exists x Sx$' are logically equivalent.
 	\factoidbox{
 		To show that $\meta{A}$ is not a logical truth, it suffices to find an interpretation where $\meta{A}$ is false.
 		
@@ -674,7 +677,7 @@ $$\exists x(Gx \eif Ga) \ttherefore \exists x Gx \eif Ga$$
 To show that this is invalid, we must make the premise true and the conclusion false. The conclusion is a conditional, so to make it false, the antecedent must be true and the consequent must be false. Clearly, our domain must contain two objects. Let's try:
 	\begin{ekey}
 		\item[\text{domain}] Karl Marx, Ludwig von Mises
-		\item[G\meta{x}] \gap{x} hated communism
+		\item[G] \gap{1} hated communism
 		\item[a] Karl Marx
 	\end{ekey}
 Given that Marx wrote \emph{The Communist Manifesto}, `$Ga$' is plainly false in this interpretation. But von Mises famously hated communism. So `$\exists x Gx$' is true in this interpretation. Hence `$\exists x Gx \eif Ga$' is false, as required. 
@@ -688,7 +691,7 @@ Let's consider a second example. Consider:
 Again, I want to show that this is invalid. To do this, we must make the premises true and the conclusion false. Here is a suggestion:
 	\begin{ekey}
 		\item[\text{domain}] People with a living biological sibling
-		\item[L\meta{xy}] \gap{x} shares a parent with \gap{y}
+		\item[L] \gap{1} shares a parent with \gap{2}
 	\end{ekey}
 The premise is clearly true on this interpretation. Anyone in the domain has a living sibling. That sibling will also, then, be in the domain, because one cannot be someone's sibling without also having  them as a sibling. So for everyone in the domain, there will be at least one other person in the domain who is their sibling, and thus has a parent in common with them. Hence `$\forall x \exists y Lxy$' is true. But the conclusion is clearly false, for that would require that there is some single person who shares a parent with everyone in the domain, and there is no such person. So the argument is invalid. We observe immediately that the sentences `$\forall x \exists y Lxy$' and `$\enot\exists y \forall x Lxy$' are jointly consistent and that `$\forall x \exists y Lxy$' does not entail `$\exists y \forall x Lxy$'. 
 
@@ -704,7 +707,7 @@ For my third example, I shall mix things up a bit. In §\ref{s:Interpretations},
 \draw[->, thick] (atom2) -- (atom3);
 \end{tikzpicture}
 \end{center}
-Using the conventions employed in §\ref{s:Interpretations}, the domain of this interpretation is the first three positive whole numbers, and `$R\meta{xy}$' is true of \meta{x} and \meta{y} just in case there is an arrow from \meta{x} to \meta{y} in our diagram. Here are some sentences that the interpretation makes true:
+Using the conventions employed in §\ref{s:Interpretations}, the domain of this interpretation is the first three positive whole numbers, and `$R$' is true of \meta{x} and \meta{y} just in case there is an arrow from \meta{x} to \meta{y} in our diagram. Here are some sentences that the interpretation makes true:
 	\begin{itemize}
 		\item `$\forall x \exists y Ryx$' 
 		\item `$\exists x \forall y Rxy$' \hfill witness 1

@@ -52,7 +52,7 @@ As with \TFL, we can provide symbolisation keys. These indicate, temporarily, wh
 
 Again, what we are saying in using natural language names is that the thing referred to by the \FOL\ name `$e$' is stipulated – for now – to be the same thing referred to by the English proper noun `Elsa'. We are \emph{not} saying that `$e$' and `Elsa' are synonyms. For all we know, perhaps there is additional nuance to the meaning of the name `Elsa' other than what it refers to. If there is, it is not preserved in the \FOL\ name `$e$', which has no nuance in its meaning other than the thing it denotes.
 
-You may have been taught in school that a noun is a naming word. It is safe to use names in \FOL\ to symbolise proper nouns. But dealing with common nouns  is a more subtle matter. Even though they are often described as `general names', common nouns actually function as names relatively rarely. One type of common noun which often functions as a name are \define{natural kind terms} like `gold' and `tiger'. These are common nouns which really do name a kind of thing. Consider this example: \begin{earg}
+You may have been taught in school that a noun is a naming word. It is safe to use names in \FOL\ to symbolise proper nouns. But dealing with common nouns  is a more subtle matter. Even though they are often described as `general names', common nouns actually function as names relatively rarely. Some common nouns which do often function as names are \define{natural kind terms} like `gold' and `tiger'. These are common nouns which really do name a kind of thing. Consider this example: \begin{earg}
 	\item[] Gold is scarce;
 	\item[] Nothing scarce is cheap;
 	\item[So:] Gold isn't cheap.
@@ -74,15 +74,10 @@ In general, you can think about predicates as things which combine with singular
 	\end{quote}
 \FOL\ predicates are capital letters $A$ through $Z$, with or without subscripts. We might write a symbolisation key for predicates thus:
 	\begin{ekey}
-		\item[A\meta{x}] \gap{x} is angry
-		\item[H\meta{x}] \gap{x} is happy
-%		\item[T_{1}\meta{xy}] \gap{x} is as tall or taller than \gap{y}
-%		\item[T_{2}\meta{xy}] \gap{x} is as tough or tougher than \gap{y}
-%		\item[B\meta{xyz}] \gap{y} is between \gap{x} and \gap{z}
+		\item[A] \gap{1} is angry
+		\item[H] \gap{1} is happy
 	\end{ekey}
 (Why the subscripts on the gaps? We shall return to this in §\ref{s:MultipleGenerality}.)
-
-Note that we are using metalanguage variables  ($\meta{x}$, $\meta{y}$, \meta{z}) in our symbolisation key and to label the gaps (recall §\ref{s:UseMention}). This is to indicate that we are intending to provide a key to the meaning of any expression involving the predicates `$A$' or `$H$' – not just those featuring the variable `$x$'.
 
 If we combine our two symbolisation keys, we can start to symbolise some English sentences that use these names and predicates in combination. For example, consider the English sentences:
 	\begin{earg}
@@ -90,13 +85,14 @@ If we combine our two symbolisation keys, we can start to symbolise some English
 		\item[\ex{terms2a}] Gregor and Marybeth are angry.
 		\item[\ex{terms2}] If Elsa is angry, then so are Gregor and Marybeth.
 	\end{earg}
-Sentence \ref{terms1} is straightforward: we symbolise it by `$Ae$'.
+To make a simple subject-predicate sentence, we need to couple the predicate with as many names as there are `gaps'. Since in the above key `$A$' has one gap in the symbolisation key, following it with a single name makes a grammatically formed sentence of \FOL. So sentence \ref{terms1} is straightforward: we symbolise it by `$Ae$'.
 
 Sentence \ref{terms2a}: this is a conjunction of two simpler sentences. The simple sentences can be symbolised just by `$Ag$' and `$Am$'. Then we help ourselves to our resources from \TFL, and symbolise the entire sentence by `$Ag \eand Am$'. This illustrates an important point: \FOL\ has all of the truth-functional connectives of \TFL.
 
 Sentence \ref{terms2}: this is a conditional, whose antecedent is sentence \ref{terms1} and whose consequent is sentence \ref{terms2a}. So we can symbolise this with `$Ae \eif (Ag \eand Am)$'.
 
 Actually we can make an elegant further assumption to incorporate \TFL\ entirely within \FOL. A predicate combines with singular terms to make sentences. But some English predicates combine with \emph{zero} singular terms to make a sentence. We see this in weather expressions like `it is snowing', in which the pronoun `it' doesn't actually refer to anything. This predicate does not denote a property of individuals, because there is no way to attach it to a particular individual. (Try substituting some proper name for `it' in `it is raining' and see what nonsense you get.) Such predicates rather are already sentences by themselves, symbolised by capital letters `$A$' through `$Z$' without any adjacent name. This is exactly how we treated the grammar of atomic sentences of \TFL. So we can in fact simply include all atomic sentences of \TFL\ among these special predicates of \FOL. Since \FOL\ has all the connectives of \TFL\ and all the atomic sentences, we see that \emph{every sentence of \textnormal{\TFL} is also a sentence of \textnormal{\FOL}}.
+
 
 \section{Quantifiers}\label{quant.pron}
 We are now ready to introduce quantifiers. Consider these sentences:
@@ -164,9 +160,9 @@ We now have all of the pieces of \FOL. Symbolising many sentences of English wil
 
 As I emphasised in §\ref{ss.idargstr}, a single English sentence has many structures, depending on how fine-grained one is in the analysis of that sentence. We could symbolise `Antony owns a car' in a number of different ways given the resources we have so far, in increasingly finer detail: \begin{enumerate}
 	\item We could symbolise it as an atomic sentence of \TFL\ like `$A$', ignoring all internal structure of the sentence (because it has no internal truth-functional structure). This is also a zero-place predicate, so is also a sentence of \FOL. 
-	\item We could symbolise it as another atomic sentence of \FOL, but one which does recognise the internal subject-predicate struture of the English sentence. For example, we could symbolise it as `$Wa$', where `$W\meta{x}$' symbolises `$\gap{x}$ owns a car' and `$a$' symbolises `Antony'.
-	\item Or we could symbolise it as a complex quantified sentence `$\exists y (Cy \eand Oay)$', where `$a$' is as before, but `$C\meta{x}$' means `$\gap{x}$ is a car' and `$O\meta{xy}$' is `$\gap{x}$ owns $\gap{y}$'.
-	\item We could imaginably symbolise it at even finer levels of structure, distinguishing the `is' and `a' and `car' in the predicate we symbolised as `$C\meta{x}$'.
+	\item We could symbolise it as another atomic sentence of \FOL, but one which does recognise the internal subject-predicate struture of the English sentence. For example, we could symbolise it as `$Wa$', where `$W$' symbolises `$\gap{1}$ owns a car' and `$a$' symbolises `Antony'.
+	\item Or we could symbolise it as a complex quantified sentence `$\exists y (Cy \eand Oay)$', where `$a$' is as before, but `$C$' means `$\gap{1}$ is a car' and `$O$' is `$\gap{1}$ owns $\gap{2}$'.
+	\item We could imaginably symbolise it at even finer levels of structure, distinguishing the `is' and `a' and `car' in the predicate we symbolised as `$C$'.
 \end{enumerate} Note that any structure identified is preserved: the name `$a$' continues to appear in more fine-grained symbolisations once it has appeared. A one-place predicate, having appeared in the second symbolisation, still appears in the third symbolisation, in the form of the complex one-place predicate `$\exists y (Cy \eand O\meta{x}y)$' (see that `\meta{x}' is not associated with any quantifier).
 
 How to symbolise the structure of a sentence very much depends on what purpose you have in symbolising. What matters is that you manage to represent enough structure to determine whether the target argument you are symbolising is valid. We just observed that any more fine-grained analysis of the structure of a sentence retains the coarser structure (as it just adds more detailed substructure). So if you can show an argument is valid (conclusive in virtue of its structure) at some level of analysis, it will remain valid according to any more fine-grained understanding of the structure of that sentence. So you should aim to symbolise \emph{just enough} structure in an argument to be able to demonstrate its validity – if indeed it is valid.
@@ -182,10 +178,10 @@ Consider these sentences:
 In providing a symbolisation key, we need to specify a domain. Since we are talking about coins in my pocket and on the table, the domain must at least contain all of those coins. Since we are not talking about anything besides coins, we let the domain be all coins. Since we are not talking about any specific coins, we do not need to need to deal with any names. So here is our key:
 	\begin{ekey}
 		\item[\text{domain}] all coins
-		\item[P\meta{x}] \gap{x} is in my pocket
-		\item[T\meta{x}] \gap{x} is on the table
-		\item[Q\meta{x}] \gap{x} is a 20¢ piece
-		\item[D\meta{x}] \gap{x} is a dollar
+		\item[P] \gap{1} is in my pocket
+		\item[T] \gap{1} is on the table
+		\item[Q] \gap{1} is a 20¢ piece
+		\item[D] \gap{1} is a dollar
 	\end{ekey}
 Sentence \ref{quan1} is most naturally symbolised using a universal quantifier. The universal quantifier says something about everything in the domain, not just about the coins in my pocket. Sentence \ref{quan1} can be paraphrased as `for any coin, \emph{if} that coin is in my pocket \emph{then} it is a 20¢ piece'. So we can symbolise it as `$\forall x(Px \eif Qx)$'.
 
@@ -219,8 +215,8 @@ Suppose we want to symbolise these two sentences:
 It is possible to write the symbolisation key for these sentences in this way:
 	\begin{ekey}
 		\item[\text{domain}] animals
-		\item[M\meta{x}] \gap{x} is a monkey.
-		\item[S\meta{x}] \gap{x} knows sign language.
+		\item[M] \gap{1} is a monkey.
+		\item[S] \gap{1} knows sign language.
 	\end{ekey}
 Sentence \ref{monkey1} can now be symbolised by `$\forall x(Mx \eif Sx)$'. Sentence \ref{monkey2} can be symbolised as `$\exists x(Mx \eand Sx)$'.
 
@@ -232,7 +228,7 @@ In \FOL, a universally quantified sentence of the form $\forall \meta{x} \meta{A
 
 Another example will help to bring this home. Suppose we extend the above symbolisation key, by adding:
 	\begin{ekey}
-		\item[R\meta{x}] \gap{x} is a refrigerator
+		\item[R] \gap{1} is a refrigerator
 	\end{ekey}
 Now consider the sentence `$\forall x(Rx \eif Mx)$'. This symbolises `every refrigerator is a monkey'. And this sentence is true, given our symbolisation key. This is counterintuitive, since we do not want to say that there are a whole bunch of refrigerator monkeys. It is important to remember, though, that `$\forall x(Rx \eif Mx)$' is true iff any member of the domain that is a refrigerator is a monkey. Since the domain is \emph{animals}, there are no refrigerators in the domain. Again, then, the sentence is \emph{vacuously} true. 
 
@@ -249,8 +245,8 @@ The appropriate symbolisation of an English language sentence in \FOL\ will depe
 	\end{earg}
 We might offer this symbolisation key:
 	\begin{ekey}
-		\item[R\meta{x}] \gap{x} is a rose
-		\item[T\meta{x}] \gap{x} has a thorn
+		\item[R] \gap{1} is a rose
+		\item[T] \gap{1} has a thorn
 	\end{ekey}
 It is tempting to say that sentence \ref{pickdomainrose} should be symbolised as `$\forall x(Rx \eif Tx)$'. But we have not yet chosen a domain. If the domain contains all roses, this would be a good symbolisation. Yet if the domain is merely \emph{things on my kitchen table}, then `$\forall x(Rx \eif Tx)$' would only come close to covering the fact that every rose \emph{on my kitchen table} has a thorn. If there are no roses on my kitchen table, the sentence would be trivially true. This is not what we want. To symbolise sentence \ref{pickdomainrose} adequately, we need to include all the roses in the domain. But now we have two options. 
 
@@ -263,10 +259,10 @@ Second, we can let the domain contain things besides roses: rhododendrons; rats;
 Our domain must now include both all the roses (so that we can symbolise sentence \ref{pickdomainrose}) and all the cowboys (so that we can symbolise sentence \ref{pickdomaincowboy}). So we might offer the following symbolisation key:\label{poison}
 	\begin{ekey}
 		\item[\text{domain}] people and plants
-		\item[C\meta{x}] \gap{x} is a cowboy
-		\item[S\meta{x}] \gap{x} sings a sad, sad song
-		\item[R\meta{x}] \gap{x} is a rose
-		\item[T\meta{x}] \gap{x} has a thorn
+		\item[C] \gap{1} is a cowboy
+		\item[S] \gap{1} sings a sad, sad song
+		\item[R] \gap{1} is a rose
+		\item[T] \gap{1} has a thorn
 	\end{ekey}
 Now we will have to symbolise sentence \ref{pickdomainrose} with `$\forall x (Rx \eif Tx)$', since `$\forall x Tx$' would symbolise the sentence `every person or plant has a thorn'. Similarly, we will have to symbolise sentence \ref{pickdomaincowboy} with `$\forall x (Cx \eif Sx)$'. 
 
@@ -279,8 +275,8 @@ When symbolising English sentences in \FOL, it is important to understand the st
 For the next several examples, we will use this symbolisation key:
 	\begin{ekey}
 		\item[\text{domain}] women
-		\item[B\meta{x}] \gap{x} is a bassist.
-		\item[R\meta{x}] \gap{x} is a rock star.
+		\item[B] \gap{1} is a bassist.
+		\item[R] \gap{1} is a rock star.
 		\item[k] Kim Deal
 	\end{ekey}
 Now consider these sentences:
@@ -332,7 +328,7 @@ Sentence \ref{qscope2}, by contrast, might best be paraphrased by `every person 
 
 In short, `$\forall x Bx \eif Bb$' and `$\forall x (Bx \eif Bb)$' are very different sentences. We can explain the difference in terms of the \emph{scope} of the quantifier. The scope of quantification is very much like the scope of negation, which we considered when discussing \TFL, and it will help to explain it in this way.
 
-In the sentence `$\enot Bk \eif Bb$', the scope of `$\enot$' is just the antecedent of the conditional. We are saying something like: if `$Bk$' is false, then `$Bb$' is true. Similarly, in the sentence `$\forall x Bx \eif Bb$', the scope of `$\forall x$' is just the antecedent of the conditional. We are saying something like: if `$B\meta{x}$' is true of \emph{everything}, then `$Bb$' is also true. 
+In the sentence `$\enot Bk \eif Bb$', the scope of `$\enot$' is just the antecedent of the conditional. We are saying something like: if `$Bk$' is false, then `$Bb$' is true. Similarly, in the sentence `$\forall x Bx \eif Bb$', the scope of `$\forall x$' is just the antecedent of the conditional. We are saying something like: if `$B$' is true of \emph{everything}, then `$Bb$' is also true. 
 
 In the sentence `$\enot(Bk \eif Bb)$', the scope of `$\enot$' is the entire sentence. We are saying something like: `$(Bk \eif Bb)$' is false. Similarly, in the sentence `$\forall x (Bx \eif Bb)$', the scope of `$\forall x$' is the entire sentence. We are saying something like: `$(Bx \eif Bb)$' is true of \emph{everything}.
 
@@ -346,8 +342,8 @@ When we encounter a sentence like
 	\end{earg}
 we can paraphrase this as `Herbie is white and Herbie is a car'. We can then use a symbolisation key like:
 	\begin{ekey}
-		\item[W\meta{x}] \gap{x} is white
-		\item[C\meta{x}] \gap{x} is a car
+		\item[W] \gap{1} is white
+		\item[C] \gap{1} is a car
 		\item[h] Herbie
 	\end{ekey}
 This allows us to symbolise sentence \ref{syn1} as `$Wh \eand Ch$'. But now consider:
@@ -357,8 +353,8 @@ This allows us to symbolise sentence \ref{syn1} as `$Wh \eand Ch$'. But now cons
 \end{earg}
 Following the case of Herbie, we might try to use a symbolisation key like:
 	\begin{ekey}
-		\item[F\meta{x}] \gap{x} is former
-		\item[P\meta{x}] \gap{x} is Prime Minister
+		\item[F] \gap{1} is former
+		\item[P] \gap{1} is Prime Minister
 		\item[j] Julia Gillard.
 	\end{ekey}
 Then we would symbolise \ref{priv1} by `$Fj \eand Pj$', and symbolise \ref{priv2} by `$Pj$'. That would however be a mistake, since that symbolisation suggests that the argument from \ref{priv1} to \ref{priv2} is valid, because the symbolisation of the premise does logically entail the symbolisation of the conclusion. 
@@ -370,19 +366,19 @@ Things are a bit more complicated, however. Recall this example from page \pager
 	\item[] Daisy is a small cow.
 \end{earg} We note that a small cow is definitely a cow, and so it seems we can treat `small' as a subsective adjective. We might formalise this sentence like this: `$Sd \eand Cd$', assuming this symbolisation key:
 	\begin{ekey}
-		\item[S\meta{x}] \gap{x} is small
-		\item[C\meta{x}] \gap{x} is a cow
+		\item[S] \gap{1} is small
+		\item[C] \gap{1} is a cow
 		\item[d] Daisy
 	\end{ekey}
 But note that our symbolisation would suggest that this argument is valid: \begin{earg}
 	\item[\ex{syn2}] Daisy is a small cow; so Daisy is small.
 \end{earg} The symbolised argument, $Sd \wedge Cd \ttherefore Sd$, is clearly valid.
 
-But the original argument \ref{syn2} is not valid. Even a small cow is still rather large. (Likewise, even a short basketball player is still generally well above average height.) The point is that `\gap{x} is a small cow' denotes the property something has when it is small \emph{for a cow}, while `\gap{x} is small' denotes the property of being a small \emph{thing}. (In ordinary speech we tend to keep the  `for an $F$' part of these phrases silent, and let our conversational circumstances supply it automatically.) But neither should we treat `small' as a non-subsective adjective. If we do, we will be unable to account for the valid argument `Daisy is a small cow, so Daisy is a cow'. 
+But the original argument \ref{syn2} is not valid. Even a small cow is still rather large. (Likewise, even a short basketball player is still generally well above average height.) The point is that `\gap{1} is a small cow' denotes the property something has when it is small \emph{for a cow}, while `\gap{1} is small' denotes the property of being a small \emph{thing}. (In ordinary speech we tend to keep the  `for an $F$' part of these phrases silent, and let our conversational circumstances supply it automatically.) But neither should we treat `small' as a non-subsective adjective. If we do, we will be unable to account for the valid argument `Daisy is a small cow, so Daisy is a cow'. 
 
 The correct symbolisation key will thus be this, keeping the other symbols as they were: 
 	\begin{ekey}
-		\item[S\meta{x}] \gap{x} is small-for-a-cow
+		\item[S] \gap{1} is small-for-a-cow
 	\end{ekey} On this symbolisation key, the valid formal argument $Sd \wedge Cd \ttherefore Cd$ corresponds to this valid argument, as it should:
 	\begin{earg}
 		\item[] Daisy is a cow that is small-for-a-cow; so Daisy is a cow.
@@ -453,10 +449,10 @@ Symbolise each argument in \FOL.
 Using the following symbolisation key:
 \begin{ekey}
 \item[\text{domain}] people
-\item[K\meta{x}] \gap{x} knows the combination to the safe
-\item[S\meta{x}] \gap{x} is a spy
-\item[V\meta{x}] \gap{x} is a vegetarian
-%\item[T\meta{xy}] \gap{x} trusts \gap{y}.
+\item[K] \gap{1} knows the combination to the safe
+\item[S] \gap{1} is a spy
+\item[V] \gap{1} is a vegetarian
+%\item[T] \gap{1} trusts \gap{2}.
 \item[h] Hofthor
 \item[i] Ingmar
 \end{ekey}
@@ -472,10 +468,10 @@ symbolise the following sentences in \FOL:
 Using this symbolisation key:
 \begin{ekey}
 \item[\text{domain}] all animals
-\item[A\meta{x}] \gap{x} is an alligator.
-\item[M\meta{x}] \gap{x} is a monkey.
-\item[R\meta{x}] \gap{x} is a reptile.
-\item[Z\meta{x}] \gap{x} lives at the zoo.
+\item[A] \gap{1} is an alligator.
+\item[M] \gap{1} is a monkey.
+\item[R] \gap{1} is a reptile.
+\item[Z] \gap{1} lives at the zoo.
 \item[a] Amos
 \item[b] Bouncer
 \item[c] Cleo
@@ -563,7 +559,7 @@ I will start with the following representation key:
 		\item[\text{domain}] people
 		\item[i] Imre
 		\item[k] Karl
-		\item[L\meta{xy}] \gap{x} loves \gap{y}
+		\item[L] \gap{1} loves \gap{2}
 	\end{ekey}
 %Sentence \ref{terms3} can now be symbolised by `$Tmd$'. Note the order of the names! 
 %Sentence \ref{terms4} might seem as if it requires a new predicate. But there is obviously a connection connection between `shorter' and `taller.' We can paraphrase sentence \ref{terms4} using predicates already in our key: `It is not the case that Imre is as tall or taller than Karl'. We can now symbolise it as `$\enot Tmd$'.
@@ -577,18 +573,22 @@ Sentence \ref{terms6} might be paraphrased by `Imre loves Karl'. It can then be 
 
 This last example, though, highlights something important. Suppose we add to our symbolisation key the following:
 	\begin{ekey}
-		\item[M\meta{xy}] \gap{y} loves \gap{x}
+		\item[M] \gap{2} loves \gap{1}
 	\end{ekey}
-Here, we have used the same English word (`loves') as we used in our symbolisation key for `$L\meta{xy}$'. However, we have swapped the order of the \emph{gaps} around (just look closely at those little subscripts!) So `$Mki$' and `$Lik$' now \emph{both} symbolise `Imre loves Karl'. `$Mik$' and `$Lki$' now \emph{both} symbolise `Karl loves Imre'. Since love can be unrequited, these are very different claims. 
+Here, we have used the same English word (`loves') as we used in our symbolisation key for `$L$'. However, we have swapped the order of the \emph{gaps} around (just look closely at those little subscripts!) So `$Mki$' and `$Lik$' now \emph{both} symbolise `Imre loves Karl'. `$Mik$' and `$Lki$' now \emph{both} symbolise `Karl loves Imre'. Since love can be unrequited, these are very different claims. 
 
 The moral is simple. When we are dealing with predicates with more than one place, we need to pay careful attention to the order of the places.
 
 Suppose we add to our symbolisation key the following:
 	\begin{ekey}
-		\item[S\meta{x}] \gap{x} thinks only of \gap{x}
-		\item[T\meta{xy}] \gap{x} thinks only of \gap{y}
+		\item[S] \gap{1} thinks only of \gap{1}
+		\item[T] \gap{1} thinks only of \gap{2}
 	\end{ekey}
-As in the case of `$L\meta{xy}$' and `$M\meta{xy}$' above, the difference between these examples is only in how the gaps in the construction `… thinks only of …' are labelled. In `$T\meta{xy}$', we have labelled the two gaps differently. They do not \emph{need} to be filled with different names or variables, but there is always the potential to put different names in those different gaps. In the case of `$S\meta{x}$', the gaps have the same label. In some sense, there is \emph{only one} gap in this sentence, which is why the symbolisation key associates it with a one-place predicate – it means something like `$x$ thinks only of themself'.
+As in the case of `$L$' and `$M$' above, the difference between these examples is only in how the gaps in the construction `… thinks only of …' are labelled. In `$T$', we have labelled the two gaps differently. They do not \emph{need} to be filled with different names or variables, but there is always the potential to put different names in those different gaps. In the case of `$S$', the gaps have the same label. In some sense, there is \emph{only one} gap in this sentence, which is why the symbolisation key associates it with a one-place predicate – it means something like `$x$ thinks only of themself'.
+
+
+We have introduced a potential ambiguity in our treatment of predicates. (See also §\ref{s:termsandf}.) There is nothing overt in our language that distinguishes the one-place predicate `$A$' (such that `$Ab$' is grammatical) from the two place predicate `$A$' (such that `$Ab$' is ungrammatical, but `$Abk$' is grammatical). We are, in effect, just letting context disambiguate how many argument places there are in a given predicate, by assuming that in any sentence of \FOL\ we write down, the number of names or variables following a predicate indicates how many places it has. We could introduce a system to disambiguate: perhaps adding a superscripted `1' to all one-place predicates, a superscripted `2' to all two-place predicates, etc. Then `$A^{1}b$' is grammatical while `$A^{1}bk$' is not; while `$A^{2}b$' is ungrammatical and `$A^{2}bk$' is grammatical. This system of superscripts would be effective but cumbersome. We will thus keep to our existing practice, letting context disambiguate. What you should \emph{not} do, however, is make use of the same capital letter to symbolise two different predicates in the same symbolisation key. If you do that, context will not disambiguate, and you will have failed to give an interpretation at all. 
+
 
 \section{The scope of quantifiers}
 Consider the sentence `everyone loves someone'. This is potentially ambiguous. It might mean either of the following:
@@ -619,9 +619,9 @@ The moral is: take great care with the scope of quantification. Later in this pa
 Once we have the possibility of multiple quantifiers and many-place predicates, representation in \FOL\ can quickly start to become a bit tricky. When you are trying to symbolise a complex sentence, I recommend laying down several stepping stones. As usual, this idea is best illustrated by example. Consider this representation key:
 \begin{ekey}
 \item[\text{domain}] people and dogs
-\item[D\meta{x}] \gap{x} is a dog
-\item[F\meta{xy}] \gap{x} is a friend of \gap{y}
-\item[O\meta{xy}] \gap{x} owns \gap{y}
+\item[D] \gap{1} is a dog
+\item[F] \gap{1} is a friend of \gap{2}
+\item[O] \gap{1} owns \gap{2}
 \item[g] Geraldo
 \end{ekey}
 And now let's try to symbolise these sentences:
@@ -683,11 +683,11 @@ And we are done!
 Using this symbolisation key:
 \begin{ekey}
 \item[\text{domain}] all animals
-\item[A\meta{x}] \gap{x} is an alligator
-\item[M\meta{x}] \gap{x} is a monkey
-\item[R\meta{x}] \gap{x} is a reptile
-\item[Z\meta{x}] \gap{x} lives at the zoo
-\item[L\meta{xy}] \gap{x} loves \gap{y}
+\item[A] \gap{1} is an alligator
+\item[M] \gap{1} is a monkey
+\item[R] \gap{1} is a reptile
+\item[Z] \gap{1} lives at the zoo
+\item[L] \gap{1} loves \gap{2}
 \item[a] Amos
 \item[b] Bouncer
 \item[c] Cleo
@@ -715,9 +715,9 @@ symbolise each of the following sentences in \FOL:
 Using the following symbolisation key:
 \begin{ekey}
 \item[\text{domain}] all animals
-\item[D\meta{x}] \gap{x} is a dog
-\item[S\meta{x}] \gap{x} likes samurai movies
-\item[L\meta{xy}] \gap{x} is larger than \gap{y}
+\item[D] \gap{1} is a dog
+\item[S] \gap{1} likes samurai movies
+\item[L] \gap{1} is larger than \gap{2}
 \item[b] Bertie
 \item[e] Emerson
 \item[f] Fergis
@@ -746,11 +746,11 @@ symbolise the following sentences in \FOL:
 Using the following symbolisation key:
 \begin{ekey}
 \item[\text{domain}] people and dishes at a potluck
-\item[R\meta{x}] \gap{x} has run out.
-\item[T\meta{x}] \gap{x} is on the table.
-\item[F\meta{x}] \gap{x} is food.
-\item[P\meta{x}] \gap{x} is a person.
-\item[L\meta{xy}] \gap{x} likes \gap{y}.
+\item[R] \gap{1} has run out.
+\item[T] \gap{1} is on the table.
+\item[F] \gap{1} is food.
+\item[P] \gap{1} is a person.
+\item[L] \gap{1} likes \gap{2}.
 \item[e] Eli
 \item[f] Francesca
 \item[g] the guacamole
@@ -775,11 +775,11 @@ symbolise the following English sentences in \FOL:
 Using the following symbolisation key:
 \begin{ekey}
 \item[\text{domain}] people
-\item[D\meta{x}] \gap{x} dances ballet.
-\item[F\meta{x}] \gap{x} is female.
-\item[M\meta{x}] \gap{x} is male.
-\item[C\meta{xy}] \gap{x} is a child of \gap{y}.
-\item[S\meta{xy}] \gap{x} is a sibling of \gap{y}.
+\item[D] \gap{1} dances ballet.
+\item[F] \gap{1} is female.
+\item[M] \gap{1} is male.
+\item[C] \gap{1} is a child of \gap{2}.
+\item[S] \gap{1} is a sibling of \gap{2}.
 \item[e] Elmer
 \item[j] Jane
 \item[p] Patrick
@@ -804,8 +804,8 @@ symbolise the following arguments in \FOL:
 Consider the following symbolisation key:
 \begin{ekey}
 \item[\text{domain}] Fred, Amy, Kuiping
-\item[P\meta{xy}] \gap{x} pats \gap{y} on the head.
-\item[T\meta{xy}] \gap{x} is taller than \gap{y}.
+\item[P] \gap{1} pats \gap{2} on the head.
+\item[T] \gap{1} is taller than \gap{2}.
 \end{ekey}
 If we hold fixed this assignment of meanings to the predicates, why is it possible that `$\exists x \forall y Pxy$' is true, but not possible that  `$\exists x \forall y Txy$' is true?
 
@@ -818,7 +818,7 @@ Consider this sentence:
 \end{earg}
 Let the domain be people; this will allow us to translate `everyone' as a universal quantifier. Offering the symbolisation key:
 	\begin{ekey}
-		\item[O\meta{xy}] \gap{x} owes money to \gap{y}
+		\item[O] \gap{1} owes money to \gap{2}
 		\item[p] Pavel
 	\end{ekey}
 we can symbolise sentence \ref{else1} by `$\forall x Opx$'. But this has a (perhaps) odd consequence. It requires that Pavel owes money to every member of the domain (whatever the domain may be). The domain certainly includes Pavel. So this entails that Pavel owes money to himself. 
@@ -840,8 +840,8 @@ The sentences in \ref{else1b}–\ref{else1d} can all be paraphrased as follows:
 	\item[\ex{else1e}] Everyone who isn't Pavel is such that: Pavel owes money to them.
 \end{earg} This is a sentence of the form `every F [person who is not Pavel] is G [owed money by Pavel]'. Accordingly it can be symbolised by something with this structure: $\forall x \meta{A}x \eif \meta{G}x$. Here is an attempt to fill in the schematic letters:
 	\begin{ekey}
-		\item[O\meta{xy}] \gap{x} owes money to \gap{y}
-		\item[I\meta{xy}] \gap{x} is \gap{y}
+		\item[O] \gap{1} owes money to \gap{2}
+		\item[I] \gap{1} is \gap{2}
 		\item[p] Pavel
 	\end{ekey}
 With this symbolisation  key, here is a proposed symbolisation: $\forall y (\enot Ipy \eif Opy)$. 
@@ -859,7 +859,7 @@ The argument isn't formally valid, because the sentence `$\enot Ihp$' doesn't fo
 
 Logicians resolve this issue by adding identity as a new \emph{logical} predicate – one of the structural words with a fixed interpretation.\footnote{We don't absolutely have to do this: there are logical languages in which identity is not a logical predicate, and is symbolised by just choosing a two-place predicate like $Ixy$. But in our logical language \FOL, we are choosing to treat identity as a structural word.} We add a new symbol `$=$', to clearly differentiate it from our existing predicates. 
 
-The symbol `$=$' is a two-place predicate. Since it is to have a special meaning, we shall write it a bit differently: we put it between two terms, rather than out front. And it \emph{does} have a very particular fixed meaning. Like the quantifiers and connectives, the identity predicate does not need a symbolisation key to fix how it is to be used. Rather, it always gets the same interpretation: $x=y$ always means `\gap{x} is identical to \gap{y}'. So identity is a special predicate because it has its meaning as part of logic.
+The symbol `$=$' is a two-place predicate. Since it is to have a special meaning, we shall write it a bit differently: we put it between two terms, rather than out front. And it \emph{does} have a very particular fixed meaning. Like the quantifiers and connectives, the identity predicate does not need a symbolisation key to fix how it is to be used. Rather, it always gets the same interpretation: $x=y$ always means `\gap{1} is identical to \gap{2}'. So identity is a special predicate because it has its meaning as part of logic.
 
 That one thing is identical to another does not mean \emph{merely} that the objects in question are indistinguishable, or that all of the same things are true of them. Rather, it means that the objects in question are \emph{the very same} object.
 
@@ -908,7 +908,7 @@ We can also use identity to say how many things there are of a particular kind. 
 \end{earg}
 We shall use the symbolisation key:
 	\begin{ekey}
-		\item[A\meta{x}] \gap{x} is an apple
+		\item[A] \gap{1} is an apple
 	\end{ekey}
 Sentence \ref{atleast1} does not require identity. It can be adequately symbolised by `$\exists x Ax$': There is some apple; perhaps many, but at least one.
 
@@ -974,11 +974,11 @@ It might be tempting to add a predicate to our symbolisation key, to symbolise t
 %Using the following symbolisation key:
 %\begin{ekey}
 %\item[\text{domain}] candies
-%\item[C\meta{x}] \gap{x} has chocolate in it.
-%\item[M\meta{x}] \gap{x} has marzipan in it.
-%\item[S\meta{x}] \gap{x} has sugar in it.
-%\item[T\meta{x}] Boris has tried \gap{x}.
-%\item[B\meta{xy}] \gap{x} is better than \gap{y}.
+%\item[C] \gap{1} has chocolate in it.
+%\item[M] \gap{1} has marzipan in it.
+%\item[S] \gap{1} has sugar in it.
+%\item[T] Boris has tried \gap{1}.
+%\item[B] \gap{1} is better than \gap{2}.
 %\end{ekey}
 %symbolise the following English sentences in \FOL:
 %\begin{earg}
@@ -1024,10 +1024,10 @@ One option would be to introduce new names whenever we come across a definite de
 A second option would be to use a \emph{new} definite description operator, such as `$\maththe$'. The idea would be to symbolise `the F' as `$\maththe xFx$'. This is read something like: `the thing such that it is F', though any complex expression with the variable $x$ would work. Expression of the form $\maththe \meta{x} \meta{A}\meta{x}$ would then behave, grammatically speaking, like names. If we followed this path, then using the following symbolisation key:
 	\begin{ekey}
 		\item[\text{domain}] people
-		\item[T\meta{x}] \gap{x} is a traitor
-		\item[D\meta{x}] \gap{x} is a deputy
-		\item[C\meta{x}] \gap{x} went to Cambridge
-		\item[S\meta{xy}] \gap{x} is shorter than \gap{y}
+		\item[T] \gap{1} is a traitor
+		\item[D] \gap{1} is a deputy
+		\item[C] \gap{1} went to Cambridge
+		\item[S] \gap{1} is shorter than \gap{2}
 		\item[n] Nick
 	\end{ekey}
 We could symbolise sentence \ref{traitor1} with `$\maththe x Tx = n$', sentence \ref{traitor2} with `$C\maththe xTx$', sentence \ref{traitor3} with `$\maththe x Tx = \maththe x Dx$', and sentence \ref{traitor4} with `$\maththe x Tx = \maththe x (Cx \wedge \forall y((Cy \wedge x≠y) \to Sxy))$'. This last example may be a bit tricky to parse. In semi-formal English, it says (supposing a domain of persons): `the unique person such that they are a traitor is identical with the unique person such that they went to Cambridge and they are shorter than anyone else who went to Cambridge'. 
@@ -1074,8 +1074,8 @@ Indeed, Russell's paraphrase helpfully highlights two ways to go wrong in a clai
 Using the following symbolisation key:
 	\begin{ekey}
 		\item[a] Antony
-		\item[K\meta{x}] \gap{x} is a present king of France
-		\item[G\meta{xy}] \gap{x} is a grandfather of \gap{y}
+		\item[K] \gap{1} is a present king of France
+		\item[G] \gap{1} is a grandfather of \gap{2}
 	\end{ekey}
 Sentence \ref{kingdate} would be symbolised by `$\exists x (\forall y(Ky \eiff  x = y) \eand Gax)$'. Now, this sentence isn't true. We might express this by saying: `Antony isn't the grandfather of the present king of France'. But this sentence is \emph{ambiguous}. The two available readings of this sentence correspond to these two different sentences:
 	\begin{earg}
@@ -1130,10 +1130,10 @@ To say much more here would lead us into deep philosophical waters. That would b
 Using the following symbolisation key:
 \begin{ekey}
 \item[\text{domain}] people
-\item[K\meta{x}] \gap{x} knows the combination to the safe.
-\item[S\meta{x}] \gap{x} is a spy.
-\item[V\meta{x}] \gap{x} is a vegetarian.
-\item[T\meta{xy}] \gap{x} trusts \gap{y}.
+\item[K] \gap{1} knows the combination to the safe.
+\item[S] \gap{1} is a spy.
+\item[V] \gap{1} is a vegetarian.
+\item[T] \gap{1} trusts \gap{2}.
 \item[h] Hofthor
 \item[i] Ingmar
 \end{ekey}
@@ -1153,8 +1153,8 @@ symbolise the following sentences in \FOL:
 Using the following symbolisation key:
 \begin{ekey}
 \item[\text{domain}] animals
-\item[𝐶\meta{x}] \gap{x} is a cat.
-\item[G\meta{xy}] \gap{x} is grumpier than \gap{y}.
+\item[𝐶\meta{x}] \gap{1} is a cat.
+\item[G] \gap{1} is grumpier than \gap{2}.
 \item[f] Felix 
 \item[g] Sylvester
 \end{ekey}
@@ -1171,13 +1171,13 @@ symbolise each of the following in \FOL:
 Using the following symbolisation key:
 \begin{ekey}
 \item[\text{domain}] cards in a standard deck
-\item[B\meta{x}] \gap{x} is black.
-\item[C\meta{x}] \gap{x} is a club.
-\item[D\meta{x}] \gap{x} is a deuce.
-\item[J\meta{x}] \gap{x} is a jack.
-\item[M\meta{x}] \gap{x} is a man with an axe.
-\item[O\meta{x}] \gap{x} is one-eyed.
-\item[W\meta{x}] \gap{x} is wild.
+\item[B] \gap{1} is black.
+\item[C] \gap{1} is a club.
+\item[D] \gap{1} is a deuce.
+\item[J] \gap{1} is a jack.
+\item[M] \gap{1} is a man with an axe.
+\item[O] \gap{1} is one-eyed.
+\item[W] \gap{1} is wild.
 \end{ekey}
 symbolise each sentence in \FOL:
 \begin{earg}
@@ -1199,10 +1199,10 @@ symbolise each sentence in \FOL:
 \problempart Using the following symbolisation key:
 \begin{ekey}
 \item[\text{domain}] animals in the world
-\item[B\meta{x}] \gap{x} is in Farmer Brown's field.
-\item[H\meta{x}] \gap{x} is a horse.
-\item[P\meta{x}] \gap{x} is a Pegasus.
-\item[W\meta{x}] \gap{x} has wings.
+\item[B] \gap{1} is in Farmer Brown's field.
+\item[H] \gap{1} is a horse.
+\item[P] \gap{1} is a Pegasus.
+\item[W] \gap{1} has wings.
 \end{ekey}
 symbolise the following sentences in \FOL:
 \begin{earg}
@@ -1245,7 +1245,7 @@ Note that the word `is' has apparently two readings: sometimes, as in `Fido is h
 \begin{earg}
  \item Fido is identical to a dog of unusual size;
  \item Fido has the property of being a dog of unusual size.
- \end{earg} Suppose that `$U\meta{x}$' symbolises the property of being a dog of unusual size, then our two readings can be symbolised `$\exists x (Ux \wedge f=x)$' and `$U(f)$'. 
+ \end{earg} Suppose that `$U$' symbolises the property of being a dog of unusual size, then our two readings can be symbolised `$\exists x (Ux \wedge f=x)$' and `$U(f)$'. 
 
  Is there any significant difference in meaning between these two symbolisations?  
 
@@ -1281,7 +1281,7 @@ Brackets &( , )\\
 \end{center}
 We define an \define{expression} of \FOL\ as any string of symbols of \FOL. Take any of the symbols of \FOL\ and write them down, in any order, and you have an expression.
 
-\section{Terms and formulae}
+\section{Terms and formulae}\label{s:termsandf}
 In §\ref{s:TFLSentences}, we went straight from the statement of the vocabulary of \TFL\ to the definition of a sentence of \TFL. In \FOL, we shall have to go via an intermediary stage: via the notion of a  \emph{formula}. The intuitive idea is that a formula is any sentence, or anything which can be turned into a sentence by adding quantifiers out front. But this will take some unpacking.
 
 We start by defining the notion of a term.
@@ -1310,7 +1310,7 @@ The use of script fonts here follows the conventions laid down in §\ref{s:UseMe
 	\end{center}
 Remember that we allow $0$-place predicates too, to ensure that sentence letters of \TFL\ are grammatical expressions of \FOL\ too. According to the definition, any predicate symbol followed by no terms at all is also an atomic formula of \FOL. So `$Q$' by itself is an acceptable atomic formula.
 
-Earlier, we distinguished many-place from one-place predicates. We made no distinction however in our list of acceptable symbols between predicate symbols with different numbers of places. This means that `$F$', `$Fa$', `$Fax$', and `$Faxb$' are all atomic formulae. We will not introduce any device for explicitly indicating what number of places a predicate has. Rather, we will assume that in every atomic formula of the form $\meta{A}\meta{t}_{1}…\meta{t}_{n}$, $\meta{A}$ denotes an $n$-place predicate. This means there is a potential for confusion in practice, if someone chooses to symbolise an argument using both the one-place predicate `$A\meta{x}$' and the two place predicate `$A\meta{xy}$'. Rather than forbid this entirely, we recommend choosing distinct symbols for different place predicates in any symbolisation you construct.
+Earlier, we distinguished many-place from one-place predicates. We made no distinction however in our list of acceptable symbols between predicate symbols with different numbers of places. This means that `$F$', `$Fa$', `$Fax$', and `$Faxb$' are all atomic formulae. We will not introduce any device for explicitly indicating what number of places a predicate has. Rather, we will assume that in every atomic formula of the form $\meta{A}\meta{t}_{1}…\meta{t}_{n}$, $\meta{A}$ denotes an $n$-place predicate. This means there is a potential for confusion in practice, if someone chooses to symbolise an argument using both the one-place predicate `$A$' and the two place predicate `$A$'. Rather than forbid this entirely, we recommend choosing distinct symbols for different place predicates in any symbolisation you construct.
 
 Once we know what atomic formulae are, we can offer recursion clauses to define arbitrary formulae. The first few clauses are exactly the same as for \TFL.
 	\factoidbox{
@@ -1358,7 +1358,7 @@ Note that it follows from our recursive definition that `$\forall x Fa$' is a fo
 Recall that we are largely concerned in logic with assertoric sentences: sentences that can be either true or false. Many formulae are not sentences. Consider the following symbolisation key:
 	\begin{ekey}
 		\item[\text{domain}] people
-		\item[L\meta{xy}] \gap{x} loves \gap{y}
+		\item[L] \gap{1} loves \gap{2}
 		\item[b] Boris
 	\end{ekey}
 Consider the atomic formula `$Lzz$'. All atomic formulae are formulae, so `$Lzz$' is a formula. But can it be true or false? You might think that it will be true just in case the person named by `$z$' loves herself, in the same way that `$Lbb$' is true just in case Boris (the person named by `$b$') loves himself. \emph{But `$z$' is a variable, and does not name anyone or any thing.} It is true that we can sometimes manage to make a claim by saying `it loves it', the best Engish rendering of `$Lzz$'. But we can only do so by making use of contextual cues to supply referents for the pronouns `it' – contextual cues that artifical languages like \FOL\ lack. (If you and I are both looking at a bee sucking nectar on a flower, we might say `it loves it' to express the claim that the bee [\emph{it}]  loves the nectar [\emph{it}]. But we don't have such a rich environment to appeal to when trying to interpret formulae of \FOL.)

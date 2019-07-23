@@ -724,10 +724,10 @@ So `$((P \eif Q) \eif P) \eif P$' is a tautology. In fact, it is an instance of 
 
 \section{Testing for validity and entailment}
 When we use truth tables to test for validity or entailment, we are checking for \emph{bad} lines: lines where the premises are all true and the conclusion is false. Note:
-	\begin{earg}
-		\item[\textbullet] Any line where the conclusion is true is not a bad line. 
-		\item[\textbullet] Any line where some premise is false is not a bad line. 
-	\end{earg}
+	\begin{itemize}
+		\item Any line where the conclusion is true is not a bad line. 
+		\item Any line where some premise is false is not a bad line. 
+	\end{itemize}
 Since \emph{all} we are doing is looking for bad lines, we should bear this in mind. So: if we find a line where the conclusion is true, we do not need to evaluate anything else on that line: that line definitely isn't bad. Likewise, if we find a line where some premise is false, we do not need to evaluate anything else on that line. 
 
 With this in mind, consider how we might test the following claimed entailment:

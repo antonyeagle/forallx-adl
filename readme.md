@@ -30,8 +30,6 @@ This text is under active yet sporadic revision. The list of items below is prim
 		* Con: destroys the nice feature of the rules that only one connective is used in any rule, which means that can be discussed separately from one another.
 		* Pro: dispense with subproofs for disjunction elimination (proof by cases); elimation rule produces a constituent of original sentence, rather than some new 'C'. 
 	* Give an official introduction to the idea of how to prove an argument in ND – i.e., how to apply the proof system after symbolisation of an argument.
-	* return to arguments introduced in §27 once we have all the rules.
-	* clean up exercises to make sure they only use the proper rules
 * Chapter 7 (`forallx-adl-prooffol.tex`)
 	- integrate barber
 * Backmatter

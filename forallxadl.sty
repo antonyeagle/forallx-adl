@@ -96,8 +96,8 @@
 \newcommand*{\script}[1]{\ensuremath{\mathscr{#1}}}
 \renewcommand*{\meta}[1]{\ensuremath{\mathscr{#1}}} % TB: used for all metavariables
 % create a blank
-\newcommand*{\blank}{\underline{\hspace*{2.5em}}}
-\newcommand*{\gap}[1]{\blank\ensuremath{_{\meta{#1}}}} % TB: used for keys, to avoid use/mention confusion Æ made script
+\newcommand*{\blank}{\ensuremath{\underbracket{\hspace*{2.5em}}}}
+\newcommand*{\gap}[1]{\blank\ensuremath{_{#1}}} % TB: used for keys, to avoid use/mention confusion Æ made script
 
 % These are included for discussing formal semantics in predicate logic.
 \newcommand*{\model}[1]{\ensuremath{\mathbb{#1}}}

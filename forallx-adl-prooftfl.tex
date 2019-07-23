@@ -1045,16 +1045,53 @@ The negation elimination rule is supported by this valid \TFL\ argument form: \b
 
 \section{Putting it All Together}\label{c:putting}
 
-\emph{We have now explained all of the basic rules for the proof system for \TFL.} Let's return to some of the arguments from §\ref{c:ass} with which we began our exploration of this system, to see how they can be proved.
+\emph{We have now explained all of the basic rules for the proof system for \TFL.} Let's return to some of the arguments from §\ref{c:ass} with which we began our exploration of this system, to see how they can be proved. And I will give a third example of a complex proof that uses many of our rules. 
 
-TBD
+\begin{figure}
+ \begin{proof}
+	\hypo{aob}{\enot (A \eor B)}
+	\open
+	\hypo{a}{A}
+	\have{ab}{(A \eor B)}\oi{a}
+	\have{r}{\enot(A \eor B)}\by{R}{aob}
+	\close
+	\have{na}{\enot A}\ni{a-ab,a-r}
+	\open
+	\hypo{b}{B}
+	\have{ab2}{(A \eor B)}\oi{b}
+	\have{r2}{\enot(A \eor B)}\by{R}{aob}
+	\close
+	\have{nb}{\enot B}\ni{b-ab2,b-r2}
+	\have{c}{(\enot A \eand \enot B)}\ai{na,nb}
+\end{proof} 	\caption{Proof of $\enot (A \eor B) \ttherefore (\enot A \eand \enot B)$\label{figa1}}
+\end{figure}
 
-$$\enot (A \eor B) \ttherefore \enot A \eand \enot B.$$
+\begin{figure}
+	\begin{proof}
+	\hypo{a1}{A \eor B}
+	\open\hypo{a2}{\enot (A\eand C)}
+	\open\hypo{a3}{\enot (B \eand \enot D)}
+\open \hypo{a}{A}
+\open \hypo{c}{C}
+\have{ac}{A \eand C}\ai{a,c}
+\have{a2r}{\enot(A \eand C)}\by{R}{a2}
+\close
+\have{nc}{\enot C}\ni{c-ac,c-a2r}
+\have{c1}{(\enot C \eor D)}\oi{nc}
+\close
+\open \hypo{b}{B}
+\open\hypo{nd}{\enot D}
+\have{bnd}{(B \eand \enot D)}\ai{b,nd}
+\have{a3r}{\enot(B \eand \enot D)}\by{R}{a3}
+\close
+\have{d}{D}\ne{nd-bnd,nd-a3r}
+\have{c2}{(\enot C \eor D)}\oi{d}
+	\have{con}{(\enot C \eor D)}\oe{a-c1,b-c2}
+\end{proof}
+\caption{Proof that $(A\eor B), \enot (A\eand C), \enot (B \eand \enot D) \ttherefore (\enot C\eor D)$.\label{figa2}}
+\end{figure}
 
-$$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \ttherefore \enot C\eor D.$$
-
-
-Figure \ref{fig:vi} shows a long proof involving most of our rules in action. \begin{figure}
+ \begin{figure}
 	\begin{proof}
 	\open
 	\hypo{npvq}{\enot P \eor Q}
@@ -1101,8 +1138,13 @@ Figure \ref{fig:vi} shows a long proof involving most of our rules in action. \b
 \end{proof}\caption{A complicated proof\label{fig:vi}}
 \end{figure}
 
+\begin{enumerate}
+	\item One argument we considered earlier was this: $$\enot (A \eor B) \ttherefore (\enot A \eand \enot B).$$ We can now see that the proof we began to construct can be completed can be proved as in Figure \ref{figa1}.
+	\item The second proof we began constructing earlier corresponded to this argument: $$(A\eor B), \enot (A\eand C), \enot (B \eand \enot D) \ttherefore (\enot C\eor D).$$ The proof can be completed as in Figure \ref{figa2}.
+	\item Finally, Figure \ref{fig:vi} shows a long proof involving most of our rules in action. 
+\end{enumerate}
 
-
+These three proofs are more complex than the others we've considered, because they involve multiple rules in tandem. You should make sure you understand why each rule applies where it does, and that the proofs are correct, before you move on. You probably won't feel that you are able to construct a proof yourself as yet, and that is okay. It is important now to see that these are in fact proofs. Some ideas about how to go about constructing them yourself will be presented in §\ref{c:proof.strat}. But you will also get a sense about how to construct complex proofs as you practice constructing simpler proofs and start to see how they can be slotted together to form larger proofs. There is no substitute for practice.
 
 \keyideas{
 	\item The rules for our system are summarised on page \pageref{ProofRules}.
@@ -1110,6 +1152,7 @@ Figure \ref{fig:vi} shows a long proof involving most of our rules in action. \b
 	\item Our proof rules match the interpretation of \TFL\ we have given – they will not permit us to say that some claim is provable from some assumptions when that claim isn't entailed by those assumptions. 
 }
 
+\newpage
 \practiceproblems
 
 \problempart
@@ -1158,7 +1201,7 @@ The following three proofs are missing their commentaries (rule and line numbers
 \close
 \have{conc}{(A \eand B) \eif (D \eor E)}%\ci{ab-de}
 \end{proof}
-
+\end{multicols}
 \begin{proof}
 \hypo{nlcjol}{\enot L \eif (J \eor L)}
 \open
@@ -1178,7 +1221,7 @@ The following three proofs are missing their commentaries (rule and line numbers
 \close
 \have{conc}{J}%\oe{jol, j-j2, l-j3}
 \end{proof}
-\end{multicols}
+
 
 
 \problempart
@@ -1416,7 +1459,7 @@ Neither of these heuristics is sacrosanct. You will get a sense of how to constr
 
 
 
-\chapter{Derived rules for \textnormal{\TFL}}\label{s:Further}\label{s:Derived}
+\chapter{Derived rules for \textnormal{\TFL}}\label{s:Derived}
 In §§\ref{s:BasicTFLs}–\ref{s:BasicTFLns}, we introduced the basic rules of our proof system for \TFL. In this section, we shall consider some alternative or additional rules for our system.
 
 None of these rules adds anything fundamentally to our system. They are all \define{derived} rules, which means that anything we can prove by using them, we could have proved using just the rules in our original official system of natural deduction proofs. Any of these rules is a \emph{conservative} addition to our proof system, because none of them would enable us to prove anything we could not already prove. (Adding the rules for `tonk' from §\ref{inferentialism}, by contrast, would allow us to prove many new things – any system which includes those rules is not a conservative extension of our original system of proof rules.)
@@ -1424,7 +1467,7 @@ None of these rules adds anything fundamentally to our system. They are all \def
  But sometimes adding new rules can shorten proofs, or make them more readable and user-friendly. And some of them are of interest in their own right, as arguably independently plausible rules of implication as they stand, or as alternative rules we could have taken as basic instead.
 
 \section{Reiteration}\label{der.reit}
-The first derived rule is actually one of our main proof rules: \emph{reiteration}. It turns out that we need not have assumed a rule of reiteration. We can replace each application of the reiteration rule on some line $k+1$ (reiterating some prior line $m$) with the following combination of moves deploying just the \emph{other} basic rules of §§\ref{s:BasicTFLs}–\ref{s:BasicTFLns}:
+The first derived rule is actually one of our main proof rules: \emph{reiteration}. It turns out that we need not have assumed a rule of reiteration. We can replace each application of the reiteration rule on some line $k+1$ (reiterating some prior line $m$) with the following combination of moves deploying just the \emph{other} basic rules of §§\ref{s:BasicTFLns}–\ref{s:BasicTFLs}:
 \begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[k]{aa}{\meta{A} \eand \meta{A}}\ai{a}
@@ -1499,7 +1542,7 @@ This rule is, again, a conservative addition to our stock of proof rules. Any ap
 		\have{b}{\meta{B}}\ce{ab, a}
 		\have{nb1}{\enot B}\by{R}{nb}
 		\close
-	\have{no}{\enot\meta{A}}\ni{a-nb1}
+	\have{no}{\enot\meta{A}}\ni{a-b,a-nb1}
 \end{proof}
 Again, we made a dispensible use of reiteration.
 
@@ -1529,24 +1572,14 @@ This rule is redundant, given the proof rules of \TFL: \begin{proof}
 	\hypo{a}{\enot\enot\meta{A}}
 	\open
 	\hypo{b}{\enot\meta{A}}
+	\have{ar}{\enot\enot\meta{A}}\by{R}{a}
+	\have{br}{\enot\meta{A}}\by{R}{b}
 	\close
-	\have{c}{\meta{A}}\ne{b-b,b-a}
+	\have{c}{\meta{A}}\ne{b-br,b-ar}
 \end{proof}
 Anything we can prove using the $\enot\enot$E rule can be proved almost as briefly using just $\enot$E.
 
-Note that we could \emph{replace} the $\enot$E rule by $\enot\enot$E. For we can emulate any application of $\enot$E by an application of $\enot$I, followed by a single use of $\enot\enot$E:
- \begin{proof}
-	\open 
-	\hypo[i]{a}{\enot\meta{A}}
-	\have[\ ]{}{\vdots}
-	\have[j]{b}{\meta{B}}
-	\have[\ ]{}{\vdots}
-	\have[k]{c}{\enot\meta{B}}
-	\close
-	\have{d}{\enot\enot\meta{A}}\ni{a-b,a-c}
-	\have{}{\meta{A}} \dne{d}
-\end{proof}
-This proof shows that, in a system with {\enot}I and {\enot\enot}E, we do not need any separate elimination rule for a single negation – the effect of any such rule could be perfectly simulated by the above schematic proof. The addition of a single negation elimination rule would not allow us to prove any more than we already can. So in a sense, the rules of double negation elimination and negation elimination are equivalent, at least given the other rules in our system.
+
 
 \section{\emph{Tertium non datur}}
 
@@ -1555,6 +1588,7 @@ Suppose that we can show that if it's sunny outside, then Bill will have brought
 This line of thinking motivates the following rule:
 \factoidbox{\begin{proof}
 		\open
+		\have[\ ]{}{\vdots}
 			\hypo[i]{a}{\meta{A}}
 			\have[j]{c1}{\meta{B}}
 		\close
@@ -1564,7 +1598,7 @@ This line of thinking motivates the following rule:
 		\close
 		\have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
 	\end{proof}}
-The rule is sometimes called \define{\emph{tertium non datur}}, which means `no third way'. There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
+The rule is sometimes called \define{\emph{tertium non datur}}, which means roughly `no third way'. There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
 
 \emph{Tertium non datur} is able to be emulated using just our original proof rules. Here is a schematic proof which demonstrates this:
 \begin{proof}
@@ -1743,3 +1777,45 @@ Provide proof schemes that justify the addition of the third and fourth De Morga
 
 \problempart
 The proofs you offered in response to question \textbf{A} above used derived rules. Replace the use of derived rules, in such proofs, with only basic rules. You will find some `repetition' in the resulting proofs; in such cases, offer a streamlined proof using only basic rules.  (This will give you a sense, both of the power of derived rules, and of how all the rules interact.)
+
+\chapter{Alternative proof systems for \textnormal{\TFL}}\label{s:alternates}
+
+We've now developed a system of proof rules, all of which we have supported by showing that they correspond to correct entailments of \TFL. We've also seen that these rules allow us to introduce some derived rules, which make proofs shorter and more convenient but do not allow us to prove anything that we could not have proved already.
+
+This choice of proof system is not forced on us. There are \emph{alternative} proof systems which are nevertheless equivalent to the system we have introduced, in that everything which is provable in our system is provable in the alternative system, and \emph{vice versa}. Indeed, there are lots of alternative systems. In this section, I will discuss just a couple. The alternative systems I will discuss here result from taking one of our derived rules as basic, and showing that doing so allows us to derive a formerly basic rule.
+
+\section{Replacing negation elimination by double negation elimination} 
+
+The first alternative system results from replacing the rule of negation elimination {\enot}E by double negation elimination {\enot\enot}E. In combination with the other rules, we can emulate the results of {\enot}E by an application of $\enot$I, followed by a single use of $\enot\enot$E:
+ \begin{proof}
+	\open 
+	\hypo[i]{a}{\enot\meta{A}}
+	\have[\ ]{}{\vdots}
+	\have[j]{b}{\meta{B}}
+	\have[\ ]{}{\vdots}
+	\have[k]{c}{\enot\meta{B}}
+	\close
+	\have{d}{\enot\enot\meta{A}}\ni{a-b,a-c}
+	\have{}{\meta{A}} \dne{d}
+\end{proof}
+This proof shows that, in a system with {\enot}I and {\enot\enot}E, we do not need any separate elimination rule for a single negation – the effect of any such rule could be perfectly simulated by the above schematic proof. The addition of a single negation elimination rule would not allow us to prove any more than we already can. So in a sense, the rules of double negation elimination and negation elimination are equivalent, at least given the other rules in our system.
+
+Since we've shown {\enot\enot}E to be a derived rule in our original system, this alternative system proves exactly the same things as our original system. The proofs will look different, but there is a correct proof of \meta{C} from $\meta{A}_{1},…,\meta{A}_{n}$ in one system, there will be a corresponding proof in the other system. Any proof in the one system can be converted into a proof in the other by replacement of the appropriate instances of the rules. 
+
+
+\section{Replacing disjunction elimination with disjunctive syllogism} % (fold)
+\label{sec:replacing_disjunction_elimination_with_disjunctive_syllogism}
+
+Another alternative system results from replacing disjunction elimination {\eor}E (proof by cases) by disjunctive syllogism DS. We already know that DS is a derived rule: any proof which uses disjunctive syllogism can be converted into a proof that uses just the basic rules. So to show the alternative system proves the same things as our original system, we just need to show that we can emulate the effects of {\eor}E by using DS, as follows: \begin{proof}
+	\hypo{ab}{(\meta{A}\eor\meta{B})}
+
+\end{proof}
+
+
+Actually what did JO want?
+
+A section on alternate systems: e.g., a system with DS for disjunction elimination, with different negation rules.
+		* Con: destroys the nice feature of the rules that only one connective is used in any rule, which means that can be discussed separately from one another.
+		* Pro: dispense with subproofs for disjunction elimination (proof by cases); elimation rule produces a constituent of original sentence, rather than some new 'C'.
+
+% section replacing_disjunction_elimination_with_disjunctive_syllogism (end)
