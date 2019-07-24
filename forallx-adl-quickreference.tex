@@ -122,16 +122,15 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 %{\LARGE \textbf{Basic Rules of Proof}}
 \begin{multicols}{2}
 
-\subsection*{Conjunction}
 
-\paragraph{Conjunction Introduction, p.\ \pageref{conjint}}
+\subsection{Conjunction Introduction, p.\ \pageref{conjint}}
 \begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[n]{b}{\meta{B}}
 	\have[\ ]{c}{\meta{A}\eand\meta{B}} \ai{a, b}
 \end{proof}
 
-\paragraph{Conjunction Elimination, p.\ \pageref{conjelim}}
+\subsection{Conjunction Elimination, p.\ \pageref{conjelim}}
 \begin{proof}
 	\have[m]{ab}{\meta{A}\eand\meta{B}}
 \\	\have[\ ]{a}{\meta{A}} \ae{ab}
@@ -140,9 +139,9 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \\	\have[\ ]{b}{\meta{B}} \ae{ab}
 \end{proof}
 
-\subsection*{Conditional}
 
-\paragraph{Conditional Introduction, p.\ \pageref{condint}}
+
+\subsection{Conditional Introduction, p.\ \pageref{condint}}
 \begin{proof}
 	\open
 		\hypo[i]{a}{\meta{A}}
@@ -151,16 +150,16 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
 \end{proof}
 
-\paragraph{Conditional Elimination, p.\ \pageref{condelim}}
+\subsection{Conditional Elimination, p.\ \pageref{condelim}}
 \begin{proof}
 	\have[m]{ab}{\meta{A}\eif\meta{B}}
 \\	\have[n]{a}{\meta{A}}
 	\have[\ ]{b}{\meta{B}} \ce{ab,a}
 \end{proof}
 
-\subsection*{Negation}
 
-\paragraph{Negation Introduction, p.\ \pageref{negint}}
+
+\subsection{Negation Introduction, p.\ \pageref{negint}}
 
 \begin{proof}
 \open
@@ -172,7 +171,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \end{proof}
 
 
-\paragraph{Negation Elimination, p.\ \pageref{negelim}}
+\subsection{Negation Elimination, p.\ \pageref{negelim}}
 \begin{proof}
 \open
 	\hypo[i]{a}{\neg\meta{A}}
@@ -184,9 +183,9 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 
 
-\subsection*{Disjunction}
 
-\paragraph{Disjunction Introduction, p.\ \pageref{disjint}}
+
+\subsection{Disjunction Introduction, p.\ \pageref{disjint}}
 
 \begin{proof}
 	\have[m]{a}{\meta{A}}
@@ -196,7 +195,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \\	\have[\ ]{ba}{\meta{B}\eor\meta{A}}\oi{a}
 \end{proof}
 
-\paragraph{Disjunction Elimination, p.\ \pageref{disjelim}}
+\subsection{Disjunction Elimination, p.\ \pageref{disjelim}}
 \begin{proof}
 	\have[m]{ab}{\meta{A}\eor\meta{B}}
 \\	\open
@@ -210,9 +209,9 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{c}{\meta{C}} \oe{ab,a-c1, b-c2}
 \end{proof}
 
-\subsection*{Biconditional}
 
-\paragraph{Biconditional Introduction, p.\ \pageref{biint}}
+
+\subsection{Biconditional Introduction, p.\ \pageref{biint}}
 \begin{proof}
 	\open
 		\hypo[i]{a1}{\meta{A}} 
@@ -225,7 +224,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
 \end{proof}
 
-\paragraph{Biconditional Elimination, p.\ \pageref{bielim}}
+\subsection{Biconditional Elimination, p.\ \pageref{bielim}}
 \begin{proof}
 	\have[m]{ab}{\meta{A}\eiff\meta{B}}
 \\	\have[n]{a}{\meta{A}}
@@ -236,7 +235,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{b}{\meta{A}} \be{ab,a}
 \end{proof}
 
-\subsection*{Reiteration, p.\ \pageref{reit}}
+\subsection{Reiteration, p.\ \pageref{reit}}
 
 \begin{proof}
 	\have[m]{a}{\meta{A}}
@@ -324,14 +323,15 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \section*{Basic deduction rules for \FOL}
 
 \begin{multicols}{2}
-\subsection*{Universal elimination}
+\subsection*{Universal elimination, p.\ \pageref{unielim}}
 
 \begin{proof}
 	\have[m]{a}{\forall \meta{x}\meta{A}}
 	\have[\ ]{c}{\meta{A}\subs{\meta{c}}{\meta{x}}} \Ae{a}
 \end{proof}
+\noindent 	\meta{c} can be any name
 
-\subsection*{Universal introduction}
+\subsection*{Universal introduction, p.\ \pageref{uniint}}
 
 \begin{proof}
 		\have[m]{a}{\meta{A}\subs{\meta{c}}{\meta{x}}}
@@ -340,15 +340,15 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 \noindent 	\meta{c} must not occur in any undischarged assumption, or in \meta{A}
 
-\subsection*{Existential introduction}
+\subsection*{Existential introduction, p.\ \pageref{exint}}
 
 \begin{proof}
 	\have[m]{c}{\meta{A}\subs{\meta{c}}{\meta{x}}} 
 			\have[\ ]{a}{\exists \meta{x}\meta{A}} \Ei{c}
 \end{proof}
+\noindent 	\meta{c} can be any name
 
-
-\subsection*{Existential elimination}
+\subsection*{Existential elimination,, p.\ \pageref{exelim}}
 
 \begin{proof}
 	\have[m]{a}{\exists \meta{x}\meta{A}}
@@ -362,14 +362,14 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \noindent \meta{c} must not occur in any undischarged assumption, in $\exists \meta{x}\meta{A}$, or in \meta{B}\vfill\columnbreak
 \end{multicols}
 \begin{multicols}{2}
-\subsection*{Identity introduction}
+\subsection*{Identity introduction, p.\ \pageref{idint}}
 
 \begin{proof}
 	\have[\ \,\,\,]{x}{\meta{c}=\meta{c}} \idi{}
 \end{proof}
 
 
-\subsection*{Identity elimination}
+\subsection*{Identity elimination, p.\ \pageref{idelim}}
 
 \begin{proof}
 	\have[m]{e}{\meta{a}=\meta{b}}
@@ -378,7 +378,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \end{proof}
 \end{multicols}
 
-\section*{Derived rules for \FOL}
+\section*{Derived rules for \FOL, §\ref{s:CQ}}
 \begin{multicols}{2}
 \begin{proof}
 	\have[m]{ab}{\forall \meta{x}\enot \meta{A}}

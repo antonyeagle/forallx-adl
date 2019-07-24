@@ -1425,6 +1425,9 @@ If you know that $\meta{A}\proves\meta{B}$, what can you say about $(\meta{A}\ea
 \chapter{Proof strategies}\label{c:proof.strat}
 There is no simple recipe for proofs, and there is no substitute for practice. Here, though, are some rules of thumb and strategies to keep in mind.
 
+
+
+
 \paragraph{Work backwards from what you want.}
 The ultimate goal is to obtain the conclusion. Look at the conclusion and ask what the introduction rule is for its main connective. This gives you an idea of what should happen \emph{just before} the last line of the proof. Then you can treat this line as if it were your goal. Ask what you could do to get to this new goal.
 
@@ -1440,7 +1443,7 @@ For a short proof, you might be able to eliminate the premises and introduce the
 If you cannot find a way to show $\meta{A}$ directly, try starting by assuming $\enot \meta{A}$. If a contradiction follows, then you will be able to obtain $\meta{A}$ by $\enot$E. This will often be a good way of proceeding when the conclusion you are aiming at has a \emph{disjunction} as its main connective.  
 
 \paragraph{Persist.}
-These are guidelines, not laws. Try different things. If one approach fails, then try something else. 
+These are guidelines, not laws. Try different things. If one approach fails, then try something else. Remember that if there is one proof, there are many – different proofs that make use of different ideas.
 
 For example: suppose you tried to follow the idea `work backwards from what you want' in establishing `$P, P \eif (P \eif Q) \proves P \eif Q$'. You would be tempted to start a subproof from the assumption `$P$', and while that proof strategy would eventually succeed, you would have done better to simply apply $\eif$E and terminate after one proof step.
 

@@ -28,8 +28,8 @@ This text is under active yet sporadic revision. The list of items below is prim
 * Chapter 6 (`forallx-adl-prooftfl.tex`)
 * Chapter 7 (`forallx-adl-prooffol.tex`)
 	- integrate barber
+	- alternate proof system with quantifier conversion rules as basic
 * Backmatter
-
 
 
 
