@@ -18,7 +18,11 @@ The LaTeX source code for this work is available on GitHub at [github.com/antony
 Current issues and proposed revisions
 -------------------------------------
 
-This text is under active yet sporadic revision. The list of items below is primarily for me, and some of it is rather cryptic, but it may be useful for readers to see proposed changes.
+This text is under active yet sporadic revision. The current public version of the text is stable for semester 2 2019, as it is being used as a textbook in our *Introduction to Logic* course, and we wish to ensure that students are working from a consistent text.
+
+I will be updating my private version of the text in response to comments, typos, and any new ideas. I will updating this document with a list of issues and proposed changes. But no changes will be made until semester is over.
+
+The following list contains current issues and proposed revisions arranged by chapter:
 
 * Chapter 1 (`forallx-adl-what.tex`) 
 * Chapter 2 (`forallx-adl-tfl.tex`)
@@ -27,8 +31,6 @@ This text is under active yet sporadic revision. The list of items below is prim
 * Chapter 5 (`forallx-adl-interpretations.tex`)
 * Chapter 6 (`forallx-adl-prooftfl.tex`)
 * Chapter 7 (`forallx-adl-prooffol.tex`)
-	- integrate barber
-	- alternate proof system with quantifier conversion rules as basic
 * Backmatter
 
 
