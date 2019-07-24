@@ -348,7 +348,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \end{proof}
 \noindent 	\meta{c} can be any name
 
-\subsection*{Existential elimination,, p.\ \pageref{exelim}}
+\subsection*{Existential elimination, p.\ \pageref{exelim}}
 
 \begin{proof}
 	\have[m]{a}{\exists \meta{x}\meta{A}}
@@ -394,6 +394,8 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[m]{ab}{\enot \forall \meta{x}  \meta{A}}
 \\	\have[\ ]{ac}{\exists \meta{x}\enot \meta{A}}\by{CQ$_{\enot\forall/\exists}$}{ab}
 \end{proof}
+
+\subsection*{Alternative identity elimination, p.\ \pageref{id.es}}
 \begin{proof}
 		\have[m]{e}{\meta{a}=\meta{b}}
 	\have[n]{a}{\meta{A}\subs{\meta{b}}{\meta{x}}}
