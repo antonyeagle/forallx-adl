@@ -382,17 +382,17 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \begin{multicols}{2}
 \begin{proof}
 	\have[m]{ab}{\forall \meta{x}\enot \meta{A}}
-	\have[\ ]{ac}{\enot \exists \meta{x} \meta{A}}\cq{m}
+	\have[\ ]{ac}{\enot \exists \meta{x} \meta{A}}\by{CQ$_{\forall/\enot\exists}$}{ab}
 
 	\have[m]{ab}{\enot \exists \meta{x}  \meta{A}}
-\\	\have[\ ]{ac}{\forall \meta{x}\enot\meta{A}}\cq{m}
+\\	\have[\ ]{ac}{\forall \meta{x}\enot\meta{A}}\by{CQ$_{\enot\exists/\forall}$}{ab}
 \end{proof}
 \begin{proof}
 	\have[m]{ab}{\exists \meta{x}\enot\meta{A}}
-	\have[\ ]{ac}{\enot \forall \meta{x} \meta{A}}\cq{m}
+	\have[\ ]{ac}{\enot \forall \meta{x} \meta{A}}\by{CQ$_{\exists/\enot\forall}$}{ab}
 
 	\have[m]{ab}{\enot \forall \meta{x}  \meta{A}}
-\\	\have[\ ]{ac}{\exists \meta{x}\enot \meta{A}}\cq{m}
+\\	\have[\ ]{ac}{\exists \meta{x}\enot \meta{A}}\by{CQ$_{\enot\forall/\exists}$}{ab}
 \end{proof}
 \begin{proof}
 		\have[m]{e}{\meta{a}=\meta{b}}
