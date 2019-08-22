@@ -65,7 +65,7 @@ This book has been designed for use in conjunction with the University of Adelai
 		\item and Chapters \ref{ch.NDTFL}–\ref{ch.NDFOL} cover the formal proof systems for our logical languages.
 	\end{itemize}
 	\item The book contains many cross-references to other sections. So a reference to `§\ref{s.sentencesTFL}' indicates that you should consult section 6, subsection 2 – you will find this on page \pageref{s.sentencesTFL}. Cross-references are hyperlinked, as are entries in the table of contents.
-	\item The diagram in Figure~\ref{fig:depend} shows how the sections depend on one another. A few sections don't have any later sections that depend on them; if you are studying this material on your own, you may wish to skim these sections on a first reading.
+	\item  Figure~\ref{fig:depend} shows how the sections depend on one another. For example, the arrows coming from §\ref{s:Interpretations} in the diagram show that understanding that section requires familiarity with §\ref{c:entvalid} and §\ref{s:FOLSentences}, and also any sections on which they depend.
 	\item Logical ideas and notation are pretty ubiquitous in philosophy, and there are a lot of different systems. We cannot cover all the alternatives, but some indication of other terminology and notation is contained in Appendix \ref{app.notation}.
 	\item A quick reference to many of the aspects of the logical systems I introduce can be found in Appendix \ref{ch.qr}.
 	\item When I first use a new piece of technical terminology, it is introduced by writing it in small caps, \textsc{like this}. You can find an index of defined terms in Appendix \ref{app.index}.
@@ -74,7 +74,7 @@ This book has been designed for use in conjunction with the University of Adelai
 \end{itemize}
 I appreciate any comments or corrections: \href{mailto:antony.eagle@adelaide.edu.au}{\nolinkurl{antony.eagle@adelaide.edu.au}}.
 
-\begin{figure} \begin{center}
+\begin{figure} \begin{center}{\small
 \begin{tikzpicture}[sibling distance=10em]
  \matrix (depend)
  [
@@ -82,7 +82,7 @@ I appreciate any comments or corrections: \href{mailto:antony.eagle@adelaide.edu
       column sep      = 3em,
       row sep         = 5ex,
       nodes={shape=ellipse,
-    draw, anchor=center, inner sep=1ex,
+    draw, anchor=center, inner sep=0.75ex,
     top color=white, bottom color=gray!20}
     ]
 {
@@ -91,15 +91,32 @@ I appreciate any comments or corrections: \href{mailto:antony.eagle@adelaide.edu
 §\ref{s:BasicNotions} & §\ref{s:MoreMonadic} & §\ref{s:FOLSentences} & & \\
 §\ref{s:firststeps} & §\ref{s:MultipleGenerality} & §\ref{s:Interpretations} & §\ref{s:NDVeryIdea}  & \\
 §\ref{s:TFLConnectives} & §\ref{sec.identity} & §\ref{s:TruthFOL} & §\ref{c:ass} & \\
-§\ref{s:TFLSentences} & §\ref{subsec.defdesc} & §\ref{FOL.semantics} & §\ref{s:BasicTFLns} & \\
-§\ref{s:UseMention} &     & §\ref{sec.UsingModels} & §\ref{s:BasicTFLs} & §\ref{s:philosophy} \\
-§\ref{s:TruthFunctionality} & §\ref{s:All.Interp} &     & §\ref{s:ProofTheoreticConcepts} & \\
+§\ref{s:TFLSentences} &  & §\ref{FOL.semantics} & §\ref{s:BasicTFLns} & \\
+§\ref{s:UseMention} &  §\ref{subsec.defdesc}   & §\ref{sec.UsingModels} & §\ref{s:BasicTFLs} & §\ref{s:philosophy} \\
+§\ref{s:TruthFunctionality} &  &  §\ref{s:All.Interp}   & §\ref{s:ProofTheoreticConcepts} & \\
 §\ref{s:CompleteTruthTables} & 	 & §\ref{s:Derived} & §\ref{c:proof.strat} & \\
 §\ref{s:Semantic.concepts} & 	 & §\ref{s:alternates} & §\ref{s:BasicFOL} & §\ref{s:CQ} \\
 §\ref{c:entvalid} & §\ref{s:shortcuts} &    & §\ref{ch.identity} & \\
 §\ref{s:expressiveness} & §\ref{s:PartialTruthTable} &    & §\ref{sec:soundcomp} & \\
     };
-	\end{tikzpicture}
+    \path[<-,thick]
+\foreach \x/\y in {1/2, 2/3, 3/4, 4/5, 5/6, 6/7, 7/8, 8/9, 9/10, 10/11, 11/12} { (depend-\x-1) edge  (depend-\y-1) }
+\foreach \x/\y in {2/3, 3/4, 4/5, 5/7} {(depend-\x-2) edge  (depend-\y-2) }
+\foreach \x/\y in {3/4, 4/5, 5/6, 6/7, 7/8} {(depend-\x-3) edge  (depend-\y-3) }
+\foreach \x/\y in {4/5, 5/6, 6/7, 7/8, 8/9, 9/10, 10/11, 11/12} { (depend-\x-4) edge  (depend-\y-4) }
+(depend-11-1) edge (depend-11-2)
+(depend-11-2) edge (depend-12-2)
+(depend-7-1) edge [looseness=0.8] (depend-2-2)
+(depend-5-2) edge [looseness=0.5] (depend-3-3)
+(depend-7-4) edge (depend-7-5)
+(depend-9-4) edge (depend-9-3)
+(depend-9-3) edge (depend-10-3)
+(depend-10-4) edge (depend-10-5)
+(depend-7-3) edge [looseness=1] (depend-12-4)
+(depend-8-1) edge [looseness=1.2]  (depend-4-4)
+(depend-11-1) edge [out=150,in=188] (depend-4-3)
+    ;
+	\end{tikzpicture}}
 \end{center}
-	\caption{Dependency of the sections on one another. \label{fig:depend}}
+	\caption{How the sections depend on one another. \label{fig:depend}}
 \end{figure}
