@@ -51,3 +51,55 @@ This book, like its predecessors, is released under a Creative Commons license (
 \vfill
 
 Typesetting was carried out entirely in \XeLaTeX. The body text is set in Constantia; math is set in Cambria Math; sans serif in Calibri; and monospaced text in Consolas. The style for typesetting proofs is based on \texttt{fitch.sty} (v0.4) by Peter Selinger, University of Ottawa.
+
+\newpage
+\tableofcontents*
+
+\chapter*{How to use this book}
+
+This book has been designed for use in conjunction with the University of Adelaide course \textsc{phil} 1110 \emph{Introduction to Logic}. But it is suitable for self-study as well. I have included a number of features to assist your learning. \begin{itemize}
+	\item \forallx\ is divided into seven chapters, each further divided into sections and subsections. The sections are continuously numbered. \begin{itemize}
+		\item Chapter \ref{ch.intro} gives an overview of how I understand the project of formal logic;
+		\item Chapters \ref{ch.TFL}–\ref{ch.TruthTables} cover sentential or truth-functional logic;
+		\item Chapters \ref{ch.FOL}–\ref{ch.semantics} cover quantified or predicate logic;
+		\item and Chapters \ref{ch.NDTFL}–\ref{ch.NDFOL} cover the formal proof systems for our logical languages.
+	\end{itemize}
+	\item The book contains many cross-references to other sections. So a reference to `§\ref{s.sentencesTFL}' indicates that you should consult section 6, subsection 2 – you will find this on page \pageref{s.sentencesTFL}. Cross-references are hyperlinked, as are entries in the table of contents.
+	\item The diagram in Figure~\ref{fig:depend} shows how the sections depend on one another. A few sections don't have any later sections that depend on them; if you are studying this material on your own, you may wish to skim these sections on a first reading.
+	\item Logical ideas and notation are pretty ubiquitous in philosophy, and there are a lot of different systems. We cannot cover all the alternatives, but some indication of other terminology and notation is contained in Appendix \ref{app.notation}.
+	\item A quick reference to many of the aspects of the logical systems I introduce can be found in Appendix \ref{ch.qr}.
+	\item When I first use a new piece of technical terminology, it is introduced by writing it in small caps, \textsc{like this}. You can find an index of defined terms in Appendix \ref{app.index}.
+	\item Each chapter in the book concludes with a box labelled `Key Ideas in §$n$'. These are not a summary of the chapter, but contain some indication of what I regard as the main ideas that you should be taking away from your reading of the chapter. 
+	\item The book is the product of a number of authors. `I' doesn't always mean me, but `you' mostly means you, the reader, and `we' mostly means you and me.
+\end{itemize}
+I appreciate any comments or corrections: \href{mailto:antony.eagle@adelaide.edu.au}{\nolinkurl{antony.eagle@adelaide.edu.au}}.
+
+\begin{figure} \begin{center}
+\begin{tikzpicture}[sibling distance=10em]
+ \matrix (depend)
+ [
+      matrix of nodes,
+      column sep      = 3em,
+      row sep         = 5ex,
+      nodes={shape=ellipse,
+    draw, anchor=center, inner sep=1ex,
+    top color=white, bottom color=gray!20}
+    ]
+{
+§\ref{s:Arguments} & & & & \\
+§\ref{s:Valid} & §15 & & & \\ 
+§\ref{s:BasicNotions} & §16 & §20 & & \\
+§4 & §17 & §21 & §26  & \\
+§5 & §18 & §22 & §27 & \\
+§6 & §19 & §23 & §28 & \\
+§7 &     & §24 & §29 & §30 \\
+§8 & §25 &     & §31 & \\
+§9 & 	 & §33 & §32 & \\
+§10 & 	 & §34 & §35 & §36 \\
+§11 & §12 &    & §37 & \\
+§14 & §13 &    & §38 & \\
+    };
+	\end{tikzpicture}
+\end{center}
+	\caption{Dependency of the sections on one another. \label{fig:depend}}
+\end{figure}
