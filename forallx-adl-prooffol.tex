@@ -13,6 +13,7 @@ Some arguments in \FOL\ don't need any new rules. Consider this: $$\enot(\forall
 	\hypo{b}{\forall x Px}
 	\have{e}{(\forall x Px \eor \exists y Py)}\oi{b}
 	\have{ar}{\enot(\forall x Px \eor \exists y Py)}\by{R}{a}
+	\close
 	\have{c}{\enot \forall x Px}\ni{b-e,b-ar}
 \end{proof}
 
@@ -55,7 +56,7 @@ This is illegitimate, since `$\forall x$' is not the main connective in line 1. 
 Here is an example of the rule in action. Suppose we wanted to show that $\forall x \forall y (Rxx \eif Rxy), Raa  \ttherefore Rab$ is provable. The proof might go like this: \begin{proof}
 	\hypo{a}{\forall x \forall y (Rxx \eif Rxy)}
 	\hypo{b}{Raa}
-	\have{c}{\forall y Raa \eif Rab}\Ae{a}
+	\have{c}{\forall y (Raa \eif Ray)}\Ae{a}
 	\have{d}{Raa \eif Rab}\Ae{c}
 	\have{e}{Rab}\ce{d,b}
 \end{proof}
@@ -115,7 +116,7 @@ Here is an example which shows our two proof rules in action, a proof that this 
 	\have{e}{\exists x Rxx}\Ei{d}
 \end{proof}
 
-For another example, consider this proof of `$\exists x (Px \eor \enot Px)$' from no assumptions\label{exexmid}: 
+For another example, consider this proof of `$\exists x (Px \eor \enot Px)$' from no assumptions:\phantomsection\label{exexmid}
 \begin{proof}
 	\open\hypo{a}{\enot(Pd \eor \enot Pd)}
 	\open\hypo{b}{\enot Pd}
@@ -222,7 +223,7 @@ Here is another proof featuring an application of $\forall$I after discharging a
 	\have{e}{\forall x \enot(Fx \eand \enot Fx)}\Ai{d}
 \end{proof} Here we were able to derive that something could not be true of $a$, no matter what $a$ is. So that property could not be true of anything at all. We cannot even coherently assume this about $a$, so it doesn't really matter what `$a$' denotes, it won't fulfil the assumption made about it. That is why we are entitled to discharge that assumption, and then any subsequent use of `$a$' in the proof must be depending not on particular facts about this $a$, but about anything at all, including whatever it is that `$a$' happens to pick out.
 
-You might wish to recall the proof of `$\exists x (Px \eor \enot Px)$' from page \pageref{exexmid}. Note that, by the second-last line, we had already discharged any assumption which relied on the specific name chosen (in that case, `$d$'). The existential introduction rule has no constraints on it, so that it was not necessary to discharge any assumptions using the name before applying that rule. But we see now that, since those assumptions were in fact discharged, we could have applied universal introduction at that second last line, to yield a proof of `$\exists x (Px \eor \enot Px)$'.
+You might wish to recall the proof of `$\exists x (Px \eor \enot Px)$' from page \pageref{exexmid}. Note that, by the second-last line, we had already discharged any assumption which relied on the specific name chosen (in that case, `$d$'). The existential introduction rule has no constraints on it, so that it was not necessary to discharge any assumptions using the name before applying that rule. But we see now that, since those assumptions were in fact discharged, we could have applied universal introduction at that second last line, to yield a proof of `$\forall x (Px \eor \enot Px)$'.
 
 We can also use our universal rules together to show some things about how quantifier order doesn't matter, when the strings of quantifiers are of the same type. For example $$\forall x \forall y \forall z Syxz \ttherefore \forall z \forall y \forall x Syxz$$ can be proved as follows: \begin{proof}
 	\hypo{a}{\forall x \forall y \forall z Syxz}
