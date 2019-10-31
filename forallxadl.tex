@@ -1,11 +1,11 @@
 %!TEX program = xelatex
 %!encoding=UTF-8 Unicode
-\documentclass[twoside, openany, 11pt, a4paper]{memoir}
+\documentclass[two side, openany, 11pt, a4paper]{memoir}
 \usepackage{forallxadl}
 \makeindex
 \begin{document}
 
-\renewcommand{\partname}{Chapter} %TB: to make the chapters (which LaTeX regards as parts) labelled "chapter" Æ: moved here because redefinition was inexplicably overwritten when left in the .sty file.
+\renewcommand{\partname}{Chapter} %TB: to make the chapters (which LaTeX regards as parts) labelled "chapter" Æ: moved here because redefinition was being overwritten when left in the .sty file.
 
 \pagestyle{forallxpage}
 
@@ -27,7 +27,6 @@
 
 
 \include{forallx-adl-notation}
-%\include{forallx-adl-alternatives} % omitted Æ
 \include{forallx-adl-quickreference}
 \renewcommand{\indexname}{Index of defined terms}\printindex % added 2018 Æ
 \include{forallx-adl-backmatter}

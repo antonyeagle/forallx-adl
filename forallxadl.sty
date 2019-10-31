@@ -17,6 +17,7 @@
 \setmathfont[range=up/{num},Numbers=OldStyle]{Constantia}
 %\setmathfont[Scale=MatchLowercase]{XITS Math}[range={"2500-"26FF,"2B00-"2BFF}] 
 \newfontfamily\cjkfont{Kaiti SC Regular}
+\newfontfamily\dispfont[Numbers=OldStyle,Ligatures={Common},SizeFeatures={Size=42}]{Constantia Bold Italic}
 
 % packages added by Æ
 
@@ -156,9 +157,10 @@
 % \factoidbox{...} produces an inset paragraph of text with a line around it
 % Neither for lists nor an environment, but it really didn't
 % belong anywhere else.
-\newcommand{\factoidbox}[1]{\begin{quote}\framebox{\parbox{\linewidth-7pt}{#1}}\end{quote}}
+\setlength{\fboxsep}{0.8em}
+\newcommand{\factoidbox}[1]{\begin{quote}\fcolorbox{orange}{liigray}{\parbox{\linewidth-1.8em}{#1}}\end{quote}}
 
-\newcommand{\keyideas}[1]{\factoidbox{\textbf{Key Ideas in §\thechapter} \begin{itemize}
+\newcommand{\keyideas}[1]{\factoidbox{\textcolor{orange}{\textbf{Key Ideas in §\thechapter}} \begin{itemize}
 #1 \end{itemize}}}
 
 % \tablefbox{...} is used in certain tables to put a box around the contents of specific table cells without having lines that run the whole length of the table
@@ -740,7 +742,7 @@
 %    ****************************************
 %    *            STYLE OF THE BOOK           *
 %    ****************************************
-% TB: I moved from book to memoir and then radically changed the structuring. From the point of view of LaTeX, the book consists of 9 parts, containing roughly 5 chapters each. From the point of view of the user, the book consists of 9 chapters, containing roughly 5 sections each. This means a fair bit of internal redefinition of LaTeX code.
+% TB: I moved from book to memoir and then radically changed the structuring. From the point of view of LaTeX, the book consists of 7 parts, containing roughly 5 chapters each. From the point of view of the user, the book consists of 7 chapters, containing roughly 5 sections each. This means a fair bit of internal redefinition of LaTeX code.
 
 % Memoir page setup
 
@@ -748,7 +750,7 @@
 
 \midsloppy
 \sloppybottom
-\isopage[10]
+\semiisopage[10]
  \setheaderspaces{*}{2\onelineskip}{*}
 \checkandfixthelayout
 
@@ -760,7 +762,10 @@
 \renewcommand\cftbeforechapterskip{0pt} %TB: to leave no gap between sections (which LaTeX regards as chapters) in the TOC
 \renewcommand{\partname}{Chapter} %TB: to make the chapters (which LaTeX regards as parts) labelled "chapter"
 \setlength{\headwidth}{\textwidth}
-
+\renewcommand*{\partnamefont}{\normalfont\huge\bfseries\color{orange}}%
+\renewcommand*{\partnumfont}{\normalfont\huge\bfseries\color{orange}}%
+\renewcommand*{\parttitlefont}{\normalfont\HUGE\itshape\bfseries\color{orange}}
+\renewcommand*{\printparttitle}[1]{ \par\hspace{1.5cm}\hrule\vskip\midchapskip\parttitlefont #1\par\hspace{1.5cm}\hrule}
 
 
 
@@ -780,26 +785,20 @@
 \renewcommand{\thepart}{\arabic{part}}  % TB: chapters (which LaTeX regards as parts) to be numbered
 \renewcommand{\thechapter}{\arabic{chapter}} %TB: sections (which LaTeX regards as chapters) to be numbered
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}} %TB: subsections (which LaTeX regards as sections) to be n.m
-
-\makechapterstyle{forallx}{% TB defines a nice style for section headings (which LaTeX regards as chapter headings)
-	\renewcommand{\chapnamefont}{\normalfont\Huge\bfseries} 
-	\renewcommand{\chapnumfont}{\normalfont\Huge\bfseries}
-	\renewcommand{\chaptitlefont}{\normalfont\Huge\bfseries} 
-	\renewcommand{\afterchapternum}{}
-	\renewcommand{\printchaptername}{} 
-	\setlength{\midchapskip}{0mm} 
-	\renewcommand{\chapternamenum}{} 
-	\renewcommand{\printchapternum}{%
-		\noindent\marginpar{\chapnumfont\thechapter}}
-	\renewcommand{\printchaptertitle}[1]{\chaptitlefont ##1}
-	}
-\chapterstyle{hangnum} % Æ choice
-
-
-\setlength{\columnsep}{2em} % Sets 2em space between columns when calling multicol 
-
+\definecolor{liigray}{gray}{0.95} % Æ: used to color background factoidbox in  gray
 \definecolor{orange}{rgb}{0.8,0.4,0.2} % Æ: used to color links in orange
 \newcommand\myanswer[1]{\textcolor{blue}{#1}} % TB: puts model answers in blue
+
+\chapterstyle{madsen} % Æ choice
+\renewcommand{\chapnumfont}{\dispfont\color{orange}}
+\renewcommand*{\printchapternum}{%
+    \makebox[0pt][l]{\hspace{0.4em}\chapnumfont\thechapter}}
+ \renewcommand{\chapnamefont}{\normalfont\Huge\bfseries\color{orange}} 
+ \renewcommand{\chaptitlefont}{\normalfont\Huge\bfseries\color{orange}} 
+\setlength{\columnsep}{2em} % Sets 2em space between columns when calling multicol 
+
+
+
 
 % TB: information originally in the main body; but it is style information, so I have included it here. Modified Æ
 \hypersetup{pdfinfo={Title={forall x: Adelaide Version}, Author={P.D. Magnus, Tim Button, Antony Eagle}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, fitch}}, %
@@ -827,6 +826,7 @@
 %   A. To illustrate an argument for the truth table of the material conditional
 %   B. To draw graphs illustrating small finite interpretations. 
 % All these drawings are done using tikz
+% AE: added a few more diagrams … Euler diagrams and directed graphs
 \usepackage{tikz}
 \usetikzlibrary{arrows,positioning,shapes,matrix,calc} 
 
