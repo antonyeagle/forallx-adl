@@ -111,7 +111,9 @@ But sometimes a good argument shows that the premises support a conclusion you c
 \section{Conclusive arguments} \label{s:conclusiveargs}
 As logicians, we want to be able to determine when the conclusion of an argument follows from the premises. One way to put this is as follows. We want to know whether, if all the premises were true, the conclusion would also have to be true. This motivates a definition:
 \factoidbox{
-	An argument is \define{conclusive} if, and only if, the truth of the premises guarantees the truth of the conclusion. In other words: an argument is conclusive if, and only if, necessarily, the conclusion of the argument is true if the premises are true. 
+	An argument is \define{conclusive} if, and only if, the truth of the premises guarantees the truth of the conclusion.
+
+	In other words: an argument is conclusive if, and only if: it is not possible for the premises of the argument to be true while the conclusion is false. 
 }
 
 
@@ -130,21 +132,23 @@ The crucial thing about a conclusive argument is that it is impossible, in a ver
 		\item[] Oranges are not fruits.
 		\item[So:] Oranges are musical instruments.
 	\end{earg}
-The conclusion of this argument is ridiculous. Nevertheless, it follows from the premises. \emph{If} both premises were true, \emph{then} the conclusion just has to be true. So the argument is conclusive.
+The conclusion of this argument is ridiculous. Nevertheless, it follows from the premises. \emph{If} both premises were true, \emph{then} the conclusion would just have to be true. So the argument is conclusive. 
 
-Why is this argument conclusive? The primary reason for any argument to be conclusive is this:
-\factoidbox{The \define{structure} of the argument – the grammatical form of the premises and conclusion – ensures that the premises support the conclusion.} In the present case, one premise says that oranges are in one of two categories; the other premise says that oranges are not in the first category. We conclude that they are in the second category. The premises and conclusion are about oranges. But it is plausible to think that any argument with this structure must be conclusive, whether we are talking about oranges, or cars, or anything really.\footnote{There is in fact another reason for thinking this argument is conclusive. One might think it is \emph{essential} to an orange that it be a fruit – many will say that \emph{being a fruit} is part of what it is to be an orange. So `Oranges are not fruits' is not only false: it is impossible for it to be true. But in that case it is not possible for the premises to be true. And it is therefore not possible for premises to be true \emph{while} the conclusion is false. And hence the argument is conclusive. 
+The fact that the argument is conclusive and has a false conclusion tells us that the premises cannot both be true. Indeed, the second premise is as absurd as the conclusion. In general, when an argument is conclusive \begin{itemize}
+	\item the truth of all the premises guarantees the truth of the conclusion; and equally
+	\item the falsity of the conclusion guarantees the falsity of at least one of the premises. 
+\end{itemize}
 
-Indeed, it would remain conclusive \emph{no matter what} the conclusion was! So this is a weird kind of case, with an impossible premise. But nothing much really turns on it, and it is simpler to simply count it as conclusive than to try and separate out such `degenerate' cases of conclusive arguments. See also §\ref{s:neccandcont}.}
+\emph{Why} is this argument conclusive? The most important factor for us in considering what makes an argument conclusive is to examine the argument's \define{structure} – the grammatical forms of the premises and conclusion. An argument will be conclusive if its structure \emph{guarantees} that its premises \emph{support} the conclusion. In the present case, one premise says that oranges are in one of two categories; the other premise says that oranges are not in the first category. We conclude that they are in the second category. The premises and conclusion are about oranges. But it is plausible to think that \emph{any} argument with this same sort of structure must be conclusive, whether we are talking about oranges, or cars, or anything really. 
 
 
-\section{Conclusiveness for special reasons}
-There are plenty of arguments that are conclusive, but not for reasons relating to their structure. Take an example:
-	\begin{earg}
-		\item[] Juanita is a vixen.
-		\item[So:] Juanita is a fox.
-	\end{earg}
-It is impossible for the premise to be true and the conclusion false. So the argument is conclusive. But this is not due to the structure of the argument. Here is an inconclusive argument with seemingly the same structure or form. The new argument is the result of replacing the word `fox' in the first argument with the word `cathedral', but keeping the overall grammatical structure the same:
+ \section{Conclusiveness for special reasons}
+ An argument can be conclusive for reasons unrelated to its structure. Take this example:
+ 	\begin{earg}
+ 		\item[] Juanita is a vixen.
+ 		\item[So:] Juanita is a fox.
+ 	\end{earg}
+ It is impossible for the premise to be true and the conclusion false. So the argument is conclusive. But this is not due to the structure of the argument. Here is an inconclusive argument with seemingly the same structure or form. The new argument is the result of replacing the word `fox' in the first argument with the word `cathedral', but keeping the overall grammatical structure the same:
 	\begin{earg}
 		\item[] Juanita is a vixen.
 		\item[So:] Juanita is a cathedral.
@@ -161,28 +165,49 @@ Again, because nothing can be both green all over and red all over, the truth of
 	\end{earg}
 The argument is inconclusive, since it is possible to be green all over and shiny all over. (I might paint my nails with an elegant shiny green varnish.) Plausibly, the conclusiveness of this argument is keyed to the way that colours (or colour-words) interact. But, whether or not that is right, it is not simply the form of the argument that makes it conclusive. 
 
+ An argument can be conclusive due to its structure, and also be conclusive for other reasons. Arguably, this might be going on in the argument discussed at the end of §\ref{s:conclusiveargs}, with the premise `Oranges are not fruits'. Some people might think this premise has to be false, because of what oranges are. (Many will say that \emph{being a fruit} is an essential part of what it is to be an orange.) But if the premise `Oranges are not fruits' has to be false, it is not possible for the premises to be true. So it is not possible for premises to be true \emph{while} the conclusion is false. Hence the argument is conclusive – both because it has a good structure, but also because it has a premsie that cannot be true.\footnote{When an argument has an impossible premise, any argument with that premise will be conclusive \emph{no matter what} the conclusion is! So this is a weird kind of case of conclusiveness. But nothing much really turns on it, and it is simpler to simply count it as conclusive than to try and separate out such `degenerate' cases of conclusive arguments. See also §\ref{s:neccandcont}.}
+
 
 \section{Validity}\label{s:validityintro}
 
 Logicians try to steer clear of controversial matters like whether there is a definition of an orange that requires it to be a fruit, or whether there is a `connection in meaning' between being green and not being red. It is often difficult to figure such things out from the armchair (a logician's preferred habitat), and there may be widespread disagreement even among subject matter experts.
 
-So logicians tend not to focus on conclusive arguments in general, but rather on those conclusive arguments which have a good structure or form.\footnote{It can be very hard to tell whether an invalid argument is conclusive or inconclusive. Consider the argument `The sea is full of water; so the sea is full of H\textsubscript{2}O'. This is conclusive, since water just is the same stuff as H\textsubscript{2}O. The sea cannot be full of that water stuff without being full of that exact same stuff, namely, H\textsubscript{2}O stuff. But it took a lot of chemistry and ingenious experiments to figure out that water is H\textsubscript{2}O. So it was not at all obvious that this argument was conclusive. On the other hand, it is generally very clear when an argument is conclusive due to its structure – you can just see the structure when the argument is presented to you.} This is why the logic we are studying is sometimes called \define{formal logic}. We introduce a special term for the class of arguments logicians are especially interested in:
+So logicians do not study conclusive arguments in general, but rather concentrate on those conclusive arguments which have a good structure or form.\footnote{It can be very hard to tell whether an invalid argument is conclusive or inconclusive. Consider the argument `The sea is full of water; so the sea is full of H\textsubscript{2}O'. This is conclusive, since water just is the same stuff as H\textsubscript{2}O. The sea cannot be full of that water stuff without being full of that exact same stuff, namely, H\textsubscript{2}O stuff. But it took a lot of chemistry and ingenious experiments to figure out that water is H\textsubscript{2}O. So it was not at all obvious that this argument was conclusive. On the other hand, it is generally very clear when an argument is conclusive due to its structure – you can just see the structure when the argument is presented to you.} This is why the logic we are studying is sometimes called \define{formal logic}. We introduce a special term for the class of arguments logicians are especially interested in:
 \factoidbox{
 	An argument is \define{valid} if, and only if, it is conclusive due to its structure; otherwise it is \define{invalid}.
 }
-% Æ really don't like this modal account of consequence – (i) `impossible' is context-sensitive and may allow formally invalid arguments to be valid in contexts where `impossible' denotes, e.g., physical impossibility: `Fish swim; so no human flies to the moon unaided.' (ii) also includes analytic entailment as valid `This is red; so it's not blue'.
-	% \factoidbox{
-	% 	An argument is \define{valid} if, and only if, it is impossible for all of the premises to be true and the conclusion false.
-	% }
-The notion of the structure of a sentence, or an argument, is an intuitive one. I make the notion more precise in §\ref{s:ValidityInVirtueOfForm}. Relying on our intuitive grasp of the notion for now, however, we can see this argument has the same form as the earlier argument about oranges, and is likewise valid:
+
+The notion of the structure of a sentence, or an argument, is an intuitive one. I make the notion more precise in §\ref{s:ValidityInVirtueOfForm}. Relying on our intuitive grasp of the notion for now, however, we can see the  argument about ogres on the right has the same form as the argument on the left about oranges (slightly tweaked from our earlier presentation in §\ref{s:conclusiveargs} to make its structure clearer). It is easy to see that both of these arguments are conclusive and valid:
+
+%  \begin{minipage}{\textwidth}
+% 	\begin{minipage}{0.47\textwidth}
+% 		\begin{earg}
+% 	\item[] \textsf{Either} Oranges are fruits \textsf{or} oranges are musical instruments.
+% 	\item[] \textsf{It is not the case that} Oranges are fruits.
+% 	\item[So:] Oranges are musical instruments.
+% \end{earg} 
+% 	\end{minipage}\qquad
+% 	\begin{minipage}{0.47\textwidth}
+% 		\begin{earg}
+% 	\item[] \textsf{Either} Ogres are fearsome \textsf{or} ogres are mythical.
+% 	\item[] \textsf{It is not the case that} Ogres are fearsome.
+% 	\item[So:] Ogres are mythical.
+% \end{earg}
+% 	\end{minipage}
+% 	\end{minipage}
+
+The shared structure of these two arguments is something like this:
 \begin{earg}
-	\item[] \textsf{Either} Ogres are fearsome \textsf{or} ogres are mythical.
-	\item[] \textsf{It is not the case that} Ogres are fearsome.
-	\item[So:] Ogres are mythical.
+	\item[] \textsf{Either} \meta{A}\ \textsf{or} \meta{B}.
+	\item[] \textsf{It is not the case that} \meta{A}.
+	\item[So:] \meta{B}.
 \end{earg}
+Any argument with this sort of structure will be conclusive in virtue of structure, and hence valid. It does not matter, really, what sentences we put in place of `\meta{A}' and `\meta{B}'. (It matters a bit: you can't put a question or an exclamation and get a valid argument.) 
+
+This highlights that valid arguments do not need to have true premises or even true conclusions. We can put a true sentence in place of \meta{A} and a false sentence in place of \meta{B}, and both premises and the conclusion will be false. The argument is still valid.
 
 
-This highlights that valid arguments do not need to have true premises (or even true conclusions). Conversely, having true premises and a true conclusion is not enough to make an argument valid. Consider this example:
+Conversely, having true premises and a true conclusion is not enough to make an argument valid. Consider this example:
 	\begin{earg}
 		\item[] London is in England.
 		\item[] Beijing is in China.

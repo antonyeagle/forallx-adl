@@ -2,7 +2,7 @@
 \ProvidesPackage{forallxadl}[2011/10/29 support for a logic textbook]
 % The original forallx.sty was written in 2005
 % Comments marked "TB" are additions by Tim Button in September 2012
-% Comments marked "Æ" are additions by Antony Eagle in June 2017
+% Comments marked "Æ" are additions by Antony Eagle from June 2017
 \RequirePackage{latexsym,amssymb,amsmath,hyperref,multicol,ifthen,graphicx,rotating,xcolor}
 \usepackage[numbered]{bookmark} %TB: added for speedy navigation
 
@@ -15,9 +15,9 @@
 \usepackage[math-style=ISO,mathbf=sym,bold-style=TeX,mathsf=text]{unicode-math}
 \setmathfont[Scale=MatchLowercase]{Cambria Math}
 \setmathfont[range=up/{num},Numbers=OldStyle]{Constantia}
-%\setmathfont[Scale=MatchLowercase]{XITS Math}[range={"2500-"26FF,"2B00-"2BFF}] 
 \newfontfamily\cjkfont{Kaiti SC Regular}
-\newfontfamily\dispfont[Numbers=OldStyle,Ligatures={Common},SizeFeatures={Size=42}]{Constantia Bold Italic}
+\newfontfamily\dispfont[Numbers=OldStyle,Ligatures={Common},%
+SizeFeatures={Size=42}]{Constantia Bold Italic}
 
 % packages added by Æ
 
@@ -152,7 +152,7 @@
 \newenvironment{partialmodel}{\par\begin{tabular}{r@{~=~}l}}{\bottomrule \end{tabular}\par}
 % define the bullet for {itemize} lists
 
- \renewcommand{\labelitemi}{›}%{$▸$}{\textbullet} 
+ \renewcommand{\labelitemi}{{\textcolor{orange}›}}%{$▸$}{\textbullet} 
 
 % \factoidbox{...} produces an inset paragraph of text with a line around it
 % Neither for lists nor an environment, but it really didn't
@@ -765,7 +765,7 @@
 \renewcommand*{\partnamefont}{\normalfont\huge\bfseries\color{orange}}%
 \renewcommand*{\partnumfont}{\normalfont\huge\bfseries\color{orange}}%
 \renewcommand*{\parttitlefont}{\normalfont\HUGE\itshape\bfseries\color{orange}}
-\renewcommand*{\printparttitle}[1]{ \par\hspace{1.5cm}\hrule\vskip\midchapskip\parttitlefont #1\par\hspace{1.5cm}\hrule}
+\renewcommand*{\printparttitle}[1]{{\color{orange} \par\hspace{1.5cm}\hrule\vskip\midchapskip\parttitlefont #1\par\hspace{1.5cm}\hrule}}
 
 
 
@@ -790,7 +790,7 @@
 \newcommand\myanswer[1]{\textcolor{blue}{#1}} % TB: puts model answers in blue
 
 \chapterstyle{madsen} % Æ choice
-\renewcommand{\chapnumfont}{\dispfont\color{orange}}
+\renewcommand{\chapnumfont}{\normalfont\dispfont\color{orange}}
 \renewcommand*{\printchapternum}{%
     \makebox[0pt][l]{\hspace{0.4em}\chapnumfont\thechapter}}
  \renewcommand{\chapnamefont}{\normalfont\Huge\bfseries\color{orange}} 
