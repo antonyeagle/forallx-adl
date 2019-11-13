@@ -1,7 +1,7 @@
 Forall*x* Adelaide
 ==================
 
-This is [Antony Eagle](https://antonyeagle.org)'s version of [Tim Button](http://nottub.com)'s version of [PD Magnus](https://www.fecundity.com/job/)'s forall*x*. There are pervasive differences, big and small, cosmetic and substantial.
+This is [Antony Eagle](https://antonyeagle.org)'s version of [Tim Button](http://nottub.com)'s version of [PD Magnus](https://www.fecundity.com/job/)'s forall*x*. There are pervasive changes, big and small, substantive and cosmetic. 
 
 License
 -------
@@ -18,9 +18,9 @@ The LaTeX source code for this work is available on GitHub at [github.com/antony
 Current issues and proposed revisions
 -------------------------------------
 
-This text is under active yet sporadic revision. The current public version of the text is stable for semester 2 2019, as it is being used as a textbook in our *Introduction to Logic* course, and we wish to ensure that students are working from a consistent text.
+This text is approaching stability, yet remains under active, albeit intermittent, revision. The current public version of the text is stable for summer term 2020, as it is being used as a textbook in our *Introduction to Logic* course. 
 
-I will be updating my private version of the text in response to comments, typos, and any new ideas. I will updating this document with a list of issues and proposed changes. But no changes will be made until semester is over.
+I welcome comments, notification of errors and typos, and any new ideas: [antony.eagle@adelaide.edu.au](mailto:antony.eagle@adelaide.edu.au?subject=forallx-adl). I will update this readme with a list of issues and proposed changes. But I will not push changes until the course is over. 
 
 The following list contains current issues and proposed revisions arranged by chapter:
 
