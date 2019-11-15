@@ -1,0 +1,34 @@
+%!TEX program = xelatex
+%!encoding=UTF-8 Unicode
+\documentclass[two side, openany, 11pt, a4paper]{memoir}
+\usepackage{forallx-adl}
+\makeindex
+\begin{document}
+
+\renewcommand{\partname}{Chapter} %TB: to make the chapters (which LaTeX regards as parts) labelled "chapter" Æ: moved here because redefinition was being overwritten when left in the .sty file.
+
+\pagestyle{forallxpage}
+
+
+\frontmatter
+\include{forallx-adl-frontmatter}
+
+\mainmatter 
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+\include{forallx-adl-what}
+\include{forallx-adl-tfl}
+\include{forallx-adl-truthtables}
+\include{forallx-adl-fol}
+\include{forallx-adl-interpretations}
+\include{forallx-adl-prooftfl}
+\include{forallx-adl-prooffol}
+
+\appendix % don't need to do this by hand Æ
+
+
+\include{forallx-adl-notation}
+\include{forallx-adl-quickreference}
+\renewcommand{\indexname}{Index of defined terms}\printindex % added 2018 Æ
+\include{forallx-adl-backmatter}
+
+\end{document}
