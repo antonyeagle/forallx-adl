@@ -72,6 +72,7 @@ universal quantifier & $\forall x$, $(x)$\\ \bottomrule
 \end{tabular}
 \end{center}
 
+\newpage
 \section*{Doing without brackets: Polish notation} \phantomsection\label{polish}
 
 We have established some conventions governing when you can omit brackets in \TFL\ (in §§\ref{TFLconventions} and \ref{s:MoreBracketingConventions}). These conventions are useful in practice. It can be hard to read sentences with many nested brackets. Moreover, it is easy to make a mistake when constructing sentences, if you accidentally omit a needed bracket. So there has been some interest in ways of doing sentential logic without brackets. Frege's initial formulation of sentential logic in his \emph{Begriffschrift} (1879) lacked brackets, but involves a complicated non-linear branching structure which is difficult to typeset and has not been much used by anyone since.
@@ -88,7 +89,7 @@ negation & $N\meta{A}$ & $\enot\meta{A}$ \\
 conjunction & $K\meta{A}\meta{B}$ & $(\meta{A}\eand\meta{B})$\\
 disjunction & $A\meta{A}\meta{B}$ & $(\meta{A}\eor\meta{B})$\\
 conditional & $C\meta{A}\meta{B}$ & $(\meta{A}\eif\meta{B})$\\
-biconditional & $E\meta{A}\meta{B}$ & $(\meta{A}\eiff\meta{B})$
+biconditional & $E\meta{A}\meta{B}$ & $(\meta{A}\eiff\meta{B})$\\ \bottomrule
 \end{tabular}
 \end{center}
 We can recursively define a sentence of this Polish language:\begin{enumerate}
@@ -103,14 +104,14 @@ The notation doesn't require brackets. The ambiguous string `$P \eif Q \eif R$' 
 	\item No ambiguity is possible. It would be possible only if there were some sentences $\meta{A}$, $\meta{B}$, $\meta{C}$ and $\meta{D}$ such that the string $\meta{A}\meta{B}$ is identical to the string $\meta{C}\meta{D}$, where $\meta{A}≠\meta{C}$. That would mean, without loss of generality, that $\meta{A}$ is an initial part of $\meta{C}$. But then $\meta{C}$ cannot be a sentence, since it is a string comprised of a sentence plus some other symbols tacked on the end, which is not a sentence, by the recursive definition. 
 \end{itemize}
 
-The notation can be very concise. Compare the following: \begin{gather}
-	\left(\left(\left(p \eand q\right)\eif r\right) \eif\left(p\eand\left(\enot q\eor r\right)\right)\right);\\
+The notation can be very concise. Compare the following: \begin{gather*}
+	\biggl(\bigl(\left(P \eand Q\right)\eif R\bigr) \eif\bigl(P\eand\left(\enot Q\eor R\right)\bigr)\biggr);\\
 	CCKpqrKpANqr.
-\end{gather}
+\end{gather*}
 The \TFL\ version has 22 characters, 10 of them brackets; the Polish version just 12.
 
 
-The notation never really caught on, partly because - as you can see in the example above – it is not always immediate to the naked eye where one constituent sentence begins and the other ends. (The main connective is always obvious, but the scope of constituent connectives is harder to see.) But perhaps the main obstacle to its wider use was the lack of any easy way to indicate the scope of a quantifier. Thus the notation has become something of a historical curiosity.
+The notation never really caught on, partly because - as in the example above – it is not always immediate to the naked eye where one constituent sentence begins and another ends. But the main obstacle to its wider use was the lack of any easy way to indicate the scope of a quantifier. Thus the notation has become something of a historical curiosity.
 
 \chapter[Quick Reference]{Quick Reference}\label{ch.qr}
 %\pagestyle{plain}
