@@ -1,0 +1,520 @@
+%!TEX root = forallxadl.tex
+
+\appendix % don't need to do this by hand Æ
+
+\part*{Appendices}
+\addcontentsline{toc}{part}{Appendices}\partmark{Appendices}
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+
+% Æ: made lots of changes of detail because of our choice of name of languages, and added a couple of other pieces of terminology to what is in effect an impromptu logic thesaurus.
+
+\chapter{Alternative Terminology and Notation}\label{app.notation}
+
+\section*{Alternative terminology}
+\paragraph{Sentential logic} The study of \TFL\ goes by other names. The name we have given it – sentential logic – derives from the fact that it deals with whole sentences as its most basic building blocks. Other features motivate different names.  Sometimes it is called \emph{truth-functional logic}, because it deals only with assignments of truth and falsity to sentences, and its connectives are all truth-functional. Sometimes it is called \emph{propositional logic}, which strikes me as a misleading choice. This may sometimes be innocent, as some people  use `proposition' to mean `sentence'. However, noting that different sentences can mean the same thing, many people use the term  `proposition' as a useful way of referring to the meaning of a sentence, what that sentence expresses. In \emph{this} sense of `proposition', `propositional logic' is not a good name for the study of \TFL, since synonymous but not logically equivalent sentences like `Vixens are bold' and `Female foxes are bold' will be logically distinguished even though they express the same proposition.
+
+
+\paragraph{Quantifier logic} The study of \FOL\ goes by other names. Sometimes it is called \emph{predicate logic}, because it allows us to apply  predicates to objects. Sometimes it is called \emph{first-order logic}, because it makes use only of quantifiers over objects, and variables that can be substituted for constants. This is to be distinguished from \emph{higher-order logic}, which introduces quantification over properties, and variables that can be substituted for predicates. (This device would allow us to formalise such sentences as `Jane and Kane are alike in \emph{every respect}', treating the italicised phrase as a quantifier over `respects', i.e., properties. This results in something like $\forall P (Pj \leftrightarrow Pk)$, which is \emph{not} a sentence of \FOL.)
+
+\paragraph{Atomic sentences} Some texts call atomic sentences \emph{sentence letters}. Many texts use lower-case roman letters, and subscripts, to symbolise atomic sentences.
+
+\paragraph{Formulas} Some texts call formulas \emph{well-formed formulas}. Since `well-formed formula' is such a long and cumbersome phrase, they then abbreviate this as \emph{wff}. This is both barbarous and unnecessary (such texts do not make any important use of the contrasting class of `ill-formed formulas'). I have stuck with `formula'. 
+
+In §\ref{s:TFLSentences}, I defined \emph{sentences} of \TFL. These are also sometimes called `formulas' (or `well-formed formulas') since in \TFL, unlike \FOL, there is no distinction between a formula and a sentence.
+
+\paragraph{Valuations} Some texts call valuations \emph{truth-assignments}; others call them \emph{structures}.
+
+\paragraph{Expressive adequacy} Some texts describe \TFL\ as \emph{truth-functionally complete}, rather than expressively adequate. 
+
+\paragraph{n-place predicates} I have called predicates `one-place', `two-place', `three-place', etc. Other texts respectively call them `monadic', `dyadic', `triadic', etc. Still other texts call them `unary', `binary', `ternary', etc.
+
+\paragraph{Names} In \FOL, I have used `$a$', `$b$', `$c$', for names. Some texts call these `constants', because they have a constant referent in a given interpretation, as opposed to variables which have variable referents. Other texts do not mark any difference between names and variables in the syntax. Those texts focus simply on  whether the symbol occurs \emph{bound} or \emph{unbound}. 
+
+\paragraph{Domains} Some texts describe a domain as a `domain of discourse', or a `universe of discourse'.
+
+\paragraph{Interpretations} Some texts call interpretations \emph{models}; others call them \emph{structures}.
+
+\section*{Alternative notation}
+In the history of formal logic, different symbols have been used at different times and by different authors. Often, authors were forced to use notation that their printers could typeset.
+
+This appendix presents some common symbols, so that you can recognise them if you encounter them in an article or in another book. Unless you are reading a research article in philosophical or mathematical logic, these symbols are merely different notations for the very same underlying things. So the truth-functional connective we refer to with `$\wedge$' is the very same one that another textbook might refer to with `$\&$'. Compare: the number six can be referred to by the numeral `$6$', the Roman numeral `VI', the English word `six', the German word `sechs', the kanji character `{\cjkfont 六}', etc.
+
+
+\paragraph{Negation} Two commonly used symbols are the \emph{not sign}, `$¬$', and the \emph{tilde operator}, `$∼$'. In some more advanced formal systems it is necessary to distinguish between two kinds of negation; the distinction is sometimes represented by using both `$¬$' and `$∼$'.
+
+Some texts use an overline to indicate negation, so that `$\overline{\mathscr{A}}$' expresses the same thing as `$¬\mathscr{A}$'. This is clear enough if $\mathscr{A}$ is an atomic sentence, but quickly becomes cumbersome if we attempt to nest negations: `$¬(A \wedge ¬(¬¬B \wedge C))$' becomes the unwieldy $$\overline{A \wedge \overline{(\overline{\overline{B}}\wedge C)}}.$$
+
+\paragraph{Disjunction} The symbol `$\vee$' is typically used to symbolize inclusive disjunction. One etymology is from the Latin word `vel', meaning `or'.%In some systems, disjunction is written as addition.
+
+\paragraph{Conjunction}
+Conjunction is often symbolized with the \emph{ampersand}, `{\&}'. The ampersand is a decorative form of the Latin word `et', which means `and'.  (Its etymology still lingers in certain fonts, particularly in italic fonts; thus an italic ampersand might appear as `\emph{\&}'.) Using this symbol is not recommended, since it is commonly used in natural English writing (e.g., `Smith \& Sons'). As a symbol in a formal system, the ampersand is not the English word `\&', so it is much neater to use a completely different symbol. The most common choice now is `$\wedge$', which is a counterpart to the symbol used for disjunction. Sometimes a single dot, `{\scriptsize\textbullet}', is used (you may have seen this in \emph{Argument and Critical Thinking}). In some older texts, there is no symbol for conjunction at all; `$A$ and $B$' is simply written `$AB$'. (These are often texts that use the overlining notation for negation. Such texts often involve languages in which conjunction and negation are the only connectives, and they typically also dispense with brackets which are unnecessary in such austere languages.)
+
+\paragraph{Material conditional} There are two common symbols for the material conditional: the \emph{arrow}, `$\rightarrow$', and the \emph{hook}, `$\supset$'. Rarely you might see `$\Rightarrow$'.
+
+\paragraph{Material biconditional} The \emph{double-headed arrow}, `$\leftrightarrow$', is used in systems that use the arrow to represent the material conditional. Systems that use the hook for the conditional typically use the \emph{triple bar}, `$\equiv$', for the biconditional.
+
+
+
+\paragraph{Quantifiers} The universal quantifier is typically symbolised `$\forall$' (a rotated `\textsf{A}'), and the existential quantifier as `$\exists$' (a rotated `\textsf{E}'). In some texts, there is no separate symbol for the universal quantifier. Instead, the variable is just written in brackets in front of the formula that it binds. For example, they might write `$(x)Px$' where we would write `$\forall x Px$'.
+
+
+\
+\\The common alternative notations are summarised below:
+
+\begin{center}
+\begin{tabular}{rl} \toprule 
+negation & $\neg$, $∼$, $\overline{\mathscr{A}}$\\
+conjunction & $\wedge$, $\&$, {\scriptsize\textbullet}\\
+disjunction & $\vee$\\
+conditional & $\rightarrow$, $\supset$, $\Rightarrow$\\
+biconditional & $\leftrightarrow$, $\equiv$\\
+universal quantifier & $\forall x$, $(x)$\\ \bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Doing without brackets: Polish notation} \phantomsection\label{polish}
+
+We have established some conventions governing when you can omit brackets in \TFL\ (in §§\ref{TFLconventions} and \ref{s:MoreBracketingConventions}). These conventions are useful in practice. It can be hard to read sentences with many nested brackets. Moreover, it is easy to make a mistake when constructing sentences, if you accidentally omit a needed bracket. So there has been some interest in ways of doing sentential logic without brackets. Frege's initial formulation of sentential logic in his \emph{Begriffschrift} (1879) lacked brackets, but involves a complicated non-linear branching structure which is difficult to typeset and has not been much used by anyone since.
+
+The now-standard approach to sentential logic without brackets was due to the Polish logician Jan Łukasiewicz, and for that reason it has become known as \define{Polish notation}. It is a purely syntactic variant of our system \TFL: the truth-functions expressed by the connectives remain the same, but the sentences are written very differently.\footnote{In what follows I draw on Peter Simons (2017) `Łukasiewicz's Parenthesis-Free or Polish Notation', in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy}, \url{https://plato.stanford.edu/archives/spr2017/entries/lukasiewicz/polish-notation.html}.}
+
+The basic idea is that rather than writing a connective in a logically complex sentence between the two subsentences, it should be written before them – in a sense, it treats all binary connectives like negation. So if $\meta{A}$ and $\meta{B}$ are two sentences, the sentence we write in \TFL\ as $\meta{A} \eif \meta{B}$ would be written as $C\meta{A}\meta{B}$, where the `$C$' is the symbol used for the conditional connective. Because the language uses some of the standard upper case letters for its connectives, there is potential for confusion if we use them for atomic sentences too. So the atomic sentences of this Polish language will be `$p$', `$q$', or `$r$', with any numerical subscripts. 
+
+The standard connectives are these, with their \TFL\ equivalents:
+\begin{center}
+\begin{tabular}{rcc} \toprule 
+Connective & Polish & \TFL \\ \midrule
+negation & $N\meta{A}$ & $\enot\meta{A}$ \\
+conjunction & $K\meta{A}\meta{B}$ & $(\meta{A}\eand\meta{B})$\\
+disjunction & $A\meta{A}\meta{B}$ & $(\meta{A}\eor\meta{B})$\\
+conditional & $C\meta{A}\meta{B}$ & $(\meta{A}\eif\meta{B})$\\
+biconditional & $E\meta{A}\meta{B}$ & $(\meta{A}\eiff\meta{B})$
+\end{tabular}
+\end{center}
+We can recursively define a sentence of this Polish language:\begin{enumerate}
+\item Any atomic sentence (i.e.,$p, q, r, p_{1}, q_{1}, r_{1},…$) is a sentence;
+	\item If $\meta{A}$ and $\meta{B}$ are sentences, then so are `$N\meta{A}$', $K\meta{A}\meta{B}$, $A\meta{A}\meta{B}$, $C\meta{A}\meta{B}$ and $E\meta{A}\meta{B}$;
+	\item Nothing else is a sentence.
+\end{enumerate} It is easy to see that one can type sentences in Polish notation without the use of any special symbols on a standard typewriter keyboard.
+
+The notation doesn't require brackets. The ambiguous string `$P \eif Q \eif R$' may correspond to either of these two \TFL\ sentences: (i) `$(P \eif (Q \eif R))$' or (ii) $((P \eif Q) \eif R)$. These are symbolised in Polish notation as, respectively, (i$\prime$) `$CpCqr$' and (ii$\prime$) `$CCpqr$'. Why? \begin{itemize}
+	\item You know, from the recursive definition, that any logically complex sentence is formed by taking a connective and placing one or two sentences after it. So the main connective is always the leftmost character.
+	\item You then need only to identify a sentence that follows it. So in (i$\prime$), the main connective is `$C$', which is followed by the atomic sentence `$p$' and the complex sentence `$Cqr$'; in (ii$\prime$), with the same main connective, the sentences which follow are `$Cpq$' and `$r$'.
+	\item No ambiguity is possible. It would be possible only if there were some sentences $\meta{A}$, $\meta{B}$, $\meta{C}$ and $\meta{D}$ such that the string $\meta{A}\meta{B}$ is identical to the string $\meta{C}\meta{D}$, where $\meta{A}≠\meta{C}$. That would mean, without loss of generality, that $\meta{A}$ is an initial part of $\meta{C}$. But then $\meta{C}$ cannot be a sentence, since it is a string comprised of a sentence plus some other symbols tacked on the end, which is not a sentence, by the recursive definition. 
+\end{itemize}
+
+The notation can be very concise. Compare the following: \begin{gather}
+	\left(\left(\left(p \eand q\right)\eif r\right) \eif\left(p\eand\left(\enot q\eor r\right)\right)\right);\\
+	CCKpqrKpANqr.
+\end{gather}
+The \TFL\ version has 22 characters, 10 of them brackets; the Polish version just 12.
+
+
+The notation never really caught on, partly because - as you can see in the example above – it is not always immediate to the naked eye where one constituent sentence begins and the other ends. (The main connective is always obvious, but the scope of constituent connectives is harder to see.) But perhaps the main obstacle to its wider use was the lack of any easy way to indicate the scope of a quantifier. Thus the notation has become something of a historical curiosity.
+
+\chapter[Quick Reference]{Quick Reference}\label{ch.qr}
+%\pagestyle{plain}
+\section*{Schematic Truth Tables} ~\\
+\label{app.SchematicTTs}
+\begin{minipage}{0.2\textwidth}
+	\begin{tabular}{c|c} \toprule 
+\meta{A} & \enot\meta{A}\\
+\midrule
+T & F\\
+F & T \\
+\bottomrule
+\end{tabular}
+\end{minipage}\qquad\begin{minipage}{0.75\textwidth}
+	\begin{tabular}{c c|c|c|c|c} \toprule 
+\meta{A} & \meta{B} & $\meta{A}\eand\meta{B}$ & $\meta{A}\eor\meta{B}$ & $\meta{A}\eif\meta{B}$ & $\meta{A}\eiff\meta{B}$\\
+\midrule
+T & T & T & T & T & T\\
+T & F & F & T & F & F\\
+F & T & F & T & T & F\\
+F & F & F & F & T & T\\\bottomrule
+\end{tabular}
+\end{minipage}
+
+
+
+
+\section*{Symbolisation}
+\label{app.symbolization}
+
+\paragraph{Sentential connectives}~\\
+
+\hspace{1cm}~\begin{tabular}{rl} \toprule
+It is not the case that P & $\enot P$\\
+Either P, or Q & $(P \eor Q)$\\
+Neither P, nor Q & $\enot(P \eor Q)$\ or \ $(\enot P \eand \enot Q)$\\
+Both P, and Q & $(P \eand Q)$\\
+If P, then Q & $(P \eif Q)$\\
+P only if Q & $(P \eif Q)$\\
+P if and only if Q & $(P \eiff Q)$\\
+P unless Q & $(P \eor Q)$\\
+\bottomrule\end{tabular}
+
+\paragraph{Predicates}~\\
+
+\hspace{1cm}~\begin{tabular}{rl} \toprule
+All Fs are Gs & $\forall x(Fx \eif Gx)$\\
+Some Fs are Gs & $\exists x(Fx \eand Gx)$\\
+Not all Fs are Gs & $\enot\forall x(Fx \eif Gx)$\ or\ $\exists x(Fx \eand \enot Gx)$\\
+No Fs are Gs & $\forall x(Fx \eif\enot Gx)$\ or\ $\enot\exists x(Fx \eand Gx)$\\
+\bottomrule\end{tabular}
+
+\newpage\paragraph{Identity}~\\
+
+\hspace{1cm}~\begin{tabular}{rl} \toprule
+Only c is G & $\forall x(Gx \eiff x=c)$\\
+Everything besides c is G & $\forall x(\enot x = c \eif Gx)$\\
+%$j$ is more $R$ than anyone else. & $\forall x(x≠ j \eif Rjx)$\\
+The F is G & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand Gx)$\\
+It is not the case that the F is G & $\enot\exists x(Fx \eand \forall y(Fy \eif x=y) \eand Gx)$\\
+The F is non-G & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand \enot Gx)$\\\bottomrule
+\end{tabular}
+
+\section*{Using identity to symbolize quantities}
+
+\subsection*{There are at least \blank\ Fs.}
+\label{summary.atleast}
+
+\begin{ekey}
+\item[\text{one}] $\exists xFx$
+\item[\text{two}] $\exists x_1\exists x_2(Fx_1 \eand Fx_2 \eand \enot x_1  = x_2)$
+\item[\text{three}] $\exists x_1\exists x_2\exists x_3(Fx_1 \eand Fx_2 \eand Fx_3 \eand \enot x_1 = x_2 \eand\enot x_1 = x_3 \eand \enot x_2 = x_3)$
+% \item[\text{four}] $\exists x_1\exists x_2\exists x_3\exists x_4 (Fx_1 \eand Fx_2 \eand Fx_3 \eand Fx_4 \eand \phantom{x}$\\
+%\phantom{$\exists x_1\exists x_2$}$\enot x_1 = x_2 \eand \enot x_1 = x_3 \eand \enot x_1 = x_4 \eand \enot x_2 = x_3 \eand \enot x_2 = x_4 \eand \enot x_3 = x_4)$
+\item[n] $\exists x_1…\exists x_n(Fx_1 \eand …\eand Fx_n \eand \enot x_1 = x_2 \eand …\eand \enot x_{n-1} = x_n)$ 
+\end{ekey}
+
+\subsection*{There are at most \blank\ Fs.}
+\label{summary.atmost}
+
+One way to say `there are at most $n$ Fs' is to put a negation sign in front of the symbolisation for `there are at least $n+1$ Fs'. Equivalently, we can offer:
+\begin{ekey}
+\item[\text{one}] $\forall x_1\forall x_2\bigl( (Fx_1 \eand Fx_2) \eif x_1=x_2\bigr)$
+\item[\text{two}] $\forall x_1\forall x_2\forall x_3\bigl( (Fx_1 \eand Fx_2 \eand Fx_3) \eif (x_1=x_2 \eor x_1=x_3 \eor x_2=x_3) \bigr)$
+\item[\text{three}] $\begin{multlined}[t]
+	\forall x_1\forall x_2\forall x_3\forall x_4\bigl( (Fx_1 \eand Fx_2 \eand Fx_3 \eand Fx_4) \eif \\
+(x_1=x_2 \eor x_1=x_3 \eor x_1=x_4 \eor x_2=x_3 \eor x_2=x_4 \eor x_3=x_4) \bigr)
+\end{multlined}$
+\item[n]$\forall x_1…\forall x_{n+1}
+\bigl( (Fx_1\eand … \eand Fx_{n+1}) \eif (x_1=x_2 \eor … \eor x_n=x_{n+1}) \bigr)$ 
+\end{ekey}
+% \newpage
+\subsection*{There are exactly \blank\ Fs.}
+\label{summary.exactly}
+
+One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolizations above and say `there are at least $n$ Fs and there are at most $n$ Fs.' The following equivalent formulae are shorter:
+\begin{ekey}
+\item[\text{zero}] $\forall x\enot Fx$
+\item[\text{one}] $\exists x\bigl(Fx \eand \forall y(Fy \eif x= y) \bigr)$
+\item[\text{two}] $\exists x_1\exists x_2\bigl(Fx_1 \eand Fx_2 \eand \enot x_1 = x_2 \eand \forall y\bigl(Fy \eif (y= x_1 \eor y = x_2) \bigr) \bigr)$
+\item[\text{three}] $\begin{multlined}[t]
+	\exists x_1\exists x_2\exists x_3\bigl( Fx_1 \eand Fx_2 \eand Fx_3 \eand \enot x_1 =  x_2 \eand \enot  x_1 = x_3 \eand \enot x_2 = x_3 \eand \phantom{x} \\
+\forall y\bigl( Fy \eif (y = x_1 \eor y = x_2 \eor y =  x_3) \bigr) \bigr)
+\end{multlined}$
+\item[n] $\begin{multlined}[t]
+	\exists x_1…\exists x_n\bigl( Fx_1 \eand …\eand Fx_n  \eand \enot x_1 = x_2 \eand …\eand \enot x_{n-1}= x_n \eand \phantom{x} \\
+\forall y\bigl( Fy \eif (y= x_1 \eor … \eor y= x_n) \bigr)\bigr)
+\end{multlined}$ 
+%\item[one] $\exists x\forall y\bigl(Fx \eand (Fy \eif y = x) \bigr)$
+%\item[two] $\exists x\exists y\forall z\Bigl(Fx \eand Fy \eand \bigl(Fz \eif (z=x \eor z=y) \bigr) \eand x ≠ y\Bigr)$
+%\item[three] $\exists x_1\exists x_2\exists x_3\forall y\Bigl(Fx_1 \eand Fx_2 \eand Fx_3 \eand \bigl(Fy \eif (y=x_1 \eor y=x_2 \eor y=x_3) \bigr) \eand x_1 ≠ x_2 \eand x_1 ≠ x_3 \eand x_2 ≠ x_3\Bigr)$
+%\item[n] $\exists x_1\cdots\exists x_n\forall y\Bigl(Fx_1 \eand\cdots\eand Fx_n \eand \bigl(Fy \eif (y=x_1 \eor \cdots \eor y=x_n) \bigr) \eand x_1 ≠ x_2 \eand\cdots\eand x_{n-1}≠ x_n\Bigr)$ 
+\end{ekey}
+
+\newpage
+\label{ProofRules}
+\section*{Basic deduction rules for \TFL}
+\renewenvironment{proof}
+	{\noindent\par\noindent\small$\begin{nd}}
+	{\end{nd}$\noindent\normalsize\ignorespacesafterend}
+
+%{\LARGE \textbf{Basic Rules of Proof}}
+\begin{multicols}{2}
+
+
+\subsection{Conjunction Introduction, p.\ \pageref{conjint}}
+\begin{proof}
+	\have[m]{a}{\meta{A}}
+	\have[n]{b}{\meta{B}}
+	\have[\ ]{c}{\meta{A}\eand\meta{B}} \ai{a, b}
+\end{proof}
+
+\subsection{Conjunction Elimination, p.\ \pageref{conjelim}}
+\begin{proof}
+	\have[m]{ab}{\meta{A}\eand\meta{B}}
+\\	\have[\ ]{a}{\meta{A}} \ae{ab}
+
+	\have[m]{ab}{\meta{A}\eand\meta{B}}
+\\	\have[\ ]{b}{\meta{B}} \ae{ab}
+\end{proof}
+
+
+
+\subsection{Conditional Introduction, p.\ \pageref{condint}}
+\begin{proof}
+	\open
+		\hypo[i]{a}{\meta{A}}
+		\have[j]{b}{\meta{B}}
+	\close
+	\have[\ ]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
+\end{proof}
+
+\subsection{Conditional Elimination, p.\ \pageref{condelim}}
+\begin{proof}
+	\have[m]{ab}{\meta{A}\eif\meta{B}}
+\\	\have[n]{a}{\meta{A}}
+	\have[\ ]{b}{\meta{B}} \ce{ab,a}
+\end{proof}
+
+
+
+\subsection{Negation Introduction, p.\ \pageref{negint}}
+
+\begin{proof}
+\open
+	\hypo[i]{a}{\meta{A}}
+	\have[j]{b}{\meta{B}}
+	\have[k]{nb}{\enot\meta{B}}
+\close
+\have[\ ]{na}{\enot\meta{A}}\ni{a-b,a-nb}
+\end{proof}
+
+
+\subsection{Negation Elimination, p.\ \pageref{negelim}}
+\begin{proof}
+\open
+	\hypo[i]{a}{\neg\meta{A}}
+	\have[j]{b}{\meta{B}}
+	\have[k]{nb}{\enot\meta{B}}
+\close
+\have[\ ]{na}{\meta{A}}\ne{a-b,a-nb}
+\end{proof}
+
+
+
+
+
+\subsection{Disjunction Introduction, p.\ \pageref{disjint}}
+
+\begin{proof}
+	\have[m]{a}{\meta{A}}
+	\have[\ ]{ab}{\meta{A}\eor\meta{B}}\oi{a}
+
+	\have[m]{a}{\meta{A}}
+\\	\have[\ ]{ba}{\meta{B}\eor\meta{A}}\oi{a}
+\end{proof}
+
+\subsection{Disjunction Elimination, p.\ \pageref{disjelim}}
+\begin{proof}
+	\have[m]{ab}{\meta{A}\eor\meta{B}}
+\\	\open
+		\hypo[i]{a}{\meta{A}}
+		\have[j]{c1}{\meta{C}}
+	\close
+	\open
+		\hypo[k]{b}{\meta{B}}
+		\have[l]{c2}{\meta{C}}
+	\close
+	\have[\ ]{c}{\meta{C}} \oe{ab,a-c1, b-c2}
+\end{proof}
+
+
+
+\subsection{Biconditional Introduction, p.\ \pageref{biint}}
+\begin{proof}
+	\open
+		\hypo[i]{a1}{\meta{A}} 
+		\have[j]{b1}{\meta{B}}
+	\close
+	\open
+		\hypo[k]{b2}{\meta{B}}
+		\have[l]{a2}{\meta{A}}
+	\close
+	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
+\end{proof}
+
+\subsection{Biconditional Elimination, p.\ \pageref{bielim}}
+\begin{proof}
+	\have[m]{ab}{\meta{A}\eiff\meta{B}}
+\\	\have[n]{a}{\meta{A}}
+	\have[\ ]{b}{\meta{B}} \be{ab,a}
+
+	\have[m]{ab}{\meta{A}\eiff\meta{B}}
+\\	\have[n]{a}{\meta{B}}
+	\have[\ ]{b}{\meta{A}} \be{ab,a}
+\end{proof}
+
+\subsection{Reiteration, p.\ \pageref{reit}}
+
+\begin{proof}
+	\have[m]{a}{\meta{A}}
+	\have[\ ]{}{\vdots}
+	\have[\ ]{c}{\meta{A}} \by{R}{a}
+\end{proof}
+
+
+\end{multicols}
+
+
+\section*{Derived rules for \TFL, §\ref{s:Derived}}
+\begin{multicols}{2}
+
+\subsection*{Disjunctive syllogism}
+\begin{proof}
+	\have[m]{ab}{\meta{A} \eor \meta{B}}
+	\have[n]{nb}{\enot \meta{A}}
+	\have[\ ]{con}{\meta{B}}\by{DS}{ab, nb}
+
+	\have[m]{ab}{\meta{A} \eor \meta{B}}
+\\	\have[n]{nb}{\enot \meta{B}}
+	\have[\ ]{con}{\meta{A}}\by{DS}{ab, nb}
+\end{proof}
+
+
+
+\subsection*{Modus Tollens}
+
+\begin{proof}
+	\have[m]{ab}{\meta{A}\eif\meta{B}}
+	\have[n]{a}{\enot\meta{B}}
+	\have[\ ]{b}{\enot\meta{A}} \by{MT}{ab,a}
+\end{proof}
+
+\subsection*{Double Negation Elimination}
+
+
+	\begin{proof}
+		\have[m]{dna}{\enot \enot \meta{A}}
+		\have[ ]{a}{\meta{A}}\dne{dna}
+	\end{proof}
+
+\subsection*{Tertium non datur}
+	\begin{proof}
+		\open
+			\hypo[i]{a}{\meta{A}}
+			\have[j]{c1}{\meta{B}}
+		\close
+		\open
+			\hypo[k]{b}{\enot\meta{A}}
+			\have[l]{c2}{\meta{B}}
+		\close
+		\have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
+	\end{proof}
+
+
+	
+%
+%\subsection*{Hypothetical Syllogism}
+%
+%\begin{proof}
+%	\have[m]{ab}{\meta{A}\eif\meta{B}}
+%	\have[n]{bc}{\meta{B}\eif\meta{C}}
+%	\have[\ ]{ac}{\meta{A}\eif\meta{C}}\by{HS}{ab,bc}
+%\end{proof}
+
+\subsection*{De Morgan Rules}
+\begin{proof}
+	\have[m]{ab}{\enot (\meta{A} \eor \meta{B})}
+	\have[\ ]{dm}{\enot \meta{A} \eand \enot \meta{B}}\dem{ab}
+
+	\have[m]{ab}{\enot \meta{A} \eand \enot \meta{B}}
+\\	\have[\ ]{dm}{\enot (\meta{A} \eor \meta{B})}\dem{ab}
+
+	\have[m]{ab}{\enot (\meta{A} \eand \meta{B})}
+\\	\have[\ ]{dm}{\enot \meta{A} \eor \enot \meta{B}}\dem{ab}
+
+	\have[m]{ab}{\enot \meta{A} \eor \enot \meta{B}}
+\\	\have[\ ]{dm}{\enot (\meta{A} \eand \meta{B})}\dem{ab}
+\end{proof}
+\end{multicols}
+
+
+\newpage
+\section*{Basic deduction rules for \FOL}
+
+\begin{multicols}{2}
+\subsection*{Universal elimination, p.\ \pageref{unielim}}
+
+\begin{proof}
+	\have[m]{a}{\forall \meta{x}\meta{A}}
+	\have[\ ]{c}{\meta{A}\subs{\meta{c}}{\meta{x}}} \Ae{a}
+\end{proof}
+\noindent 	\meta{c} can be any name
+
+\subsection*{Universal introduction, p.\ \pageref{uniint}}
+
+\begin{proof}
+		\have[m]{a}{\meta{A}\subs{\meta{c}}{\meta{x}}}
+	\have[\ ]{c}{\forall \meta{x}\meta{A}} \Ai{a}
+\end{proof}
+
+\noindent 	\meta{c} must not occur in any undischarged assumption, or in \meta{A}
+
+\subsection*{Existential introduction, p.\ \pageref{exint}}
+
+\begin{proof}
+	\have[m]{c}{\meta{A}\subs{\meta{c}}{\meta{x}}} 
+			\have[\ ]{a}{\exists \meta{x}\meta{A}} \Ei{c}
+\end{proof}
+\noindent 	\meta{c} can be any name
+
+\subsection*{Existential elimination, p.\ \pageref{exelim}}
+
+\begin{proof}
+	\have[m]{a}{\exists \meta{x}\meta{A}}
+	\open	
+		\hypo[i]{b}{\meta{A}\subs{\meta{c}}{\meta{x}}}
+		\have[j]{c}{\meta{B}}
+	\close
+	\have[\ ]{d}{\meta{B}} \Ee{a,b-c}
+\end{proof}
+
+\noindent \meta{c} must not occur in any undischarged assumption, in $\exists \meta{x}\meta{A}$, or in \meta{B}\vfill\columnbreak
+\end{multicols}
+\begin{multicols}{2}
+\subsection*{Identity introduction, p.\ \pageref{idint}}
+
+\begin{proof}
+	\have[\ \,\,\,]{x}{\meta{c}=\meta{c}} \idi{}
+\end{proof}
+
+
+\subsection*{Identity elimination, p.\ \pageref{idelim}}
+
+\begin{proof}
+	\have[m]{e}{\meta{a}=\meta{b}}
+	\have[n]{a}{\meta{A}\subs{\meta{a}}{\meta{x}}}
+	\have[\ ]{ea1}{\meta{A}\subs{\meta{b}}{\meta{x}}} \ide{e,a}
+\end{proof}
+\end{multicols}
+
+\section*{Derived rules for \FOL, §\ref{s:CQ}}
+\begin{multicols}{2}
+\begin{proof}
+	\have[m]{ab}{\forall \meta{x}\enot \meta{A}}
+	\have[\ ]{ac}{\enot \exists \meta{x} \meta{A}}\by{CQ$_{\forall/\enot\exists}$}{ab}
+
+	\have[m]{ab}{\enot \exists \meta{x}  \meta{A}}
+\\	\have[\ ]{ac}{\forall \meta{x}\enot\meta{A}}\by{CQ$_{\enot\exists/\forall}$}{ab}
+\end{proof}
+\begin{proof}
+	\have[m]{ab}{\exists \meta{x}\enot\meta{A}}
+	\have[\ ]{ac}{\enot \forall \meta{x} \meta{A}}\by{CQ$_{\exists/\enot\forall}$}{ab}
+
+	\have[m]{ab}{\enot \forall \meta{x}  \meta{A}}
+\\	\have[\ ]{ac}{\exists \meta{x}\enot \meta{A}}\by{CQ$_{\enot\forall/\exists}$}{ab}
+\end{proof}
+
+\subsection*{Alternative identity elimination, p.\ \pageref{id.es}}
+\begin{proof}
+		\have[m]{e}{\meta{a}=\meta{b}}
+	\have[n]{a}{\meta{A}\subs{\meta{b}}{\meta{x}}}
+	\have[\ ]{ea1}{\meta{A}\subs{\meta{a}}{\meta{x}}} \by{=ES}{e,a}
+	\end{proof}
+\end{multicols}
+
+\renewcommand{\indexname}{Index of defined terms}\printindex % added 2018 Æ
