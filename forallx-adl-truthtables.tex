@@ -26,7 +26,7 @@ Not only does the truth value of a compound sentence of \TFL\ depend only on the
 
 These truth tables completely characterise how the connectives of \TFL\ behave. Accordingly, we can take these schematic truth tables as giving the \emph{meanings} of the connectives. 
 
-\paragraph{Negation.} For any sentence \meta{A}: If \meta{A} is true, then `\enot\meta{A}' is false. If `\enot\meta{A}' is true, then \meta{A} is false. We can summarize this dependence in the \define{schematic truth table} for negation, which shows how any sentence with negation as its main connective has a truth value depending on the truth value of its immediate subsentence:
+\paragraph{Negation} For any sentence \meta{A}: If \meta{A} is true, then `\enot\meta{A}' is false. If `\enot\meta{A}' is true, then \meta{A} is false. We can summarize this dependence in the \define{schematic truth table} for negation, which shows how any sentence with negation as its main connective has a truth value depending on the truth value of its immediate subsentence:
 \begin{center}
 \begin{tabular}{c|c} \toprule 
 \meta{A} & \enot\meta{A}\\
@@ -36,7 +36,7 @@ F & T\\ \bottomrule
 \end{tabular}
 \end{center}
 
-\paragraph{Conjunction.} For any sentences \meta{A} and \meta{B}, \meta{A}\eand\meta{B} is true if and only if both \meta{A} and \meta{B} are true. We can summarize this in the schematic truth table for conjunction:
+\paragraph{Conjunction} For any sentences \meta{A} and \meta{B}, \meta{A}\eand\meta{B} is true if and only if both \meta{A} and \meta{B} are true. We can summarize this in the schematic truth table for conjunction:
 \begin{center}
 \begin{tabular}{c c |c} \toprule 
 \meta{A} & \meta{B} & $\meta{A}\eand\meta{B}$\\
@@ -49,7 +49,7 @@ F & F & F\\
 \end{center}
 Note that conjunction is \define{commutative}. The truth value for $\meta{A} \eand \meta{B}$ is always the same as the truth value for $\meta{B} \eand \meta{A}$. 
 
-\paragraph{Disjunction.} Recall that `$\eor$' always represents inclusive or. So, for any sentences \meta{A} and \meta{B}, $\meta{A}\eor \meta{B}$ is true if and only if either \meta{A} or \meta{B} is true. We can summarize this in the schematic truth table for disjunction:
+\paragraph{Disjunction} Recall that `$\eor$' always represents inclusive or. So, for any sentences \meta{A} and \meta{B}, $\meta{A}\eor \meta{B}$ is true if and only if either \meta{A} or \meta{B} is true. We can summarize this in the schematic truth table for disjunction:
 \begin{center}
 \begin{tabular}{c c|c} \toprule 
 \meta{A} & \meta{B} & $\meta{A}\eor\meta{B}$ \\
@@ -62,7 +62,7 @@ F & F & F\\
 \end{center}
 Like conjunction, disjunction is commutative. 
 
-\paragraph{Conditional.} I'm just going to come clean and admit it. Conditionals are a problem in \TFL. This is not because there is any problem finding a truth table for the connective `\eif', but rather because the truth table we put forward seems to make `\eif' behave in ways that are different to the way that the English counterpart `if … then …' behaves. Exactly how much of a problem this poses is a matter of \emph{philosophical} contention. I shall discuss a few of the subtleties  in §\ref{s:IndicativeSubjunctive} and §\ref{s:ParadoxesOfMaterialConditional}. (It is no problem for \TFL\ itself, of course – the only potential difficulty arises when we try to use the \TFL\ conditional to represent `if …, then …'.
+\paragraph{Conditional} I'm just going to come clean and admit it. Conditionals are a problem in \TFL. This is not because there is any problem finding a truth table for the connective `\eif', but rather because the truth table we put forward seems to make `\eif' behave in ways that are different to the way that the English counterpart `if … then …' behaves. Exactly how much of a problem this poses is a matter of \emph{philosophical} contention. I shall discuss a few of the subtleties  in §\ref{s:IndicativeSubjunctive} and §\ref{s:ParadoxesOfMaterialConditional}. (It is no problem for \TFL\ itself, of course – the only potential difficulty arises when we try to use the \TFL\ conditional to represent `if …, then …'.
 
 We know at least this much from a parallel with the English conditional: if \meta{A} is true and \meta{B} is false, then $\meta{A}\eif\meta{B}$ should be false. (The conditional claim `if I study hard, then I'll pass' is clearly false if you study hard and still fail.) For now, I am going to stipulate that this is the only type of case in which $\meta{A}\eif\meta{B}$ is false.  We can summarize this with a schematic truth table for the \TFL\ conditional.
 \begin{center}
@@ -77,7 +77,7 @@ F & F & T\\\bottomrule
 \end{center}
 The conditional is \emph{not} commutative. You cannot swap the antecedent and consequent in general without changing the truth value, because $\meta{A}\eif\meta{B}$ has a different truth table from $\meta{B}\eif\meta{A}$. 
 
-\paragraph{Biconditional.} Since a biconditional is to be the same as the conjunction of a conditional running in each direction, we shall want the truth table for the biconditional to be:
+\paragraph{Biconditional} Since a biconditional is to be the same as the conjunction of a conditional running in each direction, we shall want the truth table for the biconditional to be:
 \begin{center}
 \begin{tabular}{c c|c} \toprule 
 \meta{A} & \meta{B} & $\meta{A}\eiff\meta{B}$\\
@@ -854,7 +854,7 @@ Sometimes, we do not need to know what happens on every line of a truth table. S
 
 \section{Direct uses of partial truth tables}\label{s:directPartialTruthTable}
 
-\paragraph{Tautology.} 
+\paragraph{Tautology} 
 In order to show that a sentence is a tautology, we need to show that it is true on every valuation. That is to say, we need to know that it comes out true on every line of the truth table. So, it seems, we need a complete truth table. 
 
 To show that a sentence is \emph{not} a tautology, however, we only need one line: a line on which the sentence is false. Therefore, in order to show that some sentence is not a tautology, it is enough to provide a single valuation – a single line of the truth table – which makes the sentence false. 
@@ -895,7 +895,7 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
 \end{center}
 So we now have a partial truth table, which shows that `$(U \eand T) \eif (S \eand W)$' is not a tautology. Put otherwise, we have shown that there is a valuation which makes `$(U \eand T) \eif (S \eand W)$' false, namely, the valuation which makes `$S$' false, `$T$' true, `$U$' true and `$W$' false. 
 
-\paragraph{Contradiction.}
+\paragraph{Contradiction}
 Showing that something is a contradiction requires us to consider every row of a complete truth table. We need to show that there is no valuation which makes the sentence true; that is, we need to show that the sentence is false on every line of the truth table. 
 
 However, to show that something is \emph{not} a contradiction, all we need to do is find a valuation which makes the sentence true, and a single line of a truth table will suffice. We can illustrate this with the same example.
@@ -915,17 +915,17 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
 \end{tabular}
 \end{center}
 
-\paragraph{Equivalence.}
+\paragraph{Equivalence}
 To show that two sentences are equivalent, we must show that the sentences have the same truth value on every valuation. So this requires us to consider each row of a complete truth table.
 
 To show that two sentences are \emph{not} equivalent, we only need to show that there is a valuation on which they have different truth values. So this requires only a one-line partial truth table: make the table so that one sentence is true and the other false.
 
-\paragraph{Consistency.}
+\paragraph{Consistency}
 To show that some sentences are jointly consistent, we must show that there is a valuation which makes all of the sentence true. So this requires only a partial truth table with a single line. 
 
 To show that some sentences are jointly inconsistent, we must show that there is no valuation which makes all of the sentence true. So this requires a complete truth table: You must show that on every row of the table at least one of the sentences is false.
 
-\paragraph{Validity.}
+\paragraph{Validity}
 To show that an argument is valid, we must show that there is no valuation which makes all of the premises true and the conclusion false. So this  requires us to consider all valuations in a complete truth table.  (Likewise for entailment.)
 
 To show that argument is \emph{invalid}, we must show that there is a valuation which makes all of the premises true and the conclusion false. So this requires only a one-line partial truth table on which all of the premises are true and the conclusion is false. (Likewise for a failure of entailment.)
@@ -1038,7 +1038,7 @@ When we introduced the idea of truth-functionality in §\ref{def.truthfunction},
 \section{Other truth-functional connectives}
 Are there other truth functional connectives than those in \TFL? If there were, they would have schematic truth tables that differ from those for any of our connectives. And it is easy to see that there are. Consider this proposed connective:
 
-\paragraph{The Sheffer Stroke} For any sentences \meta{A} and \meta{B}, $\meta{A}\downarrow\meta{B}$ is true if and only if both \meta{A} and \meta{B} are false. We can summarize this in the {schematic truth table} for the Sheffer Stroke:
+\paragraph{The Sheffer stroke} For any sentences \meta{A} and \meta{B}, $\meta{A}\downarrow\meta{B}$ is true if and only if both \meta{A} and \meta{B} are false. We can summarize this in the {schematic truth table} for the Sheffer Stroke:
 \begin{center}
 \begin{tabular}{c c |c} \toprule 
 \meta{A} & \meta{B} & $\meta{A}\downarrow\meta{B}$\\

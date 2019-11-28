@@ -1427,21 +1427,21 @@ There is no simple recipe for proofs, and there is no substitute for practice. H
 
 
 
-\paragraph{Work backwards from what you want.}
+\paragraph{Work backwards from what you want}
 The ultimate goal is to obtain the conclusion. Look at the conclusion and ask what the introduction rule is for its main connective. This gives you an idea of what should happen \emph{just before} the last line of the proof. Then you can treat this line as if it were your goal. Ask what you could do to get to this new goal.
 
 For example: If your conclusion is a conditional $\meta{A}\eif\meta{B}$, plan to use the {\eif}I rule. This requires starting a subproof in which you assume \meta{A}. The subproof ought to end with \meta{B}. So, what can you do to get $\meta{B}$?
 
 
-\paragraph{Work forwards from what you have.}
+\paragraph{Work forwards from what you have}
 When you are starting a proof, look at the premises; later, look at the sentences that you have obtained so far. Think about the elimination rules for the main operators of these sentences. These will tell you what your options are.
 
 For a short proof, you might be able to eliminate the premises and introduce the conclusion. A long proof is formally just a number of short proofs linked together, so you can fill the gap by alternately working back from the conclusion and forward from the premises.
 
-\paragraph{Try proceeding indirectly.}
+\paragraph{Try proceeding indirectly}
 If you cannot find a way to show $\meta{A}$ directly, try starting by assuming $\enot \meta{A}$. If a contradiction follows, then you will be able to obtain $\meta{A}$ by $\enot$E. This will often be a good way of proceeding when the conclusion you are aiming at has a \emph{disjunction} as its main connective.  
 
-\paragraph{Persist.}
+\paragraph{Persist}
 These are guidelines, not laws. Try different things. If one approach fails, then try something else. Remember that if there is one proof, there are many – different proofs that make use of different ideas.
 
 For example: suppose you tried to follow the idea `work backwards from what you want' in establishing `$P, P \eif (P \eif Q) \proves P \eif Q$'. You would be tempted to start a subproof from the assumption `$P$', and while that proof strategy would eventually succeed, you would have done better to simply apply $\eif$E and terminate after one proof step.
