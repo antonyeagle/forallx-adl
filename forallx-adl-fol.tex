@@ -1,8 +1,8 @@
 %!TEX root = forallxadl.tex
-\part{The Language of Quantified logic}
+\part{The Language of Quantified Logic}
 \label{ch.FOL}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
-\chapter{Building blocks of \textnormal{\FOL}}\label{s:FOLBuildingBlocks}
+\chapter{Building Blocks of \textnormal{\FOL}}\label{s:FOLBuildingBlocks}
 \section{The need to decompose sentences}
 Consider the following argument, which is obviously valid in English:
 \begin{quote}
@@ -155,7 +155,7 @@ In permitting multiple domains, \FOL\ follows the lead of natural languages like
 	\item Quantifiers are supported by variables, which behave rather like pronouns in English.
 }
 
-\chapter{Sentences with one quantifier}\label{s:MoreMonadic}
+\chapter{Sentences with One Quantifier}\label{s:MoreMonadic}
 We now have all of the pieces of \FOL. Symbolising many sentences of English will only be a matter of knowing the right way to combine predicates, names, quantifiers, and the truth-functional connectives. There is a knack to this, and there is no substitute for practice.
 
 As I emphasised in §\ref{ss.idargstr}, a single English sentence has many structures, depending on how fine-grained one is in the analysis of that sentence. We could symbolise `Antony owns a car' in a number of different ways given the resources we have so far, in increasingly finer detail: \begin{enumerate}
@@ -510,7 +510,7 @@ For each argument, write a symbolisation key and symbolise the argument in \FOL.
 
 
 
-\chapter{Multiple generality}\label{s:MultipleGenerality}
+\chapter{Multiple Generality}\label{s:MultipleGenerality}
 So far, we have only considered sentences that require simple predicates with just one `gap' and one quantifier. Much of the fragment of \FOL\ that involves such sentences was already discovered and codified into \emph{syllogistic} logic by Aristotle more than 2000 years ago. The full power of \FOL\ really comes out when we start to use predicates with many `gaps' and multiple quantifiers. Despite first appearances, the discovery of how to handle such sentences was a very significant one.  For this insight, we largely have the German mathematician and philosopher Gottlob Frege (1879) to thank.\footnote{Frege (1879 \emph{Begriffsschrift, eine der arithmetischen nachgebildete Formelsprache des reinen Denkens}, Halle a. S.: Louis Nebert. Translated as `Concept Script, a formal language of pure thought modelled upon that of arithmetic', by S. Bauer-Mengelberg in J. van Heijenoort (ed.), \emph{From Frege to Gödel: A Source Book in Mathematical Logic, 1879–1931}, Cambridge, MA: Harvard University Press, 1967. The same logic was independently discovered by the American philosopher and mathematician Charles Sanders Peirce: see Peirce (1885) `On the Algebra of Logic. A Contribution to the Philosophy of Notation' \emph{American Journal of Mathematics} \textbf{7}: 197–202. \textbf{Warning}: don't consult either of these original works, which will only confuse you. The present text is the result of more than a century of refinement in how to present the basic systems Frege and Peirce introduced, and is a lot more user friendly.}
 
 
@@ -1002,7 +1002,7 @@ It might be tempting to add a predicate to our symbolisation key, to symbolise t
 	\end{itemize}		
 
 
-\chapter{Definite descriptions}\label{subsec.defdesc}
+\chapter{Definite Descriptions}\label{subsec.defdesc}
 In \FOL, names function rather like names in English. They are simply labels for the things they name, and may be attached arbitrarily, without any indication of the characteristics of what they name.\footnote{This is not strictly true: consider the name `Fido' which is conventionally the name of a dog. But even here the name doesn't carry any information in itself about what it names – the fact that we use that as a name only for dogs allows someone who knows that to reasonably infer that Fido is a dog. But `Fido is a dog' isn't a necessary truth, as it would be if somehow `Fido' carried with it the information that it applies only to dogs.} 
 
 But complex noun phrases can also be used to denote particular things in English, and they do so not merely by acting as arbitrary labels, but often by \emph{describing} the thing they refer to. Consider sentences like:

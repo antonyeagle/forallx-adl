@@ -2,7 +2,7 @@
 
 % Æ: pervasive changes to the proof system from the earlier versions; the one here is pretty much the system of Halbach \emph{Logic Manual}, though transposed to a Fitch style system. We used to have a rule of ¬¬E as basic, and ¬E as derived, but proofs looked uglier. 
 
-\part{Natural deduction for {\TFL}}
+\part{Natural Deduction for {\TFL}}
 \label{ch.NDTFL}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
@@ -140,7 +140,7 @@ What remains to do is to explain each of the rules that we can use along the way
 	\item A formal natural deduction proof is a graphical representation of reasoning from assumptions, in accordance with a strict set of rules for deriving further claims and managing which assumptions are active (`undischarged') at a given point in the proof.
 	}
 
-\chapter{Basic rules for \textnormal{\TFL}: Rules Without Subproofs}\label{s:BasicTFLns}
+\chapter{Basic Rules for \textnormal{\TFL}: Rules without Subproofs}\label{s:BasicTFLns}
 
 
 \section{Conjunction introduction}\label{conjint}
@@ -447,7 +447,7 @@ Give natural deduction proofs for the following arguments: \begin{earg}
 
 
 
-\chapter{Basic rules for \textnormal{\TFL}: Rules With Subproofs}\label{s:BasicTFLs}
+\chapter{Basic Rules for \textnormal{\TFL}: Rules with Subproofs}\label{s:BasicTFLs}
 
 We've already seen in §\ref{c:ass} how to start a proof by making assumptions. But the true power of natural deduction relies on its rules governing when you can make additional assumptions during the course of the proof, and how you can \emph{discharge} those assumptions when you no longer need them. 
 
@@ -1242,7 +1242,7 @@ Give a proof for each of the following arguments:
 \end{earg}
 
 
-\chapter{Some philosophical issues about conditionals and meaning}\label{s:philosophy}
+\chapter{Some Philosophical Issues about Conditionals and Meaning}\label{s:philosophy}
 
 
 \section{Conditional introduction and the English conditional} \label{cond.proof}%Æ added
@@ -1318,7 +1318,7 @@ If we are to rule out such deviant connectives as `tonk', Prior argues, we have 
 }
 
 
-\chapter{Proof-theoretic concepts}\label{s:ProofTheoreticConcepts}
+\chapter{Proof-Theoretic Concepts}\label{s:ProofTheoreticConcepts}
 
 We shall introduce some new vocabulary. The following expression:
 $$\meta{A}_1, \meta{A}_2, …, \meta{A}_n \proves \meta{C}$$
@@ -1421,7 +1421,7 @@ If you know that $\meta{A}\proves\meta{B}$, what can you say about $(\meta{A}\ea
 
 
 
-\chapter{Proof strategies}\label{c:proof.strat}
+\chapter{Proof Strategies}\label{c:proof.strat}
 There is no simple recipe for proofs, and there is no substitute for practice. Here, though, are some rules of thumb and strategies to keep in mind.
 
 
@@ -1461,7 +1461,7 @@ Neither of these heuristics is sacrosanct. You will get a sense of how to constr
 
 
 
-\chapter{Derived rules for \textnormal{\TFL}}\label{s:Derived}
+\chapter{Derived Rules for \textnormal{\TFL}}\label{s:Derived}
 In §§\ref{s:BasicTFLs}–\ref{s:BasicTFLns}, we introduced the basic rules of our proof system for \TFL. In this section, we shall consider some alternative or additional rules for our system.
 
 None of these rules adds anything fundamentally to our system. They are all \define{derived} rules, which means that anything we can prove by using them, we could have proved using just the rules in our original official system of natural deduction proofs. Any of these rules is a \emph{conservative} addition to our proof system, because none of them would enable us to prove anything we could not already prove. (Adding the rules for `tonk' from §\ref{inferentialism}, by contrast, would allow us to prove many new things – any system which includes those rules is not a conservative extension of our original system of proof rules.)
@@ -1780,7 +1780,7 @@ Provide proof schemes that justify the addition of the third and fourth De Morga
 \problempart
 The proofs you offered in response to question \textbf{A} above used derived rules. Replace the use of derived rules, in such proofs, with only basic rules. You will find some `repetition' in the resulting proofs; in such cases, offer a streamlined proof using only basic rules.  (This will give you a sense, both of the power of derived rules, and of how all the rules interact.)
 
-\chapter{Alternative proof systems for \textnormal{\TFL}}\label{s:alternates}
+\chapter{Alternative Proof Systems for \textnormal{\TFL}}\label{s:alternates}
 
 We've now developed a system of proof rules, all of which we have supported by showing that they correspond to correct entailments of \TFL. We've also seen that these rules allow us to introduce some derived rules, which make proofs shorter and more convenient but do not allow us to prove anything that we could not have proved already.
 
