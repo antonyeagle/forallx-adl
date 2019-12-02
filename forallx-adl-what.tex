@@ -1,4 +1,4 @@
-%!TEX root = forallxadl.tex
+%!TEX root = forallx-adl.tex
 
 % Æ: Major changes from TB version:
 %	* Distinction between valid and conclusive arguments
@@ -97,15 +97,7 @@ The general point is as follows. For any argument, there are two ways that it mi
 To determine whether or not the premises of an argument are true is often a very important matter. But that is normally a task best left to experts in the field: as it might be, historians, scientists, or whomever. In our role as \emph{logicians}, we are more concerned with arguments \emph{in general}. So we are (usually) more concerned with the second way in which arguments can go wrong.
 
 
-\section{Reasons to believe}
 
-A good argument, in the logician's sense, links the premises to the conclusion. It turns the reasons you have for accepting to the premises into reasons to accept its conclusion. But a good argument need not provide you with a reason to believe the conclusion. This can happen when you don't accept any of the premises in the first place. When the premises support the conclusion, that might just mean that they \emph{would} be excellent reasons to accept the conclusion – \emph{if only they were true}!
-
-So: we are interested in whether or not a conclusion \emph{follows from} some premises. Don't, though, say that the premises \emph{infer} the conclusion. Entailment is a relation between premises and conclusions; inference is something we do. So if you want to mention inference when the conclusion follows from the premises, you could say that \emph{one may infer} the conclusion from the premises.
-
-But even this may be doubted. Often, when you believe the premises, a good argument provides you with a reason to believe the conclusion. In that case, it might be appropriate for you to infer the conclusion from the premises.
-
-But sometimes a good argument shows that the premises support a conclusion you cannot accept. In that sort of situation, you might find that the argument gives you a better reason to abandon your belief in one of the premises than to infer the conclusion. A good argument shows there is \emph{some} reason to believe its conclusion; it doesn't mean there aren't \emph{better} reasons to reject its premises. 
 
 
 \section{Conclusive arguments} \label{s:conclusiveargs}
@@ -134,12 +126,26 @@ The crucial thing about a conclusive argument is that it is impossible, in a ver
 	\end{earg}
 The conclusion of this argument is ridiculous. Nevertheless, it follows from the premises. \emph{If} both premises were true, \emph{then} the conclusion would just have to be true. So the argument is conclusive. 
 
-The fact that the argument is conclusive and has a false conclusion tells us that the premises cannot both be true. Indeed, the second premise is as absurd as the conclusion. In general, when an argument is conclusive \begin{itemize}
+
+\emph{Why} is this argument conclusive? The most important factor for us in considering what makes an argument conclusive is to examine the argument's \define{structure} – the grammatical forms of the premises and conclusion. An argument will be conclusive if its structure \emph{guarantees} that its premises \emph{support} the conclusion. In the present case, one premise says that oranges are in one of two categories; the other premise says that oranges are not in the first category. We conclude that they are in the second category. The premises and conclusion are about oranges. But it is plausible to think that \emph{any} argument with this same sort of structure must be conclusive, whether we are talking about oranges, or cars – or anything really. 
+
+\section{Reasons to believe}
+
+A conclusive argument, in the logician's sense, links the premises to the conclusion. It turns the reasons you have for accepting to the premises into reasons to accept its conclusion. But a conclusive argument need not provide you with a reason to believe the conclusion. One way this can happen is when you don't accept any of the premises in the first place. When the premises support the conclusion, that might just mean that they \emph{would} be excellent reasons to accept the conclusion – \emph{if only they were true}!
+
+So: we are interested in whether or not a conclusion \emph{follows from} some premises. Don't, though, say that the premises \emph{infer} the conclusion. Entailment is a relation between premises and conclusions; inference is something we do. So if you want to mention inference when the conclusion follows from the premises, you could say that \emph{one may infer} the conclusion from the premises.
+
+But even this may be doubted. Often, when you believe the premises, a conclusive argument provides you with a reason to believe the conclusion. In that case, it might be appropriate for you to infer the conclusion from the premises.
+
+But sometimes a conclusive argument shows that some premises support a conclusion you cannot accept. Suppose, for example, that you know the conclusion to be false. The fact that the argument is conclusive and has a false conclusion tells us that the premises cannot all be true. (Consider the argument from the previous section with the false conclusion `Oranges are musical instruments': the second premise is as absurd as the conclusion.) In general, when an argument is conclusive \begin{itemize}
 	\item the truth of all the premises guarantees the truth of the conclusion; and equally
 	\item the falsity of the conclusion guarantees the falsity of at least one of the premises. 
 \end{itemize}
 
-\emph{Why} is this argument conclusive? The most important factor for us in considering what makes an argument conclusive is to examine the argument's \define{structure} – the grammatical forms of the premises and conclusion. An argument will be conclusive if its structure \emph{guarantees} that its premises \emph{support} the conclusion. In the present case, one premise says that oranges are in one of two categories; the other premise says that oranges are not in the first category. We conclude that they are in the second category. The premises and conclusion are about oranges. But it is plausible to think that \emph{any} argument with this same sort of structure must be conclusive, whether we are talking about oranges, or cars, or anything really. 
+
+In this sort of situation, you might find that the argument gives you a better reason to abandon any belief in one of the premises than to accept the conclusion. A conclusive argument shows there is \emph{some} reason to believe its conclusion, if you accept its premises; it doesn't mean there aren't \emph{better} reasons to reject its premises, if you reject its conclusion. 
+
+The question, \emph{what ought I to believe?} is one of the deepest in the area of philosophy known as \define{epistemology}, the theory of knowledge. Logic is not able to answer that question all by itself. Even if logic tells you that there is a conclusive argument from premise \meta{A} to conclusion \meta{B}, logic can't tell you whether you ought to believe both, or reject both.\footnote{This point is made forcefully by Gilbert Harman, \emph{Change in View}, MIT Press, esp. ch. 2.} However, logic will tell you something important, even if it is only a limited part of the answer to the question of rational belief. It will tell you that, when you know an argument to be conclusive, \emph{you cannot both accept its premises while rejecting its conclusion}. 
 
 
  \section{Conclusiveness for special reasons}
