@@ -15,14 +15,14 @@
 
 Way back in §\ref{s:Valid}, we said that an argument is valid iff it is impossible to make all of the premises true in a valuation, while the conclusion is false. 
 
-In the case of \TFL, this led us to develop truth tables. Each line of a complete truth table corresponds to a valuation. So, when faced with a \TFL\ argument, we have a very direct way to assess whether it is possible to make all of the premises true and the conclusion false: just plod through the truth table.
+In the case of \TFL, this led us to develop truth tables. Each row of a complete truth table corresponds to a valuation. So, when faced with a \TFL\ argument, we have a very direct way to assess whether it is possible to make all of the premises true and the conclusion false: just plod through the truth table.
 
 But truth tables do not necessarily give us much \emph{insight}. Consider two arguments in \TFL:
 	\begin{align*}
 		P \eor Q, \enot P & \ttherefore Q\\
 		P \eiff Q, P & \ttherefore Q.
 	\end{align*}
-Clearly, these are valid arguments. You can confirm that they are valid by constructing four-line truth tables. But we might say that two arguments, proceeding from different premises with different logical connectives involved, must make use of different principles of implication. What follows from a disjunction is not at all the same as what follows from a biconditional, and it might be nice to keep track of these differences. While a truth table can show \emph{that} an argument is valid, it doesn't really explain why the argument is valid. To explain why $P \eor Q, \enot P \ttherefore Q$ is valid, we have to say something about how disjunction and negation work and interact.
+Clearly, these are valid arguments. You can confirm that they are valid by constructing four-row truth tables. But we might say that two arguments, proceeding from different premises with different logical connectives involved, must make use of different principles of implication. What follows from a disjunction is not at all the same as what follows from a biconditional, and it might be nice to keep track of these differences. While a truth table can show \emph{that} an argument is valid, it doesn't really explain why the argument is valid. To explain why $P \eor Q, \enot P \ttherefore Q$ is valid, we have to say something about how disjunction and negation work and interact.
 
 Certainly human reasoning treats disjunctions very differently from biconditionals. While logic is not really about human reasoning, which is more properly a subject matter for psychology, nevertheless we can formally study the different forms of reasoning involved in arguing from sentences with different structures, by asking: \emph{what would it be acceptable to conclude from a premise with a certain formal structure, supposing one cannot give up one's committment to that premise?} 
 
@@ -44,12 +44,12 @@ Natural deduction systems promise to give us a better insight – or at least, a
 
 The move to natural deduction might be motivated by more than the search for insight. It might also be motivated by \emph{practicality}. Consider:
 	$$A_1 \eif C_1 \ttherefore (A_1 \eand A_2) \eif (C_1 \eor C_2).$$
-To test this argument for validity, you might use a 16-line truth table. If you do it correctly, then you will see that there is no line on which all the premises are true and on which the conclusion is false. So you will know that the argument is valid. (But, as just mentioned, there is a sense in which you will not know \emph{why} the argument is valid.) But now consider:\phantomsection\label{longtt}
+To test this argument for validity, you might use a 16-row truth table. If you do it correctly, then you will see that there is no row on which all the premises are true and on which the conclusion is false. So you will know that the argument is valid. (But, as just mentioned, there is a sense in which you will not know \emph{why} the argument is valid.) But now consider:\phantomsection\label{longtt}
 	\begin{align*}
 		A_1 \eif C_1 \ttherefore\ & (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10}) \eif \phantom{(}\\
 				&(C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5 \eor C_6 \eor C_7 \eor C_8 \eor C_9 \eor C_{10}).
 	\end{align*}
-This argument is also valid – as you can probably tell – but to test it requires a truth table with $2^{20} = 1048576$ lines. In principle, we can set a machine to grind through truth tables and report back when it is finished. In practice, complicated arguments in \TFL\ can become \emph{intractable} if we use truth tables. But there is a very short natural deduction proof of this argument – just 6 lines. You can see it on page \pageref{ndshort}, though it won't make much sense if you skip the intervening pages.
+This argument is also valid – as you can probably tell – but to test it requires a truth table with $2^{20} = 1048576$ rows. In principle, we can set a machine to grind through truth tables and report back when it is finished. In practice, complicated arguments in \TFL\ can become \emph{intractable} if we use truth tables. But there is a very short natural deduction proof of this argument – just 6 rows. You can see it on page \pageref{ndshort}, though it won't make much sense if you skip the intervening pages.
 
 When we get to \FOL, though, the problem gets dramatically worse. There is nothing like the truth table test for \FOL. To assess whether or not an argument is valid, we have to reason about \emph{all} interpretations. But there are infinitely many possible interpretations. We cannot even in principle set a machine to grind through infinitely many possible interpretations and report back when it is finished: it will \emph{never} finish. We either need to come up with some more efficient way of reasoning about all interpretations, or we need to look for something different. Since we already have some motivation for considering the role in arguments of particular premises, rather than all the premises collectively as in the truth-table approach, we will opt for the `something different' path – natural deduction.
 

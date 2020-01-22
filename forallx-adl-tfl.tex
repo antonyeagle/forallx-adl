@@ -275,7 +275,7 @@ Sentence \ref{if2} is also a conditional. Since the word `if' appears in the sec
 
 In fact, sentence \ref{if2} can be paraphrased as `If Jean is in France, then Jean is in Paris'. So we can symbolise it by `$(F \eif P)$'.
 	\factoidbox{
-		A sentence can be symbolised as $\meta{A} \eif \meta{B}$ if it can be paraphrased in English as `If A, then B' or `A only if B' or `B if A'.
+		A sentence can be symbolised as $(\meta{A} \eif \meta{B})$ if it can be paraphrased in English as `If A, then B' or `A only if B' or `B if A'.
 	}
 \noindent In fact, many English expressions can be represented using the conditional. Consider:
 	\begin{earg}
@@ -310,7 +310,7 @@ We could treat every biconditional this way. So, just as we do not need a new \T
 
 The expression `if and only if' occurs a lot in philosophy and logic. For brevity, we can abbreviate it with the snappier word `\define{iff}'. I shall follow this practice. So `if' with only \emph{one} `f' is the English conditional. But `iff' with \emph{two} `f's is the English biconditional. Armed with this we can say:
 	\factoidbox{
-		A sentence can be symbolised as $\meta{A} \eiff \meta{B}$ if it can be paraphrased in English as `A iff B'; that is, as `A if and only if B'.
+		A sentence can be symbolised as $(\meta{A} \eiff \meta{B})$ if it can be paraphrased in English as `A iff B'; that is, as `A if and only if B'.
 	}
 Other expressions in English which can be used to mean `iff' include `exactly if' and `exactly when', or even `just in case'. So if we say `You run out of time exactly when the buzzer sounds', we mean: `if the buzzer sounds, then you are out of time; and also if you are out of time, then the buzzer sounds'. % Æ added
 
@@ -470,7 +470,7 @@ Connectives & $\enot,\eand,\eor,\eif,\eiff$\\
 Brackets &( , )\\
 \bottomrule \end{tabular} 
 \end{center}
-We define an \define{expression} of \TFL\ as any string of symbols of \TFL. Take any of the symbols of \TFL\ and write them down, in any order, and you have an expression of \TFL. Expressions are sometimes called `strings', because they are just a string of symbols from the approved list above.
+We define an \define{expression} of \TFL\ as any finite non-empty string of symbols of \TFL. Take any of the symbols of \TFL\ and write them down, in any order, and you have an expression of \TFL. Expressions are sometimes called `strings', because they are just a string of symbols from the approved list above. No restriction is placed on expressions apart from having to contain at least one character, and not going on infinitely long.
 
 
 \section{Sentences}\label{s.sentencesTFL}
@@ -655,7 +655,7 @@ However, we do not just want to talk about \emph{specific} expressions of \TFL. 
 	$$\meta{A}, \meta{B}, \meta{C}, \meta{D}, …$$
 These symbols do not belong to \TFL. Rather, they are part of our (augmented) metalanguage that we use to talk about \emph{any} expression of \TFL. To repeat the second clause of the recursive definition of a sentence of \TFL, we said:
 	\begin{earg}
-		\item[3.] If $\meta{A}$ is a sentence, then $\enot \meta{A}$ is a sentence.
+		\item[2.] If $\meta{A}$ is a sentence, then $\enot \meta{A}$ is a sentence.
 	\end{earg}
 This talks about \emph{arbitrary} sentences. If we had instead offered:
 	\begin{itemize}

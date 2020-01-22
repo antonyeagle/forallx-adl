@@ -239,7 +239,7 @@ $H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
  F & F & {F} & & {F} & & {F}\\
 \bottomrule \end{tabular}
 \end{center}
-Now consider the subsentence `$(H\eand I)$'. This is a conjunction, $(\meta{A}\eand\meta{B})$, with `$H$' as \meta{A} and with `$I$' as \meta{B}. The schematic truth table for conjunction gives the truth conditions for \emph{any} sentence of the form $(\meta{A}\eand\meta{B})$, whatever $\meta{A}$ and $\meta{B}$ might be. It summarises the point that a conjunction is true iff both conjuncts are true. In this case, our conjuncts are just `$H$' and `$I$'. They are both true on (and only on) the first line of the truth table. Accordingly, we can calculate the truth value of the conjunction on all four rows.
+Now consider the subsentence `$(H\eand I)$'. This is a conjunction, $(\meta{A}\eand\meta{B})$, with `$H$' as \meta{A} and with `$I$' as \meta{B}. The schematic truth table for conjunction gives the truth conditions for \emph{any} sentence of the form $(\meta{A}\eand\meta{B})$, whatever $\meta{A}$ and $\meta{B}$ might be. It summarises the point that a conjunction is true iff both conjuncts are true. In this case, our conjuncts are just `$H$' and `$I$'. They are both true on (and only on) the first row of the truth table. Accordingly, we can calculate the truth value of the conjunction on all four rows.
 \begin{center}
 \begin{tabular}{c c|d e e e f} \toprule 
  & & \meta{A} & \eand & \meta{B} & & \\
@@ -279,11 +279,11 @@ $H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
 Most of the columns underneath the sentence are only there for bookkeeping purposes. The column that matters most is the column underneath the \emph{main connective} for the sentence, since this tells you the truth value of the entire sentence. I have emphasised this, by putting this column in bold. When you work through truth tables yourself, you should similarly emphasise it (perhaps by drawing a box around the relevant column).
 
 \section{Building complete truth tables}
-A \define{complete truth table} has a line for every possible assignment of True and False to the relevant atomic sentences. Each line represents a \emph{valuation}, and a complete truth table has a line for all the different valuations. 
+A \define{complete truth table} has a row for every possible assignment of True and False to the relevant atomic sentences. Each row represents a \emph{valuation}, and a complete truth table has a row for all the different valuations. 
 
 The size of the complete truth table depends on the number of different atomic sentences in the table. A sentence that contains only one atomic sentence requires only two rows, as in the schematic truth table for negation. This is true even if the same letter is repeated many times, as in the sentence
 `$\bigl( (C\eiff C) \eif C \bigr) \eand \enot(C \eif C)$'.
-The complete truth table requires only two lines because there are only two possibilities: `$C$' can be true or it can be false. The truth table for this sentence looks like this:
+The complete truth table requires only two rows because there are only two possibilities: `$C$' can be true or it can be false. The truth table for this sentence looks like this:
 \begin{center}
 \begin{tabular}{c| d e e e e e e e e e e e e e e f} \toprule 
 $C$&$\bigl( ($&$C$&\eiff&$C$&$)$&\eif&$C$&$\bigr)$&\eand&\enot&$($&$C$&\eif&$C$&$)$\\
@@ -294,9 +294,9 @@ $C$&$\bigl( ($&$C$&\eiff&$C$&$)$&\eif&$C$&$\bigr)$&\eand&\enot&$($&$C$&\eif&$C$&
 \end{center}
 Looking at the column underneath the main connective, we see that the sentence is false on both rows of the table; i.e., the sentence is false regardless of whether `$C$' is true or false. It is false on every valuation.
 
-A sentence that contains two atomic sentences requires four lines for a complete truth table, as in the schematic truth tables, and as in the complete truth table for `$(H \eand I)\eif H$'.
+A sentence that contains two atomic sentences requires four rows for a complete truth table, as in the schematic truth tables, and as in the complete truth table for `$(H \eand I)\eif H$'.
 
-A sentence that contains three atomic sentences requires eight lines:
+A sentence that contains three atomic sentences requires eight rows:
 \begin{center}
 \begin{tabular}{c c c|d e e e f} \toprule 
 $M$&$N$&$P$&$M$&\eand&$(N$&\eor&$P)$\\
@@ -314,15 +314,15 @@ F & F & F & F & \TTbf{F} & F & F & F\\\bottomrule
 \end{center}
 From this table, we know that the sentence `$M\eand(N\eor P)$' can be true or false, depending on the truth values of `$M$', `$N$', and `$P$'.
 
-A complete truth table for a sentence that contains four different atomic sentences requires 16 lines. Five letters, 32 lines. Six letters, 64 lines. And so on. To be perfectly general: If a complete truth table has $n$ different atomic sentences, then it must have $2^n$ lines.\footnote{Since the values of atomic sentences are independent of each other, each new atomic sentence $\meta{A}_{n+1}$ we consider is capable of being true or false on every existing valuation on $\meta{A}_{1},…,\meta{A}_{n}$, and so there must be twice as many valuations on $\meta{A}_{1},…,\meta{A}_{n},\meta{A}_{n+1}$ as on $\meta{A}_{1},…,\meta{A}_{n}$.}
+A complete truth table for a sentence that contains four different atomic sentences requires 16 rows. Five letters, 32 rows. Six letters, 64 rows. And so on. To be perfectly general: If a complete truth table has $n$ different atomic sentences, then it must have $2^n$ rows.\footnote{Since the values of atomic sentences are independent of each other, each new atomic sentence $\meta{A}_{n+1}$ we consider is capable of being true or false on every existing valuation on $\meta{A}_{1},…,\meta{A}_{n}$, and so there must be twice as many valuations on $\meta{A}_{1},…,\meta{A}_{n},\meta{A}_{n+1}$ as on $\meta{A}_{1},…,\meta{A}_{n}$.}
 
-In order to fill in the columns of a complete truth table, begin with the right-most atomic sentence and alternate between `T' and `F'. In the next column to the left, write two `T's, write two `F's, and repeat. For the third atomic sentence, write four `T's followed by four `F's. This yields an eight line truth table like the one above. For a 16 line truth table, the next column of atomic sentences should have eight `T's followed by eight `F's. For a 32 line table, the next column would have 16 `T's followed by 16 `F's. And so on.
+In order to fill in the columns of a complete truth table, begin with the right-most atomic sentence and alternate between `T' and `F'. In the next column to the left, write two `T's, write two `F's, and repeat. For the third atomic sentence, write four `T's followed by four `F's. This yields an eight row truth table like the one above. For a 16 row truth table, the next column of atomic sentences should have eight `T's followed by eight `F's. For a 32 row table, the next column would have 16 `T's followed by 16 `F's. And so on.
 
 
 
 
 \keyideas{
-	\item A valuation of some atomic sentences associates of them with exactly one of our truth values; it is like an extremely stripped down version of a symbolisation key. In there are $n$ atomic sentences, there are $2^{n}$ valuations of them.
+	\item A valuation of some atomic sentences associates each of them with exactly one of our truth values; it is like an extremely stripped down version of a symbolisation key. In there are $n$ atomic sentences, there are $2^{n}$ valuations of them.
 	\item A truth table lays out the truth values of a particular \TFL\ sentence in each of the distinct possible valuations of its constituent atomic sentences.
 }
 
@@ -358,7 +358,7 @@ In §\ref{s:BasicNotions}, I explained \emph{necessary truth} and \emph{necessar
 		$\meta{A}$ is a \define{tautology} iff it is true on every valuation (among those valuations on which it has a truth value).	}
 We need the parenthetical clause because of the way we have defined valuations. A given valuation $v$ might only assign truth values to some atomic sentences and not all. For any sentence $\meta{A}$ which contains an atomic sentence to which $v$ doesn't assign a truth value, $\meta{A}$ will not have any truth value on or according to $v$.
 
-We can determine whether a sentence is a tautology just by using truth tables. If the sentence is true on every line of a complete truth table, then it is true on every valuation for its constituent atomic sentences, so it is a tautology. In the example of §\ref{s:CompleteTruthTables}, `$(H \eand I) \eif H$' is a tautology. 
+We can determine whether a sentence is a tautology just by using truth tables. If the sentence is true on every row of a complete truth table, then it is true on every valuation for its constituent atomic sentences, so it is a tautology. In the example of §\ref{s:CompleteTruthTables}, `$(H \eand I) \eif H$' is a tautology. 
 
 
 
@@ -368,7 +368,7 @@ We have a similar surrogate for necessary falsity:
 	\factoidbox{
 		$\meta{A}$ is a \define{contradiction} iff it is false on every valuation (among those on which it has a truth value).
 	}
-We can determine whether a sentence is a contradiction just by using truth tables. If the sentence is false on every line of a complete truth table, then it is false on every valuation, so it is a contradiction. In the example of §\ref{s:CompleteTruthTables}, `$\bigl( (C\eiff C) \eif C\bigr)  \eand \enot(C \eif C)$' is a contradiction.
+We can determine whether a sentence is a contradiction just by using truth tables. If the sentence is false on every row of a complete truth table, then it is false on every valuation, so it is a contradiction. In the example of §\ref{s:CompleteTruthTables}, `$\bigl( (C\eiff C) \eif C\bigr)  \eand \enot(C \eif C)$' is a contradiction.
 
 
 \section{Equivalence}
@@ -376,7 +376,7 @@ Here is a similar, useful notion:
 	\factoidbox{
 		$\meta{A}$ and $\meta{B}$ are \define{equivalent} iff they have the same truth value on every valuation among those which assign both of them a truth value.
 	}
-We have already made use of this notion, in effect, in §\ref{s:MoreBracketingConventions}; the point was that `$(A \eand B) \eand C$' and  `$A \eand (B \eand C)$' are equivalent. Again, it is easy to test for equivalence using truth tables. Consider the sentences `$\enot(P \eor Q)$' and `$\enot P \eand \enot Q$'. Are they equivalent? To find out, we may construct a truth table.
+It is easy to test for equivalence using truth tables. Consider the sentences `$\enot(P \eor Q)$' and `$\enot P \eand \enot Q$'. Are they equivalent? To find out, we may construct a truth table.
 \begin{center}
 \begin{tabular}{c c|d e e f |d e e e f} \toprule 
 $P$&$Q$&\enot&$(P$&\eor&$Q)$&\enot&$P$&\eand&\enot&$Q$\\
@@ -395,7 +395,7 @@ Consider these two sentences:
 		((A \eand B) \eand C)\\
 		(A \eand (B \eand C))
 	\end{align*}
-These have the same truth table, and are equivalent. Consequently, it will never make any difference from the perspective of truth value – which is all that \TFL\ cares about (see §\ref{s:TruthFunctionality}) – which of the two sentences we assert (or deny). And since the order of the brackets does not matter, I shall allow us to drop them.  In short, we can save some ink and some eyestrain by writing:
+These have the same truth table, and are equivalent.  Consequently, it will never make any difference from the perspective of truth value – which is all that \TFL\ cares about (see §\ref{s:TruthFunctionality}) – which of the two sentences we assert (or deny). And since the order of the brackets does not matter, I shall allow us to drop them.  In short, we can save some ink and some eyestrain by writing:
 	\begin{align*}
 		A \eand B \eand C
 	\end{align*}
@@ -468,7 +468,7 @@ Check all the claims made in introducing the new notational conventions in §\re
 \end{earg}
 Also, check whether:
 \begin{earg}
-	\item[5.] `$((A \eiff B) \eiff C)$' and `$(A \eiff (B \eiff C))$' have the same truth table
+	\item[5.] `$((A \eiff B) \eiff C)$' and `$(A \eiff (B \eiff C))$' have the same truth table.
 \end{earg}
 \problempart
 What is the difference between a tautology and a contradiction? Are there any other kinds of sentence in Sentential?
@@ -646,18 +646,18 @@ Use truth tables to determine whether each argument is valid or invalid.
 Answer each of the questions below and justify your answer.
 \begin{earg}
 \item Suppose that \meta{A} and \meta{B} are equivalent. What can you say about $\meta{A}\eiff\meta{B}$?
-%\meta{A} and \meta{B} have the same truth value on every line of a complete truth table, so $\meta{A}\eiff\meta{B}$ is true on every line. It is a tautology.
+%\meta{A} and \meta{B} have the same truth value on every row of a complete truth table, so $\meta{A}\eiff\meta{B}$ is true on every row. It is a tautology.
 \item Suppose that $(\meta{A}\eand\meta{B})\eif\meta{C}$ is neither a tautology nor a contradiction. What can you say about whether $\meta{A}, \meta{B} \ttherefore\meta{C}$ is valid?
-%The sentence is false on some line of a complete truth table. On that line, \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is invalid.
+%The sentence is false on some row of a complete truth table. On that row, \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is invalid.
 \item Suppose that $\meta{A}$, $\meta{B}$ and $\meta{C}$  are jointly inconsistent. What can you say about $(\meta{A}\eand\meta{B}\eand\meta{C})$?
 \item Suppose that \meta{A} is a contradiction. What can you say about whether $\meta{A}, \meta{B} \entails \meta{C}$?
-%Since \meta{A} is false on every line of a complete truth table, there is no line on which \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is valid.
+%Since \meta{A} is false on every row of a complete truth table, there is no row on which \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is valid.
 \item Suppose that \meta{C} is a tautology. What can you say about whether $\meta{A}, \meta{B}\entails \meta{C}$?
-%Since \meta{C} is true on every line of a complete truth table, there is no line on which \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is valid.
+%Since \meta{C} is true on every row of a complete truth table, there is no row on which \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is valid.
 \item Suppose that \meta{A} and \meta{B} are equivalent. What can you say about $(\meta{A}\eor\meta{B})$?
 %Not much. $(\meta{A}\eor\meta{B})$ is a tautology if \meta{A} and \meta{B} are tautologies; it is a contradiction if they are contradictions; it is contingent if they are contingent.
 \item Suppose that \meta{A} and \meta{B} are \emph{not} equivalent. What can you say about $(\meta{A}\eor\meta{B})$?
-%\meta{A} and \meta{B} have different truth values on at least one line of a complete truth table, and $(\meta{A}\eor\meta{B})$ will be true on that line. On other lines, it might be true or false. So $(\meta{A}\eor\meta{B})$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
+%\meta{A} and \meta{B} have different truth values on at least one row of a complete truth table, and $(\meta{A}\eor\meta{B})$ will be true on that row. On other rows, it might be true or false. So $(\meta{A}\eor\meta{B})$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
 \end{earg}
 
 \problempart 
@@ -723,16 +723,16 @@ $P$&$Q$& $((P$&\eif&$Q$)&\eif&$P)$&\eif&$P$\\
 So `$((P \eif Q) \eif P) \eif P$' is a tautology. In fact, it is an instance of \emph{Peirce's Law}, named after Charles Sanders Peirce.
 
 \section{Testing for validity and entailment}
-When we use truth tables to test for validity or entailment, we are checking for \emph{bad} lines: lines where the premises are all true and the conclusion is false. Note:
+When we use truth tables to test for validity or entailment, we are checking for \emph{bad} rows: rows where the premises are all true and the conclusion is false. Note:
 	\begin{itemize}
-		\item Any line where the conclusion is true is not a bad line. 
-		\item Any line where some premise is false is not a bad line. 
+		\item Any row where the conclusion is true is not a bad row. 
+		\item Any row where some premise is false is not a bad row. 
 	\end{itemize}
-Since \emph{all} we are doing is looking for bad lines, we should bear this in mind. So: if we find a line where the conclusion is true, we do not need to evaluate anything else on that line: that line definitely isn't bad. Likewise, if we find a line where some premise is false, we do not need to evaluate anything else on that line. 
+Since \emph{all} we are doing is looking for bad rows, we should bear this in mind. So: if we find a row where the conclusion is true, we do not need to evaluate anything else on that row: that row definitely isn't bad. Likewise, if we find a row where some premise is false, we do not need to evaluate anything else on that row. 
 
 With this in mind, consider how we might test the following claimed entailment:
 	$$\enot L \eif (J \eor L), \enot L \entails J.$$
-The \emph{first} thing we should do is evaluate the conclusion on the right of the turnstile. If we find that the conclusion is \emph{true} on some line, then that is not a bad line. So we can simply ignore the rest of the line. So at our first stage, we are left with something like:
+The \emph{first} thing we should do is evaluate the conclusion on the right of the turnstile. If we find that the conclusion is \emph{true} on some row, then that is not a bad row. So we can simply ignore the rest of the row. So at our first stage, we are left with something like:
 \begin{center}
 \begin{tabular}{c c|d e e e e f |d f|c} \toprule 
 $J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
@@ -744,7 +744,7 @@ $J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
  F & F & &&?&&&&?&& {F}\\ \bottomrule
 \end{tabular}
 \end{center}
-where the blanks indicate that we are not going to bother doing any more investigation (since the line is not bad) and the question-marks indicate that we need to keep investigating. 
+where the blanks indicate that we are not going to bother doing any more investigation (since the row is not bad) and the question-marks indicate that we need to keep investigating. 
 
 The easiest premise on the left of the turnstile to evaluate is the second, so we next do that:
 \begin{center}
@@ -758,7 +758,7 @@ $J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
  F & F & &&?&&&&{T}&& {F}\\ \bottomrule
 \end{tabular}
 \end{center}
-Note that we no longer need to consider the third line on the table: it will not be a bad line, because (at least) one of premises is false on that line. And finally, we complete the truth table:
+Note that we no longer need to consider the third row on the table: it will not be a bad row, because (at least) one of premises is false on that row. And finally, we complete the truth table:
 \begin{center}
 \begin{tabular}{c c|d e e e e f |d f|c} \toprule 
 $J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
@@ -770,12 +770,12 @@ $J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
  F & F & T &  & \TTbf{F} &  & F & & {T} & & {F}\\ \bottomrule
 \end{tabular}
 \end{center}
-The truth table has no bad lines, so this claimed entailment is genuine. (Any valuation on which all the premises are true is a valuation on which the conclusion is true.)
+The truth table has no bad rows, so this claimed entailment is genuine. (Any valuation on which all the premises are true is a valuation on which the conclusion is true.)
 
 It might be worth illustrating the tactic again, this time for validity. Let us check whether the following argument is valid
 $$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \ttherefore (\enot C\eor D).$$ So we need to check whether the premises entail the conclusion.
 
-At the first stage, we determine the truth value of the conclusion. Since this is a disjunction, it is true whenever either disjunct is true, so we can speed things along a bit. We can then ignore every line apart from the few lines where the conclusion is false.
+At the first stage, we determine the truth value of the conclusion. Since this is a disjunction, it is true whenever either disjunct is true, so we can speed things along a bit. We can then ignore every row apart from the few rows where the conclusion is false.
 \begin{center}
 \begin{tabular}[t]{c c c c | c|c|c|d e e f } \toprule 
 $A$ & $B$ & $C$ & $D$ & $A\eor B$ & $\enot (A\eand C)$ & $\enot (B\eand \enot D)$ & $(\enot$ &$C$& $\eor$ & $D)$\\
@@ -823,11 +823,11 @@ F & F & F & F & & && & && & && & & & T& & \TTbf{T} & \\
 \end{center}
 If we had used no shortcuts, we would have had to write 256 `T's or `F's on this table. Using shortcuts, we only had to write 37. We have saved ourselves a \emph{lot} of work.
 
-By the notion of a \emph{bad} lines – a potential \emph{counterexample} to a purported entailment – you can save yourself a huge amount of work in testing for validity. There is still lots of work involved in symbolising any natural language argument into \TFL, but once that task is undertaken it is a relatively automatic process to determine whether the symbolisation is an entailment.
+By the notion of a \emph{bad} rows – a potential \emph{counterexample} to a purported entailment – you can save yourself a huge amount of work in testing for validity. There is still lots of work involved in symbolising any natural language argument into \TFL, but once that task is undertaken it is a relatively automatic process to determine whether the symbolisation is an entailment.
 
 \keyideas{
 	\item Some shortcuts are available in constructing truth tables. For example, if a conjunction has one false conjunct, we needn't check the truth value of the other in order to determine that the whole conjunction is false.
-	\item When applying our test for entailment, we need only check those lines on which all the premises are true to see if the conclusion is false on those lines. So we needn't check any line where the conclusion is true, or where a premise is false. 
+	\item When applying our test for entailment, we need only check those rows on which all the premises are true to see if the conclusion is false on those rows. So we needn't check any row where the conclusion is true, or where a premise is false. 
 }
 
 
@@ -850,14 +850,14 @@ Using shortcuts, determine whether each sentence is a tautology, a contradiction
 
 \chapter{Partial Truth Tables}\label{s:PartialTruthTable}
 
-Sometimes, we do not need to know what happens on every line of a truth table. Sometimes, just a single line or two will do. 
+Sometimes, we do not need to know what happens on every row of a truth table. Sometimes, just a single row or two will do. 
 
 \section{Direct uses of partial truth tables}\label{s:directPartialTruthTable}
 
 \paragraph{Tautology} 
-In order to show that a sentence is a tautology, we need to show that it is true on every valuation. That is to say, we need to know that it comes out true on every line of the truth table. So, it seems, we need a complete truth table. 
+In order to show that a sentence is a tautology, we need to show that it is true on every valuation. That is to say, we need to know that it comes out true on every row of the truth table. So, it seems, we need a complete truth table. 
 
-To show that a sentence is \emph{not} a tautology, however, we only need one line: a line on which the sentence is false. Therefore, in order to show that some sentence is not a tautology, it is enough to provide a single valuation – a single line of the truth table – which makes the sentence false. 
+To show that a sentence is \emph{not} a tautology, however, we only need one row: a row on which the sentence is false. Therefore, in order to show that some sentence is not a tautology, it is enough to provide a single valuation – a single row of the truth table – which makes the sentence false. 
 
 Suppose that we want to show that the sentence `$(U \eand T) \eif (S \eand W)$' is \emph{not} a tautology. We set up a \define{partial truth table}:
 \begin{center}
@@ -867,7 +867,7 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
    &   &   &   &    &   &    &\TTbf{F}&    &   &   \\ \bottomrule
 \end{tabular}
 \end{center}
-We have only left space for one line, rather than 16, since we are only looking for one line, on which the sentence is false. For just that reason, we have filled in `F' for the entire sentence.  A partial truth table is a device for `reverse engineering' a valuation from a truth value to a sentence. We work backward from that truth value to what the valuation must or could be.
+We have only left space for one row, rather than 16, since we are only looking for one row, on which the sentence is false. For just that reason, we have filled in `F' for the entire sentence.  A partial truth table is a device for `reverse engineering' a valuation from a truth value to a sentence. We work backward from that truth value to what the valuation must or could be.
 
 The main connective of the sentence is a conditional. In order for the conditional to be false, the antecedent must be true and the consequent must be false. So we fill these in on the table:
 \begin{center}
@@ -885,7 +885,7 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
    & T & T &   &  T &  T  & T  &\TTbf{F}&    &   F &   \\ \bottomrule
 \end{tabular}
 \end{center}
-Now we just need to make `$(S\eand W)$' false. To do this, we need to make at least one of `$S$' and `$W$' false. We can make both `$S$' and `$W$' false if we want. All that matters is that the whole sentence turns out false on this line. Making an arbitrary decision, we finish the table in this way:
+Now we just need to make `$(S\eand W)$' false. To do this, we need to make at least one of `$S$' and `$W$' false. We can make both `$S$' and `$W$' false if we want. All that matters is that the whole sentence turns out false on this row. Making an arbitrary decision, we finish the table in this way:
 \begin{center}
 \begin{tabular}{c c c c|d e e e e e f} \toprule 
 $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
@@ -896,9 +896,9 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
 So we now have a partial truth table, which shows that `$(U \eand T) \eif (S \eand W)$' is not a tautology. Put otherwise, we have shown that there is a valuation which makes `$(U \eand T) \eif (S \eand W)$' false, namely, the valuation which makes `$S$' false, `$T$' true, `$U$' true and `$W$' false. 
 
 \paragraph{Contradiction}
-Showing that something is a contradiction requires us to consider every row of a complete truth table. We need to show that there is no valuation which makes the sentence true; that is, we need to show that the sentence is false on every line of the truth table. 
+Showing that something is a contradiction requires us to consider every row of a complete truth table. We need to show that there is no valuation which makes the sentence true; that is, we need to show that the sentence is false on every row of the truth table. 
 
-However, to show that something is \emph{not} a contradiction, all we need to do is find a valuation which makes the sentence true, and a single line of a truth table will suffice. We can illustrate this with the same example.
+However, to show that something is \emph{not} a contradiction, all we need to do is find a valuation which makes the sentence true, and a single row of a truth table will suffice. We can illustrate this with the same example.
 \begin{center}
 \begin{tabular}{c c c c|d e e e e e f} \toprule 
 $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
@@ -918,10 +918,22 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
 \paragraph{Equivalence}
 To show that two sentences are equivalent, we must show that the sentences have the same truth value on every valuation. So this requires us to consider each row of a complete truth table.
 
-To show that two sentences are \emph{not} equivalent, we only need to show that there is a valuation on which they have different truth values. So this requires only a one-line partial truth table: make the table so that one sentence is true and the other false.
+To show that two sentences are \emph{not} equivalent, we only need to show that there is a valuation on which they have different truth values. So this requires only a partial truth table: make the table so that one sentence is true and the other false. So, for example, to show that `$(\enot A \eand B)$' and `$(A \eor \enot B)$' are not equivalent, constructing this partial truth-table would suffice:
+
+
+\begin{center}
+\begin{tabular}{cc|deef|deef}
+    		\toprule
+    		$A$ & $B$ & $(\enot$ & $A$ & $\eand$ & $B)$ &  $(A$ & $\eor$ & $\enot$ & $B)$\\
+    		\midrule
+F & T & T & F & \TTbf{T} & T & F & \TTbf{F}   & F & T \\
+ \bottomrule
+\end{tabular}\end{center}
+
+However, unless we are lucky, we might need to construct a partial truth table with two rows. (Or attempt to construct two partial truth tables.) If we are trying to show \meta{A} and \meta{B} inequivalent, we will want to consider the possibility that it is \meta{A} which is true and \meta{B} which is false, as well as the other possibility that it is  \meta{B} which is true and \meta{A} which is false.
 
 \paragraph{Consistency}
-To show that some sentences are jointly consistent, we must show that there is a valuation which makes all of the sentence true. So this requires only a partial truth table with a single line. 
+To show that some sentences are jointly consistent, we must show that there is a valuation which makes all of the sentence true. So this requires only a partial truth table with a single row. 
 
 To show that some sentences are jointly inconsistent, we must show that there is no valuation which makes all of the sentence true. So this requires a complete truth table: You must show that on every row of the table at least one of the sentences is false.
 
@@ -977,7 +989,7 @@ $P$ & $Q$ & $R$ & $(P$ & $\eand$ & $R)$ & $(Q$ & $\eiff$ & $P)$ & $Q$\\
 \end{tabular}
 \end{center} The truth of the first premise (given the other assumptions) has to make $P$ true, but the truth of the second (given the other assumptions) has to make $P$ false. So: \emph{there is no coherent way of assigning a truth value to $P$ so as to make this argument invalid.} (This is marked by the `??' in the partial truth table.) Hence, it is valid.
 
-I call this an \define{indirect} use of partial truth tables. We do not construct the valuations which actually demonstrate the presence or absence of a semantic property of an argument or set of sentences. Rather, we show that the assumption that there is a valuation that meets a certain condition is not coherent. So in the above case, we conclude that nowhere among the 8 lines of the complete truth table for that argument is one that makes the premises true and the conclusion false.
+I call this an \define{indirect} use of partial truth tables. We do not construct the valuations which actually demonstrate the presence or absence of a semantic property of an argument or set of sentences. Rather, we show that the assumption that there is a valuation that meets a certain condition is not coherent. So in the above case, we conclude that nowhere among the 8 rows of the complete truth table for that argument is one that makes the premises true and the conclusion false.
 
 This procedure works because our partial truth table test is guaranteed to succeed in demonstrating the absence of validity, for an invalid argument. Accordingly, if our test fails to demonstrate the absence of validity, that must be because the argument is in fact valid. (This is in keeping with the table at the end of the previous section, becaue our failure to construct a valuation showing the argument invalid in implicitly to consider all valuations.)
 
