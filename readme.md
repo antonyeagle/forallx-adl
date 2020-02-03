@@ -30,6 +30,7 @@ The following list contains current issues and proposed revisions arranged by ch
 		- Practice questions in §4;
 		- add discussion of sentence structure and trees, to illustrate multiple ways of dividing a sentence.
 		- the idea of a 'canonical clause' (Huddleston & Pullum, pp. 24–5) and the idea of an atomic sentence. But, again, the choice of strutural words influences this – 'always, bob is tall' is a non-canonical clause but it is \TFL-atomic.
+		- §4.2 Logic is a compromise between capturing lots conclusive arguments as valid, and taking relatively few words as structural. 
 	- §5
 		- 'only if' as 'then'
 		- add more remarks on paraphrase – what makes a paraphrase acceptable, ' Since there are important grammatical differences that are argumentatively insignificant, logic will sometimes overlook linguistic accuracy in order to capture the ‘spirit’ of a sentence.'
@@ -47,11 +48,26 @@ The following list contains current issues and proposed revisions arranged by ch
 		+ add discussion of how to handle disjunction, biconditionals in partial truth tables.
 		+ Add discussion of how partial truth tables must be constructed with a particular semantic property in mind: that is what determines the starting assumption about truth values that we will make (e.g., using them to assess consistency one begins with `assume all Ts` – but not when using them to assess non-contradictoriness).
 * Chapter 4 (`forallx-adl-fol.tex`)
+	- §15
+		+ practice exercises
 * Chapter 5 (`forallx-adl-interpretations.tex`)
 * Chapter 6 (`forallx-adl-prooftfl.tex`)
 	- §26
 		+ Need a practice exercise
 		+ add some discussion of epistemology of reasoning – validity is not sufficient for good reasoning, even if it is necessary.
+	- §27
+		+ add mention that any proof opened with an assumption is already a correct proof.
+		+ More on the way that we can use formal proofs to parallel English arguments – the skills are formal, but the motivation is coming up with principles that also govern good arguments in natural language. Indeed, many philosophers write as if they have a natural deduction argument in their head, and their prose just 'de-symbolises' it. Not perhaps the most elegant, but clear, easy to grasp structure, and hopefully good!
+	- §28
+		+ Mention the first 'rule' which is that we can open an assumption whenever we want. put it alongside Reiteration as a 'connective-insensitive' rule.
+	- §29
+		+ ramsey quote in conditional intro
+	- §31
+		- weakening
+		- deduction theorem for \vdash
+		- entailment (doesn't exist a certain kind of valuation) vs provability (does exist a certain kind of proof)
+		- general principle about how we can prove a theorem: must finish a proof with the right kind of rule (bi/conditional intro or ¬ rules) becaue every proof begins with an assumption
+		- emphasise relation between easy semantic tasks and tricky proofs, and vice versa  
 * Chapter 7 (`forallx-adl-prooffol.tex`)
 * Backmatter
 

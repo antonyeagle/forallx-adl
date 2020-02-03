@@ -140,6 +140,45 @@ What remains to do is to explain each of the rules that we can use along the way
 	\item A formal natural deduction proof is a graphical representation of reasoning from assumptions, in accordance with a strict set of rules for deriving further claims and managing which assumptions are active (`undischarged') at a given point in the proof.
 	}
 
+\practiceproblems
+\problempart
+If the following a correctly formed proof in our natural deduction system?
+\begin{proof}
+	\hypo{a}{A}
+	\hypo{c}{((B \eiff) \eor A)}
+	\open
+	\hypo{b}{\enot A}
+	\open
+	\hypo{d}{D \eif \enot D}
+\end{proof}
+
+\problempart
+Which of the following could, given the right rules, be turned into a proof corresponding to the argument $$\enot(P \eand Q), P \ttherefore \enot Q?$$
+
+    \begin{enumerate}
+    	\item\begin{proof}
+    		\hypo{a}{\enot(P \eand Q)}
+    		\open
+    		\hypo{b}{P}
+    		\have[\ ]{}{\vdots}
+    		\have[n]{c}{\enot Q}
+    	\end{proof}
+    	\item\begin{proof}
+    		\hypo{a}{\enot(P \eand Q)}
+    		\open
+    		\have{b}{P}
+    		\have[\ ]{}{\vdots}
+    		\close
+    		\have[n]{c}{\enot Q}
+    	\end{proof}
+    	\item\begin{proof}
+    		\hypo{a}{\enot Q}
+    		\have[\ ]{}{\vdots}
+    		\have[n]{b}{P}
+    		\have{c}{\enot(P \eand Q)}
+    	\end{proof}
+    \end{enumerate}
+
 \chapter{Basic Rules for \textnormal{\TFL}: Rules without Subproofs}\label{s:BasicTFLns}
 
 
@@ -158,7 +197,7 @@ Perhaps I am working through a proof, and I have obtained `$R$' on line 8 and `$
 	\have[15]{b}{L}
 	\have[16]{c}{(R \eand L)} \ai{a, b}
 \end{proof}
-Note that every line of our proof must either be an assumption, or must be justified by some rule. We add the commentary `$\eand$I 8, 15' here to indicate that the line is obtained by the rule of conjunction introduction ($\eand$I) applied to lines 8 and 15. 
+Note that every line of our proof must either be an assumption, or must be justified by some rule. We add the commentary `$\eand$I 8, 15' here to indicate that the line is obtained by the rule of conjunction introduction ($\eand$I) applied to lines 8 and 15. Note the derived conjunction depends on the collective assumptions of the two conjuncts.
 
 Since the order of conjuncts does not matter in a conjunction, I could equally well have obtained `$(L \eand R)$' as `$(R \eand L)$'. I can use the same rule with the commentary reversed, to reflect the reversed order of the conjuncts:
 \begin{proof}
@@ -167,7 +206,7 @@ Since the order of conjuncts does not matter in a conjunction, I could equally w
 	\have[15]{b}{L}
 	\have[16]{c}{(L \eand R)} \ai{b, a}
 \end{proof}
- More generally, here is our \define{conjunction introduction} rule: if we have obtained \meta{A} and \meta{B} by some stage in a proof, whether by proof or assumption, that justifies us in introducing their conjunction. Abstractly, the rule looks like this:
+ More generally, here is our \define{conjunction introduction} rule: if we have obtained \meta{A} and \meta{B} by some stage in a proof under some shared assumptions – whether by proof or assumption – that justifies us in introducing their conjunction, which inherits those same assumptions.  Abstractly, the rule looks like this:
 \factoidbox{
 \begin{proof}
 	\have[m]{a}{\meta{A}}
@@ -182,7 +221,13 @@ To be clear, the statement of the rule is \emph{schematic}. It is not itself a p
 	\have[2]{b}{P\eand P} \ai{a, a}
 \end{proof}
 
-Note that the rule involves extending the vertical line to cover the newly introduced sentence. This is because what has been derived depends on the same assumptions as what it was derived from, and so it must also be in the range of those assumptions. \factoidbox{All of the rules in this section justify a new claim which inherits all the assumptions of anything from which it has been derived by a natural deduction rule.} 
+Note that the rule involves extending the vertical line to cover the newly introduced sentence. This is because what has been derived depends on the same assumptions as what it was derived from, and so it must also be in the range of those assumptions. \factoidbox{All of the rules in this section justify a new claim which inherits all the assumptions of anything from which it has been derived by a natural deduction rule.} The two starting conjuncts needn't have the same assumptions, but the derived conjunction inherits their joint assumptions: 
+\begin{proof}
+	\hypo{a}{P}
+	\open
+	\hypo{q}{Q}
+	\have{b}{(P\eand Q)} \ai{a, q}
+\end{proof}
 
 \section{Conjunction elimination}\label{conjelim}
 
@@ -1085,7 +1130,8 @@ The negation elimination rule is supported by this valid \TFL\ argument form: \b
 \close
 \have{d}{D}\ne{nd-bnd,nd-a3r}
 \have{c2}{(\enot C \eor D)}\oi{d}
-	\have{con}{(\enot C \eor D)}\oe{a-c1,b-c2}
+\close
+	\have{con}{(\enot C \eor D)}\oe{a1,a-c1,b-c2}
 \end{proof}
 \caption{Proof that $(A\eor B), \enot (A\eand C), \enot (B \eand \enot D) \ttherefore (\enot C\eor D)$.\label{figa2}}
 \end{figure}
