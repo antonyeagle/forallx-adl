@@ -50,6 +50,31 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 4 (`forallx-adl-fol.tex`)
 	- §15
 		+ practice exercises
+		+ discussion of designators (descriptions and singular terms)
+		+ pronouns as variables – introduce them as a kind of singular term.
+		+ Weather 'it'?
+		+ quantifier and matrix
+	+ §17
+		+ need to explicitly introduce convention that $Axyz$ puts the n-th variable following predicate in the n-th gap.
+		+ justify same term in two gaps to account for validity of: 'Amy is self-interested, therefore Amy is interested in someone'.
+		+ more on the `with respect to` or `parasitic on` of wider/narrowe scope quantifiers
+	- §18
+		+ more practice exercises – pure numerical quantification, perhaps from edl textbook or logic manual?
+		+ a discussion of how identity, innocuous enough in itself, greatly enriches the expressive power of Quantifier.
+	- §19
+		- Note that two descriptions can be symbolised with just one existential: 'There is someone who is: a spy and who is the unique spy and who is an escapee and who is the unique escapee'.
+		- Perhaps replace §19.3 with a section on whether Russell is offering a model or an analysis – the scope stuff is evidence for the analysis, and then the Strawson-Frege view is the rival (in which the apparent scope effects are treated as whether the proposition about the F or a presupposition that there is a unique F is being rejected).
+	- §21
+		- domains as needed for extensions.
+		- add example of euler with a dot – e.g. willard
+	- §22
+		- deal with one-place and many-place predicates differently. 
+		- use notion of \ntuple explicitly in defs of truth for atomic.
+		- add diagrams showing different extended interpretations stemming from a starting interpretation.
+		- add 'why don't we do this?' section to quantifier intepretation 	 
+	- §23
+		- need to expand with examples, and practice problems
+		-    
 * Chapter 5 (`forallx-adl-interpretations.tex`)
 * Chapter 6 (`forallx-adl-prooftfl.tex`)
 	- §26
@@ -70,7 +95,6 @@ The following list contains current issues and proposed revisions arranged by ch
 		- emphasise relation between easy semantic tasks and tricky proofs, and vice versa  
 * Chapter 7 (`forallx-adl-prooffol.tex`)
 * Backmatter
-
 
 
 

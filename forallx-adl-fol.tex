@@ -91,7 +91,11 @@ Sentence \ref{terms2a}: this is a conjunction of two simpler sentences. The simp
 
 Sentence \ref{terms2}: this is a conditional, whose antecedent is sentence \ref{terms1} and whose consequent is sentence \ref{terms2a}. So we can symbolise this with `$Ae \eif (Ag \eand Am)$'.
 
-Actually we can make an elegant further assumption to incorporate \TFL\ entirely within \FOL. A predicate combines with singular terms to make sentences. But some English predicates combine with \emph{zero} singular terms to make a sentence. We see this in weather expressions like `it is snowing', in which the pronoun `it' doesn't actually refer to anything. This predicate does not denote a property of individuals, because there is no way to attach it to a particular individual. (Try substituting some proper name for `it' in `it is raining' and see what nonsense you get.) Such predicates rather are already sentences by themselves, symbolised by capital letters `$A$' through `$Z$' without any adjacent name. This is exactly how we treated the grammar of atomic sentences of \TFL. So we can in fact simply include all atomic sentences of \TFL\ among these special predicates of \FOL. Since \FOL\ has all the connectives of \TFL\ and all the atomic sentences, we see that \emph{every sentence of \textnormal{\TFL} is also a sentence of \textnormal{\FOL}}.
+Actually we can make an elegant further assumption to incorporate \TFL\ entirely within \FOL. A predicate combines with singular terms to make sentences. But some English predicates combine with \emph{zero} singular terms to make a sentence. We see this in weather expressions like `it is snowing', in which the pronoun `it' doesn't actually refer to anything. This predicate does not denote a property of individuals, because there is no way to attach it to a particular individual. Consider  these examples:  \begin{earg}
+    \item[\ex{cpa}] Coober Pedy is a harsh place. It has underground houses.
+    	\item[\ex{cpb}] Coober Pedy is a harsh place. It seldom rains there.
+    \end{enumerate}
+In \ref{cpa}, `it' refers to Coober Pedy. Not so in \ref{cpb}: `It' in that example is a \define{dummy pronoun}. Yet `there' does refer to Coober Pedy. Drop the latter pronoun, and you obtain `it seldom rains'. Having already argued that `it' is a dummy pronoun in the longer sentence, it appears to remain a dummy pronoun in the shortened sentence. Try substituting some proper name for `it' in `it seldom rains' and see what nonsense you get. Such predicates, where the dummy pronoun should not be thought of as a genuine gap in the sentence, and with no other singular terms evidnt, should rather be considered \emph{already} sentences by themselves. They can be symbolised by capital letters `$A$' through `$Z$' without any adjacent name. This is exactly how we treated the grammar of atomic sentences of \TFL. So we can in fact simply include all atomic sentences of \TFL\ among these special predicates of \FOL. Since \FOL\ has all the connectives of \TFL\ and all the atomic sentences, we see that \emph{every sentence of \textnormal{\TFL} is also a sentence of \textnormal{\FOL}}.
 
 
 \section{Quantifiers}\label{quant.pron}
@@ -388,12 +392,12 @@ Following the case of Herbie, we might try to use a symbolisation key like:
 	\end{ekey}
 Then we would symbolise \ref{priv1} by `$Fj \eand Pj$', and symbolise \ref{priv2} by `$Pj$'. That would however be a mistake, since that symbolisation suggests that the argument from \ref{priv1} to \ref{priv2} is valid, because the symbolisation of the premise does logically entail the symbolisation of the conclusion. 
 
-`White' is a \define{subsective} adjective, which is a fancy way of saying that the white $F$s are among the $F$s: any white car is a car, just like any successful lawyer is a lawyer. But `former' is a \define{privative} adjective, which means that any former $F$ is not now among the $F$s. Other privative adjectives occur in phrases such as `fake diamond', `Deputy Lord Mayor', and `mock trial'. When symbolising these sentences, you cannot treat them as a conjunction. So you will need to symbolise `\blank\ is a fake diamond' and `\blank\ is a diamond' using completely different predicates, to avoid a spurious entailment between them. The moral is: when you see two adjectives in a row, you need to ask yourself carefully whether they are subsective, and can be treated as a conjunction, or not.\footnote{This caution also applies to adjectives  which are neither subsective nor privative, like `alleged' in `alleged murderer'. These ought not be symbolised by conjunction either.}
+`White' is a \define{intersective} adjective, which is a fancy way of saying that the white $F$s are among the $F$s \emph{and} among the white things: any white car is a car and white, just like any successful lawyer is a lawyer and successful, and a one tonne rhinoceros is both a rhino and a one tonne thing. But `former' is a \define{privative} adjective, which means that any former $F$ is not now among the $F$s. Other privative adjectives occur in phrases such as `fake diamond', `Deputy Lord Mayor', and `mock trial'. When symbolising these sentences, you cannot treat them as a conjunction. So you will need to symbolise `\blank\ is a fake diamond' and `\blank\ is a diamond' using completely different predicates, to avoid a spurious entailment between them. The moral is: when you see an adjectivally modified predicate like `white car', you need to ask yourself carefully whether the modifier is intersective, and can be symbolised as a conjunctive predicate, or not.\footnote{This caution also applies to adjectives  which are neither intersective nor privative, like `alleged' in `alleged murderer'. These ought not be symbolised by conjunction either.}
 
 Things are a bit more complicated, however. Recall this example from page \pageref{daisy}:
 \begin{earg}
 	\item[] Daisy is a small cow.
-\end{earg} We note that a small cow is definitely a cow, and so it seems we can treat `small' as a subsective adjective. We might formalise this sentence like this: `$Sd \eand Cd$', assuming this symbolisation key:
+\end{earg} We note that a small cow is definitely a cow, and so it seems we might treat `small' as an intersective adjective. We might formalise this sentence like this: `$Sd \eand Cd$', assuming this symbolisation key:
 	\begin{ekey}
 		\item[S] \gap{1} is small
 		\item[C] \gap{1} is a cow
@@ -403,7 +407,7 @@ But note that our symbolisation would suggest that this argument is valid: \begi
 	\item[\ex{syn2}] Daisy is a small cow; so Daisy is small.
 \end{earg} The symbolised argument, $Sd \wedge Cd \ttherefore Sd$, is clearly valid.
 
-But the original argument \ref{syn2} is not valid. Even a small cow is still rather large. (Likewise, even a short basketball player is still generally well above average height.) The point is that `\gap{1} is a small cow' denotes the property something has when it is small \emph{for a cow}, while `\gap{1} is small' denotes the property of being a small \emph{thing}. (In ordinary speech we tend to keep the  `for an $F$' part of these phrases silent, and let our conversational circumstances supply it automatically.) But neither should we treat `small' as a non-subsective adjective. If we do, we will be unable to account for the valid argument `Daisy is a small cow, so Daisy is a cow'. 
+But the original argument \ref{syn2} is not valid. Even a small cow is still rather large. (Likewise, even a short basketball player is still generally well above average height.) The point is that `\gap{1} is a small cow' denotes the property something has when it is small \emph{for a cow}, while `\gap{1} is small' denotes the property of being a small \emph{thing}. (In ordinary speech we tend to keep the  `for an $F$' part of these phrases silent, and let our conversational circumstances supply it automatically.) But neither should we treat `small' as a non-intersective adjective. If we do, we will be unable to account for the valid argument `Daisy is a small cow, so Daisy is a cow'. 
 
 The correct symbolisation key will thus be this, keeping the other symbols as they were: 
 	\begin{ekey}
@@ -416,7 +420,11 @@ Likewise, this rather unusual English argument turns out to be valid too: \begin
 		\item[] Daisy is a cow that is small-for-a-cow; so Daisy is small-for-a-cow.
 	\end{earg} (Note that it can be rather difficult to hear the English sentence `Daisy is small' as saying the same thing as the conclusion of this argument, `Daisy is small for a cow', which explains why `Daisy is a small cow, so Daisy is small' strikes us as invalid.)
 
-If we take these observations to heart, there are many subsective adjectives which can change their meaning depending on what predicate they are paired with. Small-for-an-oil-tanker is a rather different size property than small-for-a-mouse, but in ordinary English we use the phrases `small oil tanker' and `small mouse' without bothering to make these different senses of `small' explicit. When symbolising, it is best to make them very explicit, because doing so blocks the fallacious argument from `Daisy is a small cow' to `Daisy is small', where the natural sense of the conclusion is the generic size claim `Daisy is small-for-a-thing'. 
+If we take these observations to heart, there are many intersective adjectives which can change their meaning depending on what predicate they are paired with. Small-for-an-oil-tanker is a rather different size property than small-for-a-mouse, but in ordinary English we use the phrases `small oil tanker' and `small mouse' without bothering to make these different senses of `small' explicit. 
+
+The way that `small' behaves makes it a member of the class of \define{subsective} adjectives, as in `poor dancer'. These are like intersective adjectives in that every poor dancer is a dancer (and every small cow is a cow). But the way that `poor' behaves in this expression is such that we \emph{cannot} conclude that a poor dancer is poor – they are bad at dancing, not necessarily financially disadvantaged. In these cases, the meaning of the modifying adjective is itself modified by the noun: in `poor dancer', we get a distinctively dancing-related sense of `poor'.   
+
+When symbolising, it is best to make these modified adjectives  very explicit, generally introducing a new predicate to the symbolisation key to represent the. Doing so blocks the fallacious argument from `Daisy is a small cow' to `Daisy is small', where the natural sense of the conclusion is the generic size claim `Daisy is small-for-a-thing'. (Likewise, symbolising `\gap{} is poor dancer' as `\gap{} is poor-for-a-dancer and \gap{} is a dancer' bloocks the fallacious argument from `Rupert Murdoch is a poor dancer' to `Rupert Murdoch is poor'.)
 
 The upshot is this: though you can symbolise `Daisy is a small cow' as a conjunction, you will need to symbolise `\blank\ is a small cow' and `\blank\ is a small animal' using different predicates of \FOL\ to stand for the different appearances of `small' – to symbolise `small for a cow' and `small for an animal'. 
 
@@ -518,7 +526,7 @@ symbolise each of the following sentences in \FOL:
 %\item Cleo loves a reptile.
 %\item Bouncer loves all the monkeys that live at the zoo.
 %\item All the monkeys that Amos loves love him back.
-\item If any animal is an reptile, then Amos is.
+\item If any animal is a reptile, then Amos is.
 \item If any animal is an alligator, then it is a reptile.
 %\item Every monkey that Cleo loves is also loved by Amos.
 %\item There is a monkey that loves Bouncer, but sadly Bouncer does not reciprocate this love.
@@ -1030,6 +1038,47 @@ It might be tempting to add a predicate to our symbolisation key, to symbolise t
 		\item `$\exists x \exists y \bigl(\enot x = y \eand \forall z(Az \eiff (x= z \eor y = z) \bigr)$' is a good symbolisation of `there are exactly two apples'.
 	\end{itemize}		
 
+\problempart
+\label{pr.FOLcardsa}
+Using the following symbolisation key:
+\begin{ekey}
+\item[\text{domain}] cards in a standard deck
+\item[B] \gap{1} is black.
+\item[C] \gap{1} is a club.
+\item[D] \gap{1} is a deuce.
+\item[J] \gap{1} is a jack.
+\item[M] \gap{1} is a man with an axe.
+\item[O] \gap{1} is one-eyed.
+\item[W] \gap{1} is wild.
+\end{ekey}
+symbolise each sentence in \FOL:
+\begin{earg}
+\item All clubs are black cards.
+\item There are no wild cards.
+\item There are at least two clubs.
+\item There is more than one one-eyed jack.
+\item There are at most two one-eyed jacks.
+\item There are two black jacks.
+\item There are four deuces.
+\end{earg}
+
+\problempart Using the following symbolisation key:
+\begin{ekey}
+\item[\text{domain}] animals in the world
+\item[B] \gap{1} is in Farmer Brown's field.
+\item[H] \gap{1} is a horse.
+\item[P] \gap{1} is a Pegasus.
+\item[W] \gap{1} has wings.
+\end{ekey}
+symbolise the following sentences in \FOL:
+\begin{earg}
+\item There are at least three horses in the world.
+\item There are at least three animals in the world.
+\item There is more than one horse in Farmer Brown's field.
+\item There are three horses in Farmer Brown's field.
+\item There is a single winged creature in Farmer Brown's field; any other creatures in the field must be wingless.
+\end{earg}
+
 
 \chapter{Definite Descriptions}\label{subsec.defdesc}
 In \FOL, names function rather like names in English. They are simply labels for the things they name, and may be attached arbitrarily, without any indication of the characteristics of what they name.\footnote{This is not strictly true: consider the name `Fido' which is conventionally the name of a dog. But even here the name doesn't carry any information in itself about what it names – the fact that we use that as a name only for dogs allows someone who knows that to reasonably infer that Fido is a dog. But `Fido is a dog' isn't a necessary truth, as it would be if somehow `Fido' carried with it the information that it applies only to dogs.} 
@@ -1081,9 +1130,9 @@ Sentence \ref{traitor1} is exactly like the examples we have just considered. So
 
 Sentence \ref{traitor2} poses no problems either: `$\exists x (Tx \eand \forall y(Ty \eif x = y) \eand Cx)$'.
 
-Sentence \ref{traitor3} is a little trickier, because it links two definite descriptions. But, deploying  Russell's paraphrase, it can be paraphrased by `there is exactly one traitor, x, and there is exactly one deputy, y, and x = y'. So we can symbolise it by: 
-$$\exists x \exists y \bigl(\bigl(Tx \eand \forall z(Tz \eif x = z) \bigr) \eand \bigl(Dy \eand \forall z(Dz \eif y = z) \bigr) \eand x = y\bigr)$$
-Note that I have made sure that the formula `$x = y$' falls within the scope of both quantifiers!
+Sentence \ref{traitor3} is a little trickier, because it links two definite descriptions. But, deploying  Russell's paraphrase, it can be paraphrased by `something is such that: there is exactly one traitor and there is exactly one deputy and it is each of them'. So we can symbolise it by: 
+$$\exists x\biggl(\bigl(Tx \eand \forall y(Ty \eif x = y) \bigr) \eand \bigl(Dx \eand \forall z(Dz \eif x = z) \bigr)\biggr)$$
+Note that I have made sure that both uniqueness conditions are in the scope of the existential quantifier.
 
 Let us dispel an initial worry. It seems that I can say `the table is brown' without implying that there is one and only one table in the universe. But doesn't Russell's paraphrase literally entail that there is only one table? Indeed it does – it entails that there is only one table \emph{in the domain under discussion}. While sometimes we explicitly restrict the domain, usually we leave it to our background conversational presuppositions to do so (recall §\ref{sec_domains}). If I can successfully say `the table is brown' in a conversation with you, for example, some background restriction on the domain must be in place that we both tacitly accept. For example, it might be that the prior discussion has focussed on your dining room, and so the implicit domain is `things in that room'. In that case, `the table is brown' is true just in case there is exactly one table in that domain, and it is brown.
 
@@ -1209,13 +1258,6 @@ Using the following symbolisation key:
 \end{ekey}
 symbolise each sentence in \FOL:
 \begin{earg}
-\item All clubs are black cards.
-\item There are no wild cards.
-\item There are at least two clubs.
-\item There is more than one one-eyed jack.
-\item There are at most two one-eyed jacks.
-\item There are two black jacks.
-\item There are four deuces.
 \item The deuce of clubs is a black card.
 \item One-eyed jacks and the man with the axe are wild.
 \item If the deuce of clubs is wild, then there is exactly one wild card.
@@ -1234,11 +1276,6 @@ symbolise each sentence in \FOL:
 \end{ekey}
 symbolise the following sentences in \FOL:
 \begin{earg}
-\item There are at least three horses in the world.
-\item There are at least three animals in the world.
-\item There is more than one horse in Farmer Brown's field.
-\item There are three horses in Farmer Brown's field.
-\item There is a single winged creature in Farmer Brown's field; any other creatures in the field must be wingless.
 \item The Pegasus is a winged horse.
 \item The animal in Farmer Brown's field is not a horse.
 \item The horse in Farmer Brown's field does not have wings.
@@ -1273,7 +1310,7 @@ Note that the word `is' has apparently two readings: sometimes, as in `Fido is h
 \begin{earg}
  \item Fido is identical to a dog of unusual size;
  \item Fido has the property of being a dog of unusual size.
- \end{earg} Suppose that `$U$' symbolises the property of being a dog of unusual size, then our two readings can be symbolised `$\exists x (Ux \wedge f=x)$' and `$U(f)$'. 
+ \end{earg} Suppose that `$U$' symbolises the property of being a dog of unusual size, then our two readings can be symbolised `$\exists x (Ux \wedge f=x)$' and `$Uf$'. 
 
  Is there any significant difference in meaning between these two symbolisations?  
 
@@ -1412,6 +1449,8 @@ Finally we can say the following.
 	}
 Since an atomic formula formed by a $0$-place predicate contains no terms at all, and hence cannot contain a variable, every such expression is a sentence – they are just the atomic sentences of \TFL. Any other formula which contains no variables, but only names, is also a sentence, as well as all those formulae which contain only bound variables. 
 
+Our definition of a formula allows for examples like `$\exists x \forall x Fx$'. This is a sentence, since the variable in `$Fx$' is in the scope of a quantifier attached to `$x$'. But which one? It could make a difference whether the sentence is to be understood as saying everything is $F$, or something it. To resolve this issue, let us stipulate that a variable is bound by the quantifier which is the main connective of the smallest subformula in which the variable is bound. So in `$\exists x \forall x Fx$', the variable is bound by the universal quantifier, because it was already bound in the subformula `$\forall x Fx$'.
+
 
 \section{Bracketing conventions}
 
@@ -1433,9 +1472,11 @@ Third, we may omit brackets between each pair of disjuncts when writing long ser
 \label{pr.freeFOL}
 Identify which variables are bound and which are free. Are any of these expressions formulas of \FOL? Are any of them sentences? Explain your answers.
 \begin{earg}
+\item $\forall x (Ax \eor (Cx \eif Bx))$
 \item $\exists x (Lxy \eand \forall y Lyx)$
 \item $(\forall x Ax \eand Bx)$
 \item $(\forall x (Ax \eand Bx) \eand \forall y(Cx \eand Dy))$
+\item $(\forall x (Ax \eand Bx) \eand \forall xy(Cx \eand Dy))$
 \item $(\forall x\exists y\bigl(Rxy \eif (Jz \eand Kx) \bigr) \eor Ryx)$
 \item $(\forall x_{1}(Mx_{2} \eiff Lx_{2}x_{1}) \eand \exists x_{2} Lx_{3}x_{2})$
 \end{earg}

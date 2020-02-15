@@ -17,7 +17,7 @@ But recall from §\ref{s:TruthFunctionality} that this should be taken to mean:
 The point that I emphasised is that \TFL\ cannot handle differences in meaning that go beyond mere differences in truth value.
 
 
-\section{Symbolising versus translating}
+\section{Symbolising versus translating: Extensional languages}
 \FOL\ has some similar limitations. It gets beyond mere truth values, since it enables us to split up sentences into terms, predicates and quantifier expressions. This enables us to consider what is \emph{true of} some particular object, or of some or all objects. But we can do no more than that. 
 
 When we provide a symbolisation key for some \FOL\ predicates, such as:
@@ -36,22 +36,30 @@ This is an indirect stipulation. Alternatively we can stipulate predicate extens
 
 The point is that \FOL\ does not give us any resources for dealing with nuances of meaning. When we interpret \FOL, all we are considering is what the predicates are actually true of. For this reason, I say only that \FOL\ sentences \emph{symbolise} English sentences. It is doubtful that we are \emph{translating} English into \FOL, for translations should preserve meanings.
 
-This is normally summed up by saying that \FOL\ is an \define{extensional language}. The extension of an English expression is just the things to which it actually applies. So the extension of a name is the thing actually named; and the extension of a predicate is just those things it actually covers. An extensional language is one where expressions with the same extension are \emph{synonyms}. English is not an extensional language. In English, there is a distinction between the extension of a term – or what it \emph{denotes} – and what it \emph{means}. While the name `Scott Morrison' and the definite noun phrase `the Prime Minister' have the same extension, they are not synonyms. For one can replace an expression in a sentence by one of its synonyms, and the resulting sentence will mean the same thing as the original – and will have the same truth value. But while `Malcom Turnbull has always been Scott Morrison' is true, `Scott Morrison has always been the Prime Minister' is not true.\footnote{The previous iteration of this book used the name `Malcolm Turnbull' in this example.} Despite having the same extension, these expressions differ in meaning. In \FOL, by contrast, the substitition of one name for another with the same extension will always yield a sentence with the same truth-value; likewise with the substitution of one predicate for another with the same extension.\footnote{What this shows, in passing, is that \FOL\ lacks the resources to express things like `\gap{} has always been \gap{}' or `\gap{} is necessarily \gap{}', which would allow us to separate non-synonymous expressions with the same present extension. 
+ The \define{extension} of an English expression is just the things to which it actually applies. So the extension of a name is the thing actually named; and the extension of a predicate is just those things it actually covers. Our symbolisation keys can be understood as stipulating that the extension of an \FOL\ expression is to be the same as the extension of some English expression. 
+
+English is not an extensional language. In English, there is a distinction between the extension of a term – or what it \emph{denotes} – and what it \emph{means}. While the predicate `\gap{} is a monotreme' and the predicate `\gap{} is either an echidna or a platypus' have the same extension, and apply to the same creatures, they are not synonymous. For one thing, you can replace an expression being used in a sentence by one of its synonyms, and the resulting sentence will mean the same thing as the original – and will have the same truth value. But while `Necessarily, all monotremes are monotremes' is true, `Necessarily, all monotremes are either echidnas or platypuses' is not true. There are extinct species of monotreme, such as \emph{Steropodon}, that are neither. Since there were monotremes that are neither platypus nor echnidna, that must be possible. So despite having the same current extension, these expressions differ in meaning. We need more than just the extension of some English expressions to fix the truth value of an English sentence involving them. Another example might be provided by singular terms. `Scott Morrison' and `the prime minister' share their extension, but differ in meaning: `Always, Scott Morrison will be prime minister' is false, but `Always, the prime minister will be prime minister' is trivially true. This difference in meaning is particularly evident when they are embedded in more complex constructions. 
+
+
+In \FOL, by contrast, the substitition of one name for another with the same extension will always yield a sentence with the same truth-value; likewise with the substitution of one predicate for another with the same extension. This is normally summed up by saying that \FOL\ is an \define{extensional language}. An extensional language is one where \emph{non-logical} expressions with the same extension can always be swapped for one another in a sentence without changing the truth value.\footnote{What this shows, in passing, is that \FOL\ lacks the resources to express things like `\gap{} has always been \gap{}' or `\gap{} is necessarily \gap{}', which would allow us to separate expressions with the same present extension. 
 
 Another construction with apparently similar effects is when a true identity, such as `Lewis Carroll is Charles Lutwidge Dodgson', is embedded in a belief report such as `AE believes that Lewis Carroll is Charles Lutwidge Dodgson'. The belief report appears to be false, if AE doesn't know that `Lewis Carroll' is a pen name for the Oxford mathematician. But still, this seems hard to deny: `AE believes that Lewis Carroll is Lewis Carroll'. Many have used this to argue that the meaning of a name in English is not just its extension. But this is actually a rather controversial case, unlike the example in the main text: many philosophers think that the meaning of a name in English just is its extension. But let us be clear: no one generalises this to predicates. Everyone agrees that the meaning of an English predicate is not just its extension.}
 
+We noted above that a name and a definite description might have very different meanings, despite having the same extension. Our treatment of definite descriptions (§\ref{subsec.defdesc}) allows us to preserve the extensionality of \FOL\ while also preserving the key logical features of descriptions. The definite description in English is analysed as a quantifier expression in \FOL, so there is no such singular term as a definite description in \FOL\ to be assigned an extension at all. What are assigned extensions are predicates and names, and our approach to definite descriptions allows the extensions of those predicates and names to fix the truth value of any symbolisation of an English sentence involving definite descriptions. The logical properties of the symbolised sentence in \FOL, however, are also determined by the quantifier structure, which isn't fixed by assigning an extension.
 
 
 
+\section{A word on domains and extensions}
 
-\section{A word on extensions}
-We can stipulate directly which things in our domain our predicates are to be true of. So it is worth noting that our stipulations can be as arbitrary as we like. For example, we could stipulate that `$H$' should be true of, and only of, the following objects:
+We always start our symbolisation keys by specifying a domain, and with extensions in view we can see why this is important. If we are to interpret an expression in terms of what it applies to, then we are going to need to know what things are `out there' for it to apply to. As we said before (§\ref{sec_domains}), the only restriction we place on our domains is that they be non-empty collections of things. But every extension we assign will be drawn from the domain: every name will be a member of the domain, and every one-place predicate will be assigned some sub-collection (`subset') of the domain. 
+
+We can stipulate directly which things in our domain our predicates are to be true of. So it is worth noting that our stipulations can be as \emph{arbitrary} as we like. For example, we could stipulate that `$H$' should be true of, and only of, the following objects:
 	\begin{center}
 		David Cameron\\
 		the number $\pi$\\
 		every top-F key on every piano ever made
 	\end{center}
-Now, the objects that we have listed have nothing particularly in common. But this doesn't matter. Logic doesn't care about what strikes us mere humans as `natural' or `similar'. Armed with this interpretation of `$H$', suppose I now add to my symbolisation key:
+Now, the objects that we have listed have nothing particularly in common. But this doesn't matter. Logic doesn't care about what strikes us mere humans as `natural' or `similar'. As long as the extension assigned consists of elements of the domain, we've managed to come up with a acceptable interpretation, at least from a purely logical point of view.  Armed with this interpretation of `$H$', suppose I now add to my symbolisation key:
 	\begin{ekey}
 		\item[d] David Cameron
 		\item[n] Julia Gillard
@@ -59,7 +67,24 @@ Now, the objects that we have listed have nothing particularly in common. But th
 	\end{ekey}
 Then `$Hd$' and `$Hp$' will both be true, on this interpretation, but `$Hn$' will be false, since Julia Gillard was not among the stipulated objects. 
 
-This process of explicit stipulation is just giving the extension of a predicate by a list of items falling under it. The much more common way of identifying the extension of a predicate is to derive it from a classification rule that sorts everything into those items that fall under it and those that do not. Such a classification rule is often what people think of as the meaning of a predicate. 
+This process of explicit stipulation is just giving the extension of a predicate by a list of items falling under it. A more common way of identifying the extension of a predicate is to derive it from a classification rule that sorts everything into those items that fall under it and those that do not. Such a classification rule is often what people think of as the meaning of a predicate. But such a classification rule goes beyond the extension. In effect, our earlier symbolisation keys assign an extension by relying on our knowledge of the classification rule associated with English predicates. While the rule might determine the extension in a domain, it is not the extension: two different rules could come up with the same extension, as in the case of monotremes earlier. 
+
+The extension of a one-place predicate is just a set of things. A set is identified by its members, so that set will be the same in every domain which contains all of its members. But we can see a further difference between extensions and classification rules when we can consider applying the same rule in different domains. So the classification rule associated with the English predicate `\gap{} is a student' applies to many many people in the domain of all people. In the domain `people in this class', it applies only to a select few. In fact, you can even use the classification rule `\gap{} is a student' to fix an extension where the domain doesn't include any students at all. In that case it will just yield an \define{empty extension} – one containing nothing. Here are some other cases where the empty extension should be assigned to a predicate:  \begin{itemize}
+	 			\item `\gap{1} is a round square' (in any domain), or
+	 			\item  `\gap{1} is a horse' in the domain of sheep, or
+	 			\item `\gap{1} is divisible without remainder by \gap{2}' in the domain of prime numbers (where the number $1$ isn't normally thought to be a prime).
+	 		\end{itemize}
+
+The empty collection too is a legitimate extension, because the empty set is still something: it is still a sub-collection of the domain. However, our names must always be assigned some element of the domain. An `empty' name would have no extension at all – and in an extensional language it is hard to see how we can admit such expressions. So keep clear the distinction between assigning an empty collection as an extension, and assigning nothing at all.  
+
+There are also trivial cases of the opposite sort, where we assign the entire domain as the extension of a predicate: \begin{itemize}
+	 			\item  `\gap{1} is something' (in any domain), or
+	 			\item `\gap{1} is a horse' in the domain of horses, or 
+	 			\item `\gap{1} is greater than or equal to \gap{2}' in the domain consisting of just the number $1$ (the extension is \ntuple{1,1}, which includes every ordered pair in this domain); and\pause
+	 		\end{itemize}
+
+
+
 
 
 \section{Many-place predicates}
@@ -92,10 +117,29 @@ Here the angle-brackets keep us informed concerning order – $\ntuple{a,b}$ is 
 		\item[h] Heidegger
 		\item[s] Sartre
 	\end{ekey}
-Then `$Blm$' will be true, since \ntuple{Lenin, Marx} was in my explicit list. But `$Bml$' will be false, since \ntuple{Marx, Lenin} was not in my list. However, both `$Bhs$' and `$Bsh$' will be true, since both \ntuple{Heidegger, Sartre} and \ntuple{Sartre, Heidegger} are in my explicit list 
+Then `$Blm$' will be true, since \ntuple{Lenin, Marx} was in my explicit list. But `$Bml$' will be false, since \ntuple{Marx, Lenin} was not in my list. However, both `$Bhs$' and `$Bsh$' will be true, since both \ntuple{Heidegger, Sartre} and \ntuple{Sartre, Heidegger} are in my explicit list. 
 
-To make these ideas more precise, we would need to develop some \emph{set theory}, the mathematical theory of collections. This would give you some tools for modelling extensions and ordered pairs (and ordered triples, etc.). Indeed, set theoretic tools lie at the heart of contemporary linguistic approaches to meaning in natural languages. However, we have neither the time nor the need to cover set theory in this book. I shall leave these notions at an imprecise level; the general idea will be clear enough, I hope. 
+It is perhaps worth being explicit that our sequences are ordered groups of things, not lists of words or names. (Unless our domain is the set of words or names!) The extension of a many-place predicate is no less a worldly collection than the extension of a name or a one-place predicate. The sequences that are members of that extension have things as their constituents, not names.
 
+To make these ideas more precise, we would need to develop some \emph{set theory}, the mathematical theory of collections. This would give you some tools for modelling extensions and ordered pairs (and ordered triples, etc.), as well as some ideas about the metaphysical status of collections and sets. Indeed, set theoretic tools lie at the heart of contemporary linguistic approaches to meaning in natural languages. However, we have neither the time nor the need to cover set theory in this book. I shall leave these notions at an imprecise level; the general idea will be clear enough, I hope. 
+
+\section{Zero-place predicates}
+
+
+
+ \begin{frame}\frametitle{Zero-Place Predicates}
+    \begin{itemize}[<+->]
+    \item Consider these examples:  \begin{enumerate}
+    \item \emph{Coober Pedy is a harsh place. It has underground houses.}
+    	\item \emph{Coober Pedy is a harsh place. It seldom rains there.}
+    \end{enumerate}
+    \item In 1, `it' refers to Coober Pedy. Not so in 2: `It' in that sentence is a \alert{dummy pronoun} (though `there' does refer)!
+
+    \item We took this example to suggest that the \alert{bare} report `it is raining' involved no genuine singular term, and modelled by a \alert{zero-place predicate} like $R$. 
+    	\item  These don't really apply to anything; they are either true or false of the whole speech situation, rather than true or false of something in the domain. 
+    	\item We treat them as having \alert{truth values as their extension} – just like the \alert{valuations} of \TFL. (In fact we can consider the valuations of \TFL\ as assignments of truth values as the extensions of atomic sentences of that language.)
+    \end{itemize}
+    \end{frame}
 
 \section{Semantics for identity}
 Identity is a special predicate of \FOL. We write it a bit differently than other two-place predicates: `$x=y$' instead of `$Ixy$' (for example). More important, though, its meaning is fixed as to be genuine \emph{identity}, once and for all. Given a domain, the extension of `$=$' comprises just those pairs consisting of any member of the domain and itself. If the domain is numbers, for example, the extension of `$=$' on this domain will be $$\ntuple{1,1}, \ntuple{2,2}, \ntuple{3,3},….$$ 
@@ -195,6 +239,20 @@ The wisdom of Bret Michaels then tells us that the Euler diagram should look lik
 	\end{tikzpicture}
 \end{center}
 
+We can start to see how interpretations can help us evaluate arguments quite vividly in this graphical environment. Recall this example from §\ref{s:FOLBuildingBlocks}: `Willard (`$w$') is a logician (`$L$'); Every logician wears a funny hat (`$F$') \ttherefore\ Willard wears a funny hat'. We can see this is valid: Willard falls in the region corresponding to `$F$' because he falls in the region corresponding to `$L$', which is wholly within the `$F$'-region. \begin{column}
+             \begin{tikzpicture}
+              	\draw[thick] (0,0) -- (0,4) -- (5,4) -- (5,0) -- cycle;
+		\node (a) at (1,0.5) {People};
+		\node (e) at (2,1.4) {$L$};
+		\node (b) at (4,2.5) {$F$};
+		\node (w) at (2.5,2) {$w$};
+		\filldraw[pattern color=blue, pattern=horizontal lines, draw =black, fill opacity=0.2] (2.8,2) ellipse (2cm and 1.6cm);
+		\filldraw[fill=black, draw =black, fill opacity=1] (2.3,1.8) circle (0.05cm);	
+		\filldraw[pattern=vertical lines, pattern color=red, draw =black, fill opacity=0.2] (2.2,1.6) ellipse (1.1cm and 0.75cm);
+             \end{tikzpicture}
+              \end{column} 
+
+
 If you would like a real challenge, you might try to figure out the interpretation of this Euler diagram from xkcd (`Chat Systems', \url{https://xkcd.com/1810/}):
 \begin{center}
 	\includegraphics[width=0.85\textwidth]{chat_systems.png}
@@ -239,6 +297,27 @@ Another example; consider the following interpretation: \begin{ekey}
 \draw[->, thick] (atom3) .. controls (1.75,1.75) .. (atom1);
 \end{tikzpicture}
 \end{center} Notice that 2 is in the domain, and hence included as a node in the graph, but it has no arrows attached to it, because it is not included in the relation assigned to $R$. 
+
+A third example, corresponding to this interpretation: \begin{ekey}
+	\item[\text{Domain}] Amia, Barbara, Corine, Davis
+	\item[F] \ntuple{Amia,Amia},\ntuple{Barbara,Barbara}, \ntuple{Davis,Davis}, \ntuple{Amia, Barbara}, \ntuple{Amia,Corine}, \ntuple{Barbara, Amia}, \ntuple{Barbara, Corine}, \ntuple{Corine,Barbara}
+\end{ekey}
+\begin{center}
+\begin{tikzpicture}
+\node (atom1) at (0,2) {Amia};
+\node (atom2) at (2,2) {Barbara};
+\node (atom3) at (2,0) {Corine};
+\node (atom4) at (0,0) {Davis};
+\draw[->, thick] (atom1) to[out=280,in=180] (atom3);
+\draw[->, thick] (atom1) to[out=30,in=150] (atom2);
+\draw[->, thick] (atom1)+(-0.15,0.2) arc (-330:-30:.5);
+\draw[->, thick] (atom2) to[out=210,in=330] (atom1);
+\draw[->, thick] (atom2)+(+0.3,0.2) arc (150:-150:.5);
+\draw[->, thick] (atom2) to[out=250,in=110](atom3);
+\draw[->, thick] (atom3)to[out=70,in=290](atom2);
+\draw[->, thick] (atom4)+(-0.15,0.2) arc (30:330:.5);
+\end{tikzpicture}
+ \end{center}
 
 
 If we wanted, we could make our diagrams more complex. For example, we could introduce another kind of arrow to represent an additional two-place relation. Or, we could add names as labels attached to particular objects. Or, to symbolise the extension of a one-place predicate, we might simply draw a ring around some particular objects and stipulate that the thus encircled objects (and only them) are to fall under the predicate `$H$', say.  
@@ -615,7 +694,16 @@ One sentence of this class is nevertheless a logical truth: the claim that somet
 }
 
 
+\practiceproblems
 
+\problempart
+The following entailments are correct in \FOL. In each case, explain why.
+\begin{earg}
+ 	\item $\forall x Qx, \forall x (Qx \eif Rx) \entails \exists x Rx$;
+ 	\item $\forall x\forall y \bigl(Rxy \eif \forall z(Ryz \eif x≠z)\bigr) \entails (Raa \eif \enot Raa)$.
+ \end{earg} 
+
+ 
 
 
 \chapter{Demonstrating Consistency and Invalidity}\label{sec.UsingModels}
@@ -738,12 +826,6 @@ When you provide an interpretation to refute a claim – to logical truth, say, 
 
 \practiceproblems
 
-\problempart
-The following entailments are correct in \FOL. In each case, explain why.
-\begin{earg}
- 	\item $\forall x Qx, \forall x (Qx \eif Rx) \entails \exists x Rx$;
- 	\item $\forall x\forall y \bigl(Rxy \eif \forall z(Ryz \eif x≠z)\bigr) \entails (Raa \eif \enot Raa)$.
- \end{earg} 
 
 \problempart
 \label{pr.Contingent}
@@ -877,3 +959,61 @@ This might usefully be compared with the table at the end of §\ref{s:directPart
 	\item Reasoning about all intepretations of a given sentence is intrinsically more difficult than reasoning about all valuations, because there are only finitely many valuations to consider for any \TFL\ sentence, but infinitely many intepretations for an \FOL\ sentence.
 	\item Some indirect strategies, like \emph{reductio}, can be very useful in overcoming this obstacle.
 }
+
+\practiceproblems
+
+{\HUGE These still need to be done \causeanerror}
+
+\problempart
+Show that each of the following is either a logical truth or a contradiction:
+\begin{earg}
+\item \leftsolutions\ $Da \eand \enot Da$
+\item \leftsolutions\ $\exists x Txh$
+\item \leftsolutions\ $Pm \eand \enot\forall x Px$
+\item $\forall z Jz \eiff \exists y Jy$
+\item $\forall x (Wxmn \eor \exists yLxy)$
+\item $\exists x (Gx \eif \forall y My)$
+\item $\exists x (x = h \eand x = i)$
+\end{earg}
+
+\solutions
+\problempart
+\label{pr.NotEquiv}
+Show that the following pairs of sentences are logically equivalent.
+\begin{earg}
+\item $Ja$, $Ka$
+\item $\exists x Jx$, $Jm$
+\item $\forall x Rxx$, $\exists x Rxx$
+\item $\exists x Px \eif Qc$, $\exists x (Px \eif Qc)$
+\item $\forall x(Px \eif \enot Qx)$, $\exists x(Px \eand \enot Qx)$
+\item $\exists x(Px \eand Qx)$, $\exists x(Px \eif Qx)$
+\item $\forall x(Px\eif Qx)$, $\forall x(Px \eand Qx)$
+\item $\forall x\exists y Rxy$, $\exists x\forall y Rxy$
+\item $\forall x\exists y Rxy$, $\forall x\exists y Ryx$
+\end{earg}
+
+
+
+\problempart
+Show that the following sentences are jointly inconsistent:
+\begin{earg}
+\item $Ma, \enot Na, Pa, \enot Qa$
+\item $Lee, Leg, \enot Lge, \enot Lgg$
+\item $\enot (Ma \eand \exists x Ax), Ma \eor Fa, \forall x(Fx \eif Ax)$
+\item $Ma \eor Mb, Ma \eif \forall x \enot Mx$
+\item $\forall y Gy, \forall x (Gx \eif Hx), \exists y \enot Iy$
+\item $\exists x(Bx \eor Ax), \forall x \enot Cx, \forall x\bigl( (Ax \eand Bx) \eif Cx\bigr)$
+\item $\exists x Xx, \exists x Yx, \forall x(Xx \eiff \enot Yx)$
+\item $\forall x(Px \eor Qx), \exists x\enot(Qx \eand Px)$
+\item $\exists z(Nz \eand Ozz), \forall x\forall y(Oxy \eif Oyx)$
+\item $\enot \exists x \forall y Rxy, \forall x \exists y Rxy$
+\item $\enot Raa$, $\forall x (x=a \eor Rxa)$
+\item $\forall x\forall y\forall z(x=y \eor y=z \eor x=z)$, $\exists x\exists y\ \enot x= y$
+\item $\exists x\exists y(Zx \eand Zy \eand x=y)$, $\enot Zd$, $d=e$
+\end{earg}
+
+\problempart
+Show that the following arguments are valid:
+\begin{earg}
+	
+\end{earg}
