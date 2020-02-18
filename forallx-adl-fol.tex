@@ -1438,7 +1438,7 @@ Let's make this idea precise.
 	}
 For example, consider the formula
 	$$\forall x(Ex \eor Dy) \eif \exists z(Ex \eif Lzx)$$
-The scope of the universal quantifier `$\forall x$' is `$\forall x (Ex \eor Dy)$', so the first `$x$' is bound by the universal quantifier. However, the second and third occurrence of `$x$' are free. Equally, the `$y$' is free. The scope of the existential quantifier `$\exists z$' is `$(Ex \eif Lzx)$', so `$z$' is bound. 
+The scope of the universal quantifier `$\forall x$' is `$\forall x (Ex \eor Dy)$', so the first `$x$' is bound by the universal quantifier. However, the second and third occurrence of `$x$' are free. Equally, the `$y$' is free. The scope of the existential quantifier `$\exists z$' is `$\exists z(Ex \eif Lzx)$', so `$z$' is bound. 
 
 In our last example from the previous section, `$\forall x (Fx \to \exists xGx)$', the variable `$x$' in `$Gx$' is bound by the quantifier `$\exists x$', and so $x$ is free in `$Fx \to \exists x Gx$' only when it appears in `$Fx$'. So while the scope of `$\forall x$' is the whole sentence, it nevertheless doesn't bind every variable in its scope – only those such that, were it absent, would be free. (So we might say an occurrence of a variable $\meta{x}$ is \define{bound by} an occurrence of quantifier $\forall \meta{x}/\exists \meta{x}$ just in case it would have been free had that quantifier been omitted.) 
 

@@ -74,7 +74,10 @@ The following list contains current issues and proposed revisions arranged by ch
 		- add 'why don't we do this?' section to quantifier intepretation 	 
 	- §23
 		- need to expand with examples, and practice problems
-		-    
+		- 
+	- §25
+		- practice problems
+		- mention infinity of intepretations, contrast with sentential case.  	    
 * Chapter 5 (`forallx-adl-interpretations.tex`)
 * Chapter 6 (`forallx-adl-prooftfl.tex`)
 	- §26
@@ -93,7 +96,12 @@ The following list contains current issues and proposed revisions arranged by ch
 		- entailment (doesn't exist a certain kind of valuation) vs provability (does exist a certain kind of proof)
 		- general principle about how we can prove a theorem: must finish a proof with the right kind of rule (bi/conditional intro or ¬ rules) becaue every proof begins with an assumption
 		- emphasise relation between easy semantic tasks and tricky proofs, and vice versa  
+
 * Chapter 7 (`forallx-adl-prooffol.tex`)
+	- §35
+	- §37
+	- §38 
+		+ some ideas about where next in logic
 * Backmatter
 
 
