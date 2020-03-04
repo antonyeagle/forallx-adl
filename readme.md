@@ -99,6 +99,7 @@ The following list contains current issues and proposed revisions arranged by ch
 
 * Chapter 7 (`forallx-adl-prooffol.tex`)
 	- §35
+		+ does the \vdash terminology get re-introduced?
 	- §37
 	- §38 
 		+ some ideas about where next in logic
