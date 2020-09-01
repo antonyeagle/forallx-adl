@@ -14,7 +14,7 @@
 \chapter{Arguments}\label{argRaining}\label{s:Arguments}
 Logic is the business of evaluating arguments – identifying some of the good ones and explaining why they are good. So what is an argument?
 
-In everyday language, we sometimes use the word `argument' to talk about belligerent shouting matches. Logic is not concerned with such teeth-gnashing and hair-pulling. They are not arguments, in our sense; they are disputes. A dispute like this is often more about expressing feelings than it is about  persuasion. 
+In everyday language, we sometimes use the word ‘argument’ to talk about belligerent shouting matches. Logic is not concerned with such teeth-gnashing and hair-pulling. They are not arguments, in our sense; they are disputes. A dispute like this is often more about expressing feelings than it is about  persuasion. 
 
 Offering an \define{argument}, in the sense relevant to logic (and other disciplines, like law and philosophy), is something more like \emph{making a case}. It involves presenting reasons that are intended to favour, or support, a specific claim. Consider this example of an argument that someone might give:
 	\begin{earg}
@@ -24,7 +24,7 @@ Offering an \define{argument}, in the sense relevant to logic (and other discipl
 	\end{earg}
 We here have a series of sentences. The word `So' on the third line indicates that the final sentence expresses the \define{conclusion} of the argument. The two sentences before that express \define{premises} of the argument. If the argument is well-constructed, the premises provide reasons in favour of the conclusion. In this example, the premises do seem to support the conclusion. At least they do, given the tacit assumption that you do not wish to get soaked. 
 
-This is the sort of thing that logicians are interested in. We shall say that an argument is any collection of premises, together with a conclusion.\footnote{Because arguments are made of sentences, logicians are very concerned with the details of particular words and phrases appearing in sentences. Logic thus also has close connections with linguistics, particularly that subdisipline of linguistics known as \define{semantics}, the theory of meaning.}
+So this is the sort of thing that logicians are interested in when they look at arguments. We shall say that an argument is any collection of premises, together with a conclusion.\footnote{Because arguments are made of sentences, logicians are very concerned with the details of particular words and phrases appearing in sentences. Logic thus also has close connections with linguistics, particularly that subdisipline of linguistics known as \define{semantics}, the theory of meaning.}
 
 In the example just given, we used individual sentences to express both of the argument's premises, and we used a third sentence to express the argument's conclusion. Many arguments are expressed in this way. But a single sentence can contain a complete argument. Consider:
 	\begin{quote}
@@ -51,6 +51,8 @@ And these expressions often indicate that we are dealing with a premise, rather 
 But in analysing an argument, there is no substitute for a good nose.
 
 In a good argument, the premises provide reasons for the conclusion. We are interested in understanding and analysing arguments because of this. Offering a good argument to someone emphasises some reasons that favour the conclusion. Reasonable people, we hope, may change their mind when they are given good reasons to do so. And so offering a good argument might \emph{persuade} a reasonable person to accept its conclusion. We return to this issue of reasoning and argument a little later, in §\ref{ss:reasoning}.
+
+Above we said that when someone offers an argument, they intend to offer premises that support a given conclusion. But there is always a question as to whether some premises \emph{really do} support a conclusion. Someone can offer a bad argument without knowing it, and thus intend to support some conclusion without managing to do so. Logicians aren't very interested in the intentions of people who might offer arguments, but they are very interested in whether the premises of a given argument do in fact support the conclusion. Some even think the central defining question of logic is the issue of how to characterise when a claim is a \define{logical consequence} of some other claims.
 
 \keyideas{
 	\item An argument is a collection of sentences, divided into one or more premises and a single conclusion.
@@ -83,22 +85,18 @@ In §\ref{s:Arguments}, we gave a very permissive account of what an argument is
 	\end{earg}
 We have been given a premise and a conclusion. So we have an argument. Admittedly, it is a \emph{terrible} argument. But it is still an argument.
 
-\section{Two ways that arguments can go wrong}
+\section{Two ways that arguments can go wrong}\label{s:twoways}
 
 It is worth pausing to ask what makes the argument so weak. In fact, there are two sources of weakness. First: the argument's (only) premise is obviously false. Rundle Mall has some interesting buskers, but not quite \emph{that} interesting. Second: the conclusion does not follow from the premise of the argument. Even if there were a bassoon-playing dragon in Rundle Mall, we would not be able to draw any conclusion about Dali's predilection for poker.
 
-What about the main argument discussed in §\ref{s:Arguments}? The premises of this argument might well be false. It might be sunny outside; or it might be that you can avoid getting soaked without taking an umbrella. But even if both premises were true, it does not necessarily show you that you should take an umbrella. Perhaps you enjoy walking in the rain, and you would like to get soaked. So, even if both premises were true, the conclusion might nonetheless be false. (If we were to add the formerly tacit assumption that you do not wish to get soaked as a further premise, then the premises taken together would provide support for the conclusion.)
-
+What about the main argument discussed in §\ref{s:Arguments}? The premises of this argument might well be false. It might be sunny outside; or it might be that you can avoid getting soaked without taking an umbrella. But even if both premises were true, it does not necessarily show you that you should take an umbrella. Perhaps you enjoy walking in the rain, and you would like to get soaked. So, even if both premises were true, the conclusion might nonetheless be false. (If we were to add the formerly tacit assumption that you do not wish to get soaked as a further premise, then the premises taken together would provide support for the conclusion.) Those premises might still provide some reason for thinking the conclusion is correct. But if the premises can be true, while the conclusion is false, there is at least some good sense in which there is a gap or lack in the support those premises provide for the conclusion.
 
 The general point is as follows. For any argument, there are two ways that it might go wrong:
 	\begin{enumerate}
 		\item One or more of the premises might be false. 
-		\item The conclusion might not follow from the premises – even if the premises were true, they would not support the conclusion.
+		\item The conclusion might not follow from, or be a consequence of, the premises – even if the premises were true, they would not support the conclusion. 
 	\end{enumerate}
 To determine whether or not the premises of an argument are true is often a very important matter. But that is normally a task best left to experts in the field: as it might be, historians, scientists, or whomever. In our role as \emph{logicians}, we are more concerned with arguments \emph{in general}. So we are (usually) more concerned with the second way in which arguments can go wrong.
-
-
-
 
 
 \section{Conclusive arguments} \label{s:conclusiveargs}
@@ -117,7 +115,24 @@ Consider another argument:
 		\item[] This is a logic book.
 		\item[So:] You are a logic student.
 	\end{earg}
-This is not a terrible argument. Both of the premises are true. And most people who read this book are logic students. Yet, it is possible for someone besides a logic student to read this book. If your housemate picked up the book and thumbed through it, they would not immediately become a logic student. So the premises of this argument, even though they are true, do not guarantee the truth of the conclusion. This is not a conclusive argument. 
+This is not a terrible argument. Both of the premises are true. And most people who read this book are logic students. Yet, it is possible for someone besides a logic student to read this book. If your housemate picked up the book and thumbed through it, they would not immediately become a logic student. So the premises of this argument, even though they are true, do not guarantee the truth of the conclusion. This is not a conclusive argument.
+
+Or consider this pair of arguments:
+
+	\begin{minipage}{0.45\textwidth}
+\begin{earg}
+	\item [] Mary has two brothers;
+		\item[So:] There are three siblings in her family. 
+	\end{earg}\end{minipage}\qquad\begin{minipage}{0.45\textwidth}
+		\begin{earg}
+		\item [] Mary has two brothers;
+		\item[So:] There are \emph{at least} three siblings in her family. 
+	\end{earg}
+	\end{minipage}
+
+The argument on the left might be pretty good: that premise provides some reason to accept the conclusion, especially if you imagine a real conversation in which someone makes this case. It would be weird to use a premise about Mary's brothers in an argument for a conclusion about her siblings unless Mary had no sisters. Weird, but not impossible. Strictly speaking, if Mary had a sister the speaker did not mention, it would be possible for the premise to be true while the conclusion is false. So the left argument is not conclusive, interpreted strictly.
+
+The argument on the right shows that the premise does make a compelling case for a related but more hedged conclusion. You might think `that second argument is a bit nit-picking'. But that is exactly what makes it so watertight.  It doesn't depend on what would make for a `normal' conversation, or whether you are making the same assumptions as the speaker, etc. No matter what, the truth of the premises secures the truth of the conclusion: it is conclusive.
 
 The crucial thing about a conclusive argument is that it is impossible, in a very strict sense, for the premises to be true whilst the conclusion is false. Consider this example:
 	\begin{earg}
@@ -127,8 +142,12 @@ The crucial thing about a conclusive argument is that it is impossible, in a ver
 	\end{earg}
 The conclusion of this argument is ridiculous. Nevertheless, it follows from the premises. \emph{If} both premises were true, \emph{then} the conclusion would just have to be true. So the argument is conclusive. 
 
-
 \emph{Why} is this argument conclusive? The most important factor for us in considering what makes an argument conclusive is to examine the argument's \define{structure} – the grammatical forms of the premises and conclusion. An argument will be conclusive if its structure \emph{guarantees} that its premises \emph{support} the conclusion. In the present case, one premise says that oranges are in one of two categories; the other premise says that oranges are not in the first category. We conclude that they are in the second category. The premises and conclusion are about oranges. But it is plausible to think that \emph{any} argument with this same sort of structure must be conclusive, whether we are talking about oranges, or cars – or anything really. 
+
+Conclusiveness of an argument is insensitive to the truth or falsity of the premises. An argument can be conclusive while nevertheless going wrong in the first of the ways we identified in §\ref{s:twoways}. Consider this argument \begin{earg}
+	\item[]The earth has twenty‐eight moons;
+	\item[So:]The earth has an even number of moons.
+\end{earg} The argument is conclusive, as there is no possible way in which the earth could have twenty-eight moons while having an odd number of moons. But the premise is so obviously false that this argument could never be used to persuade anyone. The premise supports the conclusion, but that support is moot given the evident falsity of the premise.
 
 \section{Reasons to believe}\label{ss:reasoning}
 
@@ -138,15 +157,29 @@ So: we are interested in whether or not a conclusion \emph{follows from} some pr
 
 But even this may be doubted. Often, when you believe the premises, a conclusive argument provides you with a reason to believe the conclusion. In that case, it might be appropriate for you to infer the conclusion from the premises.
 
-But sometimes a conclusive argument shows that some premises support a conclusion you cannot accept. Suppose, for example, that you know the conclusion to be false. The fact that the argument is conclusive and has a false conclusion tells us that the premises cannot all be true. (Consider the argument from the previous section with the false conclusion `Oranges are musical instruments': the second premise is as absurd as the conclusion.) In general, when an argument is conclusive \begin{itemize}
+But sometimes a conclusive argument shows that some premises support a conclusion you cannot accept. Suppose, for example, that you know the conclusion to be false. The fact that the argument is conclusive and has a false conclusion tells you that the premises cannot all be true. (Consider the argument from the previous section with the false conclusion `Oranges are musical instruments': the second premise is as absurd as the conclusion.) In general, when an argument is conclusive \begin{itemize}
 	\item the truth of all the premises guarantees the truth of the conclusion; and equally
 	\item the falsity of the conclusion guarantees the falsity of at least one of the premises. 
 \end{itemize}
 
 
-In this sort of situation, you might find that the argument gives you a better reason to abandon any belief in one of the premises than to accept the conclusion. A conclusive argument shows there is \emph{some} reason to believe its conclusion, if you accept its premises; it doesn't mean there aren't \emph{better} reasons to reject its premises, if you reject its conclusion. 
+In this sort of situation, you might find that the argument gives you a better reason to abandon any belief in one of the premises than to accept the conclusion. A conclusive argument shows there is \emph{some} reason to believe its conclusion, if you accept its premises; it doesn't mean there aren't \emph{better} reasons to reject its premises, if you reject its conclusion. Consider this sort of example:\footnote{This sort of example is discussed by Gilbert Harman, \emph{Change in View}, MIT Press, esp. ch. 2.} \begin{earg}
+	\item[] If I look in the cupboard, I'll find some muesli.
+	\item[] I am looking in the cupboard.
+	\item[So:] I find some muesli.
+\end{earg} Someone might believe both premises, and not accept the conclusion, because on looking in the cupboard, they do not see the muesli. (Someone else finished it off earlier.) It would be silly for this person to `follow the argument where it leads'. Rather, they should use the fact that these premises entail a conclusion they now know to be false, having just looked, to reject one of the premises. The obvious candidate is the first premise. So this person should probably stop believing that they'll find muesli if they look in the cupboard, and start believing instead that they are out of muesli or suchlike.
 
-The question, \emph{what ought I to believe?} is one of the deepest in the area of philosophy known as \define{epistemology}, the theory of knowledge. Logic is not able to answer that question all by itself. Even if logic tells you that there is a conclusive argument from premise \meta{A} to conclusion \meta{B}, logic can't tell you whether you ought to believe both, or reject both.\footnote{This point is made forcefully by Gilbert Harman, \emph{Change in View}, MIT Press, esp. ch. 2.} However, logic will tell you something important, even if it is only a limited part of the answer to the question of rational belief. It will tell you that, when you know an argument to be conclusive, \emph{you cannot both accept its premises while rejecting its conclusion}. 
+Some cases are less straightforward. Consider this argument: \begin{earg}
+	\item[] It is immoral to cause avoidable suffering. 
+	\item[] Eating meat causes avoidable suffering.
+	\item[So:] Eating meat is immoral.
+\end{earg}
+Many people will find the premises plausible, and the conclusion therefore compelling. This is part of the case for vegatarianism. But not everyone finds the conclusion acceptable; such people end up finding one or both of the premises should be rejected. Interestingly, people may find themselves still finding the premises attractive even when they recognise a conclusion follows that they cannot accept. Here they may find that there is some reason to accept the premises (perhaps they seem true at first glance), and some reason to reject them (they have, at second glance, consequences the person cannot accept). I don't want to adjudicate the merits of this argument here. I only want to emphasise that even offering a conclusive argument to someone, with premises that they currently accept, is not enough to make them come to believe the conclusion.
+
+Sometimes people think that logic will provide a powerful tool to persuade and convince others of their point of view. They sometimes want to study logic as if it is some dark art enabling them to subdue beliefs that contradict their own. This is not really a very nice thing to want to do – to force a belief on someone, whether they want to believe it or not – and so it is not particularly regrettable that logic doesn't help you to do it. Logic can show which claims follow from which others, and which contradict one another. It can help us elaborate the content of some claim, or delineate the commitments a certain belief would incur. But logic does not tell you what to believe, even when you have a conclusive argument.
+
+
+The question, \emph{what ought I to believe?} is one of the deepest in the area of philosophy known as \define{epistemology}, the theory of knowledge. Logic is not able to answer that question all by itself. Even if logic tells you that there is a conclusive argument from premise \meta{A} to conclusion \meta{B}, logic can't tell you whether you ought to believe both, or reject both. However, logic will tell you something important, even if it is only a limited part of the answer to the question of rational belief. It will tell you that, when you know an argument to be conclusive, \emph{you cannot both accept its premises while rejecting its conclusion}. Thus conceived, logic is not even a science of reasoning, because it does not tell you what to think. Logic can't tell you, or anyone else, which packages of premises-and-conclusions to accept.
 
 
  \section{Conclusiveness for special reasons}
@@ -155,12 +188,19 @@ The question, \emph{what ought I to believe?} is one of the deepest in the area 
  		\item[] Juanita is a vixen.
  		\item[So:] Juanita is a fox.
  	\end{earg}
- It is impossible for the premise to be true and the conclusion false. So the argument is conclusive. But this is not due to the structure of the argument. Here is an inconclusive argument with seemingly the same structure or form. The new argument is the result of replacing the word `fox' in the first argument with the word `cathedral', but keeping the overall grammatical structure the same:
+ It is impossible for the premise to be true and the conclusion false. So the argument is conclusive. But this is not due to the structure of the argument. Here is an inconclusive argument with seemingly the same structure or form. The new argument is the result of replacing the word `vixen' in the first argument with the word `cathedral', but keeping the overall grammatical structure the same:
 	\begin{earg}
-		\item[] Juanita is a vixen.
-		\item[So:] Juanita is a cathedral.
+		\item[] Juanita is a cathedral.
+		\item[So:] Juanita is a fox.
 	\end{earg}
-This might suggest that the conclusiveness of the first argument \emph{is} keyed to the meaning of the words `vixen' and `fox'. But, whether or not that is right, it is not simply the \define{form} of the argument that makes it conclusive. Equally, consider the argument:
+This might suggest that the conclusiveness of the first argument \emph{is} keyed to the meaning of the words `vixen' and `fox'. But, whether or not that is right, it is not simply the \define{form} of the argument that makes it conclusive. It is instructive to compare the first argument with this modification, where we replace `vixen' with the near-synonym `female fox': 
+\begin{earg}
+ 		\item[] Juanita is a female fox.
+ 		\item[So:] Juanita is a fox.
+ 	\end{earg} This also seems to be conclusive. But now we might suspect the occurrence of the word `fox' in both premise and conclusion is not mere coincidence, but an essential part of the explanation as to why this is conclusive.
+
+
+Equally, consider the argument:
 	\begin{earg}
 		\item[] The sculpture is green all over.
 		\item[So:] The sculpture is not red all over. 
@@ -213,7 +253,6 @@ Any argument with this structure will be conclusive in virtue of structure, and 
 
 This highlights that valid arguments do not need to have true premises or even true conclusions. We can put a true sentence in place of \meta{A} and a false sentence in place of \meta{B}, and both premises and the conclusion will be false. The argument is still valid.
 
-
 Conversely, having true premises and a true conclusion is not enough to make an argument valid. Consider this example:
 	\begin{earg}
 		\item[] London is in England.
@@ -221,6 +260,19 @@ Conversely, having true premises and a true conclusion is not enough to make an 
 		\item[So:] Paris is in France.
 	\end{earg}
 The premises and conclusion of this argument are, as a matter of fact, all true. But the argument is invalid. If Paris were to declare independence from the rest of France, then the conclusion would be false, even though both of the premises would remain true. Thus, it is \emph{possible} for the premises of this argument to be true and the conclusion false. The argument is therefore inconclusive, and hence invalid.
+
+Return briefly to another example we discussed earlier: \begin{earg}
+ 		\item[] Juanita is a female fox.
+ 		\item[So:] Juanita is a fox.
+ 	\end{earg} This seems to have something like this structure:
+\begin{earg}
+ 		\item[] $a$ is an \meta{F}\; \meta{G}.
+ 		\item[So:] $a$ is a \meta{G}.
+ 	\end{earg} For most adjectives \meta{F}, this structure yields a conclusive argument when you replace the schematic letters by English words. E.g., \begin{earg}
+ 		\item[] Bob is a tall man;
+ 		\item[So:] Bob is tall.
+ 	\end{earg} But not all: some adjectives like `fake' or `alleged' do not yield conclusive arguments when substituted for \meta{F}: `This is a fake gun; so this is a gun' is not a conclusive argument. We will return in §\ref{s:FOLBuildingBlocks} to the logical structure of examples like these, and to expressions like `fake gun' in §\ref{s:complex_adj}.
+
 
 \section{Soundness}
 
@@ -266,10 +318,10 @@ Some arguments which are conclusive but invalid can be turned into valid argumen
 
 	Not every inconclusive argument should be treated as an enthymeme. In particular, many strong inductive arguments can be made weaker when they are treated as enythymematic. Consider:
 	\begin{earg}
-		\item[] In January 2017, it was hot in Adelaide.
-		\item[] In January 2018, it was hot in Adelaide.
-	\item[So:] In January 2019, it will be hot in Adelaide.
-\end{earg} This argument is inconclusive. It can be made valid by adding the unstated premise `Every January, it is hot in Adelaide'. But that unstated premise is extremely strong – we do not have sufficient evidence to conclude that it will be hot in Adelaide in January \emph{for eternity}. So while the premises we have been given explicitly are good reason to think Adelaide will continue to have a hot January next year, we do not have good enough reason to think that every January will be hot. Treating the argument as an enthymeme makes it valid, but also makes it less persuasive, since the unstated premise on which it relies is not one many people will share.\footnote{If we had claim that the unstated premise was rather `If it has been hot in January for the previous two years, it will be hot the following year', we would have had a valid argument and one that has a plausible unstated premise – though the unstated premise seems to be plausible only because the unamended inductive argument was fine to begin with!}
+		\item[] In January 2015, it was hot in Adelaide.
+		\item[] In January 2020, it was hot in Adelaide.
+	\item[So:] In January 2025, it will be hot in Adelaide.
+\end{earg} This argument is inconclusive. It can be made valid by adding the unstated premise `Every January, it is hot in Adelaide'. But that unstated premise is extremely strong – we do not have sufficient evidence to conclude that it will be hot in Adelaide in January \emph{for eternity}. So while the premises we have been given explicitly are good reason to think Adelaide will continue to have a hot January for the foreseeable future, we do not have good enough reason to think that every January will be hot. Treating the argument as an enthymeme makes it valid, but also makes it less persuasive, since the unstated premise on which it relies is not one many people will share.\footnote{If we had claim that the unstated premise was rather `If it has been hot in January in recent representative years, it will be hot in January for the near future', we would have had a valid argument and one that has a plausible unstated premise – though the unstated premise seems to be plausible only because the unamended inductive argument was fine to begin with!}
 
 \keyideas{
 	\item An argument is conclusive if, and only if, the truth of the premises guarantees the truth of the conclusion.
@@ -283,47 +335,70 @@ What is a \emph{conclusive} argument? What, in addition to being conclusive, is 
 
 \problempart
 Which of the following arguments are valid? Which are invalid but conclusive? Which are inconclusive? Comment on any difficulties or points of interest.
-
-\begin{earg}
+\begin{enumerate}
+	\item \begin{earg}
 \item Socrates is a man.
 \item All men are carrots.
 \item[So:] Therefore, Socrates is a carrot.
 \end{earg}
 
-\begin{earg}
+\item \begin{earg}
 \item Abe Lincoln was either born in Illinois or he was once president.
 \item Abe Lincoln was never president.
 \item[So:] Abe Lincoln was born in Illinois.
 \end{earg}
 
-\begin{earg}
+\item \begin{earg}
 \item Abe Lincoln was the president of the United States.
 \item[So:] Abe Lincoln was a citizen of the United States.
 \end{earg}
 
-\begin{earg}
+\item \begin{earg}
 \item If I pull the trigger, Abe Lincoln will die.
 \item I do not pull the trigger.
 \item[So:] Abe Lincoln will not die.
 \end{earg}
 
-\begin{earg}
+\item\begin{earg}
 \item Abe Lincoln was either from France or from Luxembourg.
 \item Abe Lincoln was not from Luxembourg.
 \item[So:] Abe Lincoln was from France.
 \end{earg}
 
-\begin{earg}
+\item \begin{earg}
 \item If the world ends today, then I will not need to get up tomorrow morning.
 \item I will need to get up tomorrow morning.
 \item[So:] The world will not end today.
 \end{earg}
 
-\begin{earg}
+\item \begin{earg}
 \item Joe is right now 19 years old.
 \item Joe (the same one) is also right now 87 years old.
 \item[So:] Bob is now 20 years old.
+\end{earg}\end{enumerate}
+
+\problempart
+Which of the following are valid arguments? \begin{enumerate}
+	\item \begin{earg}
+		\item[] Lizards are cute;
+\item[So:] lizards are cute, or I'll eat my hat.
+	\end{earg}
+\item \begin{earg}
+	\item[] Anyone can pass logic if they work diligently.
+\item[] Sarah is diligent and hardworking.
+\item[So:] Sarah can pass logic.
 \end{earg}
+\item \begin{earg}
+	\item[] If you buy a lottery ticket, you've wasted your money.
+\item[] You have wasted your money.
+\item[So:] you have bought a lottery ticket
+\end{earg}
+\item \begin{earg}
+\item[] We must do something.
+\item[] Quacking like a duck is something.
+\item[So:] We must quack like a duck.
+\end{earg}
+\end{enumerate}
 
 \problempart
 \label{pr.EnglishCombinations}
@@ -355,45 +430,68 @@ So many kinds of English sentence cannot be used to express premises or conclusi
 	\end{itemize}
 The common feature of these three kinds of sentence is that they cannot be used to make \emph{assertions}: they cannot be true or false. It does not even make sense to ask whether a \emph{question} is true (it only makes sense to ask whether the \emph{answer} to a question is true).
 
-The general point is that the premises and conclusion of an argument must be \define{declarative sentences}, capable of having a \define{truth value}. And the two truth values that concern us are just True and False. We need not know what the truth value of a sentence is for it to form part of an argument, but it must have the kind of grammatical structure that permits it to have a truth value.
+
+
+The general point is that the premises and conclusion of an argument must be sentences that are capable of having a \define{truth value}. The notions of validity and conclusiveness are defined in terms of truth preservation, so these properties depend on the constituents of arguments being the kinds of things which have a truth value.
+\factoidbox{A \define{declarative sentences} (like ‘Bob is singing’) states how things are or could be; it is a sentence that is either true or false.}
+
+The two truth values that concern us are just \define{True} and \define{False}. We may not know which truth value a declarative sentence has, but we generally know what kinds of conditions would need to obtain in order for it to be true or false. (We thus have no need of a supposed intermediate truth value like `unknown' – that would reflect our attitudes or beliefs about a claim, whereas the truth value reflects how things really are independently of our attitudes or beliefs.)
+
+To form part of an argument, a sentence must have the kind of grammatical structure that permits it to have a truth value. In terms of the notion of structure introduced in §\ref{s:conclusiveargs}, we are going to focus on those structures which yield a declarative sentence when supplied with declarative sentences. For example `it is not the case that \meta{A}' yields a declarative sentence whenever we put a declarative sentence in for \meta{A}, and may not yield anything grammatical at all otherwise: \begin{earg}
+	\item[\ex{decl1}] It is not the case that \underline{dogs can fly}. (Declarative, true)
+	\item[\ex{decl2}] It is not the case that \underline{dogs bark}. (Declarative, false)
+	\item[\ex{decl3}] It is not the case that \underline{in 10,000\textsc{bc}, Kaurna people occupied Kangaroo Island}. (Declarative, unknown but determinate truth value)
+	\item[\ex{decl4}] It is not the case that \underline{are you feeling sleepy?} (Ungrammatical)
+\end{earg}
 
 
 \section{Consistency}
 Consider these two sentences:
-	\begin{itemize}
-		\item[B1.] Jane's only brother is shorter than her.
-		\item[B2.] Jane's only brother is taller than her.
-	\end{itemize}
-Logic alone cannot tell us which, if either, of these sentences is true. Yet we can say that \emph{if} the first sentence (B1) is true, \emph{then} the second sentence (B2) must be false. And if B2 is true, then B1 must be false. It is impossible that both sentences are true together. These sentences are inconsistent with each other. And this motivates the following definition:
+	\begin{earg}
+		\item[\ex{B1}] Jane's only brother is shorter than her.
+		\item[\ex{B2}] Jane's only brother is taller than her.
+	\end{earg}
+Logic alone cannot tell us which, if either, of these sentences is true. Yet we can say that \emph{if} the first sentence \ref{B1} is true, \emph{then} the second sentence \ref{B2} must be false. And if \ref{B2} is true, then \ref{B1} must be false. It is impossible that both sentences are true together. These sentences are inconsistent with each other. And this motivates the following definition:
 	\factoidbox{
 		Sentences are \define{jointly consistent} if, and only if, it is possible for them all to be true together.
 	}
-Conversely, B1 and B2 are \define{jointly inconsistent}.
+Conversely, \ref{B1} and \ref{B2} are \define{jointly inconsistent}.
+
+Consistency is relatively trivial in some cases. If we take at random some unrelated sentences, they will typically beconsistent. For example, ‘Eggs are delicious’, ‘Frogs hop’, and ‘Barry hosts a podcast’ have nothing much to do with one another. It is unsurprising to find out that they can all be true together, because how could unrelated sentences place any constraints on the possibility of their simultaneous truth? But consistency can be surprising, when related sentences can be true together even though it may at first glance seem impossible. One of Einstein's great contributions was the discovery  that these claims are consistent: ‘Albert correctly measured the spaceship to be 50m’, and ‘Brunhilde correctly measured the spaceship to be 45m’, so long as Albert and Brunhilde are in relative motion.
 
 We can ask about the consistency of any number of sentences. For example, consider the following four sentences:
 	\label{MartianGiraffes}
-	\begin{itemize}
-		\item[G1.] There are at least four giraffes at the wild animal park.
-		\item[G2.] There are exactly seven gorillas at the wild animal park.
-		\item[G3.] There are not more than two martians at the wild animal park.
-		\item[G4.] Every giraffe at the wild animal park is a martian.
-	\end{itemize}
-G1 and G4 together entail that there are at least four martian giraffes at the park. This conflicts with G3, which implies that there are no more than two martian giraffes there. So the sentences G1–G4 are jointly inconsistent. They cannot all be true together. (Note that the sentences G1, G3 and G4 are jointly inconsistent. But if some sentences are already jointly inconsistent, adding an extra sentence to the mix will not make them consistent!)
+	\begin{earg}
+		\item[\ex{G1}] There are at least four giraffes at the wild animal park.
+		\item[\ex{G2}] There are exactly seven gorillas at the wild animal park.
+		\item[\ex{G3}] There are not more than two martians at the wild animal park.
+		\item[\ex{G4}] Every giraffe at the wild animal park is a martian.
+	\end{earg}
+\ref{G1} and \ref{G4} together entail that there are at least four martian giraffes at the park. This conflicts with \ref{G3}, which implies that there are no more than two martian giraffes there. So the sentences \ref{G1}–\ref{G4} are jointly inconsistent. They cannot all be true together. (Note that the sentences \ref{G1}, \ref{G3} and \ref{G4} are jointly inconsistent. But if some sentences are already jointly inconsistent, adding an extra sentence to the mix will not make them consistent!)
 
 There is an interesting connection between consistency and conclusive arguments. A conclusive argument is one where the premises guarantee the truth of the conclusion. So it is an argument where if the premises are true, the conclusion must be true. So the premises cannot be jointly consistent with the claim that the conclusion is false. Since the argument `Dogs and cats are animals, so dogs are animals' is conclusive, that shows that the sentences `Dogs and cats are animals' and `Dogs are \textbf{not} animals' are jointly inconsistent. If an argument is conclusive, the premises of the argument taken together with the denial of the conclusion will be jointly inconsistent.
+\factoidbox{Sentences \meta{A} and \meta{B} are jointly inconsistent iff the arguments‘ \meta{A}  \ttherefore\ not‐\meta{B}’ and ‘\meta{B}  \ttherefore\ not‐\meta{A}’ are both conclusive. This can be generalised to arbitrary inconsistent collections of sentences.}
 
 We just linked consistency to conclusive arguments. There is an analogous notion linked to valid arguments: 
 \factoidbox{
 	Sentences are \define{jointly formally consistent} if, and only if, considering only their structure, they can all be true together.
 }
+Another way to put it: some sentences are formally consistent iff, looking just at their structure (and not looking at what they are actually about), they might all be true together.
 
-If some sentences are jointly consistent, they are also jointly formally consistent. But some formally consistent sentences are jointly inconsistent. Any conclusive but invalid argument will give us an example. Since `The sculpture is green all over, so the sculpture is not red all over' is conclusive, the sentences `The sculpture is green' and `The sculpture is red' are jointly inconsistent. But those sentences are formally consistent – their inconsistency depends crucially on the meanings of the words `red' and `green', not on the overall structure of the sentences in which those words appear. (Again, more on the notion of structure invoked here in §\ref{s:ValidityInVirtueOfForm}.)
+Just as validity is more stringent than conclusiveness (it is conclusiveness plus something more), consistency is more stringent than formal consistency (it is formal consistency plus substantive consistency). If some sentences are jointly consistent, they are also jointly formally consistent. \emph{But some formally consistent sentences are jointly inconsistent}. Any conclusive but invalid argument will give us an example. 
+
+For example, since `The sculpture is green all over, so the sculpture is not red all over' is conclusive, these sentences are jointly formally consistent but not consistent: \begin{earg}
+	\item[\ex{fc1}] The sculpture is uniformly green all over.
+	\item[\ex{fc2}] The sculpture is uniformly red all over.
+\end{earg}
+These sentences have have no interesting internal structure for our purposes, so it is easy to make them formally consistent. But, holding fixed their actual meaning (particularly the actual meaning of `red' and `green'), we see that the truth of \ref{fc1} excludes the truth of \ref{fc2}. (Again, more on the notion of structure invoked here in §\ref{s:ValidityInVirtueOfForm}.)
 
 \section{Necessity and contingency}\label{s:neccandcont}
 In assessing whether an argument is conclusive, we care about what would be true \emph{if} the premises were true. But some sentences just \emph{must} be true. Consider these sentences:
 	\begin{earg}
 		\item[\ex{Acontingent}] It is raining.
 		\item[\ex{Anecessity}] If it is raining, water is precipitating from the sky.
+		\item[\ex{imposs}] If something is green, it is colourless.
 		\item[\ex{Atautology}] Either it is raining here, or it is not.
 		\item[\ex{Acontradiction}] It is both raining here and not raining here.
 	\end{earg}
@@ -401,16 +499,23 @@ In order to know if sentence \ref{Acontingent} is true, you would need to look o
 
 Sentence \ref{Anecessity} is different. You do not need to look outside to know that it says something true. Regardless of what the weather is like, if it is raining, water is precipitating – that is just what rain \emph{is}, metereologically speaking. That is a \define{necessary truth}. Here, a necessary connection in meaning between `rain' and `precipitation' makes what the sentence says true in every circumstance.
 
+Sentence \ref{imposs} is a \define{necessary falsehood} or \define{impossibility}. Nothing is, or even could be, both green and colourless. We don't need to do any scientific or other investigation to know that \ref{imposs} is not and cannot be true.
+
 Sentence \ref{Atautology} is also a necessary truth. Unlike sentence \ref{Anecessity}, however, it is the structure of the sentence which makes it necessary. No matter what `raining here' means, `Either it is raining here or it is not raining here' will be true. The structure `\textsf{Either it is} … \textsf{or it is not} …', where both gaps (`…') are filled by the same phrase, must be a true sentence.
 
 Equally, you do not need to check the weather, or even the meaning of words, to determine whether or not sentence \ref{Acontradiction} is true. It must be false, simply as a matter of structure. It might be raining here and not raining across town; it might be raining now but stop raining even as you finish this sentence; but it is impossible for it to be both raining and not raining in the same place and at the same time. So, whatever the world is like, it is not both raining here and not raining here. It is a \define{necessary falsehood}.
 
+These last two examples, of necessary truths and impossibilities in virtue of structure, are of particular interest to logicians. We will come back to them in §\ref{s:Semantic.concepts}.
+
 A sentence which is capable of being true or false, but which says something which is neither necessarily true nor necessarily false, is \define{contingent}.
 
-If a sentence says something which is sometimes true and sometimes false, it will definitely be contingent. But something might \emph{always} be true and still be contingent. For instance, it seems plausible that whenever there have been people, some of them habitually arrive late. `Some people are habitually late' is always true. But it is contingent, it seems: human nature could have been more punctual. If so, the sentence would have been false. But if something is really necessary, it will always be true.\footnote{Here's an interesting example to consider. It seems that, whenever anyone says the sentence `I am here now', they say something true. That sentence is, whenever it is uttered, \emph{truly uttered}. But does it say something necessary or contingent?}
+If a sentence says something which is sometimes true and sometimes false, it will definitely be contingent. But something might \emph{always} be true and still be contingent. For instance, it seems plausible that whenever there have been people, some of them habitually arrive late. `Some people are habitually late' is always true. But it is contingent, it seems: human nature could have been more punctual. If so, the sentence would have been false. But if something is really necessary, it will always be true, and couldn't even possibly be false.\footnote{Here's an interesting example to consider. It seems that, whenever anyone says the sentence `I am here now', they say something true. That sentence is, whenever it is uttered, \emph{truly uttered}. But does it say something necessary or contingent?}
 
 
-If some sentences contain amongst themselves a necessary falsehood, those sentences are jointly inconsistent. At least one of them cannot be true, so they cannot all be true together. Accordingly, if an argument has a premise that is a necessary falsehood, or its conclusion is a necessary truth, or both, then the argument is conclusive – its premises and the denial of its conclusion will be jointly inconsistent. 
+If some sentences contain amongst themselves a necessary falsehood, those sentences are jointly inconsistent. At least one of them cannot be true, so they cannot all be true together. Accordingly, if an argument has a premise that is a necessary falsehood, or its conclusion is a necessary truth, or both, then the argument is conclusive – its premises and the denial of its conclusion will be jointly inconsistent. \factoidbox{\begin{itemize}
+	\item An argument with a necessarily true conclusion is conclusive;
+	\item An argument with an impossible premise is conclusive.
+\end{itemize}} This second observation might be surprising. But note that if a premise is impossible, there is no way to make it true, and hence no way to make it true \emph{while} making the conclusion false. These are both \emph{degenerate} cases of conclusiveness, where there need be no real connection between the premises and conclusion to ground the conclusiveness of an argument.
 
 \keyideas{\item Arguments are made up of declarative sentences, all of which are either true or false.
 \item Some declarative sentences are formally consistent if, and only if, their structures don't rule out the possibility that they are all true together.
@@ -428,6 +533,17 @@ If some sentences contain amongst themselves a necessary falsehood, those senten
 	\item Always forgive your enemies; nothing annoys them so much.
 \end{earg}
 
+\problempart Which of the following are declarative sentences?
+\begin{earg}
+	\item Answer me!
+	\item 'Answer me!', she demanded.
+	\item You are required to answer me.
+	\item Saying nothing is not an answer.
+	\item If you want answers, ask Alfred.
+	\item Why won't you answer me?
+	\item All that is left to ask is: 'Who has the answers?'
+\end{earg}
+
 \problempart
 \label{pr.EnglishTautology}
 For each of the following: Is it necessarily true, necessarily false, or contingent?
@@ -442,14 +558,23 @@ For each of the following: Is it necessarily true, necessarily false, or conting
 
 \problempart
 \label{pr.MartianGiraffes}
-Look back at the sentences G1–G4 in this section (about giraffes, gorillas and martians in the wild animal park), and consider each of the following:
+Look back at the sentences \ref{G1}–\ref{G4} in this section (about giraffes, gorillas and martians in the wild animal park), and consider each of the following:
 \begin{earg}
-\item G2, G3, and G4
-\item G1, G3, and G4
-\item G1, G2, and G4
-\item G1, G2, and G3
+\item \ref{G2}, \ref{G3}, and \ref{G4}
+\item \ref{G1}, \ref{G3}, and \ref{G4}
+\item \ref{G1}, \ref{G2}, and \ref{G4}
+\item \ref{G1}, \ref{G2}, and \ref{G3}
 \end{earg}
 Which are jointly consistent? Which are jointly inconsistent? 
+
+\problempart Are these sentences jointly consistent?
+\begin{earg}
+\item There are three people leaving the party: Atheer, Brigitte, and James.
+\item Brigitte is wearing Atheer's hat.
+\item Each of the people is wearing a hat.
+\item No person is wearing their own hat.
+\item Atheer is wearing Brigitte's hat.
+\end{earg}
 
 
 
@@ -463,3 +588,5 @@ Could there be:
 \item Jointly inconsistent sentences, one of which is necessarily true?
 \end{earg}
 In each case: if so, give an example; if not, explain why not.
+
+\problempart A feature of a set $A$ is \define{monotonic} if any set including $A$ also has the feature. Explain why inconsistency is monotonic.
