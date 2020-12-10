@@ -42,6 +42,8 @@ The following list contains current issues and proposed revisions arranged by ch
 	- §8
 		+ §8.1: introduce the idea of a function in general.
 		+ exercises!
+	- §10
+		+ Replace 'tautology' by 'logical truth' even for propositional case to ensure consistency with §23; replace 'equivalence' with 'logical equivalence'. 
 	- §11
 		+ Add a discussion of using the test for entailment to understand NL arguments.
 		+ §11.5: two kinds of limits: valid arguments not captured (remedied by \FOL), invalid NL arguments misclassified due to inadequate symbolisation – a form that looks like it might be captured by \TFL\ but which in fact isn't.
@@ -97,10 +99,13 @@ The following list contains current issues and proposed revisions arranged by ch
 		- entailment (doesn't exist a certain kind of valuation) vs provability (does exist a certain kind of proof)
 		- general principle about how we can prove a theorem: must finish a proof with the right kind of rule (bi/conditional intro or ¬ rules) becaue every proof begins with an assumption
 		- emphasise relation between easy semantic tasks and tricky proofs, and vice versa  
+	- §33
+		+ §33.1: mention explicitly that reiteration cannot be used outside a subproof 
 
 * Chapter 7 (`forallx-adl-prooffol.tex`)
 	- §35
 		+ does the \vdash terminology get re-introduced?
+		+ make explicit that the choice of a new name in \exists E is a way of ensuring you meet all the conditions; and make sure that students know choosing a new name is also a way of meeting the conditions on \forall I.
 	- §37
 	- §38 
 		+ some ideas about where next in logic
