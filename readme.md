@@ -27,11 +27,7 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 1 (`forallx-adl-what.tex`) 
 * Chapter 2 (`forallx-adl-tfl.tex`)
 	-§4
-		- Practice questions in §4;
-		- add discussion of sentence structure and trees, to illustrate multiple ways of dividing a sentence.
-		- the idea of a 'canonical clause' (Huddleston & Pullum, pp. 24–5) and the idea of an atomic sentence. But, again, the choice of strutural words influences this – 'always, bob is tall' is a non-canonical clause but it is \TFL-atomic.
-		- §4.2 Logic is a compromise between capturing lots conclusive arguments as valid, and taking relatively few words as structural. 
-		- Consider the invalid: 'There is water in the glass and it is cold; therefore it is cold'. Why invalid?
+		- Further practice questions in §4;
 	- §5
 		- 'only if' as 'then'
 		- add more remarks on paraphrase – what makes a paraphrase acceptable, ' Since there are important grammatical differences that are argumentatively insignificant, logic will sometimes overlook linguistic accuracy in order to capture the ‘spirit’ of a sentence.'
