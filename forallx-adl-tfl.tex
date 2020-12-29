@@ -48,14 +48,82 @@ This valid argument has a structure which we might represent thus:
 		\item[] A
 		\item[So:] \textsf{not}: B
 	\end{earg}
-The examples illustrate the idea of validity – conclusiveness in virtue of structure. The validity of the arguments just considered has nothing very much to do with the meanings of English expressions like `Jenny is miserable', `Dipan is an avid reader of Tolstoy', or `Jim acted in lots of plays'. If it has to do with meanings at all, it is with the meanings of phrases like `and', `or', `not,' and `if …, then …'. 
+The examples illustrate the idea of validity – conclusiveness in virtue of structure. The validity of the arguments just considered has nothing very much to do with the meanings of English expressions like `Jenny is miserable', `Dipan is an avid reader of Tolstoy', or `Jim acted in lots of plays'. If it has to do with meanings at all, it is with the meanings of phrases like `and', `or', `not,' and `if …, then …'.
+
+\section{Sentence Trees and Canonical Clauses}\label{ss.canonical}
+
+Since arguments are made of sentences, the logical structure of an argument will be related to the grammatical structure of the sentences within it. We've already seen in §\ref{s:truthvalues} that arguments are made up of declarative sentences. One standard way of analysing the grammatical structure of a declarative sentence is to break it into constituent phrases (such approaches are known as  \define{phrase structure grammars}). The kind of structure is usefully depicted in a hierarchical \define{syntactic tree}. So we might consider the example \begin{earg}
+	\item[\ex{tariq}] Tariq is a man.
+\end{earg} This sentence can be divided into two main parts: the \define{noun phrase} `Tariq', and the \define{verb phrase} `is a man'. In this example, the verb phrase itself divides into the verb `is' and the \define{determiner phrase} `a man'. We will return to the internal structure of sentences in §\ref{s:FOLBuildingBlocks}. This phrase structure is depicted in Fig.~\ref{fig:tariq}. 
+\begin{figure}
+	 \Tree [.S [.NP Tariq ] [.VP is [.DP a man ] ] ]
+	\caption{A phrase structure tree for Example \ref{tariq}. \label{fig:tariq}}
+\end{figure}
+Let's look at a more complicated example. 
+
+
+\Tree [.S [.S [.NP Alice ] [.VP_1 will [.VP_2 ace [.DP the test ] ] ] ] [ [.Conj and ] [.S [.NP Bob ] [.VP_3 will   \qroof{ace the test}.VP_2  !{\qframesubtree}  ] ] ] ]
+
+has a grammatical structure that sees  phrases
+
+
+
+
+When analysing sentence structure, a useful notion is that of a \define{canonical clause}.\footnote{A more precise treatment of the notion of a canonical clause can be found in Rodney Huddleston and Geoffrey Pullum \emph{A Student's Introduction to English Grammar}, Cambridge University Press, 2005, pp. 24–5.} These are the simplest units of English sentences that can constitute a sentence by themselves. Here are some examples: 
+\begin{earg}
+	\item[\ex{cc1}] It is raining.
+	\item[\ex{cc2}] Jenny is happy.
+	\item[\ex{cc3}] She has read your article.
+	\item[\ex{cc4}] They knew the victim.
+\end{earg}
+A canonical clause has internal structure too, but its parts are not themselves sentences. Typically they are a \define{noun phrase} (`Jenny', `They'), sometimes called the \define{grammatical subject}, and a \define{verb phrase} (`is happy', `knew the victim'), sometimes called a \define{predicate}. 
+
+The following, in contrast with the previous examples, are non-canonical clauses: 
+\begin{earg}
+	\item[\ex{nc1}] It is \underline{not} raining
+	\item[\ex{nc2}] She says that \underline{Jenny is happy}.
+	\item[\ex{nc3}] She has read your article \underline{and} she vehemently disagrees with it.
+	\item[\ex{nc4}] The victim was known to them.
+\end{earg} These give us some characteristics of canonical clauses:
+\begin{itemize}
+	\item They are \emph{positive}, as in \ref{cc1}, rather than negative, as indicated by the underlined `not' in \ref{nc1}.
+	\item The underlined clause in \ref{nc2} is a \emph{subordinate} clause, part of a more complex clause. Canonical clauses are main clauses, as in \ref{cc2}.
+	\item Canonical clauses are simple, and not coordinated with any other clause, as in \ref{cc3}. In \ref{nc3}, the \define{coordinator} `and' links two clauses that would be canonical on their own into a longer \define{compound} sentence.
+	\item They are active, as in \ref{cc4}, not passive as in \ref{nc4}.
+\end{itemize}
+
+This is not a linguistics course, so we are not concerned directly with understanding English grammar. But the idea of a canonical clause is very important for the logic we are examining in this part of the course. Sentential logic is, more or less, the logic that helps us understand and analyse arguments in terms of their constituent canonical clauses. 
+
+
+
+
 
 
 
 
 \section{Identifying argument structure}\label{ss.idargstr}
 
-How can we identify the logical structure of an argument? The logical structure of an argument is the form one arrives at by `abstracting away' the details of the words in an argument, \emph{except for a special set of words}. In the examples above, we removed all details of the arguments except for the special words `and', `or', `not' and `if …, then …', and replaced the other phrases in the argument by placeholder letters `A', `B', etc. (We were careful to replace the same phrase by the same placeholder.)
+How can we identify the logical structure of an argument? The logical structure of an argument is the form one arrives at by `abstracting away' the details of the words in an argument, \emph{except for a special set of words}. In the examples from §\ref{s:ValidityInVirtueOfForm}, we basically aim to identify the canonical clauses that are constituents of the sentences in the argument, or are constituents of reformulated paraphrases of those sentences. Return to this argument: \begin{earg}
+	\item[] Jenny is either happy or sad.
+	\item[] Jenny is not happy.
+	\item[So:] Jenny is sad.
+\end{earg}
+We paraphrase the compound sentence `Jenny is either happy or sad' into a compound of two canonical clauses, joined by the coordinator `or':
+\begin{itemize}
+\item Jenny is happy or Jenny is sad.
+\end{itemize} 
+And we paraphrase the non-canonical clause `Jenny is not happy' as the negative clause 
+\begin{itemize}
+	\item It is not the case that: Jenny is happy.
+
+	\end{itemize} Identifying the coordinator `or' and the negative clause `it is not the case that' as structural words, and replacing the canonical clause `Jenny is happy' with the placeholder letter `A', and the canonical clause `Jenny is sad' with the placeholder letter `B', we arrive again at the argument structure we previously identified:
+	\begin{earg}
+		\item[] A \textsf{or} B
+		\item[] \textsf{not}: A
+		\item[So:] B
+	\end{earg}
+
+In this and the other examples above, we removed all details of the arguments except for the special words `and', `or', `not' and `if …, then …', and replaced the other clauses in the argument (or its near paraphrase) by placeholder letters `A', `B', etc. (We were careful to replace the same clause by the same placeholder every time it appeared.)
 
 This raises another question. What makes those words special? Logicians tend to take a pragmatic attitude to this question. They say: \emph{nothing}! If you had chosen different words, you would have come up with a different structure. But there are practical reasons why the words I've already highlighted are useful ones, which I will now discuss.
 

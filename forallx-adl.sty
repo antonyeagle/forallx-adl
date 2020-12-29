@@ -30,6 +30,7 @@ SizeFeatures={Size=42}]{Constantia Bold Italic}
  \usepackage{fnpct}
 \frenchspacing 
 \usepackage{mathtools}
+\usepackage{qtree}
 
 
 
@@ -74,7 +75,7 @@ SizeFeatures={Size=42}]{Constantia Bold Italic}
 %    ****************************************
 % the title of the book
 \newcommand*{\forallx}{\texttt{forall}\script{x}}
-\newcommand*{\forallxadl}{\texttt{forall}\script{x} \textsc{adelaide}}
+\newcommand*{\forallxadl}{\texttt{forall}\script{x} \textsc{Adelaide}}
 % The version number of the book is a 5 digit integer:
 % the last digit of the year, the month, the day of the month
 \newcounter{dummy}
@@ -756,6 +757,7 @@ SizeFeatures={Size=42}]{Constantia Bold Italic}
 
 \makeatletter
 	\renewcommand{\@chapapp}{ } % TB: to prevent "chapter" appearing all over the place
+\g@addto@macro\@floatboxreset\centering % to ensure figures are centered
 \makeatother
 \renewcommand\cftchapterfont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
 \renewcommand\cftchapterpagefont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC

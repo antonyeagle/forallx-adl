@@ -1,7 +1,7 @@
 Forall*x* Adelaide
 ==================
 
-This is [Antony Eagle](https://antonyeagle.org)'s version of [Tim Button](http://nottub.com)'s version of [PD Magnus](https://www.fecundity.com/job/)'s forall*x*. There are pervasive changes, big and small, substantive and cosmetic. 
+This is a derivative work created by [Antony Eagle](https://antonyeagle.org), based upon [Tim Button](http://www.homepages.ucl.ac.uk/~uctytbu/index.html)'s 2016 Cambridge version of [PD Magnus](https://www.fecundity.com/job/)'s forall*x* (version 1.29). There are pervasive substantive changes in content, theoretical approach, coverage, and appearance. 
 
 License
 -------

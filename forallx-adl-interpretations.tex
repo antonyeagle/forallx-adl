@@ -80,7 +80,7 @@ The empty collection too is a legitimate extension, because the empty set is sti
 There are also trivial cases of the opposite sort, where we assign the entire domain as the extension of a predicate: \begin{itemize}
 	 			\item  `\gap{1} is something' (in any domain), or
 	 			\item `\gap{1} is a horse' in the domain of horses, or 
-	 			\item `\gap{1} is greater than or equal to \gap{2}' in the domain consisting of just the number $1$ (the extension is \ntuple{1,1}, which includes every ordered pair in this domain); and\pause
+	 			\item `\gap{1} is greater than or equal to \gap{2}' in the domain consisting of just the number $1$ (the extension is \ntuple{1,1}, which includes every ordered pair in this domain); and
 	 		\end{itemize}
 
 
@@ -126,20 +126,18 @@ To make these ideas more precise, we would need to develop some \emph{set theory
 \section{Zero-place predicates}
 
 
-
- \begin{frame}\frametitle{Zero-Place Predicates}
-    \begin{itemize}[<+->]
+    \begin{itemize}
     \item Consider these examples:  \begin{enumerate}
     \item \emph{Coober Pedy is a harsh place. It has underground houses.}
     	\item \emph{Coober Pedy is a harsh place. It seldom rains there.}
     \end{enumerate}
-    \item In 1, `it' refers to Coober Pedy. Not so in 2: `It' in that sentence is a \alert{dummy pronoun} (though `there' does refer)!
+    \item In 1, `it' refers to Coober Pedy. Not so in 2: `It' in that sentence is a textbf{dummy pronoun} (though `there' does refer)!
 
-    \item We took this example to suggest that the \alert{bare} report `it is raining' involved no genuine singular term, and modelled by a \alert{zero-place predicate} like $R$. 
+    \item We took this example to suggest that the textbf{bare} report `it is raining' involved no genuine singular term, and modelled by a textbf{zero-place predicate} like $R$. 
     	\item  These don't really apply to anything; they are either true or false of the whole speech situation, rather than true or false of something in the domain. 
-    	\item We treat them as having \alert{truth values as their extension} – just like the \alert{valuations} of \TFL. (In fact we can consider the valuations of \TFL\ as assignments of truth values as the extensions of atomic sentences of that language.)
+    	\item We treat them as having textbf{truth values as their extension} – just like the textbf{valuations} of \TFL. (In fact we can consider the valuations of \TFL\ as assignments of truth values as the extensions of atomic sentences of that language.)
     \end{itemize}
-    \end{frame}
+
 
 \section{Semantics for identity}
 Identity is a special predicate of \FOL. We write it a bit differently than other two-place predicates: `$x=y$' instead of `$Ixy$' (for example). More important, though, its meaning is fixed as to be genuine \emph{identity}, once and for all. Given a domain, the extension of `$=$' comprises just those pairs consisting of any member of the domain and itself. If the domain is numbers, for example, the extension of `$=$' on this domain will be $$\ntuple{1,1}, \ntuple{2,2}, \ntuple{3,3},….$$ 
@@ -239,7 +237,7 @@ The wisdom of Bret Michaels then tells us that the Euler diagram should look lik
 	\end{tikzpicture}
 \end{center}
 
-We can start to see how interpretations can help us evaluate arguments quite vividly in this graphical environment. Recall this example from §\ref{s:FOLBuildingBlocks}: `Willard (`$w$') is a logician (`$L$'); Every logician wears a funny hat (`$F$') \ttherefore\ Willard wears a funny hat'. We can see this is valid: Willard falls in the region corresponding to `$F$' because he falls in the region corresponding to `$L$', which is wholly within the `$F$'-region. \begin{column}
+We can start to see how interpretations can help us evaluate arguments quite vividly in this graphical environment. Recall this example from §\ref{s:FOLBuildingBlocks}: `Willard (`$w$') is a logician (`$L$'); Every logician wears a funny hat (`$F$') \ttherefore\ Willard wears a funny hat'. We can see this is valid: Willard falls in the region corresponding to `$F$' because he falls in the region corresponding to `$L$', which is wholly within the `$F$'-region. \begin{center}
              \begin{tikzpicture}
               	\draw[thick] (0,0) -- (0,4) -- (5,4) -- (5,0) -- cycle;
 		\node (a) at (1,0.5) {People};
@@ -247,10 +245,10 @@ We can start to see how interpretations can help us evaluate arguments quite viv
 		\node (b) at (4,2.5) {$F$};
 		\node (w) at (2.5,2) {$w$};
 		\filldraw[pattern color=blue, pattern=horizontal lines, draw =black, fill opacity=0.2] (2.8,2) ellipse (2cm and 1.6cm);
-		\filldraw[fill=black, draw =black, fill opacity=1] (2.3,1.8) circle (0.05cm);	
+		\filldraw[fill=black, draw =black, fill opacity=1] (2.3,1.8) circle (0.05cm);
 		\filldraw[pattern=vertical lines, pattern color=red, draw =black, fill opacity=0.2] (2.2,1.6) ellipse (1.1cm and 0.75cm);
              \end{tikzpicture}
-              \end{column} 
+              \end{center} 
 
 
 If you would like a real challenge, you might try to figure out the interpretation of this Euler diagram from xkcd (`Chat Systems', \url{https://xkcd.com/1810/}):
@@ -1015,5 +1013,5 @@ Show that the following sentences are jointly inconsistent:
 \problempart
 Show that the following arguments are valid:
 \begin{earg}
-	
+\item sss
 \end{earg}

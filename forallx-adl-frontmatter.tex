@@ -36,7 +36,7 @@ This version of \forallxadl\ is current as of \today.
 
 This book is a derivative work created by Antony Eagle, based upon Tim Button's 2016 Cambridge version of P.D.\ Magnus's \forallx\ (version 1.29). There are pervasive substantive changes in content, theoretical approach, coverage, and appearance. 
 
-You can find the most up to date version of this work at \href{https://github.com/antonyeagle/forallx-adl}{\nolinkurl{github.com/antonyeagle/forallx-adl}}. 
+You can find the most up to date version of \forallxadl\ at \href{https://github.com/antonyeagle/forallx-adl}{\nolinkurl{github.com/antonyeagle/forallx-adl}}. 
 
 The current version of \forallx\ Cambridge is available at \href{https://github.com/OpenLogicProject/forallx-cam}{\nolinkurl{github.com/OpenLogicProject/forallx-cam}}, which has now also diverged noticeably from the 2016 version. Magnus' original is available at \href{http://fecundity.com/logic}{\nolinkurl{fecundity.com/logic}}. 
 
@@ -84,7 +84,7 @@ I appreciate any comments or corrections: \href{mailto:antony.eagle@adelaide.edu
  \matrix (depend)
  [
       matrix of nodes,
-      column sep      = 3em,
+      column sep      = 3.5em,
       row sep         = 5ex,
       nodes={shape=ellipse,
     draw, anchor=center, inner sep=0.75ex,
@@ -117,9 +117,9 @@ I appreciate any comments or corrections: \href{mailto:antony.eagle@adelaide.edu
 (depend-9-4) edge (depend-9-3)
 (depend-9-3) edge (depend-10-3)
 (depend-10-4) edge (depend-10-5)
-(depend-7-3) edge [looseness=1] (depend-12-4)
+(depend-7-3) edge [out=235,in=190] (depend-12-4) %looseness=1
 (depend-8-1) edge [looseness=1.2]  (depend-4-4)
-(depend-11-1) edge [out=150,in=188] (depend-4-3);
+(depend-11-1) edge [out=46,in=244] (depend-4-3);
 	\end{tikzpicture}
 	\caption{How the sections depend on one another. \label{fig:depend}}}
 \end{figure}
