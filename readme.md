@@ -26,8 +26,6 @@ The following list contains current issues and proposed revisions arranged by ch
 
 * Chapter 1 (`forallx-adl-what.tex`) 
 * Chapter 2 (`forallx-adl-tfl.tex`)
-	- §5
-		- 'only if' as 'then'
 	- §7
 		-  more clarity around quasi-quotation. e.g., if $\mathcal{A}$ is '$A$', $\neg\mathcal{A}$ just is '$\neg A$'. more practice exercises. 	 
 * Chapter 3 (`forallx-adl-truthtables.tex`)
