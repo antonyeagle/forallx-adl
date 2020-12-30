@@ -26,8 +26,6 @@ The following list contains current issues and proposed revisions arranged by ch
 
 * Chapter 1 (`forallx-adl-what.tex`) 
 * Chapter 2 (`forallx-adl-tfl.tex`)
-	-§4
-		- Further practice questions in §4;
 	- §5
 		- 'only if' as 'then'
 		- add more remarks on paraphrase – what makes a paraphrase acceptable, ' Since there are important grammatical differences that are argumentatively insignificant, logic will sometimes overlook linguistic accuracy in order to capture the ‘spirit’ of a sentence.'
