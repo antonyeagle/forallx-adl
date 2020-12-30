@@ -202,7 +202,7 @@ In the previous section, we considered symbolising relatively simple English sen
 	\center
 	\begin{tabular}{l l l} \toprule 
 	
-	\textbf{symbol}&\textbf{what it is called}&\textbf{rough English analog}\\
+	\textbf{Symbol}&\textbf{What it is called}&\textbf{Rough English analogue}\\
 	\midrule
 	\enot&negation&`It is not the case that $…$'\\
 	\eand&conjunction&`Both $…$\ and $…$'\\
@@ -213,8 +213,31 @@ In the previous section, we considered symbolising relatively simple English sen
 	\bottomrule \end{tabular}
 	\end{table}
 
-As the table suggests, we will introduce these connectives by the English connectives they parallel, but it is important to bear in mind that they will turn out to be perfectly legitimate standalone expressions of \TFL, with an independent meaning beyond that of their English counterparts. The nature of that meaning we will see in §\ref{s:CompleteTruthTables}.
+As the table suggests, we will introduce these connectives by the English connectives they parallel. It is important to bear in mind that they are perfectly legitimate standalone expressions of \TFL, with a meaning independent of the meaning of their English analogues. The nature of that meaning we will see in §\ref{s:CompleteTruthTables}. \TFL\ is not a strange way of writing English, but a free-standing formal language, albeit one designed to represent some aspects of natural language.
 
+\section{Modelling and Paraphrase} % (fold)
+\label{sec:modelling_and_paraphrase}
+
+We saw in §\ref{ss.idargstr} the grammatical heterogenity of the sentence connectives. Even within the same class of connective we don't have grammatical uniformity. The different sentence connectives that express negation – e.g., `not', `-n't', and `it is not the case that' – can occur in quite different places in a grammatical sentence. Consider these examples:
+ \begin{earg}
+	\item Vassiliki doesn’t like ballet;
+	\item Vassiliki dislikes ballet;
+	\item It is not the case that Vassiliki likes ballet.
+\end{earg} To the grammarian, these differences are of great significance. To the logician, they are not. When the logician considers these examples, what matters is that these are all negated sentences, not the particular way that the idea of negation happens to be implemented syntactically in English. All these sentences seem to be expressing an idea that might roughly be expressed as `It is not the case that: Vassiliki likes ballet'. These sentences are all acceptable \define{paraphrases} of each other, because they all express more or less the same content. They need not be perfectly synonymous to be acceptable paraphrases, because sometimes the small divergences in meaning do not matter for our project. 
+
+Logic aims to represent relations within and between sentences that are significant for arguments. Since there are important grammatical differences that are argumentatively insignificant, logic will sometimes overlook linguistic accuracy in order to capture the ‘spirit’ of a sentence. That spirit is what is present in all acceptable paraphrases of that sentence. If some group of sentences can all play more or less the same role in an argument, the logician will aim to capture just what is essential to the argumentative role. In the following argument, it doesn't matter which of the previous examples we use for the second premise: the argument remains good whichever we include. \begin{earg}
+	\item Vassiliki either likes ballet or soccer;
+	\item Vassiliki doesn’t like ballet;
+	\item[So:] Vassiliki likes soccer.
+\end{earg} 
+
+Partly this tolerant attitude arises because logicians are interested principally in how to represent natural language arguments in a formal language. The formal language is already artificial and limited compared to the expressive power of natural language. \TFL\ only has five different sentence connectives, compared to the rich variety seen in English. From a logical point of view we are already sacrificing nuances of meaning when we represent an argument in a formal language. So it really doesn't matter which way of paraphrasing the original argument we choose, as long as it preserves the gist of the argument, because we'll already be modelling that argument in a way that cannot be faithful to its exact meaning. So when symbolising natural language arguments into English, it is generally appropriate to find a paraphrase that is good enough, but one that most explicitly displays the sentence connectives that you take to be involved in the logical structure of the argument. So while the sentence `It is not the case that Vassiliki likes ballet' is much more stilted sounding than `Vassiliki doesn't like ballet', it has the virtue of displaying the logical structure of the sentence more clearly. It is obvious, in the paraphrase, that we have a negation operating on the canonical clause `Vassiliki likes ballet', and that makes symbolisation straightforward.
+
+As will be evident throughout this section, symbolising an argument in \TFL\ is not like translating it into another natural language. Translation aims to preserve the meaning of your original argument in all its nuance. Symbolisation is more like \emph{modelling}, where you choose to include certain important features and leave out other features that are not important for you. A physicist, for example, might model a system of moving bodies by treating all of them as point particles. Of course the bodies are in fact extended in space, but for the purposes for which the model is designed it may be irrelevant to include that detail, if all that the physicist is trying to do is to predict the overall trajectories of those bodies. Likewise, in logic if our project is to analyse whether an argument is conclusive or not, we may not need to include every detail of meaning in order to complete that project. A good model needn't be perfectly accurate, and in fact, highly accurate models can be very poor because their additional complexity makes them too unwieldy to work with. We will happily settle for models which are good enough to represent the important details. In the present context, that means we want to paraphrase arguments in a way that makes their logical structure explicit, and then to symbolise them using the closest available \TFL\ connectives, even if they are not perfectly synonymous with the English sentence connectives they contain. We'll return to this issue further in §\ref{sec:symvstrans}.
+
+Because a symbolisation isn't exactly alike in meaning to the original sentence, there is some room for the exercise of judgement. You will need sometimes to make choices between different paraphrases that seem to capture the gist of the sentence about equally well. You may have to make a \emph{judgement} about what the sentence is `really' trying to say. Such choices cannot be reduced to a mechanical algorithm. Though you can ask yourself some leading questions: ‘which way was this ambiguous sentence intended?’ or ‘are these two options plausibly intended to be understood as mutually exclusive?’.
+
+% section modelling_and_paraphrase (end)
 
 \section{Negation}
 Consider how we might symbolise these sentences:
@@ -244,16 +267,20 @@ Let us use the following representation key:
 	\begin{ekey}
 		\item[R] The widget is replaceable.
 	\end{ekey}
-Sentence \ref{not4} can now be symbolised by `$R$'. Moving on to sentence \ref{not5}: saying the widget is irreplaceable means that it is not the case that the widget is replaceable. So even though sentence \ref{not5} does not contain the word `not', we shall symbolise it as follows: `$\enot R$'.
+Sentence \ref{not4} can now be symbolised by `$R$'. Moving on to sentence \ref{not5}: saying the widget is irreplaceable means that it is not the case that the widget is replaceable. So even though sentence \ref{not5} does not contain the word `not', we shall symbolise it as follows: `$\enot R$'. This is close enough for our purposes.
 
-Sentence \ref{not5b} can be paraphrased as `It is not the case that the widget is irreplaceable.' Which can again be paraphrased as `It is not the case that it is not the case that the widget is replaceable'. So we might symbolise this English sentence with the \TFL\ sentence `$\enot\enot R$'. %(In English, double-negation tends to cancel out: sentence \ref{not5b} says something very similar to `the widget is replaceable'.)
+Sentence \ref{not5b} can be paraphrased as `It is not the case that the widget is irreplaceable.' Which can again be paraphrased as `It is not the case that it is not the case that the widget is replaceable'. So we might symbolise this English sentence with the \TFL\ sentence `$\enot\enot R$'. Any sentence of \TFL\ can be negated, not only atomic sentences, so `$\enot\enot R$' is perfectly acceptable as a sentence of \TFL. You might have the sense that these two negations should `cancel out', and in \TFL\ that sense will turn out to be vindicated.
 
 But some care is needed when handling negations. Consider:
 	\begin{earg}
 		\item[\ex{not6}] Jane is happy.
 		\item[\ex{not7}] Jane is unhappy.
 	\end{earg}
-If we let the \TFL-sentence `$H$' symbolise  `Jane is happy', then we can symbolise sentence \ref{not6} as `$H$'. However, it would be a mistake to symbolise sentence \ref{not7} with `$\enot{H}$'. If Jane is unhappy, then she is not happy; but sentence \ref{not7} does not mean the same thing as `It is not the case that Jane is happy'. Jane might be neither happy nor unhappy; she might be in a state of blank indifference. In order to symbolise sentence \ref{not7}, then, we would need a new atomic sentence of \TFL.
+If we let the \TFL-sentence `$H$' symbolise  `Jane is happy', then we can symbolise sentence \ref{not6} as `$H$'. However, it would be a mistake in general to symbolise sentence \ref{not7} with `$\enot{H}$'. If Jane is unhappy, then she is not happy; but sentence \ref{not7} does not mean the same thing as `It is not the case that Jane is happy'. Jane might be neither happy nor unhappy; she might be in a state of blank indifference. In order to symbolise sentence \ref{not7}, then, we will typically want to introduce a new atomic sentence of \TFL. Nevertheless, there may be limited circumstances where it doesn't matter which of these non-synonymous ways to deny `Jane is happy' I adopt.
+
+Sometimes a sentence will include a negative for literary effect, even though what is expressed isn't negative. Consider \begin{earg}
+	\item I don't like cricket; I love it!
+\end{earg} The first clause seems negative, but the speaker confounds the hearer's expectation by going on to assert something even more positive than mere liking. Here the first clause really means something like `I don't merely like cricket' – what is denied is that the speaker's affection for cricket is limited to mere liking.\footnote{Technically, the negation here targets not the content of the clause, but the typical expectation that a cooperative speaker who says `I like X' is communicating that liking is the highest point on the scale of affection their attitude to X reaches. These `scalar implicatures' are discussed at length in Larry Horn, \emph{A Natural History of Negation}, University of Chicago Press, 1989, p. 382.}
 
 \section{Conjunction}\label{s:ConnectiveConjunction}
 Consider these sentences:

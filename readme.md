@@ -28,8 +28,6 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 2 (`forallx-adl-tfl.tex`)
 	- §5
 		- 'only if' as 'then'
-		- add more remarks on paraphrase – what makes a paraphrase acceptable, ' Since there are important grammatical differences that are argumentatively insignificant, logic will sometimes overlook linguistic accuracy in order to capture the ‘spirit’ of a sentence.'
-		- Add a section on modelling and the absence of nuance – how we are attempting to model, not translate. Link forward to later discussion in §8.3.
 	- §7
 		-  more clarity around quasi-quotation. e.g., if $\mathcal{A}$ is '$A$', $\neg\mathcal{A}$ just is '$\neg A$'. more practice exercises. 	 
 * Chapter 3 (`forallx-adl-truthtables.tex`)
