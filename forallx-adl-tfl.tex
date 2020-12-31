@@ -124,6 +124,28 @@ And we paraphrase the non-canonical clause `Jenny is not happy' as the negative 
 
 In this and the other examples above, we removed all details of the arguments except for the special words `and', `or', `not' and `if …, then …', and replaced the other clauses in the argument (or its near paraphrase) by placeholder letters `A', `B', etc. (We were careful to replace the same clause by the same placeholder every time it appeared.)
 
+Another example: \begin{earg}
+	\item[\ex{pst1}] Butter isn't healthy, but it is delicious.
+\end{earg} We begin by paraphrasing. We note that the pronoun `it' is actually referring to the previously mentioned subject `butter', and we move the negative `isn't' into a position that reveals the canonical clause `butter is healthy'. We also note that the effect of `but' is roughly the same as our structural word `and' (though it suggests a contrast that `and' does not, `but' expresses the roughly equivalent idea that each of the claims it connects are true) we obtain this more stilted paraphrase: \begin{earg}
+	\item[\ex{pst2}] It is not the case that butter is healthy and butter is delicious.
+\end{earg} This paraphrase has the syntactic tree in Figure \ref{fig:butter}. \begin{figure}
+	\begin{tikzpicture}
+		\Tree [.S [.S Not  [.S \edge[roof]; {butter is healthy} ] ] [  and  [.S \edge[roof]; {butter is delicious} ] ] ]
+	\end{tikzpicture}
+	\caption{Paraphrase of Example \ref{pst1} showing its subsentential structure, as in Example \ref{pst2}.\label{fig:butter}}
+\end{figure} Note that we have not further broken down the canonical clauses into subject-predicate form, because our structural words, the sentence connectives, do not occur within any canonical clause and hence are not `visible' to our analysis at the level of sentences. Finally, we replace the canonical clauses with placeholder sentences, and we reach the structure `Not A and B'.
+
+The schematic paraphrase `Not A and B' is potentially ambiguous, because it is not obvious whether the `not' applies just to the A-clause, or to the whole `A and B' clause. We could introduce parentheses to eliminate this ambiguity, distinguishing `Not (A and B)' from `Not A and B'. This is the approach we will take in our formal language \TFL. Alternatively, we can use the hierarchical nature of syntactic trees to see see that there are two different structures possible for `Not A and B', as depicted in the schematic syntactic trees in Figure \ref{fig:butter2}. \begin{figure}
+	\begin{tikzpicture}[sibling distance=16pt]
+		\Tree [.S [.S Not  [.S A ] ] [  and  [.S B ] ] ]
+	\end{tikzpicture}
+		\begin{tikzpicture}[sibling distance=16pt]
+		\Tree [.S Not [.S [.S A ]  [ and  [.S B ] ] ] ]
+	\end{tikzpicture}
+	\caption{Different sentential structures for `Not A and B' shown in schematic syntactic trees.\label{fig:butter2}}
+\end{figure}
+
+
 Sharp-eyed readers will have noticed that our list of special words doesn't precisely line up with the canonical clauses we introduced in §\ref{ss.canonical}. Consider the non-canonical clause `She said that Jenny is sad', in which the canonical clause `Jenny is sad' is subordinate within an indirect speech report. Because `She said that' is not on our special list of words, we cannot analyse this sentence as composed from a canonical clause and some structural expression. So for the purposes of sentential logic, we will treat `She said that Jenny is sad' \emph{as if} it were canonical, even though it is not from the point of view of English grammar. From the point of view of our structural words, this sentence doesn't have any further structure that we can identify. Such \define{quasi-canonical clauses} – clauses that do not feature any of our list of structural words – will also be replaced by placeholder letters in our analysis. 
 
 
