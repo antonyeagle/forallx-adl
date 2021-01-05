@@ -135,7 +135,7 @@ Another example: \begin{earg}
 	\caption{Paraphrase of Example \ref{pst1} showing its subsentential structure, as in Example \ref{pst2}.\label{fig:butter}}
 \end{figure} Note that we have not further broken down the canonical clauses into subject-predicate form, because our structural words, the sentence connectives, do not occur within any canonical clause and hence are not `visible' to our analysis at the level of sentences. Finally, we replace the canonical clauses with placeholder sentences, and we reach the structure `Not A and B'.
 
-The schematic paraphrase `Not A and B' is potentially ambiguous, because it is not obvious whether the `not' applies just to the A-clause, or to the whole `A and B' clause. We could introduce parentheses to eliminate this ambiguity, distinguishing `Not (A and B)' from `Not A and B'. This is the approach we will take in our formal language \TFL. Alternatively, we can use the hierarchical nature of syntactic trees to see see that there are two different structures possible for `Not A and B', as depicted in the schematic syntactic trees in Figure \ref{fig:butter2}. \begin{figure}
+The schematic paraphrase `Not A and B' is potentially ambiguous, because it is not obvious whether the `not' applies just to the A-clause, or to the whole `A and B' clause. We could introduce parentheses to eliminate this ambiguity, distinguishing `Not (A and B)' from `Not A and B'. This is the approach we will take in our formal language \TFL (see page \pageref{p.con.ambig}). Alternatively, we can use the hierarchical nature of syntactic trees to see see that there are two different structures possible for `Not A and B', as depicted in the schematic syntactic trees in Figure \ref{fig:butter2}. \begin{figure}
 	\begin{tikzpicture}[sibling distance=16pt]
 		\Tree [.S [.S Not  [.S A ] ] [  and  [.S B ] ] ]
 	\end{tikzpicture}
@@ -337,7 +337,7 @@ Sentence \ref{and7} raises similar issues. There is a contrastive structure.  Th
 	\factoidbox{
 		A sentence can be symbolised as $(\meta{A}\eand\meta{B})$ if it can be paraphrased in English as `Both …, and …', or as `…, but …', or as `although …, …'.
 	}
-You might be wondering why I am putting brackets around the conjunctions. The reason for this is to avoid potential ambiguity. This can be brought out by considering how negation might interact with conjunction. Consider:
+You might be wondering why I am putting brackets around the conjunctions. The reason for this is to avoid potential ambiguity.\label{p.con.ambig} This can be brought out by considering how negation might interact with conjunction. Consider:
 	\begin{earg}
 		\item[\ex{negcon1}] It's not the case that you will get both soup and salad.
 		\item[\ex{negcon2}] You will not get soup but you will get salad.
@@ -347,9 +347,9 @@ Sentence \ref{negcon1} can be paraphrased as `It is not the case that: both you 
 		\item[S_1] You will get soup.
 		\item[S_2] You will get salad.
 	\end{ekey}
-We would symbolise `both you will get soup and you will get salad' as `$(S_1 \eand S_2)$'. To symbolise sentence \ref{negcon1}, then, we simply negate the whole sentence, thus: `$\enot (S_1 \eand S_2)$'. 
+We would symbolise `both you will get soup and you will get salad' as `$(S_{1} \eand S_{2})$'. To symbolise sentence \ref{negcon1}, then, we simply negate the whole sentence, thus: `$\enot (S_{1} \eand S_{2})$'. 
 
-Sentence \ref{negcon2} is a conjunction: you \emph{will not} get soup, and you \emph{will} get salad. `You will not get soup' is symbolised by `$\enot S_1$'. So to symbolise sentence \ref{negcon2} itself, we offer `$(\enot S_1 \eand S_2)$'. 
+Sentence \ref{negcon2} is a conjunction: you \emph{will not} get soup, and you \emph{will} get salad. `You will not get soup' is symbolised by `$\enot S_{1}$'. So to symbolise sentence \ref{negcon2} itself, we offer `$(\enot S_{1} \eand S_{2})$'. 
 
 These English sentences are very different, and their symbolisations differ accordingly. In one of them, the entire conjunction is negated. In the other, just one conjunct is negated. Brackets help us to avoid ambiguity by clear distinguishing these two cases.
 
@@ -358,7 +358,7 @@ Once again, however, English does feature this sort of ambiguity. Suppose instea
 \end{earg}
 The sentence \ref{negcon3} is arguably ambiguous; one of its readings says the same thing as \ref{negcon1}, the other says the same thing as \ref{negcon2}. Brackets enable \TFL\ to avoid precisely this ambiguity.
 
-The introduction of brackets prompts us to define some other useful concepts. If a sentence of \TFL\ has the overall form $(\meta{A} \wedge \meta{B})$, we say that its \define{main connective} is conjunction – even if other connectives occur within $\meta{A}$ or $\meta{B}$. Likewise, if the sentence has the form $¬\meta{A}$, its main connective is negation. We define the \define{scope} of an occurrence of a connective in a sentence as the subsentence which has that connective as its main connective. So the scope of `$¬$' in `$¬(S_{1} \wedge S_{2})$' is the whole sentence (because negation is the main connective), while the scope of `$¬$' in `$(¬S_{1}\wedge S_{2})$' is just the subsentence `$¬S_{1}$' – the main connective of the whole sentence is conjunction. Brackets help us keep track of things the scope of our connectives, and which connective in a sentence is the main connective. I say more about the notions of a main connective and the scope of a connective in §\ref{s.sentencesTFL}.
+The introduction of brackets prompts us to define some other useful concepts. If a sentence of \TFL\ has the overall form $(\meta{A} \wedge \meta{B})$, we say that its \emph{main connective} is conjunction – even if other connectives occur within $\meta{A}$ or $\meta{B}$. Likewise, if the sentence has the form $¬\meta{A}$, its main connective is negation. We define the \emph{scope} of an occurrence of a connective in a sentence as the subsentence which has that connective as its main connective. So the scope of `$¬$' in `$¬(S_{1} \wedge S_{2})$' is the whole sentence (because negation is the main connective), while the scope of `$¬$' in `$(¬S_{1}\wedge S_{2})$' is just the subsentence `$¬S_{1}$' – the main connective of the whole sentence is conjunction. Brackets help us keep track of things the scope of our connectives, and which connective in a sentence is the main connective. I say more about the notions of a main connective and the scope of a connective in §\ref{s.mainconnscope}.
 
 \section{Disjunction}
 Consider these sentences:
@@ -648,17 +648,27 @@ Let's consider some examples.
 	\item Next, consider the expression `$\enot (P \eand \enot (\enot Q \eor R))$'. Looking at the second clause of the definition, this is a sentence if `$(P \eand \enot (\enot Q \eor R))$' is. And this is a sentence if \emph{both} `$P$' \emph{and} `$\enot (\enot Q \eor R)$' are sentences. The former is an atomic sentence, and the latter is a sentence if `$(\enot Q \eor R)$' is a sentence. It is. Looking at the fourth clause of the definition, this is a sentence if both `$\enot Q$' and `$R$' are sentences. And both are!
 	\item Suppose we want to know whether `$(A\enot \eor B^{1})$' is a sentence. By the third clause of the definition, this is a sentence iff its two constituents are sentences. The second is not: it consists of an upper case letter and a numerical \emph{superscript}, which is not in conformity with the definition of an atomic sentence. The first isn't either: while it is constructed from an upper case letter and the negation symbol, they are in the wrong order to be a sentence by the first clause of the definition. So the original expression is not a sentence.
 	\item A final example. Consider the expression `$(P \eif \enot(Q \eif P)$'. If this is a sentence, then it's main connective is `\eif', and it was formed from the sentences `$P$' and `$\enot(Q \eif P$'. `$P$' is a sentence because it is a sentence letter. Is `$\enot(Q \eif P$' a sentence? Only if `$(Q \eif P$' is a sentence. But this isn't a sentence; it lacks a closing bracket which would need to be there if this was correctly formed using the clause in the definition covering conditionals. It follows that the expression with which we started isn't a sentence either.
-
 \end{enumerate}
 
-\section{Main connectives and scope} 
+
+
+
+\section{Main connectives and scope} \label{s.mainconnscope}
 
 Ultimately, every sentence of \TFL\ is constructed in a predictable way out of atomic sentences. When we are dealing with a \emph{sentence} other than an atomic sentence, we can see that there must be some sentential connective that was introduced \emph{last}, when constructing the sentence. We call that the \define{main connective} of the sentence. In the case of `$\enot\enot\enot D$', the main connective is the very first `$\enot$' sign. In the case of `$(P \eand \enot (\enot Q \eor R))$', the main connective is `$\eand$'. In the case of `$((\enot E \eor F) \eif \enot\enot G)$', the main connective is `$\eif$'.
 
 The recursive structure of sentences in \TFL\ will be important when we consider the circumstances under which a particular sentence would be true or false. The sentence `$\enot \enot \enot D$' is true if and only if the sentence `$\enot \enot D$' is false, and so on through the structure of the sentence, until we arrive at the atomic components. We will return to this point in chapter \ref{ch.TruthTables}.
 
 The recursive structure of sentences in \TFL\ also allows us to give a formal definition of the \emph{scope} of a negation (mentioned in §\ref{s:ConnectiveConjunction}). The scope of `$\enot$' is the subsentence for which `$\enot$' is the main connective. So a sentence like $$(P \eand (\enot (R \eand B) \eiff Q))$$ was constructed by conjoining `$P$' with `$(\enot (R \eand B) \eiff Q)$'. This last sentence was constructed by placing a biconditional between `$\enot (R \eand B)$' and `$Q$'. And the former of these sentences – a subsentence of our original sentence – is a sentence for which `$\enot$' is the main connective. So the scope of the negation is just `$\enot(R \eand B)$'. More generally:
-\factoidbox{The \define{scope} of an instance of a connective (in a sentence) is the subsentence which that has that instance of the connective as its main connective.} I talk of `instances' of a connective because, in an example like `$\enot\enot A$', there are two occurrences of the negation connective, with different scopes – one is the main connective of the whole sentence, the other has just `$\enot A$' as its scope.
+\factoidbox{The \define{scope} of an instance of a connective (in a sentence) is the subsentence which has that instance of the connective as its main connective.} I talk of `instances' of a connective because, in an example like `$\enot\enot A$', there are two occurrences of the negation connective, with different scopes – one is the main connective of the whole sentence, the other has just `$\enot A$' as its scope.
+
+The recursive definition of a sentence of \TFL\ can also be depicted using a \define{formation tree}, similar to the syntactic trees for English we saw in §\ref{s:firststeps}, but much simpler. At each leaf node of the tree is either an atomic sentence or a sentence connective. Each non-leaf node contains a \TFL\ sentence, and branching from it are (i) its main connective, and (ii) the immediate subsentences in the scope of the main connective. \TFL\ sentences are just those expressions of the language that have a formation tree respecting these rules. Consider again the sentence `$\enot (P \eand \enot (\enot Q \eor R))$'. This has the formation tree depicted in Figure \ref{fig.formtree}.
+\begin{figure}
+	\begin{tikzpicture}[sibling distance=16pt]
+		\Tree  [.{$\enot (P \eand \enot (\enot Q \eor R))$} $\enot$ [.{$(P \eand \enot (\enot Q \eor R))$} $P$ $\eand$ [.{$\enot (\enot Q \eor R)$} $\enot$ [.{$(\enot Q \eor R)$} [.{$\enot Q$} $\enot$ $Q$ ] $\eor$ $R$ ] ] ]  ]
+	\end{tikzpicture}
+	\caption{Formation tree for `$\enot (P \eand \enot (\enot Q \eor R))$'.\label{fig.formtree}}
+\end{figure}
 
 At the beginning of this chapter, we introduced the sentences of \TFL\ in a way that was parasitic upon identifying the structure of certain English sentences. Now we can see that \TFL\ has its own syntax, which can be understood and used independently of English. Our understanding of the meaning of the sentence connectives is still tied to their English counterparts, but in §\ref{s:SchematicTruthTables} we will see that we can also understand their meaning independently from the natural language we used to motivate them. However, it remains true that what makes \TFL\ \emph{useful} is that its syntax and connectives are designed to capture, more or less, elements of the structure of natural language sentences.
 
@@ -666,7 +676,7 @@ At the beginning of this chapter, we introduced the sentences of \TFL\ in a way 
 
 In later sections, we will see the utility of symbolising arguments to evaluate their validity. But even at this early stage, there is value in symbolising sentences, because doing so can clear up \emph{ambiguity}.
 
-Consider the following imagined regulation: `Small children must be quiet and seated or carried at all times'. This sentence has an ambiguous structure, by which I mean: there are two different grammatical structures that it might be thought to have. Symbolising brings this out. Let us use the following key:
+Consider the following imagined regulation: `Small children must be quiet and seated or carried at all times'. This sentence has an ambiguous structure, by which I mean: there are two different grammatical structures that it might be thought to have. We can draw up a syntactic tree to show this. But equally, symbolising can bring this out. Let us use the following key:
 \begin{ekey}
 	\item[Q] Small children must be quiet.
 	\item[S] Small children must be seated.
@@ -724,6 +734,12 @@ For each of the following: (a) Is it a sentence of \TFL, strictly speaking? (b) 
 \end{earg}
 
 \problempart
+Construct a formation tree in the style of Figure \ref{fig.formtree} for the following sentences: \begin{earg}
+	\item $(((A \eif B) \eand (B \eif A)) \eif (B \eiff A))$
+	\item $(((P \eif Q) \eand (\enot R \eif Q)) \eor \enot R)$.
+\end{earg}
+
+\problempart
 Are there any sentences of \TFL\ that contain no atomic sentences? Explain your answer.\\
 
 \problempart
@@ -740,9 +756,9 @@ Consider these two sentences:
 		\item Malcolm Turnbull is the Prime Minister.
 		\item The expression `Malcolm Turnbull' is composed of two upper case letters and thirteen lower case letters.
 	\end{itemize}
-When we want to talk about the Prime Minister, we \emph{use} his name. When we want to talk about the Prime Minister's name, we \emph{mention} that name. And we do so by putting it in quotation marks.
+When we want to talk about the Prime Minister, we \define{use} his name. When we want to talk about the Prime Minister's name, we \define{mention} that name. And in English, we normally do so by putting it in quotation marks.
 
-There is a general point here. When we want to talk about things in the world, we just \emph{use} words. When we want to talk about words, we typically have to \emph{mention} those words.\footnote{More generally, when we want to talk about something we use its name. So when we want to talk about an expression, we use the name of the expression – which is just the expression enclosed in quotation marks. Mentioning an expression is using a name of that expression.} We need to indicate that we are mentioning them, rather than using them. To do this, some convention is needed. We can put them in quotation marks, or display them centrally in the page (say). So this sentence:
+There is a general point here. When we want to talk about things in the world, we just \emph{use} words. When we want to talk about words, we typically have to \emph{mention} those words.\footnote{More generally, when we want to talk about something we use its name. So when we want to talk about an expression, we use the name of the expression – which is just the expression enclosed in quotation marks. Mentioning an expression is using a name of that expression.} We need to indicate that we are mentioning them, rather than using them. To do this, some convention is needed. We can surround the expression in matched left and right quotation marks, or display them centrally in the page (say). So this sentence:
 	\begin{itemize}
 		\item `Malcolm Turnbull' is the Prime Minister.
 	\end{itemize}
@@ -754,7 +770,7 @@ also says something false: Malcolm Turnbull is a man, made of meat rather than l
 	\begin{itemize}
 		\item `\,`Malcolm Turnbull'\,' is the name of `Malcolm Turnbull'.
 	\end{itemize} 
-On the left-hand-side, here, we have the name of a name. On the right hand side, we have a name. Perhaps this kind of sentence only occurs in logic textbooks, but it is true. 
+On the left-hand-side, here, we have the name of a name (it consists of an expression in quotation marks, and that embedded expression itself contains quotation marks). On the right hand side, we have a name (of an expression). Perhaps this kind of sentence only occurs in logic textbooks, but it is true. 
 
 Those are just general rules for quotation, and you should observe them carefully in all your work! To be clear, the quotation-marks here do not indicate indirect speech. They indicate that you are moving from talking about an object, to talking about the name of that object.
 
@@ -785,7 +801,16 @@ Equally, what we meant to say above is just:
 	\begin{itemize}
 		\item `$D$' is an atomic sentence of \TFL.
 	\end{itemize}
-The general point is that, whenever we want to talk in English about some specific expression of \TFL, we need to indicate that we are \emph{mentioning} the expression, rather than \emph{using} it. We can either deploy quotation marks, or we can adopt some similar convention, such as  placing it centrally in the page. 
+The general point is that, whenever we want to talk in English about some specific expression of \TFL, we need to indicate that we are \emph{mentioning} the expression, rather than \emph{using} it. We can either deploy quotation marks, or we can adopt some similar convention, such as placing it centrally in the page. 
+
+English is, generally, its own metalanguage. An expression of English enclosed in matching quotation marks is another expression of English, as the quotation marks are parts of English too. This causes a potential problem of ambiguity if the expression quoted itself contains quotation marks.  English allows us to talk about operations on English expressions, as in this example \begin{earg}
+	\item [\ex{ex.ant}] An English word results from adding `ing' or `ion' to the expression `confus'.
+\end{earg} But this example is ambiguous. On one reading, it is discussing the expressions `confusing' and `confusion', and saying truly that they are both English words. But on another reading, the matching quotation marks are the one before `ing' and the one after `ion', and Example \ref{ex.ant} is stating falsely that this unusual string of English letters and punctuation can be added to `confus' to form an English word: \begin{quote}
+ing’ or ‘ion
+\end{quote} To avoid this, we might introduce some mechanism for indicating which quotation marks are matched with each other.
+
+
+
 
 
 \section{Script fonts, and recursive definitions revisited}
@@ -802,7 +827,7 @@ This talks about \emph{arbitrary} sentences. If we had instead offered:
 this would not have allowed us to determine whether `$\enot B$' is a sentence. To emphasise, then:
 	\factoidbox{
 		`$\meta{A}$' is a symbol in augmented English, which we use to talk about any \TFL\ expression. 	`$A$' is a particular atomic sentence of \TFL.}
-To come at this distinction a slightly different way, while `$\meta{A}$' designates a sentence of \TFL, it can designate a different sentence on different occasions. It behaves a bit a like a pronoun – `it' always designates some object, but a different one in different circumstances of use. By contrast, `$A$' always names just that atomic sentence of \TFL\ which is just the first letter of the English alphabet.  
+To come at this distinction a slightly different way, while `$\meta{A}$' designates a sentence of \TFL, it can designate a different sentence on different occasions. It behaves a bit a like a pronoun. The pronoun `it' always designates some object, but a different one in different circumstances of use. Likewise `$\meta{A}$' can stand for different sentences of \TFL.  By contrast, `$A$' always names just one atomic sentence of \TFL, the first letter of the English alphabet.
 
 This last example raises a further complication for our quotation conventions. I have not included any quotation marks in the clauses of our recursive definition of a sentence of \TFL\ in §\ref{s.sentencesTFL}. Should I have done so?
 
@@ -812,7 +837,7 @@ The problem is that the expression on the right-hand-side of most of our recursi
 	\end{enumerate}
 But this is no good: `$\enot \meta{A}$' is not a \TFL\ sentence, since `$\meta{A}$' is a symbol of (augmented) English rather than a symbol of \TFL. What we really want to say is something like this:
 	\begin{enumerate}
-		\item[2$''$.] If $\meta{A}$ is a sentence, then the expression that consists of the symbol `$\enot$', followed immediately by the sentence $\meta{A}$, is also a sentence.
+		\item[2$''$.] If $\meta{A}$ is any \TFL\ sentence, then the expression that consists of the symbol `$\enot$', followed immediately by the sentence $\meta{A}$, is also a sentence.
 	\end{enumerate}
 This is impeccable, but rather long-winded. %Quine introduced a convention that speeds things up here. In place of (3$''$), he suggested:
 %	\begin{enumerate}
@@ -824,7 +849,9 @@ simply abbreviates:
 \begin{quote}
 	the expression that consists of the symbol `$\enot$' followed by the sentence $\meta{A}$
 \end{quote}
-and similarly, for expressions like `$(\meta{A} \eand \meta{B})$', `$(\meta{A} \eor \meta{B})$', etc. The latter is the expression which consists of the sentence \meta{A} followed by the symbol `$\eor$' followed by the sentence \meta{B}.
+and similarly, for expressions like `$(\meta{A} \eand \meta{B})$', `$(\meta{A} \eor \meta{B})$', etc. The latter is the expression which consists of an opening parenthesis, followed by the sentence \meta{A}, followed by the symbol `$\eor$', followed by the sentence \meta{B}, followed by a closing parenthesis. 
+
+If you like, you can think of our recursive definition of a sentence as a schema standing for infinitely many instances of each clause, one for each \TFL\ sentence. In the schematic clause for negation (`If $\meta{A}$ is a sentence, $\enot\meta{A}$ is also a sentence'), we can consider each instance involving ‘$\meta{A}$’ being replaced by some \TFL\ sentence surrounded by quotation marks, and where ‘$\enot\meta{A}$’ is replaced by a left quotation mark, a negation sign, the same \TFL\ sentence, and a right quotation mark. Hence if if $\meta{A}$ is '$A$', $\neg\meta{A}$ just is '$\neg A$'.
 
 
 \section{Quotation conventions for arguments}
@@ -835,6 +862,13 @@ abbreviates:
 		the argument with premises $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ and conclusion $\meta{C}$
 	\end{quote}
 To avoid unnecessary clutter, we shall not regard this as requiring quotation marks around it. This is a name of an argument, not an argument itself. (Note, then, that `$\ttherefore$' is a symbol of our augmented \emph{metalanguage}, and not a new symbol of \TFL.)
+
+\section{Pedantry in practice}
+
+Having been precise about use and mention, you can now relax! If you've understood this section, you know how to do things properly. In exercises and practice problems, unless explicit instructions otherwise are given, you will be expected to do things properly and respect the distinction between use and mention. But your understanding of the topic means that you can probably do things a bit more sloppily elsewhere – safe in the knowledge you can fix them up if you need to. As the great twentieth century philosopher David Lewis said of the way he presented his account of the word ‘knows’ in his paper `Elusive Knowledge',\footnote{David Lewis `Elusive Knowledge', \emph{Australasian Journal of Philosophy} \textbf{74} (1996): 549–67, at pp. 566–7.} \begin{quote}
+	I could have said my say fair and square, bending no rules.  It would have been tiresome, but it could have been done…. I could have taken great care to distinguish between (1) the language I use when I talk about knowledge, or whatever, and (2) the second language that I use to talk about the semantic and pragmatic workings of the first language.  If you want to hear my story told that way, you probably know enough to do the job for yourself.
+\end{quote} Wise words. In the end, the distinction between use and mention is intended to remove potential confusion. But sometimes over-eager application of it can prove just as big an obstacle to communication.
+
 
 \keyideas{
 	\item It is crucial to distinguish between use and mention – between talking about the world, and talking about  expressions.
@@ -856,3 +890,6 @@ For each of the following: Are the quotation marks correctly used, strictly spea
 \item If `$\meta{A}$' is a sentence, so is `$(\meta{A} \eor \meta{A})$'. % actually correct despite appearances.
 \item `$\meta{A}$' has the same number of characters as `$A$'.
 \end{earg}
+
+\problempart Example \ref{ex.ant} was ambiguous because it was unclear which pairs of quotation marks were matched with each other. Can you come up with a proposal for how we might indicate matching quotation marks to avoid this potential ambiguity?
+
