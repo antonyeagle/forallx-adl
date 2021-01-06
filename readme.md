@@ -27,9 +27,8 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 1 (`forallx-adl-what.tex`) 
 * Chapter 2 (`forallx-adl-tfl.tex`)
 * Chapter 3 (`forallx-adl-truthtables.tex`)
-	- §8
-		+ §8.1: introduce the idea of a function in general.
-		+ exercises!
+	- §8 
+		+ more practice exercises!
 	- §10
 		+ Replace 'tautology' by 'logical truth' even for propositional case to ensure consistency with §23; replace 'equivalence' with 'logical equivalence'. 
 	- §11

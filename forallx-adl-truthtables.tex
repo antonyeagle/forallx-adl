@@ -7,46 +7,45 @@
 
 \chapter{Truth-Functional Connectives}\label{s:TruthFunctionality}
 
-\section{Functions}
+\section{Functions}\label{ss.function}
 
 So much for the grammar or syntax of \TFL. We turn now to the meaning of \TFL\ sentences. For technical reasons, it is best to  start with the intended intepretation of the connectives. 
 
-As a preliminary, we need to have the concept of a (mathematical) \define{function}. Frequently, we refer to things not by name, but by the relations they have to other things. You can refer to Barack Obama by name, but one could equally refer to him in relation to his role, as `the 44th President of the United States', or in relation to his family, as `the husband of Michelle and father of Malia and Sasha'. These kinds of referring expressions are known as \emph{descriptions}, and we will look at them in more detail in §\ref{subsec.defdesc}. Our interest in them now is in the relations they involve. Barack Obama is denoted by `the biological father of Malia Obama' or `the biological father of Sasha Obama', in relation to his children. But we can consider `the biological father of …' in relation to other individuals: so `the biological father of Baron' denotes Trump, `the biological father of Daisy Turnbull' denotes Malcolm Turnbull, and so on. We can summarise this information in a table like this: 
+As a preliminary, we need to have the concept of a (mathematical) \emph{function}. Frequently, we refer to things not by name, but by the relations they have to other things. You can refer to Barack Obama by name, but one could equally refer to him in relation to his role, as `the 44th President of the United States', or in relation to his family, as `the husband of Michelle and father of Malia and Sasha'. These kinds of referring expressions are known as \emph{descriptions}, and we will look at them in more detail in §\ref{subsec.defdesc}. Our interest in them now is in the relations they involve. Barack Obama is denoted by `the biological father of Malia Obama' or `the biological father of Sasha Obama', in relation to his children. But we can consider `the biological father of …' in relation to other individuals: so `the biological father of Ivanka Trump' denotes Donald, `the biological father of Daisy Turnbull' denotes Malcolm, and so on. We can summarise this information in a table like this: 
 \begin{center}
 \begin{tabular}{c|c} \toprule 
 Input & `the biological father of …'\\
 \midrule
 Malia Obama & Barack \\
 Sasha Obama & Barack \\
-Baron Trump & Donald\\
+Ivanka Trump & Donald\\
 Daisy Turnbull & Malcolm\\
 … & … \\ \bottomrule
 \end{tabular}
-\end{center} In this table we have an \emph{input}, on the left, which is related to the \emph{output} on the right. The relation which maps the things in the left column to their corresponding outputs on the right is known as a \define{function} – in this case, the `biological father of' function. More precisely, a function is a relation between the members of a set $A$ and a set $B$ (which may be the same as $A$), such that each input to the function is a member of $A$, each output of the function is a member of $B$, and, crucially, each member of $A$ is associated with at most one member of $B$. So `the biological father of … ' is a function from the set of people (living or dead) to itself, and associates each person with their biological father. We implicitly that `biological father' permits each person to be associated with a unique father. If we consider other notions of fatherhood, such as \emph{paternal figure}, those would not yield a function, because many people have two or more paternal figures in their lives. Note that while everyone is associated with a unique biological father by this function (no input is associated with more than one output), the converse does not hold: some outputs are linked to more than one input, in fact, every father with more than one child.
+\end{center} In this table we have an \emph{input}, on the left, which is related to the \emph{output} on the right. The relation which maps the things in the left column to their corresponding outputs on the right is known as a function – in this case, the `biological father of' function. More precisely, a \define{function} is a relation between the members of some collection $A$ and some collection $B$ (which may be the same as $A$), such that each input to the function is a member of $A$, each output of the function is a member of $B$, and, crucially, each member of $A$ is associated with at most one member of $B$. So `the biological father of … ' is a function from the set of people (living or dead) to itself, and associates each person with their biological father. We implicitly that `biological father' permits each person to be associated with a unique father. If we consider other notions of fatherhood, such as \emph{paternal figure}, those would not yield a function, because many people have two or more paternal figures in their lives. Note that while everyone is associated with a unique biological father by this function (no input is associated with more than one output), the converse does not hold: some outputs are linked to more than one input, in fact, every father with more than one child.
 
 Common examples of functions occur in mathematics: we can consider the function `the sum of $x$ and $y$', which takes two numbers as input, and spits out their unique sum, $x+y$. This is again a function from a set to itself, this time the set of integers. There are functions which are from one set to another: consider, `the number of …'s children', which is a function from people to numbers, mapping each person to the number of children they have. (Even if they have more than one child, there is still a unique number characterising how many they have, and that is what this function spits out.) There are functions which do not associate an output with every input: consider `the eldest child of', which associates each parent with their first-born child, but doesn't associate non-parents with anything. There are many relations which are not functions. While Barack Obama can be chatacrerised as `the father of Malia', Malia Obama cannot be characterised as `the child of Barack', since that attempted description would apply equally to her sister.  
 
 \section{The idea of truth-functionality}
 
-The relevance of the notion of a function is that we are going to identify the meanings of the \TFL\ sentence connectives with a certain class of functions. The main property we are concerned with in \TFL\ that is associated with the meaning of a sentence is its truth-value, true or false (see §\ref{s:valuations}). \TFL\ is a logic of sentences, which allows us to construct complex sentences from smaller constituents together with a sentence connective. And the meanings of the sentence connectives are going to allow us to determine the truth-value of a complex sentence as a product of the truth values of its constituent sentences and the sentence connective involved. 
+The relevance of the notion of a function is that we are going to identify the meanings of the \TFL\ sentence connectives with a certain class of functions.
 
-XXX
+A valid argument is one with a structure that guarantees the truth of the conclusion, given the truth of the premises (§\ref{s:validityintro}). Our interest in valid arguments leads us to be interested in the truth or falsity of sentences. \TFL\ gives rules governing the construction of complex sentences from smaller constituents for each sentence connective. The meanings of the sentence connectives in \TFL\ are likewise going to allow us to `construct', or determine, the truth-value of a complex sentence as the result of the truth values of its constituent sentences and the main connective of that sentence. 
 
-
-I want to start by introducing an important idea about sentence connectives.
+This is an important idea about \TFL\ sentence connectives. They are each associated with a rule that fixes the truth value of a complex sentence of which they are the main connective, given the truth values of the constituent sentences. But such a rule is just a function: a function that takes one or two truth values as input, and yields a truth value as output. Such a function is called a \define{truth-function}. We can now summarise our important insight about \TFL: 
 	\factoidbox{\label{def.truthfunction}
-		A connective is \define{truth-functional} iff the truth value of a sentence with that connective as its main connective is uniquely determined by the truth value(s) of the constituent sentence(s).
-	}
+		A connective is \define{truth-functional} iff the truth value of a sentence with that connective as its main connective is uniquely determined by the truth value(s) of the constituent sentence(s), i.e., its meaning is a truth-function.
 
-It is a fact that \emph{every connective in \TFL\ is truth-functional}. It turns out that we don't need to know anything more about the atomic sentences of \TFL\ than their truth values to assign a truth value to those non-atomic, or \define{compound}, sentences. More generally, the truth value of any compound sentence depends only on the truth value of the subsentences that comprise it. In order to know the truth value of `$(D \eand E)$', for instance, you only need to know the truth value of `$D$' and the truth value of `$E$'. In order to know the truth value of `$\bigl( (D \eand E) \eor F\bigr)$', you need only know the truth value of `$(D \eand E)$' and `$F$'. And so on. This is fact a good part of the reason why we chose these connectives, and chose their English near-equivalents as our structural words. To determine the truth value of some \TFL\ sentence, we only need to know the truth value of its components. This is why the study of \TFL\ is termed \emph{truth-functional logic}.
+		\emph{Every connective in \TFL\ is truth-functional.}}
+It turns out that we don't need to know anything more about the atomic sentences of \TFL\ than their truth values to assign a truth value to those non-atomic, or \define{compound}, sentences. More generally, the truth value of any compound sentence depends only on the truth value of the subsentences that comprise it. In order to know the truth value of `$(D \eand E)$', for instance, you only need to know the truth value of `$D$' and the truth value of `$E$'. In order to know the truth value of `$\bigl( (D \eand E) \eor F\bigr)$', you need only know the truth value of `$(D \eand E)$' and `$F$'. And so on. This is fact a good part of the reason why we chose these connectives, and chose their English near-equivalents as our structural words. To determine the truth value of some \TFL\ sentence, we only need to know the truth value of its components. This is why the study of \TFL\ is termed \emph{truth-functional logic}.
 
 \section{Schematic truth tables}\label{s:SchematicTruthTables}
 
-We introduced five connectives in chapter \ref{ch.TFL}. To give substance to the claim that they are truth-functional, we simply need to explain how each connective yields a truth value for a compound sentence, when supplied with the truth values of its \define{immediate subsentences}. In any sentence of the form $\meta{A} \eif \meta{B}$, $\meta{A}$ and $\meta{B}$ are the immediate subsentences, since those combine with the main connective to form the sentence.
+We introduced five connectives in chapter \ref{ch.TFL}. To give substance to the claim that they are truth-functional, we simply need to explain how each connective yields a truth value for a compound sentence with that connective as its main connective, when supplied with the truth values of its \define{immediate subsentences}. In any sentence of the form $\meta{A} \eif \meta{B}$, $\meta{A}$ and $\meta{B}$ are the immediate subsentences, since those combine with the main connective to form the sentence.
 
-Not only does the truth value of a compound sentence of \TFL\ depend only on the truth values assigned to its subsentences, it does so \emph{uniquely}. We may happily refer to \emph{the} truth value of \meta{A} as determined by its constituents. This means we may represent the pattern of dependence of compound sentence truth values on immediate subsentence truth values in a simple table.  For convenience, we shall represent `True' by `T' and `False' by `F'. (But just to be clear, the two truth values are True and False; the truth values are not \emph{letters}!) 
+Not only does the truth value of a compound sentence of \TFL\ depend only on the truth values assigned to its subsentences, it does so \emph{uniquely}, because it is a function. We may happily refer to \emph{the} truth value of \meta{A} as determined by its constituents. This means we may represent the pattern of dependence of compound sentence truth values on immediate subsentence truth values in a simple table, like those we saw in §\ref{ss.function}. These tables show how to relate the input truth values to output truth values for any sentence connective. For convenience, we shall represent the truth values `True' by `T' and `False' by `F'. (Just to be clear, the two truth values are True and False; the truth values are not \emph{letters}!) 
 
-These truth tables completely characterise how the connectives of \TFL\ behave. Accordingly, we can take these schematic truth tables as giving the \emph{meanings} of the connectives. 
+These truth tables completely characterise how the connectives of \TFL\ behave. Accordingly, we can take these schematic truth tables as giving the \emph{meanings} of the connectives. The truth function associated with a connective captures their entire contribution to the sentences in which they appear.
 
 \paragraph{Negation} For any sentence \meta{A}: If \meta{A} is true, then `\enot\meta{A}' is false. If `\enot\meta{A}' is true, then \meta{A} is false. We can summarize this dependence in the \define{schematic truth table} for negation, which shows how any sentence with negation as its main connective has a truth value depending on the truth value of its immediate subsentence:
 \begin{center}
@@ -57,6 +56,8 @@ T & F\\
 F & T\\ \bottomrule
 \end{tabular}
 \end{center}
+This is a schematic table, because the input truth values are not associated with any specific \TFL\ sentence, but with arbitrarily chosen sentences which have the truth value in question. Whatever \TFL\ sentence we choose in place of \meta{A}, whether atomic or not, we know that if \meta{A} has the truth value True, then $\neg\meta{A}$ will have the truth value False.
+
 
 \paragraph{Conjunction} For any sentences \meta{A} and \meta{B}, \meta{A}\eand\meta{B} is true if and only if both \meta{A} and \meta{B} are true. We can summarize this in the schematic truth table for conjunction:
 \begin{center}
@@ -86,7 +87,7 @@ Like conjunction, disjunction is commutative.
 
 \paragraph{Conditional} I'm just going to come clean and admit it. Conditionals are a problem in \TFL. This is not because there is any problem finding a truth table for the connective `\eif', but rather because the truth table we put forward seems to make `\eif' behave in ways that are different to the way that the English counterpart `if … then …' behaves. Exactly how much of a problem this poses is a matter of \emph{philosophical} contention. I shall discuss a few of the subtleties  in §\ref{s:IndicativeSubjunctive} and §\ref{s:ParadoxesOfMaterialConditional}. (It is no problem for \TFL\ itself, of course – the only potential difficulty arises when we try to use the \TFL\ conditional to represent `if …, then …'.
 
-We know at least this much from a parallel with the English conditional: if \meta{A} is true and \meta{B} is false, then $\meta{A}\eif\meta{B}$ should be false. (The conditional claim `if I study hard, then I'll pass' is clearly false if you study hard and still fail.) For now, I am going to stipulate that this is the only type of case in which $\meta{A}\eif\meta{B}$ is false.  We can summarize this with a schematic truth table for the \TFL\ conditional.
+We know at least this much from a parallel with the English conditional: if \meta{A} is true and \meta{B} is false, then $\meta{A}\eif\meta{B}$ should be false. The conditional claim `if I study hard, then I'll pass' is clearly false if you study hard and still fail. For now, I am going to stipulate that this is the only type of case in which $\meta{A}\eif\meta{B}$ is false.  We can summarize this with a schematic truth table for the \TFL\ conditional.
 \begin{center}
 \begin{tabular}{c c|c} \toprule 
 \meta{A} & \meta{B} & $\meta{A}\eif\meta{B}$\\
@@ -97,7 +98,10 @@ F & T & T\\
 F & F & T\\\bottomrule
 \end{tabular}
 \end{center}
-The conditional is \emph{not} commutative. You cannot swap the antecedent and consequent in general without changing the truth value, because $\meta{A}\eif\meta{B}$ has a different truth table from $\meta{B}\eif\meta{A}$. 
+The conditional is \emph{not} commutative. You cannot swap the antecedent and consequent in general without changing the truth value, because $\meta{A}\eif\meta{B}$ has a different truth table from $\meta{B}\eif\meta{A}$. Compare: \begin{earg}
+	\item If a coin lands heads 1000 times, something surprising has happened. (True – that is very surprising.)
+	\item If something surprisings has happened, then a coin lands heads 1000 times. (False – there are other surprising things than that.)
+\end{earg}
 
 \paragraph{Biconditional} Since a biconditional is to be the same as the conjunction of a conditional running in each direction, we shall want the truth table for the biconditional to be:
 \begin{center}
@@ -110,7 +114,7 @@ F & T & F\\
 F & F & T\\\bottomrule
 \end{tabular}
 \end{center}
-Unsurprisingly, the biconditional is commutative.
+You can think of the biconditional as saying that the two immediate constituents have the same truth value – it’s true if they do, false otherwise. Unsurprisingly, the biconditional is commutative. 
 
 
 
@@ -121,7 +125,7 @@ Unsurprisingly, the biconditional is commutative.
 We have seen how to use a symbolisation key in §\ref{s:ValidityInVirtueOfForm} to \emph{temporarily} assign an interpretation to some of the atomic sentences of \TFL. This symbolisation key will at the very least assign a truth-value to those atomic sentences – the same one as the English sentence it symbolises.
 
 
-But since the connectives of \TFL\ are truth-functional, they really care about nothing \emph{but} the truth values of the symbolised sentences. So when we are symbolising a sentence or an argument in \TFL, we  are ignoring everything \emph{besides} the contribution that the truth values of a subsentence might make to the truth value of the whole. 
+But since the connectives of \TFL\ are truth-functional, they really are sensitive to nothing \emph{except} the truth values of the symbolised sentences. So when we are symbolising a sentence or an argument in \TFL, we  are ignoring everything \emph{besides} the contribution that the truth values of a subsentence might make to the truth value of the whole. 
 
 There are subtleties to natural language sentences that far outstrip their mere truth values. Sarcasm; poetry; snide implicature; emphasis; these are important parts of everyday discourse. But none of this is retained in \TFL. As remarked in §\ref{s:TFLConnectives}, \TFL\ cannot capture the subtle differences between the following English sentences:
 	\begin{earg}
@@ -154,12 +158,18 @@ In plenty of languages there are connectives that are not truth-functional. In E
 		\item $2 + 2 = 4$.
 		\item Shostakovich wrote fifteen string quartets.
 	\end{earg}
-Whereas it is necessarily the case that $2 + 2 = 4$,\footnote{Given that the English numeral `$2$' names the number two, and the numeral `$4$' names the number four, and `$+$' names addition, then it must be that the result of adding two to itself is four. This is not to say that `$2$' had to be used in the way we actually use it – if `$2$' had named three, the sentence would have been false. But in its actual use, it is a necessary truth.} it is not \emph{necessarily} the case that Shostakovich wrote fifteen string quartets. If Shostakovich had died earlier, he would have failed to finish Quartet no.\ 15; if he had lived longer, he might have written a few more. So `It is necessarily the case that …' is a connective of English, but it is not \emph{truth-functional}.
+Whereas it is necessarily the case that $2 + 2 = 4$,\footnote{Given that the English numeral `$2$' names the number two, and the numeral `$4$' names the number four, and `$+$' names addition, then it must be that the result of adding two to itself is four. This is not to say that `$2$' had to be used in the way we actually use it – if `$2$' had named the number three, the sentence would have been false. But in its actual use, it is a necessary truth.} it is not \emph{necessarily} the case that Shostakovich wrote fifteen string quartets. If Shostakovich had died earlier, he would have failed to finish Quartet no.\ 15; if he had lived longer, he might have written a few more. So `It is necessarily the case that …' is a connective of English, but it is not \emph{truth-functional}. Another example: `one hundred years ago'. Both `many people have cars' and `many people have children' are true. But while `One hundred years ago, many people had children' is true, `One hundred years ago, many people had cars' is false. 
+
+In these cases, we had the same input truth values, but different output. We can turn this into a \emph{test} for truth-functionality: if for some one-place connective `$\#$', you can find sentences \meta{A} and \meta{B} such that (i) \meta{A} has the same truth value as \meta{B}, while (ii) $\#\meta{A}$ has a different truth value from $\#\meta{B}$, then `$\#$' is not a truth-functional connective. Its truth value is obviously not fixed by the truth value of its immediate subsentence. The test can be generalised in the obvious way to binary connectives, etc: can you find a connective such that when you feed it the same truth values as input, you get different results? If so, that result is not a function of the input truth values.
+
+
 
 \section{Indicative versus subjunctive conditionals}\label{s:IndicativeSubjunctive}
-I want to bring home the point that \TFL\ \emph{only} deals with truth functions by considering the case of the conditional. When I introduced the schematic truth table for the material conditional in §\ref{s:SchematicTruthTables}, I did not say much to justify it. Let me now offer a justification, which follows Dorothy Edgington.\footnote{Dorothy Edgington, `Conditionals', 2006, in the \emph{Stanford Encyclopedia of Philosophy} (\url{http://plato.stanford.edu/entries/conditionals/}).} 
+I want to bring home the point that \TFL\ \emph{only} deals with truth functions by considering the case of the conditional. When I introduced the schematic truth table for the material conditional in §\ref{s:SchematicTruthTables}, I did not say much to justify it. Let me now offer two justifications. These are not arguments for the truth function associated with `$\eif$', which is a perfectly legitimate rule for associating input truth values with outputs. What needs justification is our idea that we should use this truth function when symbolise English sentences whose main connective is `if … then …'. They attempt to show that our usage of the English conditional `if' is in line with the way `$\eif$' behaves.
 
-Suppose that Lara has drawn some shapes on a piece of paper, and coloured some of them in. I have not seen them, but I claim:
+\paragraph{Edginton's Argument}
+
+The first follows a line of argument due to Dorothy Edgington.\footnote{Dorothy Edgington, `Conditionals', 2006, in the \emph{Stanford Encyclopedia of Philosophy} (\url{http://plato.stanford.edu/entries/conditionals/}).}  Suppose that Lara has drawn some shapes on a piece of paper, and coloured some of them in. I have not seen them, but I claim:
 	\begin{quote}
 		If any shape is grey, then that shape is also circular.
 	\end{quote}
@@ -193,12 +203,17 @@ then my claim would have be false. So it must be that this claim is false:
 	\end{itemize}
 Now, recall that every connective of \TFL\ has to be truth-functional. This means that the mere truth value of the antecedent and consequent must uniquely determine the truth value of the conditional as a whole. Thus, from the truth values of our four claims – which provide us with all possible combinations of truth and falsity in antecedent and consequent – we can read off the truth table for the material conditional.
 
-What this argument shows is that `$\eif$' is the \emph{only} candidate for a truth-functional conditional. Otherwise put, \emph{it is the best conditional that \TFL\ can provide}. But is it any good, as a surrogate for the conditionals we use in everyday language? Consider two sentences:
+\paragraph{The or-to-if argument} A second justification for symbolising `if' as `$\eif$' is this. We know already that if \meta{A} is true and \meta{C} is false, then `if \meta{A} then \meta{C}' will be false. What should we say about the other rows of the truth table, the rows on which either \meta{A} is false, or \meta{B} is true (or both). Well, suppose that either \meta{A} is false or \meta{B} is true. If the first disjunct of this disjunction is false, then the second disjunct is true. The first disjunct (`\meta{A} is false') is false just in case \meta{A}; so it turns out that if \meta{A}, then \meta{B}. so `if \meta{A}, then \meta{B}' should hold on those other three lines, giving us the truth table we have associated with `$\eif$' as the best truth table for `if'.
+
+
+
+
+What these two arguments show is that `$\eif$' is the \emph{only} candidate for a truth-functional conditional. Otherwise put, \emph{it is the best conditional that \TFL\ can provide}. But is it any good, as a surrogate for the conditionals we use in everyday language? Should we think that `if' is a truth functional connective? Consider two sentences:
 	\begin{earg}
 		\item[\ex{brownwins1}] If Mitt Romney had won the 2012 election, then he would have been the 45th President of the USA.
 		\item[\ex{brownwins2}] If Mitt Romney had won the 2012 election, then he would have turned into a helium-filled balloon and floated away into the night sky.
 	\end{earg}
-Sentence \ref{brownwins1} is true; sentence \ref{brownwins2} is false. But both have false antecedents and false consequents. So the truth value of the whole sentence is not uniquely determined by the truth value of the parts. Do not just blithely assume that you can adequately symbolise an English `if …, then …' with \TFL's `$\eif$'. 
+Sentence \ref{brownwins1} is true; sentence \ref{brownwins2} is false. But both have false antecedents and false consequents. So the truth value of the whole sentence is not uniquely determined by the truth value of the parts. This use of `if' fails our test for truth-functionality. Do not just blithely assume that you can adequately symbolise an English `if …, then …' with \TFL's `$\eif$'. 
 
 The crucial point is that sentences \ref{brownwins1} and \ref{brownwins2} employ \define{subjunctive} conditionals, rather than \define{indicative} conditionals. Subjunctive conditionals are also sometimes known as \define{counterfactuals}. They ask us to imagine something contrary to what we are assuming as fact – that Mitt Romney lost the 2012 election – and then ask us to evaluate what \emph{would} have happened in that case. The classic illustration of the difference between the indicative and subjunctive conditional comes from pairs like these:
 \begin{earg}
@@ -210,8 +225,7 @@ The point to take away from this is that subjunctive conditionals cannot be tack
 
 So the `$\eif$' connective of \TFL\ is at best able to model the indicative conditional of English, as in \ref{indcond}.
 
-In fact there are even difficulties with indicatives in \TFL. I shall say a little more about those difficulties in §\ref{s:ParadoxesOfMaterialConditional} and in §\ref{cond.proof}. For now, I shall content myself with the observation that `$\eif$' is the only plausible candidate for a truth-functional conditional, but that many English conditionals cannot be represented adequately using `$\eif$'. \TFL\ is an intrinsically limited language. But this is only a problem if you try to use it to do things it wasn't designed to do.
-
+In fact there are even difficulties with indicatives in \TFL. I shall say a little more about those difficulties in §\ref{s:ParadoxesOfMaterialConditional} and in §\ref{cond.proof}. For now, I shall content myself with the observation that `$\eif$' is the only plausible candidate for a truth-functional conditional. Our working hypothesis is that many uses of ‘if’ can be \emph{adequately approximated} by ‘$\eif$’. Still, many English conditionals cannot be represented adequately using `$\eif$'. \TFL\ is an intrinsically limited language. But this is only a problem if you try to use it to do things it wasn't designed to do. 
 
 \keyideas{
 	\item The connectives of \TFL\ are all truth-functional, and have their meanings specified by the truth-tables laid out in §\ref{s:SchematicTruthTables}.
