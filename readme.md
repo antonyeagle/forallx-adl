@@ -29,8 +29,6 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 3 (`forallx-adl-truthtables.tex`)
 	- §8 
 		+ more practice exercises!
-	- §10
-		+ Replace 'tautology' by 'logical truth' even for propositional case to ensure consistency with §23; replace 'equivalence' with 'logical equivalence'. 
 	- §11
 		+ Add a discussion of using the test for entailment to understand NL arguments.
 		+ §11.5: two kinds of limits: valid arguments not captured (remedied by \FOL), invalid NL arguments misclassified due to inadequate symbolisation – a form that looks like it might be captured by \TFL\ but which in fact isn't.
@@ -64,7 +62,7 @@ The following list contains current issues and proposed revisions arranged by ch
 		- add 'why don't we do this?' section to quantifier intepretation 	 
 	- §23
 		- need to expand with examples, and practice problems
-		- 
+		- change contradiction to logical falsehood
 	- §25
 		- practice problems
 		- mention infinity of intepretations, contrast with sentential case.  	    

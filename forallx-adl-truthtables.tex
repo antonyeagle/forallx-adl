@@ -378,47 +378,46 @@ Offer complete truth tables for each of the following:
 \begin{earg}
 \item $A \eif A$ %taut
 \item $C \eif\enot C$ %contingent
-\item $(A \eiff B) \eiff \enot(A\eiff \enot B)$ %tautology
+\item $(A \eiff B) \eiff \enot(A\eiff \enot B)$ %logical truth
 \item $(A \eif B) \eor (B \eif A)$ % taut
 \item $(A \eand B) \eif (B \eor A)$  %taut
 \item $\enot(A \eor B) \eiff (\enot A \eand \enot B)$ %taut
-\item $\bigl( (A\eand B) \eand\enot(A\eand B) \bigr) \eand C$ %contradiction
+\item $\bigl( (A\eand B) \eand\enot(A\eand B) \bigr) \eand C$ %logical falsehood
 \item $\bigl( (A \eand B) \eand C\bigr) \eif B$ %taut
 \item $\enot\bigl( (C\eor A) \eor B\bigr)$ %contingent
 \end{earg}
 
-If you want additional practice, you can construct truth tables for any of the sentences and arguments in the exercises for the previous chapter.
+If you want additional practice, you can construct truth tables for any of the sentences and arguments in the exercises for Chapter \ref{ch.TFL}.
 
 
 \chapter{Semantic Concepts}\label{s:Semantic.concepts}
 In §\ref{s:valuations}, we introduced the idea of a valuation and showed how to determine the truth value of any \TFL\ sentence on any valuation using a truth table in the remainder of the chapter. In this section, we shall introduce some related ideas, and show how to use truth tables to test whether or not they apply.
 
 
-\section{Tautologies and contradictions}
+\section{Logical Truths and Falsehoods}
 In §\ref{s:BasicNotions}, I explained \emph{necessary truth} and \emph{necessary falsity}. Both notions have close but imperfect surrogates in \TFL. We shall start with a surrogate for necessary truth.
 	\factoidbox{
-		$\meta{A}$ is a \define{tautology} iff it is true on every valuation (among those valuations on which it has a truth value).	}
-We need the parenthetical clause because of the way we have defined valuations. A given valuation $v$ might only assign truth values to some atomic sentences and not all. For any sentence $\meta{A}$ which contains an atomic sentence to which $v$ doesn't assign a truth value, $\meta{A}$ will not have any truth value on or according to $v$.
+		$\meta{A}$ is a \define{logical truth} iff it is true on every valuation (among those valuations on which it has a truth value).}
+We need the parenthetical clause because of the way we have defined valuations. A given valuation $v$ might only assign truth values to some atomic sentences and not all. For any sentence $\meta{A}$ which contains an atomic sentence to which $v$ doesn't assign a truth value, $\meta{A}$ will not have any truth value according to $v$. Logical truths in \TFL\ are sometimes called \define{tautologies}.
 
-We can determine whether a sentence is a tautology just by using truth tables. If the sentence is true on every row of a complete truth table, then it is true on every valuation for its constituent atomic sentences, so it is a tautology. In the example of §\ref{s:CompleteTruthTables}, `$(H \eand I) \eif H$' is a tautology. 
+We can determine whether a sentence is a logical truth just by using truth tables. If the sentence is true on every row of a complete truth table, then it is true on every valuation for its constituent atomic sentences, so it is a logical truth. In the example of §\ref{s:CompleteTruthTables}, `$(H \eand I) \eif H$' is a logical truth. 
 
 
-
-This is only, though, a surrogate for necessary truth. There are some necessary truths that we cannot adequately symbolise in \TFL. An example is `$2 + 2 = 4$'. This \emph{must} be true, but if we try to symbolise it in \TFL, the best we can offer is an atomic sentence, and no atomic sentence is a tautology.\footnote{At this risk of repeating myself: $2+2=4$ is necessarily true, but it is not necessarily true \emph{in virtue of its structure}. A necessary truth is true, \emph{with its actual meaning}, in every possible situation. A \TFL-tautology is true \emph{in the actual situation} on every possible way of interpreting its atomic sentences. These are interestingly different notions.} Still, if we can adequately symbolise some English sentence using a \TFL\ sentence which is a tautology, then that English sentence expresses a necessary truth.
+This is only, though, a surrogate for necessary truth. There are some necessary truths that we cannot adequately symbolise in \TFL. An example is `$2 + 2 = 4$'. This \emph{must} be true, but if we try to symbolise it in \TFL, the best we can offer is an atomic sentence, and no atomic sentence is a logical truth.\footnote{At this risk of repeating myself: $2+2=4$ is necessarily true, but it is not necessarily true \emph{in virtue of its structure}. A necessary truth is true, \emph{with its actual meaning}, in every possible situation. A \TFL-logical truth is true \emph{in the actual situation} on every possible way of interpreting its atomic sentences. These are interestingly different notions.} Still, if we can adequately symbolise some English sentence using a \TFL\ sentence which is a logical truth, then that English sentence expresses a necessary truth.
 
 We have a similar surrogate for necessary falsity:
 	\factoidbox{
-		$\meta{A}$ is a \define{contradiction} iff it is false on every valuation (among those on which it has a truth value).
+		$\meta{A}$ is a \define{logical falsehood} iff it is false on every valuation (among those on which it has a truth value).
 	}
-We can determine whether a sentence is a contradiction just by using truth tables. If the sentence is false on every row of a complete truth table, then it is false on every valuation, so it is a contradiction. In the example of §\ref{s:CompleteTruthTables}, `$\bigl( (C\eiff C) \eif C\bigr)  \eand \enot(C \eif C)$' is a contradiction.
+We can determine whether a sentence is a logical falsehood just by using truth tables. If the sentence is false on every row of a complete truth table, then it is false on every valuation, so it is a logical falsehood. In the example of §\ref{s:CompleteTruthTables}, `$\bigl( (C\eiff C) \eif C\bigr)  \eand \enot(C \eif C)$' is a logical falsehood. A logical falsehood is often called a \define{contradiction}.
 
 
-\section{Equivalence}
+\section{Logical equivalence}
 Here is a similar, useful notion:
 	\factoidbox{
-		$\meta{A}$ and $\meta{B}$ are \define{equivalent} iff they have the same truth value on every valuation among those which assign both of them a truth value.
+		$\meta{A}$ and $\meta{B}$ are \define{logically equivalent} iff they have the same truth value on every valuation among those which assign both of them a truth value.
 	}
-It is easy to test for equivalence using truth tables. Consider the sentences `$\enot(P \eor Q)$' and `$\enot P \eand \enot Q$'. Are they equivalent? To find out, we may construct a truth table.
+It is easy to test for logical equivalence using truth tables. Consider the sentences `$\enot(P \eor Q)$' and `$\enot P \eand \enot Q$'. Are they logically equivalent? To find out, we may construct a truth table.
 \begin{center}
 \begin{tabular}{c c|d e e f |d e e e f} \toprule 
 $P$&$Q$&\enot&$(P$&\eor&$Q)$&\enot&$P$&\eand&\enot&$Q$\\
@@ -429,7 +428,7 @@ $P$&$Q$&\enot&$(P$&\eor&$Q)$&\enot&$P$&\eand&\enot&$Q$\\
  F & F & \TTbf{T} & F & F & F & T & F & \TTbf{T} & T & F\\\bottomrule
 \end{tabular}
 \end{center}
-Look at the columns for the main connectives; negation for the first sentence, conjunction for the second. On the first three rows, both are false. On the final row, both are true. Since they match on every row, the two sentences are equivalent. 
+Look at the columns for the main connectives; negation for the first sentence, conjunction for the second. On the first three rows, both are false. On the final row, both are true. Since they match on every row, the two sentences are logically equivalent. 
 
 \section{More bracketing conventions}\label{s:MoreBracketingConventions}
 Consider these two sentences:
@@ -437,11 +436,11 @@ Consider these two sentences:
 		((A \eand B) \eand C)\\
 		(A \eand (B \eand C))
 	\end{align*}
-These have the same truth table, and are equivalent.  Consequently, it will never make any difference from the perspective of truth value – which is all that \TFL\ cares about (see §\ref{s:TruthFunctionality}) – which of the two sentences we assert (or deny). And since the order of the brackets does not matter, I shall allow us to drop them.  In short, we can save some ink and some eyestrain by writing:
+These have the same truth table, and are logically equivalent.  Consequently, it will never make any difference from the perspective of truth value – which is all that \TFL\ cares about (see §\ref{s:TruthFunctionality}) – which of the two sentences we assert (or deny). And since the order of the brackets does not matter, I shall allow us to drop them.  In short, we can save some ink and some eyestrain by writing:
 	\begin{align*}
 		A \eand B \eand C
 	\end{align*}
-The general point is that, if we just have a long list of conjunctions, we can drop the inner brackets. (I already allowed us to drop outermost brackets in §\ref{s:TFLSentences}.) The same observation holds for disjunctions. Since the following sentences are equivalent:
+The general point is that, if we just have a long list of conjunctions, we can drop the inner brackets. (I already allowed us to drop outermost brackets in §\ref{s:TFLSentences}.) The same observation holds for disjunctions. Since the following sentences are logically equivalent:
 	\begin{align*}
 		((A \eor B) \eor C)\\
 		(A \eor (B \eor C))
@@ -450,7 +449,7 @@ we can simply write:
 	\begin{align*}
 		A \eor B \eor C
 	\end{align*}
-And generally, if we just have a long list of disjunctions, we can drop the inner brackets. \emph{But be careful}. These two sentences have \emph{different} truth tables, so are not equivalent:
+And generally, if we just have a long list of disjunctions, we can drop the inner brackets. \emph{But be careful}. These two sentences have \emph{different} truth tables, so are not logically equivalent:
 	\begin{align*}
 		((A \eif B) \eif C)\\
 		(A \eif (B \eif C))
@@ -493,9 +492,9 @@ $P$&$Q$&\enot&$P$&$P$&\eif&$Q$&$Q$\\
 \end{center} We can see on the third row, the valuation which assigns F to `$P$' and T to `$Q$', each of the sentences is true. So these are jointly consistent.
 
 \keyideas{
-	\item A tautology is a sentence true on every valuation of its atomic constituents; a contradiction is true on no valuation of its atomic constituents.
+	\item A logical truth is a sentence true on every valuation of its atomic constituents; a logical falsehood is true on no valuation of its atomic constituents.
 	\item A sentence (collection of sentences) is consistent iff there is a valuation on which it is (they are all) true.
-	\item Two sentences are equivalent iff they are true on exactly the same valuations. We can use the notion of equivalence to motivate further bracketing conventions.
+	\item Two sentences are logically equivalent iff they are true on exactly the same valuations. We can use the notion of logical equivalence to motivate further bracketing conventions.
 }
 
 
@@ -513,12 +512,12 @@ Also, check whether:
 	\item[5.] `$((A \eiff B) \eiff C)$' and `$(A \eiff (B \eiff C))$' have the same truth table.
 \end{earg}
 \problempart
-What is the difference between a tautology and a contradiction? Are there any other kinds of sentence in Sentential?
+What is the difference between a logical truth and a logical falsehood? Are there any other kinds of sentence in Sentential?
 
-Revisit your answers to exercise §\ref{s:CompleteTruthTables}\ref{pr.TT.TTorC} (page \pageref{pr.TT.TTorC.p}). Determine which sentences were tautologies, which were contradictions, and which, if any, were neither tautologies nor contradictions.
+Revisit your answers to exercise §\ref{s:CompleteTruthTables}\ref{pr.TT.TTorC} (page \pageref{pr.TT.TTorC.p}). Determine which sentences were logical truths, which were logical falsehoods, and which, if any, were neither logical truths nor logical falsehoods.
 
 \problempart
-What does  it  mean  to  say  that  two sentences  of  Sentential  are \emph{equivalent}? Use  truth  tables  to  decide  if  the  following  pairs  of sentences are equivalent:
+What does  it  mean  to  say  that  two sentences  of  Sentential  are \emph{logically equivalent}? Use  truth  tables  to  decide  if  the  following  pairs  of sentences are logically equivalent:
 \begin{earg}
 	\item $\enot(P \eand Q), (\enot P \eor \enot Q)$;
 	\item $(P \eif Q), \enot(Q \eif P)$;
@@ -579,7 +578,7 @@ is just an abbreviation for the English sentence:
 Note that there is no limit on the number of \TFL\ sentences that can be mentioned before the symbol `$\entails$'. Indeed, we can even consider the limiting case:
 	\begin{earg}
 	\item[\ex{entails.taut}] $\entails \meta{C}$.\end{earg}
-\ref{entails.taut}  is false if there is a valuation which makes all the sentences appearing on the left hand side of `$\entails$' true and makes $\meta{C}$ false. Since \emph{no} sentences appear on the left side of `$\entails$' in \ref{entails.taut}, it is trivial to make `them' all true. So it is false if there is a valuation which makes $\meta{C}$ false – and so \ref{entails.taut} is true iff every valuation makes $\meta{C}$ true. Otherwise put, \ref{entails.taut} says that $\meta{C}$ is a tautology. Equally:
+\ref{entails.taut}  is false if there is a valuation which makes all the sentences appearing on the left hand side of `$\entails$' true and makes $\meta{C}$ false. Since \emph{no} sentences appear on the left side of `$\entails$' in \ref{entails.taut}, it is trivial to make `them' all true. So it is false if there is a valuation which makes $\meta{C}$ false – and so \ref{entails.taut} is true iff every valuation makes $\meta{C}$ true. Otherwise put, \ref{entails.taut} says that $\meta{C}$ is a logical truth. Equally:
 	\begin{earg}
 		\item[\ex{incon.entails}] $\meta{A}_{1},…,\meta{A}_{n} \entails$
 	\end{earg}
@@ -587,7 +586,7 @@ says that $\meta{A}_{1},…,\meta{A}_{n}$ are jointly inconsistent. It follows t
 	\begin{earg}
 		\item[\ex{cont.entails}] $\meta{A} \entails$
 	\end{earg}
-says that $\meta{A}$ is individually inconsistent. That is to say, \meta{A} is a contradiction.\footnote{If you find it difficult to see why `$\entails\meta{A}$' should say that \meta{A} is a tautology, you should just take \ref{entails.taut} as an abbreviation for that claim. Likewise you should take  `$\meta{A}\entails$' as abbreviating the claim that \meta{A} is a contradiction.}
+says that $\meta{A}$ is individually inconsistent. That is to say, \meta{A} is a logical falsehood.\footnote{If you find it difficult to see why `$\entails\meta{A}$' should say that \meta{A} is a logical truth, you should just take \ref{entails.taut} as an abbreviation for that claim. Likewise you should take  `$\meta{A}\entails$' as abbreviating the claim that \meta{A} is a logical falsehood.}
 
 Here is the important connection between inconsistency and entailment, expressed using this new notation. \factoidbox{
 	$\meta{A}_{1}, …, \meta{A}_{n} \entails \meta{C}$ iff $\meta{A}_{1}, …, \meta{A}_{n}, \enot\meta{C} \entails$.
@@ -598,14 +597,14 @@ I now want to compare and contrast `$\entails$' and `$\eif$'.
 
 Observe: $\meta{A} \entails \meta{C}$ iff there is no valuation of the atomic sentences that makes $\meta{A}$ true and $\meta{C}$ false. 
 
-Observe: $\meta{A} \eif \meta{C}$ is a tautology iff there is no valuation of the atomic sentences that makes $\meta{A} \eif \meta{C}$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\meta{A} \eif \meta{C}$ is a tautology iff there is no valuation that makes $\meta{A}$ true and $\meta{C}$ false. 
+Observe: $\meta{A} \eif \meta{C}$ is a logical truth iff there is no valuation of the atomic sentences that makes $\meta{A} \eif \meta{C}$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\meta{A} \eif \meta{C}$ is a logical truth iff there is no valuation that makes $\meta{A}$ true and $\meta{C}$ false. 
 
-Combining these two observations, we see that $\meta{A} \eif \meta{C}$  is a tautology iff  $\meta{A} \entails \meta{C}$\label{ded.thm}.\footnote{This result sometimes goes under a fancy title: \emph{the Deduction Theorem for \TFL}. It is easy to see that this more general result follows from the Deduction Theorem: $\meta{B}_{1},…,\meta{B}_{n},\meta{A}\entails \meta{C}$ iff $\meta{B}_{1},…,\meta{B}_{n},\entails \meta{A}\eif\meta{C}$.} But there is a really important difference between `$\entails$' and `$\eif$':
+Combining these two observations, we see that $\meta{A} \eif \meta{C}$  is a logical truth iff  $\meta{A} \entails \meta{C}$\label{ded.thm}.\footnote{This result sometimes goes under a fancy title: \emph{the Deduction Theorem for \TFL}. It is easy to see that this more general result follows from the Deduction Theorem: $\meta{B}_{1},…,\meta{B}_{n},\meta{A}\entails \meta{C}$ iff $\meta{B}_{1},…,\meta{B}_{n},\entails \meta{A}\eif\meta{C}$.} But there is a really important difference between `$\entails$' and `$\eif$':
 	\factoidbox{`$\eif$' is a sentential connective of \TFL.\\ `$\entails$' is a symbol of augmented English.
 	}
 Indeed, when `$\eif$' is flanked with two \TFL\ sentences, the result is a longer \TFL\ sentence. By contrast, when we use `$\entails$', we form a metalinguistic sentence that \emph{mentions} the surrounding \TFL\ sentences. 
 
-If $\meta{A}\eif\meta{C}$ is a tautology, then $\meta{A}\entails\meta{C}$. But $\meta{A}\eif\meta{C}$ can be true on a valuation without being a tautology, and so can be true on a valuation even when $\meta{A}$ doesn't entail $\meta{C}$. Sometimes people are inclined to confuse entailment and conditionals, perhaps because they are tempted by the thought that we can only establish the truth of a conditional by \emph{logically deriving} the consequent from the antecedent. But while this is the way to establish the truth of a tautologous conditional, most conditionals posit a weaker relation between antecedent and consequent than that – for example, a causal or statistical relationship might be enough to justify the truth of the conditional `If you smoke, then you'll lower your life expectancy'.
+If $\meta{A}\eif\meta{C}$ is a logical truth, then $\meta{A}\entails\meta{C}$. But $\meta{A}\eif\meta{C}$ can be true on a valuation without being a logical truth, and so can be true on a valuation even when $\meta{A}$ doesn't entail $\meta{C}$. Sometimes people are inclined to confuse entailment and conditionals, perhaps because they are tempted by the thought that we can only establish the truth of a conditional by \emph{logically deriving} the consequent from the antecedent. But while this is the way to establish the truth of a logically true conditional, most conditionals posit a weaker relation between antecedent and consequent than that – for example, a causal or statistical relationship might be enough to justify the truth of the conditional `If you smoke, then you'll lower your life expectancy'.
 
 \section{Entailment and validity} \label{s:entailvalid}
 
@@ -633,7 +632,7 @@ Second, consider the sentence:
 	\begin{earg}
 		\item[\ex{n:JanBald}] Jan is neither bald nor not-bald.
 	\end{earg}
-To symbolise this sentence in \TFL, we would offer something like `$\enot (J \eor \enot J)$'. This a contradiction (check this with a truth-table). But sentence \ref{n:JanBald} does not itself seem like a contradiction; for we might have happily go on to add `Jan is on the borderline of baldness'! To make this point another way: as is easily seen by truth tables, `$\enot (J \eor \enot J)$' is equivalent to `$\enot J \eand \enot \enot J$'. This latter sentence symbolises an obvious contradiction in English:
+To symbolise this sentence in \TFL, we would offer something like `$\enot (J \eor \enot J)$'. This a logical falsehood (check this with a truth-table). But sentence \ref{n:JanBald} does not itself seem like a logical falsehood; for we might have happily go on to add `Jan is on the borderline of baldness'! To make this point another way: as is easily seen by truth tables, `$\enot (J \eor \enot J)$' is logically equivalent to `$\enot J \eand \enot \enot J$'. This latter sentence symbolises an obvious logical falsehood in English:
 	\begin{earg}
 		\item[\ex{n:JanBald2}]  Jan is both not-bald and also not not-bald.
 	\end{earg}
@@ -687,28 +686,28 @@ Use truth tables to determine whether each argument is valid or invalid.
 \label{pr.TT.concepts}
 Answer each of the questions below and justify your answer.
 \begin{earg}
-\item Suppose that \meta{A} and \meta{B} are equivalent. What can you say about $\meta{A}\eiff\meta{B}$?
-%\meta{A} and \meta{B} have the same truth value on every row of a complete truth table, so $\meta{A}\eiff\meta{B}$ is true on every row. It is a tautology.
-\item Suppose that $(\meta{A}\eand\meta{B})\eif\meta{C}$ is neither a tautology nor a contradiction. What can you say about whether $\meta{A}, \meta{B} \ttherefore\meta{C}$ is valid?
+\item Suppose that \meta{A} and \meta{B} are logically equivalent. What can you say about $\meta{A}\eiff\meta{B}$?
+%\meta{A} and \meta{B} have the same truth value on every row of a complete truth table, so $\meta{A}\eiff\meta{B}$ is true on every row. It is a logical truth.
+\item Suppose that $(\meta{A}\eand\meta{B})\eif\meta{C}$ is neither a logical truth nor a logical falsehood. What can you say about whether $\meta{A}, \meta{B} \ttherefore\meta{C}$ is valid?
 %The sentence is false on some row of a complete truth table. On that row, \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is invalid.
 \item Suppose that $\meta{A}$, $\meta{B}$ and $\meta{C}$  are jointly inconsistent. What can you say about $(\meta{A}\eand\meta{B}\eand\meta{C})$?
-\item Suppose that \meta{A} is a contradiction. What can you say about whether $\meta{A}, \meta{B} \entails \meta{C}$?
+\item Suppose that \meta{A} is a logical falsehood. What can you say about whether $\meta{A}, \meta{B} \entails \meta{C}$?
 %Since \meta{A} is false on every row of a complete truth table, there is no row on which \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is valid.
-\item Suppose that \meta{C} is a tautology. What can you say about whether $\meta{A}, \meta{B}\entails \meta{C}$?
+\item Suppose that \meta{C} is a logical truth. What can you say about whether $\meta{A}, \meta{B}\entails \meta{C}$?
 %Since \meta{C} is true on every row of a complete truth table, there is no row on which \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is valid.
-\item Suppose that \meta{A} and \meta{B} are equivalent. What can you say about $(\meta{A}\eor\meta{B})$?
-%Not much. $(\meta{A}\eor\meta{B})$ is a tautology if \meta{A} and \meta{B} are tautologies; it is a contradiction if they are contradictions; it is contingent if they are contingent.
-\item Suppose that \meta{A} and \meta{B} are \emph{not} equivalent. What can you say about $(\meta{A}\eor\meta{B})$?
-%\meta{A} and \meta{B} have different truth values on at least one row of a complete truth table, and $(\meta{A}\eor\meta{B})$ will be true on that row. On other rows, it might be true or false. So $(\meta{A}\eor\meta{B})$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
+\item Suppose that \meta{A} and \meta{B} are logically equivalent. What can you say about $(\meta{A}\eor\meta{B})$?
+%Not much. $(\meta{A}\eor\meta{B})$ is a logical truth if \meta{A} and \meta{B} are logical truths; it is a logical falsehood if they are logical falsehoods; it is contingent if they are contingent.
+\item Suppose that \meta{A} and \meta{B} are \emph{not} logically equivalent. What can you say about $(\meta{A}\eor\meta{B})$?
+%\meta{A} and \meta{B} have different truth values on at least one row of a complete truth table, and $(\meta{A}\eor\meta{B})$ will be true on that row. On other rows, it might be true or false. So $(\meta{A}\eor\meta{B})$ is either a logical truth or it is contingent; it is \emph{not} a logical falsehood.
 \end{earg}
 
 \problempart 
-If two sentences of \TFL, $\meta{A}$ and $\meta{D}$, are equivalent, what can you say about $(\meta{A}\eif \meta{D})$? What about the argument $\meta{A}\ttherefore \meta{D}$?
+If two sentences of \TFL, $\meta{A}$ and $\meta{D}$, are logically equivalent, what can you say about $(\meta{A}\eif \meta{D})$? What about the argument $\meta{A}\ttherefore \meta{D}$?
 
 \problempart 
 Consider the following principle:
 	\begin{itemize}
-		\item Suppose $\meta{A}$ and $\meta{B}$ are equivalent. Suppose an argument contains $\meta{A}$ (either as a premise, or as the conclusion). The validity of the argument would be unaffected, if we replaced $\meta{A}$ with $\meta{B}$.
+		\item Suppose $\meta{A}$ and $\meta{B}$ are logically equivalent. Suppose an argument contains $\meta{A}$ (either as a premise, or as the conclusion). The validity of the argument would be unaffected, if we replaced $\meta{A}$ with $\meta{B}$.
 	\end{itemize}
 Is this principle correct? Explain your answer.
 
@@ -762,7 +761,7 @@ $P$&$Q$& $((P$&\eif&$Q$)&\eif&$P)$&\eif&$P$\\
  F & F & & T & & F & &\TTbf{T} & \\ \bottomrule
 \end{tabular}
 \end{center}
-So `$((P \eif Q) \eif P) \eif P$' is a tautology. In fact, it is an instance of \emph{Peirce's Law}, named after Charles Sanders Peirce.
+So `$((P \eif Q) \eif P) \eif P$' is a logical truth. In fact, it is an instance of \emph{Peirce's Law}, named after Charles Sanders Peirce.
 
 \section{Testing for validity and entailment}
 When we use truth tables to test for validity or entailment, we are checking for \emph{bad} rows: rows where the premises are all true and the conclusion is false. Note:
@@ -876,7 +875,7 @@ By the notion of a \emph{bad} rows – a potential \emph{counterexample} to a pu
 \practiceproblems
 \problempart
 \label{pr.TT.TTorCS}
-Using shortcuts, determine whether each sentence is a tautology, a contradiction, or neither. 
+Using shortcuts, determine whether each sentence is a logical truth, a logical falsehood, or neither. 
 \begin{earg}
 \item $\enot B \eand B$ %contra
 \item $\enot D \eor D$ %taut
@@ -885,7 +884,7 @@ Using shortcuts, determine whether each sentence is a tautology, a contradiction
 \item $A \eiff \bigl(A \eif (B \eand \enot B) \bigr)$ %contra
 \item $\enot(A\eand B) \eiff A$ %contingent
 \item $A\eif(B\eor C)$ %contingent
-\item $(A \eand\enot A) \eif (B \eor C)$ %tautology
+\item $(A \eand\enot A) \eif (B \eor C)$ %logical truth
 \item $(B\eand D) \eiff \bigl(A \eiff(A \eor C) \bigr)$%contingent
 \end{earg}
 
@@ -897,11 +896,11 @@ Sometimes, we do not need to know what happens on every row of a truth table. So
 \section{Direct uses of partial truth tables}\label{s:directPartialTruthTable}
 
 \paragraph{Tautology} 
-In order to show that a sentence is a tautology, we need to show that it is true on every valuation. That is to say, we need to know that it comes out true on every row of the truth table. So, it seems, we need a complete truth table. 
+In order to show that a sentence is a logical truth, we need to show that it is true on every valuation. That is to say, we need to know that it comes out true on every row of the truth table. So, it seems, we need a complete truth table. 
 
-To show that a sentence is \emph{not} a tautology, however, we only need one row: a row on which the sentence is false. Therefore, in order to show that some sentence is not a tautology, it is enough to provide a single valuation – a single row of the truth table – which makes the sentence false. 
+To show that a sentence is \emph{not} a logical truth, however, we only need one row: a row on which the sentence is false. Therefore, in order to show that some sentence is not a logical truth, it is enough to provide a single valuation – a single row of the truth table – which makes the sentence false. 
 
-Suppose that we want to show that the sentence `$(U \eand T) \eif (S \eand W)$' is \emph{not} a tautology. We set up a \define{partial truth table}:
+Suppose that we want to show that the sentence `$(U \eand T) \eif (S \eand W)$' is \emph{not} a logical truth. We set up a \define{partial truth table}:
 \begin{center}
 \begin{tabular}{c c c c |d e e e e e f} \toprule 
 $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
@@ -935,12 +934,12 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
  F & T & T & F &  T &  T  & T  &\TTbf{F}&  F &   F & F  \\ \bottomrule
 \end{tabular}
 \end{center}
-So we now have a partial truth table, which shows that `$(U \eand T) \eif (S \eand W)$' is not a tautology. Put otherwise, we have shown that there is a valuation which makes `$(U \eand T) \eif (S \eand W)$' false, namely, the valuation which makes `$S$' false, `$T$' true, `$U$' true and `$W$' false. 
+So we now have a partial truth table, which shows that `$(U \eand T) \eif (S \eand W)$' is not a logical truth. Put otherwise, we have shown that there is a valuation which makes `$(U \eand T) \eif (S \eand W)$' false, namely, the valuation which makes `$S$' false, `$T$' true, `$U$' true and `$W$' false. 
 
 \paragraph{Contradiction}
-Showing that something is a contradiction requires us to consider every row of a complete truth table. We need to show that there is no valuation which makes the sentence true; that is, we need to show that the sentence is false on every row of the truth table. 
+Showing that something is a logical falsehood requires us to consider every row of a complete truth table. We need to show that there is no valuation which makes the sentence true; that is, we need to show that the sentence is false on every row of the truth table. 
 
-However, to show that something is \emph{not} a contradiction, all we need to do is find a valuation which makes the sentence true, and a single row of a truth table will suffice. We can illustrate this with the same example.
+However, to show that something is \emph{not} a logical falsehood, all we need to do is find a valuation which makes the sentence true, and a single row of a truth table will suffice. We can illustrate this with the same example.
 \begin{center}
 \begin{tabular}{c c c c|d e e e e e f} \toprule 
 $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
@@ -958,9 +957,9 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
 \end{center}
 
 \paragraph{Equivalence}
-To show that two sentences are equivalent, we must show that the sentences have the same truth value on every valuation. So this requires us to consider each row of a complete truth table.
+To show that two sentences are logically equivalent, we must show that the sentences have the same truth value on every valuation. So this requires us to consider each row of a complete truth table.
 
-To show that two sentences are \emph{not} equivalent, we only need to show that there is a valuation on which they have different truth values. So this requires only a partial truth table: make the table so that one sentence is true and the other false. So, for example, to show that `$(\enot A \eand B)$' and `$(A \eor \enot B)$' are not equivalent, constructing this partial truth-table would suffice:
+To show that two sentences are \emph{not} logically equivalent, we only need to show that there is a valuation on which they have different truth values. So this requires only a partial truth table: make the table so that one sentence is true and the other false. So, for example, to show that `$(\enot A \eand B)$' and `$(A \eor \enot B)$' are not logically equivalent, constructing this partial truth-table would suffice:
 
 
 \begin{center}
@@ -972,7 +971,7 @@ F & T & T & F & \TTbf{T} & T & F & \TTbf{F}   & F & T \\
  \bottomrule
 \end{tabular}\end{center}
 
-However, unless we are lucky, we might need to construct a partial truth table with two rows. (Or attempt to construct two partial truth tables.) If we are trying to show \meta{A} and \meta{B} inequivalent, we will want to consider the possibility that it is \meta{A} which is true and \meta{B} which is false, as well as the other possibility that it is  \meta{B} which is true and \meta{A} which is false.
+However, unless we are lucky, we might need to construct a partial truth table with two rows. (Or attempt to construct two partial truth tables.) If we are trying to show \meta{A} and \meta{B} logically \emph{inequivalent}, we will want to consider the possibility that it is \meta{A} which is true and \meta{B} which is false, as well as the other possibility that it is  \meta{B} which is true and \meta{A} which is false.
 
 \paragraph{Consistency}
 To show that some sentences are jointly consistent, we must show that there is a valuation which makes all of the sentence true. So this requires only a partial truth table with a single row. 
@@ -993,9 +992,9 @@ This table summarises what we need to consider in order to demonstrate the prese
  & \textbf{Check if yes} & \textbf{Check if no}\\
  \midrule
 %\cline{2-3}
-tautology? & all valuations: complete truth table & one valuation: partial truth table\\
-contradiction? &  all valuations: complete truth table  & one valuation: partial truth table\\
-equivalent? & all valuations: complete truth table & one valuation: partial truth table\\
+logical truth? & all valuations: complete truth table & one valuation: partial truth table\\
+logical falsehood? &  all valuations: complete truth table  & one valuation: partial truth table\\
+logically equivalent? & all valuations: complete truth table & one valuation: partial truth table\\
 consistent? & one valuation: partial truth table & all valuations: complete truth table\\
 valid? & all valuations: complete truth table & one valuation: partial truth table\\
 entailment? & all valuations: complete truth table & one valuation: partial truth table\\
@@ -1048,7 +1047,7 @@ This procedure works because our partial truth table test is guaranteed to succe
 
 \problempart
 \label{pr.TT.equiv}
-Use complete or partial truth tables (as appropriate) to determine whether these pairs of sentences are equivalent:
+Use complete or partial truth tables (as appropriate) to determine whether these pairs of sentences are logically equivalent:
 \begin{earg}
 \item $A$, $\enot A$ %No
 \item $A$, $A \eor A$ %Yes

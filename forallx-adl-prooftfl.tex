@@ -582,7 +582,7 @@ There can be as many or as few lines as you like between lines $i$ and $j$. Noti
 	\have{b}{P}\ae{a}
 	\close
 	\have{}{(P\eand P) \eif P}\ci{a-b}
-\end{proof} It might come as no surprise that the conclusion of this proof – being provable from no undischarged assumptions at all – turns out to be a tautology. 
+\end{proof} It might come as no surprise that the conclusion of this proof – being provable from no undischarged assumptions at all – turns out to be a logical truth. 
 
 
 It will help to offer a further  illustration of {\eif}I in action. Suppose we want to consider the following:
@@ -676,7 +676,7 @@ Consider this proof:
 	\close
 	\have{con}{B \eif B}\ci{b1-b2}
 \end{proof}
-This is perfectly in keeping with the rules we have laid down already. And it should not seem particularly strange. Since `$B \eif B$' is a tautology, no particular premises should be required to prove it – note that `$A$' plays no particular role in the proof apart from beginning it. 
+This is perfectly in keeping with the rules we have laid down already. And it should not seem particularly strange. Since `$B \eif B$' is a logical truth, no particular premises should be required to prove it – note that `$A$' plays no particular role in the proof apart from beginning it. 
 
 But suppose we now tried to continue the proof as follows:
 \begin{proof}
@@ -976,7 +976,7 @@ Our negation rules are inspired by the form of reasoning known as \emph{reductio
 
 We see \emph{reductio} reasoning used a lot in mathematics. For example: Suppose there is a largest number, call it $n$. Since $n$ is the largest number, $n+1 \leqslant n$. But then, subtracting $n$ from both sides, $1 \leqslant 0$. And that is absurd. So there is no largest number. Here, we make an assumption, for the sake of argument. We derive from it a claim, in this case that $1 \leqslant 0$. And we note that claim is absurd, \emph{given what we already know}. So we conclude that the negation of our assumption holds, and cease to rely on the problematic assumption.
 
-The only claims in logic that it is safe to say are absurd are contradictions. So in a logical version of \emph{reductio} reasoning, we will want to show that claims that contradict one another will be derivable in the range of an assumption, in order to prove the negation of that assumption. Our \define{negation introduction} rule fits this pattern very clearly: \factoidbox{
+The only claims in logic that it is safe to say are absurd are logical falsehoods. So in a logical version of \emph{reductio} reasoning, we will want to show that claims that contradict one another will be derivable in the range of an assumption, in order to prove the negation of that assumption. Our \define{negation introduction} rule fits this pattern very clearly: \factoidbox{
 	\begin{proof}
 	\open
 	\hypo[i]{a}{\meta{A}}
@@ -987,9 +987,9 @@ The only claims in logic that it is safe to say are absurd are contradictions. S
 	\close
 	\have[\ ]{}{\enot\meta{A}}\ni{a-b,a-c}	
 	\end{proof}
-} Here, we can prove a sentence and its negation both within the range of the assumption that \meta{A}. So if \meta{A} were assumed, something contradictory would be derivable under that assumption. (We could apply conjunction introduction to lines $j$ and $k$ to make the contradiction explicit, but that wouldn't be strictly necessary.) Since contradictions are fundamentally unacceptable as the termination of a chain of argument, we must have begun with an inappropriate starting point when we assumed \meta{A}. So, in fact, we conclude, $\enot \meta{A}$, discharging our erroneous assumption that \meta{A}. There is no need for the line with \meta{B} on it to occur before the line with $\enot\meta{B}$ on it.
+} Here, we can prove a sentence and its negation both within the range of the assumption that \meta{A}. So if \meta{A} were assumed, something contradictory would be derivable under that assumption. (We could apply conjunction introduction to lines $j$ and $k$ to make the logical falsehood explicit, but that wouldn't be strictly necessary.) Since logical falsehoods are fundamentally unacceptable as the termination of a chain of argument, we must have begun with an inappropriate starting point when we assumed \meta{A}. So, in fact, we conclude, $\enot \meta{A}$, discharging our erroneous assumption that \meta{A}. There is no need for the line with \meta{B} on it to occur before the line with $\enot\meta{B}$ on it.
 
-Almost always the contradiction arises because of a clash between the claim we assume and some bit of prior knowledge – typically, some claim we have established earlier in the proof. We will thus make frequent use of the rule of reiteration in applications of negation introduction, to get the contradictory claims in the right place to make the rule easy to apply. Here is an example of the rule in action, showing that this argument is provable: $$A, \enot B \ttherefore \enot (A \eif B).$$ \begin{proof}
+Almost always the logical falsehood arises because of a clash between the claim we assume and some bit of prior knowledge – typically, some claim we have established earlier in the proof. We will thus make frequent use of the rule of reiteration in applications of negation introduction, to get the contradictory claims in the right place to make the rule easy to apply. Here is an example of the rule in action, showing that this argument is provable: $$A, \enot B \ttherefore \enot (A \eif B).$$ \begin{proof}
 	\hypo{a}{A}
 	\hypo{nb}{\enot B}
 	\open
@@ -1048,7 +1048,7 @@ In our system, we approach this problem by the brute force method – we allow o
 
 This is also \emph{reductio} reasoning, though in this case from a negated assumption. But again, if the assumption of $\enot \meta{A}$ goes awry and allows us to derive contradictory claims (perhaps given what we've already shown), that licenses us to conclude \meta{A}.
 
-With the rule of negation elimination, we can prove some claims that are hard to prove directly. For example, suppose we wanted to prove the law of \define{excluded middle}, that `$(P \eor \enot P)$'. You might initially have thought: \emph{it is a disjunction, so should be proved by disjunction introduction}. But we cannot prove either the sentence letter `$P$' or its negation from no assumptions – so we could not prove excluded middle from no assumptions if it was by disjunction introduction from one of its disjuncts. So we proceed indirectly: we show that supposing the negation of the law of excluded middle leads to contradiction, and conclude it by negation elimination: \begin{proof}
+With the rule of negation elimination, we can prove some claims that are hard to prove directly. For example, suppose we wanted to prove the law of \define{excluded middle}, that `$(P \eor \enot P)$'. You might initially have thought: \emph{it is a disjunction, so should be proved by disjunction introduction}. But we cannot prove either the sentence letter `$P$' or its negation from no assumptions – so we could not prove excluded middle from no assumptions if it was by disjunction introduction from one of its disjuncts. So we proceed indirectly: we show that supposing the negation of the law of excluded middle leads to logical falsehood, and conclude it by negation elimination: \begin{proof}
 	\open \hypo{ne}{\enot(P \eor \enot P)}
 	\open
 	\hypo{p}{P}
@@ -1399,9 +1399,9 @@ As in the case of showing that a sentence is a theorem, it is relatively easy to
 
 Here is a third, related, bit of terminology:
 	\factoidbox{
-		The sentences $\meta{A}_1,\meta{A}_2,…, \meta{A}_n$ are \define{jointly contrary} iff a contradiction can be proved from them, i.e., for some $\meta{B}$, $\meta{A}_1,\meta{A}_2,…, \meta{A}_n \proves \meta{B}\eand\enot\meta{B}$.
+		The sentences $\meta{A}_1,\meta{A}_2,…, \meta{A}_n$ are \define{jointly contrary} iff a logical falsehood can be proved from them, i.e., for some $\meta{B}$, $\meta{A}_1,\meta{A}_2,…, \meta{A}_n \proves \meta{B}\eand\enot\meta{B}$.
 	}
-It is easy to show that some sentences are jointly contrary: you just need to provide a proof of the contradiction from assuming all the sentences. Showing that some sentences are not jointly contrary is much harder. It would require more than just providing a proof or two; it would require showing that no proof of a certain kind is \emph{possible}.
+It is easy to show that some sentences are jointly contrary: you just need to provide a proof of a logical falsehood from assuming all the sentences. Showing that some sentences are not jointly contrary is much harder. It would require more than just providing a proof or two; it would require showing that no proof of a certain kind is \emph{possible}.
 
 
 This table summarises whether one or two proofs suffice, or whether we must reason about all possible (attempted) proofs.
@@ -1413,7 +1413,7 @@ This table summarises whether one or two proofs suffice, or whether we must reas
  \midrule
 %\cline{2-3}
 theorem? & one proof & all possible proofs\\
-%contradiction? &  one proof  & all possible proofs\\
+%logical falsehood? &  one proof  & all possible proofs\\
 equivalent? & two proofs & all possible proofs\\
 not contrary? & all possible proofs & one proof\\
 provable & one proof & all possible proofs\\

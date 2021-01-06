@@ -666,7 +666,7 @@ We will use the symbol `$\entails$' for entailment in \FOL, much as we did for \
 So:\factoidbox{\begin{itemize}
 	\item  	$\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ together \define{entail} \meta{C} (written $\meta{A}_1, \meta{A}_2, …, \meta{A}_n \entails\meta{C}$) iff there is no interpretation in which all of $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ are true and in which \meta{C} is false.
 	\item An \FOL\ sentence $\meta{A}$ is a \define{logical truth} iff $\meta{A}$ is true in every interpretation; this is written  $\entails\meta{A}$.
-	\item $\meta{A}$ is a \define{contradiction} iff $\meta{A}$ is false in every interpretation; i.e., $\entails\enot\meta{A}$.
+	\item $\meta{A}$ is a \define{logical falsehood} iff $\meta{A}$ is false in every interpretation; i.e., $\entails\enot\meta{A}$.
 
 \item Two \FOL\ sentences \meta{A} and \meta{B} are \define{logically equivalent} iff they are true in exactly the same interpretations as each other; i.e., both $\meta{A}\entails\meta{B}$ and $\meta{B}\entails\meta{A}$.
 \item The \FOL\ sentences $\meta{A}_1,\meta{A}_2,…, \meta{A}_n$ are \define{jointly consistent} iff there is some interpretation in which all of the sentences are true. They are \define{jointly inconsistent} iff there is no such interpretation.\end{itemize}}
@@ -687,8 +687,8 @@ The keen-eyed among you will have noticed that this sentence is not, in fact, a 
 One sentence of this class is nevertheless a logical truth: the claim that something exists, `$\exists x x=x$'. Since it is a constraint on \FOL\ domains that they cannot be empty (§\ref{sec_domains}), there is for any interpretation a way of adding a previously uninterpreted name `$c$' which denotes an object in the domain, and of course `$c=c$' is true in that extended interpretation, since each name must have a referent in any interpretation, and the identity predicate is always interepreted as representing pairs of objects in the domain and themselves.
 
 \keyideas{
-	\item Definitions of entailment, consistency, contradiction and logical equivalence can be given for \FOL\ that are very close parallels to those for \TFL, though given in terms of intepretations not valuations.
-	\item The notion of a logical truth in \FOL\ is slightly different than the notion of a tautology, since we allow interpretations that vary not just in what they assign as extensions to the non-logical vocabulary, but also variation in the domain over which quantifiers range. Nothing like the latter feature occurs in \TFL\ valuations, but it is crucial for ensuring that contingent truths without names or non-logical predicates aren't misclassified as logical truths.
+	\item Definitions of entailment, consistency, logical falsehood and logical equivalence can be given for \FOL\ that are very close parallels to those for \TFL, though given in terms of intepretations not valuations.
+	\item The notion of a logical truth in \FOL\ is slightly different than the notion of a logical truth, since we allow interpretations that vary not just in what they assign as extensions to the non-logical vocabulary, but also variation in the domain over which quantifiers range. Nothing like the latter feature occurs in \TFL\ valuations, but it is crucial for ensuring that contingent truths without names or non-logical predicates aren't misclassified as logical truths.
 }
 
 
@@ -706,7 +706,7 @@ The following entailments are correct in \FOL. In each case, explain why.
 
 \chapter{Demonstrating Consistency and Invalidity}\label{sec.UsingModels}
 
-\section{Logical truths and contradictions}
+\section{Logical truths and logical falsehoods}
 Suppose we want to show that `$\exists xAxx \eif Bd$' is \emph{not} a logical truth. This requires showing that the sentence is not true in every interpretation; i.e.,\ that it is false in some interpretation. If we can provide just one interpretation in which the sentence is false, then we will have shown that the sentence is not a logical truth.
 
 In order for `$\exists xAxx \eif Bd$' to be false, the antecedent (`$\exists x Axx$') must be true, and the consequent (`$Bd$') must be false. To construct such an interpretation, we start by specifying a domain. Keeping the domain small makes it easier to specify what the predicates will be true of, so we shall start with a domain that has just one member. For concreteness, let's say it is the city of Paris. 
@@ -727,14 +727,14 @@ Now `$Add$' is true, so it is surely true that `$\exists x Axx$'. Next, we want 
 	\end{ekey}
 Now we have an interpretation where `$\exists x Axx$' is true, but where `$Bd$' is false. So there is an interpretation where `$\exists x Axx \eif Bd$' is false. So `$\exists x Axx \eif Bd$' is not a logical truth.
 
-We can just as easily show that `$\exists xAxx \eif Bd$' is not a contradiction. We need only specify an interpretation in which `$\exists xAxx \eif Bd$' is true; i.e., an interpretation in which either `$\exists x Axx$' is false or `$Bd$' is true. Here is one:
+We can just as easily show that `$\exists xAxx \eif Bd$' is not a logical falsehood. We need only specify an interpretation in which `$\exists xAxx \eif Bd$' is true; i.e., an interpretation in which either `$\exists x Axx$' is false or `$Bd$' is true. Here is one:
 	\begin{ekey}
 		\item[\text{domain}] Paris
 		\item[d] Paris
 		\item[A] \gap{1} is in the same place as \gap{2}
 		\item[B] \gap{1} is in France
 	\end{ekey}
-This shows that there is an interpretation where `$\exists xAxx \eif Bd$' is true. So `$\exists x Axx \eif Bd$' is not a contradiction.
+This shows that there is an interpretation where `$\exists xAxx \eif Bd$' is true. So `$\exists x Axx \eif Bd$' is not a logical falsehood.
 
 \section{Logical equivalence}
 Suppose we want to show that `$\forall x Sx$' and `$\exists x Sx$' are not logically equivalent. We need to construct an interpretation in which the two sentences have different truth values; we want one of them to be true and the other to be false. We start by specifying a domain. Again, we make the domain small so that we can specify extensions easily. In this case, we shall need at least two objects. (If we chose a domain with only one member, the two sentences would end up with the same truth value. In order to see why, try constructing some partial interpretations with one-member domains.) For concreteness, let's take:
@@ -749,7 +749,7 @@ Now `$\exists x Sx$' is true, because `$S$' is true of Ornette Coleman. Slightly
 	\factoidbox{
 		To show that $\meta{A}$ is not a logical truth, it suffices to find an interpretation where $\meta{A}$ is false.
 		
-		To show that $\meta{A}$ is not a contradiction, it suffices to find an interpretation where $\meta{A}$ is true.
+		To show that $\meta{A}$ is not a logical falsehood, it suffices to find an interpretation where $\meta{A}$ is true.
 		
 		To show that $\meta{A}$ and $\meta{B}$ are not logically equivalent, it suffices to find an interpretation where one is true and the other is false.
 	}
@@ -827,7 +827,7 @@ When you provide an interpretation to refute a claim – to logical truth, say, 
 
 \problempart
 \label{pr.Contingent}
-Show that each of the following is neither a logical truth nor a contradiction:
+Show that each of the following is neither a logical truth nor a logical falsehood:
 \begin{earg}
 \item \leftsolutions\ $Da \eand Db$
 \item \leftsolutions\ $\exists x Txh$
@@ -891,7 +891,7 @@ Show that the following arguments are invalid:
 
 \chapter{Reasoning about All Interpretations: Demonstrating Inconsistency and Validity}\label{s:All.Interp}
 
-\section{Logical truths and contradictions}
+\section{Logical truths and logical falsehoods}
 We can show that a sentence is \emph{not} a logical truth just by providing one carefully specified interpretation: an interpretation in which the sentence is false. To show that something is a logical truth, on the other hand, it would not be enough to construct ten, one hundred, or even a thousand interpretations in which the sentence is true. A sentence is only a logical truth if it is true in \emph{every} interpretation, and there are infinitely many interpretations. We need to reason about all of them, and we cannot do this by dealing with them one by one!
 
 Sometimes, we can reason about all interpretations fairly easily. For example, we can offer a relatively simple argument that `$Raa\eiff Raa$' is a logical truth:
@@ -916,7 +916,7 @@ But sometimes we can draw a conclusion about some way all interpretations must b
 \section{Other cases}
 Similar points hold of other cases too. Thus, we must reason about all interpretations if we want to show:
 	\begin{itemize}
-		\item that a sentence is a contradiction; for this requires that it is false in \emph{every} interpretation. 
+		\item that a sentence is a logical falsehood; for this requires that it is false in \emph{every} interpretation. 
 		\item that two sentences are logically equivalent; for this requires that they have the same truth value in \emph{every} interpretation.
 		\item that some sentences are jointly inconsistent; for this requires that there is no interpretation in which all of those sentences are true together; i.e., that, in \emph{every} interpretation, at  least one of those sentences is false.
 		\item that an argument is valid; for this requires that the conclusion is true in \emph{every} interpretation where the premises are true. 
@@ -942,8 +942,8 @@ The following table summarises whether a single (counter-)interpretation suffice
  \midrule
 %\cline{2-3}
 logical truth? & all interpretations & one counter-interpretation\\
-contradiction? &  all interpretations  & one counter-interpretation\\
-equivalent? & all interpretations & one counter-interpretation\\
+logical falsehood? &  all interpretations  & one counter-interpretation\\
+logically equivalent? & all interpretations & one counter-interpretation\\
 consistent? & one interpretation & consider all interpretations\\
 valid? & all interpretations & one counter-interpretation\\
 entailment? & all interpretations & one counter-interpretation\\
@@ -953,7 +953,7 @@ entailment? & all interpretations & one counter-interpretation\\
 This might usefully be compared with the table at the end of §\ref{s:directPartialTruthTable}. The key difference resides in the fact that \TFL\ concerns truth tables, whereas \FOL\ concerns interpretations. This difference is deeply important, since each truth-table only ever has finitely many lines, so that a complete truth table is a relatively tractable object. By contrast, there are infinitely many interpretations for any given sentence(s), so that reasoning about all interpretations can be a deeply tricky business. 
 
 \keyideas{
-	\item To demonstrate that something is a logical truth or a contradiction, or that an argument is an entailment, involves reasoning about all intepretations.
+	\item To demonstrate that something is a logical truth or a logical falsehood, or that an argument is an entailment, involves reasoning about all intepretations.
 	\item Reasoning about all intepretations of a given sentence is intrinsically more difficult than reasoning about all valuations, because there are only finitely many valuations to consider for any \TFL\ sentence, but infinitely many intepretations for an \FOL\ sentence.
 	\item Some indirect strategies, like \emph{reductio}, can be very useful in overcoming this obstacle.
 }
@@ -963,7 +963,7 @@ This might usefully be compared with the table at the end of §\ref{s:directPart
 {\HUGE These still need to be done \causeanerror}
 
 \problempart
-Show that each of the following is either a logical truth or a contradiction:
+Show that each of the following is either a logical truth or a logical falsehood:
 \begin{earg}
 \item \leftsolutions\ $Da \eand \enot Da$
 \item \leftsolutions\ $\exists x Txh$

@@ -350,7 +350,7 @@ The argument then revolves around the claim that there is a barber who shaves ev
 	\close
 	\have{p}{\enot \exists x (Bx \eand \forall y (\enot Syy \eiff Sxy))}\ni{a-n,a-o}
 \end{proof}
-One trick to this proof is to be sure to instantiate the universally quantified claim at line 3 by using the same name `$a$' as was already used in line 2. This is because, intuitively, the problem case for this supposed barber arises when you think about whether they shaves themselves or not. But themselves trickiest part of this proof occurs at lines 5–11. By line 4, we've already derived a contradictory biconditional. But if we just use it to derive `$Saa$' and `$\enot Saa$', the contradiction we obtain would end up involving the name `$a$'. That would mean we couldn't apply the $\exists$E rule, since the final line of the subproof would contain the chosen name, so we couldn't get our contradiction out of the subproof beginning on line 2, and hence could perform the desired \emph{reductio} on line 1 via {\enot}I. So our trick is to suppose the negation of an \emph{unrelated} contradiction on line 5, derive the contradiction from line 4 in the range of that assumption, and hence use {\enot}E to derive the contradiction `$P \eand \enot P$' on line 11. This doesn't contain the name `$a$', and hence can be extracted from the subproof to show that line 1 by itself suffices to derive a contradiction, and that shows the supposition that there is such a barber is a contradiction.
+One trick to this proof is to be sure to instantiate the universally quantified claim at line 3 by using the same name `$a$' as was already used in line 2. This is because, intuitively, the problem case for this supposed barber arises when you think about whether they shaves themselves or not. But themselves trickiest part of this proof occurs at lines 5–11. By line 4, we've already derived a contradictory biconditional. But if we just use it to derive `$Saa$' and `$\enot Saa$', the contradictory claims we obtain would end up involving the name `$a$'. That would mean we couldn't apply the $\exists$E rule, since the final line of the subproof would contain the chosen name, so we couldn't get our logical falsehood out of the subproof beginning on line 2, and hence could perform the desired \emph{reductio} on line 1 via {\enot}I. So our trick is to suppose the negation of an \emph{unrelated} logical falsehood on line 5, derive the logical falsehood from line 4 in the range of that assumption, and hence use {\enot}E to derive the logical falsehood `$P \eand \enot P$' on line 11. This doesn't contain the name `$a$', and hence can be extracted from the subproof to show that line 1 by itself suffices to derive a logical falsehood, and that shows the supposition that there is such a barber is a logical falsehood.
 
 
 \section{Justification of these quantifier rules}
@@ -594,7 +594,7 @@ In §\ref{s:FOLBuildingBlocks}, we noted that $\enot\exists x\meta{A}$ is logica
 A couple of things to note about this proof. \begin{enumerate}
 \item I was hasty at line 9 – officially I ought to have applied $\eand$E to line 8, obtaining the contradictory conjuncts in the subproof, and then applied $\enot$I to the assumption opening that subproof. (But then the proof would have gone over the page.)
 \item Note that we had to introduce the new name \meta{c} at line 3. Once we did so, there was no obstacle to applying $\forall$E on that newly introduced name in line 5. But if we had done things the other way around, applying $\forall$E first to some new name \meta{c}, we would have had to open the subproof with yet another new name \meta{d}. 
-	\item The sentence $\meta{B}$ cannot contain the name \meta{c} if the application of $\exists$E at line 8 is to be correct. We introduce this arbitrary contradiction precisely so we can show that the contradictoriness of our initial assumptions does not depend on the particular choice of name. The alternative would have been to show that the assumption $\meta{A}\subs{\meta{c}}{\meta{x}}$ leads to contradiction, and then applied $\enot$I – but that would have left the name \meta{c} outside the scope of a subproof and would not have allowed us to apply $\exists$E.
+	\item The sentence $\meta{B}$ cannot contain the name \meta{c} if the application of $\exists$E at line 8 is to be correct. We introduce this arbitrary logical falsehood precisely so we can show that the contradictoriness of our initial assumptions does not depend on the particular choice of name. The alternative would have been to show that the assumption $\meta{A}\subs{\meta{c}}{\meta{x}}$ leads to logical falsehood, and then applied $\enot$I – but that would have left the name \meta{c} outside the scope of a subproof and would not have allowed us to apply $\exists$E.
 \end{enumerate}
 
 A similar schematic proof could be offered for the second conversion rule, CQ$_{\enot\exists/\forall}$.
@@ -670,7 +670,7 @@ A schematic proof emulating $\forall$I using our other basic rules is trickier. 
 	\close
 	\have{h}{\forall \meta{x}\meta{A}}\ne{a-g}
 \end{proof}
-To understand this schematic proof, what we need to remember is that, in order for the original $\forall$I rule to apply, we must already have a proof of $\meta{A}\subs{\meta{c}}{\meta{x}}$ which relies on assumptions $\Gamma$ that do not mention \meta{c} at all. The trick is to make use of that proof \emph{inside} an assumption about an existential witness. We don't try to perform that proof to derive $\meta{A}\subs{\meta{c}}{\meta{x}}$ and then attempt to manipulate $\enot\forall \meta{xA}$ to generate a contradiction. Rather, we first assume $\enot\forall \meta{xA}$, apply quantifier conversion to obtain $\exists \meta{x}\enot\meta{A}$, assume that \meta{c} witnesses that existential claim so that $\enot\meta{A}\subs{\meta{c}}{\meta{x}}$, and then use our original proof to derive $\meta{A}\subs{\meta{c}}{\meta{x}}$ at line $n$. To avoid problems with the name appearing at the bottom of the existential witness subproof, we perform the same trick of assuming the falsehood of an arbitrary contradiction (so long as \meta{B} doesn't include \meta{c}), and then we manage to derive from $\Gamma$ what we had hoped to: that $\forall \meta{xA}$.
+To understand this schematic proof, what we need to remember is that, in order for the original $\forall$I rule to apply, we must already have a proof of $\meta{A}\subs{\meta{c}}{\meta{x}}$ which relies on assumptions $\Gamma$ that do not mention \meta{c} at all. The trick is to make use of that proof \emph{inside} an assumption about an existential witness. We don't try to perform that proof to derive $\meta{A}\subs{\meta{c}}{\meta{x}}$ and then attempt to manipulate $\enot\forall \meta{xA}$ to generate a logical falsehood. Rather, we first assume $\enot\forall \meta{xA}$, apply quantifier conversion to obtain $\exists \meta{x}\enot\meta{A}$, assume that \meta{c} witnesses that existential claim so that $\enot\meta{A}\subs{\meta{c}}{\meta{x}}$, and then use our original proof to derive $\meta{A}\subs{\meta{c}}{\meta{x}}$ at line $n$. To avoid problems with the name appearing at the bottom of the existential witness subproof, we perform the same trick of assuming the falsehood of an arbitrary logical falsehood (so long as \meta{B} doesn't include \meta{c}), and then we manage to derive from $\Gamma$ what we had hoped to: that $\forall \meta{xA}$.
 
 \keyideas{
 	\item The derived rules for \FOL\ concern the interaction of quantifiers with negation.
@@ -954,7 +954,7 @@ Is \meta{A} a \textbf{logical truth}?
 & give a proof which shows $\proves\meta{A}$ 
 & give an interpretation in which \meta{A} is false\\
 \\
-Is \meta{A} a \textbf{contradiction}? &
+Is \meta{A} a \textbf{logical falsehood}? &
 give a proof which shows $\proves\enot\meta{A}$ & 
 give an interpretation in which \meta{A} is true\\
 \\
@@ -967,7 +967,7 @@ give two proofs, one for $\meta{A}\proves\meta{B}$ and one for $\meta{B}\proves\
 \\
 Are $\meta{A}_{1}, \meta{A}_2, …, \meta{A}_n$ \textbf{jointly consistent}? 
 & give an interpretation in which all of $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ are true 
-& prove a contradiction from assumptions $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$\\
+& prove a logical falsehood from assumptions $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$\\
 \\
 Is $\meta{A}_1, \meta{A}_2, …, \meta{A}_n \ttherefore \meta{C}$ \textbf{valid}? 
 & give a proof with assumptions $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ and concluding with \meta{C}
