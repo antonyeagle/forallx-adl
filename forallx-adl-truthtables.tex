@@ -240,9 +240,15 @@ In fact there are even difficulties with indicatives in \TFL. I shall say a litt
 
 So far, we have considered assigning truth values to \TFL\ sentences indirectly. We have said, for example, that a \TFL\ sentence such as `$B$' is to take the same truth value as the English sentence `Big Ben is in London' (whatever that truth value may be). But we can also assign truth values \emph{directly}. We can simply stipulate that `$B$' is to be true, or stipulate that it is to be false – at least for present purposes. 
 	\factoidbox{
-		A \define{valuation} is any assignment of truth values to some atomic sentences of \TFL. It assigns exactly one truth value, either True or False, to each of the sentences in question. 
+		A \define{valuation} is any assignment of truth values to some atomic sentences of \TFL. It assigns exactly one truth value, either True or False, to each of the sentences in question.
 	}
-A valuation is a temporary assignment of `meanings' to \TFL\ sentences, in much the same way as a symbolisation key might be. What is distinctive about \TFL\ is that almost all of its basic vocabulary – the atomic sentences – only get their meanings in this temporary fashion. The only parts of \TFL\ that get their meanings permanently are the connectives, which always have a fixed interpretation. 
+A valuation is thus a function from atomic sentences to truth values. So this is a valuation: \begin{align*}
+	A, G, P, G_{7}  &\mapsto \mathrm{T}\\ 
+	F, R, Z &\mapsto \mathrm{F}.
+\end{align*} There is no requirement that a valuation be a \define{total function}, that is, that it assign a truth value to every atomic sentence. To be fix the truth value of a sentence \meta{A} of \TFL\ a valuation must assign a truth value to every atomic sentence \meta{A} contains.
+
+
+A valuation is a temporary assignment of `meanings' to \TFL\ sentences, in much the same way as a symbolisation key might be. (It only assigns truth values, the only dimension of meaning that \TFL\ is sensitive to.) What is distinctive about \TFL\ is that almost all of its basic vocabulary – the atomic sentences – only get their meanings in this temporary fashion. The only parts of \TFL\ that get their meanings permanently are the connectives, which always have a fixed interpretation. 
 
 This is rather unlike English, where most words have their meanings on a permanent basis. But there are some words in English – like pronouns (`he', `she', `it') and demonstratives (`this', `that') – that get their meaning assigned temporarily, and then can be reused with a different meaning in another context. Such expressions are called \define{context sensitive}. In this sense, all the atomic sentences of \TFL\ are context sensitive expressions. Of course we don't have anything so explicit and deliberate as a valuation or a symbolisation key in English to assign a meaning to a particular use of `this' or `that' – the circumstances of a conversation automatically assign an appropriate object (usually). In \TFL, however, we need to explicitly set out the interpretations of the atomic sentences we are concerned with. 
 
