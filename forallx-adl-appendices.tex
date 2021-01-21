@@ -47,7 +47,7 @@ Some texts use an overline to indicate negation, so that `$\overline{\mathscr{A}
 \paragraph{Disjunction} The symbol `$\vee$' is typically used to symbolize inclusive disjunction. One etymology is from the Latin word `vel', meaning `or'.%In some systems, disjunction is written as addition.
 
 \paragraph{Conjunction}
-Conjunction is often symbolized with the \emph{ampersand}, `{\&}'. The ampersand is a decorative form of the Latin word `et', which means `and'.  (Its etymology still lingers in certain fonts, particularly in italic fonts; thus an italic ampersand might appear as `\emph{\&}'.) Using this symbol is not recommended, since it is commonly used in natural English writing (e.g., `Smith \& Sons'). As a symbol in a formal system, the ampersand is not the English word `\&', so it is much neater to use a completely different symbol. The most common choice now is `$\wedge$', which is a counterpart to the symbol used for disjunction. Sometimes a single dot, `{\scriptsize\textbullet}', is used (you may have seen this in \emph{Argument and Critical Thinking}). In some older texts, there is no symbol for conjunction at all; `$A$ and $B$' is simply written `$AB$'. (These are often texts that use the overlining notation for negation. Such texts often involve languages in which conjunction and negation are the only connectives, and they typically also dispense with brackets which are unnecessary in such austere languages.)
+Conjunction is often symbolized with the \emph{ampersand}, `{\&}'. The ampersand is a decorative form of the Latin word `et', which means `and'.  (Its etymology still lingers in certain fonts, particularly in italic fonts; thus an italic ampersand might appear as `\emph{\&}'.) Using this symbol is not recommended, since it is commonly used in natural English writing (e.g., `Smith \& Sons'). As a symbol in a formal system, the ampersand is not the English word `\&', so it is much neater to use a completely different symbol. The most common choice now is `$\wedge$', which is a counterpart to the symbol used for disjunction. Sometimes a single dot, `{\scriptsize\textbullet}', is used (you may have seen this in \emph{Argument and Critical Thinking}). In some older texts, there is no symbol for conjunction at all; `$A$ and $B$' is simply written `$AB$'. (These are often texts that use the overlining notation for negation. Such texts often involve languages in which conjunction and negation are the only connectives, and they typically also dispense with parentheses which are unnecessary in such austere languages.)
 
 \paragraph{Material conditional} There are two common symbols for the material conditional: the \emph{arrow}, `$\rightarrow$', and the \emph{hook}, `$\supset$'. Rarely you might see `$\Rightarrow$'.
 
@@ -55,7 +55,7 @@ Conjunction is often symbolized with the \emph{ampersand}, `{\&}'. The ampersand
 
 
 
-\paragraph{Quantifiers} The universal quantifier is typically symbolised `$\forall$' (a rotated `\textsf{A}'), and the existential quantifier as `$\exists$' (a rotated `\textsf{E}'). In some texts, there is no separate symbol for the universal quantifier. Instead, the variable is just written in brackets in front of the formula that it binds. For example, they might write `$(x)Px$' where we would write `$\forall x Px$'.
+\paragraph{Quantifiers} The universal quantifier is typically symbolised `$\forall$' (a rotated `\textsf{A}'), and the existential quantifier as `$\exists$' (a rotated `\textsf{E}'). In some texts, there is no separate symbol for the universal quantifier. Instead, the variable is just written in parentheses in front of the formula that it binds. For example, they might write `$(x)Px$' where we would write `$\forall x Px$'.
 
 
 \
@@ -73,11 +73,11 @@ universal quantifier & $\forall x$, $(x)$\\ \bottomrule
 \end{center}
 
 \newpage
-\section*{Doing without brackets: Polish notation} \phantomsection\label{polish}
+\section*{Doing without parentheses: Polish notation} \phantomsection\label{polish}
 
-We have established some conventions governing when you can omit brackets in \TFL\ (in §§\ref{TFLconventions} and \ref{s:MoreBracketingConventions}). These conventions are useful in practice. It can be hard to read sentences with many nested brackets. Moreover, it is easy to make a mistake when constructing sentences, if you accidentally omit a needed bracket. So there has been some interest in ways of doing sentential logic without brackets. Frege's initial formulation of sentential logic in his \emph{Begriffschrift} (1879) lacked brackets, but involves a complicated non-linear branching structure which is difficult to typeset and has not been much used by anyone since.
+We have established some conventions governing when you can omit parentheses in \TFL\ (in §§\ref{TFLconventions} and \ref{s:MoreParentheticalConventions}). These conventions are useful in practice. It can be hard to read sentences with many nested parentheses. Moreover, it is easy to make a mistake when constructing sentences, if you accidentally omit a needed bracket. So there has been some interest in ways of doing sentential logic without parentheses. Frege's initial formulation of sentential logic in his \emph{Begriffschrift} (1879) lacked parentheses, but involves a complicated non-linear branching structure which is difficult to typeset and has not been much used by anyone since.
 
-The now-standard approach to sentential logic without brackets was due to the Polish logician Jan Łukasiewicz, and for that reason it has become known as \define{Polish notation}. It is a purely syntactic variant of our system \TFL: the truth-functions expressed by the connectives remain the same, but the sentences are written very differently.\footnote{In what follows I draw on Peter Simons (2017) `Łukasiewicz's Parenthesis-Free or Polish Notation', in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy}, \url{https://plato.stanford.edu/archives/spr2017/entries/lukasiewicz/polish-notation.html}.}
+The now-standard approach to sentential logic without parentheses was due to the Polish logician Jan Łukasiewicz, and for that reason it has become known as \define{Polish notation}. It is a purely syntactic variant of our system \TFL: the truth-functions expressed by the connectives remain the same, but the sentences are written very differently.\footnote{In what follows I draw on Peter Simons (2017) `Łukasiewicz's Parenthesis-Free or Polish Notation', in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy}, \url{https://plato.stanford.edu/archives/spr2017/entries/lukasiewicz/polish-notation.html}.}
 
 The basic idea is that rather than writing a connective in a logically complex sentence between the two subsentences, it should be written before them – in a sense, it treats all binary connectives like negation. So if $\meta{A}$ and $\meta{B}$ are two sentences, the sentence we write in \TFL\ as $\meta{A} \eif \meta{B}$ would be written as $C\meta{A}\meta{B}$, where the `$C$' is the symbol used for the conditional connective. Because the language uses some of the standard upper case letters for its connectives, there is potential for confusion if we use them for atomic sentences too. So the atomic sentences of this Polish language will be `$p$', `$q$', or `$r$', with any numerical subscripts. 
 
@@ -98,7 +98,7 @@ We can recursively define a sentence of this Polish language:\begin{enumerate}
 	\item Nothing else is a sentence.
 \end{enumerate} It is easy to see that one can type sentences in Polish notation without the use of any special symbols on a standard typewriter keyboard.
 
-The notation doesn't require brackets. The ambiguous string `$P \eif Q \eif R$' may correspond to either of these two \TFL\ sentences: (i) `$(P \eif (Q \eif R))$' or (ii) $((P \eif Q) \eif R)$. These are symbolised in Polish notation as, respectively, (i$\prime$) `$CpCqr$' and (ii$\prime$) `$CCpqr$'. Why? \begin{itemize}
+The notation doesn't require parentheses. The ambiguous string `$P \eif Q \eif R$' may correspond to either of these two \TFL\ sentences: (i) `$(P \eif (Q \eif R))$' or (ii) $((P \eif Q) \eif R)$. These are symbolised in Polish notation as, respectively, (i$\prime$) `$CpCqr$' and (ii$\prime$) `$CCpqr$'. Why? \begin{itemize}
 	\item You know, from the recursive definition, that any logically complex sentence is formed by taking a connective and placing one or two sentences after it. So the main connective is always the leftmost character.
 	\item You then need only to identify a sentence that follows it. So in (i$\prime$), the main connective is `$C$', which is followed by the atomic sentence `$p$' and the complex sentence `$Cqr$'; in (ii$\prime$), with the same main connective, the sentences which follow are `$Cpq$' and `$r$'.
 	\item No ambiguity is possible. It would be possible only if there were some sentences $\meta{A}$, $\meta{B}$, $\meta{C}$ and $\meta{D}$ such that the string $\meta{A}\meta{B}$ is identical to the string $\meta{C}\meta{D}$, where $\meta{A}≠\meta{C}$. That would mean, without loss of generality, that $\meta{A}$ is an initial part of $\meta{C}$. But then $\meta{C}$ cannot be a sentence, since it is a string comprised of a sentence plus some other symbols tacked on the end, which is not a sentence, by the recursive definition. 
@@ -108,7 +108,7 @@ The notation can be very concise. Compare the following: \begin{gather*}
 	\biggl(\bigl(\left(P \eand Q\right)\eif R\bigr) \eif\bigl(P\eand\left(\enot Q\eor R\right)\bigr)\biggr);\\
 	CCKpqrKpANqr.
 \end{gather*}
-The \TFL\ version has 22 characters, 10 of them brackets; the Polish version just 12.
+The \TFL\ version has 22 characters, 10 of them parentheses; the Polish version just 12.
 
 
 The notation never really caught on, partly because - as in the example above – it is not always immediate to the naked eye where one constituent sentence begins and another ends. But the main obstacle to its wider use was the lack of any easy way to indicate the scope of a quantifier. Thus the notation has become something of a historical curiosity.

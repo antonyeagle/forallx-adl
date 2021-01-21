@@ -283,7 +283,7 @@ So by applying the {\eand}I rule to lines 3 and 2 (in that order), we arrive at 
 \end{proof}
 This is a very simple proof, but it shows how we can chain rules of proof together into longer proofs. Our formal proof requires just four lines, a far cry from the 256 lines that would have been required had we approached the argument using the techniques from chapter \ref{ch.TruthTables}.
 
-It is worth giving another example. Way back in §\ref{s:MoreBracketingConventions}, we noted that this argument is valid:
+It is worth giving another example. Way back in §\ref{s:MoreParentheticalConventions}, we noted that this argument is valid:
 	$$A \eand (B \eand C) \ttherefore (A \eand B) \eand C.$$
 To provide a proof corresponding to this argument, we start by writing:
 \begin{proof}
@@ -307,7 +307,7 @@ But now we can merrily reintroduce conjunctions in the order we want them, so th
 	\have{ab}{A \eand B}\ai{a, b}
 	\have{con}{(A \eand B) \eand C}\ai{ab, c}
 \end{proof}
-Recall that our official definition of sentences in \TFL\ only allowed conjunctions with two conjuncts. When we discussed semantics, we became a bit more relaxed, and allowed ourselves to drop inner brackets in long conjunctions, since the order of the brackets did not affect the truth table. The proof just given suggests that we could also drop inner brackets in all of our proofs. However, this is not standard, and we shall not do this. Instead, we shall return to the more austere bracketing conventions. (Though we will allow ourselves to drop outermost brackets most of the time, for legibility.)
+Recall that our official definition of sentences in \TFL\ only allowed conjunctions with two conjuncts. When we discussed semantics, we became a bit more relaxed, and allowed ourselves to drop inner parentheses in long conjunctions, since the order of the parentheses did not affect the truth table. The proof just given suggests that we could also drop inner parentheses in all of our proofs. However, this is not standard, and we shall not do this. Instead, we shall return to the more austere parenthetical conventions. (Though we will allow ourselves to drop outermost parentheses most of the time, for legibility.)
 
 Our conjunction rules correspond to intuitively correct patterns of implication. But they are also demonstrably good in another sense. Each of our rules can be vindicated by considering facts about entailment. Each of these schematic entailments is easily demonstrated: \begin{itemize}
 	\item $\meta{A}, \meta{B} \entails \meta{A} \eand \meta{B}$;

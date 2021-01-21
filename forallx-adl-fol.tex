@@ -1341,7 +1341,7 @@ Connectives, of two types & \\
 Truth-functional Connectives & $\enot,\eand,\eor,\eif,\eiff$\\
 Quantifiers & $\forall, \exists$\\
 \\
-Brackets &( , )\\
+Parentheses &( , )\\
 \bottomrule \end{tabular}
 \end{center}
 We define an \define{expression} of \FOL\ as any string of symbols of \FOL. Take any of the symbols of \FOL\ and write them down, in any order, and you have an expression.
@@ -1452,15 +1452,15 @@ Since an atomic formula formed by a $0$-place predicate contains no terms at all
 Our definition of a formula allows for examples like `$\exists x \forall x Fx$'. This is a sentence, since the variable in `$Fx$' is in the scope of a quantifier attached to `$x$'. But which one? It could make a difference whether the sentence is to be understood as saying everything is $F$, or something it. To resolve this issue, let us stipulate that a variable is bound by the quantifier which is the main connective of the smallest subformula in which the variable is bound. So in `$\exists x \forall x Fx$', the variable is bound by the universal quantifier, because it was already bound in the subformula `$\forall x Fx$'.
 
 
-\section{Bracketing conventions}
+\section{Parenthetical conventions}
 
-We will adopt the same notational conventions governing brackets that we did for \TFL\ (see §\ref{s:TFLSentences} and §\ref{s:MoreBracketingConventions}.) 
+We will adopt the same notational conventions governing parentheses that we did for \TFL\ (see §\ref{s:TFLSentences} and §\ref{s:MoreParentheticalConventions}.) 
 
-First, we may omit the outermost brackets of a formula, and we sometimes use variably sized brackets to aid with readability.  
+First, we may omit the outermost parentheses of a formula, and we sometimes use variably sized parentheses to aid with readability.  
 
-Second, we may omit brackets between each pair of conjuncts when writing long series of conjunctions. 
+Second, we may omit parentheses between each pair of conjuncts when writing long series of conjunctions. 
 
-Third, we may omit brackets between each pair of disjuncts when writing long series of disjunctions.
+Third, we may omit parentheses between each pair of disjuncts when writing long series of disjunctions.
 
 \keyideas{
 	\item There is a precise recursive definition of the notion of a sentence in \FOL, describing how they are built out of basic expressions.

@@ -337,7 +337,7 @@ Sentence \ref{and7} raises similar issues. There is a contrastive structure.  Th
 	\factoidbox{
 		A sentence can be symbolised as $(\meta{A}\eand\meta{B})$ if it can be paraphrased in English as `Both …, and …', or as `…, but …', or as `although …, …'.
 	}
-You might be wondering why I am putting brackets around the conjunctions. The reason for this is to avoid potential ambiguity.\label{p.con.ambig} This can be brought out by considering how negation might interact with conjunction. Consider:
+You might be wondering why I am putting parentheses around the conjunctions. The reason for this is to avoid potential ambiguity.\label{p.con.ambig} This can be brought out by considering how negation might interact with conjunction. Consider:
 	\begin{earg}
 		\item[\ex{negcon1}] It's not the case that you will get both soup and salad.
 		\item[\ex{negcon2}] You will not get soup but you will get salad.
@@ -351,14 +351,14 @@ We would symbolise `both you will get soup and you will get salad' as `$(S_{1} \
 
 Sentence \ref{negcon2} is a conjunction: you \emph{will not} get soup, and you \emph{will} get salad. `You will not get soup' is symbolised by `$\enot S_{1}$'. So to symbolise sentence \ref{negcon2} itself, we offer `$(\enot S_{1} \eand S_{2})$'. 
 
-These English sentences are very different, and their symbolisations differ accordingly. In one of them, the entire conjunction is negated. In the other, just one conjunct is negated. Brackets help us to avoid ambiguity by clear distinguishing these two cases.
+These English sentences are very different, and their symbolisations differ accordingly. In one of them, the entire conjunction is negated. In the other, just one conjunct is negated. Parentheses help us to avoid ambiguity by clear distinguishing these two cases.
 
 Once again, however, English does feature this sort of ambiguity. Suppose instead of \ref{negcon1}, we'd just said \begin{earg}
 	\item[\ex{negcon3}] You won't get soup with salad.
 \end{earg}
-The sentence \ref{negcon3} is arguably ambiguous; one of its readings says the same thing as \ref{negcon1}, the other says the same thing as \ref{negcon2}. Brackets enable \TFL\ to avoid precisely this ambiguity.
+The sentence \ref{negcon3} is arguably ambiguous; one of its readings says the same thing as \ref{negcon1}, the other says the same thing as \ref{negcon2}. Parentheses enable \TFL\ to avoid precisely this ambiguity.
 
-The introduction of brackets prompts us to define some other useful concepts. If a sentence of \TFL\ has the overall form $(\meta{A} \wedge \meta{B})$, we say that its \emph{main connective} is conjunction – even if other connectives occur within $\meta{A}$ or $\meta{B}$. Likewise, if the sentence has the form $¬\meta{A}$, its main connective is negation. We define the \emph{scope} of an occurrence of a connective in a sentence as the subsentence which has that connective as its main connective. So the scope of `$¬$' in `$¬(S_{1} \wedge S_{2})$' is the whole sentence (because negation is the main connective), while the scope of `$¬$' in `$(¬S_{1}\wedge S_{2})$' is just the subsentence `$¬S_{1}$' – the main connective of the whole sentence is conjunction. Brackets help us keep track of things the scope of our connectives, and which connective in a sentence is the main connective. I say more about the notions of a main connective and the scope of a connective in §\ref{s.mainconnscope}.
+The introduction of parentheses prompts us to define some other useful concepts. If a sentence of \TFL\ has the overall form $(\meta{A} \wedge \meta{B})$, we say that its \emph{main connective} is conjunction – even if other connectives occur within $\meta{A}$ or $\meta{B}$. Likewise, if the sentence has the form $¬\meta{A}$, its main connective is negation. We define the \emph{scope} of an occurrence of a connective in a sentence as the subsentence which has that connective as its main connective. So the scope of `$¬$' in `$¬(S_{1} \wedge S_{2})$' is the whole sentence (because negation is the main connective), while the scope of `$¬$' in `$(¬S_{1}\wedge S_{2})$' is just the subsentence `$¬S_{1}$' – the main connective of the whole sentence is conjunction. Parentheses help us keep track of things the scope of our connectives, and which connective in a sentence is the main connective. I say more about the notions of a main connective and the scope of a connective in §\ref{s.mainconnscope}.
 
 \section{Disjunction}
 Consider these sentences:
@@ -605,7 +605,7 @@ with subscripts, as needed & $A_1, B_1,Z_1,A_2,A_{25},J_{375},…$\\
 \\
 Connectives & $\enot,\eand,\eor,\eif,\eiff$\\
 \\
-Brackets &( , )\\
+Parentheses &( , )\\
 \bottomrule \end{tabular} 
 \end{center}
 We define an \define{expression} of \TFL\ as any finite non-empty string of symbols of \TFL. Take any of the symbols of \TFL\ and write them down, in any order, and you have an expression of \TFL. Expressions are sometimes called `strings', because they are just a string of symbols from the approved list above. No restriction is placed on expressions apart from having to contain at least one character, and not going on infinitely long.
@@ -647,7 +647,7 @@ Let's consider some examples.
 	\item Suppose we want to know whether or not `$\enot \enot \enot D$' is a sentence of \TFL. Looking at the second clause of the definition, we know that `$\enot \enot \enot D$' is a sentence \emph{if} `$\enot \enot D$' is a sentence. So now we need to ask whether or not `$\enot \enot D$' is a sentence. Again looking at the second clause of the definition, `$\enot \enot D$' is a sentence \emph{if} `$\enot D$' is. Again, `$\enot D$' is a sentence \emph{if} `$D$' is a sentence. Now `$D$' is an atomic sentence of \TFL, so we know that `$D$' is a sentence by the first clause of the definition. So for a compound sentence like `$\enot \enot \enot D$', we must apply the definition repeatedly. Eventually we arrive at the atomic sentences from which the sentence is built up.
 	\item Next, consider the expression `$\enot (P \eand \enot (\enot Q \eor R))$'. Looking at the second clause of the definition, this is a sentence if `$(P \eand \enot (\enot Q \eor R))$' is. And this is a sentence if \emph{both} `$P$' \emph{and} `$\enot (\enot Q \eor R)$' are sentences. The former is an atomic sentence, and the latter is a sentence if `$(\enot Q \eor R)$' is a sentence. It is. Looking at the fourth clause of the definition, this is a sentence if both `$\enot Q$' and `$R$' are sentences. And both are!
 	\item Suppose we want to know whether `$(A\enot \eor B^{1})$' is a sentence. By the third clause of the definition, this is a sentence iff its two constituents are sentences. The second is not: it consists of an upper case letter and a numerical \emph{superscript}, which is not in conformity with the definition of an atomic sentence. The first isn't either: while it is constructed from an upper case letter and the negation symbol, they are in the wrong order to be a sentence by the first clause of the definition. So the original expression is not a sentence.
-	\item A final example. Consider the expression `$(P \eif \enot(Q \eif P)$'. If this is a sentence, then it's main connective is `\eif', and it was formed from the sentences `$P$' and `$\enot(Q \eif P$'. `$P$' is a sentence because it is a sentence letter. Is `$\enot(Q \eif P$' a sentence? Only if `$(Q \eif P$' is a sentence. But this isn't a sentence; it lacks a closing bracket which would need to be there if this was correctly formed using the clause in the definition covering conditionals. It follows that the expression with which we started isn't a sentence either.
+	\item A final example. Consider the expression `$(P \eif \enot(Q \eif P)$'. If this is a sentence, then it's main connective is `\eif', and it was formed from the sentences `$P$' and `$\enot(Q \eif P$'. `$P$' is a sentence because it is a sentence letter. Is `$\enot(Q \eif P$' a sentence? Only if `$(Q \eif P$' is a sentence. But this isn't a sentence; it lacks a closing parenthesis which would need to be there if this was correctly formed using the clause in the definition covering conditionals. It follows that the expression with which we started isn't a sentence either.
 \end{enumerate}
 
 
@@ -688,17 +688,17 @@ Leaving the temporal adverbial phrase `at all times' aside, here are two symboli
 \end{earg}
 This ambiguity matters. If a child is carried, but is not quiet, the parent is violating the regulation with the first structure, but in compliance with the regulation with the second structure. As we will soon see, \TFL\ has resources to ensure that no ambiguity is present in any symbolisation of a given target sentence, which helps us make clear what we really might have meant by that sentence. And as this case makes clear, that might be important in the framing of legal statutes or contracts, in the formulation of government policy, and in other written documents where clarity of meaning is crucial.
 
-\section{Bracketing conventions}
+\section{Parenthetical conventions}
 \label{TFLconventions}
-Strictly speaking, the brackets in `$(Q \eand R)$' are an indispensable part of the sentence. Part of this is because we might use `$(Q \eand R)$' as a subsentence in a more complicated sentence. For example, we might want to negate `$(Q \eand R)$', obtaining `$\enot(Q \eand R)$'. If we just had `$Q \eand R$' without the brackets and put a negation in front of it, we would have `$\enot Q \eand R$'. It is most natural to read this as meaning the same thing as `$(\enot Q \eand R)$'. But as we saw in  §\ref{s:ConnectiveConjunction}, this is very different from `$\enot(Q\eand R)$'.
+Strictly speaking, the parentheses in `$(Q \eand R)$' are an indispensable part of the sentence. Part of this is because we might use `$(Q \eand R)$' as a subsentence in a more complicated sentence. For example, we might want to negate `$(Q \eand R)$', obtaining `$\enot(Q \eand R)$'. If we just had `$Q \eand R$' without the parentheses and put a negation in front of it, we would have `$\enot Q \eand R$'. It is most natural to read this as meaning the same thing as `$(\enot Q \eand R)$'. But as we saw in  §\ref{s:ConnectiveConjunction}, this is very different from `$\enot(Q\eand R)$'.
 
 Strictly speaking, then, `$Q \eand R$' is \emph{not} a sentence. It is a mere \emph{expression}.
 
 When working with \TFL, however, it will make our lives easier if we are sometimes a little less than strict. So, here are some convenient conventions.
 
-First,  we allow ourselves to omit the \emph{outermost} brackets of a sentence. Thus we allow ourselves to write `$Q \eand R$' instead of the sentence `$(Q \eand R)$'. However, we must remember to put the brackets back in, when we want to embed the sentence into a more complicated sentence!
+First,  we allow ourselves to omit the \emph{outermost} parentheses of a sentence. Thus we allow ourselves to write `$Q \eand R$' instead of the sentence `$(Q \eand R)$'. However, we must remember to put the parentheses back in, when we want to embed the sentence into a more complicated sentence!
 
-Second, it can be a bit painful to stare at long sentences with many nested pairs of brackets. To make things a bit easier on the eyes, we shall allow ourselves to use brackets in varied sizes, which sometimes helps in seeing which brackets pair up with each other.
+Second, it can be a bit painful to stare at long sentences with many nested pairs of parentheses. To make things a bit easier on the eyes, we shall allow ourselves to use parentheses in varied sizes, which sometimes helps in seeing which parentheses pair up with each other.
 
 
 Combining these two conventions, we can rewrite the unwieldy sentence
@@ -707,13 +707,13 @@ rather more readably as follows:
 $$\bigl( (H \eif I) \eor (I \eif H) \bigr) \eand (J \eor K)$$
 The scope of each connective is now much clearer.
 
-There are systems of logic which omit brackets, using so-called `Polish notation'. I discuss this notation briefly in Appendix \ref{app.notation}, p.~\pageref{polish}. 
+There are systems of logic which omit parentheses, using so-called `Polish notation'. I discuss this notation briefly in Appendix \ref{app.notation}, p.~\pageref{polish}. 
 
 \keyideas{
 	\item The class of sentences of \TFL\ has a perfectly precise recursive definition that allows us to determine in a step-by-step fashion, for any expression, whether it is a sentence or not. 
 	\item The main connective of a sentence is the final rule applied in the construction of a sentence; the scope of a connective is that subsentence in the construction of which it is the main connective.
 	\item Each \TFL\ sentence, unlike English sentences, has an unambiguous structure.
-	\item We can sometimes permit ourselves some liberality in the use of brackets in \TFL, when we can be sure it gives rise to no difficulty.
+	\item We can sometimes permit ourselves some liberality in the use of parentheses in \TFL, when we can be sure it gives rise to no difficulty.
 }
 
 \practiceproblems
@@ -721,7 +721,7 @@ There are systems of logic which omit brackets, using so-called `Polish notation
 \solutions
 \problempart
 \label{pr.wiffTFL}
-For each of the following: (a) Is it a sentence of \TFL, strictly speaking? (b) Is it a sentence of \TFL, allowing for our relaxed bracketing conventions?
+For each of the following: (a) Is it a sentence of \TFL, strictly speaking? (b) Is it a sentence of \TFL, allowing for our relaxed parenthetical conventions?
 \begin{earg}
 \item $(A)$
 \item $J_{374} \eor \enot J_{374}$
