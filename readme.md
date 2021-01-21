@@ -29,9 +29,6 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 3 (`forallx-adl-truthtables.tex`)
 	- §8 
 		+ more practice exercises!
-	- §11
-		+ Add a discussion of using the test for entailment to understand NL arguments.
-		+ §11.5: two kinds of limits: valid arguments not captured (remedied by \FOL), invalid NL arguments misclassified due to inadequate symbolisation – a form that looks like it might be captured by \TFL\ but which in fact isn't.
 	- §13
 		+ add discussion of how to handle disjunction, biconditionals in partial truth tables.
 		+ Add discussion of how partial truth tables must be constructed with a particular semantic property in mind: that is what determines the starting assumption about truth values that we will make (e.g., using them to assess consistency one begins with `assume all Ts` – but not when using them to assess non-contradictoriness).

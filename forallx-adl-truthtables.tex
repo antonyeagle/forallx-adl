@@ -85,7 +85,7 @@ F & F & F\\
 \end{center}
 Like conjunction, disjunction is commutative. 
 
-\paragraph{Conditional} I'm just going to come clean and admit it. Conditionals are a problem in \TFL. This is not because there is any problem finding a truth table for the connective `\eif', but rather because the truth table we put forward seems to make `\eif' behave in ways that are different to the way that the English counterpart `if … then …' behaves. Exactly how much of a problem this poses is a matter of \emph{philosophical} contention. I shall discuss a few of the subtleties  in §\ref{s:IndicativeSubjunctive} and §\ref{s:ParadoxesOfMaterialConditional}. (It is no problem for \TFL\ itself, of course – the only potential difficulty arises when we try to use the \TFL\ conditional to represent `if …, then …'.
+\paragraph{Conditional} I'm just going to come clean and admit it. Conditionals are a problem in \TFL. This is not because there is any problem finding a truth table for the connective `\eif', but rather because the truth table we put forward seems to make `\eif' behave in ways that are different to the way that the English counterpart `if … then …' behaves. Exactly how much of a problem this poses is a matter of \emph{philosophical} contention. I shall discuss a few of the subtleties  in §\ref{s:IndicativeSubjunctive} and §\ref{s:ParadoxesOfMaterialConditional}. (It is no problem for \TFL\ itself, of course – the only potential difficulty arises when we try to use the \TFL\ conditional to represent `if …, then …'.)
 
 We know at least this much from a parallel with the English conditional: if \meta{A} is true and \meta{B} is false, then $\meta{A}\eif\meta{B}$ should be false. The conditional claim `if I study hard, then I'll pass' is clearly false if you study hard and still fail. For now, I am going to stipulate that this is the only type of case in which $\meta{A}\eif\meta{B}$ is false.  We can summarize this with a schematic truth table for the \TFL\ conditional.
 \begin{center}
@@ -167,9 +167,9 @@ In these cases, we had the same input truth values, but different output. We can
 \section{Indicative versus subjunctive conditionals}\label{s:IndicativeSubjunctive}
 I want to bring home the point that \TFL\ \emph{only} deals with truth functions by considering the case of the conditional. When I introduced the schematic truth table for the material conditional in §\ref{s:SchematicTruthTables}, I did not say much to justify it. Let me now offer two justifications. These are not arguments for the truth function associated with `$\eif$', which is a perfectly legitimate rule for associating input truth values with outputs. What needs justification is our idea that we should use this truth function when symbolise English sentences whose main connective is `if … then …'. They attempt to show that our usage of the English conditional `if' is in line with the way `$\eif$' behaves.
 
-\paragraph{Edginton's Argument}
+\paragraph{Edgington's Argument}
 
-The first follows a line of argument due to Dorothy Edgington.\footnote{Dorothy Edgington, `Conditionals', 2006, in the \emph{Stanford Encyclopedia of Philosophy} (\url{http://plato.stanford.edu/entries/conditionals/}).}  Suppose that Lara has drawn some shapes on a piece of paper, and coloured some of them in. I have not seen them, but I claim:
+The first follows a line of argument due to Dorothy Edgington.\footnote{Dorothy Edgington, `Indicative Conditionals', 2020, in the \emph{Stanford Encyclopedia of Philosophy} (\url{http://plato.stanford.edu/entries/conditionals/}).}  Suppose that Lara has drawn some shapes on a piece of paper, and coloured some of them in. I have not seen them, but I claim:
 	\begin{quote}
 		If any shape is grey, then that shape is also circular.
 	\end{quote}
@@ -203,9 +203,7 @@ then my claim would have be false. So it must be that this claim is false:
 	\end{itemize}
 Now, recall that every connective of \TFL\ has to be truth-functional. This means that the mere truth value of the antecedent and consequent must uniquely determine the truth value of the conditional as a whole. Thus, from the truth values of our four claims – which provide us with all possible combinations of truth and falsity in antecedent and consequent – we can read off the truth table for the material conditional.
 
-\paragraph{The or-to-if argument} A second justification for symbolising `if' as `$\eif$' is this. We know already that if \meta{A} is true and \meta{C} is false, then `if \meta{A} then \meta{C}' will be false. What should we say about the other rows of the truth table, the rows on which either \meta{A} is false, or \meta{B} is true (or both). Well, suppose that either \meta{A} is false or \meta{B} is true. If the first disjunct of this disjunction is false, then the second disjunct is true. The first disjunct (`\meta{A} is false') is false just in case \meta{A}; so it turns out that if \meta{A}, then \meta{B}. so `if \meta{A}, then \meta{B}' should hold on those other three lines, giving us the truth table we have associated with `$\eif$' as the best truth table for `if'.
-
-
+\paragraph{The or-to-if argument} A second justification for symbolising `if' as `$\eif$' is this. We know already that if \meta{A} is true and \meta{C} is false, then `if \meta{A} then \meta{C}' will be false. What should we say about the other rows of the truth table, the rows on which either \meta{A} is false, or \meta{B} is true (or both)? On these lines either \meta{A} is false or \meta{B} is true. So the disjunction `Not-\meta{A} or \meta{B}' is true on these lines. If a disjunction is true, and its first disjunct isn't, then the second disjunct has to be true. In this case, the first disjunct (`Not-\meta{A}') isn't true just in case \meta{A} is true; so it turns out that if \meta{A} obtains, then so does \meta{B}. So the truth of the disjunction on those three lines leads us to conclude that the conditional `if \meta{A}, then \meta{B}' should also be true on those three lines. Thus we obtain the truth table we have associated with `$\eif$' as the best truth table to use for symbolising `if'.
 
 
 What these two arguments show is that `$\eif$' is the \emph{only} candidate for a truth-functional conditional. Otherwise put, \emph{it is the best conditional that \TFL\ can provide}. But is it any good, as a surrogate for the conditionals we use in everyday language? Should we think that `if' is a truth functional connective? Consider two sentences:
@@ -430,17 +428,17 @@ $P$&$Q$&\enot&$(P$&\eor&$Q)$&\enot&$P$&\eand&\enot&$Q$\\
 \end{center}
 Look at the columns for the main connectives; negation for the first sentence, conjunction for the second. On the first three rows, both are false. On the final row, both are true. Since they match on every row, the two sentences are logically equivalent. 
 
-\section{More bracketing conventions}\label{s:MoreBracketingConventions}
+\section{More parenthetical conventions}\label{s:MoreParentheticalConventions}
 Consider these two sentences:
 	\begin{align*}
 		((A \eand B) \eand C)\\
 		(A \eand (B \eand C))
 	\end{align*}
-These have the same truth table, and are logically equivalent.  Consequently, it will never make any difference from the perspective of truth value – which is all that \TFL\ cares about (see §\ref{s:TruthFunctionality}) – which of the two sentences we assert (or deny). And since the order of the brackets does not matter, I shall allow us to drop them.  In short, we can save some ink and some eyestrain by writing:
+These have the same truth table, and are logically equivalent.  Consequently, it will never make any difference from the perspective of truth value – which is all that \TFL\ cares about (see §\ref{s:TruthFunctionality}) – which of the two sentences we assert (or deny). And since the order of the parentheses does not matter, I shall allow us to drop them.  In short, we can save some ink and some eyestrain by writing:
 	\begin{align*}
 		A \eand B \eand C
 	\end{align*}
-The general point is that, if we just have a long list of conjunctions, we can drop the inner brackets. (I already allowed us to drop outermost brackets in §\ref{s:TFLSentences}.) The same observation holds for disjunctions. Since the following sentences are logically equivalent:
+The general point is that, if we just have a long list of conjunctions, we can drop the inner parentheses. (I already allowed us to drop outermost parentheses in §\ref{s:TFLSentences}.) The same observation holds for disjunctions. Since the following sentences are logically equivalent:
 	\begin{align*}
 		((A \eor B) \eor C)\\
 		(A \eor (B \eor C))
@@ -449,7 +447,7 @@ we can simply write:
 	\begin{align*}
 		A \eor B \eor C
 	\end{align*}
-And generally, if we just have a long list of disjunctions, we can drop the inner brackets. \emph{But be careful}. These two sentences have \emph{different} truth tables, so are not logically equivalent:
+And generally, if we just have a long list of disjunctions, we can drop the inner parentheses. \emph{But be careful}. These two sentences have \emph{different} truth tables, so are not logically equivalent:
 	\begin{align*}
 		((A \eif B) \eif C)\\
 		(A \eif (B \eif C))
@@ -467,7 +465,7 @@ So if we were to write:
 	\begin{align*}
 		A \eor B \eand C
 	\end{align*}
-it would be dangerously ambiguous. \emph{Never write this.} The moral is: you can drop brackets when dealing with a long list of conjunctions, or when dealing with a long list of disjunctions. But that's it.
+it would be dangerously ambiguous. \emph{Never write this.} The moral is: you can drop parentheses when dealing with a long list of conjunctions, or when dealing with a long list of disjunctions. But that's it.
 
 
 \section{Consistency}
@@ -494,13 +492,13 @@ $P$&$Q$&\enot&$P$&$P$&\eif&$Q$&$Q$\\
 \keyideas{
 	\item A logical truth is a sentence true on every valuation of its atomic constituents; a logical falsehood is true on no valuation of its atomic constituents.
 	\item A sentence (collection of sentences) is consistent iff there is a valuation on which it is (they are all) true.
-	\item Two sentences are logically equivalent iff they are true on exactly the same valuations. We can use the notion of logical equivalence to motivate further bracketing conventions.
+	\item Two sentences are logically equivalent iff they are true on exactly the same valuations. We can use the notion of logical equivalence to motivate further parenthetical conventions.
 }
 
 
 \practiceproblems
 \problempart
-Check all the claims made in introducing the new notational conventions in §\ref{s:MoreBracketingConventions}, i.e., show that:
+Check all the claims made in introducing the new notational conventions in §\ref{s:MoreParentheticalConventions}, i.e., show that:
 \begin{earg}
 	\item `$((A \eand B) \eand C)$' and `$(A \eand (B \eand C))$' have the same truth table
 	\item `$((A \eor B) \eor C)$' and `$(A \eor (B \eor C))$' have the same truth table
@@ -575,7 +573,7 @@ is just an abbreviation for the English sentence:
 	\begin{earg}
 		\item[\ex{turnstile.trans}] The \TFL\ sentences `$P$' and `$P \eif Q$' entail `$Q$'.
 	\end{earg}
-Note that there is no limit on the number of \TFL\ sentences that can be mentioned before the symbol `$\entails$'. Indeed, we can even consider the limiting case:
+Note that there are no constraints on the number of \TFL\ sentences that can be mentioned before the symbol `$\entails$'. Indeed, one limiting case is of special interest:
 	\begin{earg}
 	\item[\ex{entails.taut}] $\entails \meta{C}$.\end{earg}
 \ref{entails.taut}  is false if there is a valuation which makes all the sentences appearing on the left hand side of `$\entails$' true and makes $\meta{C}$ false. Since \emph{no} sentences appear on the left side of `$\entails$' in \ref{entails.taut}, it is trivial to make `them' all true. So it is false if there is a valuation which makes $\meta{C}$ false – and so \ref{entails.taut} is true iff every valuation makes $\meta{C}$ true. Otherwise put, \ref{entails.taut} says that $\meta{C}$ is a logical truth. Equally:
@@ -602,7 +600,7 @@ Observe: $\meta{A} \eif \meta{C}$ is a logical truth iff there is no valuation o
 Combining these two observations, we see that $\meta{A} \eif \meta{C}$  is a logical truth iff  $\meta{A} \entails \meta{C}$\label{ded.thm}.\footnote{This result sometimes goes under a fancy title: \emph{the Deduction Theorem for \TFL}. It is easy to see that this more general result follows from the Deduction Theorem: $\meta{B}_{1},…,\meta{B}_{n},\meta{A}\entails \meta{C}$ iff $\meta{B}_{1},…,\meta{B}_{n},\entails \meta{A}\eif\meta{C}$.} But there is a really important difference between `$\entails$' and `$\eif$':
 	\factoidbox{`$\eif$' is a sentential connective of \TFL.\\ `$\entails$' is a symbol of augmented English.
 	}
-Indeed, when `$\eif$' is flanked with two \TFL\ sentences, the result is a longer \TFL\ sentence. By contrast, when we use `$\entails$', we form a metalinguistic sentence that \emph{mentions} the surrounding \TFL\ sentences. 
+When `$\eif$' is flanked with two \TFL\ sentences, the result is a longer \TFL\ sentence. By contrast, when we use `$\entails$', we form a metalinguistic sentence that \emph{mentions} the surrounding \TFL\ sentences. 
 
 If $\meta{A}\eif\meta{C}$ is a logical truth, then $\meta{A}\entails\meta{C}$. But $\meta{A}\eif\meta{C}$ can be true on a valuation without being a logical truth, and so can be true on a valuation even when $\meta{A}$ doesn't entail $\meta{C}$. Sometimes people are inclined to confuse entailment and conditionals, perhaps because they are tempted by the thought that we can only establish the truth of a conditional by \emph{logically deriving} the consequent from the antecedent. But while this is the way to establish the truth of a logically true conditional, most conditionals posit a weaker relation between antecedent and consequent than that – for example, a causal or statistical relationship might be enough to justify the truth of the conditional `If you smoke, then you'll lower your life expectancy'.
 
@@ -618,35 +616,73 @@ The only conclusive arguments in \TFL\ are valid ones. Because we consider every
 
 In short, we have a way to test for the validity of some English arguments. First, we symbolise them in \TFL, as having premises $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$, and conclusion $\meta{C}$. Then we test for entailment using truth tables. If there is an entailment, then we can conclude that the argument we symbolised has the right kind of structure to count as valid.
 
+For example, suppose we consider this argument: \begin{quote}
+	Jim studied hard, so he didn't act in a lot of plays. For he can't study hard while acting in lots of plays.
+\end{quote}  The argument can be paraphrased as follows, a form we saw in §\ref{s:ValidityInVirtueOfForm}:\begin{earg}
+		\item[] \textsf{It's not the case that} Jim \textsf{both} studied hard \textsf{and} acted in lots of plays.
+		\item[] Jim studied hard
+		\item[So:] Jim did \textsf{not} act in lots of plays.
+	\end{earg} We offer this symbolisation key: \begin{ekey}
+	\item[S] Jim studied hard;
+	\item[A] Jim acted in lots of plays.
+\end{ekey}
+Using this symbolisation, the argument has the following form: $$\enot(S \eand A), S \ttherefore \enot A.$$ We draw up a truth table: \begin{center}
+	\begin{tabular}{cc|c|c|c}
+	\toprule
+A & S & $\enot(S \eand A)$ & $S$ & $\enot A$ \\
+\midrule
+T & T & F & T & F \\
+T & F & T & F & F \\
+\textbf{F} & \textbf{T} & \textbf{T} & \textbf{T} & \textbf{T} \\
+F & F & T & F & T \\ \bottomrule
+\end{tabular} 
+\end{center} The only valuation on which the premises are both true is represented on the third row, assigning F to $A$ and T to $S$. And on this valuation, the conclusion is true. So this argument is valid, and this statement of entailment is correct: $\enot(S \eand A), S \entails \enot A$.
+
+
+Our test uses the precisely defined relation of entailment in \TFL\ as a test for validity in natural language. If we have symbolised an argument successfully, then we have captured its form (or rather, one of its forms). If the symbolised \TFL\ argument turns out to be valid, we can conclude that the natural language argument is valid too, because it can be modelled as having a valid form.
+
 
 \section{The limits of these tests}\label{s:ParadoxesOfMaterialConditional}
-We have reached an important milestone: a test for the validity of arguments! But, we should not get carried away just yet. It is important to understand the \emph{limits} of our achievement. I shall illustrate these limits with three examples.
+We have reached an important milestone: a test for the validity of arguments! But, we should not get carried away just yet. It is important to understand the \emph{limits} of our achievement. There are three sorts of limitations I want to discuss: \begin{enumerate}
+	\item Some valid arguments are overlooked by our test;
+	\item Some invalid arguments are misclassified by a naive application of our test to an inadequate symbolisation; and
+	\item There are some putative examples of sentences that cannot be symbolised because of some assumptions that \TFL\ makes.
+\end{enumerate}
+I shall illustrate these limits with three examples.
 
 First, consider the argument: 
 	\begin{earg}
 		\item[\ex{daisy}] Daisy is a small cow. So, Daisy is a cow.
 	\end{earg}
-To symbolise this argument in \TFL, we would have to use two different atomic sentences – perhaps `$S$'  and `$C$' – for the premise and the conclusion respectively. Now, it is obvious that `$S$' does not entail `$C$'. But the English argument surely seems valid – the structure of `Daisy is a small cow' guarantees that `Daisy is a cow' is true. (Note that a small cow might still be rather large, so we cannot fudge things by symbolising `Daisy is a small cow' as a conjunction of `Daisy is small' and `Daisy is a cow'. We'll return to this sort of case in §\ref{s:MoreMonadic}.) So our \TFL-based test for validity in English will have some \emph{false negatives}: it will classify some valid English arguments as invalid. But any argument that it classifies as valid will indeed be valid – it will not exhibit \emph{false positives}.
+To symbolise this argument in \TFL, we would have to use two different atomic sentences – perhaps `$S$'  and `$C$' – for the premise and the conclusion respectively. Now, it is obvious that `$S$' does not entail `$C$'. But the English argument surely seems valid – the structure of `Daisy is a small cow' guarantees that `Daisy is a cow' is true. Note that a small cow might still be rather large, so we cannot fudge things by symbolising `Daisy is a small cow' as a conjunction of `Daisy is small' and `Daisy is a cow'. (We'll return to this sort of case in §\ref{s:MoreMonadic}, where we will see how to symbolise \ref{daisy} as a valid argument in \FOL.) But our \TFL-based test for validity in English will have some \emph{false negatives}: it will classify some valid English arguments as invalid. This is because some valid arguments are valid in virtue of structure which is not truth-functional. We'll see more examples of this in §\ref{s:FOLBuildingBlocks}. 
 
-Second, consider the sentence:
+Second, consider the following arguments:
+	\begin{earg}
+	\item[\ex{crows}]  It’s not the case that the Crows will win by a lot, if they win.
+So the Crows will win.
+		\item[\ex{n:GodParadox}] It's not the case that, if God exists, She answers malevolent prayers. So God exists.
+%	Aaliyah wants to kill Zebedee. She knows that, if she puts chemical A into Zebedee's water bottle, Zebedee will drink the contaminated water and die. Equally, Bathsehba wants to kill Zebedee. She knows that, if she puts chemical B into Zebedee's water bottle, then Zebedee will drink the contaminated water and die. But chemicals A and B neutralise each other; so that if both are added to the water bottle, then Zebedee will not die.
+	\end{earg}
+Both of these arguments have the same structure. Let's focus on the second, example \ref{n:GodParadox}. Symbolising it in \TFL, we would offer something like `$\enot (G \eif M) \ttherefore G$'. Now, as can easily be checked with a truth table, this is a correct entailment in \TFL. So if we symbolise the argument \ref{n:GodParadox} in \TFL in this way, the conditional premise entails that God exists. But that's strange: surely even the atheist can accept sentence \ref{n:GodParadox}, without contradicting herself! Some say that \ref{n:GodParadox} would be better symbolised by `$G \eif \enot M$', even though that doesn't reflect the apparent form of the English sentence. `$G \eif \enot M$' does not entail $G$. This symbolisation does a better job of reflecting the intuitive consequences of the English sentence \ref{n:GodParadox}, but at the cost of abandoning a straightforward correspondence between the structure of English sentences and their \TFL\ symbolisations. 
+
+A better alternative might be to think that the conditional `if God exists, she answers malevolent prayers' is not to be symbolised by `$\eif$'. This conditional is false, many think: they may think, for example, that it is part of the concept of God that God is good, and hence would not grant prayers with evil intent. Even the atheist might accept this, maybe because they accept the subjunctive conditional `even if God were to exist, God would not answer malevolent prayers' (§\ref{s:IndicativeSubjunctive}). This sort of example has motivated many philosophers to offer non-truth-functional accounts of the English `if', including some that make it behave rather like a subjunctive conditional.\footnote{Edgington discusses Stalnaker's version of such an account in `Nearest Possible Worlds', §4.1 of her `Indicative Conditionals', cited above (\url{http://plato.stanford.edu/entries/conditionals/\#Sta}).} 
+
+The cases in \ref{crows} and \ref{n:GodParadox} are examples of the (so-called) \emph{paradoxes of material implication}. They highlight a limitation of \TFL, in that it appears not to have a conditional connective that adequately models these uses of the English `if'. But it is also a limitation of our tests for validity in English, because the test is only as good as the symbolisations we come up with as part of it. If we are not careful, we might end up mistakenly using an inadequate symbolisation, and giving the wrong verdict about some argument, thinking it valid when it is not.
+
+
+Finally, consider the sentence:
 	\begin{earg}
 		\item[\ex{n:JanBald}] Jan is neither bald nor not-bald.
 	\end{earg}
-To symbolise this sentence in \TFL, we would offer something like `$\enot (J \eor \enot J)$'. This a logical falsehood (check this with a truth-table). But sentence \ref{n:JanBald} does not itself seem like a logical falsehood; for we might have happily go on to add `Jan is on the borderline of baldness'! To make this point another way: as is easily seen by truth tables, `$\enot (J \eor \enot J)$' is logically equivalent to `$\enot J \eand \enot \enot J$'. This latter sentence symbolises an obvious logical falsehood in English:
+To symbolise this sentence in \TFL, we would offer something like `$\enot (J \eor \enot J)$'. This a logical falsehood (check this with a truth-table). But sentence \ref{n:JanBald} does not itself seem like a logical falsehood; for we might have happily go on to add `Jan is on the borderline of baldness'! To make this point another way: as is easily seen by truth tables, `$\enot (J \eor \enot J)$' is logically equivalent to `$\enot J \eand J$'. This latter sentence symbolises an obvious logical falsehood in English:
 	\begin{earg}
-		\item[\ex{n:JanBald2}]  Jan is both not-bald and also not not-bald.
+		\item[\ex{n:JanBald2}]  Jan is both not-bald and also bald.
 	\end{earg}
-It is so obvious, though, that \ref{n:JanBald} is synonymous with \ref{n:JanBald2}? It seems like it may not be, even though our test will classify any English argument from one to the other as valid. 
+It is so obvious, though, that \ref{n:JanBald} is synonymous with \ref{n:JanBald2}? It seems like it may not be, even though our test will classify any English argument from one to the other as valid (since both are symbolised as logical falsehoods, which degenerately entail anything). 
 
-Third, consider the following sentence:
-	\begin{earg}
-		\item[\ex{n:GodParadox}]	It's not the case that, if God exists, She answers malevolent prayers.
-%	Aaliyah wants to kill Zebedee. She knows that, if she puts chemical A into Zebedee's water bottle, Zebedee will drink the contaminated water and die. Equally, Bathsehba wants to kill Zebedee. She knows that, if she puts chemical B into Zebedee's water bottle, then Zebedee will drink the contaminated water and die. But chemicals A and B neutralise each other; so that if both are added to the water bottle, then Zebedee will not die.
-	\end{earg}
-Symbolising this in \TFL, we would offer something like `$\enot (G \eif M)$'. Now, `$\enot (G \eif M)$' entails `$G$' (again, check this with a truth table). So if we symbolise sentence \ref{n:GodParadox} in \TFL, it seems to entail that God exists. But that's strange: surely even the atheist can accept sentence \ref{n:GodParadox}, without contradicting herself! Some say that \ref{n:GodParadox} would be better symbolised by `$G \eif \enot M$', even though that doesn't reflect the apparent form of the English sentence. `$G \eif \enot M$' does not entail $G$. This symbolisation does a better job of reflecting the intuitive consequences of the English sentence \ref{n:GodParadox}, but at the cost of abandoning a straightforward correspondence between the structure of English sentences and their \TFL\ symbolisations. 
+Because of the way we have defined valuations, \emph{every} sentence of \TFL\ is assigned either True or False in any valuation which makes it meaningful by assigning truth values to its atomic sentences. This property of \TFL\ is known as \define{bivalence}: that every sentence has exactly one of the two possible truth values. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse, properties like `bald' or `tall' which seem to have borderline cases. Many think it plausible that a borderline case of F is neither a case of F, nor does it fail to be a case of F. Hence they have been tempted to deny bivalence for English: `Jan is bald', they say, is neither True nor False! If $p$ is neither true nor false, then it is hardly surprising that `$p$ or not-$p$' turns out to be untrue. If these thinkers are right that vagueness in English leads to the denial of bivalence, while \TFL\ is bivalent, this will give rise to mismatches between English and \TFL. These mismatches will not involve inadequate symbolisation, but a more fundamental disagreement about the background framework – here, a disagreement about the nature of truth.\footnote{For more on the logic of vagueness, see Roy Sorensen's 2018 entry `Vagueness' in \emph{The Stanford Encyclopedia of Philosophy} (\url{https://plato.stanford.edu/entries/vagueness/}). He discusses views that deny bivalence in §5.} 
 
-
-In different ways, these three examples highlight some of the limits of working with a language (like \TFL) that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse. The case of the atheist raises the question of how to deal with the (so-called) \emph{paradoxes of material implication}. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using \TFL, before we can adequately discuss its limits, and consider alternatives. I will return one final time to the relation between `if' and {\eif} in §\ref{cond.proof}.
+In different ways, these three examples highlight some of the limits of working with a language like \TFL that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using \TFL, before we can adequately discuss its limits, and consider alternatives. (I will return one final time to the relation between `if' and {\eif} in §\ref{cond.proof}.)
 
 
 
