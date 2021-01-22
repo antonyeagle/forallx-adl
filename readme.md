@@ -18,7 +18,7 @@ The LaTeX source code for this work is available on GitHub at [github.com/antony
 Current issues and proposed revisions
 -------------------------------------
 
-This text is approaching stability, yet remains under active, albeit intermittent, revision. The current public version of the text is stable for summer term 2020, as it is being used as a textbook in our *Introduction to Logic* course. 
+This text is approaching stability, yet remains under active, albeit intermittent, revision. The current public version of the text will remain stable for the remainder of 2021, as it is being used as a textbook in our *Introduction to Logic* courses. 
 
 I welcome comments, notification of errors and typos, and any new ideas: [antony.eagle@adelaide.edu.au](mailto:antony.eagle@adelaide.edu.au?subject=forallx-adl). I will update this readme with a list of issues and proposed changes. But I will not push changes until the course is over. 
 
