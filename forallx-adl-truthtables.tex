@@ -221,15 +221,35 @@ The crucial point is that sentences \ref{brownwins1} and \ref{brownwins2} employ
 
 The point to take away from this is that subjunctive conditionals cannot be tackled using `$\eif$'. This is not to say that they cannot be tackled by any formal logical language, only that \TFL\ is not up to the job.\footnote{There are in fact logical treatments of counterfactuals, the most influential of which is David Lewis (1973) \emph{Counterfactuals}, Blackwell.}
 
-So the `$\eif$' connective of \TFL\ is at best able to model the indicative conditional of English, as in \ref{indcond}.
+So the `$\eif$' connective of \TFL\ is at best able to model the indicative conditional of English, as in \ref{indcond}. In fact there remain difficulties even with indicatives in \TFL. One family of difficulties arises from consideration of the or-to-if argument. The argument seems compelling in cases like this:
+\begin{earg}
+	\item Either the butler or the gardener did it;
+	\item[So:] If it wasn't the butler, it was the gardener.
+\end{earg} But what if our confidence in the premise derives from our confidence in just one disjunct? Suppose that we are certain it was the butler, and certain that the gardener has an airtight alibi and wasn't anywhere near the manor at the time of the murder? Because we are certain it was the butler, we might be equally certain that it was either the butler or the gardener (this inference from a disjunct to a disjunction seems odd, but it is surely valid). But we might be sure that if it wasn't the butler, it was the valet – he was the only other person with motive. In this sort of case, we might have confidence in the premise of the or-to-if argument and reject its conclusion. Yet the \TFL\ analogue of the or-to-if argument is valid: as we'll see after we introduce the concept of validity for \TFL\ in §\ref{c:entvalid}), `$A \eor B \ttherefore \enot A \eif B$' turns out to be valid. This mismatch suggests that `if' and `$\eif$' aren't a perfect match. I shall say a little more about other difficulties for the material conditional analysis of indicatives in §\ref{s:ParadoxesOfMaterialConditional} and in §\ref{cond.proof}.
 
-In fact there are even difficulties with indicatives in \TFL. I shall say a little more about those difficulties in §\ref{s:ParadoxesOfMaterialConditional} and in §\ref{cond.proof}. For now, I shall content myself with the observation that `$\eif$' is the only plausible candidate for a truth-functional conditional. Our working hypothesis is that many uses of ‘if’ can be \emph{adequately approximated} by ‘$\eif$’. Still, many English conditionals cannot be represented adequately using `$\eif$'. \TFL\ is an intrinsically limited language. But this is only a problem if you try to use it to do things it wasn't designed to do. 
+For now, I shall content myself with the observation that `$\eif$' is the only plausible candidate for a truth-functional conditional. Our working hypothesis is that many uses of ‘if’ can be \emph{adequately approximated} by ‘$\eif$’. Many English conditionals cannot be represented adequately using `$\eif$'. \TFL\ is an intrinsically limited language. But this is only a problem if you try to use it to do things it wasn't designed to do. 
 
 \keyideas{
 	\item The connectives of \TFL\ are all truth-functional, and have their meanings specified by the truth-tables laid out in §\ref{s:SchematicTruthTables}.
 	\item When we treat a sentence of \TFL\ as symbolising an English sentence, we need only say that as far as truth value is concerned and truth-functional structure is concerned, they are alike. 
 	\item  English has many non-truth-functional connectives. Some uses of the conditional `if' are non-truth-functional. But as long as we remain aware of the limitations of \TFL, it can be a very powerful tool for modelling a significant class of arguments.
 }
+
+\practiceproblems
+
+\problempart Which of the following arguably may \emph{not} characterise a function, where $x$ is the input and $y$ is the output: \begin{earg}
+	\item $y$ is the product of $x$ and itself;
+	\item $y$ is the square root of $x$;
+	\item $y$ is a child of $x$;
+	\item $y$ is a child of $x$ and younger than any other child of $x$;
+	\item $y$ is taller than $x$;
+	\item $y$ is as tall as $x$. 
+\end{earg}  
+\problempart
+\emph{True or false}: if the main connective of some sentence is truth-functional, then the truth value of the sentence uniquely determines the truth values of any constituents.
+
+\problempart Suppose $†$ is some English one-place connective, so that '$†\meta{A}$' is a grammatical sentence. How can we test if it is not truth-functional?
+
 
 
 \chapter{Complete Truth Tables}\label{s:CompleteTruthTables}
@@ -927,10 +947,10 @@ Sometimes, we do not need to know what happens on every row of a truth table. So
 
 \section{Direct uses of partial truth tables}\label{s:directPartialTruthTable}
 
-\paragraph{Tautology} 
-In order to show that a sentence is a logical truth, we need to show that it is true on every valuation. That is to say, we need to know that it comes out true on every row of the truth table. So, it seems, we need a complete truth table. 
+\paragraph{Logical Truth} 
+In order to show that a sentence is a \emph{logical truth} (tautology), we need to show that it is true on every valuation. That is to say, we need to know that it comes out true on every row of the truth table. So, it seems, we need a complete truth table. 
 
-To show that a sentence is \emph{not} a logical truth, however, we only need one row: a row on which the sentence is false. Therefore, in order to show that some sentence is not a logical truth, it is enough to provide a single valuation – a single row of the truth table – which makes the sentence false. 
+To show that a sentence is \emph{not} a logical truth, however, we only need one valuation, corresponding to a truth table row on which the sentence is false. Therefore, in order to show that some sentence is not a logical truth, it is enough to provide a single valuation – a single row of the truth table – which makes the sentence false. 
 
 Suppose that we want to show that the sentence `$(U \eand T) \eif (S \eand W)$' is \emph{not} a logical truth. We set up a \define{partial truth table}:
 \begin{center}
@@ -940,7 +960,7 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
    &   &   &   &    &   &    &\TTbf{F}&    &   &   \\ \bottomrule
 \end{tabular}
 \end{center}
-We have only left space for one row, rather than 16, since we are only looking for one row, on which the sentence is false. For just that reason, we have filled in `F' for the entire sentence.  A partial truth table is a device for `reverse engineering' a valuation from a truth value to a sentence. We work backward from that truth value to what the valuation must or could be.
+We have only left space for one row, rather than 16, since we are only looking for one valuation on which the sentence is false. For just that reason, we have filled in `F' for the entire sentence.  A partial truth table is a device for `reverse engineering' a valuation, given a truth value assigned to a complex sentence. We work backward from that truth value to what the valuation must or could be.
 
 The main connective of the sentence is a conditional. In order for the conditional to be false, the antecedent must be true and the consequent must be false. So we fill these in on the table:
 \begin{center}
@@ -968,8 +988,8 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
 \end{center}
 So we now have a partial truth table, which shows that `$(U \eand T) \eif (S \eand W)$' is not a logical truth. Put otherwise, we have shown that there is a valuation which makes `$(U \eand T) \eif (S \eand W)$' false, namely, the valuation which makes `$S$' false, `$T$' true, `$U$' true and `$W$' false. 
 
-\paragraph{Contradiction}
-Showing that something is a logical falsehood requires us to consider every row of a complete truth table. We need to show that there is no valuation which makes the sentence true; that is, we need to show that the sentence is false on every row of the truth table. 
+\paragraph{Logical Falsehood}
+Showing that something is a \emph{logical falsehood} (contradiction) requires us to consider every row of a complete truth table. We need to show that there is no valuation which makes the sentence true; that is, we need to show that the sentence is false on every row of the truth table. 
 
 However, to show that something is \emph{not} a logical falsehood, all we need to do is find a valuation which makes the sentence true, and a single row of a truth table will suffice. We can illustrate this with the same example.
 \begin{center}
@@ -989,9 +1009,9 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
 \end{center}
 
 \paragraph{Equivalence}
-To show that two sentences are logically equivalent, we must show that the sentences have the same truth value on every valuation. So this requires us to consider each row of a complete truth table.
+To show that two sentences are \emph{logically equivalent}, we must show that the sentences have the same truth value on every valuation. So this requires us to consider each row of a complete truth table.
 
-To show that two sentences are \emph{not} logically equivalent, we only need to show that there is a valuation on which they have different truth values. So this requires only a partial truth table: make the table so that one sentence is true and the other false. So, for example, to show that `$(\enot A \eand B)$' and `$(A \eor \enot B)$' are not logically equivalent, constructing this partial truth-table would suffice:
+To show that two sentences are \emph{not} logically equivalent, we only need to show that there is a valuation on which they have different truth values. So this requires only a partial truth table: construct the table given the assumption that one sentence is true and the other false. So, for example, to show that `$(\enot A \eand B)$' and `$(A \eor \enot B)$' are not logically equivalent, constructing this partial truth-table would suffice:
 
 
 \begin{center}
@@ -1003,19 +1023,45 @@ F & T & T & F & \TTbf{T} & T & F & \TTbf{F}   & F & T \\
  \bottomrule
 \end{tabular}\end{center}
 
-However, unless we are lucky, we might need to construct a partial truth table with two rows. (Or attempt to construct two partial truth tables.) If we are trying to show \meta{A} and \meta{B} logically \emph{inequivalent}, we will want to consider the possibility that it is \meta{A} which is true and \meta{B} which is false, as well as the other possibility that it is  \meta{B} which is true and \meta{A} which is false.
+\paragraph{Disjunctions and biconditionals in partial truth tables} However, unless we are lucky, we might need to construct a partial truth table with two rows. (Or attempt to construct two partial truth tables.) If we are trying to show \meta{A} and \meta{B} logically \emph{inequivalent}, we will want to consider the possibility that it is \meta{A} which is true and \meta{B} which is false, as well as the other possibility that it is  \meta{B} which is true and \meta{A} which is false.
+
+Suppose we are considering the sentence `$\enot (P \eor Q)$', and we are testing whether it is not a logical truth. So we begin our partial truth table by assuming it false and seeing if we can construct a valuation.
+\begin{center}
+ 	\begin{tabular}{cc|deef}
+ 	\toprule
+ 	$P$ & $Q$ & $\enot$ & $(P$ & $\eor$ & $Q)$ \\
+ 	\midrule
+ 	& &  \TTbf{F} & & T &  \\ \bottomrule 
+ 	\end{tabular}
+ \end{center} We see that the falsity of the whole negated sentence requires the embedded disjunction to be true. But what we do we now? There is no unique way to proceed. What we do is add a new row, in effect `branching' the possible ways of constructing a valuation which makes this embedded disjunction true. On the first we assume the first disjunct is true, and on the second that the right disjunct is true 
+\begin{center}
+ 	\begin{tabular}{cc|deef}
+ 	\toprule
+ 	$P$ & $Q$ & $\enot$ & $(P$ & $\eor$ & $Q)$ \\
+ 	\midrule
+ 	T & &  \TTbf{F} & T & T &  \\
+ 	& T &  \TTbf{F} & & T & T  \\ \bottomrule 
+ 	\end{tabular}
+ \end{center} But we can then see that no matter how we fill in the blank cells, in either row, we will be able to make the whole sentence come out false. For example:
+ \begin{center}
+ 	\begin{tabular}{cc|deef}
+ 	\toprule
+ 	$P$ & $Q$ & $\enot$ & $(P$ & $\eor$ & $Q)$ \\
+ 	\midrule
+ 	T & T &  \TTbf{F} & T & T & T \\
+ 	F & T &  \TTbf{F} & F & T & T  \\ \bottomrule 
+ 	\end{tabular}
+ \end{center} So it is possible to construct a valuation – more than one – on which this sentence is false, so `$\enot(P \eor Q)$' is not a logical truth. 
 
 \paragraph{Consistency}
-To show that some sentences are jointly consistent, we must show that there is a valuation which makes all of the sentence true. So this requires only a partial truth table with a single row. 
+To show that some sentences are \emph{jointly consistent}, we must show that there is a valuation which makes all of the sentence true. So this requires only a partial truth table with a single row. 
 
-To show that some sentences are jointly inconsistent, we must show that there is no valuation which makes all of the sentence true. So this requires a complete truth table: You must show that on every row of the table at least one of the sentences is false.
+To show that some sentences are \emph{jointly inconsistent}, we must show that there is no valuation which makes all of the sentence true. So this requires a complete truth table: You must show that on every row of the table at least one of the sentences is false.
 
 \paragraph{Validity}
-To show that an argument is valid, we must show that there is no valuation which makes all of the premises true and the conclusion false. So this  requires us to consider all valuations in a complete truth table.  (Likewise for entailment.)
+To show that an argument is \emph{valid}, we must show that there is no valuation which makes all of the premises true and the conclusion false. So this  requires us to consider all valuations in a complete truth table.  
 
-To show that argument is \emph{invalid}, we must show that there is a valuation which makes all of the premises true and the conclusion false. So this requires only a one-line partial truth table on which all of the premises are true and the conclusion is false. (Likewise for a failure of entailment.)
-
-
+To show that argument is \emph{invalid}, we must show that there is a valuation which makes all of the premises true and the conclusion false. So this requires only a one-line partial truth table on which all of the premises are true and the conclusion is false. 
 
 This table summarises what we need to consider in order to demonstrate the presence or absence of various semantic features of sentences and arguments. So, checking a sentence for contradictoriness involves considering all valuations, and we can directly do that by constructing a complete truth table. 
 \begin{center}
@@ -1032,6 +1078,8 @@ valid? & all valuations: complete truth table & one valuation: partial truth tab
 entailment? & all valuations: complete truth table & one valuation: partial truth table\\
 \bottomrule \label{table.CompleteVsPartial}\end{tabular}
 \end{center}
+
+In all these uses of partial truth tables, we must begin constructing them with a particular semantic property in mind. We will begin the construction with a different hypothesis about the target sentence, depending on what property we are testing for. If we are using partial truth tables to test consistency, we will begin by assigning each sentence `true'. If we are testing for validity, we will assign the premises `true', but the conclusion `false'.
 
 
 \section{Indirect uses of partial truth tables}
@@ -1064,7 +1112,34 @@ $P$ & $Q$ & $R$ & $(P$ & $\eand$ & $R)$ & $(Q$ & $\eiff$ & $P)$ & $Q$\\
 
 I call this an \define{indirect} use of partial truth tables. We do not construct the valuations which actually demonstrate the presence or absence of a semantic property of an argument or set of sentences. Rather, we show that the assumption that there is a valuation that meets a certain condition is not coherent. So in the above case, we conclude that nowhere among the 8 rows of the complete truth table for that argument is one that makes the premises true and the conclusion false.
 
-This procedure works because our partial truth table test is guaranteed to succeed in demonstrating the absence of validity, for an invalid argument. Accordingly, if our test fails to demonstrate the absence of validity, that must be because the argument is in fact valid. (This is in keeping with the table at the end of the previous section, becaue our failure to construct a valuation showing the argument invalid in implicitly to consider all valuations.)
+This procedure works because our partial truth table test is guaranteed to succeed in demonstrating the absence of validity, for an invalid argument. Accordingly, if our test fails to demonstrate the absence of validity, that must be because the argument is in fact valid. (This is in keeping with the table at the end of the previous section. Our failure to construct a valuation showing the argument invalid implicitly considers all valuations.)
+
+This indirect method of partial truth tables can also be used if we need to add additional branches to our partial truth table. Suppose we are testing if `$P \eiff \enot P$' is a logical falsehood. We attempt to construct a valuation making it true:
+\begin{center}
+\begin{tabular}{c|d e e f} \toprule 
+$P$&$(P$&\eiff&$\enot$&$P)$\\
+\midrule
+  &   & \TTbf{T} &  & \\ \bottomrule
+\end{tabular}
+\end{center}
+Again we need to branch our partial truth table to deal with the two possible ways this biconditional might be true: if the two sides are both false, or if they are both true 
+\begin{center}
+\begin{tabular}{c|d e e f} \toprule 
+$P$&$(P$&\eiff&$\enot$&$P)$\\
+\midrule
+  & T  & \TTbf{T} & T & \\ 
+  & F & \TTbf{T} & F &\\ \bottomrule
+\end{tabular}
+\end{center} We can see, as we complete the table, that there is no coherent valuation making this sentence true. So the indirect method allows us to deduce that it is a logical falsehood:
+\begin{center}
+\begin{tabular}{c|d e e f} \toprule 
+$P$&$(P$&\eiff&$\enot$&$P)$\\
+\midrule
+ ?? & T  & \TTbf{T} & T & F \\ 
+ ?? & F & \TTbf{T} & F & T\\ \bottomrule
+\end{tabular}
+\end{center} 
+
 
 
 \keyideas{
@@ -1072,7 +1147,7 @@ This procedure works because our partial truth table test is guaranteed to succe
 	\item Partial truth tables can be effective tests for the absence of most of the semantic properties of sentences and arguments; and they can provide a test for the presence of consistency in some sentences.
 	\item We can also use partial truth tables indirectly to test for the presence of semantic properties of sentences and arguments, by showing that those properties cannot be absent. 
 }
-\newpage
+
 \practiceproblems
 
 

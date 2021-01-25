@@ -27,11 +27,6 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 1 (`forallx-adl-what.tex`) 
 * Chapter 2 (`forallx-adl-tfl.tex`)
 * Chapter 3 (`forallx-adl-truthtables.tex`)
-	- §8 
-		+ more practice exercises!
-	- §13
-		+ add discussion of how to handle disjunction, biconditionals in partial truth tables.
-		+ Add discussion of how partial truth tables must be constructed with a particular semantic property in mind: that is what determines the starting assumption about truth values that we will make (e.g., using them to assess consistency one begins with `assume all Ts` – but not when using them to assess non-contradictoriness).
 * Chapter 4 (`forallx-adl-fol.tex`)
 	- §15
 		+ practice exercises
