@@ -28,16 +28,11 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 2 (`forallx-adl-tfl.tex`)
 * Chapter 3 (`forallx-adl-truthtables.tex`)
 * Chapter 4 (`forallx-adl-fol.tex`)
-	- §15
-		+ practice exercises
-		+ discussion of designators (descriptions and singular terms)
-		+ pronouns as variables – introduce them as a kind of singular term.
-		+ Weather 'it'?
-		+ quantifier and matrix
 	+ §17
 		+ need to explicitly introduce convention that $Axyz$ puts the n-th variable following predicate in the n-th gap.
 		+ justify same term in two gaps to account for validity of: 'Amy is self-interested, therefore Amy is interested in someone'.
 		+ more on the `with respect to` or `parasitic on` of wider/narrowe scope quantifiers
+		+ `If a man likes pastries, he eats them.`
 	- §18
 		+ more practice exercises – pure numerical quantification, perhaps from edl textbook or logic manual?
 		+ a discussion of how identity, innocuous enough in itself, greatly enriches the expressive power of Quantifier.

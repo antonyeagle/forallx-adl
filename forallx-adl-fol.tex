@@ -21,7 +21,13 @@ This is \emph{invalid} in \TFL\ – there is a valuation on which the premises a
 
 The problem is not that we have made a mistake while symbolising the argument. This is the best symbolisation we can give in \TFL. The problem lies with \TFL\ itself. `All logicians wear funny hats' is about both logicians and hat-wearing. By not retaining this in our symbolisation, we lose the connection between Willard's being a logician and Willard's wearing a hat.
 
-The basic units of \TFL\ are atomic sentences, and \TFL\ cannot decompose these. None of the sentences in the argument above have any truth-functional connectives, so must be symbolised as atomic sentences of \TFL. To symbolise arguments like the preceding one, we will have to develop a new logical language which will allow us to \emph{split the atom}. We will call this language \FOL, and the study of this language and its features is \emph{quantified logic}. 
+Another example. This argument is also intuitively valid:
+\begin{earg}
+	\item[] John loves James;
+	\item[So:] John loves someone.
+\end{earg} Again, the best \TFL\ symbolisation is the invalid $P \ttherefore Q$. The validity of this argument depends on the internal structure of the sentences, and specifically the connection between the name `James' and the phrase `someone'.
+
+The basic units of \TFL\ are atomic sentences, and \TFL\ cannot decompose these. None of the sentences in the arguments above have any truth-functional connectives, so must be symbolised as atomic sentences of \TFL. To symbolise arguments like the preceding, we will have to develop a new logical language which will allow us to \emph{split the atom}. We will call this language \FOL, and the study of this language and its features is \emph{quantified logic}. 
 
 The details of \FOL\ will be explained throughout this chapter, but here is the basic idea about how to split the atom(ic sentence). The key insight is that many natural language sentences have \emph{subject-predicate} structure, and some arguments are valid in virtue of this structure. \FOL\ adds to \TFL\ some resources for modelling this structure – or perhaps more accurately, it allows us to model the predicate-name structure of many sentences, along with any truth-functional structure.
 
@@ -34,44 +40,66 @@ The details of \FOL\ will be explained throughout this chapter, but here is the 
 That is the general idea. But \FOL\ is significantly more subtle than \TFL. So we will come at it slowly. 
 
 
-\section{Names}
-In English, a \define{singular term} is a word or phrase that refers to a \emph{specific} person, place, or thing. The word `dog' is not a singular term, because there are a great many dogs. The phrase `Bertie' is a singular term, because it refers to a specific terrier. Likewise, the phrase `Philip's dog Bertie' is a singular term, because it refers to a specific little terrier. 
+\section{Singular Terms} % (fold)
+\label{sec:singular_terms}
 
-\define{Proper names} are a particularly important kind of singular term. These are expressions that pick out individuals without describing them. The name `Emerson' is a proper name, and the name alone does not tell you anything about Emerson. Of course, some names are traditionally given to boys and other are traditionally given to girls. If `Hilary' is used as a singular term, you might guess that it refers to a woman. You might, though, be guessing wrongly. Indeed, the name does not necessarily mean that what is referred to is even a person: Hilary might be a giraffe, for all you could tell just from the name. 
+In English, a \define{singular term} is a noun phrase that refers to a \emph{specific} person, place, or thing.  The word `dog' is not a singular term, because there are a great many dogs. The phrase `Bertie' is a singular term, because it refers to a specific terrier. Here are some further examples:
+\begin{itemize}
+	\item \textbf{Proper Names}, e.g., `\underline{Bertie} enjoys playing fetch';\\
+	`\underline{Scott Morrison} breached the human rights of children seeking asylum'; 
+	\item \textbf{Definite Descriptions}, e.g., `\underline{The oldest person} is a woman';\\ `Ortcutt is \underline{the shortest spy}';
+	\item \textbf{Possessives}, e.g., `\underline{Antony's eldest child} loves coding';
+	\item \textbf{Pronouns}, e.g., `\underline{She} \emph{(points)} plays violin';\\
+	`Icecream is delicious. Everyone loves \underline{it}';
+	\item \textbf{Demonstratives}, e.g., `\underline{That loud dog} is so annoying'.
+\end{itemize} The clearest cases of singular terms are proper names, and these occupy a distinct syntactic category in \FOL. Most of the other types of English singular terms are modelled in more or less indirect ways in \FOL.
 
-In \FOL, our \define{names} are lower-case letters `$a$' through to `$r$'. We can add subscripts if we want to use some letter more than once. So here are some names in \FOL:
+Definites and possessives are handled principally by paraphrase. We treat possessives as disguised definite descriptions, paraphrasing `Antony's eldest child' as something like `the eldest child of Antony'. In turn, definites are handled as complex constructions in \FOL, as we'll see when we take them up in §\ref{subsec.defdesc}.
+
+Even trickier in some ways are singular term uses of pronouns and demonstratives. Both of these constructions rely on the \define{conversational context} to fix a determinate reference. I might need to gesture, or rely on our previous utterances, to understand who `she' refers to in `she plays violin'. Likewise, `that loud dog' might vary in which dog it refers to from conversation to conversation. There are approaches that attempt to model the role of context in determining the meaning of an expression, but we will not attempt to do this here.  \FOL\ is not designed to model every aspect of English. If we are forced to try to represent some English sentences involving context-sensitive singular terms in \FOL, we will need to resort to paraphrases that are not fully adequate (e.g., treating demonstratives as definite descriptions, despite their differences).
+
+Moreover, pronouns are not singular terms in every use. Compare the uses of the pronoun `she' in `She plays violin' and `Every girl thinks she deserves icecream'. The first refers to a specific individual, perhaps with some contextual cues like gestures to help identify which. The second, however, doesn't refer to a specific girl – rather, it ranges over all girls. Perhaps surprisingly, \FOL\ takes this second kind of use of pronouns to be primary. We will discuss how \FOL\ represents pronouns when we introduce variables in §\ref{quant.pron}.
+
+% section singular_terms (end)
+
+\section{Names}\label{s:names}
+
+\define{Proper names} are a particularly important kind of singular term. These are expressions that label individuals without describing them. The name `Emerson' is a proper name, and the name alone does not tell you anything about Emerson. Of course, some names are traditionally given to boys and other are traditionally given to girls. If `Hilary' is used as a singular term, you might guess that it refers to a woman. You might, though, be guessing wrongly. Indeed, the name does not necessarily mean that what is referred to is even a person: Hilary might be a giraffe, for all you could tell just from the name `Hilary'. In English, the use of certain names triggers our knowledge of these conventions, so that (for example) the use of name `Fido' might well trigger an expectation that the thing named is a dog. However, while it would violate convention to name your child `Fido', once the you manage to assign the name it can perfectly well refer to a human child.  
+
+In \FOL, there are no conventions around its category of \define{names}. These are pure names, whose only role is to designate some specific individual. Names in \FOL\ are represented by lower-case letters `$a$' through to `$r$'. We can add subscripts if we want to use some letter more than once, if we have a complicated discourse with many different names. So here are some names in \FOL:
 	\[a,b,c,…, r, a_{1}, f_{32}, j_{390}, m_{12}.\]
 These should be thought of along the lines of proper names in English. But with some differences. First, `Antony Eagle' is a proper name, but there are a number of people with this name. (Equally, there are at least two people with the name `P.D.\ Magnus' and several people named `Tim Button'.) We live with this kind of ambiguity in English, allowing context to determine that some particular utterance of the name `Antony Eagle' refers to one of the contributors to this book, and not some other guy. In \FOL, we do not tolerate any such ambiguity. Each name must pick out \emph{exactly} one thing. (However, two different names may pick out the same thing.)  Second, names (and predicates) in \FOL\ are assigned their meaning, or \emph{interpreted}, only temporarily. (This is just like the way that atomic sentences are only assigned a truth value in \TFL\ temporarily, relative to a valuation.)
 
-As with \TFL, we can provide symbolisation keys. These indicate, temporarily, what a name shall pick out. So we might offer:
+As with \TFL, we provide symbolisation keys. These indicate, temporarily, what a name shall pick out. So we might offer:
 	\begin{ekey}
 		\item[e] Elsa
 		\item[g] Gregor
 		\item[m] Marybeth
 	\end{ekey}
 
-Again, what we are saying in using natural language names is that the thing referred to by the \FOL\ name `$e$' is stipulated – for now – to be the same thing referred to by the English proper noun `Elsa'. We are \emph{not} saying that `$e$' and `Elsa' are synonyms. For all we know, perhaps there is additional nuance to the meaning of the name `Elsa' other than what it refers to. If there is, it is not preserved in the \FOL\ name `$e$', which has no nuance in its meaning other than the thing it denotes.
+Again, what we are saying in using natural language names is that the thing referred to by the \FOL\ name `$e$' is stipulated – for now – to be the same thing referred to by the English proper noun `Elsa'. We are \emph{not} saying that `$e$' and `Elsa' are synonyms. For all we know, perhaps there is additional nuance to the meaning of the name `Elsa' other than what it refers to. If there is, it is not preserved in the \FOL\ name `$e$', which has no nuance in its meaning other than the thing it denotes. The \FOL\ name `$e$' might be stipulated to denote Elsa on one occasion, and Eddie on another. 
 
-You may have been taught in school that a noun is a naming word. It is safe to use names in \FOL\ to symbolise proper nouns. But dealing with common nouns  is a more subtle matter. Even though they are often described as `general names', common nouns actually function as names relatively rarely. Some common nouns which do often function as names are \define{natural kind terms} like `gold' and `tiger'. These are common nouns which really do name a kind of thing. Consider this example: \begin{earg}
+You may have been taught in school that a noun is a `naming word'. It is safe to use names in \FOL\ to symbolise proper nouns. But dealing with common nouns  is a more subtle matter. Even though they are often described as `general names', common nouns actually function as names relatively rarely. Some common nouns which do often function as names are \define{natural kind terms} like `gold' and `tiger'. These are common nouns which really do name a kind of thing. Consider this example: \begin{earg}
 	\item[] Gold is scarce;
 	\item[] Nothing scarce is cheap;
 	\item[So:] Gold isn't cheap.
-\end{earg} This argument is valid in virtue of its form. The form of the first premise has the phrase `\blank\ is scarce' being predicated of `gold', in which case, `gold' must be functioning as a name in this argument. But notice that `\blank\ is gold' is a perfectly good predicate. So we cannot simply treat all natural kind terms as proper names of general kinds.  
+\end{earg} This argument is valid in virtue of its form. The form of the first premise has the phrase `\blank\ is scarce' being predicated of `gold', in which case, `gold' must be functioning as a name in this argument. But notice that `\blank\ is gold' is a perfectly good predicate. So we cannot simply treat all natural kind terms as proper names of general kinds.
 
 \section{Predicates}
-The simplest predicates denote properties of individuals. They are things you can say about an object. Here are some examples of English predicates:
-	\begin{quote}
-		\blank\ is a dog\\
-		\blank\ is a member of Monty Python\\
-		\blank\ was a student of David Lewis\\ 
-		A piano fell on \blank
-	\end{quote}
-In general, you can think about predicates as things which combine with singular terms to make sentences. In these cases, they are interpreted with the aid of natural language \define{verb phrases} like `is a dog' – a syntactic subunit of a sentence including everything but the subject. (But note in the verb phrase `was a student of David Lewis', another proper name appears – we will see how to model such sentences where multiple names interact with a complex predicate below.) Conversely, you can start with sentences and make predicates out of them by removing singular terms. Consider the sentence, `Vinnie borrowed the family car from Nunzio.' By removing a singular term, we can obtain any of three different predicates:
-	\begin{quote}
-		\blank\ borrowed the family car from Nunzio\\
-		Vinnie borrowed \blank\ from Nunzio\\
-		Vinnie borrowed the family car from \blank
-	\end{quote}
+The simplest predicates denote \emph{properties} of individuals. They are things you can say about the features or behaviour of an object. Here are some examples of English predicates:
+	\begin{itemize}
+		\item \blank\ runs
+		\item \blank\ is a dog
+		\item \blank\ is a member of Monty Python
+		\item \blank\ was a student of David Lewis 
+		\item  A piano fell on \blank
+	\end{itemize}
+In general, you can think about predicates as things which combine with singular terms to make sentences. In these cases, they are interpreted with the aid of natural language \define{verb phrases}. The most elementary phrases that correspond to predicates are simple intransitive verb phrases like `runs'. But predicates can symbolise more complex verb phrases. In a subject-predicate sentence, we can treat any syntactic sub-unit of a sentence including everything but the subject as a predicate. So `Bertie is a dog' can be seen as involving the name `Bertie' and the predicate `is a dog'. Note that proper names can occur within a predicate, as in the verb phrase `was a student of David Lewis'. (We will see how to model sentences where multiple names interact with a complex predicate below in §\ref{s:MultipleGenerality}.) You can begin with sentences and make predicates out of them by removing singular terms and leaving `slots' in which singular terms can be placed. Consider the sentence, `Vinnie borrowed the family car from Nunzio'. By removing one singular term, we can obtain any of three different predicates:
+	\begin{itemize}
+		\item \blank\ borrowed the family car from Nunzio
+		\item Vinnie borrowed \blank\ from Nunzio
+		\item Vinnie borrowed the family car from \blank
+	\end{itemize}
 \FOL\ predicates are capital letters $A$ through $Z$, with or without subscripts. We might write a symbolisation key for predicates thus:
 	\begin{ekey}
 		\item[A] \gap{1} is angry
@@ -91,34 +119,51 @@ Sentence \ref{terms2a}: this is a conjunction of two simpler sentences. The simp
 
 Sentence \ref{terms2}: this is a conditional, whose antecedent is sentence \ref{terms1} and whose consequent is sentence \ref{terms2a}. So we can symbolise this with `$Ae \eif (Ag \eand Am)$'.
 
-Actually we can make an elegant further assumption to incorporate \TFL\ entirely within \FOL. A predicate combines with singular terms to make sentences. But some English predicates combine with \emph{zero} singular terms to make a sentence. We see this in weather expressions like `it is snowing', in which the pronoun `it' doesn't actually refer to anything. This predicate does not denote a property of individuals, because there is no way to attach it to a particular individual. Consider  these examples:  \begin{earg}
-    \item[\ex{cpa}] Coober Pedy is a harsh place. It has underground houses.
-    	\item[\ex{cpb}] Coober Pedy is a harsh place. It seldom rains there.
+\paragraph{Predicates without subjects} Actually we can make an elegant further assumption to incorporate \TFL\ entirely within \FOL. A predicate combines with singular terms to make sentences. But some English predicates, though they require a singular term syntactically, don't seem to involve the referent of those singular terms in their meaning. We see this in expressions like these: \begin{earg}
+	\item[\ex{rains}] It is snowing;
+	\item[\ex{seemss}] It seems that George is hungry;
+	\item[\ex{shell}] She'll be right.
+\end{earg} The pronouns in these cases are known as \define{dummy pronouns}. These pronouns have no obvious referent, but that poses no problem for the interpretation of the sentences. Example \ref{rains} means something like the bare verb `snowfalling', if only that were grammatical. In these cases, the predicate following the pronoun does not denote a property of individuals, because there is no way to attach it to a particular individual.  Contrast these examples:  \begin{earg}
+    \item[\ex{cpa}] Coober Pedy is a harsh place. \underline{It} has underground houses.
+    	\item[\ex{cpb}] Coober Pedy is a harsh place. \underline{It} seldom rains there.
     \end{earg}
-In \ref{cpa}, `it' refers to Coober Pedy. Not so in \ref{cpb}: `It' in that example is a \define{dummy pronoun}. Yet `there' does refer to Coober Pedy. Drop the latter pronoun, and you obtain `it seldom rains'. Having already argued that `it' is a dummy pronoun in the longer sentence, it appears to remain a dummy pronoun in the shortened sentence. Try substituting some proper name for `it' in `it seldom rains' and see what nonsense you get. Such predicates, where the dummy pronoun should not be thought of as a genuine gap in the sentence, and with no other singular terms evidnt, should rather be considered \emph{already} sentences by themselves. They can be symbolised by capital letters `$A$' through `$Z$' without any adjacent name. This is exactly how we treated the grammar of atomic sentences of \TFL. So we can in fact simply include all atomic sentences of \TFL\ among these special predicates of \FOL. Since \FOL\ has all the connectives of \TFL\ and all the atomic sentences, we see that \emph{every sentence of \textnormal{\TFL} is also a sentence of \textnormal{\FOL}}.
+In \ref{cpa}, `it' refers to Coober Pedy. Not so in \ref{cpb}: `It' in that example is a \define{dummy pronoun}. Yet `there' does refer to Coober Pedy. Drop the latter pronoun, and you obtain `it seldom rains'. Having already argued that `it' is a dummy pronoun in the longer sentence, it appears to remain a dummy pronoun in the shortened sentence. Try substituting some proper name for `it' in `it seldom rains' and see what nonsense you get. 
 
+Such predicates, where the dummy pronoun should not be thought of as a genuine gap in the sentence, and with no other singular terms evident, have a meaning which is purely determined by the predicate. English requires a grammatical subject, but \FOL\ is not subject to a similar limitation. Rather than reproduce this feature of English, we will allow \FOL\ predicates occuring by themselves to count as grammatical sentences of \FOL. These zero-place predicates, semantically requiring no subject, are to be symbolised by capital letters `$A$' through `$Z$' (perhaps subscripted), but without needing any adjacent name to be grammatical.
+
+Note we have thereby included all atomic sentences of \TFL\ in \FOL\ among these special predicates of \FOL. In \TFL\ we used these sentences to symbolise any sentence of English which did not include sentence connectives. In \FOL\ their use will be more limited. But nevertheless, syntactically, since \FOL\ has all the connectives of \TFL\ and all the atomic sentences, we see that \emph{every sentence of \textnormal{\TFL} is also a sentence of \textnormal{\FOL}}.
 
 \section{Quantifiers}\label{quant.pron}
-We are now ready to introduce quantifiers. Consider these sentences:
+We are now ready to introduce quantifiers. In general, a quantifier tells us \emph{how many}. Consider these sentences:
 	\begin{earg}
 		\item[\ex{q.a}] Everyone is happy.
 %		\item[\ex{q.ac}] Everyone is at least as tough as Elsa.
 		\item[\ex{q.e}] Someone is angry.
+		\item[\ex{q.eg}] Every girl thinks she deserves icecream.
+		\item[\ex{q.most}] Most people are happy.
+		\item[\ex{q.two}] Exactly two people are angry.
+		\item[\ex{q.more}] More than three people are happy.
 	\end{earg}
-It might be tempting to symbolise sentence \ref{q.a} as `$He \eand Hg \eand Hm$'. Yet this would only say that Elsa, Gregor, and Marybeth are happy. We want to say that \emph{everyone} is happy, even those with no names. %In order to do this, we introduce the `$\forall$' symbol. This is called the \define{universal quantifier}.
+We will focus initially on the coarse-grained quantifiers `every'/`all' and `some'. We will look at numerical quantifiers, as in examples \ref{q.two} and \ref{q.more}, in §\ref{sec.identity}.
 
-Note that \ref{q.a} and \ref{q.e} can be roughly paraphrased like this: \begin{earg}
+It might be tempting to symbolise sentence \ref{q.a} as `$(He \eand (Hg \eand Hm))$'. Yet this would only say that Elsa, Gregor, and Marybeth are happy. We want to say that \emph{everyone} is happy, even those we have not named, even those who are nameless. %In order to do this, we introduce the `$\forall$' symbol. This is called the \define{universal quantifier}.
+
+
+Note that \ref{q.a} and \ref{q.e} and \ref{q.eg} can be roughly paraphrased like this: \begin{earg}
 	\item[\ex{q.athey}] Every person is such that: they are happy.
 	\item[\ex{q.ethey}] Some person is such that: they are angry.
-\end{earg} In each of these, we have an instance of singular `they' which is governed by the preceding phrase. That phrase tells us who this instance of `they' is pointing to – is it pointing severally to everyone, as in \ref{q.athey}? Or to just someone, though perhaps it is unknown which particular person it is, as in \ref{q.ethey}? In this sort of construction, the sentence `they are happy' headed by the bare pronoun is called an \define{open sentence}.  An open sentence in English can be used to say something meaningful, if the circumstances permit a unique interpretation of the pronoun. But in many cases no such unique interpretation is possible. If I gesture at a crowd and say simply `he is angry', I may not manage to say anything meaningful if there is no way to eatablish which person this use of `he' is pointing to. The other part of the sentence, the `every person is such that …' part, is called a \define{quantifer phrase}. The occurence of the quantifier phrase gives us guidance about how to interpret the pronoun. 
+	\item[\ex{q.eshe}] Every girl is such that: she thinks she herself deserves icecream.
+\end{earg} In each of these, we have a pronoun – singular `they' in \ref{q.athey} and \ref{q.ethey}, `she' in \ref{q.eshe} – which is governed by the preceding phrase. That phrase gives us information about what this pronoun is pointing to – is it pointing severally to everyone, as in \ref{q.athey}? Or to just someone, though it is generally unknown which particular person it is, as in \ref{q.ethey}? In either case, something general is being said, rather than something specific, even in example \ref{q.ethey} which is true just in case there is at least one angry person – it doesn't matter which person it is. 
 
-The treatment of quantifier phrases in \FOL\ actually follows the structure of these paraphrases rather well. The role of the pronoun is played by a \define{variable}. In \FOL, variables are italic lower case letters `$s$' through `$z$', with or without subscripts. They combine with predicates to form open sentences of the form `$\meta{A}\meta{x}$'. An open sentence combines with a quantifier phrase to form a sentence. (Notice that I have here returned to the practice of using `$\meta{A}$' as a metavariable, from §\ref{s:UseMention}.)
+In this sort of construction, the sentences `they are happy' and `she thinks she herself deserves icecream', which are headed by a bare pronoun, are called \define{open sentences}. An open sentence in English can be used to say something meaningful, if the circumstances permit a unique interpretation of the pronoun – consider `she plays violin' from §\ref{s:names}. But in many cases no such unique interpretation is possible. If I gesture at a large crowd and say simply `he is angry', I may not manage to say anything meaningful if there is no way to establish which person this use of `he' is pointing to. The other part of the sentence, the `every person is such that …' part, is called a \define{quantifier phrase}. The quantifier phrase gives us guidance about how to interpret the otherwise bare pronoun. 
 
-The first quantifier from \FOL\ we meet is the \define{universal quantifier}, symbolised `$\forall$', and which corresponds to `every'. Unlike English, we always follow a quantifier in \FOL\ by the variable it governs, to avoid the possibility of confusion. Putting this all together, we might symbolise sentence \ref{q.a} as `$\forall x Hx$'.  The variable `$x$' is serving as a kind of placeholder. The expression `$\forall x$' intuitively means that you can pick anyone to be temporarily denoted by `$x$'. The subsequent `$Hx$' indicates, of that thing you picked out, that \emph{it} is happy. (Note that pronoun again.)
+The treatment of quantifier phrases in \FOL\ actually follows the structure of these paraphrases rather well. The \FOL\ analogue of these embedded pronouns is the category of \define{variable}. In \FOL, variables are italic lower case letters `$s$' through `$z$', with or without subscripts. They combine with predicates to form open sentences of the form `$\meta{A}\meta{x}$'. Grammatically variables are thus like singular terms. However, as their name suggests, variables do not denote any fixed individual. They will not be assigned a meaning by a symbolisation key, even temporarily. Rather, their role is to be governed by an accompanying quantifier phrase to say something general about a situation. In \FOL, an open sentence combines with a quantifier to form a sentence. (Notice that I have here returned to the practice of using `$\meta{A}$' as a metavariable, from §\ref{s:UseMention}.)
+
+\paragraph{Universal Quantifier} The first quantifier from \FOL\ we meet is the \define{universal quantifier}, symbolised `$\forall$', and which corresponds to `every'. Unlike English, we always follow a quantifier in \FOL\ by the variable it governs, to avoid the possibility of confusion. Putting this all together, we might symbolise sentence \ref{q.a} as `$\forall x Hx$'.  The variable `$x$' is serving as a kind of placeholder, playing the role that is allotted to the pronoun in the English paraphrase \ref{q.athey}. The expression `$\forall x$' intuitively means that you can pick anyone to be temporarily denoted by `$x$'. The subsequent `$Hx$' indicates, of that thing you picked out, that \emph{it} is happy. (Note that pronoun again.)
 
 I should say that there is no special reason to use `$x$' rather than some other variable. The sentences `$\forall x Hx$', `$\forall y Hy$', `$\forall z Hz$', and `$\forall x_5 Hx_5$' use different variables, but they will all be logically equivalent.
 
-To symbolise sentence \ref{q.e}, we introduce a second quantifier: the \define{existential quantifier}, `$\exists$'. Like the universal quantifier, the existential quantifier requires a variable. Sentence \ref{q.e} can be symbolised by `$\exists x Ax$'. Whereas `$\forall x Ax$' is read naturally as `for all $x$, it ($x$) is angry', `$\exists x Ax$' is read naturally as `there is something, $x$, such that it ($x$) is angry'. Once again, the variable is a kind of placeholder; we could just as easily have symbolised sentence \ref{q.e} with `$\exists z Az$', `$\exists w_{256} Aw_{256}$', or whatever.
+\paragraph{Existential quantifier} To symbolise sentence \ref{q.e}, we introduce a second quantifier: the \define{existential quantifier}, `$\exists$'. Like the universal quantifier, the existential quantifier requires a variable. Sentence \ref{q.e} can be symbolised by `$\exists x Ax$'. Whereas `$\forall x Ax$' is read naturally as `for all $x$, it ($x$) is angry', `$\exists x Ax$' is read naturally as `there is something, $x$, such that it ($x$) is angry'. Once again, the variable is a kind of placeholder; we could just as easily have symbolised sentence \ref{q.e} with `$\exists z Az$', `$\exists w_{256} Aw_{256}$', or whatever.
 
 Some more examples will help. Consider these further sentences:
 	\begin{earg}
@@ -130,11 +175,10 @@ Sentence \ref{q.ne} can be paraphrased as, `It is not the case that someone is a
 
 Sentence \ref{q.en} is most naturally paraphrased as, `There is some x, such that x is not happy'. This then becomes `$\exists x \enot Hx$'. Of course, we could equally have written `$\enot\forall x Hx$', which we would naturally read as `it is not the case that everyone is happy'. And that would be a perfectly adequate symbolisation of sentence \ref{q.na}.
 
-Quantifiers get their name because they tell us how many things have a certain feature. \FOL\ allows only very crude distinctions: we have seen that we can symbolise `no one', `someone', and `everyone'. 
-English has many other quantifier phrases: `most', `a few', `more than half', `at least three', etc. Some can be handled in a roundabout way in \FOL, as we will see: the numerical quantifier `at least three', for example, we will meet again in §\ref{sec.identity}. But others, like `most', are simply unable to be reliably symbolised in \FOL. 
+Quantifiers get their name because they tell us how many things have a certain feature. \FOL\ allows only very crude distinctions: we have seen that we can symbolise `no one', `someone', and `everyone'. English has many other quantifier phrases: `most', `a few', `more than half', `at least three', etc. Some can be handled in a roundabout way in \FOL, as we will see: the numerical quantifier `at least three', for example, we will meet again in §\ref{sec.identity}. But others, like `most', are simply unable to be reliably symbolised in \FOL. 
 
 \section{Domains}\label{sec_domains}
-Given the symbolisation key we have been using, `$\forall xHx$' symbolises `Everyone is happy'.  Who is included in this \emph{everyone}? When we use sentences like this in English, we usually do not mean everyone now alive on the Earth. We certainly do not mean everyone who was ever alive or who will ever live. We usually mean something more modest: everyone now in the building, everyone enrolled in the ballet class, or whatever.
+Given the symbolisation key we have been using, `$\forall xHx$' symbolises `Everyone is happy'.  Who is included in this \emph{everyone}? When we use sentences like this in English, we usually do not mean everyone now alive on the Earth. We almost certainly do not mean everyone who was ever alive or who will ever live. We usually mean something more modest: everyone now in the building, everyone enrolled in the ballet class, or whatever.
 
 In order to eliminate this ambiguity, we will need to specify a \define{domain}. The domain is just the things that we are talking about. So if we want to talk about people in Chicago, we define the domain to be people in Chicago. We write this at the beginning of the symbolisation key, like this:
 	\begin{ekey}
@@ -143,13 +187,16 @@ In order to eliminate this ambiguity, we will need to specify a \define{domain}.
 The quantifiers \emph{range over} the domain. Given this domain, `$\forall x$' is to be read roughly as `Every person in Chicago is such that …' and `$\exists x$' is to be read roughly as `Some person in Chicago is such that …'. 
 
 In \FOL, the domain must always include at least one thing. Moreover, in English we can conclude `something is angry' when given `Gregor is angry'. In \FOL, then, we shall want to be able to infer `$\exists x Ax$' from `$Ag$'. So we shall insist that each name must pick out exactly one thing in the domain. If we want to name people in places beside Chicago, then we need to include those people in the domain. 
-	\factoidbox{
-		A domain must have \emph{at least} one member. A name must pick out \emph{exactly} one member of the domain. But a member of the domain may be picked out by one name, many names, or none at all.
-	}
 
 In permitting multiple domains, \FOL\ follows the lead of natural languages like English. Consider an argument like this: \begin{earg}
 	\item[\ex{ex.qdr}] All the beer has been drunk; so we're going to the bottle-o. 
 \end{earg} The premise says that all the beer is gone. But the conclusion only makes sense if there is more beer at the bottle shop. So whatever domain of things we are talking about when we state the premise, it cannot include absolutely \emph{everything}. In \FOL, we sidestep the interesting issues involved in deciding just what domain is involved in evaluating sentences like `all the beer has been drunk', and explicitly include the current domain of quantification in our symbolisation key.
+
+Note further that to make sense of the sentence `all the beer has been drunk', the domain will have to contain both past and present things, so we can understand what we are saying about the now-absent beer. A domain contains \emph{what we are talking about}. It might be difficult to understand how we do it, but we do talk about past things, fictional things, abstract things, merely possible things, and other unusual entities. So our domains must be flexible enough to include any of these things we might be talking about. It is a question in philosophical logic as to how we can explain how we manage to include non-existent things in our domain of discourse, but for the purposes of \FOL\ all we need to know is that this is something we somehow manage to do.
+
+\factoidbox{
+		A domain must have \emph{at least} one member. A name must pick out \emph{exactly} one member of the domain. But a member of the domain may be picked out by one name, many names, or none at all. The domain can consist of anything we might be discussing; it is not restricted to things that presently exist.}
+
 
 \keyideas{
 	\item \FOL\ gives us resources for modelling some aspects of sub-sentential structure in natural languages: names, predicates, and some quantifier phrases.
@@ -160,15 +207,22 @@ In permitting multiple domains, \FOL\ follows the lead of natural languages like
 }
 
 \practiceproblems
-\problempart
 
-In each of the following sentences, identify the names and predicates. Comment on any difficulties.\begin{enumerate}
+\problempart In each of the following sentences, identify the names and predicates. Comment on any difficulties.\begin{enumerate}
 	\item Kurt and Alonzo are logicians;
 	\item Silver is useful in film photography;
 	\item Mary's ring is silver;
 	\item Kurt and Alonzo lift a couch;
 	\item The biggest threat to life on earth is carbon dioxide.
 \end{enumerate}
+
+\problempart Identify the possible predicates that can be found by replacing singular terms with gaps in these sentences: \begin{enumerate}
+	\item He dislikes Joel;
+	\item Andrew Leigh was a professor of economics at the ANU;
+	\item The professor of genomics was elected president of the Academy.
+\end{enumerate}
+
+
 \problempart
 Make use of this symbolisation key to symbolise the following sentences into Quantifer, commenting on any difficulties:
 \begin{ekey}
@@ -188,19 +242,18 @@ Make use of this symbolisation key to symbolise the following sentences into Qua
 	\item Every city and town is ugly.
 \end{enumerate}
 
+\problempart Can this argument be adequately symbolised in \FOL? Comment on any difficulties. \begin{earg}
+	\item She is tall;
+	\item Bob likes her;
+	\item[So:] Bob likes someone tall. 
+\end{earg}
+
 \chapter{Sentences with One Quantifier}\label{s:MoreMonadic}
-We now have all of the pieces of \FOL. Symbolising many sentences of English will only be a matter of knowing the right way to combine predicates, names, quantifiers, and the truth-functional connectives. There is a knack to this, and there is no substitute for practice.
+We now have the basic pieces of \FOL. Symbolising many sentences of English will only be a matter of knowing the right way to combine predicates, names, quantifiers, and the truth-functional connectives. There is a knack to this, and there is no substitute for practice.
 
-As I emphasised in §\ref{ss.idargstr}, a single English sentence has many structures, depending on how fine-grained one is in the analysis of that sentence. We could symbolise `Antony owns a car' in a number of different ways given the resources we have so far, in increasingly finer detail: \begin{enumerate}
-	\item We could symbolise it as an atomic sentence of \TFL\ like `$A$', ignoring all internal structure of the sentence (because it has no internal truth-functional structure). This is also a zero-place predicate, so is also a sentence of \FOL. 
-	\item We could symbolise it as another atomic sentence of \FOL, but one which does recognise the internal subject-predicate struture of the English sentence. For example, we could symbolise it as `$Wa$', where `$W$' symbolises `$\gap{1}$ owns a car' and `$a$' symbolises `Antony'.
-	\item Or we could symbolise it as a complex quantified sentence `$\exists y (Cy \eand Oay)$', where `$a$' is as before, but `$C$' means `$\gap{1}$ is a car' and `$O$' is `$\gap{1}$ owns $\gap{2}$'.
-	\item We could imaginably symbolise it at even finer levels of structure, distinguishing the `is' and `a' and `car' in the predicate we symbolised as `$C$'.
-\end{enumerate} Note that any structure identified is preserved: the name `$a$' continues to appear in more fine-grained symbolisations once it has appeared. A one-place predicate, having appeared in the second symbolisation, still appears in the third symbolisation, in the form of the complex one-place predicate `$\exists y (Cy \eand O\meta{x}y)$' (see that `\meta{x}' is not associated with any quantifier).
-
-How to symbolise the structure of a sentence very much depends on what purpose you have in symbolising. What matters is that you manage to represent enough structure to determine whether the target argument you are symbolising is valid. We just observed that any more fine-grained analysis of the structure of a sentence retains the coarser structure (as it just adds more detailed substructure). So if you can show an argument is valid (conclusive in virtue of its structure) at some level of analysis, it will remain valid according to any more fine-grained understanding of the structure of that sentence. So you should aim to symbolise \emph{just enough} structure in an argument to be able to demonstrate its validity – if indeed it is valid.
 
 \section{Common quantifier phrases}
+As in \TFL\ (recall §\ref{s:TFLConnectives}), we will give canonical symbolisations for certain common English quantificational structures.
 Consider these sentences:
 	\begin{earg}
 		\item[\ex{quan1}] Every coin in my pocket is a 20¢ piece.
@@ -216,21 +269,30 @@ In providing a symbolisation key, we need to specify a domain. Since we are talk
 		\item[Q] \gap{1} is a 20¢ piece
 		\item[D] \gap{1} is a dollar
 	\end{ekey}
-Sentence \ref{quan1} is most naturally symbolised using a universal quantifier. The universal quantifier says something about everything in the domain, not just about the coins in my pocket. Sentence \ref{quan1} can be paraphrased as `for any coin, \emph{if} that coin is in my pocket \emph{then} it is a 20¢ piece'. So we can symbolise it as `$\forall x(Px \eif Qx)$'.
+Sentence \ref{quan1} is most naturally symbolised using a universal quantifier. The universal quantifier says something about everything in the domain, not just about the coins in my pocket. So if we want to talk just about coins in my pocket, we will need to \emph{restrict} the quantifier, by imposing a condition on the things we are saying are 20¢ pieces. That is: something in the domain is claimed to be a 20¢ piece \emph{only if} it meets the restricting condition. That leads us to this conditional paraphrase: \begin{earg}
+	\item[\ex{coinpa}] For any (coin): $\underbracket{\text{\emph{if} that coin is in my pocket}}_{\text{\emph{restriction}}}$, \emph{then} it is a 20¢ piece.
+\end{earg} So we can symbolise it as `$\forall x(Px \eif Qx)$'.
 
 Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} that are 20¢ pieces, it might be tempting to translate it using a conjunction. However, the sentence `$\forall x(Px \eand Qx)$' would symbolise the sentence `every coin is both a 20¢ piece and in my pocket'. This obviously means something very different than sentence \ref{quan1}. And so we see:
 	\factoidbox{
-		A sentence can be symbolised as $\forall x (\meta{F}x \eif \meta{G}x)$ if it can be paraphrased in English as `every F is G'.
-	}
-Sentence \ref{quan2} is most naturally symbolised using an existential quantifier. It can be paraphrased as `there is some coin which is both on the table and which is a dollar'. So we can symbolise it as `$\exists x(Tx \eand Dx)$'.
+		A sentence can be symbolised as $\forall x (\meta{F}x \eif \meta{G}x)$ if it can be paraphrased in English as `every F is G' or `all Fs are Gs'.}
+
+
+Example \ref{quan2} uses the quantifier phrase `some'. The same thought could be expressed using different quantifier phrases: \begin{earg}
+	\item[\ex{quan2a}] \underline{At least one} coin on the table is a dollar.
+	\item[\ex{quan2b}] \underline{There is} a coin on the table that is a dollar.
+\end{earg} These phrases all indicate an existential quantifier. In these examples, the class of coins on the table is being related to the class of dollar coins, and it is claimed that at least one member of the former class is also in the latter class – that there is \emph{overlap}. This is represented in \FOL\ following the example of this paraphrase:
+\begin{earg}
+	\item[\ex{coindol}] There is something (a coin): it is in \emph{both} the class of things on the table, \emph{and} in the class of dollar coins.
+\end{earg} That is symbolised using a conjunction, `$\exists x (Tx \eand Dx)$'. 
+
+We know from \TFL\ that the order of conjuncts doesn't matter: `$(P \eand Q)$' is logically equivalent to `$(Q\eand P)$'. Likewise in \FOL, `$\exists x (Tx \eand Dx)$' is logically equivalent to `$\exists x (Dx \eand Tx)$'. This fits well with the English sentences we are symbolising, because overlap is itself a symmetrical relation between classes. We see this also in the fact that we can paraphrase example \ref{quan2} as `Some dollar coin is on the table'.
 
 Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. Suppose we had instead written `$\exists x(Tx \eif Dx)$'. That would mean that there is some object in the domain such that  \emph{if} it is $T$, then it is also $D$. For this to be true, we just need something to not be $T$. So it is \emph{very easy} for `$\exists x(Tx \eif Dx)$' to be true. Given our symbolisation, it will be true if some coin is not on the table. Of course there is a coin that is not on the table: there are coins lots of other places.  That is rather less demanding than the claim that something is both $T$ and $D$.
 
-%Recall that, in \TFL, $\meta{A} \eif \meta{B}$ is equivalent to $\enot\meta{A} \eor \meta{B}$. This equivalence will also hold in \FOL. So `$\exists x(Tx \eif Dx)$' is true if there is some object in the domain, such that `$(\enot Tx \eor Dx)$' is true of that object. That is, `$\exists x (Tx \eif Dx)$' is true 
-
 A conditional will usually be the natural connective to use with a universal quantifier, but a conditional within the scope of an existential quantifier tends to say something very weak indeed. As a general rule of thumb, do not put conditionals in the scope of existential quantifiers unless you are sure that you need one.
 	\factoidbox{
-		A sentence can be symbolised as $\exists x (\meta{F}x \eand \meta{G}x)$ if it can be paraphrased in English as `some F is G'.
+		A sentence can be symbolised as $\exists x (\meta{F}x \eand \meta{G}x)$ if it can be paraphrased in English as `some F is G', `at least one F is G', or `There is an F which is G'.
 	}		
 Sentence \ref{quan3} can be paraphrased as, `It is not the case that every coin on the table is a dollar'. So we can symbolise it by `$\enot \forall x(Tx \eif Dx)$'. You might look at sentence \ref{quan3} and paraphrase it instead as, `Some coin on the table is not a dollar'. You would then symbolise it by `$\exists x(Tx \eand \enot Dx)$'. Although it is probably not immediately obvious yet, these two sentences are logically equivalent. (This is due to the logical equivalence between $\enot\forall x\meta{A}$ and $\exists x\enot\meta{A}$, mentioned in §\ref{s:FOLBuildingBlocks}, along with the logical equivalence between $\enot(\meta{A}\eif\meta{B})$ and $\meta{A}\eand\enot\meta{B}$.)
 
@@ -238,7 +300,7 @@ Sentence \ref{quan4} can be paraphrased as, `It is not the case that there is so
 
 
 \section{Empty predicates}
-In §\ref{s:FOLBuildingBlocks}, I emphasised that a name must pick out exactly one object in the domain. However, a predicate need not apply to anything in the domain. A predicate that applies to nothing in the domain is called an \define{empty} predicate. This is worth exploring.
+In §\ref{s:FOLBuildingBlocks}, I emphasised that a name must pick out exactly one object in the domain. However, a predicate need not apply to anything in the domain. A predicate that applies to nothing in a domain is called an \define{empty} predicate (relative to that domain). This is worth exploring.
 
 Suppose we want to symbolise these two sentences:
 	\begin{earg}
@@ -255,9 +317,7 @@ Sentence \ref{monkey1} can now be symbolised by `$\forall x(Mx \eif Sx)$'. Sente
 
 It is tempting to say that sentence \ref{monkey1} \emph{entails} sentence \ref{monkey2}. That is, we might think that it is impossible for it to be the case that every monkey knows sign language, without it's also being the case that some monkey knows sign language.  But this would be a mistake. It is possible for the sentence `$\forall x(Mx \eif Sx)$' to be true even though the sentence `$\exists x(Mx \eand Sx)$' is false.
 
-How can this be? The answer comes from considering whether these sentences would be true or false \emph{if there were no monkeys}. If there are no monkeys at all (in the domain), then `$\forall x(Mx \eif Sx)$' would be \emph{vacuously} true: take any monkey you like – it knows sign language! But if there were no monkeys at all (in the domain), then `$\exists x(Mx \eand Sx)$' would be false.
-
-In \FOL, a universally quantified sentence of the form $\forall \meta{x} \meta{Ax} \eif \meta{Bx}$ is \emph{false} only if we can find something which is \meta{A} without being \meta{B}. If we can't find such a thing, perhaps because we can't find anything which is \meta{A} in the first place, then the sentence will be true (since truth is just lack of falsity, and this sentence isn't false because we can't find a case that falsifies it). 
+How can this be? The answer comes from considering whether these sentences would be true or false \emph{if there are no monkeys}. If there are no monkeys at all (in some domain), then `$\forall x(Mx \eif Sx)$' would be \emph{vacuously} true. Take the domain of reptiles. Look at the domain, and pick any monkey you like – it knows sign language!\footnote{Remember this is not a counterfactual claim (\ref{s:IndicativeSubjunctive}); even if `All monkeys know sign language' is vacuously true in the domain of reptiles, that wouldn't mean that `Any monkey \emph{would} know sign language' is true.} There is certainly no counterexample to the claim available in this domain. And because of the role of the conditional in our symbolisation, it turns out that a universally quantified claim with an unsatisfied restricting condition will also be true. In \FOL, a universally quantified sentence of the form $\forall \meta{x} \meta{Ax} \eif \meta{Bx}$ is \emph{false} only if we can find something which is \meta{A} without being \meta{B}. If we can't find such a thing, perhaps because we can't find anything which is \meta{A} in the first place, then the sentence will be true (since truth is just lack of falsity, and this sentence isn't false because we can't find a case that falsifies it). This derives ultimately from the feature of \TFL\ we have already acknowledged to be questionably analogous to English, namely, the fact that a conditional is false only if there is a counterexample, a case where the antecedent is true and the consequent false.
 
 Another example will help to bring this home. Suppose we extend the above symbolisation key, by adding:
 	\begin{ekey}
@@ -270,8 +330,9 @@ If you were actually dealing with the sentence `All refrigerators are monkeys', 
 		When $\meta{F}$ is an empty predicate relative to a given domain, a sentence $\forall x (\meta{F}x \eif …)$ will be vacuously true of that domain.
 	} 
 
-
 \section{Picking a domain}
+
+
 The appropriate symbolisation of an English language sentence in \FOL\ will depend on the symbolisation key. Choosing a key can be difficult. Suppose we want to symbolise the English sentence:
 	\begin{earg}
 		\item[\ex{pickdomainrose}] Every rose has a thorn.
@@ -301,6 +362,10 @@ Now we will have to symbolise sentence \ref{pickdomainrose} with `$\forall x (Rx
 
 In general, the universal quantifier can be used to symbolise the English expression `everyone' if the domain only contains people. If there are people and other things in the domain, then `everyone' must be treated as `every person'.
 
+If you choose a narrow domain, you can make the task of symbolisation easier. If we are attempting to symbolise example \ref{q.eshe}, `every girl thinks that she deserves icecream', we can pick the domain to be girls and then we only need to introduce a predicate `\blank\ thinks that they themselves deserve icecream', symbolised `$D$'. The symbolisation is then the simple `$\forall x Dx$'. But our options are limited if the conversation goes on to talk about things other than girls. On the other hand, if you pick an expansive domain (such as everything whatsoever), you can always just impose an appropriate restriction. In this case, we could introduce the predicate `$G$' to stand for `\blank\ is a girl', and symbolise the sentence as `$\forall x (Gx \to Dx)$'. 
+
+When choosing an expansive domain, you must take some care with implicitly restricted predicates. It would not be appropriate to paraphrase `all the beer has been drunk' relative to a very expansive domain as `For everything: if it is beer, it has been drunk'. To adequately capture the intent, we shall need to make the implicit contextual restriction of the predicate explicit, in something like this paraphrase `For everything: if it is beer at the party, it has been drunk'.
+
 
 \section{The utility of paraphrase}
 When symbolising English sentences in \FOL, it is important to understand the structure of the sentences you want to symbolise. What matters is the final symbolisation in \FOL, and sometimes you will be able to move from an English language sentence directly to a sentence of \FOL. Other times, it helps to paraphrase the sentence one or more times. Each successive paraphrase should move from the original sentence closer to something that you can finally symbolise directly in \FOL.
@@ -317,7 +382,7 @@ Now consider these sentences:
 		\item[\ex{pronoun1}] If Kim Deal is a bassist, then she is a rock star.
 		\item[\ex{pronoun2}] If any woman is a bassist, then she is a rock star.
 	\end{earg}
-The same words appear as the consequent in sentences \ref{pronoun1} and \ref{pronoun2} (`$…$ she is a rock star'), but they mean very different things. To make this clear, it often helps to paraphrase the original sentences into a more unusual but clearer form.
+The same words appear as the consequent in sentences \ref{pronoun1} and \ref{pronoun2} (`$…$ she is a rock star'), but they mean very different things (recall §\ref{quant.pron}). To make this clear, it often helps to paraphrase the original sentences into a more unusual but clearer form.
 
 Sentence \ref{pronoun1} can be paraphrased as, `Consider Kim Deal: if she is a bassist, then she is a rockstar'. The bare pronoun `she' gets to denote Kim Deal because of our initial `Consider Kim Deal' remark. This then says something about one particular person, and can obviously be symbolised as `$Bk \eif Rk$'.
 
@@ -334,6 +399,11 @@ Sentence \ref{anyone1} can be paraphrased, `If there is at least one bassist, th
 
 Sentence \ref{anyone2} can be paraphrased, `For all people x, if x is a bassist, then x is a rock star'. Or, in more natural English, it can be paraphrased by `All bassists are rock stars'. It is best symbolised as `$\forall x(Bx \eif Rx)$', just like sentence \ref{pronoun2}.
 
+The word `any' is particularly tricky, because it can sometimes mean `every' and sometimes `at least one'! Think about the two occurrences of `any' in this sentence: \begin{earg}
+\item[\ex{student.any}] Any student will be happy if they have any money.\\
+ For every student: if there exists some money they possess, then they will  be happy.
+\end{earg} This can be symbolised `$\forall x (Sx \to (\exists y (My \wedge Pxy) \to Hx))$', where the first occurrence of `any' is represented by a universal quantifier, and the second by an existential quantifier.  
+
 The moral is that the English words `any' and `anyone' should typically be symbolised using quantifiers. And if you are having a hard time determining whether to use an existential or a universal quantifier, try paraphrasing the sentence with an English sentence that uses words \emph{besides} `any' or `anyone'.\footnote{The story about `any' and `anyone' is actually rather interesting. It is well-known to linguists that `any' has at least two readings: so-called \define{free choice `any'}, which is more or less like a universal quantifier (`Any friend of Jessica's is a friend of mine!'), and \define{negative polarity (NPI) `any'}, which only occurs in `negative' contexts, like negation (`I don't want any peas!'), where it functions more or less like an existential quantifier (`It is not the case that: there exist peas that I want'). 
 
 		Interestingly, the antecedent of a conditional is a negative environment (being equivalent to $¬\meta{A}\vee\meta{C}$), and so we expect that `any' in the antecedent of a conditional will have an existential interpretation. And it does: `If anyone is home, they will answer the door' means something like: `If someone is home, then that person will answer the door'. It does not mean `If everyone is home, then they will answer the door'. This is what we see in \ref{anyone1}.
@@ -341,8 +411,6 @@ The moral is that the English words `any' and `anyone' should typically be symbo
 		But \ref{anyone2} is not a conditional – its main connective is a quantifier. So here free choice `any' is the natural interpretation, so we use the universal quantifier.
 
 		We see the same thing with the quantifier `someone'. In `if someone is a bassist, Kim Deal is', someone gets symbolised by an existential quantifier in the scope of a conditional. But in `If someone is a bassist, they are a musician' it should be symbolised by a universal taking scope over a conditional.}
-
-
 
 
 \section{Quantifiers and scope}
@@ -355,17 +423,23 @@ To symbolise these sentences, I shall have to add a new name to the symbolisatio
 	\begin{ekey}
 		\item[b] Tim
 	\end{ekey}
-Sentence \ref{qscope1} is a conditional, whose antecedent is `everyone is a bassist'. So we will symbolise it with `$\forall x Bx \eif Bb$'. This sentence is \emph{necessarily} true: if \emph{everyone} is indeed a bassist, then take any one you like – for example Tim – and he will be a bassist. 
+Sentence \ref{qscope1} is a conditional, whose antecedent is `everyone is a bassist'. So we will symbolise it with `$(\forall x Bx \eif Bb)$'. This sentence is \emph{necessarily} true: if \emph{everyone} is indeed a bassist, then take any one you like – for example Tim – and he will be a bassist. 
 
 Sentence \ref{qscope2}, by contrast, might best be paraphrased by `every person x is such that, if x is a bassist, then Tim is a bassist'. This is symbolised by `$\forall x (Bx \eif Bb)$'. And this sentence is false. Kim Deal is a bassist. So `$Bk$' is true. But Tim is not a bassist, so `$Bb$' is false. Accordingly, `$Bk \eif Bb$' will be false. So `$\forall x (Bx \eif Bb)$' will be false as well. 
 
-In short, `$\forall x Bx \eif Bb$' and `$\forall x (Bx \eif Bb)$' are very different sentences. We can explain the difference in terms of the \emph{scope} of the quantifier. The scope of quantification is very much like the scope of negation, which we considered when discussing \TFL, and it will help to explain it in this way.
+In short, `$(\forall x Bx \eif Bb)$' and `$\forall x (Bx \eif Bb)$' are very different sentences. We can explain the difference in terms of the \emph{scope} of the quantifier.  The scope of quantification is very much like the scope of negation, which we considered when discussing \TFL (§\ref{s.mainconnscope}), and it will help to explain it in this way. We define quantifier scope officially in §\ref{s:FOLSentences}, but we also return to it in a preliminary way in §\ref{quan.scope}.
 
-In the sentence `$\enot Bk \eif Bb$', the scope of `$\enot$' is just the antecedent of the conditional. We are saying something like: if `$Bk$' is false, then `$Bb$' is true. Similarly, in the sentence `$\forall x Bx \eif Bb$', the scope of `$\forall x$' is just the antecedent of the conditional. We are saying something like: if `$B$' is true of \emph{everything}, then `$Bb$' is also true. 
+In the sentence `$(\enot Bk \eif Bb)$', the scope of `$\enot$' is just the antecedent of the conditional. We are saying something like: if `$Bk$' is false, then `$Bb$' is true. Similarly, in the sentence `$(\forall x Bx \eif Bb)$', the scope of `$\forall x$' is just the antecedent of the conditional. We are saying something like: if `$B$' is true of \emph{everything}, then `$Bb$' is also true. 
 
 In the sentence `$\enot(Bk \eif Bb)$', the scope of `$\enot$' is the entire sentence. We are saying something like: `$(Bk \eif Bb)$' is false. Similarly, in the sentence `$\forall x (Bx \eif Bb)$', the scope of `$\forall x$' is the entire sentence. We are saying something like: `$(Bx \eif Bb)$' is true of \emph{everything}.
 
-The moral of the story is simple. When you are using conditionals, be very careful to make sure that you have sorted out the scope correctly. 
+Scope can make a drastic difference in meaning. Reconsider these examples:
+\begin{earg}
+    			\item[\ex{ben1}] $(\overbracket{\forall x Bx}^{\text{Scope of `$\forall x$'}}\to Bb)$\\ If everything is $B$, then $b$ is too. \emph{Trivially true}
+    			\item[\ex{ben2}] $\overbracket{\forall x (Bx \to Bb)}^{\text{Scope of `$\forall x$'}}$\\ All $B$s are such that $b$ is $F$. \emph{False if $b$ isn't $F$ but there are some $F$s}
+    		\end{earg}
+
+The moral of the story is simple. When you are using quantifiers and conditionals, be very careful to make sure that you have sorted out the scope correctly. 
 
 \section{Dealing with complex adjectives%syncategorematic adjectives
 }\label{s:complex_adj}
@@ -442,9 +516,9 @@ We cannot represent this exception-tolerance very easily in \FOL. The initial id
 Ducks lay eggs. Donald Duck is a duck. So Donald Duck lays eggs.
 \end{quote} One alternative idea that we can implement is that the word `ducks' in \ref{gen2} is referring to a natural kind, the species of ducks. So in fact rather than being a quantified sentence, it is in fact just a subject-predicate sentence, saying something more or less like `The duck is an oviparous species'. This certainly works for some cases, such as `Rabbits are abundant', where we have to be understood as saying something about the kind. (How could an individual be abundant?) 
 
-But this cannot handle every aspect of `ducks lay eggs'. People do treat those generics as quantified, because they are often willing to conclude things about individuals given the generic claim. Given the information that ducks lay eggs, and that Wilhelmina is a duck, most people conclude that Wilhelmina lays eggs – thus apparently treating the generic as having the kind of logical role of a universal quantifier.
+But this cannot handle every aspect of `ducks lay eggs'. People do treat those generics as quantified, because they are often willing to conclude things about individuals given the generic claim. Given the information that ducks lay eggs, and that Wilhelmina is a duck, most people conclude that Wilhelmina lays eggs – thus apparently treating the generic as having the logical role of a universal quantifier.
 
-The proper treatment of generics in English remains a wide-open question.\footnote{See, for example, Sarah-Jane Leslie and Adam Lerner (2016) `Generic Generalizations', in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy}, \url{https://plato.stanford.edu/archives/win2016/entries/generics/}.} We will not delve into it further, but you should be careful when symbolising not to be drawn into the trap of unwarily treating a generic as a universal.
+The proper treatment of generics in English remains a wide-open question.\footnote{See, for example, Sarah-Jane Leslie and Adam Lerner (2016) `Generic Generalizations', in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy}, \url{https://plato.stanford.edu/archives/win2016/entries/generics/}.} We will not delve into it further, but you should be careful when symbolising not to be drawn into the trap of unwarily treating every generic as a universal.
 
 
 
@@ -550,6 +624,14 @@ For each argument, write a symbolisation key and symbolise the argument in \FOL.
 \chapter{Multiple Generality}\label{s:MultipleGenerality}
 So far, we have only considered sentences that require simple predicates with just one `gap' and one quantifier. Much of the fragment of \FOL\ that involves such sentences was already discovered and codified into \emph{syllogistic} logic by Aristotle more than 2000 years ago. The full power of \FOL\ really comes out when we start to use predicates with many `gaps' and multiple quantifiers. Despite first appearances, the discovery of how to handle such sentences was a very significant one.  For this insight, we largely have the German mathematician and philosopher Gottlob Frege (1879) to thank.\footnote{Frege (1879 \emph{Begriffsschrift, eine der arithmetischen nachgebildete Formelsprache des reinen Denkens}, Halle a. S.: Louis Nebert. Translated as `Concept Script, a formal language of pure thought modelled upon that of arithmetic', by S. Bauer-Mengelberg in J. van Heijenoort (ed.), \emph{From Frege to Gödel: A Source Book in Mathematical Logic, 1879–1931}, Cambridge, MA: Harvard University Press, 1967. The same logic was independently discovered by the American philosopher and mathematician Charles Sanders Peirce: see Peirce (1885) `On the Algebra of Logic. A Contribution to the Philosophy of Notation' \emph{American Journal of Mathematics} \textbf{7}: 197–202. \textbf{Warning}: don't consult either of these original works, which will only confuse you. The present text is the result of more than a century of refinement in how to present the basic systems Frege and Peirce introduced, and is a lot more user friendly.}
 
+As I emphasised in §\ref{ss.idargstr}, a single English sentence has many structures, depending on how fine-grained one is in the analysis of that sentence. We could symbolise `Antony owns a car' in a number of different ways given the resources we have so far, in increasingly finer detail: \begin{enumerate}
+	\item We could symbolise it as an atomic sentence of \TFL\ like `$A$', ignoring all internal structure of the sentence (because it has no internal truth-functional structure). This is also a zero-place predicate, so is also a sentence of \FOL. 
+	\item We could symbolise it as another atomic sentence of \FOL, but one which does recognise the internal subject-predicate struture of the English sentence. For example, we could symbolise it as `$Wa$', where `$W$' symbolises `$\gap{1}$ owns a car' and `$a$' symbolises `Antony'.
+	\item Or we could symbolise it as a complex quantified sentence `$\exists y (Cy \eand Oay)$', where `$a$' is as before, but `$C$' means `$\gap{1}$ is a car' and `$O$' is `$\gap{1}$ owns $\gap{2}$'.
+	\item We could imaginably symbolise it at even finer levels of structure, distinguishing the `is' and `a' and `car' in the predicate we symbolised as `$C$'.
+\end{enumerate} Note that any structure identified is preserved: the name `$a$' continues to appear in more fine-grained symbolisations once it has appeared. A one-place predicate, having appeared in the second symbolisation, still appears in the third symbolisation, in the form of the complex one-place predicate `$\exists y (Cy \eand O\meta{x}y)$' (see that `\meta{x}' is not associated with any quantifier).
+
+How to symbolise the structure of a sentence very much depends on what purpose you have in symbolising. What matters is that you manage to represent enough structure to determine whether the target argument you are symbolising is valid. We just observed that any more fine-grained analysis of the structure of a sentence retains the coarser structure (as it just adds more detailed substructure). So if you can show an argument is valid (conclusive in virtue of its structure) at some level of analysis, it will remain valid according to any more fine-grained understanding of the structure of that sentence. So you should aim to symbolise \emph{just enough} structure in an argument to be able to demonstrate its validity – if indeed it is valid.
 
 \section{Many-place predicates}
 All of the predicates that we have considered so far concern properties that objects might have. The predicates have one gap in them, and to make a sentence, we simply need to slot in one name. They are \define{one-place} predicates.
@@ -627,7 +709,7 @@ As in the case of `$L$' and `$M$' above, the difference between these examples i
 We have introduced a potential ambiguity in our treatment of predicates. (See also §\ref{s:termsandf}.) There is nothing overt in our language that distinguishes the one-place predicate `$A$' (such that `$Ab$' is grammatical) from the two place predicate `$A$' (such that `$Ab$' is ungrammatical, but `$Abk$' is grammatical). We are, in effect, just letting context disambiguate how many argument places there are in a given predicate, by assuming that in any sentence of \FOL\ we write down, the number of names or variables following a predicate indicates how many places it has. We could introduce a system to disambiguate: perhaps adding a superscripted `1' to all one-place predicates, a superscripted `2' to all two-place predicates, etc. Then `$A^{1}b$' is grammatical while `$A^{1}bk$' is not; while `$A^{2}b$' is ungrammatical and `$A^{2}bk$' is grammatical. This system of superscripts would be effective but cumbersome. We will thus keep to our existing practice, letting context disambiguate. What you should \emph{not} do, however, is make use of the same capital letter to symbolise two different predicates in the same symbolisation key. If you do that, context will not disambiguate, and you will have failed to give an interpretation at all. 
 
 
-\section{The scope of quantifiers}
+\section{The scope of quantifiers}\label{quan.scope}
 Consider the sentence `everyone loves someone'. This is potentially ambiguous. It might mean either of the following:
 	\begin{earg}
 		\item[\ex{lovecycle}] For every person x, there is some person that x loves
@@ -679,7 +761,7 @@ Sentence \ref{dog4} can be paraphrased as, `Everyone who is a friend of Geraldo 
 $$\forall x \bigl(Fxg \eif x \text{ is a dog owner}\bigr)$$
 Now the fragment that we have left to deal with, `$x$ is a dog owner', is structurally just like sentence \ref{dog2}. But it would be a mistake for us simply to write 
 $$\forall x \bigl(Fxg \eif \exists x(Dx \eand Oxx) \bigr)$$
-for we would here have a \emph{clash of variables}. The scope of the universal quantifier, `$\forall x$', is the entire conditional, so the `$x$' in `$Dx$' should be governed by that. But `$Dx$' also falls under the scope of the existential quantifier `$\exists x$', so the `$x$' in `$Dx$' should be governed by that. Which quantifier has priority? There is answer in \FOL: if a variable $\meta{x}$ occurs in an \FOL\ sentence, it is always the quantifier which has the narrowest scope which includes that occurrence of \meta{x} that governs the variable. So in the sentence above, the quantifier `$\exists x$' governs each occurence of `$x$' in `$(Dx \eand Oxx)$'. Given this, that sentence does not mean what was intended. It says, roughly, `everyone who is a friend of Geraldo is such that there is a self-owning dog'. This is not at all the meaning of the English sentence we are aiming to symbolise.
+for we would here have a \emph{clash of variables}. The scope of the universal quantifier, `$\forall x$', is the entire conditional, so the `$x$' in `$Dx$' should be governed by that. But `$Dx$' also falls under the scope of the existential quantifier `$\exists x$', so the `$x$' in `$Dx$' should be governed by that. Which quantifier has priority? There is answer in \FOL: if a variable $\meta{x}$ occurs in an \FOL\ sentence, it is always the quantifier which has the narrowest scope which includes that occurrence of \meta{x} that governs the variable. So in the sentence above, the quantifier `$\exists x$' governs each occurrence of `$x$' in `$(Dx \eand Oxx)$'. Given this, that sentence does not mean what was intended. It says, roughly, `everyone who is a friend of Geraldo is such that there is a self-owning dog'. This is not at all the meaning of the English sentence we are aiming to symbolise.
 
 
 % And now confusion reigns: which `$x$' are we talking about? Suddenly the sentence would be ambiguous (if it is even meaningful at all), and logicians hate ambiguity. The broad moral is that a single variable cannot serve two masters simultaneously. 
