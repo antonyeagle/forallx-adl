@@ -99,13 +99,13 @@ In general, you can think about predicates as things which combine with singular
 		\item \blank\ borrowed the family car from Nunzio
 		\item Vinnie borrowed \blank\ from Nunzio
 		\item Vinnie borrowed the family car from \blank
-	\end{itemize}
+	\end{itemize} (What if we wanted to remove two or more singular terms and leave more than one gap? We shall return to this in §\ref{s:MultipleGenerality}.)
 \FOL\ predicates are capital letters $A$ through $Z$, with or without subscripts. We might write a symbolisation key for predicates thus:
 	\begin{ekey}
-		\item[A] \gap{1} is angry
-		\item[H] \gap{1} is happy
+		\item[A] \blank\ is angry
+		\item[H] \blank\ is happy
 	\end{ekey}
-(Why the subscripts on the gaps? We shall return to this in §\ref{s:MultipleGenerality}.)
+
 
 If we combine our two symbolisation keys, we can start to symbolise some English sentences that use these names and predicates in combination. For example, consider the English sentences:
 	\begin{earg}
@@ -229,9 +229,9 @@ Make use of this symbolisation key to symbolise the following sentences into Qua
 		\item[\text{domain}] cities and towns in South Australia
 		\item[a] Adelaide
 		\item[m] Mount Gambier
-		\item[T] \gap{1} is a town
-		\item[U] \gap{1} is ugly
-		\item[L] \gap{1} is large
+		\item[T] \blank\ is a town
+		\item[U] \blank\ is ugly
+		\item[L] \blank\ is large
 	\end{ekey}
 
 \begin{enumerate}
@@ -264,10 +264,10 @@ Consider these sentences:
 In providing a symbolisation key, we need to specify a domain. Since we are talking about coins in my pocket and on the table, the domain must at least contain all of those coins. Since we are not talking about anything besides coins, we let the domain be all coins. Since we are not talking about any specific coins, we do not need to need to deal with any names. So here is our key:
 	\begin{ekey}
 		\item[\text{domain}] all coins
-		\item[P] \gap{1} is in my pocket
-		\item[T] \gap{1} is on the table
-		\item[Q] \gap{1} is a 20¢ piece
-		\item[D] \gap{1} is a dollar
+		\item[P] \blank\ is in my pocket
+		\item[T] \blank\ is on the table
+		\item[Q] \blank\ is a 20¢ piece
+		\item[D] \blank\ is a dollar
 	\end{ekey}
 Sentence \ref{quan1} is most naturally symbolised using a universal quantifier. The universal quantifier says something about everything in the domain, not just about the coins in my pocket. So if we want to talk just about coins in my pocket, we will need to \emph{restrict} the quantifier, by imposing a condition on the things we are saying are 20¢ pieces. That is: something in the domain is claimed to be a 20¢ piece \emph{only if} it meets the restricting condition. That leads us to this conditional paraphrase: \begin{earg}
 	\item[\ex{coinpa}] For any (coin): $\underbracket{\text{\emph{if} that coin is in my pocket}}_{\text{\emph{restriction}}}$, \emph{then} it is a 20¢ piece.
@@ -310,8 +310,8 @@ Suppose we want to symbolise these two sentences:
 It is possible to write the symbolisation key for these sentences in this way:
 	\begin{ekey}
 		\item[\text{domain}] animals
-		\item[M] \gap{1} is a monkey.
-		\item[S] \gap{1} knows sign language.
+		\item[M] \blank\ is a monkey.
+		\item[S] \blank\ knows sign language.
 	\end{ekey}
 Sentence \ref{monkey1} can now be symbolised by `$\forall x(Mx \eif Sx)$'. Sentence \ref{monkey2} can be symbolised as `$\exists x(Mx \eand Sx)$'.
 
@@ -321,7 +321,7 @@ How can this be? The answer comes from considering whether these sentences would
 
 Another example will help to bring this home. Suppose we extend the above symbolisation key, by adding:
 	\begin{ekey}
-		\item[R] \gap{1} is a refrigerator
+		\item[R] \blank\ is a refrigerator
 	\end{ekey}
 Now consider the sentence `$\forall x(Rx \eif Mx)$'. This symbolises `every refrigerator is a monkey'. And this sentence is true, given our symbolisation key. This is counterintuitive, since we do not want to say that there are a whole bunch of refrigerator monkeys. It is important to remember, though, that `$\forall x(Rx \eif Mx)$' is true iff any member of the domain that is a refrigerator is a monkey. Since the domain is \emph{animals}, there are no refrigerators in the domain. Again, then, the sentence is \emph{vacuously} true. 
 
@@ -339,8 +339,8 @@ The appropriate symbolisation of an English language sentence in \FOL\ will depe
 	\end{earg}
 We might offer this symbolisation key:
 	\begin{ekey}
-		\item[R] \gap{1} is a rose
-		\item[T] \gap{1} has a thorn
+		\item[R] \blank\ is a rose
+		\item[T] \blank\ has a thorn
 	\end{ekey}
 It is tempting to say that sentence \ref{pickdomainrose} should be symbolised as `$\forall x(Rx \eif Tx)$'. But we have not yet chosen a domain. If the domain contains all roses, this would be a good symbolisation. Yet if the domain is merely \emph{things on my kitchen table}, then `$\forall x(Rx \eif Tx)$' would only come close to covering the fact that every rose \emph{on my kitchen table} has a thorn. If there are no roses on my kitchen table, the sentence would be trivially true. This is not what we want. To symbolise sentence \ref{pickdomainrose} adequately, we need to include all the roses in the domain. But now we have two options. 
 
@@ -353,10 +353,10 @@ Second, we can let the domain contain things besides roses: rhododendrons; rats;
 Our domain must now include both all the roses (so that we can symbolise sentence \ref{pickdomainrose}) and all the cowboys (so that we can symbolise sentence \ref{pickdomaincowboy}). So we might offer the following symbolisation key:\label{poison}
 	\begin{ekey}
 		\item[\text{domain}] people and plants
-		\item[C] \gap{1} is a cowboy
-		\item[S] \gap{1} sings a sad, sad song
-		\item[R] \gap{1} is a rose
-		\item[T] \gap{1} has a thorn
+		\item[C] \blank\ is a cowboy
+		\item[S] \blank\ sings a sad, sad song
+		\item[R] \blank\ is a rose
+		\item[T] \blank\ has a thorn
 	\end{ekey}
 Now we will have to symbolise sentence \ref{pickdomainrose} with `$\forall x (Rx \eif Tx)$', since `$\forall x Tx$' would symbolise the sentence `every person or plant has a thorn'. Similarly, we will have to symbolise sentence \ref{pickdomaincowboy} with `$\forall x (Cx \eif Sx)$'. 
 
@@ -373,8 +373,8 @@ When symbolising English sentences in \FOL, it is important to understand the st
 For the next several examples, we will use this symbolisation key:
 	\begin{ekey}
 		\item[\text{domain}] women
-		\item[B] \gap{1} is a bassist.
-		\item[R] \gap{1} is a rock star.
+		\item[B] \blank\ is a bassist.
+		\item[R] \blank\ is a rock star.
 		\item[k] Kim Deal
 	\end{ekey}
 Now consider these sentences:
@@ -449,8 +449,8 @@ When we encounter a sentence like
 	\end{earg}
 we can paraphrase this as `Herbie is white and Herbie is a car'. We can then use a symbolisation key like:
 	\begin{ekey}
-		\item[W] \gap{1} is white
-		\item[C] \gap{1} is a car
+		\item[W] \blank\ is white
+		\item[C] \blank\ is a car
 		\item[h] Herbie
 	\end{ekey}
 This allows us to symbolise sentence \ref{syn1} as `$Wh \eand Ch$'. But now consider:
@@ -460,8 +460,8 @@ This allows us to symbolise sentence \ref{syn1} as `$Wh \eand Ch$'. But now cons
 \end{earg}
 Following the case of Herbie, we might try to use a symbolisation key like:
 	\begin{ekey}
-		\item[F] \gap{1} is former
-		\item[P] \gap{1} is Prime Minister
+		\item[F] \blank\ is former
+		\item[P] \blank\ is Prime Minister
 		\item[j] Julia Gillard.
 	\end{ekey}
 Then we would symbolise \ref{priv1} by `$Fj \eand Pj$', and symbolise \ref{priv2} by `$Pj$'. That would however be a mistake, since that symbolisation suggests that the argument from \ref{priv1} to \ref{priv2} is valid, because the symbolisation of the premise does logically entail the symbolisation of the conclusion. 
@@ -473,19 +473,19 @@ Things are a bit more complicated, however. Recall this example from page \pager
 	\item[] Daisy is a small cow.
 \end{earg} We note that a small cow is definitely a cow, and so it seems we might treat `small' as an intersective adjective. We might formalise this sentence like this: `$Sd \eand Cd$', assuming this symbolisation key:
 	\begin{ekey}
-		\item[S] \gap{1} is small
-		\item[C] \gap{1} is a cow
+		\item[S] \blank\ is small
+		\item[C] \blank\ is a cow
 		\item[d] Daisy
 	\end{ekey}
 But note that our symbolisation would suggest that this argument is valid: \begin{earg}
 	\item[\ex{syn2}] Daisy is a small cow; so Daisy is small.
 \end{earg} The symbolised argument, $Sd \wedge Cd \ttherefore Sd$, is clearly valid.
 
-But the original argument \ref{syn2} is not valid. Even a small cow is still rather large. (Likewise, even a short basketball player is still generally well above average height.) The point is that `\gap{1} is a small cow' denotes the property something has when it is small \emph{for a cow}, while `\gap{1} is small' denotes the property of being a small \emph{thing}. (In ordinary speech we tend to keep the  `for an $F$' part of these phrases silent, and let our conversational circumstances supply it automatically.) But neither should we treat `small' as a non-intersective adjective. If we do, we will be unable to account for the valid argument `Daisy is a small cow, so Daisy is a cow'. 
+But the original argument \ref{syn2} is not valid. Even a small cow is still rather large. (Likewise, even a short basketball player is still generally well above average height.) The point is that `\blank\ is a small cow' denotes the property something has when it is small \emph{for a cow}, while `\blank\ is small' denotes the property of being a small \emph{thing}. (In ordinary speech we tend to keep the  `for an $F$' part of these phrases silent, and let our conversational circumstances supply it automatically.) But neither should we treat `small' as a non-intersective adjective. If we do, we will be unable to account for the valid argument `Daisy is a small cow, so Daisy is a cow'. 
 
 The correct symbolisation key will thus be this, keeping the other symbols as they were: 
 	\begin{ekey}
-		\item[S] \gap{1} is small-for-a-cow
+		\item[S] \blank\ is small-for-a-cow
 	\end{ekey} On this symbolisation key, the valid formal argument $Sd \wedge Cd \ttherefore Cd$ corresponds to this valid argument, as it should:
 	\begin{earg}
 		\item[] Daisy is a cow that is small-for-a-cow; so Daisy is a cow.
@@ -560,10 +560,10 @@ Symbolise each argument in \FOL.
 Using the following symbolisation key:
 \begin{ekey}
 \item[\text{domain}] people
-\item[K] \gap{1} knows the combination to the safe
-\item[S] \gap{1} is a spy
-\item[V] \gap{1} is a vegetarian
-%\item[T] \gap{1} trusts \gap{2}.
+\item[K] \blank\ knows the combination to the safe
+\item[S] \blank\ is a spy
+\item[V] \blank\ is a vegetarian
+%\item[T] \blank\ trusts \gap{2}.
 \item[h] Hofthor
 \item[i] Ingmar
 \end{ekey}
@@ -579,10 +579,10 @@ symbolise the following sentences in \FOL:
 Using this symbolisation key:
 \begin{ekey}
 \item[\text{domain}] all animals
-\item[A] \gap{1} is an alligator.
-\item[M] \gap{1} is a monkey.
-\item[R] \gap{1} is a reptile.
-\item[Z] \gap{1} lives at the zoo.
+\item[A] \blank\ is an alligator.
+\item[M] \blank\ is a monkey.
+\item[R] \blank\ is a reptile.
+\item[Z] \blank\ lives at the zoo.
 \item[a] Amos
 \item[b] Bouncer
 \item[c] Cleo
@@ -624,14 +624,7 @@ For each argument, write a symbolisation key and symbolise the argument in \FOL.
 \chapter{Multiple Generality}\label{s:MultipleGenerality}
 So far, we have only considered sentences that require simple predicates with just one `gap' and one quantifier. Much of the fragment of \FOL\ that involves such sentences was already discovered and codified into \emph{syllogistic} logic by Aristotle more than 2000 years ago. The full power of \FOL\ really comes out when we start to use predicates with many `gaps' and multiple quantifiers. Despite first appearances, the discovery of how to handle such sentences was a very significant one.  For this insight, we largely have the German mathematician and philosopher Gottlob Frege (1879) to thank.\footnote{Frege (1879 \emph{Begriffsschrift, eine der arithmetischen nachgebildete Formelsprache des reinen Denkens}, Halle a. S.: Louis Nebert. Translated as `Concept Script, a formal language of pure thought modelled upon that of arithmetic', by S. Bauer-Mengelberg in J. van Heijenoort (ed.), \emph{From Frege to Gödel: A Source Book in Mathematical Logic, 1879–1931}, Cambridge, MA: Harvard University Press, 1967. The same logic was independently discovered by the American philosopher and mathematician Charles Sanders Peirce: see Peirce (1885) `On the Algebra of Logic. A Contribution to the Philosophy of Notation' \emph{American Journal of Mathematics} \textbf{7}: 197–202. \textbf{Warning}: don't consult either of these original works, which will only confuse you. The present text is the result of more than a century of refinement in how to present the basic systems Frege and Peirce introduced, and is a lot more user friendly.}
 
-As I emphasised in §\ref{ss.idargstr}, a single English sentence has many structures, depending on how fine-grained one is in the analysis of that sentence. We could symbolise `Antony owns a car' in a number of different ways given the resources we have so far, in increasingly finer detail: \begin{enumerate}
-	\item We could symbolise it as an atomic sentence of \TFL\ like `$A$', ignoring all internal structure of the sentence (because it has no internal truth-functional structure). This is also a zero-place predicate, so is also a sentence of \FOL. 
-	\item We could symbolise it as another atomic sentence of \FOL, but one which does recognise the internal subject-predicate struture of the English sentence. For example, we could symbolise it as `$Wa$', where `$W$' symbolises `$\gap{1}$ owns a car' and `$a$' symbolises `Antony'.
-	\item Or we could symbolise it as a complex quantified sentence `$\exists y (Cy \eand Oay)$', where `$a$' is as before, but `$C$' means `$\gap{1}$ is a car' and `$O$' is `$\gap{1}$ owns $\gap{2}$'.
-	\item We could imaginably symbolise it at even finer levels of structure, distinguishing the `is' and `a' and `car' in the predicate we symbolised as `$C$'.
-\end{enumerate} Note that any structure identified is preserved: the name `$a$' continues to appear in more fine-grained symbolisations once it has appeared. A one-place predicate, having appeared in the second symbolisation, still appears in the third symbolisation, in the form of the complex one-place predicate `$\exists y (Cy \eand O\meta{x}y)$' (see that `\meta{x}' is not associated with any quantifier).
 
-How to symbolise the structure of a sentence very much depends on what purpose you have in symbolising. What matters is that you manage to represent enough structure to determine whether the target argument you are symbolising is valid. We just observed that any more fine-grained analysis of the structure of a sentence retains the coarser structure (as it just adds more detailed substructure). So if you can show an argument is valid (conclusive in virtue of its structure) at some level of analysis, it will remain valid according to any more fine-grained understanding of the structure of that sentence. So you should aim to symbolise \emph{just enough} structure in an argument to be able to demonstrate its validity – if indeed it is valid.
 
 \section{Many-place predicates}
 All of the predicates that we have considered so far concern properties that objects might have. The predicates have one gap in them, and to make a sentence, we simply need to slot in one name. They are \define{one-place} predicates.
@@ -643,7 +636,7 @@ But other predicates concern the \emph{relation} between two things. Here are so
 		\blank\ is in debt to \blank\\
 		\blank\ is a student of \blank
 	\end{quote}
-These are \define{two-place} predicates. They need to be filled in with two terms in order to make a sentence. Conversely, if we start with an English sentence containing many singular terms, we can remove two singular terms, to obtain different two-place predicates. Consider the sentence `Vinnie borrowed the family car from Nunzio'. By deleting two singular terms, we can obtain any of three different two-place predicates
+These are \define{two-place} predicates. They need to be filled in with two terms in order to make a sentence. Conversely, if we start with an English sentence containing many singular terms, we can remove two singular terms, to obtain different two-place predicates. Consider the sentence `Vinnie borrowed the family car from Nunzio'. By deleting two singular terms, we can obtain any of three different two-place predicates:
 	\begin{quote}
 		Vinnie borrowed \blank\ from \blank\\
 		\blank\ borrowed the family car from \blank\\
@@ -655,7 +648,7 @@ And by removing all three singular terms, we  obtain a \define{three-place} pred
 	\end{quote}
 Indeed, there is no in principle upper limit on the number of places that our predicates may contain.
 
-Now there is a little foible with the above. I have used the same symbol, `\blank', to indicate a gap formed by deleting a term from a sentence. However (as Frege emphasised), these are \emph{different} gaps. To obtain a sentence, we can fill them in with the same term, but we can equally fill them in with different terms, and in various different orders. The following are all perfectly good sentences, and they all mean very different things:
+Now there is a little problem with the above. I have used the same symbol, `\blank', to indicate a gap formed by deleting a term from a sentence. However (as Frege emphasised), these are \emph{different} gaps. To obtain a sentence, we can fill them in with the same term, but we can equally fill them in with different terms, and in various different orders. The following are all perfectly good sentences, and they all mean very different things:
 	\begin{quote}
 		Karl loves Karl\\
 		Karl loves Imre\\
@@ -678,7 +671,7 @@ I will start with the following representation key:
 		\item[\text{domain}] people
 		\item[i] Imre
 		\item[k] Karl
-		\item[L] \gap{1} loves \gap{2}
+		\item[L] \gap{1}\ loves \gap{2}
 	\end{ekey}
 %Sentence \ref{terms3} can now be symbolised by `$Tmd$'. Note the order of the names! 
 %Sentence \ref{terms4} might seem as if it requires a new predicate. But there is obviously a connection connection between `shorter' and `taller.' We can paraphrase sentence \ref{terms4} using predicates already in our key: `It is not the case that Imre is as tall or taller than Karl'. We can now symbolise it as `$\enot Tmd$'.
@@ -694,9 +687,7 @@ This last example, though, highlights something important. Suppose we add to our
 	\begin{ekey}
 		\item[M] \gap{2} loves \gap{1}
 	\end{ekey}
-Here, we have used the same English word (`loves') as we used in our symbolisation key for `$L$'. However, we have swapped the order of the \emph{gaps} around (just look closely at those little subscripts!) So `$Mki$' and `$Lik$' now \emph{both} symbolise `Imre loves Karl'. `$Mik$' and `$Lki$' now \emph{both} symbolise `Karl loves Imre'. Since love can be unrequited, these are very different claims. 
-
-The moral is simple. When we are dealing with predicates with more than one place, we need to pay careful attention to the order of the places.
+Here, we have used the same English word (`loves') as we used in our symbolisation key for `$L$'. However, we have swapped the order of the \emph{gaps} around (just look closely at those little subscripts!) So `$Mki$' and `$Lik$' now \emph{both} symbolise `Imre loves Karl'. `$Mik$' and `$Lki$' now \emph{both} symbolise `Karl loves Imre'. Since love can be unrequited, these are very different claims. The moral is simple. When we are dealing with predicates with more than one place, we need to pay careful attention to the order of the places.\footnote{We should be explicit about our convention for understanding a symbolisation key for \FOL\ predicates: when $\meta{A}$ is a \FOL\ predicate symbolising an English $n$-place predicate, and `$\meta{Ac_{1}…c_{n}}$' is a sentence, the $i$-the name $c_{i}$ is to fill the $i$-th place in the predicate.} 
 
 Suppose we add to our symbolisation key the following:
 	\begin{ekey}
@@ -788,6 +779,20 @@ $$\forall x\bigl(\exists y(Fxy \eand y\text{ is a dog owner})\eif \exists y(Dy \
 And a bit more: 
 $$\forall x\bigl(\exists y(Fxy \eand \exists z(Dz \eand Oyz)) \eif \exists y(Dy \eand Oxy \eand \exists z(Fzx \eand Ozy)) \bigr).$$
 And we are done!
+
+\section{Sentence Structure and Levels of Analysis} % (fold)
+\label{sec:structure_and_levels_of_analysis}
+
+% section structure_and_levels_of_analysis (end)
+
+As I emphasised in §\ref{ss.idargstr}, a single English sentence has many structures, depending on how fine-grained one is in the analysis of that sentence. We could symbolise `Antony owns a car' in a number of different ways given the resources we have so far, in increasingly finer detail: \begin{enumerate}
+	\item We could symbolise it as an atomic sentence of \TFL\ like `$A$', ignoring all internal structure of the sentence (because it has no internal truth-functional structure). This is also a zero-place predicate, so is also a sentence of \FOL. 
+	\item We could symbolise it as another atomic sentence of \FOL, but one which does recognise the internal subject-predicate struture of the English sentence. For example, we could symbolise it as `$Wa$', where `$W$' symbolises `\gap{1}\ owns a car' and `$a$' symbolises `Antony'.
+	\item Or we could symbolise it as a complex quantified sentence `$\exists y (Cy \eand Oay)$', where `$a$' is as before, but `$C$' means `\gap{1}\ is a car' and `$O$' is `\gap{1}\ owns \gap{2}'.
+	\item We could imaginably symbolise it at even finer levels of structure, breaking down the predicate `is a car' into the verb phrase `is' and the indefinite noun phrase `a car'. 
+\end{enumerate} Note that any structure identified is preserved: the name `$a$' continues to appear in more fine-grained symbolisations once it has appeared. A one-place predicate, having appeared in the second symbolisation, still appears indirectly in the third symbolisation. For the open sentence `$\exists y (Cy \eand O\meta{x}y)$' can be understood a representing a complex one-place predicate:  `\meta{x}' is not associated with any quantifier, and can be replaced by a name to form a grammatical sentence.
+
+How to symbolise the structure of a sentence very much depends on what purpose you have in symbolising. What matters is that you manage to represent enough structure to determine whether the target argument you are symbolising is valid. Valid arguments can be symbolised as invalid arguments, if you don't attend to the relevant structure, or don't have resources in your language to represent that structure. But we just observed that any more fine-grained analysis of the structure of a sentence retains the coarser structure (as it just adds more detailed substructure). So if you can show an argument is valid (conclusive in virtue of its structure) at some level of analysis, it will remain valid according to any more fine-grained understanding of the structure of that sentence. So you should aim to symbolise \emph{just enough} structure in an argument to be able to demonstrate its validity – if indeed it is valid. 
 
 \keyideas{
 	\item The true power of \FOL\ comes from its ability to handle multiple generality.
@@ -956,7 +961,7 @@ We want to add something to the symbolisation of \ref{else1} to handle these ita
 The sentences in \ref{else1b}–\ref{else1d} can all be paraphrased as follows:
 \begin{earg}
 	\item[\ex{else1e}] Everyone who isn't Pavel is such that: Pavel owes money to them.
-\end{earg} This is a sentence of the form `every F [person who is not Pavel] is G [owed money by Pavel]'. Accordingly it can be symbolised by something with this structure: $\forall x \meta{A}x \eif \meta{G}x$. Here is an attempt to fill in the schematic letters:
+\end{earg} This is a sentence of the form `every F [person who is not Pavel] is G [owed money by Pavel]'. Accordingly it can be symbolised by something with this structure: $\forall x (\meta{A}x \eif \meta{G}x)$. Here is an attempt to fill in the schematic letters:
 	\begin{ekey}
 		\item[O] \gap{1} owes money to \gap{2}
 		\item[I] \gap{1} is \gap{2}

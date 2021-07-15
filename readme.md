@@ -1,7 +1,7 @@
 Forall*x* Adelaide
 ==================
 
-This is a derivative work created by [Antony Eagle](https://antonyeagle.org), based upon [Tim Button](http://www.homepages.ucl.ac.uk/~uctytbu/index.html)'s 2016 Cambridge version of [PD Magnus](https://www.fecundity.com/job/)'s forall*x* (version 1.29). There are pervasive substantive changes in content, theoretical approach, coverage, and appearance. 
+This is a derivative work created by [Antony Eagle](https://antonyeagle.org), based upon [Tim Button](http://www.homepages.ucl.ac.uk/~uctytbu/index.html)'s 2016 Cambridge version of [PD Magnus](https://www.fecundity.com/job/)'s forall*x* (version 1.29). There are pervasive substantive changes in content, theoretical approach, coverage, and appearance – it's fair to say no one will mistake this version for Magnus' original.
 
 License
 -------
@@ -18,21 +18,20 @@ The LaTeX source code for this work is available on GitHub at [github.com/antony
 Current issues and proposed revisions
 -------------------------------------
 
-This text is approaching stability, yet remains under active, albeit intermittent, revision. The current public version of the text will remain stable for the remainder of 2021, as it is being used as a textbook in our *Introduction to Logic* courses. 
+This text is approaching stability, yet remains under active, albeit intermittent, revision. The current public version of the text should remain broadly stable for the remainder of 2021, as it is being used as a textbook in our *Introduction to Logic* courses. 
 
 I welcome comments, notification of errors and typos, and any new ideas: [antony.eagle@adelaide.edu.au](mailto:antony.eagle@adelaide.edu.au?subject=forallx-adl). I will update this readme with a list of issues and proposed changes. But I will not push changes until the course is over. 
 
-The following list contains current issues and proposed revisions arranged by chapter:
+The following list contains current issues and proposed revisions arranged by chapter, most as rather cryptic notes to myself. Most chapters and sections from chapter 4 onwards also have additional practice problems to be included.
 
 * Chapter 1 (`forallx-adl-what.tex`) 
 * Chapter 2 (`forallx-adl-tfl.tex`)
 * Chapter 3 (`forallx-adl-truthtables.tex`)
 * Chapter 4 (`forallx-adl-fol.tex`)
 	+ §17
-		+ need to explicitly introduce convention that $Axyz$ puts the n-th variable following predicate in the n-th gap.
 		+ justify same term in two gaps to account for validity of: 'Amy is self-interested, therefore Amy is interested in someone'.
-		+ more on the `with respect to` or `parasitic on` of wider/narrowe scope quantifiers
-		+ `If a man likes pastries, he eats them.`
+		+ more on the 'with respect to' or 'parasitic on' of wider/narrower scope quantifiers
+		+ 'If a man likes pastries, he eats them.'
 	- §18
 		+ more practice exercises – pure numerical quantification, perhaps from edl textbook or logic manual?
 		+ a discussion of how identity, innocuous enough in itself, greatly enriches the expressive power of Quantifier.
@@ -44,7 +43,7 @@ The following list contains current issues and proposed revisions arranged by ch
 		- add example of euler with a dot – e.g. willard
 	- §22
 		- deal with one-place and many-place predicates differently. 
-		- use notion of \ntuple explicitly in defs of truth for atomic.
+		- use notion of `\ntuple` explicitly in defs of truth for atomic.
 		- add diagrams showing different extended interpretations stemming from a starting interpretation.
 		- add 'why don't we do this?' section to quantifier intepretation 	 
 	- §23
@@ -67,7 +66,7 @@ The following list contains current issues and proposed revisions arranged by ch
 		+ ramsey quote in conditional intro
 	- §31
 		- weakening
-		- deduction theorem for \vdash
+		- deduction theorem for `\vdash`
 		- entailment (doesn't exist a certain kind of valuation) vs provability (does exist a certain kind of proof)
 		- general principle about how we can prove a theorem: must finish a proof with the right kind of rule (bi/conditional intro or ¬ rules) becaue every proof begins with an assumption
 		- emphasise relation between easy semantic tasks and tricky proofs, and vice versa  
@@ -76,8 +75,8 @@ The following list contains current issues and proposed revisions arranged by ch
 
 * Chapter 7 (`forallx-adl-prooffol.tex`)
 	- §35
-		+ does the \vdash terminology get re-introduced?
-		+ make explicit that the choice of a new name in \exists E is a way of ensuring you meet all the conditions; and make sure that students know choosing a new name is also a way of meeting the conditions on \forall I.
+		+ does the `\vdash` terminology get re-introduced?
+		+ make explicit that the choice of a new name in `\exists`E is a way of ensuring you meet all the conditions; and make sure that students know choosing a new name is also a way of meeting the conditions on `\forall`I.
 	- §37
 	- §38 
 		+ some ideas about where next in logic
