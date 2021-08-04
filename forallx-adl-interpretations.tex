@@ -165,7 +165,7 @@ I defined a \emph{valuation} in \TFL\ as any assignment of truth and falsity to 
 		\item for each name that we care to consider, an assignment of exactly one object within the domain as its extension;
 		\item for each non-logical $n$-place predicate $\meta{A}$ (i.e., any predicate other than `$=$') that we care to consider, a specification of its extension: what things (or pairs of things, or triples of thing, etc.) the predicate is to be true of – where all those things must be in the domain.
 	\end{itemize}
-A $0$-place predicate (what we called `atomic sentences' in \TFL) has a truth value, either T or F, as its extension – thus the valuations of \TFL\ are intepretations of a very restricted part of \FOL\ – those interpretations which only care to consider $0$-place predicates.
+A zero-place predicate (what we called `atomic sentences' in \TFL) has a truth value, either T or F, as its extension – thus the valuations of \TFL\ are intepretations of a very restricted part of \FOL\ – those interpretations which only care to consider zero-place predicates.
 
 The symbolisation keys that I considered in chapter \ref{ch.FOL} consequently give us one very convenient way to present an interpretation. We shall continue to use them throughout this chapter. It is important to note, however, that the symbolisation key tends to associate each predicate with a \emph{property}, and then uses that property as a classification rule to determine the extension of the predicate. We can, and sometimes do, offer an interpretation by simply giving the extensions of the intepreted \FOL\ expressions directly. We can simply list the items, pairs, triples, etc., in the extension assigned to a predicate. So the following two symbolisation keys give the same intepretation: 
 \begin{itemize}
@@ -352,7 +352,7 @@ This graph represents that interpretation, where the label `$f$' represents the 
 	\item An interpretation of \FOL\ is a temporary assignment of extensions to some of the non-logical vocabulary of \FOL\, i.e., the names and predicates of the language.
 	\item The extension of a name is a thing from some specified domain.
 	\item The extension of an $n$-place predicate is a collection of ordered sequences of length $n$ of things from the domain. The identity predicate has a privileged extension; it is always the collection of pairs from the domain consisting of things and themselves.
-	\item The extension of a $0$-place predicate is a truth value; these correspond to atomic sentences of \TFL. 
+	\item The extension of a zero-place predicate is a truth value; these correspond to atomic sentences of \TFL. 
 	\item Given a domain, it is often possible to represent the interpretation of a predicate by means of an Euler diagram or a directed graph on that domain.
 }
 
@@ -421,9 +421,9 @@ Dealing with atomic sentences, then, is very intuitive. When $\meta{R}$ is an $n
 Two other kinds of atomic sentences exist: zero-place predicates, and identity sentences.
 
 \begin{itemize}
-	\item A $0$-place predicate is true in an interpretation iff it is assigned the extension true in that interpretation.
+	\item A zero-place predicate is true in an interpretation iff it is assigned the extension true in that interpretation.
 
-	Here in fact, we are using \TFL\ valuations as constituents of \FOL\ interpretations. (A valuation is what you get when you are only intepreting zero-place predicates; we will want it to turn out that the part of \FOL\ which deals just with $0$-place predicates and their truth-functional combinations is the familiar language \TFL, so those interpretations will have to behave like the valuations we are familiar with.)
+	Here in fact, we are using \TFL\ valuations as constituents of \FOL\ interpretations. (A valuation is what you get when you are only intepreting zero-place predicates; we will want it to turn out that the part of \FOL\ which deals just with zero-place predicates and their truth-functional combinations is the familiar language \TFL, so those interpretations will have to behave like the valuations we are familiar with.)
 		\item Identity sentences (two names flanking the identity predicate) are also easy to handle. Where \meta{a} and \meta{b} are any names, 
 	\factoidbox{
 		$\meta{a} = \meta{b}$ is true in an interpretation \textbf{iff}\\

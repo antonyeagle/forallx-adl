@@ -23,11 +23,12 @@ SizeFeatures={Size=42}]{Constantia Bold Italic}
 
 \usepackage{polyglossia}
 \setdefaultlanguage[variant=australian]{english}
+\usepackage{microtype}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{metalogo}
- \usepackage[norule,bottom,hang]{footmisc}
- \usepackage{fnpct}
+\usepackage[norule,bottom,hang]{footmisc}
+\usepackage{fnpct}
 \frenchspacing 
 \usepackage{mathtools}
 
@@ -98,8 +99,8 @@ SizeFeatures={Size=42}]{Constantia Bold Italic}
 \newcommand*{\script}[1]{\ensuremath{\mathscr{#1}}}
 \renewcommand*{\meta}[1]{\ensuremath{\mathscr{#1}}} % TB: used for all metavariables
 % create a blank
-\newcommand*{\blank}{\ensuremath{\underbracket{\hspace*{2.5em}}}}
-\newcommand*{\gap}[1]{\blank\ensuremath{_{#1}}} % TB: used for keys, to avoid use/mention confusion Æ made script
+\newcommand*{\gap}[1]{\ensuremath{\underbracket{\hspace*{2.5em}}_{#1}}} % TB: used for keys, to avoid use/mention confusion Æ made script
+\newcommand*{\blank}{\gap{}}
 
 % These are included for discussing formal semantics in predicate logic.
 \newcommand*{\model}[1]{\ensuremath{\mathbb{#1}}}

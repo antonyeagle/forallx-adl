@@ -28,10 +28,6 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 2 (`forallx-adl-tfl.tex`)
 * Chapter 3 (`forallx-adl-truthtables.tex`)
 * Chapter 4 (`forallx-adl-fol.tex`)
-	+ §17
-		+ justify same term in two gaps to account for validity of: 'Amy is self-interested, therefore Amy is interested in someone'.
-		+ more on the 'with respect to' or 'parasitic on' of wider/narrower scope quantifiers
-		+ 'If a man likes pastries, he eats them.'
 	- §18
 		+ more practice exercises – pure numerical quantification, perhaps from edl textbook or logic manual?
 		+ a discussion of how identity, innocuous enough in itself, greatly enriches the expressive power of Quantifier.

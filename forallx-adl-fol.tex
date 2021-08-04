@@ -413,7 +413,7 @@ The moral is that the English words `any' and `anyone' should typically be symbo
 		We see the same thing with the quantifier `someone'. In `if someone is a bassist, Kim Deal is', someone gets symbolised by an existential quantifier in the scope of a conditional. But in `If someone is a bassist, they are a musician' it should be symbolised by a universal taking scope over a conditional.}
 
 
-\section{Quantifiers and scope}
+\section{Quantifiers and scope}\label{s.quantifier.scope}
 Continuing the example, suppose I want to symbolise these sentences:
 	\begin{earg}
 		\item[\ex{qscope1}] If everyone is a bassist, then Tim is a bassist
@@ -622,42 +622,44 @@ For each argument, write a symbolisation key and symbolise the argument in \FOL.
 
 
 \chapter{Multiple Generality}\label{s:MultipleGenerality}
-So far, we have only considered sentences that require simple predicates with just one `gap' and one quantifier. Much of the fragment of \FOL\ that involves such sentences was already discovered and codified into \emph{syllogistic} logic by Aristotle more than 2000 years ago. The full power of \FOL\ really comes out when we start to use predicates with many `gaps' and multiple quantifiers. Despite first appearances, the discovery of how to handle such sentences was a very significant one.  For this insight, we largely have the German mathematician and philosopher Gottlob Frege (1879) to thank.\footnote{Frege (1879 \emph{Begriffsschrift, eine der arithmetischen nachgebildete Formelsprache des reinen Denkens}, Halle a. S.: Louis Nebert. Translated as `Concept Script, a formal language of pure thought modelled upon that of arithmetic', by S. Bauer-Mengelberg in J. van Heijenoort (ed.), \emph{From Frege to Gödel: A Source Book in Mathematical Logic, 1879–1931}, Cambridge, MA: Harvard University Press, 1967. The same logic was independently discovered by the American philosopher and mathematician Charles Sanders Peirce: see Peirce (1885) `On the Algebra of Logic. A Contribution to the Philosophy of Notation' \emph{American Journal of Mathematics} \textbf{7}: 197–202. \textbf{Warning}: don't consult either of these original works, which will only confuse you. The present text is the result of more than a century of refinement in how to present the basic systems Frege and Peirce introduced, and is a lot more user friendly.}
+So far, we have only considered sentences that require simple predicates with just one `gap', and at most one quantifier. Much of the fragment of \FOL\ that focuses on such sentences was already discovered and codified into \emph{syllogistic} logic by Aristotle more than 2000 years ago. The full power of \FOL\ really comes out when we start to use predicates with many `gaps' and multiple quantifiers. Despite first appearances, the discovery of how to handle such sentences was a very significant one.  For this insight, we largely have the German mathematician and philosopher Gottlob Frege (1879) to thank.\footnote{Frege (1879) \emph{Begriffsschrift, eine der arithmetischen nachgebildete Formelsprache des reinen Denkens}, Halle a. S.: Louis Nebert. Translated as `Concept Script, a formal language of pure thought modelled upon that of arithmetic', by S. Bauer-Mengelberg in J. van Heijenoort (ed.), \emph{From Frege to Gödel: A Source Book in Mathematical Logic, 1879–1931}, Cambridge, MA: Harvard University Press, 1967. The same logic was independently discovered by the American philosopher and mathematician Charles Sanders Peirce: see Peirce (1885) `On the Algebra of Logic. A Contribution to the Philosophy of Notation' \emph{American Journal of Mathematics} \textbf{7}: 197–202. \textbf{Warning}: don't consult either of these original works, which will likely just confuse you. The present text is the result of more than a century of refinement in how to present the basic systems Frege and Peirce introduced, and is a lot more user friendly.}
 
 
 
 \section{Many-place predicates}
-All of the predicates that we have considered so far concern properties that objects might have. The predicates have one gap in them, and to make a sentence, we simply need to slot in one name. They are \define{one-place} predicates.
+All of the predicates that we have considered so far concern properties that can be attributed to objects might have by themselves, as it were. `Herbie is white', `Kim Deal is a bassist', etc., all talk about the features of a single individual. The associated predicates, such as `\blank\ is white', have one gap in them, and to make a sentence, we simply need to slot in one name. They are \define{one-place} predicates. 
 
-But other predicates concern the \emph{relation} between two things. Here are some examples of relational predicates in English:
+But other predicates concern the \emph{relationship} between two things. Here are some examples of relational predicates in English:
 	\begin{quote}
 		\blank\ loves \blank\\
 		\blank\ is to the left of \blank\\
 		\blank\ is in debt to \blank\\
-		\blank\ is a student of \blank
+		\blank\ is supervised by \blank
 	\end{quote}
-These are \define{two-place} predicates. They need to be filled in with two terms in order to make a sentence. Conversely, if we start with an English sentence containing many singular terms, we can remove two singular terms, to obtain different two-place predicates. Consider the sentence `Vinnie borrowed the family car from Nunzio'. By deleting two singular terms, we can obtain any of three different two-place predicates:
+These are \define{two-place} predicates. They need to be filled in with two terms (names or pronouns, most commonly) in order to make a sentence. Conversely, if we start with an English sentence containing many singular terms, we can remove two singular terms, to obtain different two-place predicates. Consider the sentence `Vinnie borrowed the family car from Nunzio'. By deleting two singular terms, we can obtain any of three different two-place predicates:
 	\begin{quote}
-		Vinnie borrowed \blank\ from \blank\\
-		\blank\ borrowed the family car from \blank\\
-		\blank\ borrowed \blank\ from Nunzio
+		Vinnie borrowed \blank\ from \blank;\\
+		\blank\ borrowed the family car from \blank;\\
+		\blank\ borrowed \blank\ from Nunzio.
 	\end{quote}
 And by removing all three singular terms, we  obtain a \define{three-place} predicate:
 	\begin{quote}
-		\blank\ borrowed \blank\ from \blank
+		\blank\ borrowed \blank\ from \blank.
 	\end{quote}
-Indeed, there is no in principle upper limit on the number of places that our predicates may contain.
+Indeed, there is no in principle upper limit on the number of gaps or places that our predicates may contain.
 
-Now there is a little problem with the above. I have used the same symbol, `\blank', to indicate a gap formed by deleting a term from a sentence. However (as Frege emphasised), these are \emph{different} gaps. To obtain a sentence, we can fill them in with the same term, but we can equally fill them in with different terms, and in various different orders. The following are all perfectly good sentences, and they all mean very different things:
+Now there is a little problem with the above. I have used the same symbol, `\blank', to indicate a gap formed by deleting a term from a sentence. However (as Frege emphasised), these are \emph{different} gaps. To obtain a sentence, we can fill them in with the same term, but we can equally fill them in with different terms, and in various different orders. The following are all perfectly good sentences, obtained by filling in the gaps in `\blank\ loves \blank', but they mean quite different things:
 	\begin{quote}
-		Karl loves Karl\\
-		Karl loves Imre\\
-		Imre loves Karl\\
-		Imre loves Imre
+		Karl loves Karl;\\
+		Karl loves Imre;\\
+		Imre loves Karl;\\
+		Imre loves Imre.
 	\end{quote}
-The point is that we need to keep track of the gaps in predicates, so that we can keep track of how we are filling them in. 
+The point is that we need some way of keeping track of the gaps in predicates, so that we can keep track of how we are filling them in. 
 
-To keep track of the gaps, I shall label them. The labelling conventions I shall adopt are best explained by example. Suppose I want to symbolise the following sentences:
+Another way to put the point: when it comes to relational predicates, sometimes the order matters. `Shaq is taller than Jordan' doesn't mean the same thing as `Jordan is taller than Shaq'. It matters whose name fills the first gap in the relation, and whose name fills the second. 
+
+To keep track of the gaps, we shall label them. The labelling conventions I  adopt are best explained by example. Suppose I want to symbolise the following sentences:
 	\begin{earg}
 %		\item[\ex{terms3}] Imre is at least as tall Karl.
 %		\item[\ex{terms4}] Imre is shorter than Karl.
@@ -666,7 +668,7 @@ To keep track of the gaps, I shall label them. The labelling conventions I shall
 		\item[\ex{terms5}] Karl loves Imre, but not vice versa.
 		\item[\ex{terms6}] Karl is loved by Imre.
 	\end{earg}
-I will start with the following representation key:
+I will start with the following symbolisation key:
 	\begin{ekey}
 		\item[\text{domain}] people
 		\item[i] Imre
@@ -675,52 +677,91 @@ I will start with the following representation key:
 	\end{ekey}
 %Sentence \ref{terms3} can now be symbolised by `$Tmd$'. Note the order of the names! 
 %Sentence \ref{terms4} might seem as if it requires a new predicate. But there is obviously a connection connection between `shorter' and `taller.' We can paraphrase sentence \ref{terms4} using predicates already in our key: `It is not the case that Imre is as tall or taller than Karl'. We can now symbolise it as `$\enot Tmd$'.
-Sentence \ref{terms3} will now be symbolised by `$Lki$'. 
-
-Sentence \ref{terms4} can be paraphrased as `Imre loves Imre'. It can now be symbolised by `$Lii$'. 
-
-Sentence \ref{terms5} is a conjunction. We might paraphrase it as `Karl loves Imre, and Imre does not love Karl'. It can now be symbolised by `$Lki \eand \enot Lik$'. 
-
-Sentence \ref{terms6} might be paraphrased by `Imre loves Karl'. It can then be symbolised by `$Lik$'. Of course, this slurs over the difference in tone between the active and passive voice; such nuances are lost in \FOL. 
-
-This last example, though, highlights something important. Suppose we add to our symbolisation key the following:
+\begin{itemize}
+	\item Sentence \ref{terms3} will now be symbolised by `$Lki$'. 
+	\item Sentence \ref{terms4} can be paraphrased as `Imre loves Imre'. It can now be symbolised by `$Lii$'. 
+\item Sentence \ref{terms5} is a conjunction. We might paraphrase it as `Karl loves Imre, and Imre does not love Karl'. It can now be symbolised by `$Lki \eand \enot Lik$'. 
+\item Sentence \ref{terms6} might be paraphrased by `Imre loves Karl'. It can then be symbolised by `$Lik$'. Of course, this erases the difference in tone between the active and passive voice; such nuances are lost in \FOL. 
+\end{itemize}
+This last example highlights something important. Suppose we add to our symbolisation key the following:
 	\begin{ekey}
 		\item[M] \gap{2} loves \gap{1}
 	\end{ekey}
-Here, we have used the same English word (`loves') as we used in our symbolisation key for `$L$'. However, we have swapped the order of the \emph{gaps} around (just look closely at those little subscripts!) So `$Mki$' and `$Lik$' now \emph{both} symbolise `Imre loves Karl'. `$Mik$' and `$Lki$' now \emph{both} symbolise `Karl loves Imre'. Since love can be unrequited, these are very different claims. The moral is simple. When we are dealing with predicates with more than one place, we need to pay careful attention to the order of the places.\footnote{We should be explicit about our convention for understanding a symbolisation key for \FOL\ predicates: when $\meta{A}$ is a \FOL\ predicate symbolising an English $n$-place predicate, and `$\meta{Ac_{1}…c_{n}}$' is a sentence, the $i$-the name $c_{i}$ is to fill the $i$-th place in the predicate.} 
+Here, we have used the same English word (`loves') as we used in our symbolisation key for `$L$'. However, we have swapped the order of the \emph{gaps} around (just look closely at those little subscripts!) So `$Mki$' and `$Lik$' now \emph{both} symbolise `Imre loves Karl'. `$Mik$' and `$Lki$' now \emph{both} symbolise `Karl loves Imre'. Since love can be unrequited, these are very different claims. The moral is simple. When we are dealing with predicates with more than one place, we need to pay careful attention to the order of the places. 
+
+With these examples in hand, I can now give the official account of how we understand \FOL\ symbolisations. Suppose we have an \FOL\ expression $\meta{A}t_{1},…,t_{k}$, where each $t_{i}$ is a name or a variable, symbolising a singular term, and where $\meta{A}$ symbolises a $k$-place predicate. The $i$-th term is to be interpreted as filling the gap labelled `$i$'. So consider the following symbolisation key: \begin{ekey}
+	\item[\text{domain}] places
+		\item[a] Adelaide
+		\item[b] Alice Springs
+		\item[c] Coober Pedy
+		\item[B] \gap{2}\ is between \gap{1}\ and \gap{3}
+		\item[K] \gap{1}\ is between \gap{2}\ and \gap{3}
+\end{ekey}. Then if we want to symbolise `Coober Pedy is between Adelaide and Alice Springs', we can do so using either `$Bacb$' or `$Kcab$'. The difference is in how the symbolisation key instructs us to fill the gaps we have established in the predicate as we take steps to represent it symbolically. There is no `right' answer here: either can be good. The representation using `$B$' graphically represents which item is between the other two in the syntax itself, while the representation using `$K$' is more faithful to the original English.
+
 
 Suppose we add to our symbolisation key the following:
 	\begin{ekey}
 		\item[S] \gap{1} thinks only of \gap{1}
 		\item[T] \gap{1} thinks only of \gap{2}
+		\item[a] Alice
 	\end{ekey}
-As in the case of `$L$' and `$M$' above, the difference between these examples is only in how the gaps in the construction `… thinks only of …' are labelled. In `$T$', we have labelled the two gaps differently. They do not \emph{need} to be filled with different names or variables, but there is always the potential to put different names in those different gaps. In the case of `$S$', the gaps have the same label. In some sense, there is \emph{only one} gap in this sentence, which is why the symbolisation key associates it with a one-place predicate – it means something like `$x$ thinks only of themself'.
+As in the case of `$L$' and `$M$' above, the difference between these examples is only in how the gaps in the construction `… thinks only of …' are labelled. In `$T$', we have labelled the two gaps differently. They do not \emph{need} to be filled with different names or variables, but there is always the potential to put different names in those different gaps. In the case of `$S$', the gaps have the same label. In some sense, there is \emph{only one} gap in this sentence, which is why the symbolisation key associates it with a one-place predicate – it means something like `$x$ thinks only of themself'. The second predicate is more flexible. Take something we can say with the predicate `$S$', such as `$Sa$', `Alice thinks only of herself'. We can express pretty much the same thought using the two-place predicate `$T$': `$Taa$'. 
 
 
-We have introduced a potential ambiguity in our treatment of predicates. (See also §\ref{s:termsandf}.) There is nothing overt in our language that distinguishes the one-place predicate `$A$' (such that `$Ab$' is grammatical) from the two place predicate `$A$' (such that `$Ab$' is ungrammatical, but `$Abk$' is grammatical). We are, in effect, just letting context disambiguate how many argument places there are in a given predicate, by assuming that in any sentence of \FOL\ we write down, the number of names or variables following a predicate indicates how many places it has. We could introduce a system to disambiguate: perhaps adding a superscripted `1' to all one-place predicates, a superscripted `2' to all two-place predicates, etc. Then `$A^{1}b$' is grammatical while `$A^{1}bk$' is not; while `$A^{2}b$' is ungrammatical and `$A^{2}bk$' is grammatical. This system of superscripts would be effective but cumbersome. We will thus keep to our existing practice, letting context disambiguate. What you should \emph{not} do, however, is make use of the same capital letter to symbolise two different predicates in the same symbolisation key. If you do that, context will not disambiguate, and you will have failed to give an interpretation at all. 
+We have introduced a potential ambiguity in our treatment of predicates. (See also §\ref{s:termsandf}.) There is nothing overt in our language that distinguishes the one-place predicate `$A$' (such that `$Ab$' is grammatical) from the two-place predicate `$A$' (such that `$Ab$' is ungrammatical, but `$Abk$' is grammatical). We are, in effect, just letting context disambiguate how many argument places there are in a given predicate, by assuming that in any expression of \FOL\ we write down, the number of names or variables following a predicate indicates how many places it has. We could introduce a system to disambiguate: perhaps adding a superscripted `1' to all one-place predicates, a superscripted `2' to all two-place predicates, etc. Then `$A^{1}b$' is grammatical while `$A^{1}bk$' is not; conversely, `$A^{2}b$' is ungrammatical and `$A^{2}bk$' is grammatical. This system of superscripts would be effective but cumbersome. We will thus keep to our existing practice, letting context disambiguate. What you should \emph{not} do, however, is make use of the same capital letter to symbolise two different predicates in the same symbolisation key. If you do that, context will not disambiguate, and you will have failed to give an interpretation of the language at all. 
 
 
-\section{The scope of quantifiers}\label{quan.scope}
-Consider the sentence `everyone loves someone'. This is potentially ambiguous. It might mean either of the following:
+\section{Scope and Nested Quantifiers}\label{quan.scope}
+
+
+Once we have two (or more) gaps in a predicate, we can fill them with different things. We've so far seen cases where multiple names are slotted into a many-place predicate. But we can also insert other terms, like variables. So to continue our example using the predicate `$T$', `\gap{1} thinks only of \gap{2}', we can put a variable in the first gap, and a name in the second, if we wish: `$Txa$'. This isn't a sentence, because no quantifer tells us how to understand that variable. (The sentence might be representing `they think only of Alice', but without context there is no determinate referent for the pronoun `they'.) Introduce a quantifier, and we have an interpretable sentence: 
+\begin{earg}
+	\item[\ex{selfi1}] $\forall x Txa$;\\ Everyone thinks only of Alice.
+\end{earg}
+
+The fact that we can fill the two gaps of two-place predicates with different things, or even with the same thing, gives us an reason to favour the two-place predicate symbolisation of `Alice thinks only of themself' as `$Taa$'. That allows us to symbolise certain arguments that cannot be adequately symbolised using a one-place predicate. For example: `Alice thinks only of herself; so there is someone who is the only person Alice thinks of'. The symbolisation of this argument might be: `$Taa \ttherefore \exists x Tax$'. This might have some prospect of being valid, whereas `$Sa \ttherefore \exists x Tax$' will not be valid.
+
+The real power of many-place predicates comes when we consider examples in which \emph{both} gaps in the predicate are filled by variables governed by different quantifiers. In cases where the quantifier expressions interact, we can express things we cannot say even when we allow logically complex combinations of one-quantifier sentences. With this power comes potential confusion too. So let's proceed carefully. 
+
+Consider the sentence `everyone loves someone'. This illustrates our goal, as two quantifier expressions occur in this sentence: `everyone' and `someone'. But it also illustrates the potential pitfalls, as there is a possible ambiguity in this sentence. It might mean either of the following:
 	\begin{earg}
-		\item[\ex{lovecycle}] For every person x, there is some person that x loves
+		\item[\ex{lovecycle}] For every person, there is some person that they love
 		\item[\ex{loveconverge}] There is some particular person whom every person loves
-	\end{earg}
-Sentence \ref{lovecycle} can be symbolised by `$\forall x \exists y Lxy$', and would be true of a love-triangle. For example, suppose that our domain of discourse is restricted to Imre, Juan and Karl. Suppose also that Karl loves Imre but not Juan, that Imre loves Juan but not Karl, and that Juan loves Karl but not Imre. Then sentence \ref{lovecycle} is true. 
+	\end{earg} It is fairly straightforward to see that these don't mean the same thing. The first would be true as long as everybody has somebody they love. One sort of case in which \ref{lovecycle} is true is the cyclic central love triangle in \emph{Twelfth Night}, where Viola loves Duke Orsino, the Duke loves Olivia, and Olivia loves Viola (who, disguised as a young man, is the Duke's go-between with Olivia). 
 
-Sentence \ref{loveconverge} is symbolised by `$\exists y \forall x Lxy$'. Sentence \ref{loveconverge} is \emph{not} true in the situation just described. Again, suppose that our domain of discourse is restricted to Imre, Juan and Karl. Then this requires that all of Juan, Imre and Karl converge on (at least) one object of love. 
+In the \emph{Twelfth Night} situation, \ref{loveconverge} is not true. It could only be true if everybody loves the same person, e.g., if the Duke, Viola, \emph{and Olivia herself} all love Olivia. 
 
-The point of the example is to illustrate that the scope of the quantifiers matters a great deal. Indeed, to switch them around is called a \emph{quantifier shift fallacy}. Here is an example, which comes up in various forms throughout the philosophical literature:
-	\begin{earg}
-		\item[] For every person, there is some truth they cannot know. \hfill ($\forall \exists$)
-		\item[So:] There is some truth, that no person can know. \hfill ($\exists \forall$)
+
+How can we symbolise these two different disambiguations of our original sentence? (Remember: one of the strengths of symbolic logic is that it is supposed to be able to clearly represent that which would be ambiguous in natural language.)
+
+Let's paraphrase a little more formally as we step towards a fully symbolic representation. As our sentence has two quantifiers, I will use numbers to link pronouns in our paraphrase with the quantifier expressions which govern them. Using this device, our sentences can be paraphrased as follows: \begin{earg}
+	\item[\ex{lovecycle1}] Everyone\textsubscript{1} is such that there is someone\textsubscript{2} such that: they\textsubscript{1} love them\textsubscript{2}. 
+	\item[\ex{loveconverge1}] There is someone\textsubscript{2} such that everyone\textsubscript{1} is such that: they\textsubscript{1} love them\textsubscript{2}.
+\end{earg} (Take a moment to convince yourself that these paraphrases suceed.)
+
+You can see immediately that the difference in these paraphrases lies in the order of the quantifier expressions, and the remainder of the paraphrase, `they\textsubscript{1} love them\textsubscript{2}', is the same in each sentence. Using variables to symbolise pronouns, and choosing the variable `$x$' for `they\textsubscript{1}' and `$y$' for `them\textsubscript{2}', we can symbolise this `$Lxy$', where `$L$' stands for the two-place predicate `\gap{1}\ loves \gap{2}'. 
+
+The quantifier order in the paraphrases governs how they interact. As we saw in §\ref{s.quantifier.scope}, the scope of a quantifier is roughly the \FOL\ expression in which that quantifier is the main connective. (Later on we will be a little more precise about the way that quantifier scope functions in \FOL: see §\ref{s:FOLSentences}.) So in `$\forall x \exists y Lxy$', the scope of `$\forall x$' is the whole sentence, while the scope of `$\exists y$' is just `$\exists y Lxy$'. The following guides us in interpreting these `nested' quantifiers, in which one falls in the scope of another: \factoidbox{When one quantifier occurs in the scope of another, the narrower scope quantifier should be understood \emph{with respect to} the value assigned to a variable by the wider scope quantifier.} 
+
+Let's apply this to our example. In \ref{lovecycle1} `everyone' comes first, and `someone' comes next. The intended interpretation is that this is true iff for any person $x$ that you pick, with respect to that choice you can then find someone $y$ who $x$ loves. If you had chosen someone else as the value of $x$, then parasitic on that different choice you may end up needing to find a different value for $y$. Compare the reversed quantifier scope in \ref{loveconverge1}. That is true iff there is someone $y$ such that, with respect to that particular choice for $y$, any person $x$ you pick, $x$ loves $y$. With respect to a different initial choice for $y$, there may be values for $x$ that do not satisfy $x$ loves $y$, but as the initial choice is governed by an existential quantifier, that won't undermine the truth of the sentence. This gives us our two different symbolisations:
+\begin{itemize}
+	\item Sentence \ref{lovecycle} can be symbolised by `$\forall x \exists y Lxy$'. Return to our example love triangle between Duke Orsino, Viola, and Olivia. For any of the three people you might choose, you can find another person in the domain who they love. So sentence \ref{lovecycle} is true. 
+\item Sentence \ref{loveconverge} is symbolised by `$\exists y \forall x Lxy$'. Sentence \ref{loveconverge} is \emph{not} true in the \emph{Twelfth Night} situation. For each of the people in the domain, you can find someone who \emph{doesn't} love them, and hence no one is universally beloved. If, instead, each person loved Olivia, then we could find someone (Olivia), such that everyone else we examined turns out to love them. In that case, \ref{loveconverge} would be true.
+\end{itemize}
+
+
+This example, besides giving some indication of how to read sentences with multiple quantifiers, illustrates that quantifier scope matters a great deal. Indeed, the mistake that arises when one illegitimately switches them around even has a special name: a \emph{quantifier shift fallacy}. Here is a real life example from Aristotle:\footnote{Note that it is hotly contested whether Aristotle actually commits a fallacy here, given the compressed nature of his prose. See, \emph{inter alia}, J L Ackrill (1999), `Aristotle on \emph{eudaimonia}', pp. 57–77 in N Sherman, ed., \emph{Aristotle’s Ethics: Critical Essays}, Rowman \& Littlefield.} \begin{quote}
+	Suppose, then, that [A] the things achievable by action have some end that we wish for because of itself, and because of which we wish for the other things, and that we do not choose everything because of something else – for if we do, it will go on without limit, so that desire will prove to be empty and futile[; c]learly, [B] this end will be the good, that is to say, the best good. (Aristotle,  \emph{Nichomachean Ethics} 1094\textsuperscript{a}18-22)
+\end{quote} Setting aside Aristotle's subsidiary argument about desire, this argument seems to involve the following pattern of inference: \begin{earg}
+		\item[] Every action aims at some end which is desired because of itself. \hfill ($\forall \exists$)
+		\item[So:] There is end desired because of itself which is the aim of every action, the best good. \hfill ($\exists \forall$)
 	\end{earg}
 This argument form is obviously invalid. It's just as bad as:\footnote{Thanks to Rob Trueman for the example.}
 	\begin{earg}
 		\item[] Every dog has its day. \hfill ($\forall \exists$)
 		\item[So:] There is a day for all the dogs. \hfill ($\exists \forall$)
 	\end{earg}
-The moral is: take great care with the scope of quantification. Later in this part, we will be a little more precise about the way that quantifier scope functions in \FOL: see §\ref{s:FOLSentences}. 
+The moral is: take great care with the scope of quantification. 
 
 %The fallacies, though, arise only when we swap around universal with existential quantifiers.  does not much matter within a single block of quantifiers. Using the same scheme, compare `$\exists x \exists y Lxy$' and `$\exists y \exists x Lxy$'. These would naturally symbolise the English sentences `there is someone who loves someone' and `there is someone whom is loved by someone', respectively. But, though these differ in nuance, they are true in exactly the same situations. (Similar comments apply to the universal quantifier.)
 
@@ -1460,9 +1501,9 @@ The use of script fonts here follows the conventions laid down in §\ref{s:UseMe
 		$Sx_{1} x_{2} a b y x_{1}$\\
 		$Sby_{254} z a a z$\\
 	\end{center}
-Remember that we allow $0$-place predicates too, to ensure that sentence letters of \TFL\ are grammatical expressions of \FOL\ too. According to the definition, any predicate symbol followed by no terms at all is also an atomic formula of \FOL. So `$Q$' by itself is an acceptable atomic formula.
+Remember that we allow zero-place predicates too, to ensure that sentence letters of \TFL\ are grammatical expressions of \FOL\ too. According to the definition, any predicate symbol followed by no terms at all is also an atomic formula of \FOL. So `$Q$' by itself is an acceptable atomic formula.
 
-Earlier, we distinguished many-place from one-place predicates. We made no distinction however in our list of acceptable symbols between predicate symbols with different numbers of places. This means that `$F$', `$Fa$', `$Fax$', and `$Faxb$' are all atomic formulae. We will not introduce any device for explicitly indicating what number of places a predicate has. Rather, we will assume that in every atomic formula of the form $\meta{A}\meta{t}_{1}…\meta{t}_{n}$, $\meta{A}$ denotes an $n$-place predicate. This means there is a potential for confusion in practice, if someone chooses to symbolise an argument using both the one-place predicate `$A$' and the two place predicate `$A$'. Rather than forbid this entirely, we recommend choosing distinct symbols for different place predicates in any symbolisation you construct.
+Earlier, we distinguished many-place from one-place predicates. We made no distinction however in our list of acceptable symbols between predicate symbols with different numbers of places. This means that `$F$', `$Fa$', `$Fax$', and `$Faxb$' are all atomic formulae. We will not introduce any device for explicitly indicating what number of places a predicate has. Rather, we will assume that in every atomic formula of the form $\meta{A}\meta{t}_{1}…\meta{t}_{n}$, $\meta{A}$ denotes an $n$-place predicate. This means there is a potential for confusion in practice, if someone chooses to symbolise an argument using both the one-place predicate `$A$' and the two-place predicate `$A$'. Rather than forbid this entirely, we recommend choosing distinct symbols for different place predicates in any symbolisation you construct.
 
 Once we know what atomic formulae are, we can offer recursion clauses to define arbitrary formulae. The first few clauses are exactly the same as for \TFL.
 	\factoidbox{
@@ -1534,7 +1575,7 @@ Finally we can say the following.
 	\factoidbox{	
 		The \define{sentences} of \FOL\ are just exactly those formulae of \FOL\ that contain no free variables.
 	}
-Since an atomic formula formed by a $0$-place predicate contains no terms at all, and hence cannot contain a variable, every such expression is a sentence – they are just the atomic sentences of \TFL. Any other formula which contains no variables, but only names, is also a sentence, as well as all those formulae which contain only bound variables. 
+Since an atomic formula formed by a zero-place predicate contains no terms at all, and hence cannot contain a variable, every such expression is a sentence – they are just the atomic sentences of \TFL. Any other formula which contains no variables, but only names, is also a sentence, as well as all those formulae which contain only bound variables. 
 
 Our definition of a formula allows for examples like `$\exists x \forall x Fx$'. This is a sentence, since the variable in `$Fx$' is in the scope of a quantifier attached to `$x$'. But which one? It could make a difference whether the sentence is to be understood as saying everything is $F$, or something it. To resolve this issue, let us stipulate that a variable is bound by the quantifier which is the main connective of the smallest subformula in which the variable is bound. So in `$\exists x \forall x Fx$', the variable is bound by the universal quantifier, because it was already bound in the subformula `$\forall x Fx$'.
 
