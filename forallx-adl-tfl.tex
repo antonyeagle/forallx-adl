@@ -5,7 +5,7 @@
 
 \chapter{First Steps to Symbolisation}\label{s:firststeps}
 
-\section{Argument structure}\label{s:ValidityInVirtueOfForm}
+\section{Argument Structure}\label{s:ValidityInVirtueOfForm}
 Consider this argument:
 	\begin{earg}
 		\item[] It is raining outside.
@@ -91,7 +91,7 @@ The following, in contrast with the previous examples, are non-canonical clauses
 	\item The underlined clause in \ref{nc2} is a \emph{subordinate} clause, part of a more complex clause. Canonical clauses are main clauses, as in \ref{cc2}.
 \end{itemize}
 
-\section{Identifying argument structure}\label{ss.idargstr}
+\section{Identifying Argument Structure}\label{ss.idargstr}
 
 Our topic is not English grammar. But the idea of a canonical clause is illuminating for the logic we are examining in this part of the course. Sentential logic is, more or less, the logic that helps us understand and analyse arguments whose conclusiveness depends on their constituent canonical clauses and how they are joined together by \define{sentence connectives}. The sentence connectives we focus on are a grammatically diverse group, including \begin{description}
 	\item[Coordinators] including ‘and’, ‘or’, ‘if and only if ’ (also ‘but’)\item[Adjunct heads] including ‘if … then …’, ‘only if’ (also ‘unless’, ‘because’, ‘since’, ‘hence’ – though we treat these last as signalling premises and conclusions of arguments)
@@ -155,7 +155,7 @@ Linguists take a very expansive view of structural words, so that the class of c
 
 We will start simply, and focus on the list of truth-functional sentence connectives, principally `and', `or', `not', `if … then …' and `… if and only if …'. There are practical reasons why these words are useful ones to focus on initially, which I will now discuss.
 
-\section{Formal languages}
+\section{Formal Languages}
 
 In logic, a \define{formal language} is a language which is particularly suited to representing the structure or form of its sentences. Such languages have a precisely defined \define{syntax}, that allows us to specify without difficulty the grammatical sentences of the language, and they also have a precise \define{semantics} which both tells us what meanings \emph{are} in those languages, and assigns meanings to the sentences and their constituents. 
 
@@ -170,7 +170,7 @@ We will see later in this book that one could take additional  expressions in na
 We will start now by putting those tantalising observations about richer logics out of your mind! We'll focus to begin with on the language \TFL, and on how we can use it to model arguments in English featuring some particular sentence connectives as structural words, including those we've just highlighted above. This collection of structural words has struck many logicians over the years as providing a good balance between simplicity and strength, ideal for an introduction to logic.
 
 
-\section{Atomic sentences}
+\section{Atomic Sentences}
 In §\ref{s:ValidityInVirtueOfForm}, we started isolating the form of an argument by replacing quasi-canonical clauses (those including none of our list of structural words) within the argument with individual placeholder letters. Thus in the first example of this section, `it is raining outside' is a quasi-canonical clause of `If it is raining outside, then Jenny is miserable', and we replaced this clause with `A'. 
 
 Our artificial language, \TFL, pursues this idea absolutely ruthlessly. We start with some \define{atomic sentences}, which are analogues of the canonical clauses of natural languages.  These will be the basic building blocks out of which more complex sentences are built. Unlike natural languages, these simplest sentences of \TFL\ have no interesting internal structure at all. The atomic sentences of \TFL\ will consist of upper case italic letters, with or without numerical subscripts. There are only twenty-six letters of the alphabet, but there is no limit to the number of atomic sentences that we might want to consider, so we add numerical subscripts to each letter to extend our library of atomic sentences indefinitely. This procedure does give us atomic sentences with some syntax, but it is irrelevant to meaning: there is no connection between `$A_{8}$' and `$A_{67}$' just because they both involve `$A$'. Likewise, there is no connection between `$D_{17}$' and `$G_{17}$' even though they share the same numerical subscript. Upper case italic letters, with or without subscripts, are all the atomic sentences there are. So, here are five different atomic sentences of \TFL:
@@ -214,7 +214,7 @@ But it is important to understand that whatever internal structure an English se
 	\item $V^{9}$.
 \end{earg}
 
-\problempart This argument is invalid in English: 'There is water in the glass and it is cold; therefore it is cold'. Comment on why it is invalid, and what potential pitfalls arise when considering how to symbolise this argument into \TFL. 
+\problempart This argument is invalid in English: `There is water in the glass and it is cold; therefore it is cold'. Comment on why it is invalid, and what potential pitfalls arise when considering how to symbolise this argument into \TFL. 
 
 
 \chapter{Connectives}\label{s:TFLConnectives}
@@ -653,7 +653,7 @@ Let's consider some examples.
 
 
 
-\section{Main connectives and scope} \label{s.mainconnscope}
+\section{Main Connectives and Scope} \label{s.mainconnscope}
 
 Ultimately, every sentence of \TFL\ is constructed in a predictable way out of atomic sentences. When we are dealing with a \emph{sentence} other than an atomic sentence, we can see that there must be some sentential connective that was introduced \emph{last}, when constructing the sentence. We call that the \define{main connective} of the sentence. In the case of `$\enot\enot\enot D$', the main connective is the very first `$\enot$' sign. In the case of `$(P \eand \enot (\enot Q \eor R))$', the main connective is `$\eand$'. In the case of `$((\enot E \eor F) \eif \enot\enot G)$', the main connective is `$\eif$'.
 
@@ -672,7 +672,7 @@ The recursive definition of a sentence of \TFL\ can also be depicted using a \de
 
 At the beginning of this chapter, we introduced the sentences of \TFL\ in a way that was parasitic upon identifying the structure of certain English sentences. Now we can see that \TFL\ has its own syntax, which can be understood and used independently of English. Our understanding of the meaning of the sentence connectives is still tied to their English counterparts, but in §\ref{s:SchematicTruthTables} we will see that we can also understand their meaning independently from the natural language we used to motivate them. However, it remains true that what makes \TFL\ \emph{useful} is that its syntax and connectives are designed to capture, more or less, elements of the structure of natural language sentences.
 
-\section{Structure and ambiguity}
+\section{Structure and Ambiguity}
 
 In later sections, we will see the utility of symbolising arguments to evaluate their validity. But even at this early stage, there is value in symbolising sentences, because doing so can clear up \emph{ambiguity}.
 
@@ -688,7 +688,7 @@ Leaving the temporal adverbial phrase `at all times' aside, here are two symboli
 \end{earg}
 This ambiguity matters. If a child is carried, but is not quiet, the parent is violating the regulation with the first structure, but in compliance with the regulation with the second structure. As we will soon see, \TFL\ has resources to ensure that no ambiguity is present in any symbolisation of a given target sentence, which helps us make clear what we really might have meant by that sentence. And as this case makes clear, that might be important in the framing of legal statutes or contracts, in the formulation of government policy, and in other written documents where clarity of meaning is crucial.
 
-\section{Parenthetical conventions}
+\section{Parenthetical Conventions}
 \label{TFLconventions}
 Strictly speaking, the parentheses in `$(Q \eand R)$' are an indispensable part of the sentence. Part of this is because we might use `$(Q \eand R)$' as a subsentence in a more complicated sentence. For example, we might want to negate `$(Q \eand R)$', obtaining `$\enot(Q \eand R)$'. If we just had `$Q \eand R$' without the parentheses and put a negation in front of it, we would have `$\enot Q \eand R$'. It is most natural to read this as meaning the same thing as `$(\enot Q \eand R)$'. But as we saw in  §\ref{s:ConnectiveConjunction}, this is very different from `$\enot(Q\eand R)$'.
 
@@ -750,7 +750,7 @@ $$\bigl( (H \eif I) \eor (I \eif H) \bigr) \eand (J \eor K)$$
 \chapter{Use and Mention}\label{s:UseMention}
 In this chapter, I have talked a lot \emph{about} sentences. So I need to pause to explain an important, and very general, point.
 
-\section{Quotation conventions}
+\section{Quotation Conventions}
 Consider these two sentences:
 	\begin{itemize}
 		\item Malcolm Turnbull is the Prime Minister.
@@ -775,7 +775,7 @@ On the left-hand-side, here, we have the name of a name (it consists of an expre
 Those are just general rules for quotation, and you should observe them carefully in all your work! To be clear, the quotation-marks here do not indicate indirect speech. They indicate that you are moving from talking about an object, to talking about the name of that object.
 
 
-\section{Object language and metalanguage}
+\section{Object Language and Metalanguage}
 These general quotation conventions are of particular importance for us. After all, we are describing a formal language here, \TFL, and so we are often \emph{mentioning} expressions from \TFL. 
 
 When we talk about a language, the language that we are talking about is called the \define{object language}. The language that we use to talk about the object language is called the \define{metalanguage}.
@@ -813,7 +813,7 @@ ing’ or ‘ion
 
 
 
-\section{Script fonts, and recursive definitions revisited}
+\section{Script Fonts, and Recursive Definitions Revisited}
 However, we do not just want to talk about \emph{specific} expressions of \TFL. We also want to be able to talk about \emph{any arbitrary} sentence of \TFL. Indeed, I had to do this in §\ref{s:TFLSentences}, when I presented the recursive definition of a sentence of \TFL. I used upper case script font letters to do this, namely:
 	$$\meta{A}, \meta{B}, \meta{C}, \meta{D}, …$$
 These symbols do not belong to \TFL. Rather, they are part of our (augmented) metalanguage that we use to talk about \emph{any} expression of \TFL. To repeat the second clause of the recursive definition of a sentence of \TFL, we said:
@@ -851,10 +851,10 @@ simply abbreviates:
 \end{quote}
 and similarly, for expressions like `$(\meta{A} \eand \meta{B})$', `$(\meta{A} \eor \meta{B})$', etc. The latter is the expression which consists of an opening parenthesis, followed by the sentence \meta{A}, followed by the symbol `$\eor$', followed by the sentence \meta{B}, followed by a closing parenthesis. 
 
-If you like, you can think of our recursive definition of a sentence as a schema standing for infinitely many instances of each clause, one for each \TFL\ sentence. In the schematic clause for negation (`If $\meta{A}$ is a sentence, $\enot\meta{A}$ is also a sentence'), we can consider each instance involving ‘$\meta{A}$’ being replaced by some \TFL\ sentence surrounded by quotation marks, and where ‘$\enot\meta{A}$’ is replaced by a left quotation mark, a negation sign, the same \TFL\ sentence, and a right quotation mark. Hence if if $\meta{A}$ is '$A$', $\neg\meta{A}$ just is '$\neg A$'.
+If you like, you can think of our recursive definition of a sentence as a schema standing for infinitely many instances of each clause, one for each \TFL\ sentence. In the schematic clause for negation (`If $\meta{A}$ is a sentence, $\enot\meta{A}$ is also a sentence'), we can consider each instance involving ‘$\meta{A}$’ being replaced by some \TFL\ sentence surrounded by quotation marks in accordance with our conventions. So ‘$\enot\meta{A}$’ is to be understood as abbreviating the expression consisting of a left quotation mark, a negation sign, the same \TFL\ sentence as $\meta{A}$, and a right quotation mark. Hence if if $\meta{A}$ is `$P$', $\neg\meta{A}$ just is `$\neg P$'.
 
 
-\section{Quotation conventions for arguments}
+\section{Quotation Conventions for Arguments}
 One of our main purposes for using \TFL\ is to study arguments, and that will be our concern in chapter \ref{ch.TruthTables}. In English, the premises of an argument are often expressed by individual sentences, and the conclusion by a further sentence. Since we can symbolise English sentences, we can symbolise English arguments using \TFL. Thus we might ask whether the argument whose premises are the \TFL\ sentences `$A$' and `$A \eif C$', and whose conclusion is the \TFL\ sentence `$C$', is valid. However, it is quite a mouthful to write that every time. So instead I shall introduce another bit of abbreviation. This:
 	$$\meta{A}_1, \meta{A}_2, …, \meta{A}_n \ttherefore \meta{C}$$
 abbreviates:
@@ -863,7 +863,7 @@ abbreviates:
 	\end{quote}
 To avoid unnecessary clutter, we shall not regard this as requiring quotation marks around it. This is a name of an argument, not an argument itself. (Note, then, that `$\ttherefore$' is a symbol of our augmented \emph{metalanguage}, and not a new symbol of \TFL.)
 
-\section{Pedantry in practice}
+\section{Pedantry in Practice}
 
 Having been precise about use and mention, you can now relax! If you've understood this section, you know how to do things properly. In exercises and practice problems, unless explicit instructions otherwise are given, you will be expected to do things properly and respect the distinction between use and mention. But your understanding of the topic means that you can probably do things a bit more sloppily elsewhere – safe in the knowledge you can fix them up if you need to. As the great twentieth century philosopher David Lewis said of the way he presented his account of the word ‘knows’ in his paper `Elusive Knowledge',\footnote{David Lewis `Elusive Knowledge', \emph{Australasian Journal of Philosophy} \textbf{74} (1996): 549–67, at pp. 566–7.} \begin{quote}
 	I could have said my say fair and square, bending no rules.  It would have been tiresome, but it could have been done…. I could have taken great care to distinguish between (1) the language I use when I talk about knowledge, or whatever, and (2) the second language that I use to talk about the semantic and pragmatic workings of the first language.  If you want to hear my story told that way, you probably know enough to do the job for yourself.

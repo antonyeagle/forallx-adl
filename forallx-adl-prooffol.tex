@@ -20,7 +20,7 @@ Some arguments in \FOL\ don't need any new rules. Consider this: $$\enot(\forall
 However, not every \FOL\ sentence has a \TFL\ connective as its main connective. So we will also need some new basic rules to govern the quantifiers, and to govern the identity sign, to deal with those sentences where the main connective is a quantifier and where the sentence is an identity predication.
 
 
-\section{Universal elimination}\label{unielim}
+\section{Universal Elimination}\label{unielim}
 
 Holding fixed the claim that everything is F, you can conclude that any particular thing is F. \emph{You name it; it's F.} The same is true for relational predicates: if every human is shorter than 3km tall, then Amy is shorter than 3km tall, and Bob is, and Jonquil is,  and everyone else you can name.
 
@@ -63,7 +63,7 @@ Here is an example of the rule in action. Suppose we wanted to show that $\foral
 
 
 
-\section{Existential introduction}\label{exint}
+\section{Existential Introduction}\label{exint}
 Given the assumption that some specific named thing is an F, you can conclude that something is an F: `Sylvester reads, so someone reads' seems like a conclusive argument. So we ought to allow the inference from a claim about some particular thing being F, to a general claim that something or other is F:
 \begin{proof}
 	\hypo{a}{Raad}
@@ -132,7 +132,7 @@ For another example, consider this proof of `$\exists x (Px \eor \enot Px)$' fro
 \end{proof}
 
 
-\section{Empty domains}
+\section{Empty Domains}
 The following proof combines our two new rules for quantifiers:
 	\begin{proof}
 		\hypo{a}{\forall x Fx}
@@ -156,7 +156,7 @@ If we get what we want on all three counts, then we have to countenance that $\f
 Before we start thinking about which to surrender,\footnote{Many will opt for restricting $\exists$I. If we permit an empty domain, we will also need `empty names' – names without a referent. When the name \meta{c} is empty, it seems problematic to conclude from `$\meta{c}$ is F' that there is something which is F. (Does `Santa Claus drives a flying sleigh' entail `Someone drives a flying sleigh'?) But empty names are not cost-free; understanding how a name that doesn't name anything can have any meaning at all has vexed many philosophers and linguists.} we might want to ask how \emph{much} of a cheat this is. Granted, it may make it harder to engage in theological debates about why there is something rather than nothing. But the rest of the time, we will get along just fine. So maybe we should just regard our proof system (and \FOL, more generally) as having a very slightly limited purview. If we ever want to allow for the possibility of \emph{nothing}, then we shall have to cast around for a more complicated proof system. But for as long as we are content to ignore that possibility, our proof system is perfectly in order. (As, similarly, is the stipulation that every domain must contain at least one object.)
 
 
-\section{Universal introduction}\label{uniint}
+\section{Universal Introduction}\label{uniint}
 Suppose you had shown of each particular thing that it is F (and that there are no other things to consider). Then you would be justified in claiming that everything is F. This would motivate the following proof rule. If you had established each and every single substitution instance of `$\forall x Fx$', then you can infer `$\forall x Fx$'. 
 
 Unfortunately, that rule would be utterly unusable. To establish each and every single substitution instance would require proving `$Fa$', `$Fb$', $…$, `$Fj_2$', $…$, `$Fr_{79002}$', $…$, and so on. Indeed, since there are infinitely many names in \FOL, this process would never come to an end. So we could never apply that rule. We need to be a bit more cunning in coming up with our rule for introducing universal quantification. 
@@ -236,7 +236,7 @@ We can also use our universal rules together to show some things about how quant
 \end{proof} Here we successively eliminate the quantifiers in favour of arbitrarily chosen names, and then reintroduce the quantifiers (though in a different order). The only undischarged assumption throughout the proof is the first line, with no names at all, so all of the uses of universal introduction are acceptable.
 
 
-\section{Existential elimination}\label{exelim}
+\section{Existential Elimination}\label{exelim}
 Suppose we know that \emph{something} is F. The problem is that simply knowing this does not tell us which thing is F. So it would seem that from `$\exists x Fx$' we cannot immediately conclude `$Fa$', `$Fe_{23}$', or any other substitution instance of the sentence. What can we do?
 
 Suppose we know that something is F, and that everything which is F is G. In (almost) natural English, we might reason thus:
@@ -314,7 +314,7 @@ An argument that makes use of both patterns of arbitrary reasoning is this examp
 	\have{c}{\forall y \exists x Lxy}\Ee{a,b-d}
 \end{proof} At line 3, both our arbitrary names are in play – $h$ was newly introduced to the proof in line 2 as the arbitrary person Hiccup who witnesses the truth of `$\exists x \forall y Lxy$', and `$a$' at line 3 as an arbitrary person Astrid beloved by Hiccup. We can apply $\exists$I without restriction at line 4, which takes the name `$h$' out of the picture – we no longer rely on the specific instance chosen, since we are back at generalities about someone who loves everyone, being such that they also love the arbitrarily chosen someone Astrid. So we can safely apply $\forall$I at line 5, since the name `$a$' appears in no assumption nor in `$\forall y\exists x Lxy$'. But now we have at line 5 a claim that doesn't involve the arbitrary name `$h$' either, which was newly chosen to not be in any undischarged assumption or in $\exists x \forall y Lxy$. So we can safely say that the name Hiccup was just arbitrary, and nothing in the proof of `$\forall y\exists x Lxy$' depended on it, so we can discharge the specific assumption about $h$ that was used in the course of that proof and nevertheless retain our entitled ment to `$\forall y\exists x Lxy$'. 
 
-\section{The barber}\label{barber}
+\section{The Barber}\label{barber}
 
 Let's try something a little more complicated, the so-called `Barber paradox': \begin{quote}
 	 in a certain remote Sicilian village, approached by a long ascent up a precipitous mountain road, the barber shaves all and only those villagers who do not shave themselves. Who shaves the barber? If he himself does, then he does not (since he shaves only those who do not shave themselves); if he does not, then he indeed does (since he shaves all those who do not shave themselves).  The unacceptable supposition is that there is such a barber – one who shaves himself if and only if he does not. The story may have sounded acceptable: it turned our minds, agreeably enough, to the mountains of inland Sicily. However, once we see what the consequences are, we realize that the story cannot be true: there cannot be such a barber, or such a village. The story is unacceptable.\footnote{R M Sainsbury (2009) \emph{Paradoxes} 3rd ed., Cambridge University Press, pages 1–2.}
@@ -353,7 +353,7 @@ The argument then revolves around the claim that there is a barber who shaves ev
 One trick to this proof is to be sure to instantiate the universally quantified claim at line 3 by using the same name `$a$' as was already used in line 2. This is because, intuitively, the problem case for this supposed barber arises when you think about whether they shaves themselves or not. But themselves trickiest part of this proof occurs at lines 5–11. By line 4, we've already derived a contradictory biconditional. But if we just use it to derive `$Saa$' and `$\enot Saa$', the contradictory claims we obtain would end up involving the name `$a$'. That would mean we couldn't apply the $\exists$E rule, since the final line of the subproof would contain the chosen name, so we couldn't get our logical falsehood out of the subproof beginning on line 2, and hence could perform the desired \emph{reductio} on line 1 via {\enot}I. So our trick is to suppose the negation of an \emph{unrelated} logical falsehood on line 5, derive the logical falsehood from line 4 in the range of that assumption, and hence use {\enot}E to derive the logical falsehood `$P \eand \enot P$' on line 11. This doesn't contain the name `$a$', and hence can be extracted from the subproof to show that line 1 by itself suffices to derive a logical falsehood, and that shows the supposition that there is such a barber is a logical falsehood.
 
 
-\section{Justification of these quantifier rules}
+\section{Justification of these Quantifier Rules}
 
 Above, I offered informal arguments for each of our quantifier rules that seem to exemplify the pattern of argument in the rule, and to be intuitively valid. But we can also offer justifications for our rules in terms of interpretations of the sentences involved, and the principles governing truth of quantified sentences introduced in §\ref{fol.truth.quant}. 
 
@@ -369,7 +369,7 @@ You may also offer arguments from intepretations to the effect that our other qu
 
 So we are again comforted: our proof rules can never lead us from true assumptions to false claims, if correctly applied.
 
-\section{Proof-theoretic concepts in \FOL}
+\section{Proof-Theoretic Concepts in \FOL}
 
 The notion of provability of \meta{A} from undischarged assumptions $\meta{C}_{1},…,\meta{C}_{n}$ was introduced for \TFL\ in §\ref{s:ProofTheoreticConcepts}. The rules for \FOL\ are different, but the earlier definitions go through unchanged, once we remember that the notion of proof in \FOL\ means: \emph{provable using the rules for \TFL\ and those for \FOL}. 
 
@@ -558,7 +558,7 @@ For each of the following arguments: If it is valid in \FOL, give a proof. If it
 
 In this section, we shall add some additional rules to the basic rules of the previous section. These govern the interaction of quantifiers and negation. But they are no substantive addition to our basic rules: for each of the proposed additions, it can be shown that their role in any proof can be wholly emulated by some suitable applications of our basic rules from §\ref{s:BasicFOL}. (The point here is as in §\ref{s:Derived}.)
  
-\section{Conversion of quantifiers}\label{cq.rules}
+\section{Conversion of Quantifiers}\label{cq.rules}
 
 In §\ref{s:FOLBuildingBlocks}, we noted that $\enot\exists x\meta{A}$ is logically equivalent to $\forall x \enot\meta{A}$. We shall add some rules to our proof system that govern this. In particular, we add two rules, one for each direction of the equivalence:
 	\factoidbox{\begin{minipage}{0.35\textwidth}
@@ -633,7 +633,7 @@ Here is a schematic basic proof showing that the third conversion of quantifiers
 \end{proof}
 A similar schematic proof can be offered for the final CQ rule.
 
-\section{Alternative proof system for \FOL}
+\section{Alternative Proof Systems for \FOL}
 
 We saw in §\ref{s:alternates} that it is possible to formulate alternative proof systems that can nevertheless establish the same arguments are provable in \TFL. The same is true for \FOL. The idea is to get rid of the rules for one quantifier, retaining the rules governing the other quantifier, but then to take the conversion of quantifier rules as basic. 
 
@@ -718,7 +718,7 @@ Offer proofs which justify the addition of the other CQ rules as derived rules.
 
 \chapter{Rules for Identity}\label{ch.identity}
 
-\section{Identity introduction}\label{idint}
+\section{Identity Introduction}\label{idint}
 In §\ref{s:Interpretations}, I mentioned the philosophically contentious thesis of the \emph{identity of indiscernibles}. This is the claim that objects which are indiscernible in every way – which means, for us, that exactly the same predicates are true of both objects – are, in fact, identical to each other. I also mentioned that in \FOL, this thesis is not true. There are interpretations in which, for each property denoted by any predicate of the language, two distinct objects either both have that property, or both lack that property. They may well differ on some property `in reality', but there is nothing in \FOL\ which guarantees that that property is assigned as the interpretation of any predicate of the language. 
 It follows that, no matter how many sentences of \FOL\ about those two objects I assume, those sentences will not entail that these distinct objects are identical (luckily for us). Unless, of course, you tell me that the two objects are, in fact, identical. But then the argument will hardly be very illuminating.
 
@@ -738,7 +738,7 @@ Notice that this rule does not require referring to any prior lines of the proof
 \end{proof} This seems like magic! But note that the first line is not an assumption (there is no horizontal line), and hence not an undischarged assumption. So the constant `$a$' appears in no undischarged assumption or anywhere in the proof other than in `$x=x$'$\subs{a}{x}$, so the conclusion `$\forall x x=x$' follows by legitimate application of the $\forall$I rule.
 
 
-\section{Identity elimination} % (fold)
+\section{Identity Elimination} % (fold)
 \label{idelim}
 
 
@@ -804,7 +804,7 @@ We obtain line 4 by replacing `$b$' in line 3 with `$c$'; this is justified give
 
 A relation that is reflexive, symmetric, and transitive is known as an \define{equivalence relation}. So we've proved that identity is an equivalence relation. 
 
-\subsection{Definite descriptions in proof}
+\subsection{Definite Descriptions in Proofs}
 
 I want to close this section by giving an example of how proofs involving definite descriptions work. Remember from §\ref{subsec.defdesc} that we symbolised a definite description `the F is G', following Russell, as $$\exists x (\meta{F}x  \eand \forall y(\meta{F}y \eiff x=y) \eand \meta{G}x).$$ (I omit interior parentheses to aid legibility.) 
 

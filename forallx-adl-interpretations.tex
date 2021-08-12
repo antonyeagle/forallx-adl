@@ -17,7 +17,7 @@ But recall from §\ref{s:TruthFunctionality} that this should be taken to mean:
 The point that I emphasised is that \TFL\ cannot handle differences in meaning that go beyond mere differences in truth value.
 
 
-\section{Symbolising versus translating: Extensional languages}
+\section{Symbolising Versus Translating: Extensional Languages}
 \FOL\ has some similar limitations. It gets beyond mere truth values, since it enables us to split up sentences into terms, predicates and quantifier expressions. This enables us to consider what is \emph{true of} some particular object, or of some or all objects. But we can do no more than that. 
 
 When we provide a symbolisation key for some \FOL\ predicates, such as:
@@ -49,7 +49,7 @@ We noted above that a name and a definite description might have very different 
 
 
 
-\section{A word on domains and extensions}
+\section{A Word on Domains and Extensions}
 
 We always start our symbolisation keys by specifying a domain, and with extensions in view we can see why this is important. If we are to interpret an expression in terms of what it applies to, then we are going to need to know what things are `out there' for it to apply to. As we said before (§\ref{sec_domains}), the only restriction we place on our domains is that they be non-empty collections of things. But every extension we assign will be drawn from the domain: every name will be a member of the domain, and every one-place predicate will be assigned some sub-collection (`subset') of the domain. 
 
@@ -87,7 +87,7 @@ There are also trivial cases of the opposite sort, where we assign the entire do
 
 
 
-\section{Many-place predicates}
+\section{Many-place Predicates}
 All of this is quite easy to understand when it comes to one-place predicates. But it gets much messier when we consider two-place predicates. Consider a symbolisation key like:
 	\begin{ekey}
 		\item[L] \gap{1} loves \gap{2}
@@ -123,7 +123,7 @@ It is perhaps worth being explicit that our sequences are ordered groups of thin
 
 To make these ideas more precise, we would need to develop some \emph{set theory}, the mathematical theory of collections. This would give you some tools for modelling extensions and ordered pairs (and ordered triples, etc.), as well as some ideas about the metaphysical status of collections and sets. Indeed, set theoretic tools lie at the heart of contemporary linguistic approaches to meaning in natural languages. However, we have neither the time nor the need to cover set theory in this book. I shall leave these notions at an imprecise level; the general idea will be clear enough, I hope. 
 
-\section{Zero-place predicates}
+\section{Zero-place Predicates}
 
 
     \begin{itemize}
@@ -139,7 +139,7 @@ To make these ideas more precise, we would need to develop some \emph{set theory
     \end{itemize}
 
 
-\section{Semantics for identity}
+\section{Semantics for Identity}
 Identity is a special predicate of \FOL. We write it a bit differently than other two-place predicates: `$x=y$' instead of `$Ixy$' (for example). More important, though, its meaning is fixed as to be genuine \emph{identity}, once and for all. Given a domain, the extension of `$=$' comprises just those pairs consisting of any member of the domain and itself. If the domain is numbers, for example, the extension of `$=$' on this domain will be $$\ntuple{1,1}, \ntuple{2,2}, \ntuple{3,3},….$$ 
 
 If two names \meta{a} and \meta{b} are assigned to the same object in a given symbolisation key, and thus have the same extension, $\meta{a}=\meta{b}$ will also be true  on that symbolisation key. And since the two names have the same extension, and \FOL\ is extensional, substituting one name for another will not change the truth value of any \FOL\ sentence. So, in particular, if `$a$' and `$b$' name the same object, then all of the following will be true:\label{model.nonidentity}
@@ -181,7 +181,7 @@ The symbolisation keys that I considered in chapter \ref{ch.FOL} consequently gi
 \end{itemize}
 
 
-\section{Representing interpretations}\label{graph}
+\section{Representing Interpretations}\label{graph}
 
 One way of presenting an interpretation that is often convenient is to present its extensions \emph{diagrammatically}. 
 
@@ -406,7 +406,7 @@ I shall offer a completely general explanation in this section. However, to try 
 	\end{ekey}
 This will be my \emph{go-to example} in what follows.
 
-\section{Atomic sentences}\label{fol.truth.atom}
+\section{Atomic Sentences}\label{fol.truth.atom}
 The truth of atomic sentences should be fairly straightforward. The sentence `$Wa$' should be true just in case `$W$' is true of `$a$'. Given our go-to interpretation, this is true iff Aristotle is wise. Aristotle is wise. So the sentence is true. Equally, `$Wb$' is false on our go-to interpretation.
 
 Likewise, on this interpretation, `$Rab$' is true iff the object named by `$a$' was born before the object named by `$b$'. Well, Aristotle was born before Bush. So `$Rab$' is true. Equally, `$Raa$' is false: Aristotle was not born before Aristotle. 
@@ -436,7 +436,7 @@ So in our go-to interpretation, `$a = b$' is false, since Aristotle is distinct 
 
 
 
-\section{Sentential connectives}\label{fol.truth.sent}
+\section{Sentential Connectives}\label{fol.truth.sent}
 We saw in §\ref{s:FOLSentences} that \FOL\ sentences can be built up from simpler ones using the truth-functional connectives that were familiar from \TFL. The rules governing these truth-functional connectives are \emph{exactly} the same as they were when we considered \TFL. Here they are:
 	\factoidbox{Where \meta{A} and \meta{B} are any sentences of \FOL, \begin{itemize}
 		\item 
@@ -456,7 +456,7 @@ This presents the very same information as the schematic truth tables for the co
 	\end{itemize}
 Make sure you understand these examples.
 
-\section{When the main connective is a quantifier}\label{fol.truth.quant}
+\section{When the Main Connective is a Quantifier}\label{fol.truth.quant}
 The exciting innovation in \FOL, though, is the use of \emph{quantifiers}. And in fact, expressing the truth conditions for quantified sentences is a bit more fiddly than one might expect. 
 
 Here is a naïve first thought. We want to say that `$\forall x Fx$' is true iff `$F$' is true of everything in the domain. This should not be too problematic: our interpretation will specify directly what `$F$' is true of. 
@@ -674,7 +674,7 @@ So:\factoidbox{\begin{itemize}
 As before, there is a close connection between validity and entailment: \factoidbox{
  $\meta{A}_1, \meta{A}_2, … \meta{A}_n \ttherefore \meta{C}$ is \define{valid} in \FOL\ iff there is no interpretation in which all of the premises are true and the conclusion is false; i.e., $\meta{A}_1,\meta{A}_2,… \meta{A}_n \entails\meta{C}$. It is \define{invalid} in \FOL\ otherwise.} Our entailments are conclusive in virtue of form, because the consideration of many alternative interpretations of the non-logical expressions involved means that no argument can be conclusive because of some special `connection in meaning' between such expressions in the language. Entailment in \FOL\ reflects only the logical structure of the sentences involved, where this now includes the new logical resources of \FOL\ over \TFL.
 
-\section{Some subtleties about truth and interpretation} % Æ added
+\section{Some Subtleties about Truth and Interpretation} % Æ added
 
 Our interpretations allow us a precise characterisation of formal truth for \FOL. In §\ref{s:Valid}, we introduced the idea of the structure of a sentence, and the pragmatic approach that logicians take to that notion. In \FOL, the logical constants are those of \TFL\ plus the quantifiers and the identity predicate. But every other item of the language is up for reinterpretation, and our interpretations allow us to reinterpret these expressions in an arbitrary fashion.
 
@@ -706,7 +706,7 @@ The following entailments are correct in \FOL. In each case, explain why.
 
 \chapter{Demonstrating Consistency and Invalidity}\label{sec.UsingModels}
 
-\section{Logical truths and logical falsehoods}
+\section{Logical Truths and Logical Falsehoods}
 Suppose we want to show that `$\exists xAxx \eif Bd$' is \emph{not} a logical truth. This requires showing that the sentence is not true in every interpretation; i.e.,\ that it is false in some interpretation. If we can provide just one interpretation in which the sentence is false, then we will have shown that the sentence is not a logical truth.
 
 In order for `$\exists xAxx \eif Bd$' to be false, the antecedent (`$\exists x Axx$') must be true, and the consequent (`$Bd$') must be false. To construct such an interpretation, we start by specifying a domain. Keeping the domain small makes it easier to specify what the predicates will be true of, so we shall start with a domain that has just one member. For concreteness, let's say it is the city of Paris. 
@@ -736,7 +736,7 @@ We can just as easily show that `$\exists xAxx \eif Bd$' is not a logical falseh
 	\end{ekey}
 This shows that there is an interpretation where `$\exists xAxx \eif Bd$' is true. So `$\exists x Axx \eif Bd$' is not a logical falsehood.
 
-\section{Logical equivalence}
+\section{Logical Equivalence}
 Suppose we want to show that `$\forall x Sx$' and `$\exists x Sx$' are not logically equivalent. We need to construct an interpretation in which the two sentences have different truth values; we want one of them to be true and the other to be false. We start by specifying a domain. Again, we make the domain small so that we can specify extensions easily. In this case, we shall need at least two objects. (If we chose a domain with only one member, the two sentences would end up with the same truth value. In order to see why, try constructing some partial interpretations with one-member domains.) For concreteness, let's take:
 	\begin{ekey}
 		\item[\text{domain}] Ornette Coleman, Sarah Vaughan
@@ -754,7 +754,7 @@ Now `$\exists x Sx$' is true, because `$S$' is true of Ornette Coleman. Slightly
 		To show that $\meta{A}$ and $\meta{B}$ are not logically equivalent, it suffices to find an interpretation where one is true and the other is false.
 	}
 
-\section{Validity, entailment and consistency}
+\section{Validity, Entailment and Consistency}
 To test for validity, entailment, or consistency, we typically need to produce interpretations that determine the truth value of several sentences simultaneously. 
 
 Consider the following argument in \FOL:
@@ -891,7 +891,7 @@ Show that the following arguments are invalid:
 
 \chapter[Reasoning about All Interpretations]{Reasoning about All Interpretations: Demonstrating Inconsistency and Validity}\label{s:All.Interp}
 
-\section{Logical truths and logical falsehoods}
+\section{Logical Truths and Logical Falsehoods}
 We can show that a sentence is \emph{not} a logical truth just by providing one carefully specified interpretation: an interpretation in which the sentence is false. To show that something is a logical truth, on the other hand, it would not be enough to construct ten, one hundred, or even a thousand interpretations in which the sentence is true. A sentence is only a logical truth if it is true in \emph{every} interpretation, and there are infinitely many interpretations. We need to reason about all of them, and we cannot do this by dealing with them one by one!
 
 Sometimes, we can reason about all interpretations fairly easily. For example, we can offer a relatively simple argument that `$Raa\eiff Raa$' is a logical truth:
@@ -913,7 +913,7 @@ But sometimes we can draw a conclusion about some way all interpretations must b
 	Suppose there were an interpretation which makes `$a≠b \eif \enot \exists x(x=a \eand x=b)$' false. Then while `$a≠b$' is true on that interpretation, `$\enot \exists x(x=a \eand x=b)$' must be false. So `$\exists x(x=a \eand x=b)$' must be true; and hence it has some true substitition instance with some previously uninterpreted name `$c$' as the instantiating name: `$c=a \eand c=b$' is true. But then it must also be that `$a=b$' is true, which contradicts our original supposition that `$a≠b$' is true on this intepretation. So there can be no such interpretation, and hence the sentence cannot be false on any interpretation and must be a logical truth.
 \end{quote} This is an example of \define{\emph{reductio}} reasoning\phantomsection\label{reductio}: we assume something, and derive some absurdity or contradiction; we then conclude that our assumption is to be rejected. It is often easier to show that all Fs have a property by deriving an absurdity from the assumption that some F lacks the property, than it is to show it `directly' by considering each F in turn. This is a powerful technique, used widely in mathematics and elsewhere.
 
-\section{Other cases}
+\section{Other Cases}
 Similar points hold of other cases too. Thus, we must reason about all interpretations if we want to show:
 	\begin{itemize}
 		\item that a sentence is a logical falsehood; for this requires that it is false in \emph{every} interpretation. 

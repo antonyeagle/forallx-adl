@@ -22,11 +22,11 @@ Ivanka Trump & Donald\\
 Daisy Turnbull & Malcolm\\
 … & … \\ \bottomrule
 \end{tabular}
-\end{center} In this table we have an \emph{input}, on the left, which is related to the \emph{output} on the right. The relation which maps the things in the left column to their corresponding outputs on the right is known as a function – in this case, the `biological father of' function. More precisely, a \define{function} is a relation between the members of some collection $A$ and some collection $B$ (which may be the same as $A$), such that each input to the function is a member of $A$, each output of the function is a member of $B$, and, crucially, each member of $A$ is associated with at most one member of $B$. So `the biological father of … ' is a function from the set of people (living or dead) to itself, and associates each person with their biological father. We implicitly that `biological father' permits each person to be associated with a unique father. If we consider other notions of fatherhood, such as \emph{paternal figure}, those would not yield a function, because many people have two or more paternal figures in their lives. Note that while everyone is associated with a unique biological father by this function (no input is associated with more than one output), the converse does not hold: some outputs are linked to more than one input, in fact, every father with more than one child.
+\end{center} In this table we have an \emph{input}, on the left, which is related to the \emph{output} on the right. The relation which maps the things in the left column to their corresponding outputs on the right is known as a function – in this case, the `biological father of' function. More precisely, a \define{function} is a relation between the members of some collection $A$ and some collection $B$ (which may be the same as $A$), such that each input to the function is a member of $A$, each output of the function is a member of $B$, and, crucially, each member of $A$ is associated with at most one member of $B$. So `the biological father of …' is a function from the set of people (living or dead) to itself, and associates each person with their biological father. We implicitly that `biological father' permits each person to be associated with a unique father. If we consider other notions of fatherhood, such as \emph{paternal figure}, those would not yield a function, because many people have two or more paternal figures in their lives. Note that while everyone is associated with a unique biological father by this function (no input is associated with more than one output), the converse does not hold: some outputs are linked to more than one input, in fact, every father with more than one child.
 
 Common examples of functions occur in mathematics: we can consider the function `the sum of $x$ and $y$', which takes two numbers as input, and spits out their unique sum, $x+y$. This is again a function from a set to itself, this time the set of integers. There are functions which are from one set to another: consider, `the number of …'s children', which is a function from people to numbers, mapping each person to the number of children they have. (Even if they have more than one child, there is still a unique number characterising how many they have, and that is what this function spits out.) There are functions which do not associate an output with every input: consider `the eldest child of', which associates each parent with their first-born child, but doesn't associate non-parents with anything. There are many relations which are not functions. While Barack Obama can be characterised as `the father of Malia', Malia Obama cannot be characterised as `the child of Barack', since that attempted description would apply equally to her sister.  
 
-\section{The idea of truth-functionality}
+\section{The Idea of Truth-Functionality}
 
 The relevance of the notion of a function is that we are going to identify the meanings of the \TFL\ sentence connectives with a certain class of functions.
 
@@ -39,7 +39,7 @@ This is an important idea about \TFL\ sentence connectives. They are each associ
 		\emph{Every connective in \TFL\ is truth-functional.}}
 It turns out that we don't need to know anything more about the atomic sentences of \TFL\ than their truth values to assign a truth value to those non-atomic, or \define{compound}, sentences. More generally, the truth value of any compound sentence depends only on the truth value of the subsentences that comprise it. In order to know the truth value of `$(D \eand E)$', for instance, you only need to know the truth value of `$D$' and the truth value of `$E$'. In order to know the truth value of `$\bigl( (D \eand E) \eor F\bigr)$', you need only know the truth value of `$(D \eand E)$' and `$F$'. And so on. This is fact a good part of the reason why we chose these connectives, and chose their English near-equivalents as our structural words. To determine the truth value of some \TFL\ sentence, we only need to know the truth value of its components. This is why the study of \TFL\ is termed \emph{truth-functional logic}.
 
-\section{Schematic truth tables}\label{s:SchematicTruthTables}
+\section{Schematic Truth Tables}\label{s:SchematicTruthTables}
 
 We introduced five connectives in chapter \ref{ch.TFL}. To give substance to the claim that they are truth-functional, we simply need to explain how each connective yields a truth value for a compound sentence with that connective as its main connective, when supplied with the truth values of its \define{immediate subsentences}. In any sentence of the form $\meta{A} \eif \meta{B}$, $\meta{A}$ and $\meta{B}$ are the immediate subsentences, since those combine with the main connective to form the sentence.
 
@@ -119,7 +119,7 @@ You can think of the biconditional as saying that the two immediate constituents
 
 
 
-\section{Symbolising versus translating} \label{sec:symvstrans}
+\section{Symbolising Versus Translating} \label{sec:symvstrans}
 
 
 We have seen how to use a symbolisation key in §\ref{s:ValidityInVirtueOfForm} to \emph{temporarily} assign an interpretation to some of the atomic sentences of \TFL. This symbolisation key will at the very least assign a truth-value to those atomic sentences – the same one as the English sentence it symbolises.
@@ -151,7 +151,7 @@ Other textbooks will understand this as a stipulation that the \TFL\ sentence `$
 		When we treat a compound \TFL\ sentence as symbolising an English sentence, we are claiming that they share a truth-functional structure, and that the atomic sentences of the \TFL\ sentence symbolise those sentences which play a corresponding role in the structure of the English sentence.
 	}
 
-\section{Non-truth-functional connectives}
+\section{Non-Truth-Functional Connectives}
 
 In plenty of languages there are connectives that are not truth-functional. In English, for example, we can form a new sentence from any simpler sentence by prefixing it with `It is necessarily the case that …'. The truth value of this new sentence is not fixed solely by the truth value of the original sentence. For consider two true sentences:
 	\begin{earg}
@@ -164,7 +164,7 @@ In these cases, we had the same input truth values, but different output. We can
 
 
 
-\section{Indicative versus subjunctive conditionals}\label{s:IndicativeSubjunctive}
+\section{Indicative Versus Subjunctive Conditionals}\label{s:IndicativeSubjunctive}
 I want to bring home the point that \TFL\ \emph{only} deals with truth functions by considering the case of the conditional. When I introduced the schematic truth table for the material conditional in §\ref{s:SchematicTruthTables}, I did not say much to justify it. Let me now offer two justifications. These are not arguments for the truth function associated with `$\eif$', which is a perfectly legitimate rule for associating input truth values with outputs. What needs justification is our idea that we should use this truth function when symbolise English sentences whose main connective is `if … then …'. They attempt to show that our usage of the English conditional `if' is in line with the way `$\eif$' behaves.
 
 \paragraph{Edgington's Argument}
@@ -248,7 +248,7 @@ For now, I shall content myself with the observation that `$\eif$' is the only p
 \problempart
 \emph{True or false}: if the main connective of some sentence is truth-functional, then the truth value of the sentence uniquely determines the truth values of any constituents.
 
-\problempart Suppose $†$ is some English one-place connective, so that '$†\meta{A}$' is a grammatical sentence. How can we test if it is not truth-functional?
+\problempart Suppose $†$ is some English one-place connective, so that `$†\meta{A}$' is a grammatical sentence. How can we test if it is not truth-functional?
 
 
 
@@ -270,13 +270,13 @@ A valuation is a temporary assignment of `meanings' to \TFL\ sentences, in much 
 
 This is rather unlike English, where most words have their meanings on a permanent basis. But there are some words in English – like pronouns (`he', `she', `it') and demonstratives (`this', `that') – that get their meaning assigned temporarily, and then can be reused with a different meaning in another context. Such expressions are called \define{context sensitive}. In this sense, all the atomic sentences of \TFL\ are context sensitive expressions. Of course we don't have anything so explicit and deliberate as a valuation or a symbolisation key in English to assign a meaning to a particular use of `this' or `that' – the circumstances of a conversation automatically assign an appropriate object (usually). In \TFL, however, we need to explicitly set out the interpretations of the atomic sentences we are concerned with. 
 
-\section{Truth tables}
+\section{Truth Tables}
 
 We introduced schematic truth tables in §\ref{s:SchematicTruthTables}. These showed what truth value a compound sentence with a certain structure was determined to have by the truth values of its subsentences, whatever they might be. We now introduce a closely related idea, that of a truth table. This shows how a specific compound sentence has its truth value determined by the truth values of its specific \emph{atomic subsentences}, across all the possible ways that those atomic subsentences might be assigned True and False.
 
 You will no doubt have realised that a way of assigning True and False to atomic sentences is a valuation. So we can say: a \define{truth table} summarises how the truth value of a compound sentence depends on the possible valuations of its atomic subsentences. Each row of a truth table represents a possible valuation. The entire complete truth table represents all possible valuations. And the truth table provides us with a means to calculate the truth value of complex sentences, on each possible valuation. This is pretty abstract. So it might be easiest to explain with an example.
 
-\section{A worked example}
+\section{A Worked Example}
 Consider the sentence `$(H\eand I)\eif H$'. There are four possible ways to assign True and False to the atomic sentences `$H$' and `$I$': both true, both false, `$H$' true and `$I$' false, and `$I$' true and `$H$' false. So there are four possible valuations of these two atomic sentences. We can lay out these valuations as follows:
 \begin{center}
 \begin{tabular}{c c|d e e e f} \toprule 
@@ -338,7 +338,7 @@ $H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
 \end{center}
 Most of the columns underneath the sentence are only there for bookkeeping purposes. The column that matters most is the column underneath the \emph{main connective} for the sentence, since this tells you the truth value of the entire sentence. I have emphasised this, by putting this column in bold. When you work through truth tables yourself, you should similarly emphasise it (perhaps by drawing a box around the relevant column).
 
-\section{Building complete truth tables}
+\section{Building Complete Truth Tables}
 A \define{complete truth table} has a row for every possible assignment of True and False to the relevant atomic sentences. Each row represents a \emph{valuation}, and a complete truth table has a row for all the different valuations. 
 
 The size of the complete truth table depends on the number of different atomic sentences in the table. A sentence that contains only one atomic sentence requires only two rows, as in the schematic truth table for negation. This is true even if the same letter is repeated many times, as in the sentence
@@ -430,7 +430,7 @@ We have a similar surrogate for necessary falsity:
 We can determine whether a sentence is a logical falsehood just by using truth tables. If the sentence is false on every row of a complete truth table, then it is false on every valuation, so it is a logical falsehood. In the example of §\ref{s:CompleteTruthTables}, `$\bigl( (C\eiff C) \eif C\bigr)  \eand \enot(C \eif C)$' is a logical falsehood. A logical falsehood is often called a \define{contradiction}.
 
 
-\section{Logical equivalence}
+\section{Logical Equivalence}
 Here is a similar, useful notion:
 	\factoidbox{
 		$\meta{A}$ and $\meta{B}$ are \define{logically equivalent} iff they have the same truth value on every valuation among those which assign both of them a truth value.
@@ -448,7 +448,7 @@ $P$&$Q$&\enot&$(P$&\eor&$Q)$&\enot&$P$&\eand&\enot&$Q$\\
 \end{center}
 Look at the columns for the main connectives; negation for the first sentence, conjunction for the second. On the first three rows, both are false. On the final row, both are true. Since they match on every row, the two sentences are logically equivalent. 
 
-\section{More parenthetical conventions}\label{s:MoreParentheticalConventions}
+\section{More Parenthetical Conventions}\label{s:MoreParentheticalConventions}
 Consider these two sentences:
 	\begin{align*}
 		((A \eand B) \eand C)\\
@@ -580,10 +580,10 @@ The only row on which both`$\enot L \eif (J \eor L)$' and `$\enot L$' are true i
 
 
 
-\section{The double-turnstile}
+\section{The Double Turnstile}
 We are going to use the notion of entailment rather a lot in this book. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the \TFL\ sentences $\meta{A}_1, \meta{A}_2, …$ and $\meta{A}_n$ together entail $\meta{C}$, we shall abbreviate this by:
 	\[\meta{A}_1, \meta{A}_2, …, \meta{A}_n \entails \meta{C}.\]
-The symbol `$\entails$' is known as \emph{the double-turnstile}, since it looks like a turnstile with two horizontal beams.
+The symbol `$\entails$' is known as the \define{double turnstile}, since it looks like a turnstile with two horizontal beams.
 
 But let me be clear. `$\entails$' is not a symbol of \TFL. Rather, it is a symbol of our metalanguage, augmented English (recall the difference between object language and metalanguage from §\ref{s:UseMention}). So the metalanguage sentence:
 	\begin{earg}
@@ -624,7 +624,7 @@ When `$\eif$' is flanked with two \TFL\ sentences, the result is a longer \TFL\ 
 
 If $\meta{A}\eif\meta{C}$ is a logical truth, then $\meta{A}\entails\meta{C}$. But $\meta{A}\eif\meta{C}$ can be true on a valuation without being a logical truth, and so can be true on a valuation even when $\meta{A}$ doesn't entail $\meta{C}$. Sometimes people are inclined to confuse entailment and conditionals, perhaps because they are tempted by the thought that we can only establish the truth of a conditional by \emph{logically deriving} the consequent from the antecedent. But while this is the way to establish the truth of a logically true conditional, most conditionals posit a weaker relation between antecedent and consequent than that – for example, a causal or statistical relationship might be enough to justify the truth of the conditional `If you smoke, then you'll lower your life expectancy'.
 
-\section{Entailment and validity} \label{s:entailvalid}
+\section{Entailment and Validity} \label{s:entailvalid}
 
 We now make an important observation:
 	\factoidbox{
@@ -662,7 +662,7 @@ F & F & T & F & T \\ \bottomrule
 Our test uses the precisely defined relation of entailment in \TFL\ as a test for validity in natural language. If we have symbolised an argument successfully, then we have captured its form (or rather, one of its forms). If the symbolised \TFL\ argument turns out to be valid, we can conclude that the natural language argument is valid too, because it can be modelled as having a valid form.
 
 
-\section{The limits of these tests}\label{s:ParadoxesOfMaterialConditional}
+\section{The Limits of these Tests}\label{s:ParadoxesOfMaterialConditional}
 We have reached an important milestone: a test for the validity of arguments! But, we should not get carried away just yet. It is important to understand the \emph{limits} of our achievement. There are three sorts of limitations I want to discuss: \begin{enumerate}
 	\item Some valid arguments are overlooked by our test;
 	\item Some invalid arguments are misclassified by a naive application of our test to an inadequate symbolisation; and
@@ -768,7 +768,7 @@ Is this principle correct? Explain your answer.
 \chapter{Truth Table Shortcuts}\label{s:shortcuts}
 With practice, you will quickly become adept at filling out truth tables. In this section, I want to give you some permissible shortcuts to help you along the way. 
 
-\section{Working through truth tables}
+\section{Working through Truth Tables}
 You will quickly find that you do not need to copy the truth value of each atomic sentence, but can simply refer back to them. So you can speed things up by writing:
 \begin{center}
 \begin{tabular}{c c|d e e e e f} \toprule 
@@ -815,7 +815,7 @@ $P$&$Q$& $((P$&\eif&$Q$)&\eif&$P)$&\eif&$P$\\
 \end{center}
 So `$((P \eif Q) \eif P) \eif P$' is a logical truth. In fact, it is an instance of \emph{Peirce's Law}, named after Charles Sanders Peirce.
 
-\section{Testing for validity and entailment}
+\section{Testing for Validity and Entailment}
 When we use truth tables to test for validity or entailment, we are checking for \emph{bad} rows: rows where the premises are all true and the conclusion is false. Note:
 	\begin{itemize}
 		\item Any row where the conclusion is true is not a bad row. 
@@ -945,7 +945,7 @@ Using shortcuts, determine whether each sentence is a logical truth, a logical f
 
 Sometimes, we do not need to know what happens on every row of a truth table. Sometimes, just a single row or two will do. 
 
-\section{Direct uses of partial truth tables}\label{s:directPartialTruthTable}
+\section{Direct Uses of Partial Truth Tables}\label{s:directPartialTruthTable}
 
 \paragraph{Logical Truth} 
 In order to show that a sentence is a \emph{logical truth} (tautology), we need to show that it is true on every valuation. That is to say, we need to know that it comes out true on every row of the truth table. So, it seems, we need a complete truth table. 
@@ -1082,7 +1082,7 @@ entailment? & all valuations: complete truth table & one valuation: partial trut
 In all these uses of partial truth tables, we must begin constructing them with a particular semantic property in mind. We will begin the construction with a different hypothesis about the target sentence, depending on what property we are testing for. If we are using partial truth tables to test consistency, we will begin by assigning each sentence `true'. If we are testing for validity, we will assign the premises `true', but the conclusion `false'.
 
 
-\section{Indirect uses of partial truth tables}
+\section{Indirect Uses of Partial Truth Tables}
 
 We just saw how to use partial truth tables to directly construct a valuation which demonstrates that an argument is invalid, or that some sentences are consistent, etc.
 
@@ -1195,7 +1195,7 @@ Use complete or partial truth tables (as appropriate) to determine whether each 
 When we introduced the idea of truth-functionality in §\ref{def.truthfunction}, we observed that every sentence connective in \TFL\ was truth-functional. As we noted, that property allows us to represent complex sentences involving only these connectives using truth tables.
 
 
-\section{Other truth-functional connectives}
+\section{Other Truth-Functional Connectives}
 Are there other truth functional connectives than those in \TFL? If there were, they would have schematic truth tables that differ from those for any of our connectives. And it is easy to see that there are. Consider this proposed connective:
 
 \paragraph{The Sheffer stroke} For any sentences \meta{A} and \meta{B}, $\meta{A}\downarrow\meta{B}$ is true if and only if both \meta{A} and \meta{B} are false. We can summarize this in the {schematic truth table} for the Sheffer Stroke:
@@ -1225,7 +1225,7 @@ F & F & F\\
 
 In fact, it can be shown that there are many other potential truth-functional connectives that are not included in the language \TFL.\footnote{There are in fact sixteen truth-functional connectives that join two simpler sentences into a complex sentence, but \TFL\ only includes four. (Why sixteen? Because there are four rows of the schematic truth table for such a connective, and each row can have either a T or an F recorded against it, independent of the other rows, so there are $2\times 2 \times 2 \times 2 = 16$ ways of constructing such a truth-table.)} 
 
-\section{The expressive power of \TFL}
+\section{The Expressive Power of \TFL}
 
 Should we be worried about this, and attempt to add new connectives to \TFL? It turns out we already have enough connectives to say \emph{anything} we wish to say that makes use of only truth-functional connectives. The connectives that are already in \TFL\ are \define{truth-functionally complete}: \factoidbox{For any truth-functional connective in any language – that is, which has a truth-table – there is a schematic sentence of \TFL\ which has the same truth table.} Remember that a schematic sentence is something like $\meta{A} \eor \enot \meta{B}$, where arbitrary \TFL\ sentences can fill the places indicated by \meta{A} and \meta{B}.
 
@@ -1265,7 +1265,7 @@ $\meta{A}$&$\meta{B}$& `Exactly one of $\meta{A}$ and $\meta{B}$' &  $(\meta{A} 
 \end{center} 
 As we can see, we have come up with a schematic \TFL\ sentence with the intended truth table. 
 
-\section{The disjunctive normal form procedure}
+\section{The Disjunctive Normal Form Procedure}
 
 
 The procedure sketched above can be generalised: \begin{enumerate}
