@@ -181,11 +181,9 @@ The symbolisation keys that I considered in chapter \ref{ch.FOL} consequently gi
 \end{itemize}
 
 
-\section{Representing Interpretations}\label{graph}
+\section{Representing one-place predicates: Euler diagrams}\label{euler}
 
 One way of presenting an interpretation that is often convenient is to present its extensions \emph{diagrammatically}. 
-
-\paragraph{Representing one-place predicates: Euler diagrams}
 
 The definition of an interpretation in §\ref{ss.int} entailed that a one-place predicate should have as its extension a collection of things drawn from the domain. That is, the extension of a predicate is a \define{subset} of the domain. We can represent subsets graphically using a \define{Euler diagram}, without having to specify each of the items which is in the domain.
 
@@ -256,7 +254,7 @@ If you would like a real challenge, you might try to figure out the interpretati
 	\includegraphics[width=0.85\textwidth]{chat_systems.png}
 \end{center}
 
-\paragraph{Representing two-place predicates: directed graphs}
+\section{Representing two-place predicates: directed graphs} \label{graph}
 
 Suppose we want to consider just a single two-place predicate, `$R$'. Then we can represent it, in some cases, by depicting the members of the domain by writing them down, and drawing a single-headed arrow between items just in case the relation holds between them (in the right order). Such a diagram is known as a \define{directed graph}, which is given by a collection of \emph{nodes} (the objects in the domain we are representing) and a collection of arrows between them (which represent how the relation holds on that domain.) We stipulate that `$R$' is to hold of \meta{x} and \meta{y} just in case there is an arrow running from \meta{x} to \meta{y} in our diagram. As an example, consider the following interpretation, written in the more standard manner:
 \begin{ekey}

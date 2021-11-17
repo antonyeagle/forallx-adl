@@ -362,7 +362,7 @@ Now we will have to symbolise sentence \ref{pickdomainrose} with `$\forall x (Rx
 
 In general, the universal quantifier can be used to symbolise the English expression `everyone' if the domain only contains people. If there are people and other things in the domain, then `everyone' must be treated as `every person'.
 
-If you choose a narrow domain, you can make the task of symbolisation easier. If we are attempting to symbolise example \ref{q.eshe}, `every girl thinks that she deserves icecream', we can pick the domain to be girls and then we only need to introduce a predicate `\blank\ thinks that they themselves deserve icecream', symbolised `$D$'. The symbolisation is then the simple `$\forall x Dx$'. But our options are limited if the conversation goes on to talk about things other than girls. On the other hand, if you pick an expansive domain (such as everything whatsoever), you can always just impose an appropriate restriction. In this case, we could introduce the predicate `$G$' to stand for `\blank\ is a girl', and symbolise the sentence as `$\forall x (Gx \to Dx)$'. 
+If you choose a narrow domain, you can make the task of symbolisation easier. If we are attempting to symbolise example \ref{q.eshe}, `every girl thinks that she deserves icecream', we can pick the domain to be girls and then we only need to introduce a predicate `\blank\ thinks that they themselves deserve icecream', symbolised `$D$'. The symbolisation is then the simple `$\forall x Dx$'. But our options are limited if the conversation goes on to talk about things other than girls. On the other hand, if you pick an expansive domain (such as everything whatsoever), you can always just impose an appropriate restriction. In this case, we could introduce the predicate `$G$' to stand for `\blank\ is a girl', and symbolise the sentence as `$\forall x (Gx \eif Dx)$'. 
 
 When choosing an expansive domain, you must take some care with implicitly restricted predicates. It would not be appropriate to paraphrase `all the beer has been drunk' relative to a very expansive domain as `For everything: if it is beer, it has been drunk'. To adequately capture the intent, we shall need to make the implicit contextual restriction of the predicate explicit, in something like this paraphrase `For everything: if it is beer at the party, it has been drunk'.
 
@@ -402,7 +402,7 @@ Sentence \ref{anyone2} can be paraphrased, `For all people x, if x is a bassist,
 The word `any' is particularly tricky, because it can sometimes mean `every' and sometimes `at least one'! Think about the two occurrences of `any' in this sentence: \begin{earg}
 \item[\ex{student.any}] Any student will be happy if they have any money.\\
  For every student: if there exists some money they possess, then they will  be happy.
-\end{earg} This can be symbolised `$\forall x (Sx \to (\exists y (My \wedge Pxy) \to Hx))$', where the first occurrence of `any' is represented by a universal quantifier, and the second by an existential quantifier.  
+\end{earg} This can be symbolised `$\forall x (Sx \eif (\exists y (My \wedge Pxy) \eif Hx))$', where the first occurrence of `any' is represented by a universal quantifier, and the second by an existential quantifier.  
 
 The moral is that the English words `any' and `anyone' should typically be symbolised using quantifiers. And if you are having a hard time determining whether to use an existential or a universal quantifier, try paraphrasing the sentence with an English sentence that uses words \emph{besides} `any' or `anyone'.\footnote{The story about `any' and `anyone' is actually rather interesting. It is well-known to linguists that `any' has at least two readings: so-called \define{free choice `any'}, which is more or less like a universal quantifier (`Any friend of Jessica's is a friend of mine!'), and \define{negative polarity (NPI) `any'}, which only occurs in `negative' contexts, like negation (`I don't want any peas!'), where it functions more or less like an existential quantifier (`It is not the case that: there exist peas that I want'). 
 
@@ -435,8 +435,8 @@ In the sentence `$\enot(Bk \eif Bb)$', the scope of `$\enot$' is the entire sent
 
 Scope can make a drastic difference in meaning. Reconsider these examples:
 \begin{earg}
-    			\item[\ex{ben1}] $(\overbracket{\forall x Bx}^{\text{Scope of `$\forall x$'}}\to Bb)$\\ If everything is $B$, then $b$ is too. \emph{Trivially true}
-    			\item[\ex{ben2}] $\overbracket{\forall x (Bx \to Bb)}^{\text{Scope of `$\forall x$'}}$\\ All $B$s are such that $b$ is $F$. \emph{False if $b$ isn't $F$ but there are some $F$s}
+    			\item[\ex{ben1}] $(\overbracket{\forall x Bx}^{\text{Scope of `$\forall x$'}}\eif Bb)$\\ If everything is $B$, then $b$ is too. \emph{Trivially true}
+    			\item[\ex{ben2}] $\overbracket{\forall x (Bx \eif Bb)}^{\text{Scope of `$\forall x$'}}$\\ All $B$s are such that $b$ is $F$. \emph{False if $b$ isn't $F$ but there are some $F$s}
     		\end{earg}
 
 The moral of the story is simple. When you are using quantifiers and conditionals, be very careful to make sure that you have sorted out the scope correctly. 
@@ -796,9 +796,6 @@ $$\forall x \bigl(Fxg \eif \exists x(Dx \eand Oxx) \bigr).$$
 Here we have a \define{clash of variables}. The scope of the universal quantifier, `$\forall x$', is the entire conditional. But `$Dx$' also falls within the scope of the existential quantifier `$\exists x$'. Which quantifier has priority and governs the interpretation of the variable? In \FOL, if a variable $\meta{x}$ occurs in an \FOL\ sentence, it is always governed by the quantifier which has the narrowest scope which includes that occurrence of \meta{x}. So in the sentence above, the quantifier `$\exists x$' governs every occurrence of `$x$' in `$(Dx \eand Oxx)$'. Given this, the symbolisation does not mean what we intended. It says, roughly, `everyone who is a friend of Geraldo is such that there is a self-owning dog'. This is not at all the meaning of the English sentence we are aiming to symbolise.
 
 
-% And now confusion reigns: which `$x$' are we talking about? Suddenly the sentence would be ambiguous (if it is even meaningful at all), and logicians hate ambiguity. The broad moral is that a single variable cannot serve two masters simultaneously. 
-% Æ: this is not a problem.
-
 To provide an adequate symbolisation, then, we must avoid clashing variables. We can do this easily enough. There was no requirement to use `$x$' as the variable in our symbolisation of \ref{dog2}, so we can easily choose some different variable for our existential quantifier. That will give us something like this, which adequately symbolises sentence \ref{dog4}:
 $$\forall x\bigl(Fxg \eif\exists z(Dz \eand Oxz) \bigr).$$
 
@@ -883,19 +880,19 @@ Using the following symbolisation key:
 \item[L] \gap{1} is larger than \gap{2}
 \item[b] Bertie
 \item[e] Emerson
-\item[f] Fergis
+\item[f] Fergus
 \end{ekey}
 symbolise the following sentences in \FOL:
 \begin{earg}
 \item Bertie is a dog who likes samurai movies.
-\item Bertie, Emerson, and Fergis are all dogs.
-\item Emerson is larger than Bertie, and Fergis is larger than Emerson.
+\item Bertie, Emerson, and Fergus are all dogs.
+\item Emerson is larger than Bertie, and Fergus is larger than Emerson.
 \item All dogs like samurai movies.
 \item Only dogs like samurai movies.
 \item There is a dog that is larger than Emerson.
-\item If there is a dog larger than Fergis, then there is a dog larger than Emerson.
+\item If there is a dog larger than Fergus, then there is a dog larger than Emerson.
 \item No animal that likes samurai movies is larger than Emerson.
-\item No dog is larger than Fergis.
+\item No dog is larger than Fergus.
 \item Any animal that dislikes samurai movies is larger than Bertie.
 \item There is an animal that is between Bertie and Emerson in size.
 \item There is no dog that is between Bertie and Emerson in size.
@@ -906,6 +903,28 @@ symbolise the following sentences in \FOL:
 \end{earg}
 
 \problempart
+Using this symbolisation key, 
+\begin{ekey}
+	\item[\text{domain}] all animals
+	\item[L] \gap{1} is larger than \gap{2}.
+	\item[F] \gap{1} is friendlier than \gap{2}.
+	\item[D] \gap{1} is a dog.
+	\item[b] Bertie.
+	\item[e] Emerson.
+	\item[f] Fergus.
+\end{ekey}
+render the following into natural English, commenting on any difficulties:
+\begin{earg}
+	\item $(Leb \wedge Lfe)$;
+	\item $\exists x (Dx \eand Lxe)$;
+	\item $\bigl(\exists x (Dx \eand Lxf) \eif \exists y (Dy \eand Fye)\bigr)$;
+	\item $\forall x (Dx \eif \neg Lxf)$;
+	\item $\exists y ((Lyb \eand Ley) \eor (Lye \eand Lby))$;
+	\item $\forall x (Dx \eif \exists y (Dy \eand Fxy))$;
+	\item $\forall x \forall y (Lxy \eif \exists z (Dz \eand (Fyz \eand Fzx)))$.
+\end{earg}
+
+\problempart
 Using the following symbolisation key:
 \begin{ekey}
 \item[\text{domain}] people and dishes at a potluck
@@ -913,22 +932,22 @@ Using the following symbolisation key:
 \item[T] \gap{1} is on the table.
 \item[F] \gap{1} is food.
 \item[P] \gap{1} is a person.
+\item[G] \gap{1} is guacamole.
 \item[L] \gap{1} likes \gap{2}.
 \item[e] Eli
 \item[f] Francesca
-\item[g] the guacamole
 \end{ekey}
-symbolise the following English sentences in \FOL:
+render the following into natural English, commenting on any difficulties:
 \begin{earg}
-\item All the food is on the table.
-\item If the guacamole has not run out, then it is on the table.
-\item Everyone likes the guacamole.
-\item If anyone likes the guacamole, then Eli does.
-\item Francesca only likes the dishes that have run out.
-\item Francesca likes no one, and no one likes Francesca.
-\item Eli likes anyone who likes the guacamole.
-\item Eli likes anyone who likes the people that he likes.
-\item If there is a person on the table already, then all of the food must have run out.
+\item $\forall x (Fx \eif Tx)$; %All the food is on the table.
+\item $(\exists x Gx \eif \forall x (Gx \eif Tx))$; %If the guacamole has not run out, then it is on the table.
+\item $\forall x \forall y ((Px \eand Gy)\eif Lxy)$; %Everyone likes the guacamole.
+\item $\exists x \exists y (((Gx\eand Py) \eand Lyx) \eif Lex)$; %If anyone likes the guacamole, then Eli does.
+\item $\forall x(Lfx \eif Rx) $; %Francesca only likes the dishes that have run out.
+\item $\forall x (Px \to \enot (Lfx \eor Lxf))$; %Francesca likes no one, and no one likes Francesca.
+\item $\forall x (\exists y (Gy \eand Lxy) \to Lex)$; %Eli likes anyone who likes the guacamole.
+\item $\forall x \forall y ((Px \eand Py) \eif ((Lex \eand Lyx) \eif) Ley)$; %Eli likes anyone who likes the people that he likes.
+\item $(\exists x (Px \eand Tx) \eif \forall y (Fy \to Ry))$. %If there is a person on the table already, then all of the food must have run out.
 \end{earg}
 
 
@@ -963,6 +982,9 @@ symbolise the following arguments in \FOL:
 \item Every woman who dances ballet is the child of someone who dances ballet.
 \end{earg}
 
+
+
+
 \problempart
 Consider the following symbolisation key:
 \begin{ekey}
@@ -971,6 +993,7 @@ Consider the following symbolisation key:
 \item[T] \gap{1} is taller than \gap{2}.
 \end{ekey}
 If we hold fixed this assignment of meanings to the predicates, why is it possible that `$\exists x \forall y Pxy$' is true, but not possible that  `$\exists x \forall y Txy$' is true?
+
 
 \chapter{Identity}\label{sec.identity}
 
@@ -1023,7 +1046,12 @@ Logicians resolve this issue by adding identity as a new \emph{logical} predicat
 
 The symbol `$=$' is a two-place predicate. Since it is to have a special meaning, we shall write it a bit differently: we put it between two terms, rather than out front. And it \emph{does} have a very particular fixed meaning. Like the quantifiers and connectives, the identity predicate does not need a symbolisation key to fix how it is to be used. Rather, it always gets the same interpretation: $x=y$ always means `\gap{1} is identical to \gap{2}'. So identity is a special predicate because it has its meaning as part of logic.
 
-That one thing is identical to another does not mean \emph{merely} that the objects in question are indistinguishable, or that all of the same things are true of them. Rather, it means that the objects in question are \emph{the very same} object.
+That one thing is logically identical to another does not mean \emph{merely} that the objects in question are indistinguishable, or that all of the same things are true of them. When two things are alike in every respect, we may say they are \define{qualitatively identical}. This is the sense of identity involved in `identical twins', who are two distinct individuals who share their properties. In \FOL, the identity predicate represents not this relation of similarity, but a relation of absolute or \define{numerical identity}: there is only one, rather than two. This is the sense in which Lewis Carroll (the author of \emph{Alice in Wonderland}) is identical to Charles Lutwidge Dodgson (the Oxford mathematician): `they' are the very same person, with two different names.
+
+This might seem odd. Identity is a relation, but it doesn't relate different things to each other: it relates everything to itself, and to nothing else. We need a predicate for that relation because the names and (especially) variables of \FOL\ aren't guaranteed to have different referents, and sometimes we want to explicitly require that two terms don't denote the same thing. For example, suppose we want to symbolise `Barry is the tallest person'. You might try `Barry is taller than everyone'. However, that would lead to the absurdity that Barry is taller than himself, since he is surely among `everyone'. So what we really need is `Barry is taller than everyone \emph{else}, i.e., everyone who's not (identical to) Barry', which is most naturally formulated using the identity predicate.
+
+
+\section{Symbolising Identity Sentences}
 
 Now suppose we want to symbolise this sentence:
 \begin{earg}
@@ -1035,7 +1063,9 @@ Let us add to our symbolisation key:
 	\end{ekey}
 Now sentence \ref{else2} can be symbolised as `$p=c$'. This means that $p$ is $c$, and it follows that the thing named by `$p$' is the thing named by `$c$'.\footnote{One must be careful: the sentence `$p=c$' is, on this symbolisation, about Pavel and Mister Checkov; it is not about `Pavel' and `Mister Checkov', which are obviously distinct expressions of English.}
 
-We can also now deal with sentences \ref{else1b}–\ref{else1d}. All of these sentences can be  paraphrased as `Everyone who isn't Pavel is such that: Pavel owes money to them'. Paraphrasing some more, we get: `For all x, if x is not Pavel, then x is owed money by Pavel'. Now that we are armed with our new identity symbol, we can symbolise this as `$\forall x (\enot x = p \eif Opx)$'.
+Let's return to our example `Barry is taller than everyone else'. We want to start with a paraphrase: pick anyone; if they are not Barry, than Barry is taller than them. Where $b$ symbolises `Barry' and $T$ symbolises `\gap{1} is taller than \gap{2}', we want to symbolise this as: $\forall x (\enot x = b \eif Tbx)$ (on the domain of people). 
+
+Using that same kind of structure, we can also now deal with sentences \ref{else1b}–\ref{else1d}. All of these sentences can be  paraphrased as `Everyone who isn't Pavel is such that: Pavel owes money to them'. Paraphrasing some more, we get: `For all x, if x is not Pavel, then x is owed money by Pavel'. Now that we are armed with our new identity symbol, we can symbolise this as `$\forall x (\enot x = p \eif Opx)$'.
 
 This last sentence contains the formula `$\enot x = p$'. And that might look a bit strange, because the symbol that comes immediately after the `$\enot$' is a variable, rather than a predicate. But this is no problem. We are simply negating the entire formula, `$x = p$'. But if this is confusing, you may use  the \define{non-identity relation} `$≠$'. This is an abbreviation, characterised as folllows: \factoidbox{Any occurrence of the expression `$\meta{x}≠\meta{y}$' in a sentence abbreviates the expression `$\enot \meta{x} = \meta{y}$', and either can substitute for the other in any \FOL\ sentence.} I will use both expressions in what follows, but strictly speaking `$\enot a = b$' is officially part of the language, though it can also be represented by `$a≠b$'.
 
@@ -1049,20 +1079,26 @@ Sentence \ref{else3} can be paraphrased as, `No one who is not Pavel owes money 
 
 Sentence \ref{else4} can be treated similarly. But there is one subtlety here. Do either sentence \ref{else3} or \ref{else4} entail that Pavel himself owes money to Hikaru? 
 
-
-
 \section{Principles of Identity} \label{lli}% Æ added
 
 Return to our argument from premises \ref{hikaru1} and \ref{hikaru2}. We now symbolise it: $\forall y (p≠y \eif Opy); h≠p \ttherefore Oph$. This argument is valid. Given the fixed interpretation we have assigned to `$=$', it is not possible that a first thing be not identical to a second, while the second is identical to the first. So we can conclude, as a matter of logical alone, that $h≠p$ is equivalent to $p≠h$. 
 
-This argument rests on one of the logical principles governing identity: that it is \define{symmetric}, so that $\meta{x}=\meta{y}$ is logically equivalent to $\meta{y}=\meta{x}$. There are other logical principles of identity too. Everything is itself, and not another thing. So everything has the `relation' of identity to itself: $\meta{x}=\meta{x}$ is always true, no matter what name we substitute for \meta{x}. This is known as \define{reflexivity} of identity. Finally,
-if \meta{x} is identical to \meta{y}, and \meta{y} identical to \meta{z}, then it follows that $\meta{x}=\meta{z}$. Logicians call this feature of a relation \define{transitivity}.
+This argument rests on one of the logical principles governing identity: that if $a$ is $b$, then $b$ is $a$. This property is known as symmetry, and is one of a cluster of basic properties governing the structure of identity:
+\factoidbox{\begin{itemize}
+	\item  Identity is \define{reflexive}: everything is identical to itself. So for any meaningful name `\meta{a}', `$\meta{a}=\meta{a}$' is true.
+		\item Identity is \define{symmetric}: if $\meta{a} = \meta{b}$,  then also $\meta{b} = \meta{a}$.
+		\item Identity is \define{transitive}: if $\meta{a} = \meta{b}$,  and $\meta{b} = \meta{c}$, then also $\meta{a} = \meta{c}$.  
+	\end{itemize}}
+These principles can apply to other two-place predicates too. For example, the relation `\gap{1} is taller than \gap{2}' is also transitive, since if Albert is taller than Barbara, and Barbara is taller than Chloe, then Albert must be taller than Chloe too. But it is not reflexive or symmetric: Albert is not taller than himself, and if Albert is taller than Barbara, it cannot be also that Barbara is taller than Albert. We will return to this topic in §\ref{graph}.
 
-The final principle about identity has its own name, \define{Leibniz' Law} (after the philosopher and mathematician Gottfried Leibniz): \factoidbox{If $\meta{x}=\meta{y}$ then for any property at all,  $\meta{x}$ has it iff $\meta{y}$ has it too. That is: every instance of this schematic sentence of \FOL, for any predicate $\meta{F}$ whatsoever, is true: $$\forall x \forall y \bigl(x=y \eif (\meta{F}x \eiff \meta{F}y) \bigr).$$} 
-Leibniz' Law certainly entails that identical things are indistinguishable, sharing every property in common. But as we have already noted, identity isn't merely indistinguishability. Two things might be indistinguishable, but if there are two, they are not strictly identical in the logical sense we are concerned with. 
+A final principle about identity is \define{Leibniz' Law}, named after the philosopher and mathematician Gottfried Leibniz: \factoidbox{If $\meta{x}=\meta{y}$ then for any property at all,  $\meta{x}$ has it iff $\meta{y}$ has it too. That is: every instance of this schematic sentence of \FOL, for any predicate $\meta{F}$ whatsoever, is true: $$\forall x \forall y \bigl(x=y \eif (\meta{F}x \eiff \meta{F}y) \bigr).$$} 
+Leibniz' Law certainly entails that identical things are indistinguishable, sharing every property in common. But as we have already noted, identity isn't merely indistinguishability. Two things might be indistinguishable, but if there are two, they are not strictly identical in the logical sense we are concerned with. Yet in many cases, even very similar things do turn out to have some distinguishing property. There is a significant philosophical controversy over whether there can be cases of mere numerical difference, i.e., of non-identity without any qualitative dissimilarity. 
 
 \section{There are at Least …}
-We can also use identity to say how many things there are of a particular kind. For example, consider these sentences:
+
+So far an identity predicate might seem useful in a few cases, like pseudonyms, but a bit niche. In fact, adding it to our language gives us the ability to say lots of things we cannot hope to say without it. In particular, the identity predicate gives us the ability to \emph{count} – to quantify our quantifiers, and say how many things there are of a particular kind. 
+
+For example, consider these sentences:
 \begin{earg}
 \item[\ex{atleast1}] There is at least one apple
 \item[\ex{atleast2}] There are at least two apples
@@ -1074,7 +1110,7 @@ We shall use the symbolisation key:
 	\end{ekey}
 Sentence \ref{atleast1} does not require identity. It can be adequately symbolised by `$\exists x Ax$': There is some apple; perhaps many, but at least one.
 
-It might be tempting to also translate sentence \ref{atleast2} without identity. Yet consider the sentence `$\exists x \exists y(Ax \eand Ay)$'. Roughly, this says that there is some apple x in the domain and some apple y in the domain. Since nothing precludes these from being one and the same apple, this would be true even if there were only one apple. In order to make sure that we are dealing with \emph{different} apples, we need an identity predicate. Sentence \ref{atleast2} needs to say that the two apples that exist are not identical, so it can be symbolised by `$\exists x \exists y(Ax \eand Ay \eand \enot x = y)$'.
+It might be tempting to also translate sentence \ref{atleast2} without identity. Yet consider the sentence `$\exists x \exists y(Ax \eand Ay)$'. Roughly, this says that there is some apple $x$ in the domain and some apple $y$ in the domain. Since nothing precludes these from being one and the same apple, this would be true even if there were only one apple.\footnote{Note that both $\exists x Ax$ and $\exists y Ay$ are true in a domain with only one apple: the use of different variables doesn't require that different apples are the values of those variables.} In order to make sure that we are dealing with \emph{different} apples, we need an identity predicate. Sentence \ref{atleast2} needs to say that the two apples that exist are not identical, so it can be symbolised by `$\exists x \exists y(Ax \eand Ay \eand \enot x = y)$'.
 
 Sentence \ref{atleast3} requires talking about three different apples. Now we need three existential quantifiers, and we need to make sure that each will pick out something different: `$\exists x \exists y\exists z(Ax \eand Ay \eand Az \eand  x ≠ y \eand  y ≠ z \eand x ≠ z)$'.
 
@@ -1097,7 +1133,7 @@ $$\forall x\forall y\forall z\bigl( (Ax \eand Ay \eand Az) \eif (x=y \eor x=z \e
 
 
 \section{There are Exactly …}
-We can now consider precise statements, like:
+Now w can symbolise `there are at least $n$', and we can symbolise `there are at most $n$'. Using them together, we can symnbolise `there are exactly $n$':
 \begin{earg}
 \item[\ex{exactly1}] There is exactly one apple.
 \item[\ex{exactly2}] There are exactly two apples.
@@ -1160,9 +1196,12 @@ It might be tempting to add a predicate to our symbolisation key, to symbolise t
 
 \problempart Explain why:
 	\begin{itemize}
-		\item   `$\exists x \forall y(Ay \eiff x= y)$' is a good symbolisation of `there is exactly one apple'.
-		\item `$\exists x \exists y \bigl(\enot x = y \eand \forall z(Az \eiff (x= z \eor y = z) \bigr)$' is a good symbolisation of `there are exactly two apples'.
+	\item   `$\exists x \forall y(Ay \eiff x= y)$' is a good symbolisation of `there is exactly one apple'.
+	\item `$\exists x \exists y \bigl(\enot x = y \eand \forall z(Az \eiff (x= z \eor y = z) \bigr)$' is a good symbolisation of `there are exactly two apples'.
 	\end{itemize}		
+
+
+
 
 \problempart
 \label{pr.FOLcardsa}
@@ -1205,6 +1244,13 @@ symbolise the following sentences in \FOL:
 \item There is a single winged creature in Farmer Brown's field; any other creatures in the field must be wingless.
 \end{earg}
 
+\problempart
+Identity is a reflexive, symmetric, and transitive relation. Can you give examples of relations which are \begin{earg}
+	\item Reflexive and symmetric but not transitive;
+	\item Reflexive and transitive but not symmetric;
+	\item Symmetric and transitive but not reflexive?
+\end{earg}
+
 
 \chapter{Definite Descriptions}\label{subsec.defdesc}
 In \FOL, names function rather like names in English. They are simply labels for the things they name, and may be attached arbitrarily, without any indication of the characteristics of what they name.\footnote{This is not strictly true: consider the name `Fido' which is conventionally the name of a dog. But even here the name doesn't carry any information in itself about what it names – the fact that we use that as a name only for dogs allows someone who knows that to reasonably infer that Fido is a dog. But `Fido is a dog' isn't a necessary truth, as it would be if somehow `Fido' carried with it the information that it applies only to dogs.} 
@@ -1233,7 +1279,7 @@ A second option would be to use a \emph{new} definite description operator, such
 		\item[S] \gap{1} is shorter than \gap{2}
 		\item[n] Nick
 	\end{ekey}
-We could symbolise sentence \ref{traitor1} with `$\maththe x Tx = n$', sentence \ref{traitor2} with `$C\maththe xTx$', sentence \ref{traitor3} with `$\maththe x Tx = \maththe x Dx$', and sentence \ref{traitor4} with `$\maththe x Tx = \maththe x (Cx \wedge \forall y((Cy \wedge x≠y) \to Sxy))$'. This last example may be a bit tricky to parse. In semi-formal English, it says (supposing a domain of persons): `the unique person such that they are a traitor is identical with the unique person such that they went to Cambridge and they are shorter than anyone else who went to Cambridge'. 
+We could symbolise sentence \ref{traitor1} with `$\maththe x Tx = n$', sentence \ref{traitor2} with `$C\maththe xTx$', sentence \ref{traitor3} with `$\maththe x Tx = \maththe x Dx$', and sentence \ref{traitor4} with `$\maththe x Tx = \maththe x (Cx \wedge \forall y((Cy \wedge x≠y) \eif Sxy))$'. This last example may be a bit tricky to parse. In semi-formal English, it says (supposing a domain of persons): `the unique person such that they are a traitor is identical with the unique person such that they went to Cambridge and they are shorter than anyone else who went to Cambridge'. 
 
 However, even adding this new symbol to our language doesn't quite help with our initial complaint, since it is not self-evident that the symbolisation of `The traitor is a traitor' as `$T\maththe x Tx$' yields a logical truth. Moreover, it would be nice if we didn't have to add a new symbol to \FOL. And indeed, we might be able to make do without one.
 
@@ -1516,7 +1562,7 @@ Once we know what atomic formulae are, we can offer recursion clauses to define 
 		\item If \meta{A} is a formula and \meta{x} is a variable, then $\exists\meta{x}\meta{A}$ is a formula.
 		\item Nothing else is a formula.
 	\end {enumerate}
-	} % simplified here to permit e.g. $\forall x (Fx \to \exists x Gx)$ as well-formed – the original definition says that Fx \to \exists x Gx is a formula but its universal closure isn't! 
+	} % simplified here to permit e.g. $\forall x (Fx \eif \exists x Gx)$ as well-formed – the original definition says that Fx \eif \exists x Gx is a formula but its universal closure isn't! 
 Here are some formulae:
 	\begin{center}
 		$Fx$\\
@@ -1541,7 +1587,7 @@ We can now give a formal definition of scope, which incorporates the definition 
 	}
 So we can graphically illustrate the scope of the quantifiers in the last two examples thus:
 	$$\overbracket{\forall x \overbracket{\exists y (Fx \eiff \overbracket{\forall z (Gayz \eif Syzyayx)}^{\text{scope of `}\forall z\text{'}}}^{\text{scope of `}\exists y\text{'}})}^{\text{scope of `}\forall x\text{'}} \qquad\qquad 
-\overbracket{\forall x (Fx \to \overbracket{\exists x Gx}^{\text{scope of `$\exists x$'}})}^{\text{scope of `$\forall x$'}}	$$
+\overbracket{\forall x (Fx \eif \overbracket{\exists x Gx}^{\text{scope of `$\exists x$'}})}^{\text{scope of `$\forall x$'}}	$$
 
 Note that it follows from our recursive definition that `$\forall x Fa$' is a formula. While puzzling on its face, with that quantifier governing no variable in its scope, it nevertheless is a formula of the language. It will turn out that, because the quantifier binds no variable in its scope, it is redundant; the formula `$\forall xFa$' is logically equivalent to `$Fa$'. Eliminating such formulae from the language involves greatly increased complication in the definition of a formula for no important gain.
 
@@ -1566,7 +1612,7 @@ For example, consider the formula
 	$$\forall x(Ex \eor Dy) \eif \exists z(Ex \eif Lzx)$$
 The scope of the universal quantifier `$\forall x$' is `$\forall x (Ex \eor Dy)$', so the first `$x$' is bound by the universal quantifier. However, the second and third occurrence of `$x$' are free. Equally, the `$y$' is free. The scope of the existential quantifier `$\exists z$' is `$\exists z(Ex \eif Lzx)$', so `$z$' is bound. 
 
-In our last example from the previous section, `$\forall x (Fx \to \exists xGx)$', the variable `$x$' in `$Gx$' is bound by the quantifier `$\exists x$', and so $x$ is free in `$Fx \to \exists x Gx$' only when it appears in `$Fx$'. So while the scope of `$\forall x$' is the whole sentence, it nevertheless doesn't bind every variable in its scope – only those such that, were it absent, would be free. (So we might say an occurrence of a variable $\meta{x}$ is \define{bound by} an occurrence of quantifier $\forall \meta{x}/\exists \meta{x}$ just in case it would have been free had that quantifier been omitted.) 
+In our last example from the previous section, `$\forall x (Fx \eif \exists xGx)$', the variable `$x$' in `$Gx$' is bound by the quantifier `$\exists x$', and so $x$ is free in `$Fx \eif \exists x Gx$' only when it appears in `$Fx$'. So while the scope of `$\forall x$' is the whole sentence, it nevertheless doesn't bind every variable in its scope – only those such that, were it absent, would be free. (So we might say an occurrence of a variable $\meta{x}$ is \define{bound by} an occurrence of quantifier $\forall \meta{x}/\exists \meta{x}$ just in case it would have been free had that quantifier been omitted.) 
 
 
 Finally we can say the following.	
@@ -1610,13 +1656,13 @@ Identify which variables are bound and which are free. Are any of these expressi
 \problempart
 Identify which of the following are (a) expressions of \FOL; (b) formulae of \FOL; and (c) sentences of \FOL.
 \begin{earg}
-	\item $\exists x (Fx \eif \forall y (Fx \to \exists xGx))$; % sentence
+	\item $\exists x (Fx \eif \forall y (Fx \eif \exists xGx))$; % sentence
 	\item $\exists \neg x (Fx \wedge Gx)$; % expression
 	\item $\exists x (Gx \wedge Gxx)$; % sentence
-	\item $(Fx \to \forall x (Gx \wedge Fx))$; % formula
-	\item $(\forall x (Gx \wedge Fx) \to Fx)$; % formula
-	\item $(P \wedge (\forall x (Fx \vee P)))$; % expression
-	\item $(P \wedge \forall x(Fx \vee P))$; % sentence
+	\item $(Fx \eif \forall x (Gx \wedge Fx))$; % formula
+	\item $(\forall x (Gx \wedge Fx) \eif Fx)$; % formula
+	\item $(P \wedge (\forall x (Fx \eor P)))$; % expression
+	\item $(P \wedge \forall x(Fx \eor P))$; % sentence
 	\item $\forall x (Px \eand \exists y (x ≠ y))$. % expression
 \end{earg}
 
