@@ -28,11 +28,6 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 2 (`forallx-adl-tfl.tex`)
 * Chapter 3 (`forallx-adl-truthtables.tex`)
 * Chapter 4 (`forallx-adl-fol.tex`)
-	- §18
-		+ more practice exercises – pure numerical quantification, perhaps from edl textbook or logic manual?
-	- §19
-		- Note that two descriptions can be symbolised with just one existential: `There is someone who: is a spy; and is the unique spy; and is an escapee; and is the unique escapee'.
-		- Perhaps replace §19.3 with a section on whether Russell is offering a model or an analysis – the scope stuff is evidence for the analysis, and then the Strawson-Frege view is the rival (in which the apparent scope effects are treated as whether the proposition about the F or a presupposition that there is a unique F is being rejected).
 * Chapter 5 (`forallx-adl-interpretations.tex`)
 	- §21
 		- domains as needed for extensions.

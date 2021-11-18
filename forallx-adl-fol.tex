@@ -997,6 +997,8 @@ If we hold fixed this assignment of meanings to the predicates, why is it possib
 
 \chapter{Identity}\label{sec.identity}
 
+\section{A Tricky Argument}
+
 Consider this sentence:
 \begin{earg}
 \item[\ex{else1}] Pavel owes money to everyone.
@@ -1044,7 +1046,7 @@ The argument isn't formally valid, because the sentence `$\enot Ihp$' doesn't fo
 
 Logicians resolve this issue by adding identity as a new \emph{logical} predicate – one of the structural words with a fixed interpretation.\footnote{We don't absolutely have to do this: there are logical languages in which identity is not a logical predicate, and is symbolised by just choosing a two-place predicate like $Ixy$. But in our logical language \FOL, we are choosing to treat identity as a structural word.} We add a new symbol `$=$', to clearly differentiate it from our existing predicates. 
 
-The symbol `$=$' is a two-place predicate. Since it is to have a special meaning, we shall write it a bit differently: we put it between two terms, rather than out front. And it \emph{does} have a very particular fixed meaning. Like the quantifiers and connectives, the identity predicate does not need a symbolisation key to fix how it is to be used. Rather, it always gets the same interpretation: $x=y$ always means `\gap{1} is identical to \gap{2}'. So identity is a special predicate because it has its meaning as part of logic.
+The symbol `$=$' is a two-place predicate. Since it is to have a special meaning, we shall write it a bit differently: we put it between two terms, rather than out front. And it \emph{does} have a very particular fixed meaning. Like the quantifiers and connectives, the identity predicate does not need a symbolisation key to fix how it is to be used. Rather, it always gets the same interpretation: `$=$' always means `\gap{1} is identical to \gap{2}'. So identity is a special predicate because it has its meaning as part of logic.
 
 That one thing is logically identical to another does not mean \emph{merely} that the objects in question are indistinguishable, or that all of the same things are true of them. When two things are alike in every respect, we may say they are \define{qualitatively identical}. This is the sense of identity involved in `identical twins', who are two distinct individuals who share their properties. In \FOL, the identity predicate represents not this relation of similarity, but a relation of absolute or \define{numerical identity}: there is only one, rather than two. This is the sense in which Lewis Carroll (the author of \emph{Alice in Wonderland}) is identical to Charles Lutwidge Dodgson (the Oxford mathematician): `they' are the very same person, with two different names.
 
@@ -1063,11 +1065,11 @@ Let us add to our symbolisation key:
 	\end{ekey}
 Now sentence \ref{else2} can be symbolised as `$p=c$'. This means that $p$ is $c$, and it follows that the thing named by `$p$' is the thing named by `$c$'.\footnote{One must be careful: the sentence `$p=c$' is, on this symbolisation, about Pavel and Mister Checkov; it is not about `Pavel' and `Mister Checkov', which are obviously distinct expressions of English.}
 
-Let's return to our example `Barry is taller than everyone else'. We want to start with a paraphrase: pick anyone; if they are not Barry, than Barry is taller than them. Where $b$ symbolises `Barry' and $T$ symbolises `\gap{1} is taller than \gap{2}', we want to symbolise this as: $\forall x (\enot x = b \eif Tbx)$ (on the domain of people). 
+Let's return to our example `Barry is taller than everyone else'. We want to start with a paraphrase, like this: \emph{choose anyone from the domain; if they are not Barry, than Barry is taller than them}. Where $b$ symbolises `Barry' and $T$ symbolises `\gap{1} is taller than \gap{2}', we might symbolise this as: `$\forall x (\enot x = b \eif Tbx)$' (on the domain of people). 
 
 Using that same kind of structure, we can also now deal with sentences \ref{else1b}–\ref{else1d}. All of these sentences can be  paraphrased as `Everyone who isn't Pavel is such that: Pavel owes money to them'. Paraphrasing some more, we get: `For all x, if x is not Pavel, then x is owed money by Pavel'. Now that we are armed with our new identity symbol, we can symbolise this as `$\forall x (\enot x = p \eif Opx)$'.
 
-This last sentence contains the formula `$\enot x = p$'. And that might look a bit strange, because the symbol that comes immediately after the `$\enot$' is a variable, rather than a predicate. But this is no problem. We are simply negating the entire formula, `$x = p$'. But if this is confusing, you may use  the \define{non-identity relation} `$≠$'. This is an abbreviation, characterised as folllows: \factoidbox{Any occurrence of the expression `$\meta{x}≠\meta{y}$' in a sentence abbreviates the expression `$\enot \meta{x} = \meta{y}$', and either can substitute for the other in any \FOL\ sentence.} I will use both expressions in what follows, but strictly speaking `$\enot a = b$' is officially part of the language, though it can also be represented by `$a≠b$'.
+This last sentence contains the formula `$\enot x = p$'. And that might look a bit strange, because the symbol that comes immediately after the `$\enot$' is a variable, rather than a predicate. But this is no problem. We are simply negating the entire formula, `$x = p$'. But if this is confusing, you may use  the \define{non-identity relation} `$≠$'. This is an abbreviation, characterised as folllows: \factoidbox{Any occurrence of the expression `$\meta{x}≠\meta{y}$' in a sentence abbreviates the expression `$\enot \meta{x} = \meta{y}$', and either can substitute for the other in any \FOL\ sentence.} I will use both expressions in what follows, but strictly speaking `$\enot a = b$' is the official version, and we allow a conventional abbreviation `$a≠b$'.
 
 In addition to sentences that use the word `else', `other than' and `except', identity will be helpful when symbolising some sentences that contain the words `besides' and `only.' Consider these examples:
 
@@ -1075,11 +1077,9 @@ In addition to sentences that use the word `else', `other than' and `except', id
 \item[\ex{else3}] No one besides Pavel owes money to Hikaru.
 \item[\ex{else4}] Only Pavel owes Hikaru money.
 \end{earg}
-Sentence \ref{else3} can be paraphrased as, `No one who is not Pavel owes money to Hikaru'. This can be symbolised by `$\enot\exists x(\enot x = p \eand Oxh)$'. Equally, sentence \ref{else3} can be paraphrased as `for all x, if x owes money to Hikaru, then x is Pavel'. Then it can be symbolised as `$\forall x (Oxh \eif x = p)$'.
+Sentence \ref{else3} can be paraphrased as, `No one who is not Pavel owes money to Hikaru'. This can be symbolised by `$\enot\exists x(\enot x = p \eand Oxh)$'. Equally, sentence \ref{else3} can be paraphrased as `for all x, if x owes money to Hikaru, then x is Pavel'. Then it can be symbolised as `$\forall x (Oxh \eif x = p)$'. Sentence \ref{else4} can be treated similarly.\footnote{But there is one subtlety here. Do either sentence \ref{else3} or \ref{else4} entail that Pavel himself owes money to Hikaru?}
 
-Sentence \ref{else4} can be treated similarly. But there is one subtlety here. Do either sentence \ref{else3} or \ref{else4} entail that Pavel himself owes money to Hikaru? 
-
-\section{Principles of Identity} \label{lli}% Æ added
+\section{Principles of Identity} \label{lli}
 
 Return to our argument from premises \ref{hikaru1} and \ref{hikaru2}. We now symbolise it: $\forall y (p≠y \eif Opy); h≠p \ttherefore Oph$. This argument is valid. Given the fixed interpretation we have assigned to `$=$', it is not possible that a first thing be not identical to a second, while the second is identical to the first. So we can conclude, as a matter of logical alone, that $h≠p$ is equivalent to $p≠h$. 
 
@@ -1096,7 +1096,7 @@ Leibniz' Law certainly entails that identical things are indistinguishable, shar
 
 \section{There are at Least …}
 
-So far an identity predicate might seem useful in a few cases, like pseudonyms, but a bit niche. In fact, adding it to our language gives us the ability to say lots of things we cannot hope to say without it. In particular, the identity predicate gives us the ability to \emph{count} – to quantify our quantifiers, and say how many things there are of a particular kind. 
+So far an identity predicate might seem useful in a few cases, like pseudonyms, but a bit niche. In fact, adding it to our language gives us the ability to say lots of things we cannot hope to say without it. In particular, the identity predicate gives us the ability to \emph{count} – to quantify our quantifiers, and say how many things there are of a particular kind. Indeed, it is tempting to argue that the concept of counting depends on the prior concept of numerical distinctness.
 
 For example, consider these sentences:
 \begin{earg}
@@ -1133,7 +1133,7 @@ $$\forall x\forall y\forall z\bigl( (Ax \eand Ay \eand Az) \eif (x=y \eor x=z \e
 
 
 \section{There are Exactly …}
-Now w can symbolise `there are at least $n$', and we can symbolise `there are at most $n$'. Using them together, we can symnbolise `there are exactly $n$':
+Now we can symbolise `there are at least $n$' and we can symbolise `there are at most $n$'. Using them together, we can symbolise `there are exactly $n$':
 \begin{earg}
 \item[\ex{exactly1}] There is exactly one apple.
 \item[\ex{exactly2}] There are exactly two apples.
@@ -1195,13 +1195,29 @@ It might be tempting to add a predicate to our symbolisation key, to symbolise t
 
 
 \problempart Explain why:
-	\begin{itemize}
-	\item   `$\exists x \forall y(Ay \eiff x= y)$' is a good symbolisation of `there is exactly one apple'.
-	\item `$\exists x \exists y \bigl(\enot x = y \eand \forall z(Az \eiff (x= z \eor y = z) \bigr)$' is a good symbolisation of `there are exactly two apples'.
-	\end{itemize}		
+\begin{itemize}
+\item   `$\exists x \forall y(Ay \eiff x= y)$' is a good symbolisation of `there is exactly one apple'.
+\item `$\exists x \exists y \bigl(\enot x = y \eand \forall z(Az \eiff (x= z \eor y = z) \bigr)$' is a good symbolisation of `there are exactly two apples'.
+\end{itemize}
 
-
-
+\problempart Using the following symbolisation key:
+\begin{ekey}
+\item[\text{domain}] all animals
+\item[D] \gap{1} is a dog
+\item[L] \gap{1} is larger than \gap{2}
+\item[F] \gap{1} is fierce
+\item[b] Bertie
+\item[e] Emerson
+\item[f] Fergus
+\end{ekey}
+symbolise the following sentences in \FOL:
+\begin{earg}
+\item Bertie is larger than all the other dogs.
+\item Bertie, Emerson, and Fergus are all different dogs.
+\item Emerson is smaller than at least two dogs.
+\item The largest dog is not fierce.
+\item One fierce dog is the same size as another fierce dog.
+\end{earg}
 
 \problempart
 \label{pr.FOLcardsa}
@@ -1253,24 +1269,24 @@ Identity is a reflexive, symmetric, and transitive relation. Can you give exampl
 
 
 \chapter{Definite Descriptions}\label{subsec.defdesc}
-In \FOL, names function rather like names in English. They are simply labels for the things they name, and may be attached arbitrarily, without any indication of the characteristics of what they name.\footnote{This is not strictly true: consider the name `Fido' which is conventionally the name of a dog. But even here the name doesn't carry any information in itself about what it names – the fact that we use that as a name only for dogs allows someone who knows that to reasonably infer that Fido is a dog. But `Fido is a dog' isn't a necessary truth, as it would be if somehow `Fido' carried with it the information that it applies only to dogs.} 
 
-But complex noun phrases can also be used to denote particular things in English, and they do so not merely by acting as arbitrary labels, but often by \emph{describing} the thing they refer to. Consider sentences like:
+In \FOL, names function rather like names in English. They are simply labels for the things they name, and may be attached arbitrarily, without any indication of the characteristics of what they name.\footnote{This is not strictly true: consider the name `Fido' which is conventionally the name of a dog. But even here the name doesn't carry any information in itself about what it names – the fact that we use that as a name only for dogs allows someone who knows that to reasonably infer that Fido is a dog. But `Fido is a dog' isn't a trivial truth, as it would be if somehow `Fido' carried with it the information that it applies only to dogs.} 
+
+But complex noun phrases can also be used to denote particular things in English (recall §\ref{sec:singular_terms}), and they do so not merely by acting as arbitrary labels, but often by \emph{describing} the thing they refer to. Consider sentences like:
 	\begin{earg}
-		\item[\ex{traitor1}] Nick is the traitor.
-		\item[\ex{traitor2}] The traitor went to Cambridge.
-		\item[\ex{traitor3}] The traitor is the deputy.
-		\item[\ex{traitor4}] The traitor is the shortest person who went to Cambridge.
+		\item[\ex{traitor1}] Nick is \underline{the traitor}.
+		\item[\ex{traitor2}] \underline{The traitor} went to Cambridge.
+		\item[\ex{traitor3}] \underline{The traitor} is \underline{the deputy}.
+		\item[\ex{traitor4}] \underline{The traitor} is \underline{the shortest person who went to Cambridge}.
 	\end{earg}
-These noun phrases headed by `the' – `the traitor', `the deputy', `the shortest person who went to Cambridge' – are known as \define{definite descriptions}. They are meant to pick out a \emph{unique} object, by using a description which applies to that object and to no other (at least, to no other salient object).  
+These underlined noun phrases headed by `the' – `the traitor', `the deputy', `the shortest person who went to Cambridge' – are known as \define{definite descriptions}. They are meant to pick out a \emph{unique} object, by using a description which applies to that object and to no other (at least, to no other salient object). The class of possessive singular terms, such as `Antony's eldest child' or `Facebook's founder', might be subsumed into the class of definite descriptions. They can be paraphrased using definite descriptions: `the eldest child of Antony' or `the founder of Facebook'. 
 
-Definite descriptions should be contrasted with \emph{indefinite} descriptions, such as `\emph{A} traitor went to Cambridge'. They should equally be contrasted with \emph{generics}, such as `\emph{The} whale is a mammal'.\footnote{It's inappropriate to ask \emph{which} whale. Moreover the generic use of `the whale is a mammal' can be paraphrased `Whales are mammals'. But the fact that `The Prime Minister is a Liberal' cannot be paraphrased as `Prime Ministers are Liberals' indicates the involvement of a genuine definite description.} The question we face is: can we adequately symbolise definite descriptions in \FOL?
-
+Definite descriptions must be contrasted with \define{indefinite descriptions}, such as `\underline{A traitor} went to Cambridge', where no unique traitor is implied. Definite descriptions must also be contrasted with what we might call \emph{descriptive names}, such as `the Pacific Ocean'. While the Pacific Ocean is an ocean, it isn't reliably peaceful, and even when it is, it surely isn't the unique ocean that merits that description. These descriptive name uses might also be involved in cases of \define{generic} `the', such as in `\underline{The whale} is a mammal'. Here there is no implication that some specific whale is under discussion, but rather that the species is mammalian. (So maybe `the whale' is a complex name for the species.) In the generic use, `the whale is a mammal' can be paraphrased `whales are mammals'. But a genuine definite description, such as `\underline{the Prime Minister} is a Liberal' cannot be paraphrased as `Prime Ministers are Liberals'. The question we face is: can we adequately symbolise definite descriptions in \FOL?\footnote{There is another question that I don't address: can we come up with a good theory of the meaning of `the' in English that unifies how it behaves in `the whale is a mammal', `the Pacific Ocean is stormy', and `Ortcutt is the shortest spy'? That question is very hard. Our task is to offer a symbolisation, and as we've seen, a symbolisation needn't be a translation, but only needs to capture the relevant implications to be successful.}
 
 \section{Treating Definite Descriptions as Terms}
-One option would be to introduce new names whenever we come across a definite description. This is not a great idea. We know that \emph{the} traitor – whoever it is – is indeed \emph{a} traitor. We want to preserve that information in our symbolisation. So the symbolisation of `The traitor is a traitor' should be a logical truth. But if we symbolise `the traitor' by a name $a$, the symbolisation will be $Ta$, which is not a logical truth.
+One option would be to introduce new names whenever we come across a definite description. This is not a great idea. We know that \emph{the} traitor – whoever it is – is indeed \emph{a} traitor. We want to preserve that information in our symbolisation. So the symbolisation of `The traitor is a traitor' (or `the traitor is traitorous') should be a logical truth. But if we symbolise `the traitor' by a name $a$, the symbolisation will be $Ta$, which is not a logical truth.
 
-A second option would be to use a \emph{new} definite description operator, such as `$\maththe$'. The idea would be to symbolise `the F' as `$\maththe xFx$'. This is read something like: `the thing such that it is F', though any complex expression with the variable $x$ would work. Expression of the form $\maththe \meta{x} \meta{A}\meta{x}$ would then behave, grammatically speaking, like names. If we followed this path, then using the following symbolisation key:
+A second option would be to introduce a \emph{new} definite description operator, such as `$\maththe$'. The idea would be to symbolise `the F' as `$\maththe xFx$'. This is taken to mean something like this `the unique thing such that it is F', which obviously involves a definite description in its semantics.  Expressions of the form $\maththe \meta{x} \meta{A}\meta{x}$ would then behave, grammatically speaking, like names – they combine with predicates to form sentences. Suppose we follow this path. Start with the following symbolisation key:
 	\begin{ekey}
 		\item[\text{domain}] people
 		\item[T] \gap{1} is a traitor
@@ -1279,44 +1295,51 @@ A second option would be to use a \emph{new} definite description operator, such
 		\item[S] \gap{1} is shorter than \gap{2}
 		\item[n] Nick
 	\end{ekey}
-We could symbolise sentence \ref{traitor1} with `$\maththe x Tx = n$', sentence \ref{traitor2} with `$C\maththe xTx$', sentence \ref{traitor3} with `$\maththe x Tx = \maththe x Dx$', and sentence \ref{traitor4} with `$\maththe x Tx = \maththe x (Cx \wedge \forall y((Cy \wedge x≠y) \eif Sxy))$'. This last example may be a bit tricky to parse. In semi-formal English, it says (supposing a domain of persons): `the unique person such that they are a traitor is identical with the unique person such that they went to Cambridge and they are shorter than anyone else who went to Cambridge'. 
+We could symbolise sentence \ref{traitor1} with `$\maththe x Tx = n$' (`the thing which is a traitor is identical to Nick'), sentence \ref{traitor2} with `$C\maththe xTx$', sentence \ref{traitor3} with `$\maththe x Tx = \maththe x Dx$', and sentence \ref{traitor4} with `$\maththe x Tx = \maththe x (Cx \wedge \forall y((Cy \wedge x≠y) \eif Sxy))$'. This last example may be a bit tricky to parse. In semi-formal English, it says (supposing a domain of persons): `the unique person such that they are a traitor is identical with the unique person such that they went to Cambridge and they are shorter than anyone else who went to Cambridge'. 
 
-However, even adding this new symbol to our language doesn't quite help with our initial complaint, since it is not self-evident that the symbolisation of `The traitor is a traitor' as `$T\maththe x Tx$' yields a logical truth. Moreover, it would be nice if we didn't have to add a new symbol to \FOL. And indeed, we might be able to make do without one.
+However, even adding this new symbol to our language doesn't quite help with our initial complaint, since it is not self-evident that the symbolisation of `The traitor is a traitor' as `$T\maththe x Tx$' yields a logical truth. More seriously, the idea that all definite descriptions are to be treated as terms makes it more difficult to give a unified treatment of descriptions in predicate position. It would be desirable to give a unified treatment of `Ortcutt is a short spy' and `Ortcutt is the short spy'; but while the former might be symbolised as `$(So \eand Po)$', using the predicative `is', the latter would need to treated as `$o = \maththe x (Sx \eand Px)$', using the `is' of identity.
+
+More practically, it would be nice if we didn't have to add a new symbol to \FOL. And indeed, we might be able to handle descriptions using what we already have.
 
 \section{Russell's Paraphrase}
-Bertrand Russell offered an influential account of definite descriptions that might serve our purposes. Very briefly put, he observed that, when we say `the \meta{F}', where that phrase is a definite description, our aim is to pick out the \emph{one and only} thing that is \meta{F} (in the appropriate context). Thus Russell offered a systematic paraphrase of sentences involving definite descriptions along these lines:\footnote{Bertrand Russell (1905) `On Denoting', \emph{Mind} \textbf{14}: 479–93; also Russell (1919) \emph{Introduction to Mathematical Philosophy}, London: Allen and Unwin, ch.\ 16.}
+Bertrand Russell offered an influential account of definite descriptions that might serve our purposes. Very briefly put, he observed that, when we say `the \meta{F}', where that phrase is a definite description, our aim is to pick out the \emph{one and only} thing that is \meta{F} (in the appropriate contextually selected domain). Our discussion of counting in §\ref{sec.identity} gives us an idea about how Russell proposed to handle sentences expressing that there is exactly one \meta{F}.
+
+Thus Russell offered a systematic paraphrase of sentences involving definite descriptions along these lines:\footnote{Bertrand Russell (1905) `On Denoting', \emph{Mind} \textbf{14}: 479–93; see also Russell (1919) \emph{Introduction to Mathematical Philosophy}, London: Allen and Unwin, ch.\ 16.}
 	\begin{align*}
 		\text{the \meta{F} is \meta{G} \textbf{iff} }&\text{there is at least one \meta{F}, \emph{and}}\\
 	&\text{there is at most one \meta{F}, \emph{and}}\\	
 	&\text{every \meta{F} is \meta{G}}
 \end{align*}
-Note a very important feature of this paraphrase: \emph{`the' does not appear on the right-side of the equivalence.} This approach would allow us to paraphrase every sentence of the same form as the left hand side into a sentence of the same form as the right hand side, and thus `paraphrase away' the definite description.  
+Note a very important feature of this paraphrase: \emph{`the' does not appear on the right-side of the equivalence.} This approach would allow us to paraphrase every sentence of the same form as the left hand side into a sentence of the same form as the right hand side, and thus `paraphrase away' the definite description. 
 
-It is crucial to notice that we can handle each of the conjuncts of the right hand side of the equivalence in \FOL, using the techniques for dealing with numerical quantification just introduced. We can deal with the three conjuncts on the right-hand side of Russell's paraphrase as follows:
+It is crucial to notice that we can handle each of the conjuncts on the right hand side of the equivalence in \FOL, using our techniques for dealing with numerical quantification.  We can deal with the three conjuncts on the right-hand side of Russell's paraphrase as follows:
 	$$\exists x \meta{F}x \eand \forall x \forall y ((\meta{F}x \eand \meta{F}y) \eif x = y) \eand \forall x (\meta{F}x \eif \meta{G}x)$$
 In fact, we could express the same point rather more crisply, by recognising that the first two conjuncts just amount to the claim that there is \emph{exactly} one \meta{F}, and that the last conjunct tells us that that object is \meta{G}. So, equivalently, we could offer this symbolisation of `The \meta{F} is \meta{G}':
 	$$\exists x \bigl(\meta{F}x \eand \forall y (\meta{F}y \eif x = y) \eand \meta{G}x\bigr)$$
 Using these sorts of techniques, we can now symbolise sentences \ref{traitor1}–\ref{traitor3} without using any new-fangled fancy operator, such as `$\maththe$'. 
+\begin{itemize}
+	\item Sentence \ref{traitor1} is exactly like the examples we have just considered. So we would symbolise it by `$\exists x (Tx \eand \forall y(Ty \eif x = y) \eand x = n)$'. 
+\item Sentence \ref{traitor2} poses no problems either: `$\exists x (Tx \eand \forall y(Ty \eif x = y) \eand Cx)$'.
+\item Sentence \ref{traitor3} is a little trickier, because it links two definite descriptions. But, deploying  Russell's paraphrase, it can be paraphrased by `something is such that: there is exactly one traitor and there is exactly one deputy and it is each of them'. So we can symbolise it by: $$\exists x\biggl(\bigl(Tx \eand \forall y(Ty \eif x = y) \bigr) \eand \bigl(Dx \eand \forall z(Dz \eif x = z) \bigr)\biggr).$$ Note that I have made sure that both uniqueness conditions are in the scope of the initial existential quantifier.
+\end{itemize} Thus, we can adequately symbolise sentences involving definite descriptions in \FOL. Incidentally, Russell also offers an account of indefinite descriptions of the same general form, differing only in that he regards indefinite descriptions as lacking any connotation of uniqueness. (One of the exercises below, p.\ \pageref{indefs}, deals with that account.)
 
-Sentence \ref{traitor1} is exactly like the examples we have just considered. So we would symbolise it by `$\exists x (Tx \eand \forall y(Ty \eif x = y) \eand x = n)$'. 
-
-Sentence \ref{traitor2} poses no problems either: `$\exists x (Tx \eand \forall y(Ty \eif x = y) \eand Cx)$'.
-
-Sentence \ref{traitor3} is a little trickier, because it links two definite descriptions. But, deploying  Russell's paraphrase, it can be paraphrased by `something is such that: there is exactly one traitor and there is exactly one deputy and it is each of them'. So we can symbolise it by: 
-$$\exists x\biggl(\bigl(Tx \eand \forall y(Ty \eif x = y) \bigr) \eand \bigl(Dx \eand \forall z(Dz \eif x = z) \bigr)\biggr)$$
-Note that I have made sure that both uniqueness conditions are in the scope of the existential quantifier.
-
-Let us dispel an initial worry. It seems that I can say `the table is brown' without implying that there is one and only one table in the universe. But doesn't Russell's paraphrase literally entail that there is only one table? Indeed it does – it entails that there is only one table \emph{in the domain under discussion}. While sometimes we explicitly restrict the domain, usually we leave it to our background conversational presuppositions to do so (recall §\ref{sec_domains}). If I can successfully say `the table is brown' in a conversation with you, for example, some background restriction on the domain must be in place that we both tacitly accept. For example, it might be that the prior discussion has focussed on your dining room, and so the implicit domain is `things in that room'. In that case, `the table is brown' is true just in case there is exactly one table in that domain, and it is brown.
+Let us dispel a worry. It seems that I can say `the table is brown' without implying that there is one and only one table in the universe. But doesn't Russell's paraphrase literally entail that there is only one table? Indeed it does – it entails that there is only one table \emph{in the domain under discussion}. While sometimes we explicitly restrict the domain, usually we leave it to our background conversational presuppositions to do so (recall §\ref{sec_domains}). If I can successfully say `the table is brown' in a conversation with you, for example, some background restriction on the domain must be in place that we both tacitly accept. For example, it might be that the prior discussion has focussed on your dining room, and so the implicit domain is \emph{things in that room}. In that case, `the table is brown' is true just in case there is exactly one table in that domain, and it is brown.
 
 
-\section{Empty Definite Descriptions}
-One of the nice features of Russell's paraphrase is that it allows us to handle \emph{empty} definite descriptions neatly. 
 
-France has no king at present. Now, if we were to introduce a name, `$k$', to name the present King of France, then everything would go wrong: remember from §\ref{s:FOLBuildingBlocks} that a name must always pick out  some object in the domain, and whatever we choose as our domain, it will contain no present kings of France. 
+\section{The Structure of Definite Descriptions}
 
-Russell's paraphrase neatly avoids this problem. Russell tells us to treat definite descriptions using predicates and quantifiers, instead of names. Since predicates can be empty (see §\ref{s:MoreMonadic}), this means that no difficulty now arises when the definite description is empty. 
+Russell offers his theory of definite descriptions as part of a campaign to effect `a reduction of all propositions in which denoting phrases occur to forms in which no such phrases occur' (`On Denoting', p.\ 482). (Russell thought there were paradoxes attendant to descriptions in English that could be avoided if we showed how they could be systematically eliminated.) We do not wish to attempt anything so radical as this kind of \emph{reductive analysis} – we only wanted to show that there is a way of symbolising definite descriptions in \FOL. That is, we only need to assume that Russell's proposal allows us to \emph{model} definite descriptions in \FOL, a language that lacks any native resources for expressing them. Officially, then, we will take no stand on whether Russell's analysis is correct. Officially, we only suggest that Russell's analysis is the best approach to symbolising English sentences involving definite descriptions in \FOL. 
 
-Indeed, Russell's paraphrase helpfully highlights two ways to go wrong in a claim involving a definite description. To adapt an example from Stephen Neale (1990),\footnote{Neale, \emph{Descriptions}, 1990, Cambridge: MIT Press.}  suppose I, Antony Eagle, claim:
+Yet Russell's account has some nice features that predict and explain some otherwise puzzling features of English `the', and many logicians have followed Russell in thinking that the Russellian account might provide an adequate semantics for English definite descriptions. So in this section and in §\ref{strawson}, I cannot resist discussing some of the evidence for Russell's account of the English `the', and some of the major puzzles for that account. \emph{These two sections should be regarded as optional.}
+
+\paragraph{Empty Definite Descriptions}
+One of the nice features of Russell's paraphrase is that it allows us to handle \emph{empty} definite descriptions neatly. France has no king at present. Now, if we were to introduce a name, `$k$', to name the present King of France, then everything would go wrong: remember from §\ref{s:FOLBuildingBlocks} that a name must always pick out some object in the domain, and whatever actual domain we choose, it will contain no present King of France. So we are at a loss to understand `the King of France is bald': does it even say anything, since its subject has no referent?
+
+Russell's paraphrase neatly avoids this problem. Russell tells us to treat definite descriptions using predicates and quantifiers, instead of names. Since predicates can be empty (see §\ref{s:MoreMonadic}), this means that no difficulty now arises when the definite description is empty. The sentence `the present King of France is bald' is paraphrased as `there exists exactly one present King of France', and so turns out to be easily understood, and in fact to be false.
+
+\paragraph{Scope and Descriptions}
+Indeed, Russell's paraphrase helpfully highlights two ways one can go wrong with definite descriptions. To adapt an example from Stephen Neale,\footnote{Neale (1990) \emph{Descriptions}, Cambridge: MIT Press.} suppose I, Antony Eagle, claim:
 	\begin{earg}
 		\item[\ex{kingdate}] I am grandfather to the present king of France.
 	\end{earg}
@@ -1326,33 +1349,50 @@ Using the following symbolisation key:
 		\item[K] \gap{1} is a present king of France
 		\item[G] \gap{1} is a grandfather of \gap{2}
 	\end{ekey}
-Sentence \ref{kingdate} would be symbolised by `$\exists x (\forall y(Ky \eiff  x = y) \eand Gax)$'. Now, this sentence isn't true. We might express this by saying: `Antony isn't the grandfather of the present king of France'. But this sentence is \emph{ambiguous}. The two available readings of this sentence correspond to these two different sentences:
+Sentence \ref{kingdate} would be symbolised by `$\exists x (\forall y(Ky \eiff  x = y) \eand Gax)$'. Now, suppose you don't think this sentence \ref{kingdate} is true. You might express your rejection by saying:
+\begin{earg}
+	\item[\ex{rejectk}] Antony isn't the grandfather of the present king of France.
+ \end{earg} But your denial is \emph{ambiguous}. There are two available readings of \ref{rejectk}, corresponding to these two different sentences:
 	\begin{earg}
-		\item[\ex{outernegation}] There is no one who is both the present King of France and  such that Antony is his grandfather.
+		\item[\ex{outernegation}] There is no one who is both the present King of France and such that Antony is his grandfather.
 		\item[\ex{innernegation}] There is a unique present King of France, but Antony is not his grandfather.
 	\end{earg}
-Sentence \ref{outernegation} might be paraphrased by `It is not the case that: Antony is a grandfather of the present King of France'. It will then be symbolised by `$\enot \exists x\bigl(Kx \eand \forall y(Ky \eif  x = y) \eand Gax \bigr)$'. We might call this \emph{outer} negation, since the negation governs the entire sentence. Note that it will be true if there is no present King of France.
+Sentence \ref{outernegation} might be paraphrased by `It is not the case that: Antony is a grandfather of the present King of France'. It will then be symbolised by `$\enot \exists x\bigl(Kx \eand \forall y(Ky \eif  x = y) \eand Gax \bigr)$'. We might call this \define{wide scope} negation, since the negation takes scope over the entire sentence. Note that this sentence is predicted to be true, because the embedded sentence contains an empty definite description.
 
-Sentence \ref{innernegation} can be symbolised by `$\exists x (Kx \eand \forall y(Ky \eif x = y) \eand \enot Gax)$. We might call this \emph{inner} negation, since the negation occurs within the scope of the definite description. Note that its truth requires that there is a present King of France, albeit one who is a grandchild of Antony.
+Sentence \ref{innernegation} can be symbolised by `$\exists x (Kx \eand \forall y(Ky \eif x = y) \eand \enot Gax)$. We might call this \define {narrow scope} negation, since the negation occurs within the scope of the definite description. Note that its truth would require that there be a present King of France, albeit one who is a grandchild of Antony; so this sentence, unlike \ref{outernegation}, is predicted to be false.
 
-The idea is: the Russellian paraphrase provides two places for the negation of `isn't' to slot in: taking scope over the whole sentence, and taking scope just over the predicate `$Gax$'.  We see evidence for these two options in the ambiguity of the sentence where the role of the negation isn't made clear. One can see the speaker is denying \ref{kingdate}, but on what grounds? Are they accepting that the definite description refers and denying what is said of the present king of France? Or are they denying that it refers?
+These two disambiguations of your rejection \ref{rejectk} have different truth values, so don't mean the same thing. So there are two different reasons you could have for your rejection of my claim. Are you accepting that the definite description refers and denying what I said of the present king of France? Or are you denying that the definite description refers, rejecting a more basic assumption of what I said? 
+
+The basic point is that the Russellian paraphrase provides two places in the symbolisation of \ref{rejectk} for the negation of `isn't' to fit: either taking scope over the whole sentence, or taking scope just over the predicate `$Gax$'. We see evidence that there are these two options in the ambiguity of \ref{rejectk}, and so we should opt for a semantics, like Russell's, which has the resources to handle these ambiguities – in this case, by positing a quantifier scope ambiguity like those we discussed in §\ref{quan.scope}.
+
+The term-forming operator approach to definite descriptions cannot handle this contrast. There is just one symbolisation of the negation of \ref{kingdate} available in this framework: `$¬Ga\maththe x Kx$'. The original sentence is false, so this negation must be true. Since sentence \ref{innernegation} is false, this sentence does not express the inner negation of sentence \ref{kingdate}. But there is no way to put the negation elsewhere that will express the same claim as \ref{innernegation}. (`$Ga\maththe x ¬Kx$' clearly doesn't do the job – it says there is just one unique thing which isn't the present king of France, and Antony is grandfather to it!) So the sentence `Antony isn't grandfather to the present king of France' has only one correct symbolisation, and hence only one reading, if the operator approach to definite descriptions is correct. Since it is ambiguous, with multiple readings, the `$\maththe$'-operator approach cannot be correct – it doesn't provide a complex enough grammar for definite description sentences to allow for these kinds of scope ambiguities.
 
 
-The operator approach to definite descriptions cannot handle this contrast. There is just one symbolisation of the negation of \ref{kingdate} available in this framework: `$¬Ga\maththe x Kx$'. The original sentence is false, so this negation must be true. Since sentence \ref{innernegation} is false, this sentence does not express the inner negation of sentence \ref{kingdate}. But there is no way to put the negation elsewhere that will express the same claim as \ref{innernegation}. (`$Ga\maththe x ¬Kx$' clearly doesn't do the job – it says Antony is grandfather to the unique thing which isn't the present king of France!) So the sentence `Antony isn't grandfather to the present king of France' has only one correct symbolisation, and hence only one reading, if the operator approach to definite descriptions is correct. Since it is ambiguous, with multiple readings, the `$\maththe$'-operator approach cannot be correct – it doesn't provide a complex enough grammar for definite description sentences to allow for these kinds of scope ambiguities.
-
-
-
-
-\section{The Adequacy of Russell's Paraphrase}
+\section{The Adequacy of Russell's Paraphrase} \label{strawson}
 The evidence from scope ambiguity we just considered is a substantial point in favour of Russell's paraphrase, at least compared to the operator approach. But how successful is Russell's paraphrase in general?  There is a substantial philosophical literature around this issue, but I shall content myself with two observations.
 
-One worry focusses on Russell's treatment of empty definite descriptions. If there are no \meta{F}s, then on Russell's paraphrase, both `the \meta{F} is \meta{G}' is and its internal negation, `the \meta{F} is non-\meta{G}', are false. P.F.\ Strawson suggested that such sentences should not be regarded as false, exactly.\footnote{P.F.\ Strawson, `On Referring', 1950, \emph{Mind 59}, pp.\ 320–34.} Rather, they involve \emph{presupposition failure}, and he argues that they ought to be regarded as \emph{neither} true \emph{nor} false, but nevertheless still meaningful.\footnote{A \define{semantic presupposition} of $\meta{A}$ is a claim that is a consequence of both $\meta{A}$ and $¬\meta{A}$. So `John has stopped drinking' and its negation `John hasn't stopped drinking' both entail that John drank, and hence `John drank' is a semantic presupposition of `John has stopped drinking'. `Presupposition failure' occurs when the presupposition of a sentence is false.}
+\paragraph{Presupposition and Negation}
+One worry focusses on Russell's treatment of empty definite descriptions. If there are no \meta{F}s, then on Russell's paraphrase, both `the \meta{F} is \meta{G}' and its narrow scope negation, `the \meta{F} is not-\meta{G}', are false. Strawson suggested that such sentences should not be regarded as false, exactly.\footnote{P F Strawson, `On Referring', 1950, \emph{Mind 59}, pp.\ 320–34.} Rather, they both seem to assume that `the \meta{F}' refers, and since this assumption is incorrect, the sentences misfire in a way that should, Strawson thinks, make us regard as \emph{neither} true \emph{nor} false, but nevertheless still meaningful.
 
-If we agree with Strawson here,  we shall need to revise our logic. For, in our logic, there are only two truth values (True and False), and every meaningful sentence is assigned exactly one of these truth values.\footnote{Why? Suppose there is presupposition failure of `John has stopped drinking', because John never drank. Then `John has stopped drinking' can't be true since it entails something false, its presupposition `John drank'. And `John hasn't stopped drinking' can't be true, since it also entails that same falsehood. So neither can be true. Since one is the negation of the other, if either is false, the other is true. So neither can be false, either. So if there are non-trivial semantic presuppositions – semantic presuppositions that might be false – then we shall have to admit that some meaningful sentences with a false presupposition are neither true nor false. It remains an open question, admittedly, whether presuppositions in the ordinary and intuitive sense are really semantic presuppositions in \emph{this} sense.} 
+A \define{semantic presupposition} of a declarative sentence is something that must be \emph{taken for granted} by anyone asserting the sentence, triggered or forced by the words involved.\footnote{See David I Beaver, Bart Geurts, and Kristie Denlinger (2021) `Presupposition', in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy} \url{https://plato.stanford.edu/archives/spr2021/entries/presupposition/}, esp. §2 and §6.} A pretty reliable test for whether $\meta{P}$ is a semantic presupposition of a sentence $\meta{A}$ is whether $\meta{P}$ is a consequence of both $\meta{A}$ and $¬\meta{A}$. Strawson elevates this test to a \emph{definition} of semantic presupposition: presuppositions are entailments that persist when a sentence is embedded under negation.  So `John has stopped drinking' and its negation `John hasn't stopped drinking' both entail in English that John used to drink, and hence `John used to drink' is a semantic presupposition of `John has stopped drinking'. Here the presupposition is triggered by the aspectual verb `stopped'. 
+
+Strawson says that \define{presupposition failure} occurs when the presupposition of a sentence is false. If John never used to drink, both `John has stopped drinking' and `John hasn't stopped drinking' misfire. Strawson, following Frege, suggests that in cases of presupposition failure, a sentence is neither true nor false. 
+
+In the case of definite descriptions, the Frege-Strawson view would say that `the present King of France is bald' presupposes that there is a present King of France. Since that presupposition fails, the sentence is neither true nor false. This is contrary to Russell's position that the sentence is false. 
+
+With the notion of presupposition failure in hand, the Frege-Strawson theory seems to be able to address the scope evidence for Russell's account. For there is now a distinction between the denial involved in \ref{outernegation} and that involved in \ref{innernegation}, even though the logical form of the denied sentence is `$Ga\maththe x Kx$'. The logical negation of that sentence is `$¬Ga\maththe x Kx$', which shares the presupposition that there is a present King of France. But there is also another way of rejecting a sentence, one which targets not what was said by the sentence, but its presuppositions. This is sometimes called \define{metalinguistic negation}. One way of identifying its presence is the use of focal stress, emphasising the word to be targeted, and accompanied by an gloss explaining the presupposition to be rejected, as in:
+\begin{earg}
+\item I don't \emph{like} cricket, I love it!
+\item John hasn't \emph{stopped} drinking; he never even started!
+\item[\ex{metaling}] Sarah is \emph{not} the source of the leak; there was no leak!
+\end{earg} The effects which Russell sees as the result of scope ambiguiuty are re-analysed as involving the contrast between ordinary negation in \ref{innernegation}, and metalinguistic negation in \ref{outernegation}. Crucially, on the Frege-Strawson view, the successful deployment of metalinguistic negation in cases like \ref{metaling} renders the sentence `Sarah is the source of the leak' neither true nor false.
+
+The phenomenon of metalinguistic negation is real. But if we agree with Frege and Strawson here on how to model it semantically,  we shall need to revise our logic. For, in our logic, there are only two truth values (True and False), and every meaningful sentence is assigned exactly one of these truth values. Why? Suppose there is presupposition failure of `John has stopped drinking', because John never drank. Then `John has stopped drinking' can't be true since it entails something false, its presupposition `John drank'. And `John hasn't stopped drinking' can't be true, since it also entails that same falsehood. So neither can be true. Since one is the negation of the other, if either is false, the other is true. So neither can be false, either. So if there are non-trivial semantic presuppositions – semantic presuppositions that might be false – then we shall have to admit that some meaningful sentences with a false presupposition are neither true nor false. It remains an open question, admittedly, whether presuppositions in the ordinary and intuitive sense are really semantic presuppositions in \emph{this} sense. 
 
 But there is room to disagree with Strawson. Strawson is appealing to some linguistic intuitions, but it is not clear that they are very robust. For example: isn't it just \emph{false}, not `gappy', that Antony is grandfather to the present King of France? (This is Neale's line.)
 
-Keith Donnellan raised a second sort of worry, which (very roughly) can be brought out by thinking about a case of mistaken identity.\footnote{Keith Donnellan, `Reference and Definite Descriptions', 1966, \emph{Philosophical Review 77}, pp.\ 281–304.} Two men stand in the corner: a very tall man drinking what looks like a gin martini; and a very short man drinking what looks like a pint of water. Seeing them, Malika says:
+\paragraph{Misdescription}
+Keith Donnellan raised a second sort of worry, which (very roughly) can be brought out by thinking about a case of mistaken identity.\footnote{Keith Donnellan (1966) `Reference and Definite Descriptions', \emph{Philosophical Review} \textbf{77}, pp.\ 281–304.} Two men stand in the corner: a very tall man drinking what looks like a gin martini; and a very short man drinking what looks like a pint of water. Seeing them, Malika says:
 	\begin{earg}
 		\item[\ex{gindrinker}] The gin-drinker is very tall!
 	\end{earg}
@@ -1476,7 +1516,7 @@ Some people have argued that the following two sentences are ambiguous. Are they
 \end{earg}
 
 \problempart
-Russell's paraphrase of an indefinite description sentence like `I met a man' is: \emph{there is at least one thing x such that x is male and human and and I met x}. 
+Russell's paraphrase of an indefinite description \label{indefs} sentence like `José met a man' is: \emph{there is at least one thing x such that x is male and human and and José met x}. 
 
 Note that the word `is' has apparently two readings: sometimes, as in `Fido is heavy', it indicates \emph{predication}; sometimes, as in `Fido is Rover', it indicates identity (in the case, the same dog is known by two names). Something interesting arises if Russell's account of indefinite descriptions is right, since in an example like `Fido is a dog of unusual size', we might interpret the `is' in either way, roughly:
 \begin{earg}
