@@ -33,17 +33,18 @@ The following list contains current issues and proposed revisions arranged by ch
 		- domains as needed for extensions.
 		- add example of euler with a dot – e.g. willard
 		- come back to properties of binary relations, e.g., antisymmetry, irreflexivity vs non-reflexivity, 
+		- handle binary relation diagrams as figures.
 	- §22
 		- deal with one-place and many-place predicates differently. 
 		- use notion of `\ntuple` explicitly in defs of truth for atomic.
 		- add diagrams showing different extended interpretations stemming from a starting interpretation.
-		- add 'why don't we do this?' section to quantifier intepretation 	 
+		- add 'why don't we do this?' section to quantifier interpretation 	 
 	- §23
 		- need to expand with examples, and practice problems
 		- change contradiction to logical falsehood
 	- §25
 		- practice problems
-		- mention infinity of intepretations, contrast with sentential case.  	    
+		- mention infinity of interpretations, contrast with sentential case.
 * Chapter 6 (`forallx-adl-prooftfl.tex`)
 	- §26
 		+ Need a practice exercise

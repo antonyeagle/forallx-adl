@@ -70,18 +70,18 @@ Then `$Hd$' and `$Hp$' will both be true, on this interpretation, but `$Hn$' wil
 This process of explicit stipulation is just giving the extension of a predicate by a list of items falling under it. A more common way of identifying the extension of a predicate is to derive it from a classification rule that sorts everything into those items that fall under it and those that do not. Such a classification rule is often what people think of as the meaning of a predicate. But such a classification rule goes beyond the extension. In effect, our earlier symbolisation keys assign an extension by relying on our knowledge of the classification rule associated with English predicates. While the rule might determine the extension in a domain, it is not the extension: two different rules could come up with the same extension, as in the case of monotremes earlier. 
 
 The extension of a one-place predicate is just a set of things. A set is identified by its members, so that set will be the same in every domain which contains all of its members. But we can see a further difference between extensions and classification rules when we can consider applying the same rule in different domains. So the classification rule associated with the English predicate `\gap{} is a student' applies to many many people in the domain of all people. In the domain `people in this class', it applies only to a select few. In fact, you can even use the classification rule `\gap{} is a student' to fix an extension where the domain doesn't include any students at all. In that case it will just yield an \define{empty extension} – one containing nothing. Here are some other cases where the empty extension should be assigned to a predicate:  \begin{itemize}
-	 			\item `\gap{1} is a round square' (in any domain), or
-	 			\item  `\gap{1} is a horse' in the domain of sheep, or
-	 			\item `\gap{1} is divisible without remainder by \gap{2}' in the domain of prime numbers (where the number $1$ isn't normally thought to be a prime).
-	 		\end{itemize}
+	\item `\gap{1} is a round square' (in any domain), or
+	\item  `\gap{1} is a horse' in the domain of sheep, or
+	\item `\gap{1} is divisible without remainder by \gap{2}' in the domain of prime numbers (where the number $1$ isn't normally thought to be a prime).
+\end{itemize}
 
 The empty collection too is a legitimate extension, because the empty set is still something: it is still a sub-collection of the domain. However, our names must always be assigned some element of the domain. An `empty' name would have no extension at all – and in an extensional language it is hard to see how we can admit such expressions. So keep clear the distinction between assigning an empty collection as an extension, and assigning nothing at all.  
 
 There are also trivial cases of the opposite sort, where we assign the entire domain as the extension of a predicate: \begin{itemize}
-	 			\item  `\gap{1} is something' (in any domain), or
-	 			\item `\gap{1} is a horse' in the domain of horses, or 
-	 			\item `\gap{1} is greater than or equal to \gap{2}' in the domain consisting of just the number $1$ (the extension is \ntuple{1,1}, which includes every ordered pair in this domain); and
-	 		\end{itemize}
+	\item `\gap{1} is something' (in any domain), or
+	\item `\gap{1} is a horse' in the domain of horses, or 
+	\item `\gap{1} is greater than or equal to \gap{2}' in the domain consisting of just the number $1$ (the extension is \ntuple{1,1}, which includes every ordered pair in this domain); and
+\end{itemize}
 
 
 
@@ -192,7 +192,7 @@ We begin by demarcating a region on the page to represent the domain – typical
 	\item If two predicates have extensions that overlap, the regions that represent them in the diagram should overlap.
 	\item If one predicate has an extension that is entirely within the extension of another predicate, the region associated with the first should be entirely within the region associated with the second;
 	\item If two predicates have non-overlapping extensions, the regions that represent them should not overlap.
-\end{itemize} We then label and shade each region to enable us to tell which predicates they are associated with.
+\end{itemize} We then label and shade each region to enable us to tell which predicates they are associated with. We may also add labelled dots to denote individuals who may fall into various predicate extensions.
 
 These rules are quite abstract, but they are easy to apply in practice. Suppose we are given the following interpretation: \begin{ekey}
 	\item[\text{domain}] animal species
@@ -200,7 +200,7 @@ These rules are quite abstract, but they are easy to apply in practice. Suppose 
 	\item[M] \gap{1} is a mammal;
 	\item[B] \gap{1} is a bird;
 \end{ekey}
-Then we may represent them as follows: \begin{center}
+We may represent this interpretation as in Figure~\ref{fig:egglayers}. \begin{figure}
 	\begin{tikzpicture}
 		\draw[thick] (0,0) -- (0,4) -- (6,4) -- (6,0) -- cycle;
 		\node (a) at (1,0.5) {Animals};
@@ -209,9 +209,9 @@ Then we may represent them as follows: \begin{center}
 		\node (m) at (1.5,3) {Mammals};
 		\filldraw[fill=blue!30!white, draw =black, fill opacity=0.2] (3,1) ellipse (0.7cm and 0.6cm);
 		\filldraw[fill=gray!30!white, draw =black, fill opacity=0.2] (3,2) ellipse (1.4cm and 1.8cm);
-		\filldraw[fill=red!30!white, draw =black, fill opacity=0.2] (1.5,3) ellipse (1cm and 0.6cm);
-	\end{tikzpicture}
-\end{center} In this diagram, the egg-layers are a subset of the animals – not all animals reproduce by laying eggs, so they do not coincide with the whole domain. The birds are a subset of animals too, and in fact wholly within the egg-layers: all birds reproduce oviparously. The mammals are a subset of the animals, and one that overlaps with the egg-layers (the monotremes!), though neither is contained in the other, so the regions overlap without either being wholly within the other. The birds and mammals do not have any common members, so the associated regions do not overlap at all. Note that the sizes of the regions may, but need not, represent the number of things within them. In this diagram they probably don't.
+		\filldraw[fill=red!30!white, draw =black, fill opacity=0.2] (1.5,3) ellipse (1cm and 0.6cm);\end{tikzpicture} 
+\caption{An interpretation represented diagrammatically.\label{fig:egglayers}}
+\end{figure} In this diagram, the egg-layers are a subset of the animals – not all animals reproduce by laying eggs, so they do not coincide with the whole domain. The birds are a subset of animals too, and in fact wholly within the egg-layers: all birds reproduce oviparously. The mammals are a subset of the animals, and one that overlaps with the egg-layers (the monotremes!), though neither is contained in the other, so the regions overlap without either being wholly within the other. The birds and mammals do not have any common members, so the associated regions do not overlap at all. Note that the sizes of the regions may, but need not, represent the number of things within them. In this diagram they probably don't.
 
 Another example. Consider this interpretation, discussed earlier on page \pageref{poison}: 
 		\begin{ekey}
@@ -221,7 +221,7 @@ Another example. Consider this interpretation, discussed earlier on page \pagere
 		\item[R] \gap{1} is a rose
 		\item[T] \gap{1} has a thorn
 	\end{ekey}
-The wisdom of Bret Michaels then tells us that the Euler diagram should look like this: \begin{center}
+The wisdom of Bret Michaels then tells us that the Euler diagram should look like the representation in Figure~\ref{fig:poison}. \begin{figure}[b]
 	\begin{tikzpicture}
 		\draw[thick] (0,0) -- (0,4) -- (7,4) -- (7,0) -- cycle;
 		\node (s) at (2,2) {sad song singers};
@@ -232,10 +232,10 @@ The wisdom of Bret Michaels then tells us that the Euler diagram should look lik
 		\filldraw[fill=green!30!white, draw =black, fill opacity=0.2] (2,2) ellipse (1.4cm and 1.8cm);
 		\filldraw[fill=gray!30!white, draw =black, fill opacity=0.2] (5,2) ellipse (1.3cm and 1.8cm);
 		\filldraw[fill=red!30!white, draw =black, fill opacity=0.2] (5,3) ellipse (0.8cm and 0.65cm);
-	\end{tikzpicture}
-\end{center}
+	\end{tikzpicture}\caption{A representation of `Every Rose Has Its Thorn'.\label{fig:poison}}
+\end{figure}
 
-We can start to see how interpretations can help us evaluate arguments quite vividly in this graphical environment. Recall this example from §\ref{s:FOLBuildingBlocks}: `Willard (`$w$') is a logician (`$L$'); Every logician wears a funny hat (`$F$') \ttherefore\ Willard wears a funny hat'. We can see this is valid: Willard falls in the region corresponding to `$F$' because he falls in the region corresponding to `$L$', which is wholly within the `$F$'-region. \begin{center}
+We can start to see how interpretations can help us evaluate arguments quite vividly in this graphical environment. Recall this example from §\ref{s:FOLBuildingBlocks}: `Willard (`$w$') is a logician (`$L$'); Every logician wears a funny hat (`$F$') \ttherefore\ Willard wears a funny hat'.  This can be represented using an Euler diagram making use of a labelled dot to represent the individual Willard, as in Figure~\ref{fig:willard}. We can see from the diagram that this argument is valid: Willard falls in the region corresponding to `$F$' because he falls in the region corresponding to `$L$', which is wholly within the `$F$'-region. \begin{figure}
              \begin{tikzpicture}
               	\draw[thick] (0,0) -- (0,4) -- (5,4) -- (5,0) -- cycle;
 		\node (a) at (1,0.5) {People};
@@ -246,13 +246,13 @@ We can start to see how interpretations can help us evaluate arguments quite viv
 		\filldraw[fill=black, draw =black, fill opacity=1] (2.3,1.8) circle (0.05cm);
 		\filldraw[pattern=vertical lines, pattern color=red, draw =black, fill opacity=0.2] (2.2,1.6) ellipse (1.1cm and 0.75cm);
              \end{tikzpicture}
-              \end{center} 
+          \caption{Representing the argument from §\ref{s:FOLBuildingBlocks}.\label{fig:willard}}    \end{figure} 
 
-
-If you would like a real challenge, you might try to figure out the interpretation of this Euler diagram from xkcd (`Chat Systems', \url{https://xkcd.com/1810/}):
-\begin{center}
+If you would like a real challenge, you might try to figure out the interpretation corresponding to the Euler diagram in Figure~\ref{fig:xkcd}. 
+\begin{figure}[b]
 	\includegraphics[width=0.85\textwidth]{chat_systems.png}
-\end{center}
+\caption{`Chat Systems', \url{https://xkcd.com/1810/}\label{fig:xkcd}}
+\end{figure}
 
 \section{Representing two-place predicates: directed graphs} \label{graph}
 
