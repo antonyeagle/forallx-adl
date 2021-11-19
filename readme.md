@@ -31,9 +31,9 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 5 (`forallx-adl-interpretations.tex`)
 	- §21
 		- domains as needed for extensions.
-		- add example of euler with a dot – e.g. willard
-		- come back to properties of binary relations, e.g., antisymmetry, irreflexivity vs non-reflexivity, 
-		- handle binary relation diagrams as figures.
+		- come back to properties of binary relations, e.g., antisymmetry, equivalence relation. transitive+symmetric=reflexive.Ordering – (strict) partial order, (strict) total order??
+		- exercises about transitive, etc. from _EDL_.
+		-
 	- §22
 		- deal with one-place and many-place predicates differently. 
 		- use notion of `\ntuple` explicitly in defs of truth for atomic.

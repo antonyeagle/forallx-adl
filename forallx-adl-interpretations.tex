@@ -43,7 +43,7 @@ English is not an extensional language. In English, there is a distinction betwe
 
 In \FOL, by contrast, the substitition of one name for another with the same extension will always yield a sentence with the same truth-value; likewise with the substitution of one predicate for another with the same extension. This is normally summed up by saying that \FOL\ is an \define{extensional language}. An extensional language is one where \emph{non-logical} expressions with the same extension can always be swapped for one another in a sentence without changing the truth value.\footnote{What this shows, in passing, is that \FOL\ lacks the resources to express things like `\gap{} has always been \gap{}' or `\gap{} is necessarily \gap{}', which would allow us to separate expressions with the same present extension. 
 
-Another construction with apparently similar effects is when a true identity, such as `Lewis Carroll is Charles Lutwidge Dodgson', is embedded in a belief report such as `AE believes that Lewis Carroll is Charles Lutwidge Dodgson'. The belief report appears to be false, if AE doesn't know that `Lewis Carroll' is a pen name for the Oxford mathematician. But still, this seems hard to deny: `AE believes that Lewis Carroll is Lewis Carroll'. Many have used this to argue that the meaning of a name in English is not just its extension. But this is actually a rather controversial case, unlike the example in the main text: many philosophers think that the meaning of a name in English just is its extension. But let us be clear: no one generalises this to predicates. Everyone agrees that the meaning of an English predicate is not just its extension.}
+Another construction with apparently similar effects is when a true identity, such as `Lewis Carroll is Charles Lutwidge Dodgson', is embedded in a belief report such as `AE believes that Lewis Carroll is Charles Lutwidge Dodgson'. The belief report appears to be false, if AE doesn't know that `Lewis Carroll' is a pen name for the Oxford mathematician. But still, this seems hard to deny: `AE believes that Lewis Carroll is Lewis Carroll'. Many have used this to argue that the meaning of a name in English is not just its extension. But this is actually a rather controversial case, unlike the example in the main text. Many philosophers think that the meaning of a name in English just is its extension. But let us be clear: no one generalises this to predicates. Everyone agrees that the meaning of an English predicate is not just its extension.}
 
 We noted above that a name and a definite description might have very different meanings, despite having the same extension. Our treatment of definite descriptions (§\ref{subsec.defdesc}) allows us to preserve the extensionality of \FOL\ while also preserving the key logical features of descriptions. The definite description in English is analysed as a quantifier expression in \FOL, so there is no such singular term as a definite description in \FOL\ to be assigned an extension at all. What are assigned extensions are predicates and names, and our approach to definite descriptions allows the extensions of those predicates and names to fix the truth value of any symbolisation of an English sentence involving definite descriptions. The logical properties of the symbolised sentence in \FOL, however, are also determined by the quantifier structure, which isn't fixed by assigning an extension.
 
@@ -80,7 +80,7 @@ The empty collection too is a legitimate extension, because the empty set is sti
 There are also trivial cases of the opposite sort, where we assign the entire domain as the extension of a predicate: \begin{itemize}
 	\item `\gap{1} is something' (in any domain), or
 	\item `\gap{1} is a horse' in the domain of horses, or 
-	\item `\gap{1} is greater than or equal to \gap{2}' in the domain consisting of just the number $1$ (the extension is \ntuple{1,1}, which includes every ordered pair in this domain); and
+	\item `\gap{1} is greater than or equal to \gap{2}' in the domain consisting of just the number $1$ (the extension is \ntuple{1, 1}, which includes every ordered pair in this domain); and
 \end{itemize}
 
 
@@ -110,7 +110,7 @@ To do this, we can specify that two-place predicates are true of \define{ordered
 		\ntuple{Heidegger, Sartre}\\
 		\ntuple{Sartre, Heidegger}
 	\end{center}
-Here the angle brackets keep us informed concerning order – $\ntuple{a,b}$ is a different pair from $\ntuple{b,a}$ even though they correspond to the same collection of two things, a and b. Suppose I now add the following stipulations:
+Here the angle brackets keep us informed concerning order – $\ntuple{a, b}$ is a different pair from $\ntuple{b, a}$ even though they correspond to the same collection of two things, a and b. Suppose I now add the following stipulations:
 	\begin{ekey}
 		\item[l] Lenin
 		\item[m] Marx
@@ -140,7 +140,7 @@ To make these ideas more precise, we would need to develop some \emph{set theory
 
 
 \section{Semantics for Identity}
-Identity is a special predicate of \FOL. We write it a bit differently than other two-place predicates: `$x=y$' instead of `$Ixy$' (for example). More important, though, its meaning is fixed as to be genuine \emph{identity}, once and for all. Given a domain, the extension of `$=$' comprises just those pairs consisting of any member of the domain and itself. If the domain is numbers, for example, the extension of `$=$' on this domain will be $$\ntuple{1,1}, \ntuple{2,2}, \ntuple{3,3},….$$ 
+Identity is a special predicate of \FOL. We write it a bit differently than other two-place predicates: `$x=y$' instead of `$Ixy$' (for example). More important, though, its meaning is fixed as to be genuine \emph{identity}, once and for all. Given a domain, the extension of `$=$' comprises just those pairs consisting of any member of the domain and itself. If the domain is numbers, for example, the extension of `$=$' on this domain will be $$\ntuple{1, 1}, \ntuple{2, 2}, \ntuple{3, 3},….$$ 
 
 If two names \meta{a} and \meta{b} are assigned to the same object in a given symbolisation key, and thus have the same extension, $\meta{a}=\meta{b}$ will also be true  on that symbolisation key. And since the two names have the same extension, and \FOL\ is extensional, substituting one name for another will not change the truth value of any \FOL\ sentence. So, in particular, if `$a$' and `$b$' name the same object, then all of the following will be true:\label{model.nonidentity}
 	\begin{align*}
@@ -256,31 +256,36 @@ If you would like a real challenge, you might try to figure out the interpretati
 
 \section{Representing two-place predicates: directed graphs} \label{graph}
 
-Suppose we want to consider just a single two-place predicate, `$R$'. Then we can represent it, in some cases, by depicting the members of the domain by writing them down, and drawing a single-headed arrow between items just in case the relation holds between them (in the right order). Such a diagram is known as a \define{directed graph}, which is given by a collection of \emph{nodes} (the objects in the domain we are representing) and a collection of arrows between them (which represent how the relation holds on that domain.) We stipulate that `$R$' is to hold of \meta{x} and \meta{y} just in case there is an arrow running from \meta{x} to \meta{y} in our diagram. As an example, consider the following interpretation, written in the more standard manner:
-\begin{ekey}
-	\item[\text{domain}] $1, 2, 3, 4$
-	\item[R] \ntuple{1, 2}, \ntuple{2, 3}, \ntuple{3, 4}, \ntuple{4, 1}, \ntuple{1, 3}.
-\end{ekey}
-That is, an interpretation whose domain is the first four positive whole numbers, and which interprets `$R$' as being true of and only of the specified pairs of numbers. This might be represented by the following simple graph:
-\begin{center}
-\begin{tikzpicture}
-\node (atom1) at (0,2) {1};
-\node (atom2) at (2,2) {2};
-\node (atom3) at (2,0) {3};
-\node (atom4) at (0,0) {4};
-\draw[->, thick] (atom1)--(atom2);
-\draw[->, thick] (atom2)--(atom3);
-\draw[->, thick] (atom3)--(atom4);
-\draw[->, thick] (atom4)--(atom1);
-\draw[->, thick] (atom1) -- (atom3);
-\end{tikzpicture}
-\end{center}
+Suppose we want to consider just a single two-place predicate, `$R$'. Then we can represent it, in some cases, by depicting the individual members of the domain by little dots (possibly with labels), and drawing a single-headed arrow from the first to the second of an ordered pair of items just in case that ordered pair falls within the extension of the predicate. Such a diagram is known as a \define{directed graph}. A directed graph comprises a collection of \define{nodes}, and a collection of arrows (ordered links) between those nodes; in our case, the nodes are the elements of the domain, and the arrows correspond to the extension of a two-place predicate on that domain, given the convention that when there is an arrow running from \meta{x} to \meta{y} in a graph, that means $\langle \meta{x}, \meta{y}\rangle$ is in the extension of the predicate.  
 
-Another example; consider the following interpretation: \begin{ekey}
+Let's consider some examples.
+
+\begin{itemize}
+	\item First, consider the following interpretation, written in the more standard manner:
+	\begin{ekey}
+		\item[\text{domain}] $1, 2, 3, 4$
+		\item[R] \ntuple{1, 2}, \ntuple{2, 3}, \ntuple{3, 4}, \ntuple{4, 1}, \ntuple	{1, 3}.
+	\end{ekey}
+	That is, an interpretation whose domain is the first four positive whole 	numbers, and which interprets `$R$' as being true of and only of the specified 	pairs of numbers. This might be represented by the simple graph depicted in 	Figure~\ref{fig:graph1}.
+	\begin{figure}[b]
+	\begin{tikzpicture}
+	\node (atom1) at (0,2) {1};
+	\node (atom2) at (2,2) {2};
+	\node (atom3) at (2,0) {3};
+	\node (atom4) at (0,0) {4};
+	\draw[->, thick] (atom1)--(atom2);
+	\draw[->, thick] (atom2)--(atom3);
+	\draw[->, thick] (atom3)--(atom4);
+	\draw[->, thick] (atom4)--(atom1);
+	\draw[->, thick] (atom1) -- (atom3);
+	\end{tikzpicture}
+	\caption{A simple graph.\label{fig:graph1}}
+	\end{figure}
+\item 	Consider the following interpretation: \begin{ekey}
 	\item[\text{domain}] $1, 2, 3, 4$
-	\item[R] \ntuple{1, 3}, \ntuple{3, 1}, \ntuple{3, 4}, \ntuple{1, 1},\ntuple{3, 3}.
-\end{ekey} We might offer this graph to represent it:
-\begin{center}
+	\item[R] \ntuple{1, 3}, \ntuple{3, 1}, \ntuple{3, 4}, \ntuple{1, 1}, \ntuple{3, 3}, \ntuple{4, 4}.
+\end{ekey} We might offer the graph in Figure~\ref{fig:graph2} to represent it. The existence of pairs like \ntuple{1, 1} in the extension of $R$ is borne out in the presence of `loops' from nodes to themselves in the graph. (Because of these loops, our graph is not what graph theorists call a `simple' graph.) Notice that 2 is in the domain, and hence included as a node in the graph, but it has no arrows attached to it, because it is not included in the extension assigned to $R$. 
+\begin{figure}
 \begin{tikzpicture}
 \node (atom1) at (0,2) {1};
 \node (atom2) at (2,2) {2};
@@ -291,14 +296,15 @@ Another example; consider the following interpretation: \begin{ekey}
 \draw[->, thick] (atom3)+(0.15,-0.15) arc (-150:150:.3); 
 \draw[->, thick] (atom1) .. controls (0.75,0.75) .. (atom3);
 \draw[->, thick] (atom3) .. controls (1.75,1.75) .. (atom1);
-\end{tikzpicture}
-\end{center} Notice that 2 is in the domain, and hence included as a node in the graph, but it has no arrows attached to it, because it is not included in the relation assigned to $R$. 
+\draw[->, thick] (atom4)+(-0.15,0.15) arc (-330:-30:.3); 
+\end{tikzpicture}\caption{A graph with `loops'  \label{fig:graph2}}
+\end{figure} 
 
-A third example, corresponding to this interpretation: \begin{ekey}
+\item A third example is depicted in Figure~\ref{fig:amia}, corresponding to this interpretation: \begin{ekey}
 	\item[\text{Domain}] Amia, Barbara, Corine, Davis
-	\item[F] \ntuple{Amia,Amia},\ntuple{Barbara,Barbara}, \ntuple{Davis,Davis}, \ntuple{Amia, Barbara}, \ntuple{Amia,Corine}, \ntuple{Barbara, Amia}, \ntuple{Barbara, Corine}, \ntuple{Corine,Barbara}
+	\item[F] \ntuple{Amia, Amia}, \ntuple{Barbara, Barbara}, \ntuple{Davis, Davis}, \ntuple{Amia, Barbara}, \ntuple{Amia, Corine}, \ntuple{Barbara, Amia}, \ntuple{Barbara, Corine}, \ntuple{Corine, Barbara}
 \end{ekey}
-\begin{center}
+\begin{figure}[b]
 \begin{tikzpicture}
 \node (atom1) at (0,2) {Amia};
 \node (atom2) at (2,2) {Barbara};
@@ -312,21 +318,22 @@ A third example, corresponding to this interpretation: \begin{ekey}
 \draw[->, thick] (atom2) to[out=250,in=110](atom3);
 \draw[->, thick] (atom3)to[out=70,in=290](atom2);
 \draw[->, thick] (atom4)+(-0.15,0.2) arc (30:330:.5);
-\end{tikzpicture}
- \end{center}
+\end{tikzpicture}\caption{\label{fig:amia} A more complicated graph.}
+ \end{figure}
+\end{itemize}
 
 
-If we wanted, we could make our diagrams more complex. For example, we could introduce another kind of arrow to represent an additional two-place relation. Or, we could add names as labels attached to particular objects. Or, to symbolise the extension of a one-place predicate, we might simply draw a ring around some particular objects and stipulate that the thus encircled objects (and only them) are to fall under the predicate `$H$', say.  
+If we wanted, we can extend our graphical conventions, making our diagrams more complex in order to depict more complex interpretations. For example, we could introduce another kind of arrow (maybe with a dashed shaft) to represent a further two-place predicate.\footnote{This kind of `directed multigraph' is sometimes called a \define{quiver}.} We could add names as labels attached to particular objects. To symbolise the extension of a one-place predicate, we might simply adopt the approach from §\ref{euler}, and mark a shaded region around some particular objects and stipulate that the thus encircled objects (and only them) are to fall in the extension of some predicate `$H$', say.\footnote{We needn't stop there. For example, we could introduce \define{directed hypergraphs}, where the edges can join more than two nodes.} 
 
-Consider how we we might graphically represent the following interpretation, which will make use of all these graphical innovations: \begin{ekey}
+All of these graphical innovations are used in Figure~\ref{fig:complex}, which  graphically represents the following interpretation: \begin{ekey}
 	\item[\text{domain}] $2,3,4,5,6$
 	\item[G] $\gap{1} \geqslant 4$. 
 	\item[D] \gap{1} is distinct from and exactly divisible by \gap{2};
 	\item[T] $\gap{1} + 3 = \gap{2}$;
 	\item[f] $4$;
 \end{ekey} 
-This graph represents that interpretation, where the label `$f$' represents the name attached to 4, the blue dotted arrow represents the relation assigned to $T$, the black solid arrow represents the relation assigned to $D$, and the grey ellipse represents the collection of things in the domain which have the property assigned to $G$:
-\begin{center}
+Here the label `$f$' represents the name attached to 4, the blue dotted arrow represents the relation assigned to $T$, the black solid arrow represents the relation assigned to $D$, and the grey ellipse represents the collection of things in the domain which have the property assigned to $G$. 
+\begin{figure}
 \begin{tikzpicture}
 \node (atom2) at (1,2) {2};
 \node (atom3) at (3,2) {3};
@@ -341,9 +348,91 @@ This graph represents that interpretation, where the label `$f$' represents the 
 \draw[->, blue, thick, dotted] (atom3) .. controls (5,1) .. (atom6);
 \filldraw[fill=gray!20!white, draw =black, very thick, opacity=0.2] (2,0) ellipse (3cm and 0.75cm);
 \end{tikzpicture}
-\end{center}
+\caption{\label{fig:complex}Multiple techniques used to depict a complex interpretation.}
+\end{figure}
+
+\section{Properties of Binary Relations} \label{binary}
+
+The extension of a two-place predicate is a collection of ordered pairs drawn from a domain $D$. Such a collection is also known as a \define{binary relation} on $D$. Binary relations have many interesting features. We have seen some of them already in §\ref{lli}, when we noted that reflexivity, symmetry and transitivity are all features of identity. We will now treat these notions more generally. \emph{This section is optional.} 
+
+\factoidbox{\begin{itemize}
+	\item A binary relation $R$  on $D$ is \define{reflexive} iff for any $x$ in $D$, $\ntuple{x,x}$ is in $R$. 
+	\item $R$ is \define{irreflexive} on $D$ iff for no $x$ in $D$ is $\ntuple{x, x}$ in $R$.
+	\item If $R$ is neither reflexive nor irreflexive, it is non-reflexive.
+\end{itemize}}
+An example of a reflexive relation is the extension of `\gap{1} is the same height as \gap{2}' on the domain of people. Everyone is the same height as themselves. An example of an irreflexive relation is the extension of `\gap{1} is taller than \gap{2}' on the domain of people, since no one is taller than they are. An example of a non-reflexive relation might be the extension of `\gap{1} trusts the judgment of \gap{2}' on the domain of people: some people trust their own judgement, while others second-guess themselves. Pictorially, a reflexive relation corresponds to a graph in which every node in the graph has an arrow pointing to itself, such as in Figure~\ref{fig:reflex}. 
+\begin{figure}
+\begin{tikzpicture}
+\node (atom1) at (0,2) {1};
+\node (atom3) at (2,0) {3};
+\node (atom4) at (0,0) {4};
+\draw[->, thick] (atom3)--(atom4);
+\draw[->, thick] (atom1)+(-0.15,0.15) arc (-330:-30:.3); 
+\draw[->, thick] (atom3)+(0.15,-0.15) arc (-150:150:.3); 
+\draw[->, thick] (atom1) .. controls (0.75,0.75) .. (atom3);
+\draw[->, thick] (atom3) .. controls (1.75,1.75) .. (atom1);
+\draw[->, thick] (atom4)+(-0.15,0.15) arc (-330:-30:.3); 
+\end{tikzpicture}\caption{A graph of a reflexive relation on $\{1, 3, 4\}$.\label{fig:reflex}}
+\end{figure} Note the resemblance between this graph and the graph in Figure~\ref{fig:graph2}. They are almost the same, except the earlier Figure shows a relation in which the domain contains the number $2$, which is \emph{not} paired with itself in the relation. A relation being reflexive requires everything in the domain relate to itself: in Figure~\ref{fig:graph2}, that condition is not satisfied.  The graph of an irreflexive relation has no loops from a node directly to itself, such as the relation depicted in Figure~\ref{fig:graph1}. The graph of a nonreflexive relation will have a mixture of nodes with and without loops, such as in Figure~\ref{fig:graph2}.
+
+\factoidbox{\begin{itemize}
+	\item A binary relation $R$ is \define{transitive} iff for any $x$, $y$, and $z$, whenever $\ntuple{x, y}$ and $\ntuple{y, z}$ are in $R$, then $\ntuple{x, z}$ is also in $R$.
+	\item $R$ is \define{intransitive} iff for any $x$, $y$, and $z$, whenever $\ntuple{x, y}$ and $\ntuple{y, z}$ are in $R$, then $\ntuple{x, z}$ is \emph{not} in $R$.
+	\item $R$ is non-transititive iff it is neither transitive nor intransitive.
+\end{itemize}}
+An example of a transitive relation is the extension of `\gap{1} is older than \gap{2}' on the domain of buildings. Whenever one building is older than another, which is older than a third, the first must be older than the third. An example of an intransitive relation is the extension of `\gap{1} is the successor of \gap{2}' on the domain of numbers, where $x$ is the successor of $y$ iff $x = y+1$. While $7$ is the successor of $6$, and $6$ is the successor of $5$, it is not the case that $7$ is the sucessor of $5$. An example of a non-transitive relation is the extension of `there is a direct flight between \gap{1} and \gap{2}' on the domain of the Qantas network. There is a direct flight from Adelaide to Perth, and a direct flight from Perth to Broome, but no direct flight from Adelaide to Broome. On the other hand, there is a direct flight from Perth to Sydney, and there is a direct flight from Adelaide to Sydney. 
+
+Pictorially, a reflexive relation is one where there is a `shortcut' between any two nodes that can be reached from one another by travelling along arrows in the intended direction. Consider the graph in Figure~\ref{fig:trans}. 
+\begin{figure}
+	\begin{tikzpicture}
+\node (bh) at (6,0) {Bonython (1936)};
+\node (nb) at (9,0) {Napier (1958)};
+\node (eh) at (3,0) {Elder (1900)};
+\node (mb) at (0,0) {Mitchell (1882)};
+\draw[->, thick] (mb)--(eh);
+\draw[->, thick] (mb) .. controls (3,0.75) .. (bh);
+\draw[->, thick] (mb) .. controls (5,2) .. (nb);
+\draw[->, thick] (eh)--(bh);
+\draw[->, thick] (eh) .. controls (7,-1) .. (nb);
+\draw[->, thick] (bh)--(nb); 
+\end{tikzpicture}\caption{A graph of the transitive relation `older than' on some University of Adelaide buildings.\label{fig:trans}}
+\end{figure} Intuitively, one can `get from' the oldest (the Mitchell Building) to the youngest (the Napier Building) via the intermediate aged Elder Hall and Bonython Hall. But you can also go directly, following the topmost curve. The graph of an intransitive relation has no shortcuts of this sort. The graph of a non-transitive relation has a mix of shortcuts, such as the graph of our Qantas example depicted in Figure~\ref{fig:qantas}. 
+\begin{figure}[b]
+	\begin{tikzpicture}
+\node (b) at (1,2.5) {Broome};
+\node (s) at (5.5,0) {Sydney};
+\node (a) at (4,-1) {Adelaide};
+\node (p) at (0,0) {Perth};
+\draw[->, thick] (p) .. controls (0,2) .. (b);
+\draw[->, thick] (p)--(a);
+\draw[->, thick] (p)--(s);
+\draw[->, thick] (a) .. controls (2,-1.25) .. (p);
+\draw[->, thick] (a) .. controls (5,-1) .. (s);
+\draw[->, thick] (s)--(a);
+\draw[->, thick] (s) .. controls (3,0.75) .. (p);
+\draw[->, thick] (s)--(b);
+\draw[->, thick] (b) .. controls (3.5,2) ..  (s);
+\draw[->, thick] (b) .. controls (1,1) ..  (p);
+\end{tikzpicture}\caption{An extract of Qantas' route network.\label{fig:qantas}}
+\end{figure}
+
+One interesting question: is the relation depicted in Figure~\ref{fig:graph2} intransitive? There are no obvious shortcuts; while you can get from 1 to 3, and from 3 to 4, you cannot go directly from 1 to 4. But those loops actually make for some degenerate shortcuts. E.g., there is an edge from 1 ($x$) to 3 ($y$), and from 3 ($y$) to 3 ($z$), and there is the `shortcut' from 1 ($x$) to 3 ($z$). This may not be how you were thinking of these transitivity, but look back at the definition, which is phrased in terms of picking \emph{any} pairs from the domain – even those pairs of a node and itself. 
+
+\factoidbox{\begin{itemize}
+	\item A binary relation $R$ is \define{symmetric} iff for any $\ntuple{x, y}$ in $R$, $\ntuple{y, x}$ is also in $R$.
+	\item $R$ is \define{}
+
+\end{itemize}}
 
 
+
+
+
+
+
+
+
+The observant reader will have noticed that, while we defined reflexive on 𝐷, symmetric on 𝐷, etc., the only definition which actually mentions 𝐷 is the definition of reflexivity. All the other definitions are conditional in form: they say, if certain pairs are in the relation, then certain other pairs will be too. We needn’t specify a domain to check whether these conditionals hold of any relation. But to check whether a relation is reflexive, we need not only the ordered pairs of the relation, but also what the domain is, so we can see if any members of the domain are missing from the relation. Reflexivity is an extrinsic property of a relation, because it is relative to the domain from which the relata of the relation may be drawn. The others are intrinsic properties of a relation; whether the relation has them is fixed by which pairs are in the relation. The very same set of pairs might be reflexive on one domain and non-reflexive on another, but it will be symmetric on every domain if it is symmetric on any.
 
 
 \keyideas{
@@ -352,12 +441,13 @@ This graph represents that interpretation, where the label `$f$' represents the 
 	\item The extension of an $n$-place predicate is a collection of ordered sequences of length $n$ of things from the domain. The identity predicate has a privileged extension; it is always the collection of pairs from the domain consisting of things and themselves.
 	\item The extension of a zero-place predicate is a truth value; these correspond to atomic sentences of \TFL. 
 	\item Given a domain, it is often possible to represent the interpretation of a predicate by means of an Euler diagram or a directed graph on that domain.
+	\item Directed graphs provide a convenient way to represent the structural features of binary relations.
 }
 
 
 \practiceproblems
 \problempart
-Since \FOL\ is an extensional language, if let the \FOL\ name `$s$' denote Superman, and the name `$c$' denote Clark Kent, then `$s=c$' will be true. But it will be true for the same reason that `$s=s$' is true: because \ntuple{Clark Kent,Clark Kent} is in the extension of `$=$'. Can you use this observation as the basis for any argument that English is not an extensional language?
+Since \FOL\ is an extensional language, if let the \FOL\ name `$s$' denote Superman, and the name `$c$' denote Clark Kent, then `$s=c$' will be true. But it will be true for the same reason that `$s=s$' is true: because \ntuple{Clark Kent, Clark Kent} is in the extension of `$=$'. Can you use this observation as the basis for any argument that English is not an extensional language?
 
 \problempart
 Using some of the methods introduced in this section, give a graphical representation of the following interpretations. You will need to rely on your general knowledge to prepare these diagrams. \begin{earg}
@@ -542,7 +632,7 @@ Here's how this works in practice. Suppose we want to figure out whether the sen
 	\emph{For each way of picking planets to be the values of `$x$' and `$y$', either we pick two different planets, and one is lighter than the other (no two planets have the same mass); or we pick the same planet, and `they' are identical in mass. In either case, we can always find something no heavier than anything we pick. So for any variable assignment to `$x$' over this interpretation,  we can then assign something to `$y$' so as to make `$Lxy$' true on that joint assignment. Hence no matter what we assign to `$x$', `$\exists y Lxy$' is true on that assignment. But since that is true no matter what we assign to `$x$', `$\forall x \exists y Lxy$' is true on every variable assignment over this interpretation. But that latter is a sentence, so is true in this interpretation.}
 \end{quote}
 
-Let us say that a sequence of objects \ntuple{$a_{1},…,a_{n}$} \define{satisfies} a formula $\meta{A}$ in which the variables $\meta{x}_{1},…,\meta{x}_{n}$ occur freely iff there is a variable assignment over an intepretation whose domain includes each $a_{i}$, and which assigns each $a_{i}$ to the variable $\meta{x}_{i}$, and on which \meta{A} is true over that interpretation. What we have expressed in terms of variable assignments could have been expressed, a little more awkwardly, using the notion of some objects satisfying a formula. Indeed, this is how Alfred Tarski, the inventor of this approach to truth in \FOL, first introduced the idea.\footnote{A translation of his original 1933 paper is Alfred Tarski (1983) `The Concept of Truth in Formalized Languages' in his \emph{Logic, Semantics, Metamathematics}, Indianapolis: Hackett, pp.\ 152–278. It is quite technical in places.}
+Let us say that a sequence of objects \ntuple{$a_{1}, …, a_{n}$} \define{satisfies} a formula $\meta{A}$ in which the variables $\meta{x}_{1},…,\meta{x}_{n}$ occur freely iff there is a variable assignment over an intepretation whose domain includes each $a_{i}$, and which assigns each $a_{i}$ to the variable $\meta{x}_{i}$, and on which \meta{A} is true over that interpretation. What we have expressed in terms of variable assignments could have been expressed, a little more awkwardly, using the notion of some objects satisfying a formula. Indeed, this is how Alfred Tarski, the inventor of this approach to truth in \FOL, first introduced the idea.\footnote{A translation of his original 1933 paper is Alfred Tarski (1983) `The Concept of Truth in Formalized Languages' in his \emph{Logic, Semantics, Metamathematics}, Indianapolis: Hackett, pp.\ 152–278. It is quite technical in places.}
 
 \keyideas{
 	\item An atomic sentence  of \FOL\ is true in an interpretation iff the extensions of the names occurring in it, taken in the appropriate order, fall in the extension of the predicate they accompany.
