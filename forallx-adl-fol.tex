@@ -629,7 +629,7 @@ So far, we have only considered sentences that require simple predicates with ju
 \section{Many-place Predicates}
 All of the predicates that we have considered so far concern properties that can be attributed to objects might have by themselves, as it were. `Herbie is white', `Kim Deal is a bassist', etc., all talk about the features of a single individual. The associated predicates, such as `\blank\ is white', have one gap in them, and to make a sentence, we simply need to slot in one name. They are \define{one-place} predicates. 
 
-But other predicates concern the \emph{relationship} between two things. Here are some examples of relational predicates in English:
+But other predicates concern the \emph{relationship} between two things. Here are some examples of many-place predicates in English:
 	\begin{quote}
 		\blank\ loves \blank\\
 		\blank\ is to the left of \blank\\
@@ -657,7 +657,7 @@ Now there is a little problem with the above. I have used the same symbol, `\bla
 	\end{quote}
 The point is that we need some way of keeping track of the gaps in predicates, so that we can keep track of how we are filling them in. 
 
-Another way to put the point: when it comes to relational predicates, sometimes the order matters. `Shaq is taller than Jordan' doesn't mean the same thing as `Jordan is taller than Shaq'. It matters whose name fills the first gap in the relation, and whose name fills the second. 
+Another way to put the point: when it comes to two-(or more)-place predicates, sometimes the order matters. `Shaq is taller than Jordan' doesn't mean the same thing as `Jordan is taller than Shaq'. It matters whose name fills the first gap in the predicate, and whose name fills the second. 
 
 To keep track of the gaps, we shall label them. The labelling conventions I  adopt are best explained by example. Suppose I want to symbolise the following sentences:
 	\begin{earg}
@@ -833,7 +833,7 @@ How to symbolise the structure of a sentence very much depends on what purpose y
 \keyideas{
 	\item The true power of \FOL\ comes from its ability to handle multiple generality.
 	\item But with great power comes additional complexity: we need to keep track of different places in our predicates, and different quantifiers that may govern those places. Even small alterations in scope or order can drastically change the meaning of the symbolisation we produce.
-	\item Use of paraphrases and hybrid English-\FOL\ sentences can be useful in figuring out how to symbolise a complex claim featuring multiple quantifiers and complex relational predicates.
+	\item Use of paraphrases and hybrid English-\FOL\ sentences can be useful in figuring out how to symbolise a complex claim featuring multiple quantifiers and complex many-place predicates.
 }
 
 
@@ -1069,7 +1069,7 @@ Let's return to our example `Barry is taller than everyone else'. We want to sta
 
 Using that same kind of structure, we can also now deal with sentences \ref{else1b}–\ref{else1d}. All of these sentences can be  paraphrased as `Everyone who isn't Pavel is such that: Pavel owes money to them'. Paraphrasing some more, we get: `For all x, if x is not Pavel, then x is owed money by Pavel'. Now that we are armed with our new identity symbol, we can symbolise this as `$\forall x (\enot x = p \eif Opx)$'.
 
-This last sentence contains the formula `$\enot x = p$'. And that might look a bit strange, because the symbol that comes immediately after the `$\enot$' is a variable, rather than a predicate. But this is no problem. We are simply negating the entire formula, `$x = p$'. But if this is confusing, you may use  the \define{non-identity relation} `$≠$'. This is an abbreviation, characterised as folllows: \factoidbox{Any occurrence of the expression `$\meta{x}≠\meta{y}$' in a sentence abbreviates the expression `$\enot \meta{x} = \meta{y}$', and either can substitute for the other in any \FOL\ sentence.} I will use both expressions in what follows, but strictly speaking `$\enot a = b$' is the official version, and we allow a conventional abbreviation `$a≠b$'.
+This last sentence contains the formula `$\enot x = p$'. And that might look a bit strange, because the symbol that comes immediately after the `$\enot$' is a variable, rather than a predicate. But this is no problem. We are simply negating the entire formula, `$x = p$'. But if this is confusing, you may use  the \define{non-identity predicate} `$≠$'. This is an abbreviation, characterised as folllows: \factoidbox{Any occurrence of the expression `$\meta{x}≠\meta{y}$' in a sentence abbreviates the expression `$\enot \meta{x} = \meta{y}$', and either can substitute for the other in any \FOL\ sentence.} I will use both expressions in what follows, but strictly speaking `$\enot a = b$' is the official version, and we allow a conventional abbreviation `$a≠b$'.
 
 In addition to sentences that use the word `else', `other than' and `except', identity will be helpful when symbolising some sentences that contain the words `besides' and `only.' Consider these examples:
 
@@ -1089,10 +1089,18 @@ This argument rests on one of the logical principles governing identity: that if
 		\item Identity is \define{symmetric}: if $\meta{a} = \meta{b}$,  then also $\meta{b} = \meta{a}$.
 		\item Identity is \define{transitive}: if $\meta{a} = \meta{b}$,  and $\meta{b} = \meta{c}$, then also $\meta{a} = \meta{c}$.  
 	\end{itemize}}
-These principles can apply to other two-place predicates too. For example, the relation `\gap{1} is taller than \gap{2}' is also transitive, since if Albert is taller than Barbara, and Barbara is taller than Chloe, then Albert must be taller than Chloe too. But it is not reflexive or symmetric: Albert is not taller than himself, and if Albert is taller than Barbara, it cannot be also that Barbara is taller than Albert. We will return to this topic in §\ref{binary}.
+These principles of identity can be expressed as sentences of \FOL. In the definitions given above, the names involved are arbitrary. So we can in fact paraphrase the reflexivity of identity as saying that for any thing, it is self-identical. Symbolised in \FOL, this is `$\forall x x=x$'. Likewise for the others: \begin{itemize}
+	\item Symmetry: $\forall x \forall y (x=y \eif y=x)$;
+	\item Transitivity: $\forall x \forall y \forall z ((x=y \eand y=z) \eif x=z)$.
+\end{itemize} 
+
+These principles can apply to other two-place predicates too. For example, the two-place English predicate `\gap{1} is taller than \gap{2}' is also transitive, since if Albert is taller than Barbara, and Barbara is taller than Chloe, then Albert must be taller than Chloe too. But it is not reflexive or symmetric: Albert is not taller than himself, and if Albert is taller than Barbara, it cannot be also that Barbara is taller than Albert. We will return to this topic in §\ref{binary}.
 
 A final principle about identity is \define{Leibniz' Law}, named after the philosopher and mathematician Gottfried Leibniz: \factoidbox{If $\meta{x}=\meta{y}$ then for any property at all,  $\meta{x}$ has it iff $\meta{y}$ has it too. That is: every instance of this schematic sentence of \FOL, for any predicate $\meta{F}$ whatsoever, is true: $$\forall x \forall y \bigl(x=y \eif (\meta{F}x \eiff \meta{F}y) \bigr).$$} 
 Leibniz' Law certainly entails that identical things are indistinguishable, sharing every property in common. But as we have already noted, identity isn't merely indistinguishability. Two things might be indistinguishable, but if there are two, they are not strictly identical in the logical sense we are concerned with. Yet in many cases, even very similar things do turn out to have some distinguishing property. There is a significant philosophical controversy over whether there can be cases of mere numerical difference, i.e., of non-identity without any qualitative dissimilarity. 
+
+
+
 
 \section{There are at Least …}
 
@@ -1261,7 +1269,7 @@ symbolise the following sentences in \FOL:
 \end{earg}
 
 \problempart
-Identity is a reflexive, symmetric, and transitive relation. Can you give examples of relations which are \begin{earg}
+Identity is a reflexive, symmetric, and transitive predicate. Can you give examples of English predicates which are \begin{earg}
 	\item Reflexive and symmetric but not transitive;
 	\item Reflexive and transitive but not symmetric;
 	\item Symmetric and transitive but not reflexive?

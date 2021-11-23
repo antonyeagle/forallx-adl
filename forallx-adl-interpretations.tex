@@ -151,11 +151,11 @@ If two names \meta{a} and \meta{b} are assigned to the same object in a given sy
 		Rca &\eiff Rcb\\
 		\forall x Rxa &\eiff \forall x Rxb
 	\end{align*}
-This fact is sometimes called the \define{indiscernibility of identicals} – if two names denote the same thing, then no claim will be true when formulated using one of those names but false when formulated using the other in its place. That is because, at the level of extensions, there really is just one thing that those claims are about, and how could that one thing be discernible from itself?
+This fact is sometimes called the \define{indiscernibility of identicals}, or Leibniz' Law (which we already encountered in §\ref{lli}): if two names denote the same thing, then no claim will be true when formulated using one of those names but false when formulated using the other in its place. That is because, at the level of extensions, there really is just one thing that those claims are about; how could that one thing be discernible from itself?
 
-The converse claim – the \define{identity of indiscernibles} – is much more controversial. It is not defensible in \FOL. Suppose two objects differ in some property $\mathfrak{F}$, but our symbolisation key includes no predicate which denotes $\mathfrak{F}$. Then we might not have any sentence true of the one object and false of the other, even though they are \emph{distinct} objects which have different properties. We can't tell them apart, not because they are really just one, but because we don't have the right words to talk about how they are different. \FOL\ thus allows that exactly the same predicates might be true of two distinct objects, and thus they are distinct but indiscernible when restricted to the resources of our symbolisation.
+The converse claim – the \define{identity of indiscernibles} – is much more controversial. It is not defensible in \FOL. Suppose two objects differ in some feature $\mathfrak{F}$, but our symbolisation key includes no predicate which denotes $\mathfrak{F}$. Then we might not have any sentence true of the one object and false of the other, even though they are \emph{distinct} objects which have different properties. We can't tell them apart, not because they are really just one, but because we don't have the right words to talk about how they are different. \FOL\ thus allows that exactly the same predicates might be true of two distinct objects, and thus they are distinct but indiscernible when restricted to the resources of our symbolisation.
 
-
+Once we move beyond \FOL\ and other extensional languages, even the indiscernibility of identicals is controversial. For example, consider cases of secret identities, like in Spider-Man. Suppose we consider the English predicate `MJ believes \gap{} shoots webs'. In the story, MJ believes that Spider-Man shoots webs, but she does not believe that Peter Parker shoots webs. Even though Spider-Man is Peter Parker, substituting one name for the other in this predicate turns a true sentence into a false one. An open sentence which doesn't always yield the truth value when we substitute names with the same referent is called \define{opaque}. The word which is responsible for the opacity here is the attitude verb `believes'. Intuitively, what matters for a belief ascription is not which things are identical, but which things the subject represents as identical. Other attitude verbs also lead to opacity: `knows', `wants', `remembers'. A language which contains opaque constructions cannot be completely represented in an extensional language like \FOL.  
 
 
 \section{Interpretations} \label{ss.int}
@@ -167,7 +167,7 @@ I defined a \emph{valuation} in \TFL\ as any assignment of truth and falsity to 
 	\end{itemize}
 A zero-place predicate (what we called `atomic sentences' in \TFL) has a truth value, either T or F, as its extension – thus the valuations of \TFL\ are intepretations of a very restricted part of \FOL\ – those interpretations which only care to consider zero-place predicates.
 
-The symbolisation keys that I considered in chapter \ref{ch.FOL} consequently give us one very convenient way to present an interpretation. We shall continue to use them throughout this chapter. It is important to note, however, that the symbolisation key tends to associate each predicate with a \emph{property}, and then uses that property as a classification rule to determine the extension of the predicate. We can, and sometimes do, offer an interpretation by simply giving the extensions of the intepreted \FOL\ expressions directly. We can simply list the items, pairs, triples, etc., in the extension assigned to a predicate. So the following two symbolisation keys give the same intepretation: 
+The symbolisation keys that I considered in chapter \ref{ch.FOL} consequently give us one very convenient way to present an interpretation. We shall continue to use them throughout this chapter. It is important to note, however, that the symbolisation key tends to associate each predicate with an already understood predicate (in English), and then uses that predicate as a classification rule to determine the extension of the predicate. We can, and sometimes do, offer an interpretation by simply giving the extensions of the intepreted \FOL\ expressions directly. We can simply list the items, pairs, triples, etc., in the extension assigned to a predicate. So the following two symbolisation keys give the same intepretation: 
 \begin{itemize}
 	\item \begin{ekey}
 	\item[\text{domain}] Days of the week
@@ -180,6 +180,17 @@ The symbolisation keys that I considered in chapter \ref{ch.FOL} consequently gi
 
 \end{itemize}
 
+\section{Predicates, Properties, and Relations}\label{predrel}
+
+A feature that might be shared by a number of different things is called a \define{property}. These can be physical features like the property \emph{being red}, or the property \emph{having a mass of 2kg}; but we can also consider other properties that have a more social or mental basis, such as \emph{being a logician}, \emph{being rich}, or \emph{being annoying}. In many cases, a property will determine an extension, because we can think of the property as dividing the domain in two: into a collection of things in the domain having a certain feature, and those lacking it. As the extension of a one-place predicate is a collection of things, the collection of things with a certain feature can correspond to an extension of a predicate. In that case we might say that the predicate represents the property. So on the domain of people, the collection of people who have the property of being a logician is an extension, and we can offer an interpretation on which this extension is assigned to some one-place predicate.
+
+We have to be careful about this though, for several reasons. The first is that a property is a way for something to be, independent of the domain in which it might be included. An extension by contrast is defined as a subset of the domain. So a property might determine an extension, given a domain, but we should not take it to \emph{be} an extension. Likewise, we should not understand the symbolisation key as assigning a property as the \emph{meaning} of a predicate. Recalling §\ref{ss.int}, we might understand a symbolisation key as associate a \FOL\ predicate with a property as expressed by an English predicate. But this is just a means to assign an extension to the predicate, using the property as a classification of the domain. 
+
+Another reason to hesitate in taking extensions to be properties is that, depending on the domain, many distinct properties will have the same extension. Consider the ratites, the bird family including ostriches, emus, cassowaries, and kiwis, among others. All living ratites are unable to fly. So on the domain of ratites, the property \emph{being a bird} determines the same extension as the property \emph{being flightless}. Suppose some predicate `$F$' is assigned this extension. If an extension is a property, then we'd have to say that extension is both \emph{is a bird} and \emph{is flightless} – but since those two are distinct, the extension cannot be both, and in fact it is clear that it cannot be either.\footnote{These properties are coextensive on this domain, but not in general. But some properties seem to be necessarily coextensive: take the properties \emph{being a plane figure with three sides} and \emph{being a plane figure with three vertices}. At first glance these are different properties – one involves counting lines, the other counting angles.}
+
+A final reason for caution is that many legitimate extensions don't seem to correspond to genuine properties. It is hard to characterise the distinction between genuine properties and the others, but one idea is that genuine properties contribute to \emph{resemblance}. If two things are both red, then they resemble one another in appearance. But any subset of a domain is an extension, and we can imagine just selecting things almost at random to form an extension, which can then be assigned to a predicate. But there need be nothing those things have in common just because they are in the same set. Suppose I toss a coin ten times, and determine an extension by selecting $n$ from the domain of natural numbers if the $n$-th toss was heads. The extension I get is: $1, 3, 4, 5, 7$. But clearly nothing in this recipe means this extension corresponds to a genuine property. Nothing in \FOL\ requires that predicates must have genuine properties determining their extensions.  
+
+Properties determine extensions for one-place predicates. The corresponding entity determining the extension of a many-place predicate is a \define{relation}. So the relation of \emph{loving} on a domain determines an extension, a set of pairs from the domain standing in that relation. The same caveats apply as in the case of properties: we shouldn't take \FOL\ predicates to have relations as their meaning, we shouldn't identify a relation with its extension, and we shouldn't take any extension to correspond to a genuine relation.
 
 \section{Representing one-place predicates: Euler diagrams}\label{euler}
 
@@ -332,7 +343,7 @@ All of these graphical innovations are used in Figure~\ref{fig:complex}, which  
 	\item[T] $\gap{1} + 3 = \gap{2}$;
 	\item[f] $4$;
 \end{ekey} 
-Here the label `$f$' represents the name attached to 4, the blue dotted arrow represents the relation assigned to $T$, the black solid arrow represents the relation assigned to $D$, and the grey ellipse represents the collection of things in the domain which have the property assigned to $G$. 
+Here the label `$f$' represents the name attached to 4, the blue dotted arrow represents the relation assigned to $T$, the black solid arrow represents the relation assigned to $D$, and the grey ellipse represents the collection of things in the domain which fall in the extension assigned to $G$. 
 \begin{figure}
 \begin{tikzpicture}
 \node (atom2) at (1,2) {2};
@@ -355,6 +366,11 @@ Here the label `$f$' represents the name attached to 4, the blue dotted arrow re
 
 
 The extension of a two-place predicate is a collection of ordered pairs drawn from a domain $D$. Such a collection is also known as a \define{binary relation} on $D$. Binary relations have many interesting features. We have seen some of them already in §\ref{lli}, when we noted that reflexivity, symmetry and transitivity are all features of identity. We will now treat these notions more generally. 
+
+
+- FOL equivalents
+- no FOL predicates are symmetric, etc. – only their extensions.
+
 
 \begin{itemize}
  	\item \emph{This section should be regarded as optional, and only for the dedicated student of logic.}

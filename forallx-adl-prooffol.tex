@@ -22,7 +22,7 @@ However, not every \FOL\ sentence has a \TFL\ connective as its main connective.
 
 \section{Universal Elimination}\label{unielim}
 
-Holding fixed the claim that everything is F, you can conclude that any particular thing is F. \emph{You name it; it's F.} The same is true for relational predicates: if every human is shorter than 3km tall, then Amy is shorter than 3km tall, and Bob is, and Jonquil is,  and everyone else you can name.
+Holding fixed the claim that everything is F, you can conclude that any particular thing is F. \emph{You name it; it's F.} The same is true for many-place predicates: if every human is shorter than 3km tall, then Amy is shorter than 3km tall, and Bob is, and Jonquil is,  and everyone else you can name.
 
 Accordingly, the following reasoning should be fine for the corresponding symbolisations in \FOL:
 \begin{proof}
@@ -221,7 +221,7 @@ Here is another proof featuring an application of $\forall$I after discharging a
 	\close
 	\have{d}{\enot(Fa \eand \enot Fa)}\ni{a-b,a-c}
 	\have{e}{\forall x \enot(Fx \eand \enot Fx)}\Ai{d}
-\end{proof} Here we were able to derive that something could not be true of $a$, no matter what $a$ is. So that property could not be true of anything at all. We cannot even coherently assume this about $a$, so it doesn't really matter what `$a$' denotes, it won't fulfil the assumption made about it. That is why we are entitled to discharge that assumption, and then any subsequent use of `$a$' in the proof must be depending not on particular facts about this $a$, but about anything at all, including whatever it is that `$a$' happens to pick out.
+\end{proof} Here we were able to derive that something could not be true of $a$, no matter what $a$ is. We cannot make a coherent assumption that $a$ is both $F$ and isn't $F$, so it doesn't really matter what `$a$' denotes. So the open sentence `$\enot(F \eand \enot Fx)$' could not be true of anything at all. That is why we are entitled to discharge that assumption, and then any subsequent use of `$a$' in the proof must be depending not on particular facts about this $a$, but about anything at all, including whatever it is that `$a$' happens to pick out. 
 
 You might wish to recall the proof of `$\exists x (Px \eor \enot Px)$' from page \pageref{exexmid}. Note that, by the second-last line, we had already discharged any assumption which relied on the specific name chosen (in that case, `$d$'). The existential introduction rule has no constraints on it, so that it was not necessary to discharge any assumptions using the name before applying that rule. But we see now that, since those assumptions were in fact discharged, we could have applied universal introduction at that second last line, to yield a proof of `$\forall x (Px \eor \enot Px)$'.
 
@@ -758,7 +758,10 @@ Note that nothing in the rule forbids the constant $\meta{b}$ from occurring in 
 This rule is sometimes called \emph{Leibniz's Law} – though recall §\ref{lli}, where we used that name for a claim about the interpretation of `$=$'.
 
 
-To see the rules in action, we shall prove some quick results. A relation is  \define{symmetric} iff whenever it holds between x and y in one direction, it holds also between y and x in the other direction. (In the directed graph representation of the relation introduced in §\ref{graph}, any arrow going from one node to another is matched by a return arrow.) So first, we shall prove that identity is symmetric:
+To see the rules in action, we shall prove some quick results. Recall that a relation is symmetric iff whenever it holds between x and y in one direction, it holds also between y and x in the other direction (§\ref{graph}). This condition can be expressed as a sentence of \FOL: 
+
+
+ So first, we shall prove that identity is symmetric, a result we already noted on semantic grounds in §\ref{lli}:
 \begin{proof}
 	\open
 		\hypo{ab}{a = b}
