@@ -363,7 +363,7 @@ Here the label `$f$' represents the name attached to 4, the blue dotted arrow re
 
 \section{Properties of Binary Relations} \label{binary}
 
-The extension of a two-place predicate is a collection of ordered pairs drawn from a domain $D$. Such a collection is also known as a \define{binary relation} on $D$. Binary relations have many interesting features. We have seen some of them already in §\ref{lli}, when we noted that reflexivity, symmetry and transitivity are all features of identity. We will now treat these notions more generally. 
+The extension of a two-place predicate is a collection of ordered pairs drawn from a domain $D$. Such a collection is also known as a \define{binary relation} on $D$. Binary relations have many interesting features. We have seen some of them already in §\ref{lli}, when we noted that reflexivity, symmetry and transitivity are all features of identity. We will now treat these notions more generally. Binary relations provide some good examples of how directed graphs can help grasp an interpretation, because the properties of binary relations often correspond to easily grasped conditions on the associated graphs.
 
 \begin{itemize}
  	\item \emph{This section should be regarded as optional, and only for the dedicated student of logic.}
@@ -515,13 +515,22 @@ A mathematical example of a partial order is the \define{subset} relation $\subs
 	\item Directed graphs provide a convenient way to represent the structural features of binary relations.
 }
 
-
 \practiceproblems
+
+\problempart
+For each of the following collections of individuals, properties and relations, construct an interpretation that includes any appropriate extensions they determine, and an appropriate domain. Use your personal judgment if needed, and comment on any difficulties.
+\begin{enumerate}
+	\item The relation `\gap{1} is just as rich as \gap{2}', Bill Gates, Elon Musk, and Warren Buffet;
+	\item The relation `\gap{1} is exactly divisible by \gap{2}', and the property `\gap{} is even';
+	\item The property `\gap{1} is a great novel', the relation `\gap{1} is harder to understand than \gap{2}', \emph{Moby Dick}, \emph{Finnegan's Wake}, \emph{Bleak House}, \emph{A Wrinkle in Time}, \emph{The Left Hand of Darkness}.
+	\item The relation `\gap{1} is part of \gap{2}', your left leg, your lower body, you.
+\end{enumerate}
+
 \problempart
 Since \FOL\ is an extensional language, if let the \FOL\ name `$s$' denote Superman, and the name `$c$' denote Clark Kent, then `$s=c$' will be true. But it will be true for the same reason that `$s=s$' is true: because \ntuple{Clark Kent, Clark Kent} is in the extension of `$=$'. Can you use this observation as the basis for any argument that English is not an extensional language?
 
 \problempart
-Using some of the methods introduced in this section, give a graphical representation of the following interpretations. You will need to rely on your general knowledge to prepare these diagrams. \begin{earg}
+Using some of the methods introduced in this section (Euler diagrams and directed graphs), give a graphical representation of the following interpretations. You will need to rely on your general knowledge to prepare these diagrams. \begin{earg}
 	\item \begin{ekey}
 		\item[\text{domain}] people
 		\item[M] \gap{1} is a musician;
@@ -544,7 +553,7 @@ Using some of the methods introduced in this section, give a graphical represent
 	\end{ekey}
 \end{earg}
 
-\problempart \begin{earg} \item Show that any total relation on a domain is reflexive on that domain.
+\problempart These questions concern the material from the optional section on binary relations (§\ref{binary}). \begin{earg} \item Show that any total relation on a domain is reflexive on that domain.
 \item Show that a transitive relation is asymmetric if and only if it is irreflexive.
 \item What is wrong with the following argument that reflexivity is a consequence of symmetry and transitivity? \begin{quote}
 	If $\ntuple{x,y}$ is in $\symcal{R}$, then $\ntuple{y,x}$ is in $\symcal{R}$ since we assume $\symcal{R}$ is symmetric. If both $\ntuple{x,y}$ is in $\symcal{R}$ and $\ntuple{y,x}$ is in $\symcal{R}$, then since $\symcal{R}$ is transitive, $\ntuple{x,x}$ is in $\symcal{R}$ – so $\symcal{R}$ is reflexive. 
