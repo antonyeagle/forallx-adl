@@ -29,11 +29,6 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 3 (`forallx-adl-truthtables.tex`)
 * Chapter 4 (`forallx-adl-fol.tex`)
 * Chapter 5 (`forallx-adl-interpretations.tex`)
-	- §21
-		- domains as needed for extensions.
-		- come back to properties of binary relations, e.g., antisymmetry, equivalence relation. transitive+symmetric=reflexive.Ordering – (strict) partial order, (strict) total order??
-		- exercises about transitive, etc. from _EDL_.
-		-
 	- §22
 		- deal with one-place and many-place predicates differently. 
 		- use notion of `\ntuple` explicitly in defs of truth for atomic.

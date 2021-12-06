@@ -8,16 +8,16 @@
 
 % XeLaTeX font commands - Æ
 \usepackage{fontspec}
-\defaultfontfeatures{Mapping=tex-text}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 \setmainfont[Numbers=OldStyle,Ligatures={Common}]{Constantia} % Æ loathes Computer Modern
 \setsansfont[Numbers=OldStyle,Ligatures={Common}]{Calibri}
 \setmonofont[Scale=MatchLowercase]{Consolas}
-\usepackage[math-style=ISO,mathbf=sym,bold-style=TeX,mathsf=text]{unicode-math}
+\usepackage[math-style=ISO,mathbf=sym,bold-style=ISO,mathsf=text]{unicode-math}
+\setoperatorfont{\rmfamily}
 \setmathfont[Scale=MatchLowercase]{Cambria Math}
-\setmathfont[range=up/{num},Numbers=OldStyle]{Constantia}
+% \setmathfont[range=up/{num},Numbers=OldStyle]{Constantia}
 \newfontfamily\cjkfont{Kaiti SC Regular}
-\newfontfamily\dispfont[Numbers=OldStyle,Ligatures={Common},%
-SizeFeatures={Size=42}]{Constantia Bold Italic}
+\newfontfamily\dispfont[Numbers=OldStyle,Ligatures={Common},SizeFeatures={{Size=12-,Scale=2}}]{Constantia Bold Italic}
 
 % packages added by Æ
 
@@ -28,7 +28,6 @@ SizeFeatures={Size=42}]{Constantia Bold Italic}
 \usepackage{multirow}
 \usepackage{metalogo}
 \usepackage[norule,bottom,hang]{footmisc}
-\usepackage{fnpct}
 \frenchspacing 
 \usepackage{mathtools}
 
@@ -96,14 +95,14 @@ SizeFeatures={Size=42}]{Constantia Bold Italic}
 % equivalent to commenting something out, but usable on multiple lines
 \providecommand{\nix}[1]{}
 
-\newcommand*{\script}[1]{\ensuremath{\mathscr{#1}}}
-\renewcommand*{\meta}[1]{\ensuremath{\mathscr{#1}}} % TB: used for all metavariables
+\newcommand*{\script}[1]{\ensuremath{\symscr{#1}}}
+\renewcommand*{\meta}[1]{\ensuremath{\symscr{#1}}} % TB: used for all metavariables
 % create a blank
 \newcommand*{\gap}[1]{\ensuremath{\underbracket{\hspace*{2.5em}}_{#1}}} % TB: used for keys, to avoid use/mention confusion Æ made script
 \newcommand*{\blank}{\gap{}}
 
 % These are included for discussing formal semantics in predicate logic.
-\newcommand*{\model}[1]{\ensuremath{\mathbb{#1}}}
+\newcommand*{\model}[1]{\ensuremath{\symbb{#1}}}
 \newcommand*{\extension}[1]{\ensuremath{\mbox{extension}(#1)}}
 \newcommand*{\referent}[1]{\ensuremath{\mbox{referent}(#1)}}
   % Many philosophers seem to think using < and > is acceptable for angle brackets, even though it is not. If you want to use them, though, you can replace \langle and \rangle in the commands below. 
@@ -495,7 +494,7 @@ SizeFeatures={Size=42}]{Constantia Bold Italic}
 % break). \nd*openb and \nd*closeb open, respectively close, a
 % subproof.  \nd*guardb{n}{g} adds the guard g to the nth enclosing
 % subderivation (counted from 1 from the inside). \nd*hypob 
-% introduces a hypothesis, and \nd*haveb introduces a non-hypothesis
+% introduces a hypothesis, and \nd*haveb introduces a nonhypothesis
 % line in a proof.  Line numbering is integrated, but justifications
 % must still be given manually. Also, proof lines must still be
 % terminated by '\\'. An idiosyncracy of this layer is that in a list

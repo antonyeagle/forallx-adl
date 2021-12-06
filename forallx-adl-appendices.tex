@@ -42,7 +42,7 @@ This appendix presents some common symbols, so that you can recognise them if yo
 
 \paragraph{Negation} Two commonly used symbols are the \emph{not sign}, `$¬$', and the \emph{tilde operator}, `$∼$'. In some more advanced formal systems it is necessary to distinguish between two kinds of negation; the distinction is sometimes represented by using both `$¬$' and `$∼$'.
 
-Some texts use an overline to indicate negation, so that `$\overline{\mathscr{A}}$' expresses the same thing as `$¬\mathscr{A}$'. This is clear enough if $\mathscr{A}$ is an atomic sentence, but quickly becomes cumbersome if we attempt to nest negations: `$¬(A \wedge ¬(¬¬B \wedge C))$' becomes the unwieldy $$\overline{A \wedge \overline{(\overline{\overline{B}}\wedge C)}}.$$
+Some texts use an overline to indicate negation, so that `$\overline{\symscr{A}}$' expresses the same thing as `$¬\symscr{A}$'. This is clear enough if $\symscr{A}$ is an atomic sentence, but quickly becomes cumbersome if we attempt to nest negations: `$¬(A \wedge ¬(¬¬B \wedge C))$' becomes the unwieldy $$\overline{A \wedge \overline{(\overline{\overline{B}}\wedge C)}}.$$
 
 \paragraph{Disjunction} The symbol `$\vee$' is typically used to symbolize inclusive disjunction. One etymology is from the Latin word `vel', meaning `or'.%In some systems, disjunction is written as addition.
 
@@ -63,7 +63,7 @@ Conjunction is often symbolized with the \emph{ampersand}, `{\&}'. The ampersand
 
 \begin{center}
 \begin{tabular}{rl} \toprule 
-negation & $\neg$, $∼$, $\overline{\mathscr{A}}$\\
+negation & $\neg$, $∼$, $\overline{\symscr{A}}$\\
 conjunction & $\wedge$, $\&$, {\scriptsize\textbullet}\\
 disjunction & $\vee$\\
 conditional & $\rightarrow$, $\supset$, $\Rightarrow$\\
@@ -75,7 +75,7 @@ universal quantifier & $\forall x$, $(x)$\\ \bottomrule
 \newpage
 \section*{Doing without parentheses: Polish notation} \phantomsection\label{polish}
 
-We have established some conventions governing when you can omit parentheses in \TFL\ (in §§\ref{TFLconventions} and \ref{s:MoreParentheticalConventions}). These conventions are useful in practice. It can be hard to read sentences with many nested parentheses. Moreover, it is easy to make a mistake when constructing sentences, if you accidentally omit a needed bracket. So there has been some interest in ways of doing sentential logic without parentheses. Frege's initial formulation of sentential logic in his \emph{Begriffschrift} (1879) lacked parentheses, but involves a complicated non-linear branching structure which is difficult to typeset and has not been much used by anyone since.
+We have established some conventions governing when you can omit parentheses in \TFL\ (in §§\ref{TFLconventions} and \ref{s:MoreParentheticalConventions}). These conventions are useful in practice. It can be hard to read sentences with many nested parentheses. Moreover, it is easy to make a mistake when constructing sentences, if you accidentally omit a needed bracket. So there has been some interest in ways of doing sentential logic without parentheses. Frege's initial formulation of sentential logic in his \emph{Begriffschrift} (1879) lacked parentheses, but involves a complicated nonlinear branching structure which is difficult to typeset and has not been much used by anyone since.
 
 The now-standard approach to sentential logic without parentheses was due to the Polish logician Jan Łukasiewicz, and for that reason it has become known as \define{Polish notation}. It is a purely syntactic variant of our system \TFL: the truth-functions expressed by the connectives remain the same, but the sentences are written very differently.\footnote{In what follows I draw on Peter Simons (2017) `Łukasiewicz's Parenthesis-Free or Polish Notation', in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy}, \url{https://plato.stanford.edu/archives/spr2017/entries/lukasiewicz/polish-notation.html}.}
 
@@ -172,7 +172,7 @@ Everything besides c is G & $\forall x(\enot x = c \eif Gx)$\\
 %$j$ is more $R$ than anyone else. & $\forall x(x≠ j \eif Rjx)$\\
 The F is G & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand Gx)$\\
 It is not the case that the F is G & $\enot\exists x(Fx \eand \forall y(Fy \eif x=y) \eand Gx)$\\
-The F is non-G & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand \enot Gx)$\\\bottomrule
+The F is nonG & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand \enot Gx)$\\\bottomrule
 \end{tabular}
 
 \section*{Using identity to symbolize quantities}
