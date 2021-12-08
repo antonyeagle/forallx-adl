@@ -29,11 +29,6 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 3 (`forallx-adl-truthtables.tex`)
 * Chapter 4 (`forallx-adl-fol.tex`)
 * Chapter 5 (`forallx-adl-interpretations.tex`)
-	- §22
-		- deal with one-place and many-place predicates differently. 
-		- use notion of `\ntuple` explicitly in defs of truth for atomic.
-		- add diagrams showing different extended interpretations stemming from a starting interpretation.
-		- add 'why don't we do this?' section to quantifier interpretation 	 
 	- §23
 		- need to expand with examples, and practice problems
 		- change contradiction to logical falsehood
@@ -68,8 +63,6 @@ The following list contains current issues and proposed revisions arranged by ch
 	- §38 
 		+ some ideas about where next in logic
 * Backmatter
-
-
 
 
 
