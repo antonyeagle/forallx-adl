@@ -136,7 +136,7 @@ Section 2 -- Scope.
 
        1. Subject to the terms and conditions of this Public License,
           the Licensor hereby grants You a worldwide, royalty-free,
-          nonsublicensable, nonexclusive, irrevocable license to
+          non-sublicensable, non-exclusive, irrevocable license to
           exercise the Licensed Rights in the Licensed Material to:
 
             a. reproduce and Share the Licensed Material, in whole or
