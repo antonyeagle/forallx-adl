@@ -334,7 +334,7 @@ This suggests a straightforward \define{conditional elimination} rule ({\eif}E):
 	\have[\ ]{}{\vdots}
 	\have[\ ]{b}{\meta{B}} \ce{ab,a}
 \end{proof}}
-This rule is also sometimes called \emph{modus ponens}. Again, this is an elimination rule, because it allows us to obtain a sentence that may not contain `$\eif$', having started with a sentence that did contain `$\eif$'. Note that the conditional, and the antecedent, can be separated from one another, and they can appear in any order. However, in the commentary for $\eif$E, we always cite the conditional first, followed by the antecedent.
+This rule is also sometimes called \idefine{modus ponens}. Again, this is an elimination rule, because it allows us to obtain a sentence that may not contain `$\eif$', having started with a sentence that did contain `$\eif$'. Note that the conditional, and the antecedent, can be separated from one another, and they can appear in any order. However, in the commentary for $\eif$E, we always cite the conditional first, followed by the antecedent.
 
 Here is an illustration of the rules we have so far in action, applied to this intuitively correct argument: $$P, \bigl((P \eif Q)\eand(P \eif R)\bigr) \ttherefore (R \eand Q).$$ \begin{proof}
 	\hypo{b}{\bigl((P \eif Q)\eand(P \eif R)\bigr)}
@@ -1572,7 +1572,7 @@ Another useful pattern of inference is embodied in the following argument:
 	\begin{quote}
 		If Hillary won the election, then she is in the White House. She is not in the White House. So she did not win the election.
 	\end{quote}
-This inference pattern is called \define{\emph{modus tollens}}. The corresponding rule is:
+This inference pattern is called \idefine{modus tollens}. The corresponding rule is:
 \factoidbox{\begin{proof}
 	\have[m]{ab}{(\meta{A}\eif\meta{B})}
 	\have[n]{a}{\enot\meta{B}}
@@ -1646,7 +1646,7 @@ This line of thinking motivates the following rule:
 		\close
 		\have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
 	\end{proof}}
-The rule is sometimes called \define{\emph{tertium non datur}}, which means roughly `no third way'. There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
+The rule is sometimes called \idefine{tertium non datur}, which means roughly `no third way'. There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
 
 \emph{Tertium non datur} is able to be emulated using just our original proof rules. Here is a schematic proof which demonstrates this:
 \begin{proof}
