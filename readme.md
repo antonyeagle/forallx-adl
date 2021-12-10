@@ -22,19 +22,13 @@ This text is approaching stability, yet remains under active, albeit sometimes i
 
 I welcome comments, notification of errors and typos, and any new ideas: [antony.eagle@adelaide.edu.au](mailto:antony.eagle@adelaide.edu.au?subject=forallx-adl). I will update this readme with a list of issues and proposed changes even while teaching from the book, but I will not push changes to the pdf and source until a given course has been delivered and assessed. 
 
-The following list contains current issues and proposed revisions arranged by chapter, most as rather cryptic notes to myself. Most chapters and sections from chapter 4 onwards also have additional practice problems to be included.
+The following list contains current issues and proposed revisions arranged by chapter, most as rather cryptic notes to myself. Most chapters and sections from chapter 5 and onwards also have additional practice problems to be included.
 
 * Chapter 1 (`forallx-adl-what.tex`) 
 * Chapter 2 (`forallx-adl-tfl.tex`)
 * Chapter 3 (`forallx-adl-truthtables.tex`)
 * Chapter 4 (`forallx-adl-fol.tex`)
 * Chapter 5 (`forallx-adl-interpretations.tex`)
-	- §23
-		- need to expand with examples, and practice problems
-		- change contradiction to logical falsehood
-	- §25
-		- practice problems
-		- mention infinity of interpretations, contrast with sentential case.
 * Chapter 6 (`forallx-adl-prooftfl.tex`)
 	- §26
 		+ Need a practice exercise

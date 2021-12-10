@@ -179,24 +179,9 @@ The symbolisation keys that I considered in chapter \ref{ch.FOL} consequently gi
 \end{ekey}
 \end{itemize}
 
-\section{Actual and Possible Ingredients for Interpretations}
+So far, the domains we have used are drawn from the actual world, and English predicates have been used to assign their actual extensions to \FOL\ predicates. But a perfectly good interpretation might assign merely possible entities to the domain, and merely possible extensions to the predicates of \FOL, or a mixture of the two. 
 
-So far, the domains we have used are drawn from the actual world, and the English predicates are used to assign their actual extensions to \FOL\ predicates. 
-
-But a perfectly good interpretation might assign merely possible entities to the domain, and merely possible extensions to the predicates of \FOL, or a mixture of the two.  Interpretations and possible situations thus can seem to have a lot in common. But there are some subtle differences. If a given possibility shares a domain with the actual world, but the things in it have different properties, then we can make use of purely actual interpretations. For example, the possibility in which Bill Shorten became prime minister after the 2018 Australian federal election can be represented with the actual domain. If we intended to use a predicate `$M$' to represent the property `being prime minister in 2019', we can't use this property to pick out the intended extension, since of course in the actual world, Scott Morrison is in the extension determined by that property. But we can use our other approach of giving an extension directly, and simply assign Bill Shorten as the extension of that predicate. We can assign any extension, whether it corresponds to a natural property or not.
-
-Where non-actual intepretations are useful is in handling possible situations which contain things which didn't actually exist. For example, consider a possibility in which I had another child, called `Eloise'. This might give enable the following interpretation:
-\begin{ekey}
-	\item[\text{domain}] Antony, Sylvester, Jonquil, Eloise
-	\item[C] \gap{1} is a child, i.e., Sylvester, Jonquil, Eloise
-	\item[P] \gap{1} is the parent of \gap{2}, i.e., $\ntuple{\text{Antony},\text{Sylvester}},\ntuple{\text{Antony},\text{Jonquil}},\ntuple{\text{Antony},\text{Eloise}}$
-\end{ekey}
-This entity Eloise is not among the actual inhabitants of the world. (A challenging question, which we will not address, is what enables us to talk about and apparently make use of such a merely possible thing in our interpretations.) It seems preferable, when considering the possibility that I had another child, that we make use of such a `new' entity, rather than reinterpreting `child of Antony' in such a way as to include in its extension some random other actual person! And it will turn out to be essential in understanding counting sentences. Suppose that the actual world contains some finite number of objects, $n$. (I don't have any idea what $n$ is, but I do suspect that it is not infinite.) The maximum domain size for an interpretation drawn from the actual world is thus $n$. So this pure \FOL\ counting sentence that says `there are more than $n$ things' will turn out to be false on \emph{every} interpretation (§\ref{s:atleast}):
-$$\exists x_{1}…\exists x_{n+1} (x_{1} ≠ x_{2} \eand … \eand x_{n}≠x_{n+1}).$$ But this sentence is perfectly possible; it doesn't seem like it should be a truth of logic alone that the actual number of things is the upper limit. If we permit interpretations to have domains that range over actual and possible individuals, we won't be subject to any such restriction. Let's therefore make the assumption that interpretations are not restricted to actuality: \factoidbox{Any collection of objects, actual or merely possible, can serve as the domain of an interpretation. Any collection of objects drawn from that domain can serve as the extension of a one-place predicate, any collection of pairs of such objects can serve as the extension of a two-place predicate, etc.}
-
-
-
-
+Let's therefore make the assumption that interpretations are not restricted to actuality: \factoidbox{Any collection of objects, actual or merely possible, can serve as the domain of an interpretation. Any collection of objects drawn from that domain can serve as the extension of a one-place predicate, any collection of pairs of such objects can serve as the extension of a two-place predicate, etc.} A challenging question, which we will not address, is what enables us to talk about and apparently make use of such merely possible things in our interpretations.
 
 
 \section{Predicates, Properties, and Relations}\label{predrel}
@@ -1037,19 +1022,44 @@ Explain why on page \pageref{quant.tcs.precise} we did not give the truth condit
 \chapter{Semantic Concepts}\label{FOL.semantics}
 Offering a precise definition of truth in \FOL\ was more than a little fiddly. But now that we are done, we can define various central logical notions. These will look very similar to the definitions we offered for \TFL. However, remember that they concern \emph{interpretations}, rather than valuations. 
 
-
-We will use the symbol `$\entails$' for entailment in \FOL, much as we did for \TFL. This introduces an ambiguity, but a harmless one, since every valid argument in \TFL\ remains a valid argument in \FOL.
-
 So:\factoidbox{\begin{itemize}
-	\item  	$\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ together \define{entail} \meta{C} (written $\meta{A}_1, \meta{A}_2, …, \meta{A}_n \entails\meta{C}$) iff there is no interpretation in which all of $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ are true and in which \meta{C} is false.
 	\item An \FOL\ sentence $\meta{A}$ is a \define{logical truth} iff $\meta{A}$ is true in every interpretation; this is written  $\entails\meta{A}$.
 	\item $\meta{A}$ is a \define{logical falsehood} iff $\meta{A}$ is false in every interpretation; i.e., $\entails\enot\meta{A}$.
+	\item Two \FOL\ sentences \meta{A} and \meta{B} are \define{logically equivalent} iff they are true in exactly the same interpretations as each other; i.e., both $\meta{A}\entails\meta{B}$ and $\meta{B}\entails\meta{A}$.
+	\item The \FOL\ sentences $\meta{A}_1,\meta{A}_2,…, \meta{A}_n$ are \define{jointly consistent} iff there is some interpretation in which all of the sentences are true. They are \define{jointly inconsistent} iff there is no such interpretation.\end{itemize}}
+Some examples might be helpful to illustrate these ideas. 
 
-\item Two \FOL\ sentences \meta{A} and \meta{B} are \define{logically equivalent} iff they are true in exactly the same interpretations as each other; i.e., both $\meta{A}\entails\meta{B}$ and $\meta{B}\entails\meta{A}$.
-\item The \FOL\ sentences $\meta{A}_1,\meta{A}_2,…, \meta{A}_n$ are \define{jointly consistent} iff there is some interpretation in which all of the sentences are true. They are \define{jointly inconsistent} iff there is no such interpretation.\end{itemize}}
+ Consider the sentences ‘$\forall x(Fx \eor Gx)$’ and ‘$\enot(Fa \eif Ga)$’. I offer an interpretation showing them consistent: \begin{ekey}
+	\item[\text{Domain}] musical artists
+	\item[F] \gap{1} plays an instrument
+	\item[G] \gap{1} sings
+	\item[a] Keith Moon
+\end{ekey} ‘$Fa$’ is true in this interpretation, while ‘$Ga$’ is false. So the conditional `$(Fa \eif Ga)$' is false, and so `$\enot(Fa \eif Ga)$' is true. Suppose we add a previously unused name $b$ to this interpretation: it will either denote a musician or a singer (I am including producers as playing a musical instrument). So $(Fb \eor Gb)$ will be true in each such extended interpretation. $(Fb \eor Gb)$ is $(Fx \eor Gx)\subs{b}{x}$, so by our semantic clauses, $\forall x (Fx \eor Gx)$ is true in the original interpretation. Since there is an interpretation making each of these sentences true, they are consistent. 
 
-As before, there is a close connection between validity and entailment: \factoidbox{
- $\meta{A}_1, \meta{A}_2, … \meta{A}_n \ttherefore \meta{C}$ is \define{valid} in \FOL\ iff there is no interpretation in which all of the premises are true and the conclusion is false; i.e., $\meta{A}_1,\meta{A}_2,… \meta{A}_n \entails\meta{C}$. It is \define{invalid} in \FOL\ otherwise.} Our entailments are conclusive in virtue of form, because the consideration of many alternative interpretations of the nonlogical expressions involved means that no argument can be conclusive because of some special `connection in meaning' between such expressions in the language. Entailment in \FOL\ reflects only the logical structure of the sentences involved, where this now includes the new logical resources of \FOL\ over \TFL.
+Now look at `$\exists y (Py \eand \enot Py)$'. If this is true in an intepretation, assigning some extension to `$P$', then some interpretation with the same extension assigned to `$P$' and some new name `$b$' makes `$(Pb \eand \enot Pb)$' true. But that can be the case only if the extension of `$b$' is included in the extension of `$P$', and also isn't included in that extension – impossible. So whatever extension we assign to `$P$', `$\exists y (Py \eand \enot Py)$' is false. So that sentence is false on every interpretation, and is a logical falsehood. Its negation is therefore a logical truth: `$\enot \exists y (Py \eand \enot Py)$'. This is entirely general: the negation of a logical truth (falsehood) is a logical falsehood (truth).
+
+Look now at `$\forall x \enot Gx$' and `$\enot \exists x Gx$'. Any interpretation which makes the first true must be such that any extended interpretation with a new name `$b$' makes `$\enot Gb$' true, i.e., any extended interpretation will make `$Gb$' false. Hence, there is no extended interpretation making `$Gb$' true; so `$\exists x Gb$' is false in the original interpretation, hence `$\enot\exists x Gx$' is true. Each step in this line of argument can also be run in reverse; so `$\forall x \enot Gx$' and `$\enot\exists x Gx$' are true in exactly the same interpretations. They are logically equivalent. 
+
+
+Consider finally `$\forall x Gx$' and `$Ga \eif \exists y (Py \eand \enot Py)$'. These are inconsistent. Any interpretation making `$Ga \eif \exists y(Py \eand \enot Py))$' true must make `$Ga$' false – if it didn't, it would have to make its consequent true, but that's a logical falsehood. But could `$\forall x Gx$' be true in such an interpretation? No – that would require every extended interpretation to make `$Gb$' true, even on the extended interpretation where the new name `$b$' is assigned the same referent as the existing name `$a$', which is not in the extension of `$G$' in this interpretation. So no interpretation can make both of these sentences true.
+
+Given this, any interpretation which makes `$Ga \eif \exists y (Py \eand \enot Py)$' true must make `$\forall x Gx$' false, and must therefore make `$\enot \forall x Gx$' true. So there is no interpretation on which `$Ga \eif \exists y (Py \eand \enot Py)$' is true and in which `$\enot \forall x Gx$' is false.  This is a familiar notion from \TFL: entailment. We will use the symbol `$\entails$' for entailment in \FOL, much as we did for \TFL. This introduces an ambiguity, but a harmless one, since every valid argument in \TFL\ remains a valid argument in \FOL. \factoidbox{$\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ together \define{entail} \meta{C} (written $\meta{A}_1, \meta{A}_2, …, \meta{A}_n \entails\meta{C}$) iff \begin{itemize}
+\item every interpretation on which all of $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ are true is also one in which \meta{C} is true; or, equivalently, 
+	\item there is no interpretation in which all of $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ are true and in which \meta{C} is false.
+\end{itemize}} 
+
+These definitions establish a close connection between consistency and entailment, as before: $\meta{A}_{1},…,\meta{A}_{n} \entails \meta{C}$ iff $\meta{A}_{1}$, …, $\meta{A}_{n}$, and $\enot\meta{C}$ are jointly inconsistent. Since joint inconsistency is a property of some sentences collectively, it doesn't actually matter which of them is regarded as `the' conclusion. The truth of all but one of them will force the remaining one to be false, whichever one is chosen. So the joint inconsistency of `$Ga \eif \exists y (Py \eand \enot Py)$' and `$\forall x Gx$' establishes also that $\forall x Gx \entails \enot (Ga \eif \exists y (Py \eand \enot Py))$. 
+
+
+Also as before, there is a close connection between validity and entailment: \factoidbox{$\meta{A}_1, \meta{A}_2, … \meta{A}_n \ttherefore \meta{C}$ is \define{valid} in \FOL\ iff there is no interpretation in which all of the premises are true and the conclusion is false; i.e., $\meta{A}_1,\meta{A}_2,… \meta{A}_n \entails\meta{C}$. It is \define{invalid} in \FOL\ otherwise.} 
+Every possible situation determines some interpretation (assuming it is not possible for there to be nothing at all), since every possible situation will have a domain and its properties and relations will determine extensions on that domain. So whenever there is an entailment, there is no interpretation (and hence no possible situation) making the premise true and the conclusion false. So the argument must be conclusive.
+
+\FOL\ entailments are conclusive in virtue of form, because the consideration of many alternative interpretations of the nonlogical expressions involved means that no argument can be conclusive because of some special `connection in meaning' between such expressions in the language. Entailment in \FOL\ reflects only the logical structure of the sentences involved, where this now includes the new logical resources of \FOL\ over \TFL.
+
+Still, just as with \TFL, there are arguments that are valid in English that aren't symbolised as a valid argument in \FOL. Consider \begin{earg}
+\item[] It is raining
+\item[So:] It will be that it was raining.
+\end{earg} This is conclusive: there is no possible situation in which it is raining now, but in the future it turns out that it never was raining. But the best we can apparently do in quantifier is to symbolise `it is raining' by `$P$', and `it will be that it was raining' by `$Q$', and $P \ttherefore Q$ is not valid in \FOL. If this argument is valid, it will depend on the logic of expressions that are treated as non-logical expressions in \FOL – here, the tenses `is', `was' and `will be'. We will look at this example again briefly in §\ref{s:nextsteps}.
 
 \section{Some Subtleties about Truth and Interpretation} % Æ added
 
@@ -1057,29 +1067,46 @@ Our interpretations allow us a precise characterisation of formal truth for \FOL
 
 In \TFL, we were able to characterise a logical truth as a sentence which is actually true on every reinterpretation of nonlogical expressions (in \TFL, the nonlogical expressions are just are the atomic sentences). And we characterised a formally valid argument as one in which each possible reinterpretation (i.e., valuation) of the  premises which makes them actually true, is also one which makes the conclusion actually true.
 
-But this account of formal validity needs refining when it comes to \FOL. Consider the \FOL\ sentence which says that there are at least three things: $$\exists x \exists y \exists z (x≠y \eand x≠z \eand y≠z).$$ This sentence contains no nonlogical expressions. Hence the sentence has a constant meaning, and is true on each reinterpretation just in case it is actually true. It is actually true – there are actually at least three things. Hence our \TFL-inspired account of logical truth would suggest that this sentence is a logical truth. But it seems very strange to think that it is a truth of logic alone that there are at least three things. Isn't it possible that there had been fewer?
+But this account of formal validity needs refining when it comes to \FOL. Consider the \FOL\ sentence which says that there are at least three things: $$\exists x \exists y \exists z (x≠y \eand x≠z \eand y≠z).$$ This sentence contains no nonlogical expressions. Hence the sentence has a constant meaning, and is true on each reinterpretation just in case it is actually true. It is actually true – there are actually at least three things. Hence our \TFL-inspired account of logical truth would suggest that this sentence is a logical truth. But it seems very strange to think that it is a \emph{logical} truth that there are at least three things. Isn't it possible that there had been fewer? And shouldn't logic allow for that possibility?
 
-The keen-eyed among you will have noticed that this sentence is not, in fact, a logical truth of \FOL. The reason is that in defining truth for sentences of \FOL, we considered not just reinterpretations of the nonlogical expressions, but also we allowed the domain of our interpretation to freely depart from actuality. So we are, in effect, allowing our interpretations to vary the meanings of the nonlogical vocabulary \emph{and} to vary the possible situations at which our sentences are to be evaluated. So we can consider a possible situation in which there are just two things, and if that situation provides the domain of an interpretation, there is no way of extending that interpretation to three names `$a$', `$b$', and `$c$' such that `$a≠b \eand a≠c \eand b≠c$' is true; hence `$\exists x \exists y \exists z (x≠y \eand x≠z \eand y≠z)$' isn't true on the original interpretation.
+The keen-eyed among you will have noticed that this sentence is not, in fact, a logical truth of \FOL. The reason is that in defining truth for sentences of \FOL, we considered not just reinterpretations of the nonlogical expressions, but also we allowed the domain of our interpretation to freely depart from actuality (§\ref{ss.int}). So we are, in effect, allowing our interpretations to vary the meanings of the nonlogical vocabulary \emph{and} to vary the possible situations at which our sentences are to be evaluated. So we can consider a possible situation in which there are just two things, and if that situation provides the domain of an interpretation, there is no way of extending that interpretation to three names `$a$', `$b$', and `$c$' such that `$a≠b \eand a≠c \eand b≠c$' is true; hence `$\exists x \exists y \exists z (x≠y \eand x≠z \eand y≠z)$' isn't true on the original interpretation.
 
 One sentence of this class is nevertheless a logical truth: the claim that something exists, `$\exists x x=x$'. Since it is a constraint on \FOL\ domains that they cannot be empty (§\ref{sec_domains}), there is for any interpretation a way of adding a previously uninterpreted name `$c$' which denotes an object in the domain, and of course `$c=c$' is true in that extended interpretation, since each name must have a referent in any interpretation, and the identity predicate is always interepreted as representing pairs of objects in the domain and themselves.
 
+This appeal to possible situations is very suggestive. Every possible situation seems to have a domain of things which exist in that possibility, and the properties and relations that are instantiated in that possibility determine extensions drawn from that domain. So you might wonder: should we think of interpretations as just being `possible worlds'? Should we, that is, think that a sentence \meta{A} is consistent (i.e., there is an interpretation on which it is true) iff \meta{A} is true in some possible situation?
+
+We should not. In \FOL\ it is not even clear how to do this, because a sentence like `$\exists x (Fx \eand Gx)$' doesn't even seem to mean anything without a prior intepretation. If we assign a meaning to `$F$' and `$G$', we can then see if there are possible situations making the sentence true. The problem then will be that there are logically consistent sentences that are true in no possible world. For example, suppose we interpret `$F$' to be `\gap{} is a cat' and `$G$' to be `\gap{} is a mineral'. Obviously, given these asssignments of meaning, the sentence can be rendered in English as `there is a cat which is a mineral', and that is impossible: I would assume that it is of the essence of a cat that it be a living animal, not an inanimate mineral. But the sentence is perfectly consistent despite being impossible, precisely consistency involves reinterpreting the predicates so that they can possibly hold together. There is a significant difference between possibility and consistency: \begin{itemize}
+	\item Possibility is about the meaning of an already interpreted sentence: holding that meaning fixed, is there a possible situation which it describes?
+	\item Consistency is about logical structure, according to some language: holding that structure fixed, is there a way to assign a meaning to the non-structural expressions to make the sentence come out true?
+\end{itemize} This distinction is not always noted. Philosophers are prone to talking of `logical possibility' where they generally mean to talk about consistency. Possibility, as I understand it, is a property of intepreted sentences, or propositions. Logical consistency is a property of interpretable sentences, relative to some language in which they are assigned a meaning. In this sense, the logical `languages' \TFL\ and \FOL\ are more like proto-languages, because only a select few of the expressions of the language are antecedently meaningful.\footnote{I owe my understanding of this point to the distinction between `representational' and `interpretational' semantics drawn by John Etchemendy (1999) \emph{The Concept of Logical Consequence}, CSLI Publications, chs. 2–5.}
+
 \keyideas{
 	\item Definitions of entailment, consistency, logical falsehood and logical equivalence can be given for \FOL\ that are very close parallels to those for \TFL, though given in terms of intepretations not valuations.
-	\item The notion of a logical truth in \FOL\ is slightly different than the notion of a logical truth, since we allow interpretations that vary not just in what they assign as extensions to the nonlogical vocabulary, but also variation in the domain over which quantifiers range. Nothing like the latter feature occurs in \TFL\ valuations, but it is crucial for ensuring that contingent truths without names or nonlogical predicates aren't misclassified as logical truths.
+	\item The notion of a logical truth in \FOL\ is slightly different than the notion of a logical truth in \TFL, since we allow interpretations that vary not just in what they assign as extensions to the nonlogical vocabulary, but also variation in the domain over which quantifiers range. Nothing like the latter feature occurs in \TFL\ valuations, but it is crucial for ensuring that contingent counting sentences, without names or nonlogical predicates, aren't misclassified as logical truths. Consistency must be distinguished from possibility.
 }
 
 
 \practiceproblems
+
 
 \problempart
 The following entailments are correct in \FOL. In each case, explain why.
 \begin{earg}
  	\item $\forall x Qx, \forall x (Qx \eif Rx) \entails \exists x Rx$;
  	\item $\forall x\forall y \bigl(Rxy \eif \forall z(Ryz \eif x≠z)\bigr) \entails (Raa \eif \enot Raa)$.
+ 	\item $\exists x(Px\eand Qx)\entails Pa$;
+ 	\item $\exists x Rxx \entails \exists x\exists y Rxy$;
+ 	\item $\exists x \forall y Rxy \entails \forall y \exists x Rxy$;
+\item $\forall x \forall y \forall z ((x≠y \eand x≠z) \eif y=z) \entails \enot\exists x \exists y \exists z (x≠y \eand (x≠z \eand y≠z))$.
  \end{earg} 
 
- 
 
+ \problempart Show that, for any formula \meta{A} with at most $x$ free, the following two sentences are logically equivalent: $\exists x \meta{A}$ and $\enot \forall x \enot\meta{A}$.
+
+ \problempart Show that \begin{earg}
+ 	\item $\meta{A} \entails \meta{B}$ iff `\meta{A}\eif\meta{B}' is a logical truth;
+ 	\item \meta{A} is logically equivalent to \meta{B} iff `\meta{A}\eiff\meta{B}' is a logical truth.
+ \end{earg}
 
 \chapter{Demonstrating Consistency and Invalidity}\label{sec.UsingModels}
 
@@ -1191,7 +1218,7 @@ and many more besides.
 	That same interpretation will show that $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ do not entail $\meta{C}$.
 	
 	That same interpretation will show that $\meta{A}_1, \meta{A}_2, …, \meta{A}_n, \enot \meta{C}$ are jointly consistent.}
-When you provide an interpretation to refute a claim – to logical truth, say, or to entailment – this is sometimes called providing a \emph{counter-interpretation} (or providing a \emph{counter-model}).
+When you provide an interpretation to refute a claim – that some sentence is a logical truth, say – this is sometimes called providing a \define{countermodel}.
 
 \keyideas{
 	\item Testing for consistency and invalidity involves displaying just a single appropriate interpretation.
@@ -1202,18 +1229,27 @@ When you provide an interpretation to refute a claim – to logical truth, say, 
 \practiceproblems
 
 
+
 \problempart
 \label{pr.Contingent}
 Show that each of the following is neither a logical truth nor a logical falsehood:
 \begin{earg}
-\item \leftsolutions\ $Da \eand Db$
-\item \leftsolutions\ $\exists x Txh$
-\item \leftsolutions\ $Pm \eand \enot\forall x Px$
+\item  $Da \eand Db$
+\item  $\exists x Txh$
+\item  $Pm \eand \enot\forall x Px$
 \item $\forall z Jz \eiff \exists y Jy$
 \item $\forall x (Wxmn \eor \exists yLxy)$
 \item $\exists x (Gx \eif \forall y My)$
 \item $\exists x (x = h \eand x = i)$
 \end{earg}
+
+\problempart For each of the following, say whether the sentence is a logical truth, a logical falsehood, or neither: \begin{earg}
+	\item $\exists x \exists y x=y$;
+	\item $(\forall x (Px\eand Qx)\eiff \forall x Px\eand \forall x Qx)$;
+	\item $\exists x (Px\eand Qx) \eif \enot (\exists x Px\eand \exists x Qx)$;
+	\item $\forall x \forall y (x \neq y \eif (Fx \eiff \enot Fy))$.
+\end{earg}
+
 
 \solutions
 \problempart
@@ -1250,6 +1286,13 @@ Show that the following sentences are jointly consistent:
 \item $\forall x\forall y\forall z(x=y \eor y=z \eor x=z)$, $\exists x\exists y\ \enot x= y$
 \item $\exists x\exists y(Zx \eand Zy \eand x=y)$, $\enot Zd$, $d=e$
 \end{earg}
+
+\problempart Show each of the following non-entailments by providing an appropriate interpretation on which the premises are true and the conclusion false: \begin{earg}
+\item $Pa\not\entails\exists x(Px\eand Qx)$;
+\item  $\forall y(Py\eif \exists x Ryx)\not\entails\forall x(Px\eif \exists yRyy)$;
+\item  $\forall x Rxx\not\entails\forall x Rax$.
+\end{earg}
+
 
 \problempart
 Show that the following arguments are invalid:
@@ -1288,7 +1331,7 @@ This is quite longwinded, but, as things stand, there is no alternative. In orde
 
 But sometimes we can draw a conclusion about some way all interpretations must be, by considering a hypothetical interpretation which isn't that way, and showing that hypothesis leads to trouble. Here is an example. \begin{quote}
 	Suppose there were an interpretation which makes `$a≠b \eif \enot \exists x(x=a \eand x=b)$' false. Then while `$a≠b$' is true on that interpretation, `$\enot \exists x(x=a \eand x=b)$' must be false. So `$\exists x(x=a \eand x=b)$' must be true; and hence it has some true substitition instance with some previously uninterpreted name `$c$' as the instantiating name: `$c=a \eand c=b$' is true. But then it must also be that `$a=b$' is true, which contradicts our original supposition that `$a≠b$' is true on this intepretation. So there can be no such interpretation, and hence the sentence cannot be false on any interpretation and must be a logical truth.
-\end{quote} This is an example of \define{\emph{reductio}} reasoning\phantomsection\label{reductio}: we assume something, and derive some absurdity or contradiction; we then conclude that our assumption is to be rejected. It is often easier to show that all Fs have a property by deriving an absurdity from the assumption that some F lacks the property, than it is to show it `directly' by considering each F in turn. This is a powerful technique, used widely in mathematics and elsewhere.
+\end{quote} This is an example of \idefine{reductio} reasoning\phantomsection\label{reductio}: we assume something, and derive some absurdity or contradiction; we then conclude that our assumption is to be rejected. It is often easier to show that all Fs have a property by deriving an absurdity from the assumption that some F lacks the property, than it is to show it `directly' by considering each F in turn. This is a powerful technique, used widely in mathematics and elsewhere.
 
 \section{Other Cases}
 Similar points hold of other cases too. Thus, we must reason about all interpretations if we want to show:
@@ -1337,34 +1380,27 @@ This might usefully be compared with the table at the end of §\ref{s:directPart
 
 \practiceproblems
 
-% {\HUGE These still need to be done \causeanerror}
-
 \problempart
 Show that each of the following is either a logical truth or a logical falsehood:
 \begin{earg}
-\item \leftsolutions\ $Da \eand \enot Da$
-\item \leftsolutions\ $\exists x Txh$
-\item \leftsolutions\ $Pm \eand \enot\forall x Px$
-\item $\forall z Jz \eiff \exists y Jy$
-\item $\forall x (Wxmn \eor \exists yLxy)$
-\item $\exists x (Gx \eif \forall y My)$
-\item $\exists x (x = h \eand x = i)$
+\item  $Da \eand \enot Da$;
+\item  $Pm \eand \enot\exists x Px$;
+\item $\forall x \forall y (x≠y \eiff y≠x)$;
+\item $\forall x (Fx \eor \exists y \enot Fy))$;
+\item $\exists x ((x = h \eand x = i)\eand (Fh \eiff \enot Fi))$.
 \end{earg}
 
-\solutions
+
+
 \problempart
 \label{pr.Equiv}
 Show that the following pairs of sentences are logically equivalent.
 \begin{earg}
-\item $Ja$, $Ka$
-\item $\exists x Jx$, $Jm$
-\item $\forall x Rxx$, $\exists x Rxx$
-\item $\exists x Px \eif Qc$, $\exists x (Px \eif Qc)$
-\item $\forall x(Px \eif \enot Qx)$, $\exists x(Px \eand \enot Qx)$
-\item $\exists x(Px \eand Qx)$, $\exists x(Px \eif Qx)$
-\item $\forall x(Px\eif Qx)$, $\forall x(Px \eand Qx)$
-\item $\forall x\exists y Rxy$, $\exists x\forall y Rxy$
-\item $\forall x\exists y Rxy$, $\forall x\exists y Ryx$
+\item $\exists x (Jx \eand x=m)$, $Jm$;
+\item $\forall x \forall y (x=y \eand Rxy)$, $\exists x (Rxx \eand \forall y (x=y)$;
+\item $(\exists x Px \eand Qc)$, $\exists x (Px \eand Qc)$;
+\item $\forall x\forall y Rxy$, $\forall x\forall y Rxy$;
+\item $\forall x (Px \eif \exists y Rxy)$, $\enot\exists x(\forall y \enot Rxy \eand Px)$.
 \end{earg}
 
 
@@ -1372,23 +1408,21 @@ Show that the following pairs of sentences are logically equivalent.
 \problempart
 Show that the following sentences are jointly inconsistent:
 \begin{earg}
-\item $Ma, \enot Na, Pa, \enot Qa$
-\item $Lee, Leg, \enot Lge, \enot Lgg$
-\item $\enot (Ma \eand \exists x Ax), Ma \eor Fa, \forall x(Fx \eif Ax)$
-\item $Ma \eor Mb, Ma \eif \forall x \enot Mx$
-\item $\forall y Gy, \forall x (Gx \eif Hx), \exists y \enot Iy$
-\item $\exists x(Bx \eor Ax), \forall x \enot Cx, \forall x\bigl( (Ax \eand Bx) \eif Cx\bigr)$
-\item $\exists x Xx, \exists x Yx, \forall x(Xx \eiff \enot Yx)$
-\item $\forall x(Px \eor Qx), \exists x\enot(Qx \eand Px)$
-\item $\exists z(Nz \eand Ozz), \forall x\forall y(Oxy \eif Oyx)$
-\item $\enot \exists x \forall y Rxy, \forall x \exists y Rxy$
-\item $\enot Raa$, $\forall x (x=a \eor Rxa)$
-\item $\forall x\forall y\forall z(x=y \eor y=z \eor x=z)$, $\exists x\exists y\ \enot x= y$
-\item $\exists x\exists y(Zx \eand Zy \eand x=y)$, $\enot Zd$, $d=e$
+\item $Ma \eor Mb, (Ma \eif \forall x \enot Mx), \enot Mb$;
+\item $\exists x(Bx \eor Ax), \forall x \enot Cx, \forall x\bigl( (Ax \eor Bx) \eif Cx\bigr)$;
+\item $\forall x \forall y (Rxy \to \enot Ryx)$, $\forall x Rxx$.
+\item $\forall x \forall y x =y$, $\exists x Px$, $\enot\forall x Px$.
 \end{earg}
 
 \problempart
 Show that the following arguments are valid:
 \begin{earg}
-\item sss
+\item $Ma \ttherefore (Qa \eor \enot Qa)$;
+\item $\enot (Mb \eand \exists x Ax), (Mb \eand Fb) \ttherefore \enot \forall x(Fx \eif Ax)$;
+\item $\forall y Gy, \exists y \enot Hy \ttherefore \enot \forall x (Gx \eif Hx)$;
+\item $\exists x Kx, \forall x(Kx \eiff \enot Lx) \ttherefore \exists x \enot Lx$;
+\item $\forall x Qx, \forall x (Qx \eif Rx)\ttherefore \exists x Rx$;
+\item $\exists z(Nz \eand Ozz) \ttherefore \enot\forall x\forall y(Oxy \eif \exists z (\enot Nz \eand (z=x \eor z=y)))$;
+\item $\exists x\exists y(Zx \eand Zy \eand x≠y), \enot Zd \ttherefore \exists y (Zy \eand y≠d)$;
+\item $\forall x\forall y \left(Rxy\eif \forall z (Ryz\eif x\neq z) \right) \ttherefore Raa\eif \enot Raa$.
 \end{earg}
