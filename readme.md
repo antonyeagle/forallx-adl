@@ -54,8 +54,8 @@ The following list contains current issues and proposed revisions arranged by ch
 		+ does the `\vdash` terminology get re-introduced?
 		+ make explicit that the choice of a new name in `\exists`E is a way of ensuring you meet all the conditions; and make sure that students know choosing a new name is also a way of meeting the conditions on `\forall`I.
 	- §37
-	- §38 
-		+ some ideas about where next in logic
+	- §§38–9 
+	-	+ some ideas about where next in logic
 * Backmatter
 
 
