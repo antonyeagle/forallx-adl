@@ -170,11 +170,11 @@ A zero-place predicate (what we called `atomic sentences' in \TFL) has a truth v
 The symbolisation keys that I considered in chapter \ref{ch.FOL} consequently give us one very convenient way to present an interpretation. We shall continue to use them throughout this chapter. It is important to note, however, that the symbolisation key tends to associate each predicate with an already understood predicate (in English), and then uses that predicate as a classification rule to determine the extension of the predicate. We can, and sometimes do, offer an interpretation by simply giving the extensions of the intepreted \FOL\ expressions directly. We can simply list the items, pairs, triples, etc., in the extension assigned to a predicate. So the following two symbolisation keys give the same intepretation: 
 \begin{itemize}
 	\item \begin{ekey}
-	\item[\text{domain}] Days of the week
+	\item[\domain] Days of the week
 	\item[B] \gap{1} is the day before \gap{2}
 \end{ekey} 
 \item \begin{ekey}
-	\item[\text{domain}] Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+	\item[\domain] Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 	\item[B] $\ntuple{\text{Sunday}, \text{Monday}}$, $\ntuple{\text{Monday}, \text{Tuesday}}$, $\ntuple{\text{Tuesday}, \text{Wednesday}}$, $\ntuple{\text{Wednesday}, \text{Thursday}}$, $\ntuple{\text{Thursday}, \text{Friday}}$, $\ntuple{\text{Friday}, \text{Saturday}}$, $\ntuple{\text{Saturday}, \text{Sunday}}$.
 \end{ekey}
 \end{itemize}
@@ -210,7 +210,7 @@ We begin by demarcating a region on the page to represent the domain – typical
 \end{itemize} We then label and shade each region to enable us to tell which predicates they are associated with. We may also add labelled dots to denote individuals who may fall into various predicate extensions.
 
 These rules are quite abstract, but they are easy to apply in practice. Suppose we are given the following interpretation: \begin{ekey}
-	\item[\text{domain}] animal species
+	\item[\domain] animal species
 	\item[E] \gap{1} lays eggs;
 	\item[M] \gap{1} is a mammal;
 	\item[B] \gap{1} is a bird;
@@ -230,7 +230,7 @@ We may represent this interpretation as in Figure~\ref{fig:egglayers}. \begin{fi
 
 Another example. Consider this interpretation, discussed earlier on page \pageref{poison}: 
 		\begin{ekey}
-		\item[\text{domain}] people and plants
+		\item[\domain] people and plants
 		\item[C] \gap{1} is a cowboy
 		\item[S] \gap{1} sings a sad, sad song
 		\item[R] \gap{1} is a rose
@@ -278,7 +278,7 @@ Let's consider some examples.
 \begin{itemize}
 	\item First, consider the following interpretation, written in the more standard manner:
 	\begin{ekey}
-		\item[\text{domain}] $1, 2, 3, 4$
+		\item[\domain] $1, 2, 3, 4$
 		\item[R] \ntuple{1, 2}, \ntuple{2, 3}, \ntuple{3, 4}, \ntuple{4, 1}, \ntuple	{1, 3}.
 	\end{ekey}
 	That is, an interpretation whose domain is the first four positive whole 	numbers, and which interprets `$R$' as being true of and only of the specified 	pairs of numbers. This might be represented by the simple graph depicted in 	Figure~\ref{fig:graph1}.
@@ -297,7 +297,7 @@ Let's consider some examples.
 	\caption{A simple graph.\label{fig:graph1}}
 	\end{figure}
 \item 	Consider the following interpretation: \begin{ekey}
-	\item[\text{domain}] $1, 2, 3, 4$
+	\item[\domain] $1, 2, 3, 4$
 	\item[R] \ntuple{1, 3}, \ntuple{3, 1}, \ntuple{3, 4}, \ntuple{1, 1}, \ntuple{3, 3}, \ntuple{4, 4}.
 \end{ekey} We might offer the graph in Figure~\ref{fig:graph2} to represent it. The existence of pairs like \ntuple{1, 1} in the extension of $R$ is borne out in the presence of `loops' from nodes to themselves in the graph. (Because of these loops, our graph is not what graph theorists call a `simple' graph.) Notice that 2 is in the domain, and hence included as a node in the graph, but it has no arrows attached to it, because it is not included in the extension assigned to $R$. 
 \begin{figure}[b]
@@ -340,7 +340,7 @@ Let's consider some examples.
 If we wanted, we can extend our graphical conventions, making our diagrams more complex in order to depict more complex interpretations. For example, we could introduce another kind of arrow (maybe with a dashed shaft) to represent a further two-place predicate.\footnote{This kind of `directed multigraph' is sometimes called a \define{quiver}.} We could add names as labels attached to particular objects. To symbolise the extension of a one-place predicate, we might simply adopt the approach from §\ref{euler}, and mark a shaded region around some particular objects and stipulate that the thus encircled objects (and only them) are to fall in the extension of some predicate `$H$', say.\footnote{We needn't stop there. For example, we could introduce \define{directed hypergraphs}, where the edges can join more than two nodes.} 
 
 All of these graphical innovations are used in Figure~\ref{fig:complex}, which  graphically represents the following interpretation: \begin{ekey}
-	\item[\text{domain}] $2,3,4,5,6$
+	\item[\domain] $2,3,4,5,6$
 	\item[G] $\gap{1} \geqslant 4$. 
 	\item[D] \gap{1} is distinct from and exactly divisible by \gap{2};
 	\item[T] $\gap{1} + 3 = \gap{2}$;
@@ -537,20 +537,20 @@ Since \FOL\ is an extensional language, if let the \FOL\ name `$s$' denote Super
 \problempart
 Using some of the methods introduced in this section (Euler diagrams and directed graphs), give a graphical representation of the following interpretations. You will need to rely on your general knowledge to prepare these diagrams. \begin{earg}
 	\item \begin{ekey}
-		\item[\text{domain}] people
+		\item[\domain] people
 		\item[M] \gap{1} is a musician;
 		\item[W] \gap{1} is a woman;
 		\item[E] \gap{1} is an economist.
 	\end{ekey}
 	\item \begin{ekey}
-\item[\text{domain}] cards in a standard deck
+\item[\domain] cards in a standard deck
 \item[S] \gap{1} is a seven;
 \item[F] \gap{1} is a face card;
 \item[R] \gap{1} is red;
 \item[j] the Jack of Hearts.
 	\end{ekey}
 	\item \begin{ekey}
-		\item[\text{domain}] Australian states
+		\item[\domain] Australian states
 		\item[L] \gap{1} is larger in population than \gap{2};
 		\item[V] \gap{1}'s name ends in a vowel;
 		\item[a] South Australia;
@@ -580,7 +580,7 @@ We need to explain truth for all three kinds of sentence.
 
 I shall offer a completely general explanation in this section. However, to try to keep the explanation comprehensible, I shall at several points use the following interpretation:
 	\begin{ekey}
-		\item[\text{domain}] all people born before 2000\textsc{ce}
+		\item[\domain] all people born before 2000\textsc{ce}
 		\item[a] Aristotle
 		\item[b] George W Bush
 		\item[W] \gap{1} is wise
@@ -921,7 +921,7 @@ Let us say that a sequence of objects \ntuple{$a_{1}, …, a_{n}$} \define{satis
 \label{pr.TorF1}
 Consider the following interpretation:
 	\begin{ekey}
-		\item[\text{domain}] The domain comprises only Corwin and Benedict
+		\item[\domain] The domain comprises only Corwin and Benedict
 		\item[A] is to be true of both Corwin and Benedict
 		\item[B] is to be true of Benedict only
 		\item[N] is to be true of no one
@@ -944,7 +944,7 @@ Determine whether each of the following sentences is true or false in that inter
 \label{pr.TorF3}
 Consider the following interpretation:	
 	\begin{ekey}
-		\item[\text{domain}] The domain comprises only Lemmy, Courtney and Eddy
+		\item[\domain] The domain comprises only Lemmy, Courtney and Eddy
 		\item[G] is to be true of Lemmy, Courtney and Eddy.
 		\item[H] is to be true of and only of Courtney
 		\item[M] is to be true of and only of Lemmy and Eddy
@@ -1115,7 +1115,7 @@ Suppose we want to show that `$\exists xAxx \eif Bd$' is \emph{not} a logical tr
 
 In order for `$\exists xAxx \eif Bd$' to be false, the antecedent (`$\exists x Axx$') must be true, and the consequent (`$Bd$') must be false. To construct such an interpretation, we start by specifying a domain. Keeping the domain small makes it easier to specify what the predicates will be true of, so we shall start with a domain that has just one member. For concreteness, let's say it is the city of Paris. 
 	\begin{ekey}
-		\item[\text{domain}] Paris
+		\item[\domain] Paris
 	\end{ekey}
 The name `$d$' must name something in the domain, so we have no option but:
 	\begin{ekey}
@@ -1133,7 +1133,7 @@ Now we have an interpretation where `$\exists x Axx$' is true, but where `$Bd$' 
 
 We can just as easily show that `$\exists xAxx \eif Bd$' is not a logical falsehood. We need only specify an interpretation in which `$\exists xAxx \eif Bd$' is true; i.e., an interpretation in which either `$\exists x Axx$' is false or `$Bd$' is true. Here is one:
 	\begin{ekey}
-		\item[\text{domain}] Paris
+		\item[\domain] Paris
 		\item[d] Paris
 		\item[A] \gap{1} is in the same place as \gap{2}
 		\item[B] \gap{1} is in France
@@ -1143,7 +1143,7 @@ This shows that there is an interpretation where `$\exists xAxx \eif Bd$' is tru
 \section{Logical Equivalence}
 Suppose we want to show that `$\forall x Sx$' and `$\exists x Sx$' are not logically equivalent. We need to construct an interpretation in which the two sentences have different truth values; we want one of them to be true and the other to be false. We start by specifying a domain. Again, we make the domain small so that we can specify extensions easily. In this case, we shall need at least two objects. (If we chose a domain with only one member, the two sentences would end up with the same truth value. In order to see why, try constructing some partial interpretations with one-member domains.) For concreteness, let's take:
 	\begin{ekey}
-		\item[\text{domain}] Ornette Coleman, Sarah Vaughan
+		\item[\domain] Ornette Coleman, Sarah Vaughan
 	\end{ekey}
 We can make `$\exists x Sx$' true by including something in the extension of `$S$', and we can make `$\forall x Sx$' false by leaving something out of the extension of `$S$'. For concreteness we shall offer:
 	\begin{ekey}
@@ -1165,7 +1165,7 @@ Consider the following argument in \FOL:
 $$\exists x(Gx \eif Ga) \ttherefore \exists x Gx \eif Ga$$
 To show that this is invalid, we must make the premise true and the conclusion false. The conclusion is a conditional, so to make it false, the antecedent must be true and the consequent must be false. Clearly, our domain must contain two objects. Let's try:
 	\begin{ekey}
-		\item[\text{domain}] Karl Marx, Ludwig von Mises
+		\item[\domain] Karl Marx, Ludwig von Mises
 		\item[G] \gap{1} hated communism
 		\item[a] Karl Marx
 	\end{ekey}
@@ -1179,7 +1179,7 @@ Let's consider a second example. Consider:
 	$$\forall x \exists y Lxy \ttherefore \exists y \forall x Lxy$$
 Again, I want to show that this is invalid. To do this, we must make the premises true and the conclusion false. Here is a suggestion:
 	\begin{ekey}
-		\item[\text{domain}] People with a living biological sibling
+		\item[\domain] People with a living biological sibling
 		\item[L] \gap{1} shares a parent with \gap{2}
 	\end{ekey}
 The premise is clearly true on this interpretation. Anyone in the domain has a living sibling. That sibling will also, then, be in the domain, because one cannot be someone's sibling without also having  them as a sibling. So for everyone in the domain, there will be at least one other person in the domain who is their sibling, and thus has a parent in common with them. Hence `$\forall x \exists y Lxy$' is true. But the conclusion is clearly false, for that would require that there is some single person who shares a parent with everyone in the domain, and there is no such person. So the argument is invalid. We observe immediately that the sentences `$\forall x \exists y Lxy$' and `$\enot\exists y \forall x Lxy$' are jointly consistent and that `$\forall x \exists y Lxy$' does not entail `$\exists y \forall x Lxy$'. 

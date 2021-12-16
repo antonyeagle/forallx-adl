@@ -182,7 +182,7 @@ Given the symbolisation key we have been using, `$\forall xHx$' symbolises `Ever
 
 In order to eliminate this ambiguity, we will need to specify a \define{domain}. The domain is just the things that we are talking about. So if we want to talk about people in Chicago, we define the domain to be people in Chicago. We write this at the beginning of the symbolisation key, like this:
 	\begin{ekey}
-		\item[\text{domain}] people in Chicago
+		\item[\domain] people in Chicago
 	\end{ekey}
 The quantifiers \emph{range over} the domain. Given this domain, `$\forall x$' is to be read roughly as `Every person in Chicago is such that …' and `$\exists x$' is to be read roughly as `Some person in Chicago is such that …'. 
 
@@ -226,7 +226,7 @@ Note further that to make sense of the sentence `all the beer has been drunk', t
 \problempart
 Make use of this symbolisation key to symbolise the following sentences into Quantifer, commenting on any difficulties:
 \begin{ekey}
-		\item[\text{domain}] cities and towns in South Australia
+		\item[\domain] cities and towns in South Australia
 		\item[a] Adelaide
 		\item[m] Mount Gambier
 		\item[T] \blank\ is a town
@@ -263,7 +263,7 @@ Consider these sentences:
 	\end{earg}
 In providing a symbolisation key, we need to specify a domain. Since we are talking about coins in my pocket and on the table, the domain must at least contain all of those coins. Since we are not talking about anything besides coins, we let the domain be all coins. Since we are not talking about any specific coins, we do not need to need to deal with any names. So here is our key:
 	\begin{ekey}
-		\item[\text{domain}] all coins
+		\item[\domain] all coins
 		\item[P] \blank\ is in my pocket
 		\item[T] \blank\ is on the table
 		\item[Q] \blank\ is a 20¢ piece
@@ -309,7 +309,7 @@ Suppose we want to symbolise these two sentences:
 	\end{earg}
 It is possible to write the symbolisation key for these sentences in this way:
 	\begin{ekey}
-		\item[\text{domain}] animals
+		\item[\domain] animals
 		\item[M] \blank\ is a monkey.
 		\item[S] \blank\ knows sign language.
 	\end{ekey}
@@ -352,7 +352,7 @@ Second, we can let the domain contain things besides roses: rhododendrons; rats;
 	\end{earg}
 Our domain must now include both all the roses (so that we can symbolise sentence \ref{pickdomainrose}) and all the cowboys (so that we can symbolise sentence \ref{pickdomaincowboy}). So we might offer the following symbolisation key:\label{poison}
 	\begin{ekey}
-		\item[\text{domain}] people and plants
+		\item[\domain] people and plants
 		\item[C] \blank\ is a cowboy
 		\item[S] \blank\ sings a sad, sad song
 		\item[R] \blank\ is a rose
@@ -372,7 +372,7 @@ When symbolising English sentences in \FOL, it is important to understand the st
 
 For the next several examples, we will use this symbolisation key:
 	\begin{ekey}
-		\item[\text{domain}] women
+		\item[\domain] women
 		\item[B] \blank\ is a bassist.
 		\item[R] \blank\ is a rock star.
 		\item[k] Kim Deal
@@ -559,7 +559,7 @@ Symbolise each argument in \FOL.
 \label{pr.FOLvegetarians}
 Using the following symbolisation key:
 \begin{ekey}
-\item[\text{domain}] people
+\item[\domain] people
 \item[K] \blank\ knows the combination to the safe
 \item[S] \blank\ is a spy
 \item[V] \blank\ is a vegetarian
@@ -578,7 +578,7 @@ symbolise the following sentences in \FOL:
 \problempart\label{pr.FOLalligators}
 Using this symbolisation key:
 \begin{ekey}
-\item[\text{domain}] all animals
+\item[\domain] all animals
 \item[A] \blank\ is an alligator.
 \item[M] \blank\ is a monkey.
 \item[R] \blank\ is a reptile.
@@ -670,7 +670,7 @@ To keep track of the gaps, we shall label them. The labelling conventions I  ado
 	\end{earg}
 I will start with the following symbolisation key:
 	\begin{ekey}
-		\item[\text{domain}] people
+		\item[\domain] people
 		\item[i] Imre
 		\item[k] Karl
 		\item[L] \gap{1}\ loves \gap{2}
@@ -690,7 +690,7 @@ This last example highlights something important. Suppose we add to our symbolis
 Here, we have used the same English word (`loves') as we used in our symbolisation key for `$L$'. However, we have swapped the order of the \emph{gaps} around (just look closely at those little subscripts!) So `$Mki$' and `$Lik$' now \emph{both} symbolise `Imre loves Karl'. `$Mik$' and `$Lki$' now \emph{both} symbolise `Karl loves Imre'. Since love can be unrequited, these are very different claims. The moral is simple. When we are dealing with predicates with more than one place, we need to pay careful attention to the order of the places. 
 
 With these examples in hand, I can now give the official account of how we understand \FOL\ symbolisations. Suppose we have an \FOL\ expression $\meta{A}t_{1},…,t_{k}$, where each $t_{i}$ is a name or a variable, symbolising a singular term, and where $\meta{A}$ symbolises a $k$-place predicate. The $i$-th term is to be interpreted as filling the gap labelled `$i$'. So consider the following symbolisation key: \begin{ekey}
-	\item[\text{domain}] places
+	\item[\domain] places
 		\item[a] Adelaide
 		\item[b] Alice Springs
 		\item[c] Coober Pedy
@@ -769,7 +769,7 @@ The moral is: take great care with the scope of quantification.
 \section{Stepping Stones to Symbolisation}
 Once we have the possibility of multiple quantifiers and many-place predicates, representation in \FOL\ can quickly start to become a bit tricky. When you are trying to symbolise a complex sentence, I recommend laying down several stepping stones. As usual, this idea is best illustrated by example. Consider this representation key:
 \begin{ekey}
-\item[\text{domain}] people and dogs
+\item[\domain] people and dogs
 \item[D] \gap{1} is a dog
 \item[F] \gap{1} is a friend of \gap{2}
 \item[O] \gap{1} owns \gap{2}
@@ -842,7 +842,7 @@ How to symbolise the structure of a sentence very much depends on what purpose y
 \problempart
 Using this symbolisation key:
 \begin{ekey}
-\item[\text{domain}] all animals
+\item[\domain] all animals
 \item[A] \gap{1} is an alligator
 \item[M] \gap{1} is a monkey
 \item[R] \gap{1} is a reptile
@@ -874,7 +874,7 @@ symbolise each of the following sentences in \FOL:
 \problempart 
 Using the following symbolisation key:
 \begin{ekey}
-\item[\text{domain}] all animals
+\item[\domain] all animals
 \item[D] \gap{1} is a dog
 \item[S] \gap{1} likes samurai movies
 \item[L] \gap{1} is larger than \gap{2}
@@ -905,7 +905,7 @@ symbolise the following sentences in \FOL:
 \problempart
 Using this symbolisation key, 
 \begin{ekey}
-	\item[\text{domain}] all animals
+	\item[\domain] all animals
 	\item[L] \gap{1} is larger than \gap{2}.
 	\item[F] \gap{1} is friendlier than \gap{2}.
 	\item[D] \gap{1} is a dog.
@@ -927,7 +927,7 @@ render the following into natural English, commenting on any difficulties:
 \problempart
 Using the following symbolisation key:
 \begin{ekey}
-\item[\text{domain}] people and dishes at a potluck
+\item[\domain] people and dishes at a potluck
 \item[R] \gap{1} has run out.
 \item[T] \gap{1} is on the table.
 \item[F] \gap{1} is food.
@@ -956,7 +956,7 @@ render the following into natural English, commenting on any difficulties:
 \label{pr.FOLballet}
 Using the following symbolisation key:
 \begin{ekey}
-\item[\text{domain}] people
+\item[\domain] people
 \item[D] \gap{1} dances ballet.
 \item[F] \gap{1} is female.
 \item[M] \gap{1} is male.
@@ -988,7 +988,7 @@ symbolise the following arguments in \FOL:
 \problempart
 Consider the following symbolisation key:
 \begin{ekey}
-\item[\text{domain}] Fred, Amy, Kuiping
+\item[\domain] Fred, Amy, Kuiping
 \item[P] \gap{1} pats \gap{2} on the head.
 \item[T] \gap{1} is taller than \gap{2}.
 \end{ekey}
@@ -1179,7 +1179,7 @@ It might be tempting to add a predicate to our symbolisation key, to symbolise t
 %\label{pr.FOLcandies}
 %Using the following symbolisation key:
 %\begin{ekey}
-%\item[\text{domain}] candies
+%\item[\domain] candies
 %\item[C] \gap{1} has chocolate in it.
 %\item[M] \gap{1} has marzipan in it.
 %\item[S] \gap{1} has sugar in it.
@@ -1210,7 +1210,7 @@ It might be tempting to add a predicate to our symbolisation key, to symbolise t
 
 \problempart Using the following symbolisation key:
 \begin{ekey}
-\item[\text{domain}] all animals
+\item[\domain] all animals
 \item[D] \gap{1} is a dog
 \item[L] \gap{1} is larger than \gap{2}
 \item[F] \gap{1} is fierce
@@ -1231,7 +1231,7 @@ symbolise the following sentences in \FOL:
 \label{pr.FOLcardsa}
 Using the following symbolisation key:
 \begin{ekey}
-\item[\text{domain}] cards in a standard deck
+\item[\domain] cards in a standard deck
 \item[B] \gap{1} is black.
 \item[C] \gap{1} is a club.
 \item[D] \gap{1} is a deuce.
@@ -1253,7 +1253,7 @@ symbolise each sentence in \FOL:
 
 \problempart Using the following symbolisation key:
 \begin{ekey}
-\item[\text{domain}] animals in the world
+\item[\domain] animals in the world
 \item[B] \gap{1} is in Farmer Brown's field.
 \item[H] \gap{1} is a horse.
 \item[P] \gap{1} is a Pegasus.
@@ -1296,7 +1296,7 @@ One option would be to introduce new names whenever we come across a definite de
 
 A second option would be to introduce a \emph{new} definite description operator, such as `$\maththe$'. The idea would be to symbolise `the F' as `$\maththe xFx$'. This is taken to mean something like this `the unique thing such that it is F', which obviously involves a definite description in its semantics.  Expressions of the form $\maththe \meta{x} \meta{A}\meta{x}$ would then behave, grammatically speaking, like names – they combine with predicates to form sentences. Suppose we follow this path. Start with the following symbolisation key:
 	\begin{ekey}
-		\item[\text{domain}] people
+		\item[\domain] people
 		\item[T] \gap{1} is a traitor
 		\item[D] \gap{1} is a deputy
 		\item[C] \gap{1} went to Cambridge
@@ -1426,7 +1426,7 @@ To say much more here would lead us into deep philosophical waters. That would b
 \problempart
 Using the following symbolisation key:
 \begin{ekey}
-\item[\text{domain}] people
+\item[\domain] people
 \item[K] \gap{1} knows the combination to the safe.
 \item[S] \gap{1} is a spy.
 \item[V] \gap{1} is a vegetarian.
@@ -1449,7 +1449,7 @@ symbolise the following sentences in \FOL:
 \problempart
 Using the following symbolisation key:
 \begin{ekey}
-\item[\text{domain}] animals
+\item[\domain] animals
 \item[𝐶\meta{x}] \gap{1} is a cat.
 \item[G] \gap{1} is grumpier than \gap{2}.
 \item[f] Felix 
@@ -1467,7 +1467,7 @@ symbolise each of the following in \FOL:
 \label{pr.FOLcards}
 Using the following symbolisation key:
 \begin{ekey}
-\item[\text{domain}] cards in a standard deck
+\item[\domain] cards in a standard deck
 \item[B] \gap{1} is black.
 \item[C] \gap{1} is a club.
 \item[D] \gap{1} is a deuce.
@@ -1488,7 +1488,7 @@ symbolise each sentence in \FOL:
 
 \problempart Using the following symbolisation key:
 \begin{ekey}
-\item[\text{domain}] animals in the world
+\item[\domain] animals in the world
 \item[B] \gap{1} is in Farmer Brown's field.
 \item[H] \gap{1} is a horse.
 \item[P] \gap{1} is a Pegasus.
@@ -1642,7 +1642,7 @@ Note that it follows from our recursive definition that `$\forall x Fa$' is a fo
 \section{Sentences}
 Recall that we are largely concerned in logic with assertoric sentences: sentences that can be either true or false. Many formulae are not sentences. Consider the following symbolisation key:
 	\begin{ekey}
-		\item[\text{domain}] people
+		\item[\domain] people
 		\item[L] \gap{1} loves \gap{2}
 		\item[b] Boris
 	\end{ekey}
