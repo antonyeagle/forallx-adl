@@ -50,6 +50,11 @@ This book, like its predecessors, is released under a Creative Commons license (
 
 Typesetting was carried out entirely in \XeLaTeX\ using the \texttt{Memoir} class. The body text is set in Constantia; math is set in Cambria Math; sans serif in Calibri; and monospaced text in Consolas. The style for typesetting proofs is based on \texttt{fitch.sty} (v0.4) by Peter Selinger, University of Ottawa.
 
+\begin{quote}
+	\emph{Kaurna miyurna, Kaurna yarta, ngai tampinthi.}\\
+	Made on Kaurna land. Its sovereignty was never ceded.
+\end{quote}
+
 \newpage
 \tableofcontents*\newpage
 \listoffigures*
@@ -98,7 +103,7 @@ I appreciate any comments or corrections: \href{mailto:antony.eagle@adelaide.edu
 §\ref{s:CompleteTruthTables} & 	 & §\ref{s:Derived} & §\ref{c:proof.strat} & \\
 §\ref{s:Semantic.concepts} & 	 & §\ref{s:alternates} & §\ref{s:BasicFOL} & §\ref{s:CQ} \\
 §\ref{c:entvalid} & §\ref{s:shortcuts} &    & §\ref{ch.identity} & \\
-§\ref{s:expressiveness} & §\ref{s:PartialTruthTable} &    & §\ref{sec:soundcomp} & \\
+§\ref{s:expressiveness} & §\ref{s:PartialTruthTable} &    & §\ref{sec:soundcomp} & §\ref{s:nextsteps} \\
     };
     \path[<-,thick]
 \foreach \x/\y in {1/2, 2/3, 3/4, 4/5, 5/6, 6/7, 7/8, 8/9, 9/10, 10/11, 11/12} { (depend-\x-1) edge  (depend-\y-1) }
@@ -107,6 +112,7 @@ I appreciate any comments or corrections: \href{mailto:antony.eagle@adelaide.edu
 \foreach \x/\y in {4/5, 5/6, 6/7, 7/8, 8/9, 9/10, 10/11, 11/12} { (depend-\x-4) edge  (depend-\y-4) }
 (depend-11-1) edge (depend-11-2)
 (depend-11-2) edge (depend-12-2)
+(depend-12-4) edge (depend-12-5)
 (depend-7-1) edge [looseness=0.8] (depend-2-2)
 (depend-5-2) edge [looseness=0.5] (depend-3-3)
 (depend-7-4) edge (depend-7-5)

@@ -937,22 +937,13 @@ It is intuitive that provability and semantic entailment should agree. But – l
 
 We showed part of this result along the way, actually. All those little observations I made about how our proof rules were good each took the form of an argument that whenever $\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n} \proves\meta{B}$, then also $\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n} \entails\meta{B}$. This is sometimes known as the \define{soundness} of our proof system, that whenever you can prove something, there is a corresponding valid argument.
 
-\section{Next Steps in Logic}\label{s:nextsteps}
 
-The other half of this result is more demanding. This is the \define{completeness} of our proof system, that whenever there is a valid argument, there is a proof. It is somewhere around this point, of demonstrating the completeness half of the agreement between  provability and semantic entailment, when introductory logic becomes intermediate logic. More than one of the authors of this book have written distinct sequels in which the completeness of \TFL\ is established, along with other results of a `metalogical' flavour. The interested student is directed to these texts: \begin{itemize}
-	\item Tim Button's book is \emph{Metatheory}; it covers just \TFL, and some of the results there were actually covered in this book already, notably results around expressiveness of \TFL\ in §\ref{s:expressiveness}. \emph{Metatheory} is available at \href{http://www.homepages.ucl.ac.uk/~uctytbu/Metatheory.pdf}{\nolinkurl{www.homepages.ucl.ac.uk/~uctytbu/Metatheory.pdf}} It should be accessible for self-study by students who have successfully completed this course.
-
-\item Antony Eagle's book \emph{Elements of Deductive Logic} goes rather further than \emph{Metatheory}, including direct proofs of Compactness for \TFL, consideration of alternative derivation systems, discussion of computation and decidability, and metatheory for \FOL. It is available at \href{https://github.com/antonyeagle/edl}{\nolinkurl{github.com/antonyeagle/edl}}.
-\end{itemize}
-
-tense example from §\ref{FOL.semantics}.
 
 
 
 \keyideas{
 	\item The two turnstiles are distinct concepts. But they coincide: every provable argument corresponds to an entailment, and \emph{vice versa}.
 	\item This means that we can pick and choose our methods to suit our task. If we want to show an entailment, we can sometimes most effectively proceed by providing a proof. And if we want to show something isn't provable, it can be more efficient to provide a countermodel.
-	\item With the basics under your belt, there are many possible next steps in logic. It is natural to try to establish more metatheoretical results about the systems we have discussed, and some resources are indicated in the text to help you do this if you wish.
 }
 
 
@@ -987,4 +978,24 @@ Is $\meta{A}_1, \meta{A}_2, …, \meta{A}_n \ttherefore \meta{C}$ \textbf{valid}
 \end{center}
 \end{sidewaystable}
 
-\chapter{Next Steps in Logic}
+\chapter{Next Steps in Logic}\label{s:nextsteps}
+
+
+The other half of this result [soundness/completeness]
+
+
+
+ is more demanding. This is the \define{completeness} of our proof system, that whenever there is a valid argument, there is a proof. It is somewhere around this point, of demonstrating the completeness half of the agreement between  provability and semantic entailment, when introductory logic becomes intermediate logic. More than one of the authors of this book have written distinct sequels in which the completeness of \TFL\ is established, along with other results of a `metalogical' flavour. The interested student is directed to these texts: \begin{itemize}
+	\item Tim Button's book is \emph{Metatheory}; it covers just \TFL, and some of the results there were actually covered in this book already, notably results around expressiveness of \TFL\ in §\ref{s:expressiveness}. \emph{Metatheory} is available at \href{http://www.homepages.ucl.ac.uk/~uctytbu/Metatheory.pdf}{\nolinkurl{www.homepages.ucl.ac.uk/~uctytbu/Metatheory.pdf}} It should be accessible for self-study by students who have successfully completed this course.
+
+\item Antony Eagle's book \emph{Elements of Deductive Logic} goes rather further than \emph{Metatheory}, including direct proofs of Compactness for \TFL, consideration of alternative derivation systems, discussion of computation and decidability, and metatheory for \FOL. It is available at \href{https://github.com/antonyeagle/edl}{\nolinkurl{github.com/antonyeagle/edl}}.
+\end{itemize}
+
+tense example from §\ref{FOL.semantics}.
+
+\keyideas{
+	\item With the basics under your belt, there are many possible next steps in logic. 
+	\item It is natural to try to establish more metatheoretical results about the systems we have discussed, and some resources are indicated in the text to help you do this if you wish.
+	\item Tense, modals, mathematics
+}
+
