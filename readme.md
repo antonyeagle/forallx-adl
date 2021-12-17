@@ -30,14 +30,8 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 4 (`forallx-adl-fol.tex`)
 * Chapter 5 (`forallx-adl-interpretations.tex`)
 * Chapter 6 (`forallx-adl-prooftfl.tex`)
-	- §26
-		+ Need a practice exercise
-		+ add some discussion of epistemology of reasoning – validity is not sufficient for good reasoning, even if it is necessary.
-	- §27
-		+ add mention that any proof opened with an assumption is already a correct proof.
-		+ More on the way that we can use formal proofs to parallel English arguments – the skills are formal, but the motivation is coming up with principles that also govern good arguments in natural language. Indeed, many philosophers write as if they have a natural deduction argument in their head, and their prose just 'de-symbolises' it. Not perhaps the most elegant, but clear, easy to grasp structure, and hopefully good!
 	- §28
-		+ Mention the first 'rule' which is that we can open an assumption whenever we want. put it alongside Reiteration as a 'connective-insensitive' rule.
+		+  put new assumption alongside Reiteration as a 'connective-insensitive' rule.
 	- §29
 		+ ramsey quote in conditional intro
 	- §31

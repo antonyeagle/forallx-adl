@@ -13,36 +13,51 @@
 
 % section arguments_and_reasoning_revisited (end)
 
-Way back in §\ref{s:Valid}, we said that an argument is valid iff it is impossible to make all of the premises true in a valuation, while the conclusion is false. 
+Back in §\ref{s:Valid}, we said that a symbolised argument is valid iff it is not possible to make all of the premises true in a valuation, while the conclusion is false. 
 
 In the case of \TFL, this led us to develop truth tables. Each row of a complete truth table corresponds to a valuation. So, when faced with a \TFL\ argument, we have a very direct way to assess whether it is possible to make all of the premises true and the conclusion false: just plod through the truth table.
 
 But truth tables do not necessarily give us much \emph{insight}. Consider two arguments in \TFL:
 	\begin{align*}
 		P \eor Q, \enot P & \ttherefore Q\\
-		P \eiff Q, P & \ttherefore Q.
+		P \eiff Q, \enot P & \ttherefore \enot Q.
 	\end{align*}
-Clearly, these are valid arguments. You can confirm that they are valid by constructing four-row truth tables. But we might say that two arguments, proceeding from different premises with different logical connectives involved, must make use of different principles of implication. What follows from a disjunction is not at all the same as what follows from a biconditional, and it might be nice to keep track of these differences. While a truth table can show \emph{that} an argument is valid, it doesn't really explain why the argument is valid. To explain why $P \eor Q, \enot P \ttherefore Q$ is valid, we have to say something about how disjunction and negation work and interact.
+Clearly, these are valid arguments. You can confirm that they are valid by constructing four-row truth tables. With truth tables, we only really care about the truth values assigned to whole sentences, since that is what ultimately determines whether there is an entailment. But we might say that these two arguments, proceeding from different premises with different logical connectives involved, must make use of different principles of \define{implication} – different principles about what \emph{follows from} what. What follows from a disjunction is not at all the same as what follows from a biconditional, and it might be nice to keep track of these differences. While a truth table can show \emph{that} an argument is valid, it doesn't really explain why the argument is valid. To explain why $P \eor Q, \enot P \ttherefore Q$ is valid, we have to say something about how disjunction and negation work and interact.
 
-Certainly human reasoning treats disjunctions very differently from biconditionals. While logic is not really about human reasoning, which is more properly a subject matter for psychology, nevertheless we can formally study the different forms of reasoning involved in arguing from sentences with different structures, by asking: \emph{what would it be acceptable to conclude from a premise with a certain formal structure, supposing one cannot give up one's committment to that premise?} 
+Certainly human reasoning treats disjunctions very differently from biconditionals. While logic is not really about human reasoning, which is more properly a subject matter for psychology, nevertheless we can formally study the different forms of reasoning involved in arguing from sentences with different structures, by asking: \emph{what would it be acceptable to conclude from premises with a certain formal structure, supposing one cannot give up one's committment to those premises?}
 
+The role of reasoning should not be overstated. Many principles of good reasoning have no place in logic, because they concern how to make judgments on the basis of inconclusive evidence. Our focus here is on implication, whether or not it would be good reasoning to form beliefs in accordance with those implications. The idea here is that `$P \eor Q$' and `$\enot P$' implies `$Q$', whether or not it would be a good idea to belive `$Q$' if you believed those premises. To emphasise a point we made earlier (§\ref{ss:reasoning}): maybe once you notice that these premises imply `$Q$', what good reasoning demands is that you give up one of those premises.
 
-With truth tables, we only really care about the truth values assigned to whole sentences, since that is what ultimately determines whether there is an entailment. With natural deduction systems, we are thinking more directly about reasoning \emph{from} premises \emph{to} conclusions. We see what the premises ultimately commit us to, and see whether those consequences are sufficient to establish the conclusion. To do this, we manipulate sentences in accordance with rules that we regard as acceptable. Indeed, with just a small `starter pack' of rules of implication, just characterising what a sentence implies, or is implied by, in virtue of its main connective, we might hope to capture all valid arguments. 
+\section{Formal Proof and Natural Deduction}
 
-\emph{This is a very different way of thinking about arguments.} 
+In special cases, thinking about reasoning can help us understand logical implication. Reasoning often occurs step-by-step: you accept a certain claim, and deduce some intermediate further claim, and from there derive a conclusion. There is an approach to logical argument that mirrors this step-by-step approach. The idea is to understand argument by applying very obvious, seemingly trivial, rules to sentences of a logical language in virtue of their structure, generating certain derived results, to which the rules can be applied again, and then again in turn to further derived results. Some of these rules will govern the behaviour of the sentential connectives. Others will govern the behaviour of the quantifiers and identity. The whole system of rules will govern the construction of a proof (or derivation) that proceeds validly \emph{from} some premises \emph{to} a conclusion.
 
-Natural deduction systems promise to give us a better insight – or at least, a different insight – into how arguments work. Consider this pair of arguments:
+\emph{This is a very different way of thinking about arguments.} Rather than thinking about the possible meanings of the argument using valuations or interpretations, we manipulate the sentences involved in the premises and conclusion to construct an object, the proof,  which directly demonstrates the validity of the argument. 
+
+Very abstractly, a \define{formal proof} is a sequence of sentences, such that each sentence is justified by some rule of the proof system, possibly given some previous sentence or sentences. (The sentences may also be accompanied by a `commentary' explaining how that sentence is justified.) There are lots of different systems for constructing formal proofs in \TFL and \FOL, including among others axiomatic systems, semantic tableaux, Gentzen-style natural deduction, and sequent calculus. Different systems may be more efficient, or simpler to use, or better when one is reasoning about formal proofs rather than constructing them. 
+ All formal proof systems share two important features: \begin{itemize}
+	\item The rules are unambiguous; and
+	\item The rules apply at some stage of a proof because of the syntactic structure of the sentences involved – no consideration of valuations or interpretations is involved.
+\end{itemize} These two features make it easy to design a computer program that produces formal proofs, as long as it can parse and analyse the syntax of expressions. No consideration of meanings need be involved, which makes it quite unlike the earlier ways we had of analysing arguments in \TFL, such as truth-tables, which essentially involved understanding the truth-functions that characterise the meanings of the logical connectives of the language.
+
+The proof system we adopt is called \define{natural deduction}. It is an attractive system in many ways, in part because the rules it uses are designed to be very simple and to emulate certain obvious and natural patterns of reasoning. This makes it useful for some purposes – it is often easy to understand that the rules are correct, and it has the very nice feature that one can reuse one formal proof within the course of constructing another. Don't be misled, however: the formal proofs constructed by using natural deduction are stylised and abstracted from ordinary reasoning. Natural deduction may be slightly less artificial than using a truth table, but it is not in any sense a psychologically realistic model of reasoning. (For one thing, many `natural' instincts in human reasoning correspond to invalid patterns of argument.)
+
+One specific way in which natural deduction is supposed to improve over truth table techniques is in the insight into how an argument works that it can provide. Rather than just discovering that one sentence cannot be true without another being true, we see almost literally how to break down premises into their consequences, and then build up from those intermediate consequences to the conclusion, where all the steps of deconstruction and reconstruction involve the use of simple and obviously correct implications. Though this doesn't mimic human reasoning perfectly, it resembles it sufficiently well that we often seem to better understand how an argument works once we've constructed a natural deduction proof of it, even if we already knew it to be valid.  Consider this pair of valid arguments:
 	\begin{align*}
 		\enot P \eor Q,  P & \ttherefore Q\\
 		P \eif Q, P & \ttherefore Q.
-	\end{align*} From a truth-table perspective, these arguments are indistinguishable: their premises are true in the same valuations, and so are their conclusions. Yet they are distinct from an implicational point of view, since one will involve consideration of the consequences of disjunctions and negations, and the other consideration of the consequences of the conditional. So the natural deduction perspective on arguments promises to give us a more fine-grained analysis of how valid arguments function. 
+	\end{align*} 
+From a truth-table perspective, these arguments are indistinguishable: their premises are true in the same valuations, and so are their conclusions. Yet they are distinct from an implicational point of view, since one will involve consideration of the consequences of disjunctions and negations, and the other consideration of the consequences of the conditional. The natural deduction proofs demonstrating the validity of these arguments reflect the different connectives involved, and promise us a more fine-grained analysis of how valid arguments function.
+
+Formal proofs are obviously useful in demonstrating validity. If you manage to construct a proof in a well-designed proof system, you'll know the corresponding argument is valid. But the aim of a good proof system is not just that all of the formal proofs it permits correspond to valid arguments: it is also that every valid argument has a proof. Our system of natural deduction rules has this property, but I won't be able to demonstrate that with complete rigour – I return to this idea in §\ref{sec:soundcomp}
+
 
 \section{Efficiency in Natural Deduction} % (fold)
 \label{sec:efficiency_in_natural_deduction}
 
 % section efficiency_in_natural_deduction (end)
 
-The move to natural deduction might be motivated by more than the search for insight. It might also be motivated by \emph{practicality}. Consider:
+The use of natural deduction can be motivated by more than the search for insight. It might also be motivated by \emph{practicality}. Consider:
 	$$A_1 \eif C_1 \ttherefore (A_1 \eand A_2) \eif (C_1 \eor C_2).$$
 To test this argument for validity, you might use a 16-row truth table. If you do it correctly, then you will see that there is no row on which all the premises are true and on which the conclusion is false. So you will know that the argument is valid. (But, as just mentioned, there is a sense in which you will not know \emph{why} the argument is valid.) But now consider:\phantomsection\label{longtt}
 	\begin{align*}
@@ -58,70 +73,115 @@ When we get to \FOL, though, the problem gets dramatically worse. There is nothi
 
 % section our_system_of_natural_deduction_and_its_history (end)
 
-Rather than reasoning directly about all valuations (in the case of \TFL) or all interpretations (in the case of \FOL), we shall try to select a few basic rules of implication. Some of these will govern the behaviour of the sentential connectives. Others will govern the behaviour of the quantifiers and identity. The resulting system of rules will give us a new way to think about the validity of arguments. 
-
-The modern development of natural deduction dates from simultaneous and unrelated papers by Gerhard Gentzen and Stanisław Jaśkowski in the 1930s.\footnote{Gerhard Gentzen (1934) `Untersuchungen über das logische Schließen', translated as `Investigations into Logical Deduction' in M. E. Szabo, ed. (1969) \emph{The Collected Works of Gerhard Gentzen}, North-Holland. Stanisław Jaśkowski (1934) `On the rules of suppositions in formal logic', reprinted in Storrs McCall, ed. (1967) \emph{Polish logic 1920–39}, Oxford University Press.} However, the natural deduction system that we shall consider is based on slightly later work by Frederic Fitch.\footnote{Frederic Fitch (1952) \emph{Symbolic Logic: An introduction}, Ronald Press Company. 
+The modern development of natural deduction dates from research in the 1930s by Gerhard Gentzen and, independently, Stanisław Jaśkowski.\footnote{Gerhard Gentzen (1935) `Untersuchungen über das logische Schließen', translated as `Investigations into Logical Deduction' in M. E. Szabo, ed. (1969) \emph{The Collected Works of Gerhard Gentzen}, North-Holland. Stanisław Jaśkowski (1934) `On the rules of suppositions in formal logic', reprinted in Storrs McCall, ed. (1967) \emph{Polish logic 1920–39}, Oxford University Press.} However, the natural deduction system that we shall consider is based on slightly later work by Frederic Fitch.\footnote{Frederic Fitch (1952) \emph{Symbolic Logic: An introduction}, Ronald Press Company. 
 
 In the design of the present proof system, I drew on earlier versions of \forallx, but also on the natural deduction systems of Jon Barwise and John Etchemendy (1992) \emph{The Language of First-Order Logic}, CSLI; and of Volker Halbach (2010) \emph{The Logic Manual}, Oxford University Press.} 
 
 Natural deduction was so-called because the rules of implication it codifies were seen as reflecting `natural' forms of human reasoning. It must be admitted that no one spontaneously and instinctively reasons in a way that conforms to the rules of natural deduction. But there is one place where these forms of inference are widespread – mathematical reasoning. And it will not surprise you to learn that these systems of inference were introduced initially to codify good practice in mathematical proofs. Don't worry, though: we won't expect that you are already a fluent mathematician. Though some of the rules might be a bit stilted and formal for everyday use, the rationale for each of them is transparent and can be easily understood even by those without extensive mathematical training.
 
-
 One further thing about the rules we shall give is that they are extremely \emph{simple}. At every stage in a proof, it is trivial to see which rules apply, how to apply them, and what the result of applying them is. While constructing proofs as a whole might take some thought, the individual steps are the kind of thing that can be undertaken by a completely automated process. The development of formal proofs in the early years of the twentieth century emphasised this feature, as a part of a general quest to remove the need for `insight' or `intuition' in mathematical reasoning. As the philosopher and mathematician Alfred North Whitehead expressed his conception of the field, `the ultimate goal of mathematics is to eliminate any need for intelligent thought'. You will see I hope that natural deduction does require some intelligent thought. But you will also see that, because the steps in a proof are trivial and demonstrably correct, that finding a formal proof for a claim is a royal road to mathematical knowledge. 
 
+If we have a correct natural deduction proof of an argument, we can often do more than simply report that the argument is valid. Often the natural deduction proof mirrors the intuitive line of reasoning that justifies the valid argument, or even leads to its discovery. Because of the prevalence of natural deduction in introductory logic texts like this one, many philosophers have internalised the rules of natural deduction in their own thought. So a good knowledge of natural deduction can be helpful in interpreting contemporary philosophy: oftentimes the prose presentation of an argument more or less exactly corresponds to some natural deduction proof in an appropriate symbolisation.
+
+
 \keyideas{
+\item Any formal proof is a sequence of sentences, each of which follows by some relatively simple rules from previous sentences or is licensed in some other way. The final sentence is the conclusion of the proof.
+	\item The rules are unambiguous and apply only because of the syntactic structure of the sentences involved: no consideration of meanings need be involved. This makes them ideal for computers to use. 
 	\item A formal proof system can be theoretically useful, as it might give insight into \emph{why} an argument is valid by showing \emph{how} the conclusion can be derived from the premises.
 	\item It might also be practically useful, because it can be much faster to produce a single proof demonstrating an entailment than it would be to show that \emph{all} valuations or interpretations making the premises true also make the conclusion true.
-	\item A natural deduction proof system aims to use natural and obviously correct rules, which can contribute to the project of establishing the conclusions of proofs as certain knowledge. 
+	\item A natural deduction proof system aims to use natural and obviously correct rules, which can contribute to the project of establishing the conclusions of proofs as certain knowledge, and can help in understanding the informal writing of those with a knowledge of logic.
 }
 
+\practiceproblems
+\problempart Is the purely syntactic nature of formal proof a virtue or a vice? Can we be sure that any class of `good' arguments that is identified on purely syntactic grounds corresponds to an interesting category?
 
 
-\chapter{The Idea of a Formal Proof: Reasoning from Assumptions}\label{c:ass}
-We will develop a \define{natural deduction} system. The fundamental idea is that a formal proof involves reasoning from \emph{assumptions} – seeing which sentences follows from which, in virtue of their main connectives. For each connective, there will be \define{introduction} rules, that allow us to prove a sentence that has that connective as the main connective, and \define{elimination} rules, that allow us to prove something given a sentence that has that connective as the main connective. 
 
-Very abstractly, any \define{formal proof} is a sequence of sentences, each accompanied by a `commentary' on that sentence. There are lots of different systems for constructing formal proofs in \TFL, including axiomatic systems, semantic tableaux, Gentzen-style natural deduction, and sequent calculus. Different systems may be more efficient, or simpler to use, or better when one is reasoning about formal proofs rather than constructing them. The system we use here is best for some purposes – it is easy to understand that the rules are correct, it is fairly straightforward, and it has the nice feature that one can reuse one proof within the course of constructing another. All formal proof systems share two important features: \begin{itemize}
-	\item The rules are unambiguous; and
-	\item The rules apply at some stage of a proof only because of the syntactic structure of the sentences involved.. This makes them ideal for computers to use. 
-\end{itemize} These two features make it easy to design a computer program that produces formal proofs, as long as it can parse and analyse expressions of \TFL. No consideration of meanings need be involved, which makes it quite unlike the earlier ways we had of analysing arguments in \TFL, such as truth-tables, which essentially involved understanding the truth-functions that characterise the meanings of the logical connectives of the language.
+\chapter{The Idea of Natural Deduction}\label{c:ass}
 
- In a natural deduction system, some of those sentences may be initial \define{assumptions}, or suppositions that we are making `for the sake of argument'. Other sentences will follow from earlier sentences in the formal proof by applying certain rules we will detail below. The commentary tells us whether the sentence is an assumption, or whether it follows from one of the rules from an earlier sentence or sentences, and specifies which sentence(s) it follows from, and which assumptions it relies on. The last line of the formal proof is the conclusion. Some of the initial assumptions may remain as assumptions or suppositions even at the end of the formal proof –  these \define{undischarged assumptions} will be the premises of an argument that the formal proof demonstrates to be valid and whose conclusion is the last line of the proof. Henceforth, I shall simply call these `proofs', but you should be aware that there are \emph{informal proofs} too.\footnote{Many of the arguments we offer in our metalanguage, quasi-mathematical arguments \emph{about} our formal languages, are proofs. Sometimes people call formal proofs `deductions' or `derivations', to ensure that no one will confuse the metalanguage activity of proving things about our logical languages with the activity of constructing arguments within those languages. But it seems unlikely that anyone in this course will be confused on this point, since we are not offering very many proofs in the metalanguage in the first place!}
+\section{Assumptions and their Consequences}
 
-We will use a particular graphical representation of natural deduction proofs, one which makes use of `nesting' of sentences to vividly represent which assumptions a particular sentence in a proof is relying on at any given stage, and uses a device of horizontal marks to distinguish assumptions from derived sentences. It will be easier to see how this works by considering some examples!
+The fundamental idea behind natural deduction is that formal proofs begin from \define{assumptions}, and the rules for constructing a formal proof either involve introducing a new assumption or apply to previously generated sentences to produce further claims, which are then themselves the subject of the proof rules. The rules apply to a sentence because of its main connective only (so they are indifferent to what other connectives occur within a sentence). For each main connective there are two proof rules:
+\begin{itemize}
+ 	\item an \define{elimination} rule, that applies to a sentence having that connective as the main connective, and allows us to add some further sentence(s) to our proof; and
+ 	\item an \define{introduction} rule, that applies to some sentence(s) in our proof, and allows us to add some further sentence having that connective as the main connective to our proof. 
+ \end{itemize} Some of these rules also have a further effect of removing a previous assumption, or \emph{discharging} it. A natural deduction proof is just a sequence of sentences constructed by making assumptions or using these introduction and elimination rules:
+ \factoidbox{Any sequence of sentences, where every sentence is either (i) an assumption, whether discharged or undischarged, or (ii) follows from earlier sentences by the natural deduction proof rules, is a formal natural deduction proof.}
+ Henceforth, I shall simply call these `proofs', but you should be aware that there are \emph{informal proofs} too.\footnote{Many of the arguments we offer in our metalanguage, quasi-mathematical arguments \emph{about} our formal languages, are proofs. Sometimes people call formal proofs `deductions' or `derivations', to ensure that no one will confuse the metalanguage activity of proving things about our logical languages with the activity of constructing arguments within those languages. But it seems unlikely that anyone in this course will be confused on this point, since we are not offering very many proofs in the metalanguage in the first place!}
 
-So consider:
-	$$\enot (A \eor B) \ttherefore \enot A \eand \enot B.$$
-We shall start a proof by writing an assumption:
+Below (§\ref{fitch}), I will introduce a system for representing natural deduction proofs that will make clear which sentences are assumptions, when those assumptions are made and discharged, and also provide a commentary explaining how the proof was constructed, i.e., which rules and sentences are used to justify others. The commentary isn't strictly necessary for a correct formal proof, but it is essential in learning how those proofs work. 
+
+\section{Assumptions and Suppositions}
+
+Let's look as these initial assumptions. In ordinary reasoning, an assumption is a claim we might be accepting without having a full justification for it. We might believe it, or it might be a supposition that we are making `for the sake of argument'. In natural deduction, which isn't really about belief, assumptions are understood in this second, suppositional, sense. A natural deduction proof begins with a supposed assumption: the rules then tell us what we can derive from this assumption. We can make additional assumptions whenever we like in the course of the proof.
+
+Suppose we have a natural deduction proof. But what is it a proof \emph{of}? Well, the last sentence in the sequence is in some sense where we've ended up:  the result of the proof. It can be considered the conclusion of the proof. But even if there is a proof with conclusion \meta{C}, that doesn't mean that we have proved \meta{C} and should therefore come to believe it. For we have neglected the role of assumptions. Some of the proof rules discharge previously made assumptions, but not every assumption has to be discharged in a correctly formed proof. These remaining `active' or \define{undischarged} assumptions are the suppositions on which the correctness of the proof conclusion depends. So a natural deduction proof is \emph{conditional}: it establishes the conclusion, conditional on the truth of any undischarged assumptions. 
+
+This structure establishes a nice relationship between proofs and arguments. A given proof is a \define{proof of an argument} $\meta{A}_{1} … \meta{A}_{n} \ttherefore \meta{C}$ if the final sentence in the proof is \meta{C}, and each of the undischarged assumptions is among the premises of the argument $\meta{A}_{i}$. Note that if there is a proof of $\meta{A} \ttherefore \meta{C}$, that will also be a proof of $\meta{A},\meta{B} \ttherefore \meta{C}$, and any other argument with the conclusion \meta{C} and including \meta{A} as a premise. This is related to the fact that if you have a valid argument, adding extra premises can't make the argument invalid. (Likewise, if you have a correctly constructed proof, making additional assumptions can't make it incorrect.) 
+
+Looking above, you can see that a single assumption is already a natural deduction proof. If we assume `$P$', and stop there, we have a correctly formed proof of the argument $P \ttherefore P$. The premise is the undischarged assumption; the conclusion is the last sentence in the proof. It doesn't matter that, in this case, the undischarged assumption \emph{is} the last sentence! Since this argument is obviously valid, though trivial, we have some assurance that our simplest proofs are correct, and don't generate fallacious proofs of invalid arguments. Likewise, this proof would also be a proof of the argument $P, Q \therefore P$.
+
+We could make more assumptions. If we had the sequence of sentences `$P$' followed by `$Q$', they would both be undischarged assumptions, and the conclusion would be `$Q$'. So this would be a proof of the argument $P, Q \ttherefore Q$.
+
+Admittedly there isn't much we can do if the only rule we have is the one that allows us to make an assumption whenever we want. We shall want some other rules. But first I'll introduce a way of depicting natural deduction proofs that makes the role of assumptions very clear.
+
+\section{Representing Natural Deduction Proofs}\label{fitch}
+
+
+We will use a particular graphical representation of natural deduction proofs, one which makes use of `nesting' of sentences to vividly represent which assumptions a particular sentence in a proof is relying on at any given stage, and uses a device of horizontal marks to distinguish assumptions from derived sentences. It will be easier to see how this works with some examples.
+
+A natural deduction proof is a sequence of sentences. We will write this sequence vertically, so each successive sentences occupies its own line. We mark a sentence as an assumption by underlining it. So let's consider a very simple proof, the one-line proof from the assumption `$P$': \begin{proof}
+	\hypo{p} P
+\end{proof}
+In this proof, the horizontal line marks that the sentence above it is an assumption, and not justified by earlier sentences in the proof. Everything written below the line will either be something which follows (directly or indirectly) from the assumptions we have already made, or it will be some new assumption.  We don't need a special indication for the conclusion: it's just the last line. 
+
+There is also a vertical line at the left, the \define{assumption line}. This indicates the \define{range} of the assumption. This vertical line should be continued downwards whenever we extend the proof by applying the natural deduction rules, unless and until a rule that discharges the assumption is applied. Then we discontinue the vertical line. We'll have to wait until §\ref{s:BasicTFLs} to see real examples of rules that discharge assumptions.\footnote{We'll also see there that sometimes we can discharge \emph{all} the assumptions in a proof, and we will have an assumption line with no horizontal assumption marker, and so no undischarged assumptions attached to it. So an assumption line really marks the range of \emph{zero or more} assumptions.} 
+
+When a sentence is in the range of an assumption, that generally means the assumption will be playing some role in justifying that sentence. This isn't always the case, however, and we will see that not every sentence in the range of an assumption intuitively \emph{depends} on the assumption. Not every undischarged assumption is essential to the derivation of a given sentence. \phantomsection\label{nondependence} This again mirrors a feature of valid arguments: the truth of the conclusion of a a valid argument doesn't always require the truth of every premise (e.g., $A, B \vDash A$, but `$B$' isn't really playing an essential role here). 
+
+Whenever we make a new assumption, we underline it and introduce a new assumption line. So this is a proof of the argument $P, Q \ttherefore Q$: \begin{proof}
+	\hypo{p} P
+	\open
+	\hypo{q} Q
+\end{proof}
+Here you see we've extended the assumption line adjacent to `$P$', and introduced a new assumption line for `$Q$'. 
+
+You see that we also number the sentences in the proof. These numbers are not strictly part of the proof, but are part of the commentary, and help us remember which sentences we are referring to when we explain how subsequent sentences added to the proof are justified.
+
+We now have enough to describe our first natural deduction proof rule. It is the rule that says we can extend any proof by making a new assumption. In abstract generality, here is our \define{new assumption} rule\label{newass}: if we have any natural deduction proof, we can extend it by making a new assumption from any sentence. Graphically, we add the new sentence at the bottom of the proof, indenting it in the range of a new assumption line, and extending the range of all existing undischarged assumptions.  Abstractly, the rule looks like this:
+\factoidbox{
+\begin{proof}
+	\have[\ ]{}{\vdots}
+	\have[n]{}{\meta{A}}
+	\open
+	\hypo[n+1]{e}{\meta{B}}
+	\have[\ ]{}{\vdots}
+\end{proof}}
+That is, whenever we have a proof, whatever its contents, we may make an arbitrary assumption to extend that proof. We will discuss new assumptions, and the special family of rules that handles discharging assumptions, in §\ref{s.subproof}.
+
+Introducing a new assumption line for each new assumption is best practice. That allows each assumption potentially to be discharged independently of all the others. But sometimes you know that you won't be discharging some assumptions, and that they will all remain active throughout the proof. (Every sentence in the proof will be in the range of those assumptions.) In that case, you can use a single assumption line for a number of assumptions. For example, if we know we're going to make and retain the assumptions `$P$' and `$Q$', we can write them on successive lines, draw a single assumption line, and a single horizontal line marking that any sentences above it are the assumptions attached to that assumption line: \begin{proof}
+	\hypo{p} P
+	\hypo{q} Q
+	\have[ ]{v} \vdots
+\end{proof}
+
+For any given sentence in a proof, you can easily see the undischarged assumptions on which that sentence depends: just look at which assumptions are attached to the assumptions lines to its left. If some line in a proof is in the range of an assumption, we will say that it is an \define{active assumption} at that point in the proof. Likewise, for a given assumption you can use the assumption line to easily see which sentences are in the range of that assumption.
+
+Let's consider a couple more examples of how to set up up a proof.	$$\enot (A \eor B) \ttherefore \enot A \eand \enot B.$$
+We start a proof by writing an assumption:
 \begin{proof}
 	\hypo{a1}{\enot (A \eor B)}
-\end{proof}
-Note that we have numbered the premise, since we shall want to refer back to it. Indeed, every line on a proof is numbered, so that we can refer back to it.
-
-
-
-Note also that we have drawn a line underneath the premise. Everything written above the line is an \emph{assumption}. Everything written below the line will either be something which follows from the assumptions we have already made, or it will be some new assumption. 
-
-The vertical line at the side marks the scope of this assumption: any subsequent sentence which is adjacent to a continuation of this vertical line is understood to lie in the \define{range} of this assumption. We might call these vertical lines \define{assumption lines}. If some line in a proof is in the range of an assumption, we will say that it is an \define{active assumption} at that point in the proof. If we are going to write down some sentence that follows from an assumption, we will involve first extending the corresponding assumption line to indicate that it rests on this assumption, or at least is playing a role in the argument connected with this assumption. As we will see, not every sentence in the range of an assumption will intuitively \emph{depend} on the assumption, but many will. \phantomsection\label{nondependence}
-
-We are hoping to conclude that `$\enot A \eand \enot B$'; so we are hoping ultimately to conclude our proof with
+\end{proof} We are hoping to conclude that `$\enot A \eand \enot B$'; so we are hoping ultimately to conclude our proof with
 \begin{proof}
 \hypo{a1}{\enot (A \eor B)}
 \have[ ]{c}{\vdots}
 	\have[n]{con}{\enot A \eand \enot B}
 \end{proof}
-for some number $n$. It doesn't matter which line we end on, but we would obviously prefer a short proof to a long one!
+for some number $n$. It doesn't matter which line we end on, but we would obviously prefer a short proof to a long one! We don't have any rules yet, so we cannot fill in the middle of this proof.
 
-Suppose we wanted to consider an argument with more than one premise:
+Suppose we had an argument with more than one premise:
 $$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \ttherefore \enot C\eor D.$$
-If our argument has more than one premise, we can write more than one assumption down on successive lines, as long as the small horizontal line comes after all of the assumptions we are making at some stage. The argument has three premises, so we start by writing them all down, numbered, and drawing a line under them. We are hoping to conclude with $C \eor D$ at the end, so we put that down too, though we cannot yet fill in the middle of the proof:
-\begin{proof}
-	\hypo{a1}{A \eor B}
-	\hypo{a2}{\enot (A\eand C)}
-	\hypo{a3}{\enot (B \eand \enot D)}
-\have[ ]{m}{\vdots}
-	\have[n]{con}{\enot C \eor D}
-\end{proof}
-Note that the single vertical line to the left indicates the range of all of the assumptions lying above the small horizontal line. We could, if we want, have introduced each of the premises as a separate assumption, with its own range: 
+If our argument has more than one premise, we can use either single or multiple assumption lines: \begin{multicols}{2}
 \begin{proof}
 	\hypo{a1}{A \eor B}
 	\open\hypo{a2}{\enot (A\eand C)}
@@ -129,15 +189,23 @@ Note that the single vertical line to the left indicates the range of all of the
 \have[ ]{m}{\vdots}
 	\have[n]{con}{\enot C \eor D}
 \end{proof}
-This can sometimes be useful when we want to see which conclusions follow from some but not all of the premises. It looks a bit different to the earlier proof, but in fact represents the same dependencies: the conclusion is in the range of three assumptions, all of which remain in force throughout the proof.
+
+\begin{proof}
+	\hypo{a1}{A \eor B}
+	\hypo{a2}{\enot (A\eand C)}
+	\hypo{a3}{\enot (B \eand \enot D)}
+\have[ ]{m}{\vdots}
+	\have[n]{con}{\enot C \eor D}
+\end{proof}
+\end{multicols}
+Again, these represent the same proof; the right hand form is a conventional shorthand for the official form on the left.
 
 
-What remains to do is to explain each of the rules that we can use along the way from premises to conclusion. The rules are divided into two families: those rules that involve making or getting rid of further assumptions that are made `for the sake of argument', and those that do not. The latter class of rules are simpler, so we will begin with those. After introducing the rules, I will return in §\ref{c:putting} to the two incomplete proofs above, to see how they may be completed.
+What remains to do is to explain each of the rules that we can use along the way from premises to conclusion. The rules are divided into two families: those rules that involve making or getting rid of further assumptions that are made `for the sake of argument', and those that do not. The latter class of rules are simpler, so we will begin with those in §\ref{s:BasicTFLns}, and turning to the others in §\ref{s:BasicTFLs}. After introducing the rules, I will return in §\ref{c:putting} to the two incomplete proofs above, to see how they may be completed.
 
 \keyideas{
-	\item Any formal proof is a sequence of sentences, each of which follows by some relatively simple rules from previous sentences or is licensed in some other way. The final sentence is the conclusion of the proof.
-	\item The rules are unambiguous and apply only because of the syntactic structure of the sentences involved: no consideration of meanings need be involved. This makes them ideal for computers to use. 
-	\item A formal natural deduction proof is a graphical representation of reasoning from assumptions, in accordance with a strict set of rules for deriving further claims and managing which assumptions are active (`undischarged') at a given point in the proof.
+	\item A formal natural deduction proof is a graphical representation of argument from assumptions, in accordance with a strict set of rules for deriving further claims and keeping track of which assumptions are active (`undischarged') at a given point in the proof.
+	\item A correctly formed natural deduction proof can be extended by making an arbitrary new assumption at any point.
 	}
 
 \practiceproblems
@@ -513,9 +581,10 @@ Closing a subproof is called \define{discharging} the assumptions of that subpro
 
 Subproofs, then, allow us to think about what we could show, if we made additional assumptions. The point to take away from this is not surprising – in the course of a proof, we have to keep very careful track of what assumptions we are making, at any given moment. Our proof system does this very graphically, with those vertical assumption lines that indicate the range of an assumption. (Indeed, that's precisely why we have chosen to use \emph{this} proof system.)
 
-When can we begin a new subproof? \emph{Whenever we want.} At any stage in a proof it is legitimate to assume something new, as long as we begin keeping track of what in our proof rests on this new assumption. No rule is needed to justify making an assumption, though there are guidelines that help us decide when it might be particularly appropriate to make a new assumption. Some of these are discussed in §\ref{c:proof.strat}.
+When can we begin a new subproof? \emph{Whenever we want.} That is the upshot of the New Assumption rule from §\ref{newass}. At any stage in a proof it is legitimate to assume something new, as long as we begin keeping track of what in our proof rests on this new assumption. We don't need any reason to justify making an assumption, but that doesn't mean it's a good idea to introduce them  
+haphazardly. Some guidelines to help decide when it might be particularly appropriate to make a new assumption are discussed in §\ref{c:proof.strat}.
 
-Even without any new rules, the idea of opening subproofs by making new assumptions can be used to illustrate a remark I made above about when a claim depends on assumptions (p.\ \pageref{nondependence}). Consider this proof: \begin{proof}
+The idea of opening subproofs by making new assumptions can be used to illustrate a remark I made above about when a claim depends on assumptions (p.\ \pageref{nondependence}). Consider this proof: \begin{proof}
 	\hypo{pq}{(P \eand Q)}
 	\have{q}{Q}\ae{pq}
 	\open \hypo{r}{R}
