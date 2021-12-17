@@ -533,7 +533,7 @@ Nevertheless, even if the rule is artificial, that doesn't make it incorrect. We
     	\item Sometimes disjunction introduction looks like you are `throwing away' information that you already have – you know enough to treat `$P$' as a premise, but you end up assenting only to the weaker claim `$P \eor Q$'. But can this be the full story? Conjunction elimination seems to involve the same sort of inference from a logically stronger to a logically weaker claim, and that doesn't arouse nearly as much animosity as disjunction introduction. 
 	\item An alternative explanation: maybe the introduced disjunct seems \emph{irrelevant}, because the content of the sentence to which the rule is applied has in general nothing to do with the disjunct introduced. This is not the case with conjunction elimination, where the result of applying the rule is clearly related to the sentence it is applied to.
     		\end{itemize} 
-These kidns of considerations of relevance or information value lie beyond logic proper. They concern what we, as thinkers and hearers, can conclude about the speaker's state of mind, given that they have said something with a particular content. This is the domain of that part of linguistics known as \define{pragmatics}, the study of meaning in context. Most theories of pragmatics predict that disjunction introduction is valid but often \emph{conversationally inappropriate}. So Paul Grice, for example, says that if you are in a position to contribute the information of a claim $\meta{P}$ to a conversation, and you are a \emph{cooperative} speaker, then you will not contribute the weaker information `\meta{P} or \meta{Q}', even though you should still regard it as true.\footnote{Grice's discussion of disjunction is at pp. 44–6 in H P Grice (1989) \emph{Studies in the Way of Words}, Harvard University Press; see also §4 of Maria Aloni (2016) `Disjunction' in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy} \url{https://plato.stanford.edu/entries/disjunction/\#DisjConv}.}
+These considerations of relevance or information value lie beyond logic proper. They concern what we, as thinkers and hearers, can conclude about the speaker's state of mind, given that they have said something with a particular content. This is the domain of that part of linguistics known as \define{pragmatics}, the study of meaning in context. Most theories of pragmatics predict that disjunction introduction is valid but often \emph{conversationally inappropriate}. So Paul Grice, for example, says that if you are in a position to contribute the information of a claim $\meta{P}$ to a conversation, and you are a \emph{cooperative} speaker, then you will not contribute the weaker information `\meta{P} or \meta{Q}', even though you should still regard it as true.\footnote{Grice's discussion of disjunction is at pp. 44–6 in H P Grice (1989) \emph{Studies in the Way of Words}, Harvard University Press; see also §4 of Maria Aloni (2016) `Disjunction' in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy} \url{https://plato.stanford.edu/entries/disjunction/\#DisjConv}.}
 
 \section{Reiteration}\label{reit}
 
@@ -599,7 +599,9 @@ When we are working within a subproof, we can refer to the additional assumption
 Equivalently, any rule can be applied to any earlier lines in a proof, \emph{except} for those lines which occur within a closed subproof. }
 Closing a subproof is called \define{discharging} the assumptions of that subproof. So we can put the point this way: \emph{at no stage of a proof can you apply a rule to a sentence that occurs only in the range of an already discharged assumption}. 
 
-Subproofs, then, allow us to think about what we could show, if we made additional assumptions. The point to take away from this is not surprising – in the course of a proof, we have to keep very careful track of what assumptions we are making, at any given moment. Our proof system does this very graphically, with those vertical assumption lines that indicate the range of an assumption. (Indeed, that's precisely why we have chosen to use \emph{this} proof system.)
+Subproofs, then, allow us to think about what we could show, if we made additional assumptions. The point to take away from this is not surprising – in the course of a proof, we have to keep very careful track of what assumptions we are making, at any given moment. Our proof system does this very graphically, with those vertical assumption lines that indicate the range of an assumption. (Indeed, that's precisely why we have chosen to use \emph{this} proof system.) 
+
+When you discharge an assumption, closing a subproof, you generally introduce some further new sentence. That sentence can be thought of as a summary of the subproof, in the context of the other undischarged assumptions. This is particularly evident if you think about the conditional introduction rule we are about to introduced.
 
 When can we begin a new subproof? \emph{Whenever we want.} That is the upshot of the New Assumption rule from §\ref{newass}. At any stage in a proof it is legitimate to assume something new, as long as we begin keeping track of what in our proof rests on this new assumption. We don't need any reason to justify making an assumption, but that doesn't mean it's a good idea to introduce them  
 haphazardly. Some guidelines to help decide when it might be particularly appropriate to make a new assumption are discussed in §\ref{c:proof.strat}.
@@ -621,6 +623,12 @@ If someone doubted that this was valid, we might try to convince them otherwise 
 	\begin{quote}
 		Assume that Ludwig is reactionary. Now, \emph{additionally} assume that Ludwig is libertarian. Then by conjunction introduction, it follows that Ludwig is both reactionary and libertarian. Of course, that only follows \emph{conditional} on the assumption that Ludwig is libertarian. But this just means that, if Ludwig is libertarian, then he is both reactionary and libertarian – at least, that follows given our initial assumption that he is reactionary.
 	\end{quote}
+
+This kind of reasoning is vital for understanding conditional claims. As the Cambridge philosopher Frank Ramsey pointed out: \begin{quote}
+	If two people are arguing ‘If \meta{P}, will \meta{Q}?’ and are both in doubt as to \meta{P}, they are adding \meta{p} hypothetically to their stock of knowledge and arguing on that basis about \meta{q}….\footnote{F P Ramsey (1929), ‘General Propositions and Causality’, at p. 155 in F P Ramsey (1990) \emph{Philosophical Papers}, D H Mellor, ed., Cambridge University Press.}
+\end{quote}
+Ramsey’s idea is that if we can reach the conclusion that \meta{C} on the basis of the hypothetical supposition that \meta{A} (generally together with some other assumptions) then we would be entitled to judge, given the other assumptions alone, that if \meta{A} turns out to be true, then \meta{C} will also turn out to be true – for short, that if \meta{A} then \meta{C}. This observation of Ramsey's – that conditionals embody the categorical content of hypothetical reasoning – has been important for many accounts of the English conditional, not all of them wholly congenial to the idea that `if' is to be understood as `$\eif$'. Yet the essence of his idea motivates the conditional introduction rule of natural deduction.
+
 Transferred into natural deduction format, here is the pattern of reasoning that we just used. We started with one premise, `Ludwig is reactionary', symbolised `$R$'. Thus:
 	\begin{proof}
 		\hypo{r}{R}
@@ -652,7 +660,8 @@ So we have now shown that, on the additional assumption, `$L$', we can obtain `$
 			\close
 		\have{con}{L \eif (R \eand L)}\ci{l-rl}
 	\end{proof}
-Observe that we have dropped back to using one vertical line.  We are no longer relying on the additional assumption, `$L$', since the conditional itself follows just from our original assumption, `$R$'. The use of conditional introduction has discharged the temporary assumption, so that the final line of this proof relies only on the initial assumption `$R$' – we made use of the assumption `$L$' only in the nested subproof, and the range of that assumption is restricted to sentences in that subproof. 
+Observe that we have dropped back to using one vertical line.  We are no longer relying on the additional assumption, `$L$', since the conditional itself follows just from our original assumption, `$R$'. The use of conditional introduction has discharged the temporary assumption, so that the final line of this proof relies only on the initial assumption `$R$' – we made use of the assumption `$L$' only in the nested subproof, and the range of that assumption is restricted to sentences in that subproof. Note that the conditional sentence `$L \eif (R \eand L)$' is a summary of what went on in the subproof, given the undischarged assumption `$R$': \emph{if you made the additional assumption $L$, then you could derive `$(R \eand L)$'}.
+
 
 The general pattern at work here is the following. We first make an additional assumption, A; and from that additional assumption, we prove B. In that case, we have established the following: If is does in fact turn out that A, then it also turns out that B. This is wrapped up in the rule for \define{conditional introduction}:
 \factoidbox{
@@ -1150,7 +1159,7 @@ In our system, we approach this problem by the brute force method – we allow o
 
 This is also \emph{reductio} reasoning, though in this case from a negated assumption. But again, if the assumption of $\enot \meta{A}$ goes awry and allows us to derive contradictory claims (perhaps given what we've already shown), that licenses us to conclude \meta{A}.
 
-With the rule of negation elimination, we can prove some claims that are hard to prove directly. For example, suppose we wanted to prove the law of \define{excluded middle}, that `$(P \eor \enot P)$'. You might initially have thought: \emph{it is a disjunction, so should be proved by disjunction introduction}. But we cannot prove either the sentence letter `$P$' or its negation from no assumptions – so we could not prove excluded middle from no assumptions if it was by disjunction introduction from one of its disjuncts. So we proceed indirectly: we show that supposing the negation of the law of excluded middle leads to logical falsehood, and conclude it by negation elimination: \begin{proof}
+With the rule of negation elimination, we can prove some claims that are hard to prove directly. For example, suppose we wanted to prove the law of \define{excluded middle},\phantomsection\label{excmidd} that `$(P \eor \enot P)$'. You might initially have thought: \emph{it is a disjunction, so should be proved by disjunction introduction}. But we cannot prove either the sentence letter `$P$' or its negation from no assumptions – so we could not prove excluded middle from no assumptions if it was by disjunction introduction from one of its disjuncts. So we proceed indirectly: we show that supposing the negation of the law of excluded middle leads to logical falsehood, and conclude it by negation elimination: \begin{proof}
 	\open \hypo{ne}{\enot(P \eor \enot P)}
 	\open
 	\hypo{p}{P}
@@ -1163,8 +1172,7 @@ With the rule of negation elimination, we can prove some claims that are hard to
 	\close
 	\have{ec}{(P \eor \enot P)}\ne{ne-npo,ne-ner2}
 \end{proof}
-One interesting feature of this proof is that one of the contradictory sentences is the assumption itself. When the assumption that \enot\meta{A} goes wrong, it might be because we have the resources to prove \meta{A}!
-
+One interesting feature of this proof is that one of the contradictory sentences is the assumption itself. When the assumption that \enot\meta{A} goes wrong, it might be because we have the resources to prove \meta{A}! Some interesting philosophical controversy surrounds proofs like this: see §\ref{construct}.
 
 To see our negation rules in action, consider:
 	$$P \ttherefore (P \eand D) \eor (P \eand \enot D).$$
@@ -1390,7 +1398,7 @@ Give a proof for each of the following arguments:
 \end{earg}
 
 
-\chapter{Some Philosophical Issues about Conditionals and Meaning}\label{s:philosophy}
+\chapter{Some Philosophical Issues about Conditionals, Meaning, and Negation}\label{s:philosophy}
 
 
 \section{Conditional Introduction and the English Conditional} \label{cond.proof}%Æ added
@@ -1460,9 +1468,28 @@ You will notice that `tonk' has an introduction rule like `\eor', and an elimina
 
 If we are to rule out such deviant connectives as `tonk', Prior argues, we have to accept that  `an expression must have some independently determined meaning before we can discover whether inferences involving it are valid or invalid' (Prior, \emph{op}. \emph{cit}., p.\ 38). We cannot, that is, accept the inferentialist position that the rules of implication come first and the meaning comes second. Inferentialists have replied, but we must unfortunately leave this interesting debate here for now.\footnote{The interested reader might wish to start with this reply to Prior: Nuel D Belnap, Jr (1962) `Tonk, Plonk and Plink', \emph{Analysis} \textbf{22}, pp.\ 130–34.}
 
+\section{Constructivism} \label{construct}
+
+The proof of excluded middle we saw on p. \pageref{excmidd} is an example of an \define{indirect proof}: even though the main connective of our conclusion is a disjunction, we don't establish it by disjunction introduction. This is typical in fact of \emph{reductio} reasoning in general: we show something is true, by showing that an absurdity would be true if it were false.
+
+An influential group of mathematicians are worried by indirect proofs. There is a view known as \define{constructivism} which regards mathematical objects as  \emph{constructed not discovered}. The closely related view known as \define{intuitionism} agrees, while offering a particular account of the construction as fundamentally deriving from human perception of the passage of time. The Dutch mathematician L E J Brouwer is most famously associated with this view. He says this about the origins of our understanding of the natural numbers: \begin{quote}
+…intuitionistic mathematics is an essentially languageless activity of the mind having its origin in the perception of a move of time. This perception of a move of time may be described as the falling apart of a life moment into two distinct things, one of which gives way to the other, but is retained by memory. If the twoity thus born is divested of all quality, it passes into the empty form of the common substratum of all twoities. And it is this common substratum, this empty form, which is the basic intuition of mathematics. (Brouwer 1981, 4–5)	\footnote{L E J Brouwer (1981) \emph{Brouwer’s Cambridge lectures on intuitionism}, D van Dalen, ed., Cambridge University Press, at pp. 4–5.}
+\end{quote} 
+Regardless of your view of intuitionism, the idea that mathematical objects are not pre-existing inhabitants of some Platonic realm has a lot of appeal. 
+
+Constructivists of all stripes think we shouldn't accept the law of excluded middle, because to think that any claim of the form $\meta{A}\eor\enot\meta{A}$ must be true is to think that there is a pre-existing fact of the matter as to whether or not \meta{A} – and there may not be until we have constructed the mathematical objects in question. A mathematical existence proof, for example showing that a number with a certain property exists, must – according to the constructivist – consist in a construction of the specific number in question. We cannot show that some number has a property just by showing that the supposition that no number has that property leads to contradiction. 
+
+When you show that \enot\meta{A} leads to absurdity, you have constructed a proof of $\enot\enot\meta{A}$, but that is \emph{not} the same as a proof of \meta{A} itself. Constructivists thus typically accept the $\enot$I  rule. If you prove $\enot\meta{A}$ by showing that the assumption \meta{A} leads to a contradiction, you have positively constructed an absurdity on the basis of that assumption, and that proof is acceptable. However, constructivists reject the $\enot$E rule. A proof showing that the assumption $\enot\meta{A}$ leads to a contradiction amounts only to a positive construction of $\enot\enot\meta{A}$ – not a construction of \meta{A}. 
+
+Constructive logic has some interesting features that our logical system does not. For example, constructive logic is typically understood to have the \define{disjunction property}: \factoidbox{If $\meta{A} \eor \meta{B}$ can be proved from no assumptions, then either \meta{A} can be proved from no assumptions, or  $\meta{B}$  can be proved from no assumptions.} Our logic clearly lacks the disjunction property, as the proof of excluded middle demonstrates: `$P\eor\enot P$' can be proved but neither of its disjuncts is provable. 
+
+Constructive and intuitionistic logic is an alternative conception of the nature of logic to that we have advocated. It is typically understood to involve recentering logic around provability rather than truth. So rather than saying `$P\eor\enot P$' is false, constructivists deny that it is provable, and then add that mathematical language should be restricted to what is provable, rather than relying on a Platonistic notion of abstract unworldly truth. The philosophical potential of this alternative way of thinking about logic unfortunately takes us beyond the scope of the present course.\footnote{A brief account of intuitionistic logic and the central role it gives to provability can be found in §§3.1–3.2 of  Rosalie Iemhoff (2020) `Intuitionism in the Philosophy of Mathematics', in Edward N. Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy} \url{https://plato.stanford.edu/entries/intuitionism/\#BHKInt}.}
+
+
 \keyideas{
 	\item The question of how to understand conditionals in natural language is a tricky one. The natural deduction rules we adopt are suitable to understand the logical conditional `$\eif$', but this may only be an approximation of English `if'.
 	\item The philosophical question of whether connectives are given meaning by their truth tables or by their natural deduction rules is an interesting one.
+	\item Constructive (or intuitionistic) mathematics is often understood to call for a revision of our logical proof rules, in particular $\enot$E.
 }
 
 
