@@ -30,8 +30,6 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 4 (`forallx-adl-fol.tex`)
 * Chapter 5 (`forallx-adl-interpretations.tex`)
 * Chapter 6 (`forallx-adl-prooftfl.tex`)
-	- §28
-		+  put new assumption alongside Reiteration as a 'connective-insensitive' rule.
 	- §29
 		+ ramsey quote in conditional intro
 	- §31

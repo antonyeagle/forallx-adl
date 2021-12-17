@@ -222,8 +222,8 @@ If the following a correctly formed proof in our natural deduction system?
 
 \problempart
 Which of the following could, given the right rules, be turned into a proof corresponding to the argument $$\enot(P \eand Q), P \ttherefore \enot Q?$$
-
-    \begin{enumerate}
+\begin{multicols}{2}
+	   \begin{enumerate}
     	\item\begin{proof}
     		\hypo{a}{\enot(P \eand Q)}
     		\open
@@ -234,7 +234,7 @@ Which of the following could, given the right rules, be turned into a proof corr
     	\item\begin{proof}
     		\hypo{a}{\enot(P \eand Q)}
     		\open
-    		\have{b}{P}
+    		\hypo{b}{P}
     		\have[\ ]{}{\vdots}
     		\close
     		\have[n]{c}{\enot Q}
@@ -245,7 +245,16 @@ Which of the following could, given the right rules, be turned into a proof corr
     		\have[n]{b}{P}
     		\have{c}{\enot(P \eand Q)}
     	\end{proof}
+    	\item\begin{proof}
+    		\hypo{a}{P}
+    		\open
+    		\hypo{b}{\enot(P \eand Q)}
+    		\have[\ ]{}{\vdots}
+    		\have[n]{c}{\enot Q}
+    	\end{proof}
     \end{enumerate}
+\end{multicols}
+ 
 
 \chapter{Basic Rules for \textnormal{\TFL}: Rules without Subproofs}\label{s:BasicTFLns}
 
@@ -515,9 +524,20 @@ This disjunction rule is supported by the following valid \TFL\ argument forms: 
 	\item $\meta{B}\vDash\meta{A}\eor\meta{B}$.
 \end{itemize}
 
+
+The rule of disjunction introduction is one place where `natural' deduction doesn't seem to live up to its name. Is this implication really one we would naturally make?
+
+Despite appearances, maybe we do sometimes reason like this. Consider this argument: `I won't ever eat meat again. Well, either I won't, or it will be an accident!' (But perhaps this is better thought of as a retraction of my initial over-bold claim, rather than an inference from it.)
+
+Nevertheless, even if the rule is artificial, that doesn't make it incorrect. We can see, clearly, that it corresponds to a valid argument. So perhaps the problem with it as a piece of reasoning is due to something other than invalidity. \begin{itemize}
+    	\item Sometimes disjunction introduction looks like you are `throwing away' information that you already have – you know enough to treat `$P$' as a premise, but you end up assenting only to the weaker claim `$P \eor Q$'. But can this be the full story? Conjunction elimination seems to involve the same sort of inference from a logically stronger to a logically weaker claim, and that doesn't arouse nearly as much animosity as disjunction introduction. 
+	\item An alternative explanation: maybe the introduced disjunct seems \emph{irrelevant}, because the content of the sentence to which the rule is applied has in general nothing to do with the disjunct introduced. This is not the case with conjunction elimination, where the result of applying the rule is clearly related to the sentence it is applied to.
+    		\end{itemize} 
+These kidns of considerations of relevance or information value lie beyond logic proper. They concern what we, as thinkers and hearers, can conclude about the speaker's state of mind, given that they have said something with a particular content. This is the domain of that part of linguistics known as \define{pragmatics}, the study of meaning in context. Most theories of pragmatics predict that disjunction introduction is valid but often \emph{conversationally inappropriate}. So Paul Grice, for example, says that if you are in a position to contribute the information of a claim $\meta{P}$ to a conversation, and you are a \emph{cooperative} speaker, then you will not contribute the weaker information `\meta{P} or \meta{Q}', even though you should still regard it as true.\footnote{Grice's discussion of disjunction is at pp. 44–6 in H P Grice (1989) \emph{Studies in the Way of Words}, Harvard University Press; see also §4 of Maria Aloni (2016) `Disjunction' in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy} \url{https://plato.stanford.edu/entries/disjunction/\#DisjConv}.}
+
 \section{Reiteration}\label{reit}
 
-The last natural deduction rule in this category is \define{reiteration} (R). This just allows us to repeat an assumption or claim \meta{A} we have already established, so long as the current stage of the proof remains in the range of any assumption which \meta{A} is in the range of.
+The last natural deduction rule in this category is \define{reiteration} (R). This just allows us to repeat an assumption or claim \meta{A} we have already established, so long as the repeated sentence remains in the range of any assumption which the original was in the range of.
 \factoidbox{\begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[\ ]{c}{\vdots}
@@ -530,7 +550,7 @@ Such a rule is obviously legitimate; but one might well wonder how such a rule c
 	\have{pp}{(P \eand P)}\ai{p,p1}
 	\have{q}{Q}\ce{ppq,pp}
 \end{proof}
-This rule is unnecessary at this point in the proof (we could have applied conjunction introduction and cited line 1 twice in our commentary), but it can be easier in practice to have two distinct lines to which to apply conjunction introduction. The real benefits of reiteration come when we have multiple subproofs, as we will see in the following section (§\ref{s.subproof}) – particularly when it comes to the negation rules. But we will also see later in §\ref{der.reit} that, strictly speaking, we don't need the reiteration rule – though for convenience we will keep it.
+This rule is unnecessary at this point in the proof (we could have applied conjunction introduction and cited line 1 twice in our commentary), but it can be easier in practice to have two distinct lines to which to apply conjunction introduction. The real benefits of reiteration come when we have multiple subproofs, as we will see in the following section (§\ref{s.subproof}) – particularly when it comes to the negation rules. But we will also see later in §\ref{der.reit} that, strictly speaking, we don't need the reiteration rule – though for convenience we will keep it. And once we are able to discharge assumptions, reiteration carries some risks (§\ref{pitfalls}).
 
 \keyideas{
 	\item Natural deduction gives us rules that tell us how to infer \emph{from} a sentence with a certain main connective (elimination rules), and rules that tell us how to infer \emph{to} a sentence with a certain main connective (introduction rules).
@@ -689,8 +709,7 @@ Let's consider another example, this one demonstrating why reiteration can be so
 
 We now have all the rules we need to show that the argument on page \pageref{longtt} is valid. Here is the six line proof,  some 175,000 times shorter  than the corresponding truth table:\phantomsection\label{ndshort}
 
-
-\hspace{-1.25cm}\begin{minipage}{\textwidth}\small\begin{proof}
+\hspace{-2.25cm}\begin{minipage}{\textwidth}\small\begin{proof}
 	\hypo{a1c1}{A_{1} \eif C_{1}}
 	\open
 		\hypo{ai}{(A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10})}
@@ -730,7 +749,7 @@ Second, we show exportation holds. Here, we need to open two nested subproofs:
 \end{proof}
 
 
-\section{Some Pitfalls of Additional Assumptions}\label{pitfalls}
+\section{Some Pitfalls of Subproofs}\label{pitfalls}
 
 
 Making additional assumptions in the range of an assumption needs to be handled with some care, as I said in §\ref{s.subproof}. Now that we have a rule that discharges assumptions in our repertoire, we can describe some of the potential pitfalls.
@@ -759,6 +778,20 @@ But suppose we now tried to continue the proof as follows:
 	\have{b}{B}\by{naughty attempt to invoke $\eif$E}{con, b2}
 \end{proof}
 If we were allowed to do this, it would be a disaster. It would allow us to prove any atomic sentence letter from any other atomic sentence letter. But if you tell me that Anne is fast (symbolised by `$A$'), I shouldn't be able to conclude that Queen Boudica stood twenty-feet tall (symbolised by `$B$')! So we must be prohibited from doing this. The rule on page \pageref{subproof.rule} stipulation rules out the disastrous attempted proof above. The rule of $\eif$E requires that we cite two individual lines from earlier in the proof. In the purported proof, above, one of these lines (namely, line 4) occurs within a subproof that has (by line 6) been closed. This is illegitimate. 
+
+A similar problem arises if we forget the restrictions on the rule of reiteration. Recall §\ref{reit} that we can reiterate an earlier sentence only if the same assumptions remain undischarged. If we forget this, we can construct illegal `proofs' such as the following:
+\begin{proof}
+	\open
+	\hypo{a}{P}
+	\open
+	\hypo{b}{Q}
+	\have{c}{P \eand Q} \ai{a,b}
+	\close
+	\have{d}{Q \eif (P\eand Q)} \ci{b-c}
+	\have{e}{P \eand Q} \by{R}{c}
+	\close
+	\have{f}{P \eif (P \eand Q)}\ci{a-e}
+\end{proof} This is certainly not a logical truth. What's gone wrong is that we reiterated `$P\eand Q$' without retaining the assumptions on which it was dependent. Naturally enough, it was dependent on both `$P$' and `$Q$', but it was reiterated into a context where the assumption `$Q$' had been discharged. This is illegitimate.
 
 \section{Subproofs within Subproofs}
 
