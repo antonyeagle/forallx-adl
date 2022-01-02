@@ -95,7 +95,7 @@ If we have a correct natural deduction proof of an argument, we can often do mor
 \practiceproblems
 \problempart Is the purely syntactic nature of formal proof a virtue or a vice? Can we be sure that any class of `good' arguments that is identified on purely syntactic grounds corresponds to an interesting category?
 
-
+\problempart Are formal proofs always more efficient than truth table arguments? Does reasoning about \TFL\ sentences using valuations never give understanding?
 
 \chapter{The Idea of Natural Deduction}\label{c:ass}
 
@@ -569,6 +569,30 @@ The following `proof' is \emph{incorrect}. Explain the mistakes it makes.
 \have{bc}{B \eor C}\oi{b}
 \have{d}{D}\ce{bc, bcd}
 \end{proof}
+
+\problempart
+Is the following purported proof correct?
+
+\begin{proof}
+	\hypo{a}{A}
+	\open
+	\have{b}{B}
+	\have{a2}{A}\by{R}{a}
+\end{proof}
+
+\problempart
+The following proof is missing its commentary. Please supply the correct annotations on each line that needs one: 
+
+\begin{proof}
+\hypo{ps}{P \eand S}
+\have{p}{P}%\ae{ps}
+\have{s}{S}%\ae{ps}
+\open
+\hypo{nsor}{S \eif R}
+\have{r}{R}%\ce{nsor, s}
+\have{re}{R \eor E}%\oi{r}
+\end{proof}
+
 
 \problempart
 Give natural deduction proofs for the following arguments: \begin{earg}
@@ -1295,8 +1319,8 @@ The negation elimination rule is supported by this valid \TFL\ argument form: \b
 
 \begin{enumerate}
 	\item One argument we considered earlier was this: $$\enot (A \eor B) \ttherefore (\enot A \eand \enot B).$$ We can now see that the proof we began to construct can be completed can be proved as in Figure \ref{figa1}.
-	\item The second proof we began constructing earlier corresponded to this argument: $$(A\eor B), \enot (A\eand C), \enot (B \eand \enot D) \ttherefore (\enot C\eor D).$$ The proof can be completed as in Figure \ref{figa2}.
-	\item Finally, Figure \ref{fig:vi} shows a long proof involving most of our rules in action. 
+	\item The second proof we began constructing earlier corresponded to this argument: $$(A\eor B), \enot (A\eand C), \enot (B \eand \enot D) \ttherefore (\enot C\eor D).$$ The proof can be completed as in Figure \ref{figa2} on page \pageref{figa2}.
+	\item Finally, Figure \ref{fig:vi} shows a long proof involving most of our rules in action (page \pageref{fig:vi}). 
 \end{enumerate}
 
 These three proofs are more complex than the others we've considered, because they involve multiple rules in tandem. You should make sure you understand why each rule applies where it does, and that the proofs are correct, before you move on. You probably won't feel that you are able to construct a proof yourself as yet, and that is okay. It is important now to see that these are in fact proofs. Some ideas about how to go about constructing them yourself will be presented in §\ref{c:proof.strat}. But you will also get a sense about how to construct complex proofs as you practice constructing simpler proofs and start to see how they can be slotted together to form larger proofs. There is no substitute for practice.
@@ -1307,8 +1331,9 @@ These three proofs are more complex than the others we've considered, because th
 	\item Our proof rules match the interpretation of \TFL\ we have given – they will not permit us to say that some claim is provable from some assumptions when that claim isn't entailed by those assumptions. 
 }
 
-\newpage
+\clearpage
 \practiceproblems
+
 
 \problempart
 The following `proof' is \emph{incorrect}. Explain the mistakes it makes.
@@ -1334,17 +1359,9 @@ The following `proof' is \emph{incorrect}. Explain the mistakes it makes.
 
 
 \problempart
-The following three proofs are missing their commentaries (rule and line numbers). Add them, to turn them into bona fide proofs. Additionally, write down the argument that corresponds to each proof.
+The following proofs are missing their commentaries (rule and line numbers). Add them, to turn them into bona fide proofs. Additionally, write down the argument that corresponds to each proof.
 \begin{multicols}{2}
-\begin{proof}
-\hypo{ps}{P \eand S}
-\have{p}{P}%\ae{ps}
-\have{s}{S}%\ae{ps}
-\open
-\hypo{nsor}{S \eif R}
-\have{r}{R}%\ce{nsor, s}
-\have{re}{R \eor E}%\oi{r}
-\end{proof}
+
 
 \begin{proof}
 \hypo{ad}{A \eif D}
@@ -1397,6 +1414,12 @@ Give a proof for each of the following arguments:
 \item $\enot (P \eif Q) \ttherefore P$
 \end{earg}
 
+\problempart
+For each of the following sentences, construct a natural deduction proof which has the sentence as its last line, and contains no undischarged assumptions: \begin{earg}
+	\item $J \eiff (J \eor (L \eand \enot L))$
+	\item $((P \eand Q) \eiff (Q \eand P))$
+	\item $((P \eif P) \eif Q) \eif Q$.
+\end{earg}
 
 \chapter{Some Philosophical Issues about Conditionals, Meaning, and Negation}\label{s:philosophy}
 
@@ -1411,7 +1434,7 @@ But if we are to offer a motivation for our rule in English, then we must be rel
 
 
 
-But if conditional proof is a good rule for English `if', then we can argue that `if' is actually synonymous with `$\to$':\ \begin{quote}
+But if conditional proof is a good rule for English `if', then we can argue that `if' is actually synonymous with `$\eif$':\ \begin{quote}
 Suppose that $\meta{A} \eif \meta{C}$. Assume $\meta{A}$. We can now derive $\meta{C}$, by {\eif}E. But we have now established $\meta{C}$ on the basis of the assumption $\meta{A}$, together with the supplementary assumption $\meta{A}\eif \meta{C}$. By conditional proof, then, we can establish `if $\meta{A}$, $\meta{C}$' on the basis of the supplementary assumption $\meta{A}\eif \meta{C}$ alone. But that of course means that we can derive (in English) an English conditional sentence from a \TFL\ conditional sentence, with the appropriate interpretation of the constituents \meta{A} and \meta{C}. Since the English conditional sentence obviously suffices for the \TFL\ conditional sentence, we have shown them to be synonymous. 
 \end{quote}  
 
@@ -1436,7 +1459,7 @@ There is much more to be said about this example. What is beyond doubt is that {
 
 You will have noticed that our rules come in pairs: an introduction rule that tells you how to introduce a connective into a proof from what you have already, and an elimination rule that tells you how to remove it in favour of its consequences. These rules can be justified by consideration of the meanings we assigned to the connectives of \TFL\ in the schematic truth tables of §\ref{s:SchematicTruthTables}.
 
-But perhaps we should invert this order of justification. After all, the proof rules already seem to capture (more or less) how `and', `or', `not', `if', and `iff' work in conversation. We make some claims and assumptions. The introduction and elimination rules summarise how we might proceed in our conversation against the background of those claims and assumptions. Many philosophers have thought that the meaning of an expression is entirely governed by how it is or might be used in a conversation by competent speakers – in slogan form, \emph{meaning is fixed by use}. If these proof rules describe how we might bring an expression into a conversation, and what we may do with it once it is there, then these proof rules describe the totality of facts on which meaning depends. The meaning of a connective, according to this \define{inferentialist} picture, is represented by its introduction and elimination rules – and not by the truth-function that a schematic truth table represents. On this view, it is the correctness of the schematic proof of $\meta{A}\vee\meta{B}$ from $\meta{A}$ which explains \emph{why} the schematic truth table for `$\eor$' has a T on every row on which at least one of its constituents gets a T. 
+But perhaps we should invert this order of justification. After all, the proof rules already seem to capture (more or less) how `and', `or', `not', `if', and `iff' work in conversation. We make some claims and assumptions. The introduction and elimination rules summarise how we might proceed in our conversation against the background of those claims and assumptions. Many philosophers have thought that the meaning of an expression is entirely governed by how it is or might be used in a conversation by competent speakers – in slogan form, \emph{meaning is fixed by use}. If these proof rules describe how we might bring an expression into a conversation, and what we may do with it once it is there, then these proof rules describe the totality of facts on which meaning depends. The meaning of a connective, according to this \define{inferentialist} picture, is represented by its introduction and elimination rules – and not by the truth-function that a schematic truth table represents. On this view, it is the correctness of the schematic proof of $\meta{A}\eor\meta{B}$ from $\meta{A}$ which explains \emph{why} the schematic truth table for `$\eor$' has a T on every row on which at least one of its constituents gets a T. 
 
 There is a significant debate on just this issue in the philosophy of language, about the nature of \emph{meaning}. Is the meaning of a word what it represents, the view sometimes called \define{representationalism}? Or is the meaning of a word, rather, given by some rules for how to use it, as inferentialism says? We cannot go deeply into this issue here, but I will say a little. The representationalist view seems to accomodate some expressions very well: the meaning of a name, for example, seems very plausibly to be identified with what it names; the meaning of a predicate might be thought of as the corresponding property. But inferentialism seems more natural as an approach to the logical connectives: 
 \begin{quote}

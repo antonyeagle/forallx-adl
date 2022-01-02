@@ -47,7 +47,7 @@ Some texts use an overline to indicate negation, so that `$\overline{\symscr{A}}
 \paragraph{Disjunction} The symbol `$\vee$' is typically used to symbolize inclusive disjunction. One etymology is from the Latin word `vel', meaning `or'.%In some systems, disjunction is written as addition.
 
 \paragraph{Conjunction}
-Conjunction is often symbolized with the \emph{ampersand}, `{\&}'. The ampersand is a decorative form of the Latin word `et', which means `and'.  (Its etymology still lingers in certain fonts, particularly in italic fonts; thus an italic ampersand might appear as `\emph{\&}'.) Using this symbol is not recommended, since it is commonly used in natural English writing (e.g., `Smith \& Sons'). As a symbol in a formal system, the ampersand is not the English word `\&', so it is much neater to use a completely different symbol. The most common choice now is `$\wedge$', which is a counterpart to the symbol used for disjunction. Sometimes a single dot, `{\scriptsize\textbullet}', is used (you may have seen this in \emph{Argument and Critical Thinking}). In some older texts, there is no symbol for conjunction at all; `$A$ and $B$' is simply written `$AB$'. (These are often texts that use the overlining notation for negation. Such texts often involve languages in which conjunction and negation are the only connectives, and they typically also dispense with parentheses which are unnecessary in such austere languages.)
+Conjunction is often symbolized with the \emph{ampersand}, `{\&}'. The ampersand is a decorative form of the Latin word `et', which means `and'.  (Its etymology still lingers in certain fonts, particularly in italic fonts; thus an italic ampersand might appear as `\emph{\&}'.) Using this symbol is not recommended, since it is commonly used in natural English writing (e.g., `Smith \& Sons'). As a symbol in a formal system, the ampersand is not the English word `\&', so it is much neater to use a completely different symbol. The most common choice now is `$\wedge$', which is a counterpart to the symbol used for disjunction. Sometimes a single dot, `{\scriptsize\textbullet}', is used (you may have seen this in \emph{Argument and Critical Thinking}). In some older texts, there is no symbol for conjunction at all; `$A$ and $B$' is simply written `$AB$'. These are often texts that use the overlining notation for negation. Such texts often involve languages in which conjunction and negation are the only connectives, and they typically also dispense with parentheses which are unnecessary in such austere languages, because negation scope is indicated directly.  `$\enot(A\eand B)$' can be distinguished from `$(\enot A \eand B)$' easily: `$\overline{AB}$' vs. `$\overline{A}B$'.
 
 \paragraph{Material conditional} There are two common symbols for the material conditional: the \emph{arrow}, `$\rightarrow$', and the \emph{hook}, `$\supset$'. Rarely you might see `$\Rightarrow$'.
 
@@ -58,8 +58,7 @@ Conjunction is often symbolized with the \emph{ampersand}, `{\&}'. The ampersand
 \paragraph{Quantifiers} The universal quantifier is typically symbolised `$\forall$' (a rotated `\textsf{A}'), and the existential quantifier as `$\exists$' (a rotated `\textsf{E}'). In some texts, there is no separate symbol for the universal quantifier. Instead, the variable is just written in parentheses in front of the formula that it binds. For example, they might write `$(x)Px$' where we would write `$\forall x Px$'.
 
 
-\
-\\The common alternative notations are summarised below:
+The common alternative notations are summarised below:
 
 \begin{center}
 \begin{tabular}{rl} \toprule 
@@ -72,7 +71,7 @@ universal quantifier & $\forall x$, $(x)$\\ \bottomrule
 \end{tabular}
 \end{center}
 
-\newpage
+% \newpage
 \section*{Doing without parentheses: Polish notation} \phantomsection\label{polish}
 
 We have established some conventions governing when you can omit parentheses in \TFL\ (in §§\ref{TFLconventions} and \ref{s:MoreParentheticalConventions}). These conventions are useful in practice. It can be hard to read sentences with many nested parentheses. Moreover, it is easy to make a mistake when constructing sentences, if you accidentally omit a needed bracket. So there has been some interest in ways of doing sentential logic without parentheses. Frege's initial formulation of sentential logic in his \emph{Begriffschrift} (1879) lacked parentheses, but involves a complicated nonlinear branching structure which is difficult to typeset and has not been much used by anyone since.
@@ -235,14 +234,6 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 %{\LARGE \textbf{Basic Rules of Proof}}
 \begin{multicols}{2}
-
-\subsection{New Assumption, p.\ \pageref{newass}}
-\begin{proof}
-	\have[\ ]{a}{\vdots}
-	\open
-	\hypo[\ ]{b}{\meta{B}}
-\end{proof}
-
 \subsection{Conjunction Introduction, p.\ \pageref{conjint}}
 \begin{proof}
 	\have[m]{a}{\meta{A}}
@@ -347,24 +338,31 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \subsection{Biconditional Elimination, p.\ \pageref{bielim}}
 \begin{proof}
 	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-\\	\have[n]{a}{\meta{A}}
+	\have[n]{a}{\meta{A}}
 	\have[\ ]{b}{\meta{B}} \be{ab,a}
-
+\end{proof}
+\begin{proof}
 	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-\\	\have[n]{a}{\meta{B}}
+	\have[n]{a}{\meta{B}}
 	\have[\ ]{b}{\meta{A}} \be{ab,a}
 \end{proof}
 
-\subsection{Reiteration, p.\ \pageref{reit}}
+\subsection{New Assumption, p.\ \pageref{newass}}
+\begin{proof}
+	\have[\ ]{a}{\vdots}
+	\open
+	\hypo[\ ]{b}{\meta{B}}
+\end{proof}
 
+\subsection{Reiteration, p.\ \pageref{reit}}
 \begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[\ ]{}{\vdots}
 	\have[\ ]{c}{\meta{A}} \by{R}{a}
 \end{proof}
 
-
 \end{multicols}
+
 
 
 \section*{Derived rules for \TFL, §\ref{s:Derived}}
@@ -413,7 +411,6 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\end{proof}
 
 
-	
 %
 %\subsection*{Hypothetical Syllogism}
 %
@@ -427,15 +424,18 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \begin{proof}
 	\have[m]{ab}{\enot (\meta{A} \eor \meta{B})}
 	\have[\ ]{dm}{\enot \meta{A} \eand \enot \meta{B}}\dem{ab}
-
+\end{proof}
+\begin{proof}
 	\have[m]{ab}{\enot \meta{A} \eand \enot \meta{B}}
-\\	\have[\ ]{dm}{\enot (\meta{A} \eor \meta{B})}\dem{ab}
-
+	\have[\ ]{dm}{\enot (\meta{A} \eor \meta{B})}\dem{ab}
+\end{proof}
+\begin{proof}
 	\have[m]{ab}{\enot (\meta{A} \eand \meta{B})}
-\\	\have[\ ]{dm}{\enot \meta{A} \eor \enot \meta{B}}\dem{ab}
-
+	\have[\ ]{dm}{\enot \meta{A} \eor \enot \meta{B}}\dem{ab}
+\end{proof}
+\begin{proof}
 	\have[m]{ab}{\enot \meta{A} \eor \enot \meta{B}}
-\\	\have[\ ]{dm}{\enot (\meta{A} \eand \meta{B})}\dem{ab}
+	\have[\ ]{dm}{\enot (\meta{A} \eand \meta{B})}\dem{ab}
 \end{proof}
 \end{multicols}
 
