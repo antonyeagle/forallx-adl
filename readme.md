@@ -22,7 +22,7 @@ This text is approaching stability, yet remains under active, albeit sometimes i
 
 I welcome comments, notification of errors and typos, and any new ideas: [antony.eagle@adelaide.edu.au](mailto:antony.eagle@adelaide.edu.au?subject=forallx-adl). I will update this readme with a list of issues and proposed changes even while teaching from the book, but I will not push changes to the pdf and source until a given course has been delivered and assessed. 
 
-The following list contains current issues and proposed revisions arranged by chapter, most as rather cryptic notes to myself. Most chapters and sections from chapter 5 and onwards also have additional practice problems to be included.
+The following list contains current issues and proposed revisions arranged by chapter, most as rather cryptic notes to myself.
 
 * Chapter 1 (`forallx-adl-what.tex`) 
 * Chapter 2 (`forallx-adl-tfl.tex`)
@@ -30,21 +30,18 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 4 (`forallx-adl-fol.tex`)
 * Chapter 5 (`forallx-adl-interpretations.tex`)
 * Chapter 6 (`forallx-adl-prooftfl.tex`)
-	- §31
-		- weakening
-		- deduction theorem for `\vdash`
-		- entailment (doesn't exist a certain kind of valuation) vs provability (does exist a certain kind of proof)
-		- general principle about how we can prove a theorem: must finish a proof with the right kind of rule (bi/conditional intro or ¬ rules) becaue every proof begins with an assumption
-		- emphasise relation between easy semantic tasks and tricky proofs, and vice versa  
 	- §33
 		+ §33.1: mention explicitly that reiteration cannot be used outside a subproof 
+	- §34
+		+ A couple of exercises needed.
 
 * Chapter 7 (`forallx-adl-prooffol.tex`)
 	- §35
 		+ does the `\vdash` terminology get re-introduced?
 		+ make explicit that the choice of a new name in `\exists`E is a way of ensuring you meet all the conditions; and make sure that students know choosing a new name is also a way of meeting the conditions on `\forall`I.
 	- §37
-	- §§38–9 
+	- §38
+	- §39 
 	-	+ some ideas about where next in logic
 * Backmatter
 

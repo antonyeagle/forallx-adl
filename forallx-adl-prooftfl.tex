@@ -1183,7 +1183,7 @@ In our system, we approach this problem by the brute force method – we allow o
 
 This is also \emph{reductio} reasoning, though in this case from a negated assumption. But again, if the assumption of $\enot \meta{A}$ goes awry and allows us to derive contradictory claims (perhaps given what we've already shown), that licenses us to conclude \meta{A}.
 
-With the rule of negation elimination, we can prove some claims that are hard to prove directly. For example, suppose we wanted to prove the law of \define{excluded middle},\phantomsection\label{excmidd} that `$(P \eor \enot P)$'. You might initially have thought: \emph{it is a disjunction, so should be proved by disjunction introduction}. But we cannot prove either the sentence letter `$P$' or its negation from no assumptions – so we could not prove excluded middle from no assumptions if it was by disjunction introduction from one of its disjuncts. So we proceed indirectly: we show that supposing the negation of the law of excluded middle leads to logical falsehood, and conclude it by negation elimination: \begin{proof}
+With the rule of negation elimination, we can prove some claims that are hard to prove directly. For example, suppose we wanted to prove an instance of the \define{law of excluded middle},\phantomsection\label{excmidd} that $(\meta{A} \eor \enot \meta{A})$ is true for any sentence $\meta{A}$. Suppose we aim at proving the specific instance `$(P \eor \enot P)$'. (It's easy to see that the proof we give can be adapted to any other instance of the law.) You might initially have thought: \emph{it is a disjunction, so should be proved by disjunction introduction}. But we cannot prove either the sentence letter `$P$' or its negation from no assumptions – so we could not prove excluded middle from no assumptions if it was by disjunction introduction from one of its disjuncts. So we proceed indirectly: we show that supposing the negation of the law of excluded middle leads to logical falsehood, and conclude it by negation elimination: \begin{proof}
 	\open \hypo{ne}{\enot(P \eor \enot P)}
 	\open
 	\hypo{p}{P}
@@ -1398,7 +1398,7 @@ The following proofs are missing their commentaries (rule and line numbers). Add
 
 \problempart
 \label{pr.solvedTFLproofs}
-Give a proof for each of the following arguments:
+Give a proof representing each of the following arguments:
 \begin{earg}
 \item $J\eif\enot J \ttherefore \enot J$
 \item $Q\eif(Q\eand\enot Q) \ttherefore \enot Q$
@@ -1518,47 +1518,168 @@ Constructive and intuitionistic logic is an alternative conception of the nature
 
 \chapter{Proof-Theoretic Concepts}\label{s:ProofTheoreticConcepts}
 
-We shall introduce some new vocabulary. The following expression:
-$$\meta{A}_1, \meta{A}_2, …, \meta{A}_n \proves \meta{C}$$
-means that there is some proof which starts with assumptions among $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ and ends with $\meta{C}$ (and no undischarged assumptions other than those we started with). We can read this claim as `\meta{C} is provable from $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$'.
+\section{Provability and the Deduction Theorem}
 
-The symbol `$\proves$' is called the \emph{single turnstile}. I want to emphasise that this is not the {double turnstile} symbol (`$\entails$') that we used to symbolise entailment in chapters \ref{ch.TruthTables} and \ref{ch.semantics}. The single turnstile, `$\proves$', concerns the existence of formal proofs; the double turnstile, `$\entails$', concerns the existence of valuations (or interpretations, when used for \FOL). \emph{They are very different notions.}\footnote{They are very different, but if we've designed our proof system well, we shouldn't be able to prove a conclusion from some assumptions \emph{unless} that conclusion validly follows from those assumptions. And if we are really fortunate, we should be able to provide a proof corresponding to any valid argument. More on this in §\ref{sec:soundcomp}.}
+We shall introduce some new vocabulary and notation.
+\factoidbox{If there is a proof conforming to our natural deduction rules which ends on a line containing \meta{C}, such that the undischarged assumptions still in effect on that last line are all among $\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n}$ then we say that \meta{C} is \define{provable from} $\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n}$. This is abbreviated, in our metalanguage, like this:
+$$\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n} \proves \meta{C}.$$} Consider this proof: \begin{proof}
+	\hypo{a}{A}
+	\open
+	\hypo{b}{\enot B \eif \enot A}
+	\open
+	\hypo{nb}{\enot B}
+	\have{na}{\enot A}\ce{b,nb}
+	\have{ra}{A}\by{R}{a}
+	\close
+	\have{c}{B}\ne{nb-na,nb-ra}
+\end{proof} The undischarged assumptions are `$A$' and `$\enot B \eif \enot A$' – the assumption `$\enot B$' on line 3 is discharged by the application of negation elimination that leads to the last line, `$B$'. So this proof shows that $A, \enot B \eif \enot A \proves B$.
 
-Derivatively, we shall write:
+The symbol `$\proves$' is known as the \emph{single turnstile}. I want to emphasise that this is different from the {double turnstile} symbol (`$\entails$') that represents entailment (§\ref{FOL.semantics}). \begin{itemize}
+	\item The single turnstile, `$\proves$', concerns the \emph{existence} of a certain kind of formal proof – namely, $\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n} \proves \meta{C}$ claims that there is a formal proof which terminates with $\meta{C}$ and has among its undischarged assumptions only sentences among $\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n}$.
+	\item The double turnstile, `$\entails$', concerns the \emph{non-existence} of a certain kind of interpretation (or valuation, in the special case of \TFL) – namely, that there is no interpretation making each of $\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n}$ true while making $\meta{C}$ false.
+\end{itemize} \emph{These are very different notions.}
+
+However, if we've designed our proof system well, we shouldn't be able to prove a conclusion from some assumptions \emph{unless} that conclusion validly follows from those assumptions. And if we are really fortunate, we should be able to provide a proof corresponding to any valid argument. (More on this in §\ref{sec:soundcomp}.) But even if our two turnstiles agree on which sentences they relate to other sentences, they still mean different things. Recall the discussion of coextensive predicates in §\ref{predrel} – even if the extensions of `$\proves$' and `$\entails$' are the same, we apply them on quite different grounds. If they coincide despite being defined so differently, that is some evidence that we are uncovering a genuine and important relation between sentences, describable in a number of different ways.
+
+A krey result, known as the \define{deduction theorem}, links the notion of provability with the conditional: \factoidbox{$\meta{A}_{1},…,\meta{A}_{n},\meta{B} \proves \meta{C}$ iff $\meta{A}_{1},…,\meta{A}_{n} \proves \meta{B} \to \meta{C}$.} We can show this result by showing how to convert a proof showing $\meta{A}_{1},…,\meta{A}_{n},\meta{B} \proves \meta{C}$ into a proof showing $\meta{A}_{1},…,\meta{A}_{n} \proves \meta{B} \to \meta{C}$, and \emph{vice versa}. So first suppose we have the proof on the left, we can apply conditional introduction to discharge the occurence of \meta{B} and prove a conditional with $\meta{B}$ as antecedent:
+    		 $$\begin{nd}
+    				\hypo{a1}{\meta{A}_{1}}
+    				\hypo[\ ]{}{\vdots}
+    				\open
+    				\hypo[n]{an}{\meta{A}_{n}}
+    				\open\hypo{b}{\meta{B}}
+    				\have[\ ]{}{\vdots}
+    				\have[k]{c}{\meta{C}}
+    			\end{nd} \quad  ⇉\quad
+    			\begin{nd}
+    				\hypo{a1}{\meta{A}_{1}}
+    				\hypo[\ ]{}{\vdots}
+    				\open
+    				\hypo[n]{an}{\meta{A}_{n}}
+    				\open\hypo{b}{\meta{B}}
+    				\have[\ ]{}{\vdots}
+    				\have[k]{c}{\meta{C}}
+    				\close
+    				\have{bc}{\meta{B}\to\meta{C}}\ci{b-c}
+    			\end{nd}$$
+The other direction is just as easy. Suppose we have the proof on the left, terminating in $\meta{B}\eif\meta{C}$, we can make a new assumption of \meta{B} and use conditional elimination to generate a proof terminating in \meta{C}, with that new assumption remaining undischarged. 
+ $$\begin{nd}
+    				\hypo{a1}{\meta{A}_{1}}
+    				\hypo[\ ]{}{\vdots}
+    				\open
+    				\hypo[n]{an}{\meta{A}_{n}}
+    				\have[\ ]{}{\vdots}
+    				\have[k]{bc}{\meta{B} \eif \meta{C}}
+    			\end{nd} \quad  ⇉\quad
+    			\begin{nd}
+    				\hypo{a1}{\meta{A}_{1}}
+    				\hypo[\ ]{}{\vdots}
+    				\open
+    				\hypo[n]{an}{\meta{A}_{n}}
+    				\have[\ ]{}{\vdots}
+    				\have[k]{bc}{\meta{B} \eif \meta{C}}
+    				\open
+    				\hypo{b}{\meta{B}}
+    				\have{c}{\meta{C}}\ce{bc,b}
+    			\end{nd}$$
+
+\section{Other Proof-Theoretic Notions}
+
+We now introduce a few notions that can be defined in terms of provability. We write
 $$\proves \meta{A}$$
-to mean that there is a proof of $\meta{A}$ which ends up having no undischarged assumptions. We now define:
+to mean that there is a proof of $\meta{A}$ which ends up having no undischarged assumptions. (You can think of it having no claims on the left hand side of the turnstile – a proof which has all of its undischarged assumptions among no claims must have no undischarged assumptions!) We now define:
 	\factoidbox{
 		$\meta{A}$ is a \define{theorem} iff $\proves \meta{A}$.
 	}
-To illustrate this, suppose I want to prove that `$\enot (A \eand \enot A)$' is a theorem. So I must start my proof without \emph{any} assumptions. However, since I want to prove a sentence whose main connective is a negation, I shall want to  immediately begin a subproof by making the additional assumption `$A \eand \enot A$' for the sake of argument, and show that this leads to contradictory consequences. All told, then, the proof looks like this:
+Just as provability is analogous to entailment (and is, we hope, coextensive with it), so theoremhood corresponds to logical truth. 
+
+To illustrate the idea, suppose I want to prove that `$\enot (G \eand \enot G)$' is a theorem. So I must start my proof without \emph{any} assumptions. However, since I want to prove a sentence whose main connective is a negation, I shall want to  immediately begin a subproof by making the additional assumption `$A \eand \enot A$' for the sake of argument, and show that this leads to contradictory consequences. All told, then, the proof looks like this:
 	\begin{proof}
 		\open
-			\hypo{con}{A \eand \enot A}
-			\have{a}{A}\ae{con}
-			\have{na}{\enot A}\ae{con}
+			\hypo{con}{G \eand \enot G}
+			\have{a}{G}\ae{con}
+			\have{na}{\enot G}\ae{con}
 		\close
-		\have{lnc}{\enot (A \eand \enot A)}\ni{con-a,con-na}
+		\have{lnc}{\enot (G \eand \enot G)}\ni{con-a,con-na}
 	\end{proof}
-We have therefore proved `$\enot (A \eand \enot A)$' on no (undischarged) assumptions. This particular theorem is an instance of what is sometimes called \emph{the Law of Non-Contradiction}, that for any \meta{A}, $\enot(\meta{A}\eand\enot\meta{A})$. We actually already saw a proof showing that the law of excluded middle is a theorem in §\ref{negelim}.
+We have therefore constructed a proof of `$\enot (G \eand \enot G)$' with no (undischarged) assumptions, showing that `$\enot (G \eand \enot G)$' is a theorem. This particular theorem is an instance of what is sometimes called the \define{law of non-contradiction}, that for any \meta{A}, $\enot(\meta{A}\eand\enot\meta{A})$. You can see how the proof above could be adapted to demonstrate the theoremhood of any instance of the law of non-contradiction. Simply substitute any sentence $\meta{A}$ for every occurence of `$G$' in the above proof, and the transformed proof will remain correct (any internal sentence connectives featuring in \meta{A} aren't addressed by the proof rules in that proof).\footnote{We have already seen a proof showing an instance of the law of excluded middle is a theorem in §\ref{negelim}, page \pageref{excmidd}.}
 
-To show that something is a theorem, you just have to find a suitable proof. It is typically much harder to show that something is \emph{not} a theorem. To do this, you would have to demonstrate, not just that certain proof strategies fail, but that \emph{no} proof is possible. Even if you fail in trying to prove a sentence in a thousand different ways, perhaps the proof is just too long and complex for you to make out. Perhaps you just didn't try hard enough.
+Because every proof begins with an assumption, we can only we can only obtain a proof of a theorem if we discharge that opening assumption with a rule which allows one to close a subproof: conditional or biconditional introduction, or either of the negation rules (introduction or elimination): 
+  \begin{proof}
+    \open
+    \hypo{q}{Q}
+    \open
+    \hypo{p}{P}
+    \open
+    \hypo{nq}{\enot Q}
+    \have{qq}{Q}\by{R}{q}
+    \close
+    \have{q2}{Q}\ne{nq-qq,nq-nq}
+    \close
+    \have{pq}{P \eif Q}\ci{p-q2}
+    \close
+    \have{qpq}{Q \eif (P \eif Q)}\ci{q-pq}
+  \end{proof}
+There is a connection to the deduction theorem here too. Any correct proof of \meta{C} with one undischarged assumption \meta{A} will demonstrate $\meta{A}\proves\meta{C}$. The deduction theorem then assures us that $\proves \meta{A}\eif\meta{C}$. We see just this in the last line of the above proof, where a proof that $Q \proves (P \eif Q)$ is converted to a proof showing that $\proves Q \eif (P \eif Q)$.
+
+But we cannot say that every theorem has a negation, a conditional or a biconditional as its main connective. For one thing, we could have started with a negated disjunction or conjunction. For another, once we have a proof of a theorem, we can apply disjunction or conjunction introduction to its last line: e.g., we could extend the above proof by conjunction introduction to show that $\proves ((Q \to (P \to Q))\eand (Q \to (P \to Q)))$. 
+
+
+
+To show that something is a theorem, you just have to find a suitable proof. It is typically much harder to show that something is \emph{not} a theorem. To do this, you would have to demonstrate, not just that certain proof strategies fail, but that \emph{no} proof is possible. Even if you fail in trying to prove a sentence in a thousand different ways, perhaps the proof is just too long and complex for you to make out. Perhaps you just didn't try hard enough. Even if you come up with a systematic search strategy to show that some sentence $\meta{B}$ isn't a theorem, there is no guarantee your strategy will yield a result. Suppose you tried to construct all well-formed proofs terminating with \meta{B} from shortest to longest, aiming to show there is no proof in which all assumptions have been discharged. As there is no longest proof, there is no guarantee at any stage in this process that your failure to find such a proof shows there is no such proof. It might just be that the shortest such proof is longer than any you've yet considered. On the other hand, if one of the proofs you construct is a proof of \meta{B} with no undischarged assumptions, they you have shown conclusively that it is a theorem, and you can stop your search. Showing that something isn't theorem can be harder than showing that it is, in terms of how many proofs you have to consider. (On the other hand, showing that something is a logical truth can be harder than showing that it is not, in terms of how many interpretations you need to consider.)
+
+
 
 Here is another new bit of terminology:
 	\factoidbox{
 		Two sentences \meta{A} and \meta{B} are \define{provably equivalent} iff each can be proved from the other; i.e., both $\meta{A}\proves\meta{B}$ and $\meta{B}\proves\meta{A}$.
 		}
-As in the case of showing that a sentence is a theorem, it is relatively easy to show that two sentences are provably equivalent: it just requires a pair of proofs. Showing that sentences are \emph{not} provably equivalent would be much harder: it is just as hard as showing that a sentence is not a theorem. Notice that if we have two proofs, one demonstrating $\meta{A}\proves\meta{B}$ and the other demonstrating $\meta{B}\proves\meta{A}$, we can put them together as subproofs of a single proof, and apply $\eiff$I to provide a proof from no assumptions which demonstrates that $\proves\meta{A}\eiff\meta{B}$.
 
-Here is a third, related, bit of terminology:
+Here is a third new bit of terminology:
 	\factoidbox{
-		The sentences $\meta{A}_1,\meta{A}_2,…, \meta{A}_n$ are \define{jointly contrary} iff a logical falsehood can be proved from them, i.e., for some $\meta{B}$, $\meta{A}_1,\meta{A}_2,…, \meta{A}_n \proves \meta{B}\eand\enot\meta{B}$.
-	}
-It is easy to show that some sentences are jointly contrary: you just need to provide a proof of a logical falsehood from assuming all the sentences. Showing that some sentences are not jointly contrary is much harder. It would require more than just providing a proof or two; it would require showing that no proof of a certain kind is \emph{possible}.
+		The sentences $\meta{A}_{1},\meta{A}_{2},…, \meta{A}_{n}$ are \define{jointly contrary} iff a sentence and its negation can be proved from them, i.e., for some $\meta{B}$, $\meta{A}_{1},\meta{A}_{2},…, \meta{A}_{n} \proves \meta{B}$ and $\meta{A}_{1},\meta{A}_{2},…, \meta{A}_{n} \proves \enot\meta{B}$. (Sometimes in this case the $\meta{A}_{i}$s are said to be \define{provably inconsistent}.)} Equivalently, some sentences are jointly contrary if you can prove a contradiction from them: $\meta{A}_{1},\meta{A}_{2},…, \meta{A}_{n} \proves \meta{B}\eand\enot\meta{B}$. 
+
+It is straightforward to show that some sentences $\meta{A}_{1},\meta{A}_{2},…, \meta{A}_{n}$ are jointly contrary (if they are): you just need to provide two proofs, one terminating in $\meta{B}$ and the other in $\enot\meta{B}$, such that all of the undischarged assumptions in those proofs are among the $\meta{A}_{i}$s. Showing that some sentences are not jointly contrary is much harder. It would require more than just providing a proof or two; it would require showing that no proof of a certain kind is \emph{possible}.
 
 
-This table summarises whether one or two proofs suffice, or whether we must reason about all possible (attempted) proofs.
+Some sentences are jointly contrary iff \emph{the negation of their conjunction is a theorem}. Suppose we have these proofs showing the $\meta{A}_{i}$s to be jointly contrary: 
 
-\begin{center}
+\begin{minipage}{0.35\textwidth}
+	\begin{proof}
+		\hypo{a1}{\meta{A}_{1}}
+		\hypo[\ ]{}{\vdots}
+		\hypo[n]{an}{\meta{A}_{n}}
+		\have[\ ]{}{\vdots}
+		\have[k]{c}{\meta{B}}
+	\end{proof}
+\end{minipage}\qquad\begin{minipage}{0.35\textwidth}
+	\begin{proof}
+		\hypo{a1}{\meta{A}_{1}}
+		\hypo[\ ]{}{\vdots}
+		\hypo[n]{an}{\meta{A}_{n}}
+		\have[\ ]{}{\vdots}
+		\have[k']{c}{\enot \meta{B}}
+	\end{proof}
+\end{minipage}
+
+These can be adapted to form part of a larger proof:
+\begin{proof}
+	\open
+		\hypo{a1an}{\meta{A}_{1}\wedge … \wedge \meta{A}_{n}}
+		\have{a1}{\meta{A}_{1}}\ae{a1an}
+		\have[\ ]{}{\vdots}
+		\have[n+1]{an}{\meta{A}_{n}}\ae{a1an}
+		\have[\ ]{}{\vdots}
+		\have[k+1]{c}{\meta{B}}\by{from}{a1-an}
+		\have[\ ]{}{\vdots}
+		\have[k'+i]{nb}{\meta{\enot B}}\by{from}{a1-an}
+		\close
+		\have[k'+i+1]{nc}{\enot (\meta{A}_{1}\wedge … \wedge \meta{A}_{n})}\ni{a1an-c,a1an-nb}
+	\end{proof}
+Conversely, you can extract proofs of $\meta{A}_{1}\wedge … \wedge \meta{A}_{n}\proves \meta{B}$ and $\meta{A}_{1}\wedge … \wedge \meta{A}_{n}\proves \enot\meta{B}$ from the above proof. The pattern is quite general, since any theorem which is a negated conjunction will be proved by some application of negation introduction on the original conjunction, which involves showing that original conjunction to include jointly contrary sentences.
+
+To establish whether these proof-theoretic properties hold for some sentences requires us to construct one or two proofs, and to establish that they do not hold requires us to consider all possible proofs. Table~\ref{proofstable} summarises the requirements for provability, contrariety, etc.
+\begin{table}[b]
 \begin{tabular}{l l l} \toprule 
 %\cline{2-3}
  & \textbf{Yes} & \textbf{No}\\
@@ -1567,15 +1688,82 @@ This table summarises whether one or two proofs suffice, or whether we must reas
 theorem? & one proof & all possible proofs\\
 %logical falsehood? &  one proof  & all possible proofs\\
 equivalent? & two proofs & all possible proofs\\
-not contrary? & all possible proofs & one proof\\
+jointly contrary? & two proofs & all possible proofs\\
 provable & one proof & all possible proofs\\
-
 \bottomrule \end{tabular}
-\end{center}
+\caption{What we need to establish proof-theoretic features.\label{proofstable}}
+\end{table}
+
+
+\section{Structural Rules and the Theory of Proofs}\label{s:substructural}
+
+Our proofs get their main shape from the proof rules governing the connectives. But choices we have made about how to build proofs also contribute. These principles about how to construct proofs give rise to quite abstract and general features of the notion of provability represented by `$\proves$', sometimes known as the \emph{structural rules} governing the notion of provability.\footnote{For more on structural rules, and the various logics that don't have all the structural features of our natural deduction system, see Greg Restall (2018) `Substructural Logics' in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy} \url{https://plato.stanford.edu/entries/logic-substructural/}.}
+
+For example: in our proof system, it does not matter in what order we make assumptions. These two proofs, distinct in their structure, nevertheless both show that $A, B \proves (A \eand B)$. 
+$$\begin{nd}
+	\hypo{a}{A}
+	\open
+	\hypo{b}{B}
+	\have{c}{(A \eand B)}\ai{a,b}
+\end{nd}\qquad \begin{nd}
+	\hypo{a}{B}
+	\open
+	\hypo{b}{A}
+	\have{c}{(A \eand B)}\ai{b,a}
+\end{nd}$$ 
+
+Recall that our definition of provability says that $\meta{A}_{1},…, \meta{A}_{n}\vdash \meta{B}$ just in case there is a proof whose undischarged assumptions are all among the $\meta{A}_{i}$s. No mention is made of the order of those undischarged assumptions. So while both the proofs above show that $A, B \proves (A \eand B)$, they also both show that $B, A \proves (A \eand B)$.
+
+This feature, that you can permute the order of assumptions arbitrarily, is wholly general, and is known as the \define{commutativity} of assumptions. That is to say: \factoidbox{A notion of provability satisfies commutativity just in case $\meta{A}_{1},\ldots,\meta{B},\ldots, \meta{C},\ldots,\meta{A}_{n},  \proves \meta{D}$ iff  $\meta{A}_{1},\ldots,\meta{C},\ldots, \meta{B},\ldots,\meta{A}_{n}, \proves \meta{D}$.}
+
+Commutativity and the deduction theorem seem trivial. But they can be surprisingly powerful. Consider, for example, this trivial proof by reiteration that $P \eif Q \proves P \eif Q$: \begin{proof}
+	\hypo{a}{P \eif Q}
+	\have{b}{P \eif Q}\by{R}{a}
+\end{proof} We can then reason as follows: \begin{enumerate}
+	\item $P \eif Q \proves P \eif Q$;
+	\item $P \eif Q, P \proves Q$ (by the deduction theorem);
+	\item $P, P \eif Q \proves Q$ (by commutativity);
+	\item $P \proves (P  \eif Q) \eif Q$ (by the deduction theorem).
+\end{enumerate} This argument doesn't construct a formal proof; it just assures you that there will be one. (One of the exercises asks you to construct the formal proof.)
+
+Here's another example of a structural feature of our proof system. We allow a given line of a proof to be reused multiple times, as in this proof that $(P \eif(P \eif Q)) \proves (P\eif Q)$: \begin{proof}
+	\hypo{a}{P\eif(P \eif Q)}
+	\open
+	\hypo{b}{P}
+	\have{c}{P\eif Q}\ce{a,b}
+	\have{d}{Q}\ce{c,b}
+	\close
+	\have{e}{P \eif Q}\ci{b-d}
+\end{proof} Here we appeal to line 2 multiple times: in eliminating the conditional on line 1 and the conditional on line 3. No rule governing any of our connectives is associated with this behaviour: rather, it is built in to the way we allow all of our rules to appeal to any previous line, even if that line has been appealed to already by some other rule. It is fairly easy to see that the above proof cannot succed without multiple appeal to line 2; 
+
+This feature of our proof system is known as \define{contraction}: if there is a proof in which any $\meta{A}$ occurs as an undischarged assumption on two or more distinct lines, there is also a proof in which one of those assumptions of $\meta{A}$ is removed. More concisely: \factoidbox{A notion of provability satisfies contraction just in case: $$\meta{A}_{1},\ldots, \meta{B},\ldots,\meta{B},\ldots,\meta{A}_{n} \proves \meta{C} \text{ iff } \meta{A}_{1},\ldots, \meta{B},\ldots,\meta{A}_{n}  \proves \meta{C}.$$} 
+Contraction, or the principle that you can appeal to the same prior line multiple times, is essentially the same as our proof rule of reiteration. In fact the rule of reiteration is strictly dispensible (§\ref{der.reit}), in part because we can always appeal instead to the original sentence multiple times.
+
+The final structural feature I want to point to is that adding additional assumptions doesn't undermine provability. This property is called \define{weakening}: \factoidbox{A notion of provability satisfies weaking just in case: if $\meta{A}_{1},\ldots,\meta{A}_{n} \proves \meta{C}$ then $\meta{A}_{1},\ldots,\meta{A}_{n},\meta{B} \proves \meta{C}$.} This is a very general feature, because any correct natural deduction proof can be embedded within an arbitrary additional assumption and still remain correct. So if the proof on the left is correct, showing that $\meta{A}_{1},\ldots,\meta{A}_{n} \proves \meta{C}$, then so is the proof on the right, which has all the same assumptions plus the additional assumption $\meta{B}$, and so shows $\meta{A}_{1},\ldots,\meta{A}_{n},\meta{B} \proves \meta{C}$: $$\begin{nd}
+	\hypo{a1}{\meta{A}_{1}}
+	\have[\ ]{}{\vdots}
+	\open
+	\hypo{an}{\meta{A}_{n}}
+	\have[\ ]{}{\vdots}
+	\have{c}{\meta{C}}
+\end{nd}\qquad\begin{nd}
+	\hypo{b}{\meta{B}}
+	\open
+	\hypo{a1}{\meta{A}_{1}}
+	\have[\ ]{}{\vdots}
+	\open
+	\hypo{an}{\meta{A}_{n}}
+	\have[\ ]{}{\vdots}
+	\have{c}{\meta{C}}
+\end{nd}$$
+
+These three structural principles involved in the construction of our natural proofs support our decision to define provability as we did. Our definition was:  $\meta{A}_{1}…\meta{A}_{n}\proves \meta{C}$ when there is a proof with undischarged assumptions \emph{among} the $\meta{A}_{i}$s. We do not require that the undischarged assumptions be exactly the $\meta{A}_{i}$s, nor that the undischarged assumptions don't contain any redundancy, nor that the order in which assumptions are made in the proof is the same as the order of the sentences on the left side of the turnstile. We will briefly mention some alternative logics in which some of these structural rules are abandoned in §\ref{s:nextsteps}.
+
 
 \keyideas{
 	\item Our formal proof system allows us to introduce a notion of provability, symbolised `$\proves$'. This is distinct from entailment `$\entails$', but (if we've done our work correctly) they will parallel one another.
-	\item We can introduce further notions in terms of provability: provable equivalence, joint contrariness, and being a theorem. 
+	\item We can introduce further notions in terms of provability: provable equivalence, joint contrariness, and being a theorem.
+	\item Some features of our notion of provability derive from structural features of the notion of proof we have employed, such as the ability to appeal to a proof line multiple times, or to make additional assumptions at will.
 }
 
 \practiceproblems
@@ -1592,6 +1780,7 @@ Give a proof showing that each of the following sentences is a theorem:
 \problempart
 Provide proofs to show each of the following:
 \begin{earg}
+\item $P \proves (P  \eif Q) \eif Q$
 \item $C\eif(E\eand G), \enot C \eif G \proves G$
 \item $M \eand (\enot N \eif \enot M) \proves (N \eand M) \eor \enot M$
 \item $(Z\eand K)\eiff(Y\eand M), D\eand(D\eif M) \proves Y\eif Z$
@@ -1615,7 +1804,7 @@ If you know that $\meta{A}\proves\meta{B}$, what can you say about $(\meta{A}\ea
 
 \problempart In this section, I claimed that it is just as hard to show that two sentences are not provably equivalent, as it is to show that a sentence is not a theorem. Why did I claim this? (\emph{Hint}: think of a sentence that would be a theorem iff \meta{A} and \meta{B} were provably equivalent.)
 
-
+\problempart Show that $\meta{A}_{1},\meta{A}_{2},…, \meta{A}_{n} \proves \meta{B}\eand\enot\meta{B}$ iff both $\meta{A}_{1},\meta{A}_{2},…, \meta{A}_{n} \proves \meta{B}$ and $\meta{A}_{1},\meta{A}_{2},…, \meta{A}_{n} \proves \enot\meta{B}$.
 
 
 
@@ -1750,7 +1939,7 @@ Again, we made a dispensible use of reiteration.
 
 In \TFL, the double negation $\enot\enot\meta{A}$ is equivalent to \meta{A}. In natural languages, too, double negations tend to cancel out – Malcolm is not unaware that his leadership is under threat iff he is aware that it is. That said, you should be aware that context and emphasis can prevent them from doing so. Consider: `Jane is not \emph{not} happy'. Arguably, one cannot derive `Jane is happy', since the first sentence should be understood as meaning the same as  `Jane is not \emph{un}happy'. This is compatible with `Jane is in a state of profound indifference'. As usual, moving to \TFL\ forces us to sacrifice certain nuances of English expressions – we have, in \TFL, just one resource for translating negative expressions like `not' and the suffix `un-', even if they are not synonyms in English.
 
-Obviously we can show that $\meta{A} \vdash \enot\enot\meta{A}$ by means of the following proof:
+Obviously we can show that $\meta{A} \proves \enot\enot\meta{A}$ by means of the following proof:
 \begin{proof}
 \hypo{a}{\meta{A}}
 \open
@@ -1961,7 +2150,7 @@ The following proofs are missing their commentaries (rule and line numbers). Add
 
 
 \problempart 
-Give a proof for each of these arguments:
+Give a proof representing each of these arguments; you may use any of the original or derived rules, as appropriate:
 \begin{earg}
 \item $E\eor F$, $F\eor G$, $\enot F \ttherefore E \eand G$
 \item $M\eor(N\eif M) \ttherefore \enot M \eif \enot N$
