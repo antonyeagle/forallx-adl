@@ -181,7 +181,7 @@ for some number $n$. It doesn't matter which line we end on, but we would obviou
 
 Suppose we had an argument with more than one premise:
 $$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \ttherefore \enot C\eor D.$$
-If our argument has more than one premise, we can use either single or multiple assumption lines: \begin{multicols}{2}
+If our argument has more than one premise, we can use either single or multiple assumption lines: \begin{multicols}{2}\noindent
 \begin{proof}
 	\hypo{a1}{A \eor B}
 	\open\hypo{a2}{\enot (A\eand C)}
@@ -222,7 +222,7 @@ If the following a correctly formed proof in our natural deduction system?
 
 \problempart
 Which of the following could, given the right rules, be turned into a proof corresponding to the argument $$\enot(P \eand Q), P \ttherefore \enot Q?$$
-\begin{multicols}{2}
+\begin{multicols}{2}\noindent
 	   \begin{enumerate}
     	\item\begin{proof}
     		\hypo{a}{\enot(P \eand Q)}
@@ -947,7 +947,7 @@ There can be as many lines as you like between $i$ and $j$, and as many lines as
 
 We can now prove that a biconditional is like two conjoined conditionals. Using the conditional and biconditional rules, we can prove that a biconditional entails a conjunction of conditionals, and \emph{vice versa}: 
 
-\hspace{-1cm}\begin{minipage}{0.5\textwidth}
+\begin{multicols}{2}\noindent
 	 \begin{proof}
 	\open \hypo{pq}{(A \eiff B)}
 	\open \hypo{p}{A}
@@ -960,7 +960,7 @@ We can now prove that a biconditional is like two conjoined conditionals. Using 
 	\close
 	\have{ba}{(B\eif A)}\ci{b1-a}
 	\have{aba}{\bigl((A \eif B) \eand (B \eif A)\bigr)}\ai{ab,ba}
-\end{proof}\end{minipage}\quad \begin{minipage}{0.5\textwidth}
+\end{proof}
 	\begin{proof}
 		\hypo{aba}{\bigl((A \eif B) \eand (B \eif A)\bigr)}
 		\have{ab}{(A \eif B)}\ae{aba}
@@ -973,7 +973,7 @@ We can now prove that a biconditional is like two conjoined conditionals. Using 
 		\close
 		\have{pq}{(A \eiff B)}\bi{a-b,b1-a1}
 	\end{proof}
-\end{minipage}
+\end{multicols}
 
 Another informative example demonstrates the logical equivalence of `$((P \eand Q) \eif R)$' and `$(P \eif (Q \eif R))$' given importation and exportation (page \pageref{import.export}). We will re-use both of our earlier proofs, stitching them together using biconditional introduction in the final line: \begin{proof}
 \open	\hypo{ipiqr}{(P \eif (Q \eif R))}
@@ -1360,7 +1360,7 @@ The following `proof' is \emph{incorrect}. Explain the mistakes it makes.
 
 \problempart
 The following proofs are missing their commentaries (rule and line numbers). Add them, to turn them into bona fide proofs. Additionally, write down the argument that corresponds to each proof.
-\begin{multicols}{2}
+\begin{multicols}{2}\noindent
 
 
 \begin{proof}
@@ -1373,7 +1373,7 @@ The following proofs are missing their commentaries (rule and line numbers). Add
 \close
 \have{conc}{(A \eand B) \eif (D \eor E)}%\ci{ab-de}
 \end{proof}
-\end{multicols}
+
 \begin{proof}
 \hypo{nlcjol}{\enot L \eif (J \eor L)}
 \open
@@ -1393,10 +1393,10 @@ The following proofs are missing their commentaries (rule and line numbers). Add
 \close
 \have{conc}{J}%\oe{jol, j-j2, l-j3}
 \end{proof}
+\end{multicols}
 
 
-
-\problempart
+\newpage\problempart
 \label{pr.solvedTFLproofs}
 Give a proof representing each of the following arguments:
 \begin{earg}
@@ -1469,19 +1469,19 @@ There is a significant debate on just this issue in the philosophy of language, 
 
 Can the inferentialist distinguish good systems of rules, such as those governing `and', from bad systems? The problem is that without appealing to truth tables or the like, we seem to be committed to the legitimacy of rather problematic connectives. The most famous example is Prior's `tonk' governed by these rules:
 
-\begin{minipage}{0.35\textwidth}
+\begin{multicols}{2}\noindent
 	\begin{proof}
 		\have[m]{a}{\meta{A}}
 		\have[\ ]{}{\vdots}
 		\have[n]{}{\meta{A}\text{ tonk }\meta{B}} \by{tonk-I}{a}
 	\end{proof}
-\end{minipage}\qquad\begin{minipage}{0.35\textwidth}
+
 	\begin{proof}
 		\have[m]{a}{\meta{A}\text{ tonk }\meta{B}}
 		\have[\ ]{}{\vdots}
 		\have[n]{}{\meta{B}} \by{tonk-E}{a}
 	\end{proof}
-\end{minipage}
+\end{multicols}
 
 You will notice that `tonk' has an introduction rule like `\eor', and an elimination rule like `\eand'. Of course `tonk' is a connective we would not like in a language, since pairing the introduction and elimination rules would allow us to prove any arbitrary sentence from any assumption whatsover: \begin{proof}
 	\hypo{a}{P}
@@ -1542,7 +1542,7 @@ The symbol `$\proves$' is known as the \emph{single turnstile}. I want to emphas
 However, if we've designed our proof system well, we shouldn't be able to prove a conclusion from some assumptions \emph{unless} that conclusion validly follows from those assumptions. And if we are really fortunate, we should be able to provide a proof corresponding to any valid argument. (More on this in §\ref{sec:soundcomp}.) But even if our two turnstiles agree on which sentences they relate to other sentences, they still mean different things. Recall the discussion of coextensive predicates in §\ref{predrel} – even if the extensions of `$\proves$' and `$\entails$' are the same, we apply them on quite different grounds. If they coincide despite being defined so differently, that is some evidence that we are uncovering a genuine and important relation between sentences, describable in a number of different ways.
 
 A krey result, known as the \define{deduction theorem}, links the notion of provability with the conditional: \factoidbox{$\meta{A}_{1},…,\meta{A}_{n},\meta{B} \proves \meta{C}$ iff $\meta{A}_{1},…,\meta{A}_{n} \proves \meta{B} \to \meta{C}$.} We can show this result by showing how to convert a proof showing $\meta{A}_{1},…,\meta{A}_{n},\meta{B} \proves \meta{C}$ into a proof showing $\meta{A}_{1},…,\meta{A}_{n} \proves \meta{B} \to \meta{C}$, and \emph{vice versa}. So first suppose we have the proof on the left, we can apply conditional introduction to discharge the occurence of \meta{B} and prove a conditional with $\meta{B}$ as antecedent:
-    		 $$\begin{nd}
+    		 \begin{multicols}{2}\noindent\begin{proof}
     				\hypo{a1}{\meta{A}_{1}}
     				\hypo[\ ]{}{\vdots}
     				\open
@@ -1550,8 +1550,8 @@ A krey result, known as the \define{deduction theorem}, links the notion of prov
     				\open\hypo{b}{\meta{B}}
     				\have[\ ]{}{\vdots}
     				\have[k]{c}{\meta{C}}
-    			\end{nd} \quad  ⇉\quad
-    			\begin{nd}
+    			\end{proof} \quad  ⇉\quad
+    			\begin{proof}
     				\hypo{a1}{\meta{A}_{1}}
     				\hypo[\ ]{}{\vdots}
     				\open
@@ -1561,17 +1561,17 @@ A krey result, known as the \define{deduction theorem}, links the notion of prov
     				\have[k]{c}{\meta{C}}
     				\close
     				\have{bc}{\meta{B}\to\meta{C}}\ci{b-c}
-    			\end{nd}$$
+    			\end{proof}\end{multicols}
 The other direction is just as easy. Suppose we have the proof on the left, terminating in $\meta{B}\eif\meta{C}$, we can make a new assumption of \meta{B} and use conditional elimination to generate a proof terminating in \meta{C}, with that new assumption remaining undischarged. 
- $$\begin{nd}
+ \begin{multicols}{2}\noindent\begin{proof}
     				\hypo{a1}{\meta{A}_{1}}
     				\hypo[\ ]{}{\vdots}
     				\open
     				\hypo[n]{an}{\meta{A}_{n}}
     				\have[\ ]{}{\vdots}
     				\have[k]{bc}{\meta{B} \eif \meta{C}}
-    			\end{nd} \quad  ⇉\quad
-    			\begin{nd}
+    			\end{proof} \quad  ⇉\quad
+    			\begin{proof}
     				\hypo{a1}{\meta{A}_{1}}
     				\hypo[\ ]{}{\vdots}
     				\open
@@ -1581,7 +1581,7 @@ The other direction is just as easy. Suppose we have the proof on the left, term
     				\open
     				\hypo{b}{\meta{B}}
     				\have{c}{\meta{C}}\ce{bc,b}
-    			\end{nd}$$
+    			\end{proof}\end{multicols}
 
 \section{Other Proof-Theoretic Notions}
 
@@ -1644,7 +1644,7 @@ It is straightforward to show that some sentences $\meta{A}_{1},\meta{A}_{2},…
 
 Some sentences are jointly contrary iff \emph{the negation of their conjunction is a theorem}. Suppose we have these proofs showing the $\meta{A}_{i}$s to be jointly contrary: 
 
-\begin{minipage}{0.35\textwidth}
+\begin{multicols}{2}\noindent
 	\begin{proof}
 		\hypo{a1}{\meta{A}_{1}}
 		\hypo[\ ]{}{\vdots}
@@ -1652,7 +1652,7 @@ Some sentences are jointly contrary iff \emph{the negation of their conjunction 
 		\have[\ ]{}{\vdots}
 		\have[k]{c}{\meta{B}}
 	\end{proof}
-\end{minipage}\qquad\begin{minipage}{0.35\textwidth}
+
 	\begin{proof}
 		\hypo{a1}{\meta{A}_{1}}
 		\hypo[\ ]{}{\vdots}
@@ -1660,7 +1660,7 @@ Some sentences are jointly contrary iff \emph{the negation of their conjunction 
 		\have[\ ]{}{\vdots}
 		\have[k']{c}{\enot \meta{B}}
 	\end{proof}
-\end{minipage}
+\end{multicols}
 
 These can be adapted to form part of a larger proof:
 \begin{proof}
@@ -1700,17 +1700,17 @@ provable & one proof & all possible proofs\\
 Our proofs get their main shape from the proof rules governing the connectives. But choices we have made about how to build proofs also contribute. These principles about how to construct proofs give rise to quite abstract and general features of the notion of provability represented by `$\proves$', sometimes known as the \emph{structural rules} governing the notion of provability.\footnote{For more on structural rules, and the various logics that don't have all the structural features of our natural deduction system, see Greg Restall (2018) `Substructural Logics' in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy} \url{https://plato.stanford.edu/entries/logic-substructural/}.}
 
 For example: in our proof system, it does not matter in what order we make assumptions. These two proofs, distinct in their structure, nevertheless both show that $A, B \proves (A \eand B)$. 
-$$\begin{nd}
+\begin{multicols}{2}\noindent\begin{proof}
 	\hypo{a}{A}
 	\open
 	\hypo{b}{B}
 	\have{c}{(A \eand B)}\ai{a,b}
-\end{nd}\qquad \begin{nd}
+\end{proof}\qquad \begin{proof}
 	\hypo{a}{B}
 	\open
 	\hypo{b}{A}
 	\have{c}{(A \eand B)}\ai{b,a}
-\end{nd}$$ 
+\end{proof}\end{multicols} 
 
 Recall that our definition of provability says that $\meta{A}_{1},…, \meta{A}_{n}\vdash \meta{B}$ just in case there is a proof whose undischarged assumptions are all among the $\meta{A}_{i}$s. No mention is made of the order of those undischarged assumptions. So while both the proofs above show that $A, B \proves (A \eand B)$, they also both show that $B, A \proves (A \eand B)$.
 
@@ -1726,7 +1726,7 @@ Commutativity and the deduction theorem seem trivial. But they can be surprising
 	\item $P \proves (P  \eif Q) \eif Q$ (by the deduction theorem).
 \end{enumerate} This argument doesn't construct a formal proof; it just assures you that there will be one. (One of the exercises asks you to construct the formal proof.)
 
-Here's another example of a structural feature of our proof system. We allow a given line of a proof to be reused multiple times, as in this proof that $(P \eif(P \eif Q)) \proves (P\eif Q)$: \begin{proof}
+Here's another example of a structural feature of our proof system. We allow a given line of a proof to be reused multiple times, as long as the assumptions on which that line relies remain undischarged. See this proof that $(P \eif(P \eif Q)) \proves (P\eif Q)$: \begin{proof}
 	\hypo{a}{P\eif(P \eif Q)}
 	\open
 	\hypo{b}{P}
@@ -1734,19 +1734,19 @@ Here's another example of a structural feature of our proof system. We allow a g
 	\have{d}{Q}\ce{c,b}
 	\close
 	\have{e}{P \eif Q}\ci{b-d}
-\end{proof} Here we appeal to line 2 multiple times: in eliminating the conditional on line 1 and the conditional on line 3. No rule governing any of our connectives is associated with this behaviour: rather, it is built in to the way we allow all of our rules to appeal to any previous line, even if that line has been appealed to already by some other rule. It is fairly easy to see that the above proof cannot succed without multiple appeal to line 2; 
+\end{proof} Here we appeal to line 2 multiple times: in eliminating the conditional on line 1 and the conditional on line 3. No rule governing any of our connectives is associated with this behaviour: rather, it is built in to the way we allow all of our rules to appeal to any previous line (as long as the line doesn't appear in a closed subproof), even if that line has been appealed to already by some other rule. It is fairly easy to see that the above proof cannot succed without multiple appeal to line 2.
 
 This feature of our proof system is known as \define{contraction}: if there is a proof in which any $\meta{A}$ occurs as an undischarged assumption on two or more distinct lines, there is also a proof in which one of those assumptions of $\meta{A}$ is removed. More concisely: \factoidbox{A notion of provability satisfies contraction just in case: $$\meta{A}_{1},\ldots, \meta{B},\ldots,\meta{B},\ldots,\meta{A}_{n} \proves \meta{C} \text{ iff } \meta{A}_{1},\ldots, \meta{B},\ldots,\meta{A}_{n}  \proves \meta{C}.$$} 
 Contraction, or the principle that you can appeal to the same prior line multiple times, is essentially the same as our proof rule of reiteration. In fact the rule of reiteration is strictly dispensible (§\ref{der.reit}), in part because we can always appeal instead to the original sentence multiple times.
 
-The final structural feature I want to point to is that adding additional assumptions doesn't undermine provability. This property is called \define{weakening}: \factoidbox{A notion of provability satisfies weaking just in case: if $\meta{A}_{1},\ldots,\meta{A}_{n} \proves \meta{C}$ then $\meta{A}_{1},\ldots,\meta{A}_{n},\meta{B} \proves \meta{C}$.} This is a very general feature, because any correct natural deduction proof can be embedded within an arbitrary additional assumption and still remain correct. So if the proof on the left is correct, showing that $\meta{A}_{1},\ldots,\meta{A}_{n} \proves \meta{C}$, then so is the proof on the right, which has all the same assumptions plus the additional assumption $\meta{B}$, and so shows $\meta{A}_{1},\ldots,\meta{A}_{n},\meta{B} \proves \meta{C}$: $$\begin{nd}
+The final structural feature I want to point to is that adding additional assumptions doesn't undermine provability. This property is called \define{weakening}: \factoidbox{A notion of provability satisfies weaking just in case: if $\meta{A}_{1},\ldots,\meta{A}_{n} \proves \meta{C}$ then $\meta{A}_{1},\ldots,\meta{A}_{n},\meta{B} \proves \meta{C}$.} This is a very general feature, because any correct natural deduction proof can be embedded within an arbitrary additional assumption and still remain correct. So if a proof with the structure illustrated schematically on the left is correct, showing that $\meta{A}_{1},\ldots,\meta{A}_{n} \proves \meta{C}$, then so is the proof scheme on the right, which has all the same assumptions plus the additional assumption $\meta{B}$, and so shows $\meta{A}_{1},\ldots,\meta{A}_{n},\meta{B} \proves \meta{C}$: \begin{multicols}{2}\noindent\begin{proof}
 	\hypo{a1}{\meta{A}_{1}}
 	\have[\ ]{}{\vdots}
 	\open
 	\hypo{an}{\meta{A}_{n}}
 	\have[\ ]{}{\vdots}
 	\have{c}{\meta{C}}
-\end{nd}\qquad\begin{nd}
+\end{proof}\qquad\begin{proof}
 	\hypo{b}{\meta{B}}
 	\open
 	\hypo{a1}{\meta{A}_{1}}
@@ -1755,7 +1755,7 @@ The final structural feature I want to point to is that adding additional assump
 	\hypo{an}{\meta{A}_{n}}
 	\have[\ ]{}{\vdots}
 	\have{c}{\meta{C}}
-\end{nd}$$
+\end{proof}\end{multicols}
 
 These three structural principles involved in the construction of our natural proofs support our decision to define provability as we did. Our definition was:  $\meta{A}_{1}…\meta{A}_{n}\proves \meta{C}$ when there is a proof with undischarged assumptions \emph{among} the $\meta{A}_{i}$s. We do not require that the undischarged assumptions be exactly the $\meta{A}_{i}$s, nor that the undischarged assumptions don't contain any redundancy, nor that the order in which assumptions are made in the proof is the same as the order of the sentences on the left side of the turnstile. We will briefly mention some alternative logics in which some of these structural rules are abandoned in §\ref{s:nextsteps}.
 
@@ -1777,7 +1777,7 @@ Give a proof showing that each of the following sentences is a theorem:
 \item $\bigl((C \eand D) \eiff (D \eand C)\bigr)$.
 \end{earg}
 
-\problempart
+\newpage\problempart
 Provide proofs to show each of the following:
 \begin{earg}
 \item $P \proves (P  \eif Q) \eif Q$
@@ -1862,9 +1862,11 @@ The first derived rule is actually one of our main proof rules: \emph{reiteratio
 	\have[k]{aa}{\meta{A} \eand \meta{A}}\ai{a}
 	\have{a2}{\meta{A}}\ae{aa}
 \end{proof}
-To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses a variable, $\meta{A}$, rather than a sentence of \TFL. But the point is simple. Whatever sentences of \TFL\ we plugged in for $\meta{A}$, and whatever lines we were working on, we could produce a legitimate proof. So you can think of this as a recipe for producing proofs. Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the \emph{basic} rules of §§\ref{s:BasicTFLs}–\ref{s:BasicTFLns}. So we can describe the rule R as a derived rule, since its justification is derived from our basic rules.
+To be clear: this is not a proof. Rather, it is a proof \emph{scheme}. After all, it uses a variable, $\meta{A}$, rather than a sentence of \TFL. But the point is simple. Whatever sentences of \TFL\ we plugged in for $\meta{A}$, and whatever lines we were working on, we could produce a legitimate proof. So you can think of this as a recipe for producing proofs. Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the \emph{basic} rules of §§\ref{s:BasicTFLs}–\ref{s:BasicTFLns}. So we can describe the rule R as a derived rule, since its justification is derived from our basic rules.
 
 You might note that in lines 5–7 in the complicated proof in Figure~\ref{fig:vi}, we in effect made use of this proof scheme, introducing a conjunction from prior lines only to immediately eliminate again, just to ensure that the relevant sentences appeared directly in the range of the assumption `$Q$'.
+
+We even have an explanation here about why you can't reiterate a line from a closed subproof. If all applications of reiteration are in fact abbreviations of the above schema, then that restriction on reiteration derives from the more general restriction that we cannot appeal to a proof line that relies on an assumption that has been discharged.
 
 \section{Disjunctive Syllogism}
 Here is a very natural argument form.
@@ -1886,8 +1888,8 @@ This inference pattern is called \define{disjunctive syllogism}. We could add it
 \end{proof}
 \end{minipage}}
 This is, if you like, a new rule of disjunction elimination.
-But there is nothing fundamentally new here. We can emulate the rule of disjunctive syllogism using our basic proof rules, as this schematic proof indicates:
-\begin{proof}
+But there is nothing fundamentally new here. We can emulate the rule of disjunctive syllogism using our basic proof rules, as the schematic proof in Figure~\ref{fig.dsder} indicates. \begin{figure}
+	\begin{proof}
 	\have[m]{avb}{\meta{A}\eor\meta{B}}
 	\have[n]{na}{\enot\meta{A}}
 	\have[\ ]{}{\vdots}
@@ -1906,6 +1908,9 @@ But there is nothing fundamentally new here. We can emulate the rule of disjunct
 		\close
 	\have{}{\meta{B}}\oe{avb,a-b,b2-b3}
 \end{proof}
+\caption{Disjunctive syllogism is derivable in the standard proof system.\label{fig.dsder}}
+\end{figure}
+
 We have used the rule of reiteration in this schematic proof, but we already know that any uses of that rule can themselves be replaced by more roundabout proofs using conjunction introduction and elimination, if required. So adding disjunctive syllogism would not make any new proofs possible that were not already obtainable in our original system.
 
 \section{\emph{Modus tollens}}
@@ -1921,8 +1926,9 @@ This inference pattern is called \idefine{modus tollens}. The corresponding rule
 \end{proof}}
 This is, if you like, a new rule of conditional elimination.
 
-This rule is, again, a conservative addition to our stock of proof rules. Any application of it could be emulated by this form of proof using our original rules:
-\begin{proof}
+This rule is, again, a conservative addition to our stock of proof rules. Any application of it could be emulated by the form of proof using our original rules shown in Figure~\ref{fig.mtder}. Again, the schmatic proof makes a dispensible use of reiteration.
+\begin{figure}
+	\begin{proof}
 	\have[m]{ab}{\meta{A}\eif\meta{B}}
 	\have[n]{nb}{\enot\meta{B}}
 	\have[\ ]{}{\vdots}
@@ -1933,7 +1939,10 @@ This rule is, again, a conservative addition to our stock of proof rules. Any ap
 		\close
 	\have{no}{\enot\meta{A}}\ni{a-b,a-nb1}
 \end{proof}
-Again, we made a dispensible use of reiteration.
+\caption{\emph{Modus tollens} is derivable in the standard proof system.\label{fig.mtder}}
+\end{figure}
+
+
 
 \section{Double Negation Elimination}
 
@@ -1989,7 +1998,8 @@ This line of thinking motivates the following rule:
 	\end{proof}}
 The rule is sometimes called \idefine{tertium non datur}, which means roughly `no third way'. There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
 
-\emph{Tertium non datur} is able to be emulated using just our original proof rules. Here is a schematic proof which demonstrates this:
+\emph{Tertium non datur} is able to be emulated using just our original proof rules. Figure \ref{fig.tndder} contains a schematic proof which demonstrates this. Once again, a dispensible use of reiteration occurs in this proof just to make it more readable.
+\begin{figure}
 \begin{proof}
 		\open
 			\hypo[i]{a}{\meta{A}}
@@ -2014,13 +2024,17 @@ The rule is sometimes called \idefine{tertium non datur}, which means roughly `n
 			\close
 		\have{b4}{\meta{B}}\ne{nb-b3}
 	\end{proof}
-Again a dispensible use of reiteration occurs in this proof just to make it more readable.
+	\caption{\emph{Tertium non datur} is derivable in the standard proof system.\label{fig.tndder}}
+\end{figure}
+
+
+
 
 
 
 \section{De Morgan Rules}
 Our final additional rules are called De Morgan's Laws. (These are named after the nineteenth century logician August De Morgan.) The first two De Morgan rules show the provable equivalence of a negated conjunction and a disjunction of negations.
-\factoidbox{\begin{minipage}{0.35\textwidth}
+\factoidbox{\hspace{-0.3cm}\begin{minipage}{0.35\textwidth}
 	\begin{proof}
 	\have[m]{ab}{\enot (\meta{A} \eand \meta{B})}
 	\have[\ ]{dm}{(\enot \meta{A} \eor \enot \meta{B})}\dem{ab}
@@ -2032,7 +2046,7 @@ Our final additional rules are called De Morgan's Laws. (These are named after t
 \end{proof}
 \end{minipage}}
 The second pair of De Morgan rules are dual to the first pair: they show the provable equivalence of a negated disjunction and a conjunction of negations.
-\factoidbox{\begin{minipage}{0.35\textwidth}
+\factoidbox{\hspace{-0.3cm}\begin{minipage}{0.35\textwidth}
 	\begin{proof}
 	\have[m]{ab}{\enot (\meta{A} \eor \meta{B})}
 	\have[\ ]{dm}{(\enot \meta{A} \eand \enot \meta{B})}\dem{ab}
@@ -2044,8 +2058,7 @@ The second pair of De Morgan rules are dual to the first pair: they show the pro
 \end{proof}
 \end{minipage}}
 
-\emph{These are all of the additional rules of our proof system for \TFL.}
-
+\newpage
 The De Morgan rules are no genuine addition to the power of our original natural deduction system. Here is a demonstration of how we could derive the first De Morgan rule:
  	\begin{proof}
 		\have[k]{nab}{\enot (\meta{A} \eand \meta{B})}
@@ -2088,7 +2101,7 @@ Here is a demonstration of how we could derive the second De Morgan rule:
 	\end{proof}
 Similar demonstrations can be offered explaining how we could derive the third and fourth De Morgan rules. These are left as exercises.
 
-
+\emph{Those mentioned above are all of the additional rules of our proof system for \TFL.}
 
 \keyideas{
 	\item Our official system of rules can be augmented by additional rules that are strictly speaking unneccessary – nothing is provable with them that couldn't have been proved without them – but that can nevertheless be used sometimes to speed up proofs.
@@ -2097,35 +2110,12 @@ Similar demonstrations can be offered explaining how we could derive the third a
 }
 
 \practiceproblems
-\solutions
+
 \problempart
 \label{pr.justifyTFLproof}
 The following proofs are missing their commentaries (rule and line numbers). Add them wherever they are required: you may use any of the original or derived rules, as appropriate.
 
-\begin{minipage}{0.35\textwidth}
-\begin{proof}
-\hypo{1}{W \eif \enot B}
-\hypo{2}{A \eand W}
-\hypo{2b}{B \eor (J \eand K)}
-\have{3}{W}{}
-\have{4}{\enot B} {}
-\have{5}{J \eand K} {}
-\have{6}{K}{}
-\end{proof}
-\end{minipage}\qquad\begin{minipage}{0.35\textwidth}
-\begin{proof}
-\hypo{1}{L \eiff \enot O}
-\hypo{2}{L \eor \enot O}
-\open
-	\hypo{a1}{\enot L}
-	\have{a2}{\enot O}{}
-	\have{a3}{L}{}
-	\have{a4}{\enot L}{}
-\close
-\have{3b}{\enot\enot L}{}
-\have{3}{L}{}
-\end{proof}\end{minipage}
-
+\begin{multicols}{2}\noindent
 \begin{proof}
 \hypo{1}{Z \eif (C \eand \enot N)}
 \hypo{2}{\enot Z \eif (N \eand \enot C)}
@@ -2148,7 +2138,31 @@ The following proofs are missing their commentaries (rule and line numbers). Add
 \have{3}{N \eor C}{}
 \end{proof}
 
+\begin{proof}
+\hypo{1}{W \eif \enot B}
+\hypo{2}{A \eand W}
+\hypo{2b}{B \eor (J \eand K)}
+\have{3}{W}{}
+\have{4}{\enot B} {}
+\have{5}{J \eand K} {}
+\have{6}{K}{}
+\end{proof}
 
+\begin{proof}
+\hypo{1}{L \eiff \enot O}
+\hypo{2}{L \eor \enot O}
+\open
+	\hypo{a1}{\enot L}
+	\have{a2}{\enot O}{}
+	\have{a3}{L}{}
+	\have{a4}{\enot L}{}
+\close
+\have{3b}{\enot\enot L}{}
+\have{3}{L}{}
+\end{proof}\end{multicols}
+
+
+\newpage
 \problempart 
 Give a proof representing each of these arguments; you may use any of the original or derived rules, as appropriate:
 \begin{earg}
@@ -2198,8 +2212,9 @@ Since we've shown {\enot\enot}E to be a derived rule in our original system, thi
 Another alternative system results from replacing disjunction elimination {\eor}E (proof by cases) by disjunctive syllogism DS. We already know that DS is a derived rule: any proof which uses disjunctive syllogism can be converted into a proof that uses just the basic rules. So to show the alternative system proves the same things as our original system, we just need to show that we can emulate the effects of {\eor}E by using DS.
 
 Recall that a schematic proof that makes use of {\eor}E has the structure in Figure \ref{DSa}. To transform this into a proof that makes use instead of DS, we are going to use those two subproofs, but in the scope of an assumption that \enot\meta{C}. The schematic proof looks like that in Figure \ref{DSb}. You can see that the proof is the same as the original at lines $i$–$j$ and $k$–$l$, which mirror the original two subproofs. But they play a quite different role now. The subproof deriving \meta{C} from \meta{A} is now used in the service of a \emph{reductio} of \meta{A}, deriving $\enot\meta{A}$ on line $j+1$ in order to put us in a position to apply DS and derive \meta{B}, and then derive \meta{C} in line with the original subproof, which conflicts with the \emph{reductio} assumption $\enot\meta{C}$ on line 2, allowing us to use {\enot}E to derive the same conclusion as in the original proof. This shows us that – at least if we have our negation rules (or their equivalents) – we can replace {\eor}E with DS and be able to prove all the same things.
-	\begin{figure}
-\begin{minipage}{0.5\textwidth}
+
+\begin{figure}
+\begin{minipage}{0.45\textwidth}
 	\begin{proof}
 	\hypo{d}{\meta{A}\eor\meta{B}}
 	\have[\ ]{}{\vdots}
@@ -2217,7 +2232,7 @@ Recall that a schematic proof that makes use of {\eor}E has the structure in Fig
 	\have[\ ]{c}{\meta{C}}\oe{d,a-c1,b-c2}
 \end{proof}
 \caption{Schematic {\eor}E proof.\label{DSa}}
-\end{minipage}\qquad \begin{minipage}{0.5\textwidth}
+\end{minipage} \qquad\begin{minipage}{0.45\textwidth}
 		\begin{proof}
 	\hypo{d}{\meta{A}\eor\meta{B}}
 	\open
@@ -2227,55 +2242,62 @@ Recall that a schematic proof that makes use of {\eor}E has the structure in Fig
 	\hypo[i]{a}{\meta{A}}
 	\have[\ ]{}{\vdots}
 	\have[j]{c1}{\meta{C}}
-	\have{ncr}{\enot\meta{C}}\by{R}{nc}
 	\close
-	\have{na}{\enot\meta{A}}\ni{a-c1,a-ncr}
+	\have{na}{\enot\meta{A}}\ni{a-c1,a-nc}
 	\have[k]{b}{\meta{B}}\by{DS}{d,na}
 	\have[\ ]{}{\vdots}
 	\have[l]{c2}{\meta{C}}
-	\have{cr}{\enot\meta{C}}\by{R}{nc}
 	\close
-	\have[\ ]{c}{\meta{C}}\ne{nc-c2,nc-cr}
+	\have[\ ]{c}{\meta{C}}\ne{nc-c2,nc-nc}
 \end{proof}
 		\caption{Schematic proof using DS to emulate {\eor}E.\label{DSb}}
 \end{minipage}
 	\end{figure}
 
-There are pros and cons to using DS as our disjunction elimination rule. You can already see that proof by cases is much clunkier – though perhaps you are not too concerned (maybe you suspect proof by cases is not much used in natural argumentation anyway). \begin{description}
-	\item[Pro] Using DS as an elimination rule for {\eor} has the nice feature that we eliminate a disjunction in favour of one of its disjuncts, rather than the unprecedented \meta{C} that appears as if from nowhere in the original {\eor}E rule. We also dispense with the use of subproofs in the statement of the disjunction rules.
-	\item[Con] Adopting DS as a basic rule destroys the nice feature of our standard rules that only one connective is used in any rule. DS needs both disjunction and negation. We cannot, therefore, consider a system which lacks negation rules but has disjunction – the rules are no longer \emph{modular}. This is not especially important for \TFL, but could be important if you go on to consider other logical systems which may vary the rules for one connective independently of all the others. DS shackles negation and disjunction together – even arguments which have, intuitively nothing to do with negation, end up having to use negation in their proof. This is illustrated by the following two proofs that $(A\eor B)\proves (B \eor A)$, the first using our original system, the second using the system which has DS as a basic rule:
+There are pros and cons to using DS as our disjunction elimination rule. You can already see that proof by cases is much clunkier – though perhaps you are not too concerned (maybe you suspect proof by cases is not much used in natural argumentation anyway). 
+\paragraph{Pro} Using DS as an elimination rule for {\eor} has the nice feature that we eliminate a disjunction in favour of one of its disjuncts, rather than the unprecedented \meta{C} that appears as if from nowhere in the original {\eor}E rule. We also dispense with the use of subproofs in the statement of the disjunction rules.
+\paragraph{Con} Adopting DS as a basic rule destroys the nice feature of our standard rules that only one connective is used in any rule. DS needs both disjunction and negation. We cannot, therefore, consider a system which lacks negation rules but has disjunction – the rules are no longer \emph{modular}. This is not especially important for \TFL, but could be important if you go on to consider other logical systems which may vary the rules for one connective independently of all the others. DS shackles negation and disjunction together – even arguments which have, intuitively nothing to do with negation, end up having to use negation in their proof. This can be illustrated by considering proofs that $(A\eor B)\proves (B \eor A)$. The proofs themselves are left for an exercise, but you can see that the proof in a system which has DS as a basic rule makes unavoidable use of negation rules, while the proof in our standard system uses only disjunction rules.
 
-		\begin{proof}
-			\hypo{ab}{(A \eor B)}
-			\open
-			\hypo{a}{A}
-			\have{c1}{(B \eor A)}\oi{a}
-			\close
-			\open
-			\hypo{b}{B}
-			\have{c2}{(B \eor A)}\oi{b}
-			\close
-			\have{c}{(B \eor A)}\oe{ab,a-c1,b-c2}
-		\end{proof}
+\practiceproblems
+\problempart Consider an alternative proof system which keeps the standard proof rules, including negation elimination, with the exception that it replaces the rule of negation introduction $\enot$I with a rule of `double negation introduction', that any proof can be extended by adding $\enot\enot\meta{A}$ for any sentence $\meta{A}$ in the proof not occuring in a closed subproof. Is this alternative system equivalent to our standard system? 
 
-		\begin{proof}
-			\hypo{ab}{(A \eor B)}
-			\open
-			\hypo{nc}{\enot (B \eor A)}
-			\open
-			\hypo{a}{A}
-			\have{c1}{(B \eor A)}\oi{a}
-			\have{cr}{\enot(B \eor A)}\by{R}{nc}
-			\close
-			\have{na}{\enot A}\ni{a-c1,a-cr}
-			\have{b}{B}\by{DS}{ab,na}
-			\have{c2}{(B \eor A)}\oi{b}
-			\have{nr}{\enot (B \eor A)}\by{R}{nc}
-			\close
-			\have{c}{(B \eor A)}\ne{nc-c2,nc-nr}
-		\end{proof}
+\problempart Construct two proofs showing that $(A\eor B)\proves (B \eor A)$, the first using our standard natural deduction system, the second using the system which has DS in place of disjunction elimination. Comment on any points of interest.
 
-\end{description}
+
+
+% \begin{multicols}{2}\noindent
+% 	\begin{proof}
+% 		\hypo{ab}{(A \eor B)}
+% 		\open
+% 		\hypo{a}{A}
+% 		\have{c1}{(B \eor A)}\oi{a}
+% 		\close
+% 		\open
+% 		\hypo{b}{B}
+% 		\have{c2}{(B \eor A)}\oi{b}
+% 		\close
+% 		\have{c}{(B \eor A)}\oe{ab,a-c1,b-c2}
+% 	\end{proof}
+
+% 	\begin{proof}
+% 		\hypo{ab}{(A \eor B)}
+% 		\open
+% 		\hypo{nc}{\enot (B \eor A)}
+% 		\open
+% 		\hypo{a}{A}
+% 		\have{c1}{(B \eor A)}\oi{a}
+% 		\have{cr}{\enot(B \eor A)}\by{R}{nc}
+% 		\close
+% 		\have{na}{\enot A}\ni{a-c1,a-cr}
+% 		\have{b}{B}\by{DS}{ab,na}
+% 		\have{c2}{(B \eor A)}\oi{b}
+% 		\have{nr}{\enot (B \eor A)}\by{R}{nc}
+% 		\close
+% 		\have{c}{(B \eor A)}\ne{nc-c2,nc-nr}
+% 	\end{proof}
+% \end{multicols}
+
+
 
 
 

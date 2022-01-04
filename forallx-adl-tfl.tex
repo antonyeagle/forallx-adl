@@ -176,7 +176,7 @@ In §\ref{s:ValidityInVirtueOfForm}, we started isolating the form of an argumen
 Our artificial language, \TFL, pursues this idea absolutely ruthlessly. We start with some \define{atomic sentences}, which are analogues of the canonical clauses of natural languages.  These will be the basic building blocks out of which more complex sentences are built. Unlike natural languages, these simplest sentences of \TFL\ have no interesting internal structure at all. The atomic sentences of \TFL\ will consist of upper case italic letters, with or without numerical subscripts. There are only twenty-six letters of the alphabet, but there is no limit to the number of atomic sentences that we might want to consider, so we add numerical subscripts to each letter to extend our library of atomic sentences indefinitely. This procedure does give us atomic sentences with some syntax, but it is irrelevant to meaning: there is no connection between `$A_{8}$' and `$A_{67}$' just because they both involve `$A$'. Likewise, there is no connection between `$D_{17}$' and `$G_{17}$' even though they share the same numerical subscript. Upper case italic letters, with or without subscripts, are all the atomic sentences there are. So, here are five different atomic sentences of \TFL:
 	$$A, P, P_{1}, P_{2}, A_{234}.$$ 
 
-Atomic sentences are the basic building blocks of \TFL. But what motivates their introduction is the fact that they can be used to represent, or \emph{symbolise}, certain English sentences. To do this, we provide a \define{symbolisation key}, such as the following, which assigns a temporary linkage between some atomic sentences of \TFL, and some quasi-canonical sentences of the natural language we are representing using \TFL, in this case, English:
+Atomic sentences are the basic building blocks of \TFL. We introduce them in order to represent, or \emph{symbolise}, certain English sentences. To do this, we provide a \define{symbolisation key}, such as the following, which assigns a temporary linkage between some atomic sentences of \TFL, and some quasi-canonical sentences of the natural language we are representing using \TFL, such as English:
 	\begin{ekey}
 		\item[A] It is raining outside.
 		\item[C] Jenny is miserable.
@@ -199,7 +199,7 @@ But it is important to understand that whatever internal structure an English se
 	\item Arguments are made of sentences, and to understand the structure of an argument we must understand the syntactic structure of those sentences, including analysing those sentences into their simplest constituents, roughly, how a compound sentence can be constructed by combining canonical clauses. 
 	\item The formal language \TFL\ is designed to model English arguments involving compound sentences structured by the sentence connectives `and', `or', `not', and `if', and related expressions.
 	\item We symbolise these arguments this by abstracting away any other aspects of English sentences, using structureless atomic sentences to represent clauses that do not include these special expressions.
-	\item Many English words and phrases could be treated as structural, and different formal languages can be motivated by other views about the structure of natural language sentences. But \TFL\ represents a particularly well behaved aspect of English sentence structure.
+	\item Many English words and phrases can be treated as structural, and different formal languages can be motivated by other choices of  structural expressions. \TFL\ represents a particularly well behaved aspect of English sentence structure.
 }
 
 \practiceproblems
@@ -491,7 +491,6 @@ We should not take `unless' to always have the stronger biconditional form. Cons
 
 
 \practiceproblems
-\solutions
 \problempart Using the symbolisation key given, symbolise each English sentence in \TFL.\label{pr.monkeysuits}
 	\begin{ekey}
 		\item[M] Those creatures are men in suits. 
@@ -530,7 +529,6 @@ We should not take `unless' to always have the stronger biconditional form. Cons
 \item Since the cook did it, the butler did not.
 \item Of course the Duchess is lying!
 \end{earg}
-\solutions
 \problempart Using the symbolisation key given, symbolise each English sentence in \TFL.\label{pr.avacareer}
 	\begin{ekey}
 		\item[E_1] Ava is an electrician.
@@ -555,7 +553,6 @@ We should not take `unless' to always have the stronger biconditional form. Cons
 \item Harrison and Ava are both firefighters if and only if neither of them is an electrician.
 \end{earg}
 
-\solutions
 \problempart
 \label{pr.spies}
 Give a symbolisation key and symbolise the following English sentences in \TFL.
@@ -568,7 +565,6 @@ Give a symbolisation key and symbolise the following English sentences in \TFL.
 \item Either Alice or Bob is a spy, but not both.
 \end{earg}
 
-\solutions
 \problempart Give a symbolisation key and symbolise the following English sentences in \TFL.
 \begin{earg}
 \item If there is food to be found in the pridelands, then Rafiki will talk about squashed bananas.
@@ -718,7 +714,6 @@ There are systems of logic which omit parentheses, using so-called `Polish notat
 
 \practiceproblems
 
-\solutions
 \problempart
 \label{pr.wiffTFL}
 For each of the following: (a) Is it a sentence of \TFL, strictly speaking? (b) Is it a sentence of \TFL, allowing for our relaxed parenthetical conventions?
@@ -879,7 +874,6 @@ Having been precise about use and mention, you can now relax! If you've understo
 
 \practiceproblems
 
-\solutions
 \problempart
 \label{pr.usemention}
 For each of the following: Are the quotation marks correctly used, strictly speaking? If not, propose a corrected version.

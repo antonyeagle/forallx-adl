@@ -30,11 +30,6 @@ The following list contains current issues and proposed revisions arranged by ch
 * Chapter 4 (`forallx-adl-fol.tex`)
 * Chapter 5 (`forallx-adl-interpretations.tex`)
 * Chapter 6 (`forallx-adl-prooftfl.tex`)
-	- §33
-		+ §33.1: mention explicitly that reiteration cannot be used outside a subproof 
-	- §34
-		+ A couple of exercises needed.
-
 * Chapter 7 (`forallx-adl-prooffol.tex`)
 	- §35
 		+ does the `\vdash` terminology get re-introduced?
