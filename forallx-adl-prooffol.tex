@@ -5,9 +5,20 @@
 
 \chapter{Basic Rules for \textnormal{\FOL}}\label{s:BasicFOL}
 
-\FOL\ makes use of all of the connectives of \TFL. So proofs in \FOL\ will use all of the basic and derived rules from chapter \ref{ch.NDTFL}. We shall also use the proof-theoretic notions (particularly, the symbol `$\proves$') introduced in that chapter. 
+\section{Proof-Theoretic Concepts in \FOL}
 
-Some arguments in \FOL\ don't need any new rules. Consider this: $$\enot(\forall x Px \eor \exists y Py) \ttherefore \enot \forall x Px.$$ \begin{proof}
+
+
+\FOL\ makes use of all of the connectives of \TFL. Helpfully, our natural deduction proof system for \FOL\ will simply import all of the basic rules from chapter \ref{ch.NDTFL}. (Obviously we will get all of the derived rules for free by doing this, but we won't make use of the derived rules.) We will define a correctly formed natural deduction proof for \FOL\ to be a structured sequence of sentences of \FOL\ such that each sentence is either an assumption or follows from the previous sentences by any of the \TFL\ rules \emph{or} by any of the new rules governing the quantifiers and identity that we will introduce in this chapter.\footnote{Though there is a category `formulae which are not sentences' in \FOL, no member of this class will ever appear in any correctly formed proof.} 
+
+The notion of provability of \meta{A} from undischarged assumptions $\meta{C}_{1},…,\meta{C}_{n}$ was introduced for \TFL\ in §\ref{s:ProofTheoreticConcepts}. The rules for \FOL\ are different, but the earlier definitions go through unchanged, once we remember that the notion of proof in \FOL\ means involves a sequence of \FOL\ sentences justified by the rules for \TFL\ \emph{and} those for \FOL. 
+
+So in what follows I will make use of the single turnstile `$\proves$' to mean that there is a correctly formed proof using only the rules of \TFL\ and \FOL. (And once we introduce the identity rules in §\ref{ch.identity}, I will tacitly assume that proofs can make use of those rules too in justifying a claim using `$\proves$'.) 
+
+Likewise, the notions of theoremhood, provable equivalence, and joint contrariness all carry over their definitions, because they are defined in terms of the single turnstile.
+
+
+Some proofs in \FOL\ don't need any new rules. Consider this: $$\enot(\forall x Px \eor \exists y Py) \ttherefore \enot \forall x Px.$$ \begin{proof}
 	\hypo{a}{\enot(\forall x Px \eor \exists y Py)}
 	\open
 	\hypo{b}{\forall x Px}
@@ -15,7 +26,7 @@ Some arguments in \FOL\ don't need any new rules. Consider this: $$\enot(\forall
 	\have{ar}{\enot(\forall x Px \eor \exists y Py)}\by{R}{a}
 	\close
 	\have{c}{\enot \forall x Px}\ni{b-e,b-ar}
-\end{proof}
+\end{proof} The sentences on each line are \FOL\ sentences that are not sentences of \TFL, but the main connectives involved are just those governed by the rules we already introduced to handle \TFL\ proofs.
 
 However, not every \FOL\ sentence has a \TFL\ connective as its main connective. So we will also need some new basic rules to govern the quantifiers, and to govern the identity sign, to deal with those sentences where the main connective is a quantifier and where the sentence is an identity predication.
 
@@ -60,7 +71,7 @@ Here is an example of the rule in action. Suppose we wanted to show that $\foral
 	\have{d}{Raa \eif Rab}\Ae{c}
 	\have{e}{Rab}\ce{d,b}
 \end{proof}
-
+Here on line 3 we substitute the previously used name `$a$' for the variable `$x$' in `$\forall y (Rxx \eif Rxy)$'; and then on line 4 we substitute the new name `$b$' for the variable `$y$' in `$Raa \eif Ray$'. The rule of universal elimination doesn't discriminate between new and old names.
 
 
 \section{Existential Introduction}\label{exint}
@@ -85,7 +96,7 @@ We take our cue from the $\forall$E rule. This rule says: take a sentence $\fora
 		\have[\ ]{}{\vdots}
 			\have[\ ]{a}{\exists \meta{x}\meta{A}} \Ei{c}
 	\end{proof}
-} So really we should think that the proof just above should be thought of as concluding $\exists x Rxxd$ from `$Rxxd$'$\subs{a}{x}$.
+} So really we should think that the proof just above should be thought of as concluding $\exists x Rxxd$ from `$Rxxd$'$\subs{a}{x}$ (i.e., `$Raad$').
 
 If we have this rule, we cannot provide a proof of the invalid argument. For `$\exists x Rxa$' is not a substitution instance of `$\exists x \exists x Rxx$' – both instances of `$x$' in `$Rxx$' are bound by the second existential quantifier, so neither is free to be substituted. So the premise is not of the right form for the rule of $\exists$I to apply. 
 
@@ -108,7 +119,7 @@ But this is banned:
 	\have{e}{\exists x \exists x Rxxd}\by{naughtily attempting to invoke $\exists$I}{d}
 \end{proof} This is because `$\exists x Rxad$' is not a substitution instance of `$\exists x \exists x Rxxd$', since (again) both occurrences of `$x$' in `$Rxxd$' are already bound and so not available for free substitution.
 
-Here is an example which shows our two proof rules in action, a proof that this argument is correct: $$\forall x \forall y (Rxy \eand Ryx) \ttherefore \exists x Rxx,$$ \begin{proof}
+Here is an example which shows our two proof rules in action, a proof showing that $$\forall x \forall y (Rxy \eand Ryx) \proves \exists x Rxx\text{:}$$ \begin{proof}
 	\hypo{a}{\forall x \forall y (Rxy \eand Ryx)}
 	\have{b}{\forall y (Ray \eand Rya)}\Ae{a}
 	\have{c}{(Raa \eand Raa)}\Ae{b}
@@ -130,6 +141,20 @@ For another example, consider this proof of `$\exists x (Px \eor \enot Px)$' fro
 	\have{f}{(Pd \eor \enot Pd)}\ne{a-e,a-arr}
 	\have{con}{\exists x (Px \eor \enot Px)}\Ei{f}
 \end{proof}
+One final example, a proof that $\forall x \forall y (Rxy \eif Ryx) \proves \forall x (\forall y Rxy \eif \exists y Ryx)$:
+ \begin{proof}
+        \hypo{a}{\forall x \forall y (Rxy \eif Ryx)}
+        \have{b}{\forall y (Ray \eif Rya)}\Ae{a}
+        \have{c}{(Rab \eif Rba)}\Ae{b}
+        \open
+            \hypo{d}{\forall y Ray}
+            \have{e}{Rab}\Ae{d} 
+            \have{f}{Rba}\ce{c,e} 
+            \have{g}{\exists y Rya}\Ei{f} 
+            \close
+        \have{h}{(\forall y Ray \to \exists y Rya)}\ci{d-g}
+        \have{i}{\forall x(\forall y Rxy \to \exists y Ryx)}\Ai{h}
+    \end{proof}
 
 
 \section{Empty Domains}
@@ -139,7 +164,7 @@ The following proof combines our two new rules for quantifiers:
 		\have{in}{Fa}\Ae{a}
 		\have{e}{\exists x Fx}\Ei{in}
 	\end{proof}
-Could this be a bad proof? If anything exists at all, then certainly we can infer that something is F, from the fact that everything is F. But what if \emph{nothing} exists at all? Then it is surely vacuously true that everything is F; however, it does not following that something is F, for there is nothing to \emph{be} F. So if we claim that, as a matter of logic alone, `$\exists x Fx$' follows from `$\forall x Fx$', then we are claiming that, as a matter of \emph{logic alone}, there is something rather than nothing. This might strike us as a bit odd.
+Could this be a bad proof? If anything exists at all, then certainly we can infer that something is F, from the fact that everything is F. But what if \emph{nothing} exists at all? Then it is surely vacuously true that everything is F; however, it ought not follow that something is F, for there is nothing to \emph{be} F. So if we claim that, as a matter of logic alone, `$\exists x Fx$' follows from `$\forall x Fx$', then we are claiming that, as a matter of \emph{logic alone}, there is something rather than nothing. This might strike us as a bit odd.
 
 Actually, we are already committed to this oddity. In §\ref{s:FOLBuildingBlocks}, we stipulated that domains in \FOL\ must have at least one member. We then defined a logical truth (of \FOL) as a sentence which is true in every interpretation. Since `$\exists x\ x=x$' will be true in every interpretation, this \emph{also} had the effect of stipulating that it is a matter of logic that there is something rather than nothing.
 
@@ -153,7 +178,17 @@ If we refuse to cheat, though, then we pay a high cost. Here are three things th
 	\end{itemize}
 If we get what we want on all three counts, then we have to countenance that $\forall xFx \proves \exists x Fx$. So, if we get what we want on all three counts, the proof system alone tells us that there is something rather than nothing. And if we refuse to accept that, then we have to surrender one of the three things that we want to hold on to!
 
-Before we start thinking about which to surrender,\footnote{Many will opt for restricting $\exists$I. If we permit an empty domain, we will also need `empty names' – names without a referent. When the name \meta{c} is empty, it seems problematic to conclude from `$\meta{c}$ is F' that there is something which is F. (Does `Santa Claus drives a flying sleigh' entail `Someone drives a flying sleigh'?) But empty names are not cost-free; understanding how a name that doesn't name anything can have any meaning at all has vexed many philosophers and linguists.} we might want to ask how \emph{much} of a cheat this is. Granted, it may make it harder to engage in theological debates about why there is something rather than nothing. But the rest of the time, we will get along just fine. So maybe we should just regard our proof system (and \FOL, more generally) as having a very slightly limited purview. If we ever want to allow for the possibility of \emph{nothing}, then we shall have to cast around for a more complicated proof system. But for as long as we are content to ignore that possibility, our proof system is perfectly in order. (As, similarly, is the stipulation that every domain must contain at least one object.)
+In fact the choice is even starker. Consider this proof: \begin{proof}
+	\open
+	\hypo{fa}{Fa}
+	\have{far}{Fa}\by{R}{fa}
+	\close
+	\have{fafa}{(Fa \eif Fa)}\ci{fa-far}
+	\have{efx}{\exists x (Fx \eif Fx)}\Ei{fafa}
+\end{proof} This proof uses only the obvious rule of conditional introduction, and our existential introduction rule. It terminates in a claim that a certain thing exists: a thing that is $F$ if it is $F$, and has no undischarged assumptions. Again the existence of something is a theorem of our logic. The real source of the existential commitment here seems to be the use of the name `$a$', because our rules implicitly assume that every name has a referent, and hence as soon as you use a name you assume that there is something in the domain for the name to latch on to.
+
+Before we start thinking about which to surrender,\footnote{In light of the second proof, many will opt for restricting $\exists$I. If we permit an empty domain, we will also need `empty names' – names without a referent. When the name \meta{c} is empty, it seems problematic to conclude from `$\meta{c}$ is F' that there is something which is F. (Does `Santa Claus drives a flying sleigh' entail `Someone drives a flying sleigh'?) But empty names are not cost-free; understanding how a name that doesn't name anything can have any meaning at all has vexed many philosophers and linguists.} we might want to ask how \emph{much} of a cheat this is. Granted, it may make it harder to engage in theological debates about why there is something rather than nothing. But the rest of the time, we will get along just fine. So maybe we should just regard our proof system (and \FOL, more generally) as having a very slightly limited purview. If we ever want to allow for the possibility of \emph{nothing}, then we shall have to cast around for a more complicated proof system. But for as long as we are content to ignore that possibility, our proof system is perfectly in order. (As, similarly, is the stipulation that every domain must contain at least one object.)
+
 
 
 \section{Universal Introduction}\label{uniint}
@@ -183,11 +218,32 @@ The crucial thought here is that `$a$' was just some \emph{arbitrary} name. Ther
 \end{proof}
 	\meta{c} must not occur in any undischarged assumption, or elsewhere in \meta{A}}
 
-A crucial aspect of this rule, though, is bound up in the accompanying constraint. In English, a name like `Sylvester' can play two roles: it can be introduced as a name for a specific thing (`let me dub thee Sylvester'!), or as an \emph{arbitrary name}, introduced by this sort of stipulation: \emph{let `Sylvester' name some arbitrarily chosen man}. The name doesn't tell us, as it subsequently appears, whether it was introduced in one way or the other. But if it was introduced as an arbitrary name, then any conclusions we draw about this Sylvester aren't really dependent on the particular arbitrarily chosen referent – they all depend rather on the stipulation used in introducing the name, and so (specifically) they will all be consequences of the only fact we know for sure about this Sylvester, that he is male. If all men are mortal, then an arbitrarily chosen man, whom we temporarily call `Sylvester', is mortal. If Sylvester is mortal, then there is a date he will die. But since he was selected arbitrarily, without reference to any further particulars of his life, then for any man, there exists a date he will die. And that is appropriate reasoning from a universal generalisation, to another generalisation, via claims about a specific but arbitrarily chosen person.\footnote{The details about how this sort of arbitrary reference works are interesting. A controversial but nevertheless attractive view of how it might work is  Wylie Breckenridge and Ofra Magidor (2012) `Arbitrary Reference', \emph{Philosophical Studies} \textbf{158}, pp.\ 377–400.}
+A crucial aspect of this rule, though, is bound up in the accompanying constraint. In English, a name like `Sylvester' can play two roles: it can be introduced as a name for a specific thing (`let me dub thee Sylvester'!), or as an \emph{arbitrary name}, introduced by this sort of stipulation: \emph{let `Sylvester' name some arbitrarily chosen man}. The name doesn't tell us, when it subsequently appears, whether it was introduced in one way or the other. But if it was introduced as an arbitrary name, then any conclusions we draw about this Sylvester aren't really dependent on the particular arbitrarily chosen referent – they all depend rather on the stipulation used in introducing the name, and so (specifically) they will all be consequences of the only fact we know for sure about this Sylvester, that he is male. If all men are mortal, then an arbitrarily chosen man, whom we temporarily call `Sylvester', is mortal. If Sylvester is mortal, then there is a date he will die. But since he was selected arbitrarily, without reference to any further particulars of his life, then for any man, there exists a date he will die. And that is appropriate reasoning from a universal generalisation, to another generalisation, via claims about a specific but arbitrarily chosen person.\footnote{The details about how this sort of arbitrary reference works are interesting. A controversial but nevertheless attractive view of how it might work is  Wylie Breckenridge and Ofra Magidor (2012) `Arbitrary Reference', \emph{Philosophical Studies} \textbf{158}, pp.\ 377–400.}
 
-We don't have stipulations to introduce a name as an arbitrary name in \FOL. But we do have a way of ensuring that the name has no prior associations other than those linked to a prior universal generalisation, if we insist that,  when the name is about to be eliminated from the proof, no assumption about what that name denotes is being relied on. That way, we can know that however it was introduced to the proof, it was not done in a way that involved making specific assumptions about whatever the name arbitrarily picks out. The simplest way for this to happen is that the name was introduced by an application of $\forall$E, as an arbitrary name in the standard sense. But there are other ways too.  
+An informal example of this sort of reasoning from arbitrary names is this: \begin{quote}
+	Consider an arbitrary somebody who travelled from London to Munich in 2016. Call them J Doe. \begin{itemize}
+		\item  If J Doe took the train, then they had to go via Paris, and that leg of the journey alone takes 3 hours.
+		\item  If J Doe flew, then they would have spent at least an hour in airport transfers at each end, even setting aside the flight time itself.
+		\item The other options – driving, walking, etc., – are all even slower.
+	\end{itemize}
+So J Doe’s journey took over two hours in every possible case. Therefore –
+since J Doe is an arbitrary person – \emph{every} traveller’s journey from London to Munich in 2016 took over two hours.
+\end{quote}
 
- This constraint ensures that we are always reasoning at a sufficiently general level. To see the constraint in action, consider this terrible argument:
+
+We don't have stipulations like the above to introduce a name as an arbitrary name in \FOL. But we do have a way of ensuring that the name has no prior associations other than those linked to a prior universal generalisation, if we insist that,  when the name is about to be eliminated from the proof, no assumption about what that name denotes is being relied on. That way, we can know that however it was introduced to the proof, it was not done in a way that involved making specific assumptions about whatever the name arbitrarily picks out. \factoidbox{If you can conclude something about a named object that doesn’t involve making any assumptions about it \emph{other than assumptions which we are making more generally}, then you can conclude that same something about everything.}
+
+The simplest way for ensure that a name is not subject to any specific assumptions is if the name was introduced by an application of $\forall$E, as an arbitrary name in the standard sense. But there are other ways too. In general what we need is that the name not occur in the range of any assumption which uses the name. If the name has been introduced without making any assumptions about what it denotes, then we are not relying on any special features of what the name happens to denote when we conclude that if this arbitrary thing is F, then everything is F. 
+
+Consider the following proof to see how this works in action. \begin{proof}
+    	\hypo{a}{\forall x{(Ax \wedge Bx)}}
+    	\have{Aa}{Aa\wedge Ba}\Ae{a}
+    	\have{aa}{Aa}\ae{Aa}
+    	\have{fa}{\forall x Ax}\Ai{aa}
+    \end{proof}
+The crucial step is applying the $\forall$I rule  to the name `$a$' on the last line. While the name `$a$' does appear on lines 2 and 3, it doesn't occur in the assumption – it was introduced on line 2 as an \emph{arbitrary instance} of the universal assuption. 
+
+This constraint ensures that we are always reasoning at a sufficiently general level. To see the importance of the constraint in action, consider this terrible argument:
 	\begin{quote}
 		Everyone loves Kylie Minogue; therefore everyone loves themselves.
 	\end{quote}
@@ -241,9 +297,13 @@ Suppose we know that \emph{something} is F. The problem is that simply knowing t
 
 Suppose we know that something is F, and that everything which is F is G. In (almost) natural English, we might reason thus:
 	\begin{quote}
-		Since something is F, there is some particular thing which is an F. We do not know anything about it, other than that it's an F, but for convenience, let's call it `obbie'. So: obbie is F. Since everything which is F is G, it follows that obbie is G. But since obbie is G, it follows that something is G. And nothing depended on which object, exactly, obbie was. So, something is G.
+		Since something is F, there is some particular thing which is an F. We do not know anything about it, other than that it's an F, but for convenience, let's call it `Obbie'. So: Obbie is F. Since everything which is F is G, it follows that Obbie is G. But since Obbie is G, it follows that something is G. And nothing depended on which object, exactly, Obbie was – no matter which F we picked for `Obbie' to denote, it would have been G. So, as long as something is F, then something is G.
 	\end{quote}
-We might try to capture this reasoning pattern in a proof as follows:
+This is a kind of generic \emph{proof by cases} – a generalisation of the rule of disjunction elimination. This is because an existential claim is actually kind of like a generalised disjunction: $\exists \meta{xF}$ is true iff either the first thing in the domain is \meta{F}, or the second thing in the domain is \meta{F}, or…. Of course it cannot \emph{really} be a disjunction, since in large domains there is no way to even enumerate all the individuals, let alone construct an infinite sentence disjoining the claims that each of them is \meta{F}.
+
+Rather than attempting to push the analogy with proof by cases too far, and attempting to enumerate all possible cases of F, we can make use of the device of arbitrary names again to reason \emph{generically} about all those cases without having to enumerate them. Just like a proof by cases, we eliminate our existential assumption by showing that some one thing follows from each potential case, which here involves showing that thing follows from the generic hypothesis about an arbitrary F. 
+
+We try to capture this reasoning pattern in a proof as follows:
 \begin{proof}
 	\hypo{es}{\exists x Fx}
 	\open\hypo{ast}{\forall x(Fx \eif Gx)}
@@ -301,7 +361,21 @@ The last line of the proof is not allowed. The name that we used in our substitu
 \end{proof}
 The last line of the proof would still not be allowed. For the name that we used in our substitution instance for `$\exists x \enot Lx$', namely `$b$', occurs in an undischarged assumption, namely line 1. 
 
-The moral of the story is this. \factoidbox{If you want to squeeze information out of an existentially quantified claim $\exists\meta{x}\meta{A}$, choose a \emph{new} name, never before used in the proof, to substitute for the variable in \meta{A}.} That way, you can guarantee that you meet all the constraints on the rule for $\exists$E.
+The moral of the story is this. \factoidbox{If you want to squeeze information out of an existentially quantified claim $\exists\meta{x}\meta{A}$, choose a \emph{new} name, never before used in the proof, to substitute for the variable in \meta{A}.} That way, you can guarantee that you meet all the constraints on the rule for $\exists$E. A new name functions like an arbitrary name – it carries no prior baggage with it, apart from what we stipulate or assume to hold of it. 
+
+Here's an example using this newly introduced rule: $\exists x (Fx \eand Gx) \proves (\exists x Fx \eand \exists x Gx)$: 
+\begin{proof}
+    	\hypo{e}{\exists x (Fx \eand Gx)}
+    	\open
+    	\hypo{ei}{Fa \eand Ga}
+    	\have{fa}{Fa}
+    	\have{f}{\exists x Fx}\Ei{fa}
+    	\have{gb}{Ga}
+    	\have{i}{\exists x Gx}\Ei{gb}
+    	\have{d}{\exists x Fx \eand \exists x Gx}\ai{f,i}
+    	\close
+    	\have{con}{\exists x Fx \eand \exists x Gx}\Ee{e,ei-d}
+    \end{proof} The use of $\exists$E on the last line relies on the fact that we've gotten rid of any occurence of the new arbitrary name by the second last line. We have derived something that is generic from the generic existential assumption, so it is safe to conclude that generic claim holds regardless of the identity of the individual that makes the existential claim true.
 
 An argument that makes use of both patterns of arbitrary reasoning is this example due to Breckenridge and Magidor: `from the premise that there is someone who loves everyone to the conclusion that everyone is such that someone loves them'. Here is a proof in our system, letting `$Lxy$' symbolise `\gap{1} loves \gap{2}', letting `$h$' symbolise the arbitrarily chosen name `Hiccup' and letting `$a$' symbolise the arbitrarily chosen name `Astrid': \begin{proof}
 	\hypo{a}{\exists x \forall y Lxy}
@@ -313,6 +387,8 @@ An argument that makes use of both patterns of arbitrary reasoning is this examp
 	\close
 	\have{c}{\forall y \exists x Lxy}\Ee{a,b-d}
 \end{proof} At line 3, both our arbitrary names are in play – $h$ was newly introduced to the proof in line 2 as the arbitrary person Hiccup who witnesses the truth of `$\exists x \forall y Lxy$', and `$a$' at line 3 as an arbitrary person Astrid beloved by Hiccup. We can apply $\exists$I without restriction at line 4, which takes the name `$h$' out of the picture – we no longer rely on the specific instance chosen, since we are back at generalities about someone who loves everyone, being such that they also love the arbitrarily chosen someone Astrid. So we can safely apply $\forall$I at line 5, since the name `$a$' appears in no assumption nor in `$\forall y\exists x Lxy$'. But now we have at line 5 a claim that doesn't involve the arbitrary name `$h$' either, which was newly chosen to not be in any undischarged assumption or in $\exists x \forall y Lxy$. So we can safely say that the name Hiccup was just arbitrary, and nothing in the proof of `$\forall y\exists x Lxy$' depended on it, so we can discharge the specific assumption about $h$ that was used in the course of that proof and nevertheless retain our entitled ment to `$\forall y\exists x Lxy$'. 
+
+
 
 \section{The Barber}\label{barber}
 
@@ -369,20 +445,14 @@ You may also offer arguments from intepretations to the effect that our other qu
 
 So we are again comforted: our proof rules can never lead us from true assumptions to false claims, if correctly applied.
 
-\section{Proof-Theoretic Concepts in \FOL}
 
-The notion of provability of \meta{A} from undischarged assumptions $\meta{C}_{1},…,\meta{C}_{n}$ was introduced for \TFL\ in §\ref{s:ProofTheoreticConcepts}. The rules for \FOL\ are different, but the earlier definitions go through unchanged, once we remember that the notion of proof in \FOL\ means: \emph{provable using the rules for \TFL\ and those for \FOL}. 
-
-So in what follows I will make use of the single turnstile `$\proves$' to mean that there is a correctly formed proof using only the rules of \TFL\ and \FOL. (And once we introduce the identity rules in §\ref{ch.identity}, I will tacitly assume that proofs can make use of those rules too in justifying a claim using `$\proves$'.) 
-
-Likewise, the notions of theoremhood, provable equivalence, and joint contrariness all carry over their definitions, because they are defined in terms of the single turnstile.
 
 \keyideas{
-	\item We augment our natural deduction proof system for \TFL\ by adding rules governing quantifiers to go partway towards a natural deduction system for \FOL.
+	\item We augment our natural deduction proof system for \TFL\ by allowing \FOL\ sentences to occur in proofs, and adding rules governing quantifiers to go partway towards a natural deduction system for \FOL.
+	\item The notation `$\proves$' for provability carries over from its earlier use in \TFL\ unchanged, once we understand that a proof can now use the new rules for the new logical connectives in \FOL.
 	\item The rules for  $\forall$E and $\exists$I are straightforward and can be applied regardless of which names we deploy.
 	\item But the other quantifier rules $\forall$I and $\exists$E  contain some important restrictions on which names we can use. These restrictions are motivated by considerations about arbitrary reference which inform us when we can introduce `dummy names' in the course of our proofs and what we can do with them.
 	\item Our proof rules match the interpretation of \FOL\ we have given – they will not permit us to say that some claim is provable from some assumptions when that claim isn't entailed by those assumptions. 
-	\item The notation `$\proves$' for provability carries over from its earlier use in \TFL\ unchanged, once we understand that a proof can now use the new rules for the new logical connectives in \FOL.
 }
 
 
@@ -425,7 +495,7 @@ The following three `proofs' are \emph{incorrect}. Explain why they are incorrec
 	\have{con}{\enot\exists y \enot(Ty \eor \enot Ty)}\ni{a-c1}
 \end{proof}
 \end{enumerate}
-\newpage
+
 \problempart 
 \label{pr.justifyFOLproof}
 The following three proofs are missing their commentaries (rule and line numbers). Add them, to turn them into bona fide proofs. 
@@ -501,7 +571,7 @@ Aristotle and his successors identified other syllogistic forms which depended u
 	\item \textbf{Fesapo.} Something is G. No F is G. All G are H. So: Some H is not F.
 	\item \textbf{Bamalip.} Something is F. All F are G. All G are H. So: Some H are F.
 \end{itemize}
-
+\newpage
 \problempart
 \label{pr.someFOLproofs}
 Provide a proof of each claim.
@@ -732,14 +802,22 @@ Recall that a relation is reflexive iff it holds between anything in the domain 
 \begin{proof}
 	\have{a}{a=a}\idi{}
 	\have{b}{\forall x x=x}\Ai{a}
-\end{proof} This seems like magic! But note that the first line is not an assumption (there is no horizontal line), and hence not an undischarged assumption. So the constant `$a$' appears in no undischarged assumption or anywhere in the proof other than in `$x=x$'$\subs{a}{x}$, so the conclusion `$\forall x x=x$' follows by legitimate application of the $\forall$I rule.
+\end{proof} This seems like magic! But note that the first line is not an assumption (there is no horizontal line), and hence not an undischarged assumption. So the constant `$a$' appears in no undischarged assumption or anywhere in the proof other than in `$x=x$'$\subs{a}{x}$, so the conclusion `$\forall x x=x$' follows by legitimate application of the $\forall$I rule. So we've established the reflexivity of identity: $\proves \forall x x=x$.
+
+This proof can seem equally magic: \begin{proof}
+	\have{a}{a=a}\idi{}
+	\have{b}{\exists x x=x}\Ei{a}
+\end{proof} Again we've shown that there is something rather than nothing on the basis of no assumptions. Again, of course, it is the implicit assumption that every name in the proof refers that does the heavy lifting here.
 
 
 \section{Identity Elimination} % (fold)
 \label{idelim}
 
 
-Our elimination rule is more fun. If you have established `$a=b$', then anything that is true of the object named by `$a$' must also be true of the object named by `$b$', since it just is the object named by `$a$'. So for any sentence with `$a$' in it, given the prior claim that `$a=b$', you can replace some or all of the occurrences of `$a$' with `$b$' and produce an equivalent sentence. For example, from `$Raa$' and `$a = b$', you are justified in inferring `$Rab$', `$Rba$' or `$Rbb$'. More generally:
+Our elimination rule is more fun. If you have established `$a=b$', then anything that is true of the object named by `$a$' must also be true of the object named by `$b$', since it just is the object named by `$a$'. \begin{quote}
+	Superman is strong. But Superman is actually Clark Kent.\\
+So, Clark Kent is strong.
+\end{quote} So for any sentence with `$a$' in it, given the prior claim that `$a=b$', you can replace some or all of the occurrences of `$a$' with `$b$' and produce an equivalent sentence. For example, from `$Raa$' and `$a = b$', you are justified in inferring `$Rab$', `$Rba$' or `$Rbb$'. More generally:
 \factoidbox{\begin{proof}
 	\have[m]{e}{\meta{a}=\meta{b}}
 	\have[n]{a}{\meta{A}\subs{\meta{a}}{\meta{x}}}
@@ -749,16 +827,26 @@ Our elimination rule is more fun. If you have established `$a=b$', then anything
 
 Note that nothing in the rule forbids the constant $\meta{b}$ from occurring in \meta{A}. So this is a perfectly good instance of the rule: \begin{proof}
 	\hypo{ab}{a=b}
-	\have{a}{Rab}
+	\hypo{a}{Rab}
 	\have{b}{Rbb}\ide{ab,a}
 \end{proof} Here, `$Rab$' is `$Rxb$'$\subs{a}{x}$, and the conclusion `$Rbb$' is `$Rxb$'$\subs{b}{x}$, which conforms to the rule. This formulation allows us, in effect, to replace some-but-not-all occurrences of a name in a sentence by a co-referring name.
-This rule is sometimes called \emph{Leibniz's Law} – though recall §\ref{lli}, where we used that name for a claim about the interpretation of `$=$'.
+This rule is sometimes called \emph{Leibniz's Law} – though recall §\ref{lli}, where we used that name for a claim about the interpretation of `$=$'. Here's a slightly more complex example of the rule in action: \begin{proof}
+	\hypo{ax}{\forall x x = d}
+	\open
+	\hypo{fa}{Fd}
+	\have{ba}{j=d}\Ae{ax}
+	\have{aa}{j=j}\idi{}
+	\have{ab}{d=j}\by{=E}{ba,aa}
+	\have{fa}{Fj}\ide{ab,fa}
+	\have{af}{\forall x Fx}\Ai{fa}
+\end{proof} This proof has two features worth commenting on. First, the name `$j$' occurs on the second last line, but no undischarged assumption uses it, so it is correct to apply $\forall$I on the last line. 
 
+The second thing to note is the curious sequence of steps at lines 3–5. We need to do that because the $=$E rule takes an identity statement of the form `$\meta{a}=\meta{b}$', and a sentence containing `$\meta{a}$' – the name on the \emph{left} of the identity – and generates a sentence containing `$\meta{b}$', the name of the right of the identity. But in our proof we ended up with `$j=d$' and `$Fd$' – strictly speaking, the identity rule doesn't apply to these sentences, because that would be to substitute the name on the right of the identity into `$Fd$'. The sequence of steps at lines 3–5 allows us to `flip' an identity. We start with `$j=d$' and we want to substitute one occurence of `$j$' in `$j=j$' for `$d$'. That is allowed, because `$j=j$' is the same as `$x=j\subs{j}{x}$'. That yields `$x=j\subs{d}{x}$', or `$d=j$' on line 5, which is just what we need to yield line 6.
 
 To see the rules in action, we shall prove some quick results. Recall that a relation is symmetric iff whenever it holds between x and y in one direction, it holds also between y and x in the other direction (§\ref{graph}). This condition can be expressed as a sentence of \FOL: 
 
 
- So first, we shall prove that identity is symmetric, a result we already noted on semantic grounds in §\ref{lli}:
+ So first, we shall prove that identity is symmetric, a result we already noted on semantic grounds in §§\ref{lli} and \ref{binary}. That is, $\proves \forall x \forall y (x = y \eif y = x)$:
 \begin{proof}
 	\open
 		\hypo{ab}{a = b}
@@ -769,7 +857,7 @@ To see the rules in action, we shall prove some quick results. Recall that a rel
 	\have{ayya}{\forall y (a = y \eif y = a)}\Ai{abba}
 	\have{xyyx}{\forall x \forall y (x = y \eif y = x)}\Ai{ayya}
 \end{proof}
-Line 2 is just `$x=a$'$\subs{a}{x}$, as well as being of the right form for $=$I, and line 3 is just $x=a$'$\subs{b}{x}$, so the move from 2 to 3 is in conformity with the $=$E rule given the opening assumption.
+Line 2 is just `$x=a$'$\subs{a}{x}$, as well as being of the right form for $=$I, and line 3 is just $x=a$'$\subs{b}{x}$, so the move from 2 to 3 is in conformity with the $=$E rule given the opening assumption. This is the same sequence of moves we saw in the proof above, in a more general setting,
 
 Having noted the symmetry of identity, note that we can use this to establish the following schematic proof that allows us to use $\meta{a}=\meta{b}$ to also move from a claim about $\meta{b}$ to a claim about $\meta{a}$, not just \emph{vice versa} as in our $=$E rule.:
 \begin{proof}
@@ -778,16 +866,16 @@ Having noted the symmetry of identity, note that we can use this to establish th
 	\have{e}{\meta{b}=\meta{a}}\ide{j,i}
 	\have[n]{a}{\meta{A}\subs{\meta{b}}{\meta{x}}}
 	\have[\ ]{ea1}{\meta{A}\subs{\meta{a}}{\meta{x}}} \ide{e,a}
-\end{proof} This schematic proof actually justifies this derived rule, to save time:\label{id.es} \factoidbox{
+\end{proof} This schematic proof justifies this derived rule, to save time:\label{id.es} \factoidbox{
 	\begin{proof}
 		\have[m]{e}{\meta{a}=\meta{b}}
 	\have[n]{a}{\meta{A}\subs{\meta{b}}{\meta{x}}}
 	\have[\ ]{ea1}{\meta{A}\subs{\meta{a}}{\meta{x}}} \by{=ES}{e,a}
 	\end{proof}
-}
+} You can use either just the original identity elimination rule, or use it in combination with this derived rule, in your proofs.
 
 
-A relation is  \define{transitive} iff whenever it holds between x and y and between y and z, it also holds between x and z. (In the directed graph representation of the relation introduced in §\ref{graph}, if there is a path along arrows going from node a to node b via a third node, there is also a direct arrow from a to b.) Second, we shall prove that identity is \emph{transitive}:
+A relation is transitive (§\ref{binary}) iff whenever it holds between x and y and between y and z, it also holds between x and z. (In the directed graph representation of the relation introduced in §\ref{graph}, if there is a path along arrows going from node a to node b via a third node, there is also a direct arrow from a to b.) Second, we shall prove that identity is transitive, that $\proves \forall x \forall y \forall z((x = y \eand y = z) \eif x = z)$.
 \begin{proof}
 	\open
 		\hypo{abc}{a = b \eand b = c}
@@ -802,7 +890,7 @@ A relation is  \define{transitive} iff whenever it holds between x and y and bet
 \end{proof}
 We obtain line 4 by replacing `$b$' in line 3 with `$c$'; this is justified given line 2, `$b=c$'. We could alternatively have used the derived rule =ES to replace `$b$' in line 2 with `$a$', justified by line 3, `$a=b$'. 
 
-A relation that is reflexive, symmetric, and transitive is known as an \define{equivalence relation}. So we've proved that identity is an equivalence relation. 
+Recall from §\ref{binary} that a relation that is reflexive, symmetric, and transitive is an equivalence relation. So we've formally proved that identity is an equivalence relation. We can also give formal proofs of other features of identity, such as a proof that identity is serial.
 
 \subsection{Definite Descriptions in Proofs}
 
@@ -914,7 +1002,7 @@ Once you have internalised this point, continue reading.
 
 Although our semantic and proof-theoretic notions are different, there is a deep connection between them. To explain this connection, I shall start by considering the relationship between logical truths and theorems.
 
-To show that a sentence is a theorem, you need only perform a proof. Granted, it may be hard to produce a twenty line proof, but it is not so hard to check each line of the proof and confirm that it is legitimate; and if each line of the proof individually is legitimate, then the whole proof is legitimate. Showing that a sentence is a logical truth, though, requires reasoning about all possible interpretations. Given a choice between showing that a sentence is a theorem and showing that it is a logical truth, it would be easier to show that it is a theorem.
+To show that a sentence is a theorem, you need only construct a proof. Granted, it may be hard to produce a twenty line proof, but it is not so hard to check each line of the proof and confirm that it is legitimate; and if each line of the proof individually is legitimate, then the whole proof is legitimate. Showing that a sentence is a logical truth, though, requires reasoning about all possible interpretations. Given a choice between showing that a sentence is a theorem and showing that it is a logical truth, it would be easier to show that it is a theorem.
 
 Contrawise, to show that a sentence is \emph{not} a theorem is hard. We would need to reason about all (possible) proofs. That is very difficult. But to show that a sentence is not a logical truth, you need only construct an interpretation in which the sentence is false. Granted, it may be hard to come up with the interpretation; but once you have done so, it is relatively straightforward to check what truth value it assigns to a sentence. Given a choice between showing that a sentence is not a theorem and showing that it is not a logical truth, it would be easier to show that it is not a logical truth.
 
@@ -922,31 +1010,26 @@ Fortunately, \emph{a sentence is a theorem if and only if it is a logical truth}
 
 More generally, we have the following powerful result:\factoidbox{
 $$\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n} \proves\meta{B} \textbf{ iff }\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n} \entails\meta{B}.$$}
-This shows that, whilst provability and entailment are \emph{different} notions, they are extensionally equivalent, holding between just the same sentences in our languages. As such:
+The left-to-right direction of this result, that provable argument really is a valid entailment, is known as \define{soundness} (different from soundness of an argument from §\ref{s:sound}). The right-to-left direction, that every entailment has a proof, is known as \define{completeness}. 
+
+
+Soundness and completeness together show that, whilst provability and entailment are \emph{different} notions, they are extensionally equivalent, holding between just the same sentences in our languages. As such:
 	\begin{itemize}
 		\item An argument is \emph{valid} iff \emph{the conclusion can be proved from the premises}.
 		\item Two sentences are \emph{logically equivalent} iff they are \emph{provably equivalent}.
 		\item Sentences are \emph{jointly consistent} iff they are \emph{not jointly contrary}.
 	\end{itemize}
-For this reason, you can pick and choose when to think in terms of proofs and when to think in terms of valuations/interpretations, doing whichever is easier for a given task. The table on the next page summarises which is (usually) easier.
+For this reason, you can pick and choose when to think in terms of proofs and when to think in terms of valuations/interpretations, doing whichever is easier for a given task. Table \ref{sctable} summarises which is (usually) easier.
 
 It is intuitive that provability and semantic entailment should agree. But – let me repeat this – do not be fooled by the similarity of the symbols `$\entails$' and `$\proves$'. These two symbols have very different meanings. And the fact that provability and semantic entailment agree is not an easy result to come by. 
 
-We showed part of this result along the way, actually. All those little observations I made about how our proof rules were good each took the form of an argument that whenever $\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n} \proves\meta{B}$, then also $\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n} \entails\meta{B}$. This is sometimes known as the \define{soundness} of our proof system, that whenever you can prove something, there is a corresponding valid argument.
+We showed part of this result along the way, actually. All those little observations I made about how our proof rules were good each took the form of an argument that whenever $\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n} \proves\meta{B}$, then also $\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n} \entails\meta{B}$. So in effect we've already established the soundness of our natural deduction proof system, when we justified those rules in terms of the existing understanding of the semantics we possess.
 
 
 
+\begin{table}
 
-
-\keyideas{
-	\item The two turnstiles are distinct concepts. But they coincide: every provable argument corresponds to an entailment, and \emph{vice versa}.
-	\item This means that we can pick and choose our methods to suit our task. If we want to show an entailment, we can sometimes most effectively proceed by providing a proof. And if we want to show something isn't provable, it can be more efficient to provide a countermodel.
-}
-
-
-\begin{sidewaystable}
-\begin{center}
-\begin{tabular*}{\textwidth}{p{.25\textheight}p{.325\textheight}p{.325\textheight}}
+\begin{tabular}[c]{p{.2\textwidth}p{.36\textwidth}p{.34\textwidth}}
  & \textbf{Yes}  & \textbf{No}\\
 \\
 Is \meta{A} a \textbf{logical truth}? 
@@ -971,15 +1054,32 @@ Are $\meta{A}_{1}, \meta{A}_2, …, \meta{A}_n$ \textbf{jointly consistent}?
 Is $\meta{A}_1, \meta{A}_2, …, \meta{A}_n \ttherefore \meta{C}$ \textbf{valid}? 
 & give a proof with assumptions $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ and concluding with \meta{C}
 & give an interpretation in which each of $\meta{A}_1, \meta{A}_2, …, \meta{A}_n$ is true and \meta{C} is false\\
-\end{tabular*}
-\end{center}
-\end{sidewaystable}
+\end{tabular}
+\caption{Summary of what most efficiently demonstates various semantic and proof-theoretic properties, given the coextensiveness of `$\proves$' and `$\entails$'.\label{sctable}}
+\end{table}
+
+\keyideas{
+	\item The two turnstiles are distinct concepts. But they are coextensive: every provable argument corresponds to an entailment, and \emph{vice versa}.
+	\item This means that we can pick and choose our methods to suit our task. If we want to show an entailment, we can sometimes most effectively proceed by providing a proof. And if we want to show something isn't provable, it can be more efficient to provide a countermodel.
+}
 
 \chapter{Next Steps in Logic}\label{s:nextsteps}
 
 
 The other half of this result [soundness/completeness]
 
+\section{Why Logic Matters}
+
+We've had to learn many matters of detail in this book, which can sometimes mean we lose sight of our goal. Our original motivation for studying logic was something about determining which arguments are good for use in our inference, and why.
+
+We now have a (partial) answer to that question. 
+\factoidbox{An argument that can be represented in \TFL\ or \FOL\ is \define{inferentially regulative} if a symbolisation of it is valid, because such arguments are transparently truth‐preserving.}
+
+By `inferentially regulative' I mean that the argument places a constraint on inference: an ideally rational agent should either accept the conclusion of an inferentially regulative argument, or not accept all of the premises. We've already had some extensive discussion of why logic isn't the totality of a theory of good reasoning (§\ref{ss:reasoning}). Of course sometimes we are not ideally rational: we accept contradictory premises, and lack the time or resources to sort out which we should abandon. In those cases we still we should recognise some sense in which if our beliefs are to be accurate to the world, they must be structured in accordance with notions of entailment.
+
+These arguments are ‘transparent' because everyone who grasps the structure can see that the symbolised argument is valid – no subject‐specific knowledge is required.
+
+This isn't an `iff'. . Some regulative inferences are invalid (e.g., inference to the best explanation). And some good arguments can't be symbolised in \FOL. 
 
 
  is more demanding. This is the \define{completeness} of our proof system, that whenever there is a valid argument, there is a proof. It is somewhere around this point, of demonstrating the completeness half of the agreement between  provability and semantic entailment, when introductory logic becomes intermediate logic. More than one of the authors of this book have written distinct sequels in which the completeness of \TFL\ is established, along with other results of a `metalogical' flavour. The interested student is directed to these texts: \begin{itemize}

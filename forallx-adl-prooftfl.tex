@@ -1979,14 +1979,14 @@ Anything we can prove using the $\enot\enot$E rule can be proved almost as brief
 
 
 
-\section{\emph{Tertium non datur}}
+\section{\emph{Tertium non datur}}\label{aprtnd}
 
 Suppose that we can show that if it's sunny outside, then Bill will have brought an umbrella (for fear of burning). Suppose we can also show that, if it's not sunny outside, then Bill will have brought an umbrella (for fear of rain). Well, there is no third way for the weather to be. So, \emph{whatever the weather}, Bill will have brought an umbrella. 
 
 This line of thinking motivates the following rule:
 \factoidbox{\begin{proof}
-		\open
 		\have[\ ]{}{\vdots}
+			\open
 			\hypo[i]{a}{\meta{A}}
 			\have[j]{c1}{\meta{B}}
 		\close
@@ -2258,8 +2258,48 @@ There are pros and cons to using DS as our disjunction elimination rule. You can
 \paragraph{Pro} Using DS as an elimination rule for {\eor} has the nice feature that we eliminate a disjunction in favour of one of its disjuncts, rather than the unprecedented \meta{C} that appears as if from nowhere in the original {\eor}E rule. We also dispense with the use of subproofs in the statement of the disjunction rules.
 \paragraph{Con} Adopting DS as a basic rule destroys the nice feature of our standard rules that only one connective is used in any rule. DS needs both disjunction and negation. We cannot, therefore, consider a system which lacks negation rules but has disjunction – the rules are no longer \emph{modular}. This is not especially important for \TFL, but could be important if you go on to consider other logical systems which may vary the rules for one connective independently of all the others. DS shackles negation and disjunction together – even arguments which have, intuitively nothing to do with negation, end up having to use negation in their proof. This can be illustrated by considering proofs that $(A\eor B)\proves (B \eor A)$. The proofs themselves are left for an exercise, but you can see that the proof in a system which has DS as a basic rule makes unavoidable use of negation rules, while the proof in our standard system uses only disjunction rules.
 
+\section{Doing Without Negation Introduction} 
+
+Strangely enough, we don't even need our negation introduction rule. Negation elimination, in the presence of our conditional and conjunction rules, suffices. The negation introduction rule discharges an assumption that \meta{A} when it can be shown to lead to both \meta{B} and $\enot\meta{B}$, and allows us to conclude that $\enot\meta{A}$. To emulate it, we need a rule that will discharge \meta{A}, and then use a combination of rules to deduce $\enot\meta{A}$. We have a subproof that shows \meta{A} to lead to contrary sentences, and we don't want to get rid of that important information. So the natural discharging rule to appeal to is conditional introduction: this enables us to capture the content of that subproof for later use. We cannot introduce a negation to obtain $\meta{A}$, but we can eliminate a negation from $\enot\enot\meta{A}$, if we can show that $\enot\enot\meta{A}$ leads to \meta{A}, which then leads to the contrary sentences again. Here is the whole schematic proof:
+\begin{proof}
+	\have[\ ]{}{\vdots}
+	\open
+	\hypo[k]{a}{\meta{A}}
+	\have[\ ]{}{\vdots}
+	\have[j]{b}{\meta{B}}
+	\have{nb}{\enot\meta{B}}
+	\have{bnb}{\meta{B}\eand\enot\meta{B}}\ai{b,nb}
+	\close
+	\have{abn}{\meta{A}\eif(\meta{B}\eand\enot\meta{B})}\ci{a-bnb}
+	\open
+	\hypo{nna}{\enot\enot\meta{A}}
+	\open
+	\hypo{na}{\enot\meta{A}}
+	\have{rna}{\enot\enot\meta{A}}\by{R}{nna}
+	\close
+	\have{a2}{\meta{A}}\ne{na-na,na-rna}
+	\have{bnb2}{\meta{B}\eand\enot\meta{B}}\ce{abn,a2}
+	\have{b2}{\meta{B}}\ae{bnb2}
+	\have{nb2}{\enot\meta{B}}\ae{bnb2}
+	\close
+	\have{na2}{\enot\meta{A}}\ne{nna-b2,nna-nb2}
+\end{proof}
+One thing to note about this schematic proof is that it is much longer and more complicated than our negation introduction rule. It also relies essentially on rules for the conditional and conjunction, violating our desire that each of our rules be `pure' in the sense that the introduction and elimination of a connective should ideally only involve sentences with it as the main connective. So we will not be availing ourselves of the possible economy of getting rid of the negation introduction rule.
+
+Another interesting thing here is that the negation elimination rule seems to be twinned with the conditional introduction rule. This hints at quite a deep fact, namely, that negation itself can be understood as a disguised conditional. Some alternative formulations of sentential logic include a sentential constant, $\bot$. This is like a sentence letter, but it has a constant truth value in every valuation: it is always F. Given this constant value, we can see that $\enot\meta{A}$ and $\meta{A}\eif\bot$ are logically equivalent in such systems: 
+\begin{center}
+\begin{tabular}{c|c|ccc} \toprule 
+\meta{A} & \enot\meta{A} & $\meta{A}$&$\eif$  &$\bot$ \\
+\midrule
+T & \textbf{F} & T & \textbf{F} & F\\
+F & \textbf{T} & F & \textbf{T} & F\\
+\bottomrule \end{tabular}
+\end{center}
+In this sort of system, we can understand the negation introduction rule as literally a special case of conditional introduction: if we can show \meta{B} and $\meta{B}\eif\bot$ in the scope of the assumption \meta{A}, then conditional elimination leads to $\bot$, and conditional introduction gives us $\meta{A} \to\bot$ while discharging the assumption that \meta{A}. We still need some equivalent to a negation elimination rule, because we need some way of reducing $(\meta{A}\eif\bot)\eif\bot$ to the logically equivalent $\meta{A}$. While it is philosophically interesting and conceptually elegant to treat negation as implication of a logical falsehood, that is not our preferred understanding of negation, and we will leave this sort of system alone. 
+
+
 \practiceproblems
-\problempart Consider an alternative proof system which keeps the standard proof rules, including negation elimination, with the exception that it replaces the rule of negation introduction $\enot$I with a rule of `double negation introduction', that any proof can be extended by adding $\enot\enot\meta{A}$ for any sentence $\meta{A}$ in the proof not occuring in a closed subproof. Is this alternative system equivalent to our standard system? 
+\problempart Consider an alternative proof system which drops our negation introduction rule, but adopts \emph{tertium non datur} (§\ref{aprtnd}) in its place. Is this alternative system equivalent to our standard system – in particular, can you show how to emulate negation introduction using just negation elimination, \emph{tertium non datur} (and structural rules like reiteration)?
 
 \problempart Construct two proofs showing that $(A\eor B)\proves (B \eor A)$, the first using our standard natural deduction system, the second using the system which has DS in place of disjunction elimination. Comment on any points of interest.
 
