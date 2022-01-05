@@ -1063,50 +1063,122 @@ Is $\meta{A}_1, \meta{A}_2, …, \meta{A}_n \ttherefore \meta{C}$ \textbf{valid}
 	\item This means that we can pick and choose our methods to suit our task. If we want to show an entailment, we can sometimes most effectively proceed by providing a proof. And if we want to show something isn't provable, it can be more efficient to provide a countermodel.
 }
 
-\chapter{Next Steps in Logic}\label{s:nextsteps}
+\chapter{Next Steps}\label{s:nextsteps}
 
+That brings you to the end of the material in this course. But we've barely scratched the surface of the subject, and there are a number of further directions in which you could pursue the further study of logic. I will briefly indicate some of the further things you can do in logic, as well as some of the applications that logic has found in other fields. I'll also mention some further reading.
 
-The other half of this result [soundness/completeness]
+\section{Next Steps \emph{in} Logic}
 
-\section{Why Logic Matters}
-
-We've had to learn many matters of detail in this book, which can sometimes mean we lose sight of our goal. Our original motivation for studying logic was something about determining which arguments are good for use in our inference, and why.
-
-We now have a (partial) answer to that question. 
-\factoidbox{An argument that can be represented in \TFL\ or \FOL\ is \define{inferentially regulative} if a symbolisation of it is valid, because such arguments are transparently truth‐preserving.}
-
-By `inferentially regulative' I mean that the argument places a constraint on inference: an ideally rational agent should either accept the conclusion of an inferentially regulative argument, or not accept all of the premises. We've already had some extensive discussion of why logic isn't the totality of a theory of good reasoning (§\ref{ss:reasoning}). Of course sometimes we are not ideally rational: we accept contradictory premises, and lack the time or resources to sort out which we should abandon. In those cases we still we should recognise some sense in which if our beliefs are to be accurate to the world, they must be structured in accordance with notions of entailment.
-
-These arguments are ‘transparent' because everyone who grasps the structure can see that the symbolised argument is valid – no subject‐specific knowledge is required.
-
-This isn't an `iff'. . Some regulative inferences are invalid (e.g., inference to the best explanation). And some good arguments can't be symbolised in \FOL. 
-
-
- is more demanding. This is the \define{completeness} of our proof system, that whenever there is a valid argument, there is a proof. It is somewhere around this point, of demonstrating the completeness half of the agreement between  provability and semantic entailment, when introductory logic becomes intermediate logic. More than one of the authors of this book have written distinct sequels in which the completeness of \TFL\ is established, along with other results of a `metalogical' flavour. The interested student is directed to these texts: \begin{itemize}
+The soundness and completeness theorems mentioned in the last section mark the stage at which introductory logic becomes intermediate logic. More than one of the authors of this book have written distinct sequels in which the completeness of \TFL\ is established, along with other results of a `metalogical' flavour. The interested student is directed to these open access texts: \begin{itemize}
 	\item Tim Button's book is \emph{Metatheory}; it covers just \TFL, and some of the results there were actually covered in this book already, notably results around expressiveness of \TFL\ in §\ref{s:expressiveness}. \emph{Metatheory} is available at \href{http://www.homepages.ucl.ac.uk/~uctytbu/Metatheory.pdf}{\nolinkurl{www.homepages.ucl.ac.uk/~uctytbu/Metatheory.pdf}} It should be accessible for self-study by students who have successfully completed this course.
 
 \item Antony Eagle's book \emph{Elements of Deductive Logic} goes rather further than \emph{Metatheory}, including direct proofs of Compactness for \TFL, consideration of alternative derivation systems, discussion of computation and decidability, and metatheory for \FOL. It is available at \href{https://github.com/antonyeagle/edl}{\nolinkurl{github.com/antonyeagle/edl}}.
+\item The most comprehensive open access logic texts are those belonging to the Open Logic Project (\url{https://openlogicproject.org}). There are open texts on intermediat logic, set theory, modal logic, non-classical logics. For most of the topics I touch on below, the Open Logic Project texts are reliable and accessible sources. There are many texts, remixing a common core of resources which together make up the whole open logic text. 
 \end{itemize}
 
-tense example from §\ref{FOL.semantics}.
+The metatheory of classical logic, the logic we've discussed, is well-understood. The subject of logic itself goes well beyond classical logic, in at least three ways.
 
-modal logic
+\subsection{Using Logic} The original spur to Frege and colleagues in creating modern logic was to provide a framework in which mathematics could be formally regimented and mathematical proof could be systematically represented and checked. So a very standard next step in logic is to formalise various mathematical theories. This is standardly done by fixing a symbolisation key to give a mathematical interpretation to predicates and names of \FOL, and adding some axioms that carry substantive information about the interpretation. Often some new expressive resources are added too, such as \define{function symbols} and other term-forming operators. Some familiar binary function symbols include `$+$' and `$\cdot$' (multiplication): these take two terms and yield a complex term. They operate recursively, so complex terms can themselves be given as arguments. So `$7+5$', `$7+x$', and `$(3\cdot x) + 9$' are all complex terms. 
 
-intuitionism: 
+One standard formalised mathematical theory is \define{Robinson arithmetic} $\mathbf{Q}$.\footnote{Robinson arithmetic is weaker than full ordinary arithmetic, but occupies a special place in formal mathematics because of its role in the Gödel incompleteness theorems. Robinson arithmetic in more or less this form is discussed by George Boolos, John P Burgess and Richard C Jeffrey (2007) \emph{Computability and Logic}, 5th ed., Cambridge University Press, chapter 16.} This is a theory in the language of \FOL\ plus function symbols `$+$', `$\cdot$' and the symbol `$'$' for successor (the number immediately after a given number). There is one interpreted name, `$\mathbf{0}$', which names zero in the intended interpretation.
+The axioms of the theory – sentences that are assumed to be true, and so serve to delimit the possible interpretations under consideration – are these, listed here together with their intended interpretation:
+\begin{itemize}
+	\item $\forall x\; x' \neq \mathbf{0}$ (zero isn't the successor of any number);
+	\item $\forall x \forall y (x' = y' \eif x = y)$ (if $x$ and $y$ have the same successor, then $x$ is $y$);
+	\item $\forall y (y = \mathbf{0} \eor \exists x y = x')$ (every number is either zero or the successor of a number);
+	\item $\forall x\; x + \mathbf{0} = x$ (adding zero to a number results in that number);
+	\item $\forall x \forall y\; x + y' = (x + y)'$ (the sum of $x$ and the successor of $y$ is the successor of the sum of $x$ and $y$);
+	\item $\forall x\; x\cdot\mathbf{0} = \mathbf{0}$ (multiplying a number by zero results in zero);
+	\item $\forall x \forall y\; x\cdot y' = (x\cdot y) + x$ (the product of $x$ and the successor of $y$ is the product of $x$ and $y$ plus $x$).
+\end{itemize} These axioms serve to fix the intepretation of addition, multiplication, and successor. These axioms are all true in interpretations of \FOL\ in which the domain is the natural numbers, and the function symbols have their intended interpretation. The consequences of these axioms, those sentences that are true in every interpretation in which all the axioms are true, are the arithmetical truths that hold in Robinson arithmetic.\footnote{Another project of the same sort is the symbolisation of set theory in \FOL (see Patrick Suppes (1972) \emph{Axiomatic Set Theory}, Dover), or the symbolisations of mereology, the formal theory of part and whole (see Achille C Varzi (2016) `Mereology' in Edward N Zalta, ed., \emph{Stanford Encyclopedia of Philosophy}, \url{https://plato.stanford.edu/entries/mereology/}).}
 
-Burgess philosophical logic
+Once you have a theory like this, a collection of axioms with an intended interpretation symbolised in \FOL, you can ask questions about soundness and completeness of these theories with respect to that model. Robinson arithmetic is sound with respect to its intended interpretation in the natural numbers. But it is incomplete: there are arithmetical truths it does not include. 
 
-RELEVANCE
+The most striking aspect of this result is that any arithmetical theory that includes Robinson arithmetic will be incomplete, in that there are truths that are not consequences of the axioms. This is the upshot of the famous limitative results that are the central target of most intermediate logic courses: Gödel's incompleteness theorem and Tarski's theorem on the indefinability of truth. These results rely essentially on the fact that even simple arithmetical theories include a device of \define{self-reference}, enabling them to define arithmetical formulae that `talk about' sentences of the language of arithmetic. By a diagonal argument reminiscent of the Liar paradox (`this sentence is not true'), Gödel and Tarski show that, as long as arithmetic is consistent, there will be true sentences that are not provable.\footnote{See Boolos, Burgess and Jeffrey, \emph{op. cit.}, and Raymond M Smullyan (2001) `Gödel’s Incompleteness Theorems', pp. 72–89 in Lou Goble, ed., \emph{The Blackwell Guide to Philosophical Logic}, Blackwell.} 
 
-substructural §\ref{s:substructural}
+\subsection{Extending Logic}
 
-BEall and van fraassen
+The logic we have was designed to model mathematical arguments, so the uses mentioned above are unsurprising. But there are arguments on many topics outside of mathematics, and it is not obvious that the logics we have are suitable for these arguments.\footnote{Good sources for the logics discussed in this section and the next – especially tense, modal, and non-classical logics – are John P Burgess (2008) \emph{Philosophical logic}, Princeton University Press; JC Beall and Bas C van Fraassen (2003) \emph{Possibilities and Paradox}, Oxford University Press; Graham Priest (2008) \emph{An Introduction to Non-Classical Logic}, Cambridge University Press.}
 
-priest non classical
+We've already seen in §\ref{FOL.semantics} an example which we might hope is valid, but which isn't symbolised as a valid argument in \FOL: \begin{earg}
+\item[] It is raining
+\item[So:] It will be that it was raining.
+\end{earg}
+Given our liberal attitude to structural words (§\ref{ss.idargstr}), the natural idea is to take the tenses expressions – in this case, the future `will' and the past `was' – to be structural words. The standard approach of \define{tense logic} is to treat those tenses as monadic sentential connectives. Then if `$P$' means `it is raining', the argument could be symbolised like so: $P \ttherefore \mathop{\mathsf{will}}\mathop{\mathsf{was}}P$.
+
+This symbolisation isn't especially helpful without some semantic understanding of what these tense operators mean. In the classical logic of this text, sentences don't change their truth values within a valuation. This is not the way we introduced them, but we can think of a valuation as a snapshot, capturing a momentary assignment of truth values at a time. A \define{history} will be an ordered sequence of valuations, representing the way that the truth values of the atomic sentences change over time. (We may also need to mark a special valuation, the \emph{present} one, which represents how things actually are.) Then `$\mathop{\mathsf{will}}\meta{A}$' is true at a valuation in a history iff \meta{A} is true at some later valuation in that history; `$\mathop{\mathsf{was}}\meta{A}$' is true at a valuation in a history iff \meta{A} is true at some earlier valuation in that history. An argument is valid in a history iff every valuation at which the premises is true is also valuation in which the conclusion is true; and an argument is valid iff it is valid on every history. The argument above will turn out to be valid. Suppose `$P$' is true at a valuation $v$ in a history. Then at any valuation later than $v$, `$\mathop{\mathsf{was}}P$' is true. But then at $v$, there is a later valuation at which `$\mathop{\mathsf{was}}P$' is true, so that `$\mathop{\mathsf{will}}\mathop{\mathsf{was}}P$' is true at $v$. The history was chosen arbitrarily (it does need time to extend arbitrarily in both directions though), so the argument is valid.
+
+This kind of structured collection of valuations we've called a history is also used in other extensions of classical logic. This is a non-exhaustive list of examples \begin{itemize}
+	\item The logic that results from taking the sentence operators `necessarily' and `possibly' to be structural words, known as \define{modal logic}, uses a collection of valuations, which modal logicians tend picturesquely to call the \define{possible worlds};
+	\item The logic that result from taking `obligatorily' and `permissibly' to be structural words, or \define{deontic logic}, also uses the same framework. There a collection of valuations corresponds to ideal possible worlds; \meta{A} is obligatory iff it is true at all ideal worlds, permissible iff it is true at some. This is an interesting logic because the actual world is not typically thought to be among the ideal worlds. 
+\end{itemize} 
+These constructions using valuations are extensions of \TFL. There are also quantified temporal/modal/deontic logics, where each moment of history (or each possible world) is an interpretation, not a valuation. There are some rich issues about how the domain should be permitted to vary over time, or just the extensions of predicates, as well as disputes over whether the temporal/modal operators should be permitted to occur within the scope of quantifiers. For example, should `$\exists x \mathop{\mathsf{was}}Fx$' be acceptable – that there is something which has the temporal property \emph{was $F$}? Or should we confine the temporal properties to tensed truth, i.e., it is only sentences which have the temporal properties of previously and subsequent truth.
+
+A huge literature has grown up on the topic of \define{conditional logics}, logics which add new connectives, distinct from `$\eif$', hoping to better represent the behaviour of conditionals in English. Perhaps the most celebrated are the logics associated with Lewis-Stalnaker conditionals. In Lewis' version, the counterfactual conditional (§\ref{s:IndicativeSubjunctive}) has a certain modal force: it tells you about how things \emph{would have been} under alternative possible circumstances. So the logic of conditionals he develops draws on the framework of modal logic, with some innovations of his own. The Stalnaker conditional is similar, but Stalnaker wants to claim that the indicative conditional too has modal force.\footnote{See David Lewis (1973) \emph{Counterfactuals}, Blackwell, and Robert C Stalnaker (1975) ‘Indicative conditionals’, \emph{Philosophia} \textbf{5}: 269–286, \url{https://doi.org/10.1007/bf02379021}.}
+
+Finally, another common extension of \FOL\ is to allow quantification over possible extensions (i.e., collections of individuals in the domain). This is \define{second-order logic}, the thought being that first-order logic quantifies over individuals, second-order logic quantifies over collections of individuals, third-order logic over collections of collections of individuals, and so on. This allows us to represent arguments like this: \begin{earg}
+	\item There is a property Bob has and Alice does not. $\exists X (Xb \eand \enot Xa)$
+	\item[So:] Bob isn't Alice. $b≠a$
+\end{earg}
+This sort of example can seem trivial, but in fact second-order logic has many powerful features that allow it to vastly outstrip the expressive capacity of \FOL. It has so much power that the philosopher W V O Quine once said that second-order logic is `set theory in sheep's clothing' – it has substantial mathematical content, disguised up as if it were nothing but pure logic.\footnote{W V O Quine (1970) \emph{Philosophy of Logic}, Harvard University Press, at pp. 64–8.}
+
+\subsection{Modifying Logic}
+
+Another direction we could take is not adding extra expressive resources to logic, but modifying the logic we already have in some way. We've already seen some attempts to do this, when we briefly considered intuitionistic logic and its restrictions on negation elimination in §\ref{construct}. 
+
+More recently, influential alternative logics have been explored which result from restricting the structural rules permitted in proofs (§\ref{s:substructural}). These logics, even though they are purely sentential and lack quantifiers, turn out to be very complex and puzzling.
+
+One prominent alternative is \define{linear logic}, which result from restrictions to the rule of contraction. Linear logic is sometimes said to be \emph{resource conscious}; it matters, in linear logic, how many times you need to appeal to an assumption in order to construct a proof. Some claims which might be provable by appealing twice to an assumption, may fail to be provable if you were permitted only to appeal once to that assumption. So in the assumptions of a linear logic proof it is important to note how many times an assumption appears – contraction, which says that the same things can be proved even if you throw away duplicate assumptions, is not compatible with keeping track of resources in this way. Linear logic has found uses in computer science, in modelling the behaviour of algorithms – in an actual computation, it can be very important to be efficient in the calls you make on resources. If appealing to an assumption involves reading that assumption from disk, for example, then the fewer appeals to the assumption you can make, the faster your algorithm will run.
+
+Amongst philosophers, however, the most prominent substructural logic is \define{relevance logic} (US), aka \define{relevant logic} (UK/Australasia).\footnote{See Burgess, \emph{op. cit.}, Priest, \emph{op. cit.}, and Edwin Mares `Relevance Logic' in Edward N Zalta, ed., \emph{Stanford Encyclopedia of Philosophy}, \url{https://plato.stanford.edu/entries/logic-relevance/}.} Relevant logicians argue that the so-called `paradoxes of material implication' (§\ref{s:ParadoxesOfMaterialConditional}) are symptoms of a broader failure of classical logic to require that the premises of a valid argument must be relevant to its conclusion. Relevant logicians are particularly incensed by the fact that $A \eand \enot A \proves B$; accordingly, they need to block the standard proof: \begin{proof}
+	\hypo{ana}{A \eand \enot A}
+	\open
+	\hypo{b}{\enot B}
+	\have{c}{A}\Ae{ana}
+	\have{d}{\enot A}\Ae{ana}
+	\close
+	\have{e}{B}\ne{b-c,b-d}
+\end{proof} The relevant logician doesn't wish to abandon any of these rules, or at least, not the intuition behind them. But they do generally want to resist our being able to introduce a new irrelevant assumption like `$\enot B$' whenever we want. So relevant logics are a class of substructural logic which don't satisfy weakening.
+
+
+A final class of modifications to classical logic I will consider are \define{many-valued logics}: logics that go beyond two truth values.\footnote{See Priest, \emph{op. cit.}, and Beall and van Fraassen, \emph{op. cit.}.} Some many-valued logics introduce just a third truth value, \emph{indeterminate}, to represent the truth values of unsettled matters such as contingent future outcomes. Such logics also gained some purchase as conditional logics – not extending classical logic this time, but changing the behaviour of the existing conditional. For example, many resist the idea that a conditional should be true just because its antecedent is false. Perhaps we should say rather that the conditional is unsettled when the antecedent is false, because we just can't tell whether the consequent follows. 
+
+Another use of many valued logics appeals to not just a third truth value, but infinitely many, sometimes called \define{degrees of truth}. Such logics have had some appeal to philosophers working on vagueness, a topic we will turn to shortly.
+
+\section{Next Steps \emph{with} Logic}\label{stepwith}
+
+There are lots of places where you might wish to apply logic: anywhere that a persuasive case needs to be made, or clarity and precision of expression is vital. But some areas are more active than others. One is mathematics, as already mentioned; and issues of decidability and effective provability lead quickly into theoretical computer science. 
+
+But logic has possibly more suprising applications too: \begin{itemize}
+	\item  In \emph{law}, where ambiguity needs to be resolved and the job of an advocate is (though only partly) to persuade through rational argument.\footnote{Henry Prakken and Giovanni Sartor (2015) ‘Law and Logic: a Review from an Argumentation Perspective’, \emph{Artificial Intelligence} \textbf{227}: 214–45, \url{https://doi.org/10.1016/j.artint.2015.06.005}.} The skills of logical analysis are important in deciding whether legal argument is conclusive. Certainly the judge needs logic to see through sophistry and rhetoric. 
+\item  In \emph{linguistics}, where methods from logic are foundational to formal theories of meaning.\footnote{See Paul Portner (2005) \emph{What is Meaning?}, Blackwell.} Many formal semantic theories invoke a level of sub-surface grammatical structure which is the input to semantic analysis, often called \define{logical form}. The properties and nature of this postulated logical form are heavily endebted to the kinds of logical resources available to the theorist. We saw a prominent example of different logical frameworks being brought to bear on a hypothesis about the `real' meaning of a natural language expression in our brief discussion of the analysis of definite descriptions in §\ref{subsec.defdesc}. 
+\item  In \emph{management consulting} and related fields, the topic‐neutrality of logic and the habits of rigorous thought it encourages are very useful for people who have to offer recommendations about complex areas without necessarily having much subject-specific knowledge.
+\end{itemize}
+
+But I am a philosopher, and I'm interested primarily in applications of logic to philosophical puzzles. I'll close this discussion, and this book, with a brief account of one very prominent puzzle where logic illuminates the structure of the problem and the space of available solutions. It does not, unfortunately, decide everything for us – we need to make theoretical choices on substantive grounds, and logic, because topic-neutral, won't generally be decisive on such matters. 
+
+The problem I'm talking about is the puzzle of \emph{vagueness}. Consider the excerpt from the visible spectrum depicted in Figure~\ref{spectrum}. The spectrum looks continuous, but the discrete medium of the page suggests it is actually made up of many many thin slivers of apparently constant colour, laid adjacent to one another. Let there be 1000 slivers of colour in this spectrum. The spectrum looks continuous because the colour doesn't seem to change between adjacent slivers of colour. There are no sharp cutoffs or discontinuities in the spectrum.
+
+\begin{figure}
+\centering
+\includegraphics[keepaspectratio,width=0.8\textwidth]{spectrum.png}
+\caption{A red-yellow spectrum. \label{spectrum}}
+\end{figure}
+
+The left hand end is clearly red. But because the red areas shades smoothly into orange and then yellow, it seems clear that the word `red' denotes a predicate with no sharp cutoffs. It is a \define{vague expression}. Its vagueness, accordingly to many, arises because `red' and other vague words exhibit this feature: \factoidbox{A predicate `$F$' is \define{tolerant} if extremely similar things are either both $F$ or neither $F$.}
+In the case of 'red', adjacent slivers of colour in the spectrum are very similar – they are visually indistinguishable, i.e., they \emph{look the same}. And surely if two things look the same, they cannot be different colours. How could there be two distinct colours that are indistinguishable in appearance – colours are appearance properties, most say.
+
+If `red' is tolerant, then any two adjacent slivers will be either both red, or both not red.  So where `$R$' is interpreted to mean `\gap{1} is red', and `$C$' means `\gap{1} is adjacent to \gap{2}', in the domain of slivers of colour in this spectrum, this \FOL\ sentence appears to be true: 
+     $$\forall x \forall y ((Rx \eand Axy) \eif Ry).$$
+This is an instance of the principle of Tolerance, because adjacent slivers are extremely similar. Let the slivers of colour be denoted `$a_{1},…,a_{1000}$', with `$a_{1}$' the leftmost sliver. Then the above tolerance principle, together with, `$Ra_{1}$', and many premises of the form `$Aa_{i}a_{i+1}$' will entail `$\forall x Rx$', given that there is a case of red, and we have enough adjacent cases: as we do in the spectrum.  The formal proof is long, but basically: if there is a case of red, and a case of non-red, then Tolerance tells us they cannot be linked by a sequence of adjacent cases. But in the spectrum any two slivers can be linked by a sequence of adjacent cases. 
+
+There are a number of responses, some of which we've mentioned already. The degree-theory solution says that each adjacent sliver to the right is red to a slightly less degree than the sliver to the left, and that it is true to a lower degree that it is red. Such views abandon tolerance for vague predicates in favour of a principle of `closeness': that extremely similar things are both $F$ to an extremely similar degree.\footnote{See N J J Smith (2008) \emph{Vagueness and Degrees of Truth}, Oxford University Press.} There are also solutions that appeal to truth-value `gaps', resembling many-valued logics in some ways – most prominent among these is the approach known as \define{supervaluationism}.\footnote{See Kit Fine (1975) `Vagueness, truth and logic', \emph{Synthese} \textbf{54}: 235–59, \url{https://doi.org/10.1007/bf00485047}.} Finally, there is a purely classical logic solution, Williamson's theory of \define{epistemicism}, which says that there are sharp cutoffs (so that the tolerance premise is false), but explains the appearance that there are no sharp cutoffs as a byproduct of our essential inability to know where the sharp boundaries lie. Logic won't decide between these approaches. But it does help us in formulating them precisely and in enabling us to classify their strengths and weaknesses precisely. This is an advantage in most areas of controversy and debate.
+
 
 \keyideas{
-	\item With the basics under your belt, there are many possible next steps in logic. 
+	\item With the basics in hand, there are many next steps in logic. 
 	\item It is natural to try to establish more metatheoretical results about the systems we have discussed, and some resources are indicated in the text to help you do this if you wish.
-	\item Tense, modals, mathematics
+	\item There are various attempts to extend, modify and make use of logic, in mathematics, philosophy, computer science, and linguistics. The field is vast and many topics are underexplored.
+	\item Logic is useful in clarifying controversies and debates, and is a tool you will likely use long after you finish with this book.
 }
 
