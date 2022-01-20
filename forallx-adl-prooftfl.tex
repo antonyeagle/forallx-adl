@@ -1541,7 +1541,7 @@ The symbol `$\proves$' is known as the \emph{single turnstile}. I want to emphas
 
 However, if we've designed our proof system well, we shouldn't be able to prove a conclusion from some assumptions \emph{unless} that conclusion validly follows from those assumptions. And if we are really fortunate, we should be able to provide a proof corresponding to any valid argument. (More on this in §\ref{sec:soundcomp}.) But even if our two turnstiles agree on which sentences they relate to other sentences, they still mean different things. Recall the discussion of coextensive predicates in §\ref{predrel} – even if the extensions of `$\proves$' and `$\entails$' are the same, we apply them on quite different grounds. If they coincide despite being defined so differently, that is some evidence that we are uncovering a genuine and important relation between sentences, describable in a number of different ways.
 
-A krey result, known as the \define{deduction theorem}, links the notion of provability with the conditional: \factoidbox{$\meta{A}_{1},…,\meta{A}_{n},\meta{B} \proves \meta{C}$ iff $\meta{A}_{1},…,\meta{A}_{n} \proves \meta{B} \to \meta{C}$.} We can show this result by showing how to convert a proof showing $\meta{A}_{1},…,\meta{A}_{n},\meta{B} \proves \meta{C}$ into a proof showing $\meta{A}_{1},…,\meta{A}_{n} \proves \meta{B} \to \meta{C}$, and \emph{vice versa}. So first suppose we have the proof on the left, we can apply conditional introduction to discharge the occurence of \meta{B} and prove a conditional with $\meta{B}$ as antecedent:
+A key result, known as the \define{deduction theorem}, links the notion of provability with the conditional: \factoidbox{$\meta{A}_{1},…,\meta{A}_{n},\meta{B} \proves \meta{C}$ iff $\meta{A}_{1},…,\meta{A}_{n} \proves \meta{B} \to \meta{C}$.} We can show this result by showing how to convert a proof showing $\meta{A}_{1},…,\meta{A}_{n},\meta{B} \proves \meta{C}$ into a proof showing $\meta{A}_{1},…,\meta{A}_{n} \proves \meta{B} \to \meta{C}$, and \emph{vice versa}. So first suppose we have the proof on the left, we can apply conditional introduction to discharge the occurence of \meta{B} and prove a conditional with $\meta{B}$ as antecedent:
     		 \begin{multicols}{2}\noindent\begin{proof}
     				\hypo{a1}{\meta{A}_{1}}
     				\hypo[\ ]{}{\vdots}
@@ -1550,7 +1550,7 @@ A krey result, known as the \define{deduction theorem}, links the notion of prov
     				\open\hypo{b}{\meta{B}}
     				\have[\ ]{}{\vdots}
     				\have[k]{c}{\meta{C}}
-    			\end{proof} \quad  ⇉\quad
+    			\end{proof}
     			\begin{proof}
     				\hypo{a1}{\meta{A}_{1}}
     				\hypo[\ ]{}{\vdots}
@@ -1570,7 +1570,7 @@ The other direction is just as easy. Suppose we have the proof on the left, term
     				\hypo[n]{an}{\meta{A}_{n}}
     				\have[\ ]{}{\vdots}
     				\have[k]{bc}{\meta{B} \eif \meta{C}}
-    			\end{proof} \quad  ⇉\quad
+    			\end{proof} 
     			\begin{proof}
     				\hypo{a1}{\meta{A}_{1}}
     				\hypo[\ ]{}{\vdots}
