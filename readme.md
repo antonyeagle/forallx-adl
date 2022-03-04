@@ -22,7 +22,13 @@ As of early 2022, this text is now broadly stable. I do not envisage making subs
 
 I welcome comments, notification of errors and typos, and any new ideas: [antony.eagle@adelaide.edu.au](mailto:antony.eagle@adelaide.edu.au?subject=forallx-adl). I will update this readme with a list of issues and proposed changes even while teaching from the book, but I will not push major changes to the pdf and source until a given course has been delivered and assessed. (I will tacitly correct typos and small errors.)
 
-There are no current known issues or proposed changes to the text.
+
+Current known issues or proposed changes to the text:
+
+* Clarify discussion of parentheses conventions to ensure no impression given that $A \wedge B$ is a sentence, only that the sentence $(A \wedge B)$ can be unambiguously reconstructed from it.
+
+
+<!-- None -->
 
 
 <!-- 
