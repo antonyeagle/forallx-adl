@@ -572,7 +572,7 @@ We now know what interpretations are. Since, among other things, they tell us wh
 
 We know from §\ref{s:FOLSentences} that there are three kinds of sentence in \FOL: 
 	\begin{itemize}
-		\item atomic sentences (i.e., atomic formulae of \FOL\ which have no free variables);
+		\item atomic sentences (i.e., atoms of \FOL\ which have no free variables);
 		\item sentences whose main connective is a sentential connective; and
 		\item sentences whose main connective is a quantifier.
 	\end{itemize}
@@ -874,14 +874,14 @@ This is, in a nutshell, the idea we will use to handle quantification in \FOL. L
 }  
 If we have an interpretation, and a variable assignment, then we can evaluate every formula of \FOL\ – not only sentences. Of course, the evaluation of the open formulae will be very fragile, since even given a single background interpretation, a formula like `$Fx$' might be true relative to one variable assignment and false relative to another. 
 
-Let us start, as before, by giving rules for evaluating atomic formulae of \FOL, given an interpretation and a variable assignment. \factoidbox{Where $\meta{R}$ is any $n$-place predicate ($n ≥ 0$), and $\meta{t}_{1},…,t_{n}$ are any terms – variables or names, then: \begin{itemize}
+Let us start, as before, by giving rules for evaluating atoms of \FOL, given an interpretation and a variable assignment. \factoidbox{Where $\meta{R}$ is any $n$-place predicate ($n ≥ 0$), and $\meta{t}_{1},…,t_{n}$ are any terms – variables or names, then: \begin{itemize}
 	\item  $\meta{R}\meta{t}_{1}…\meta{t}_{n}$ is true on a variable assignment over an interpretation  iff:\\
 	$\meta{R}$ is true of the objects assigned to the terms $\meta{t}_{1},…,\meta{t}_{n}$  by that variable assignment and that intepretation, considered in that order.
 	\item $\meta{t}_{1}=\meta{t}_{2}$ is true on a variable assignment over an interpretation  iff:\\
 	$\meta{t}_{1}$ and $\meta{t}_{2}$ are assigned the very same object by that variable assignment in that interpretation.
-\end{itemize}} These are very similar clauses to those we saw for atomic sentences in §\ref{fol.truth.quant}. Indeed, when we are considering atomic sentences of \FOL, the mention of a variable assignment is redundant, since no atomic sentence contains a variable. (If an atomic formula contains a variable, the variable would be free and the formula thus not a sentence.)
+\end{itemize}} These are very similar clauses to those we saw for atomic sentences in §\ref{fol.truth.quant}. Indeed, when we are considering atomic sentences of \FOL, the mention of a variable assignment is redundant, since no atomic sentence contains a variable. (If an atom contains a variable, the variable would be free and the formula thus not a sentence.)
 
-The recursion clauses that extend truth for atomic formulae to truth for arbitrary formulae are these (I omit the clauses for $\eor$, $\eif$, and $\eiff$, which you can easily fill in yourself, following the model in §\ref{fol.truth.sent}): \factoidbox{Where \meta{A} and \meta{B} are formulae of \FOL, and \meta{x} is a variable:
+The recursion clauses that extend truth for atoms to truth for arbitrary formulae are these (I omit the clauses for $\eor$, $\eif$, and $\eiff$, which you can easily fill in yourself, following the model in §\ref{fol.truth.sent}): \factoidbox{Where \meta{A} and \meta{B} are formulae of \FOL, and \meta{x} is a variable:
 	\begin{itemize}
 		\item $\enot \meta{A}$ is true on a variable assignment over an interpretation  iff:\\
 		\meta{A} is false on that variable assignment over that interpretation;

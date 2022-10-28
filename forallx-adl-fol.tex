@@ -317,7 +317,7 @@ Sentence \ref{monkey1} can now be symbolised by `$\forall x(Mx \eif Sx)$'. Sente
 
 It is tempting to say that sentence \ref{monkey1} \emph{entails} sentence \ref{monkey2}. That is, we might think that it is impossible for it to be the case that every monkey knows sign language, without it's also being the case that some monkey knows sign language.  But this would be a mistake. It is possible for the sentence `$\forall x(Mx \eif Sx)$' to be true even though the sentence `$\exists x(Mx \eand Sx)$' is false.
 
-How can this be? The answer comes from considering whether these sentences would be true or false \emph{if there are no monkeys}. If there are no monkeys at all (in some domain), then `$\forall x(Mx \eif Sx)$' would be \emph{vacuously} true. Take the domain of reptiles. Look at the domain, and pick any monkey you like – it knows sign language!\footnote{Remember this is not a counterfactual claim (\ref{s:IndicativeSubjunctive}); even if `All monkeys know sign language' is vacuously true in the domain of reptiles, that wouldn't mean that `Any monkey \emph{would} know sign language' is true.} There is certainly no counterexample to the claim available in this domain. And because of the role of the conditional in our symbolisation, it turns out that a universally quantified claim with an unsatisfied restricting condition will also be true. In \FOL, a universally quantified sentence of the form $\forall \meta{x} \meta{Ax} \eif \meta{Bx}$ is \emph{false} only if we can find something which is \meta{A} without being \meta{B}. If we can't find such a thing, perhaps because we can't find anything which is \meta{A} in the first place, then the sentence will be true (since truth is just lack of falsity, and this sentence isn't false because we can't find a case that falsifies it). This derives ultimately from the feature of \TFL\ we have already acknowledged to be questionably analogous to English, namely, the fact that a conditional is false only if there is a counterexample, a case where the antecedent is true and the consequent false.
+How can this be? The answer comes from considering whether these sentences would be true or false \emph{if there are no monkeys}. If there are no monkeys at all (in some domain), then `$\forall x(Mx \eif Sx)$' would be \emph{vacuously} true. Take the domain of reptiles. Look at the domain, and pick any monkey you like – it knows sign language!\footnote{Remember this is not a counterfactual claim (\ref{s:IndicativeSubjunctive}); even if `All monkeys know sign language' is vacuously true in the domain of reptiles, that wouldn't mean that `Any monkey \emph{would} know sign language' is true.} There is certainly no counterexample to the claim available in this domain. And because of the role of the conditional in our symbolisation, it turns out that a universally quantified claim with an unsatisfied restricting condition will also be true. In \FOL, a universally quantified sentence of the form $\forall \meta{x} (\meta{Ax} \eif \meta{Bx})$ is \emph{false} only if we can find something which is \meta{A} without being \meta{B}. If we can't find such a thing, perhaps because we can't find anything which is \meta{A} in the first place, then the sentence will be true (since truth is just lack of falsity, and this sentence isn't false because we can't find a case that falsifies it). This derives ultimately from the feature of \TFL\ we have already acknowledged to be questionably analogous to English, namely, the fact that a conditional is false only if there is a counterexample, a case where the antecedent is true and the consequent false.
 
 Another example will help to bring this home. Suppose we extend the above symbolisation key, by adding:
 	\begin{ekey}
@@ -436,7 +436,7 @@ In the sentence `$\enot(Bk \eif Bb)$', the scope of `$\enot$' is the entire sent
 Scope can make a drastic difference in meaning. Reconsider these examples:
 \begin{earg}
     			\item[\ex{ben1}] $(\overbracket{\forall x Bx}^{\text{Scope of `$\forall x$'}}\eif Bb)$\\ If everything is $B$, then $b$ is too. \emph{Trivially true}
-    			\item[\ex{ben2}] $\overbracket{\forall x (Bx \eif Bb)}^{\text{Scope of `$\forall x$'}}$\\ All $B$s are such that $b$ is $F$. \emph{False if $b$ isn't $F$ but there are some $F$s}
+    			\item[\ex{ben2}] $\overbracket{\forall x (Bx \eif Bb)}^{\text{Scope of `$\forall x$'}}$\\ All $B$s are such that $b$ is $B$. \emph{False if $b$ isn't $B$ but there are some $B$s}
     		\end{earg}
 
 The moral of the story is simple. When you are using quantifiers and conditionals, be very careful to make sure that you have sorted out the scope correctly. 
@@ -498,9 +498,9 @@ If we take these observations to heart, there are many intersective adjectives w
 
 The way that `small' behaves makes it a member of the class of \define{subsective} adjectives, as in `poor dancer'. These are like intersective adjectives in that every poor dancer is a dancer (and every small cow is a cow). But the way that `poor' behaves in this expression is such that we \emph{cannot} conclude that a poor dancer is poor – they are bad at dancing, not necessarily financially disadvantaged. In these cases, the meaning of the modifying adjective is itself modified by the noun: in `poor dancer', we get a distinctively dancing-related sense of `poor'.   
 
-When symbolising, it is best to make these modified adjectives  very explicit, generally introducing a new predicate to the symbolisation key to represent the. Doing so blocks the fallacious argument from `Daisy is a small cow' to `Daisy is small', where the natural sense of the conclusion is the generic size claim `Daisy is small-for-a-thing'. (Likewise, symbolising `\gap{} is poor dancer' as `\gap{} is poor-for-a-dancer and \gap{} is a dancer' bloocks the fallacious argument from `Rupert Murdoch is a poor dancer' to `Rupert Murdoch is poor'.)
+When symbolising, it is best to make these modified adjectives  very explicit, generally introducing a new predicate to the symbolisation key to represent them. Doing so blocks the fallacious argument from `Daisy is a small cow' to `Daisy is small', where the natural sense of the conclusion is the generic size claim `Daisy is small-for-a-thing'. (Likewise, symbolising `\gap{} is poor dancer' as `\gap{} is poor-for-a-dancer and \gap{} is a dancer' blocks the fallacious argument from `Rupert Murdoch is a poor dancer' to `Rupert Murdoch is poor'.)
 
-The upshot is this: though you can symbolise `Daisy is a small cow' as a conjunction, you will need to symbolise `\blank\ is a small cow' and `\blank\ is a small animal' using different predicates of \FOL\ to stand for the different appearances of `small' – to symbolise `small for a cow' and `small for an animal'. 
+The upshot is this: you will need to symbolise `\blank\ is a small cow' and `\blank\ is a small animal' using different predicates of \FOL\ to stand for the different appearances of `small' – to symbolise `small-for-a-cow' and `small for-an-animal'. You can symbolise `Daisy is a small cow' as a conjunction, but it is probably best to treat it as the conjunction `Daisy is a cow and Daisy is small-for-a-cow'.\footnote{This is not redundant, because I think that `small-for-a-cow' denotes a specific size, and many things which are not cows might be that size: a big dog, for example, is a size that is small for a cow.}
 
 The overall message is not particularly specific: treat adjectives with care, and always think about whether a conjunction or some other symbolisation best captures what is going on in the English. There is no substitute for practice in developing a good sense of how symbolise arguments. 
 
@@ -688,7 +688,7 @@ This last example highlights something important. Suppose we add to our symbolis
 	\end{ekey}
 Here, we have used the same English word (`loves') as we used in our symbolisation key for `$L$'. However, we have swapped the order of the \emph{gaps} around (just look closely at those little subscripts!) So `$Mki$' and `$Lik$' now \emph{both} symbolise `Imre loves Karl'. `$Mik$' and `$Lki$' now \emph{both} symbolise `Karl loves Imre'. Since love can be unrequited, these are very different claims. The moral is simple. When we are dealing with predicates with more than one place, we need to pay careful attention to the order of the places. 
 
-With these examples in hand, I can now give the official account of how we understand \FOL\ symbolisations. Suppose we have an \FOL\ expression $\meta{A}t_{1},…,t_{k}$, where each $t_{i}$ is a name or a variable, symbolising a singular term, and where $\meta{A}$ symbolises a $k$-place predicate. The $i$-th term is to be interpreted as filling the gap labelled `$i$'. So consider the following symbolisation key: \begin{ekey}
+With these examples in hand, I can now give the official account of how we understand \FOL\ symbolisations. Suppose we have an \FOL\ expression $\meta{A}t_{1}…t_{k}$, where each $t_{i}$ is a name or a variable, symbolising a singular term, and where $\meta{A}$ symbolises a $k$-place predicate. The $i$-th term is to be interpreted as filling the gap labelled `$i$'. So consider the following symbolisation key: \begin{ekey}
 	\item[\domain] places
 		\item[a] Adelaide
 		\item[b] Alice Springs
@@ -718,7 +718,7 @@ Once we have two (or more) gaps in a predicate, we can fill them with different 
 	\item[\ex{selfi1}] $\forall x Txa$;\\ Everyone thinks only of Alice.
 \end{earg}
 
-The fact that we can fill the two gaps of two-place predicates with different things, or even with the same thing, gives us an reason to favour the two-place predicate symbolisation of `Alice thinks only of themself' as `$Taa$'. That allows us to symbolise certain arguments that cannot be adequately symbolised using a one-place predicate. For example: `Alice thinks only of herself; so there is someone who is the only person Alice thinks of'. The symbolisation of this argument might be: `$Taa \ttherefore \exists x Tax$'. This might have some prospect of being valid, whereas `$Sa \ttherefore \exists x Tax$' will not be valid.
+The fact that we can fill the two gaps of two-place predicates with different things, or even with the same thing, gives us a reason to favour the two-place predicate symbolisation of `Alice thinks only of themself' as `$Taa$'. That allows us to symbolise certain arguments that cannot be adequately symbolised using a one-place predicate. For example: `Alice thinks only of herself; so there is someone who is the only person Alice thinks of'. The symbolisation of this argument might be: `$Taa \ttherefore \exists x Tax$'. This might have some prospect of being valid, whereas `$Sa \ttherefore \exists x Tax$' will not be valid.
 
 The real power of many-place predicates comes when we consider examples in which \emph{both} gaps in the predicate are filled by variables governed by different quantifiers. In cases where the quantifier expressions interact, we can express things we cannot say even when we allow logically complex combinations of one-quantifier sentences. With this power comes potential confusion too. So let's proceed carefully. 
 
@@ -736,7 +736,7 @@ How can we symbolise these two different disambiguations of our original sentenc
 Let's paraphrase a little more formally as we step towards a fully symbolic representation. As our sentence has two quantifiers, I will use numbers to link pronouns in our paraphrase with the quantifier expressions which govern them. Using this device, our sentences can be paraphrased as follows: \begin{earg}
 	\item[\ex{lovecycle1}] Everyone\textsubscript{1} is such that there is someone\textsubscript{2} such that: they\textsubscript{1} love them\textsubscript{2}. 
 	\item[\ex{loveconverge1}] There is someone\textsubscript{2} such that everyone\textsubscript{1} is such that: they\textsubscript{1} love them\textsubscript{2}.
-\end{earg} (Take a moment to convince yourself that these paraphrases suceed.)
+\end{earg} (Take a moment to convince yourself that these paraphrases succeed.)
 
 You can see immediately that the difference in these paraphrases lies in the order of the quantifier expressions, and the remainder of the paraphrase, `they\textsubscript{1} love them\textsubscript{2}', is the same in each sentence. Using variables to symbolise pronouns, and choosing the variable `$x$' for `they\textsubscript{1}' and `$y$' for `them\textsubscript{2}', we can symbolise this `$Lxy$', where `$L$' stands for the two-place predicate `\gap{1}\ loves \gap{2}'. 
 
@@ -784,9 +784,11 @@ And now let's try to symbolise these sentences:
 \end{earg}
 Sentence \ref{dog2} can be paraphrased as, `There is a dog that Geraldo owns'. This can be symbolised by `$\exists x(Dx \eand Ogx)$'.
 
-Sentence \ref{dog3} can be paraphrased as, `There is some y such that y is a dog owner'. Dealing with part of this, we might write `$\exists y(y\text{ is a dog owner})$'. Now the fragment we have left as `$y$ is a dog owner' is much like sentence \ref{dog2}, except that it is not specifically about Geraldo. So we can symbolise sentence \ref{dog3} by:
-$$\exists y \exists x(Dx \eand Oyx)$$
-I need to pause to clarify something here. In working out how to symbolise the last sentence, we wrote down `$\exists y(y\text{ is a dog owner})$'. To be very clear: this is \emph{neither} an \FOL\ sentence \emph{nor} an English sentence: it uses bits of \FOL\ (`$\exists$', `$y$') and bits of English (`dog owner'). It is really is \emph{just a stepping-stone} on the way to symbolising the entire English sentence with a \FOL\ sentence, a bit of rough-working-out.
+Sentence \ref{dog3} can be paraphrased as, `There is some y such that y is a dog owner'. Dealing with part of this, we might write `$\exists y(y\text{ is a dog owner})$'. Now the fragment we have left as `$y$ is a dog owner' is much like sentence \ref{dog2}, except that it is not specifically about Geraldo. (We chose the variable `$y$' with this in mind, to avoid a clash with the variable `$x$' in our symbolisation of \ref{dog2} – see below.) So we can symbolise sentence \ref{dog3} by:
+$$\exists y \exists x(Dx \eand Oyx).$$ 
+
+
+I need to pause to clarify something here. In working out how to symbolise the last sentence, we wrote down `$\exists y(y\text{ is a dog owner})$'. To be very clear: this is \emph{neither} a \FOL\ sentence \emph{nor} an English sentence: it uses bits of \FOL\ (`$\exists$', `$y$') and bits of English (`dog owner'). It is really is \emph{just a stepping-stone} on the way to symbolising the entire English sentence with a \FOL\ sentence, a bit of rough-working-out.
 
 Sentence \ref{dog4} can be paraphrased as, `Everyone who is a friend of Geraldo is a dog owner'. Using our stepping-stone tactic, we might write 
 $$\forall x \bigl(Fxg \eif x \text{ is a dog owner}\bigr)$$
@@ -1022,7 +1024,7 @@ We want to add something to the symbolisation of \ref{else1} to handle these ita
 The sentences in \ref{else1b}–\ref{else1d} can all be paraphrased as follows:
 \begin{earg}
 	\item[\ex{else1e}] Everyone who isn't Pavel is such that: Pavel owes money to them.
-\end{earg} This is a sentence of the form `every F [person who is not Pavel] is G [owed money by Pavel]'. Accordingly it can be symbolised by something with this structure: $\forall x (\meta{A}x \eif \meta{G}x)$. Here is an attempt to fill in the schematic letters:
+\end{earg} This is a sentence of the form `every \meta{F} [person who is not Pavel] is \meta{G} [owed money by Pavel]'. Accordingly it can be symbolised by something with this structure: $\forall x (\meta{F}x \eif \meta{G}x)$. Here is an attempt to fill in the schematic letters:
 	\begin{ekey}
 		\item[O] \gap{1} owes money to \gap{2}
 		\item[I] \gap{1} is \gap{2}
@@ -1341,7 +1343,7 @@ Yet Russell's account has some nice features that predict and explain some other
 \paragraph{Empty Definite Descriptions}
 One of the nice features of Russell's paraphrase is that it allows us to handle \emph{empty} definite descriptions neatly. France has no king at present. Now, if we were to introduce a name, `$k$', to name the present King of France, then everything would go wrong: remember from §\ref{s:FOLBuildingBlocks} that a name must always pick out some object in the domain, and whatever actual domain we choose, it will contain no present King of France. So we are at a loss to understand `the King of France is bald': does it even say anything, since its subject has no referent?
 
-Russell's paraphrase neatly avoids this problem. Russell tells us to treat definite descriptions using predicates and quantifiers, instead of names. Since predicates can be empty (see §\ref{s:MoreMonadic}), this means that no difficulty now arises when the definite description is empty. The sentence `the present King of France is bald' is paraphrased as `there exists exactly one present King of France', and so turns out to be easily understood, and in fact to be false.
+Russell's paraphrase neatly avoids this problem. Russell tells us to treat definite descriptions using predicates and quantifiers, instead of names. Since predicates can be empty (see §\ref{s:MoreMonadic}), this means that no difficulty now arises when the definite description is empty. The sentence `the present King of France is bald' is paraphrased as `there exists exactly one present King of France and every present King of France is bald', and so turns out to be easily understood, and in fact to be false.
 
 \paragraph{Scope and Descriptions}
 Indeed, Russell's paraphrase helpfully highlights two ways one can go wrong with definite descriptions. To adapt an example from Stephen Neale,\footnote{Neale (1990) \emph{Descriptions}, Cambridge: MIT Press.} suppose I, Antony Eagle, claim:
@@ -1377,7 +1379,7 @@ The term-forming operator approach to definite descriptions cannot handle this c
 The evidence from scope ambiguity we just considered is a substantial point in favour of Russell's paraphrase, at least compared to the operator approach. But how successful is Russell's paraphrase in general?  There is a substantial philosophical literature around this issue, but I shall content myself with two observations.
 
 \paragraph{Presupposition and Negation}
-One worry focusses on Russell's treatment of empty definite descriptions. If there are no \meta{F}s, then on Russell's paraphrase, both `the \meta{F} is \meta{G}' and its narrow scope negation, `the \meta{F} is not-\meta{G}', are false. Strawson suggested that such sentences should not be regarded as false, exactly.\footnote{P F Strawson (1950) `On Referring', \emph{Mind} \textbf{59} pp.\ 320–34.} Rather, they both seem to assume that `the \meta{F}' refers, and since this assumption is incorrect, the sentences misfire in a way that should, Strawson thinks, make us regard as \emph{neither} true \emph{nor} false, but nevertheless still meaningful.
+One worry focusses on Russell's treatment of empty definite descriptions. If there are no \meta{F}s, then on Russell's paraphrase, both `the \meta{F} is \meta{G}' and its narrow scope negation, `the \meta{F} is not-\meta{G}', are false. Strawson suggested that such sentences should not be regarded as false, exactly.\footnote{P F Strawson (1950) `On Referring', \emph{Mind} \textbf{59} pp.\ 320–34.} Rather, they both seem to assume that `the \meta{F}' refers, and since this assumption is incorrect, the sentences misfire in a way that should, Strawson thinks, make us regard it as \emph{neither} true \emph{nor} false, but nevertheless still meaningful.
 
 A \define{semantic presupposition} of a declarative sentence is something that must be \emph{taken for granted} by anyone asserting the sentence, triggered or forced by the words involved.\footnote{See David I Beaver, Bart Geurts, and Kristie Denlinger (2021) `Presupposition', in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy} \httpurl{plato.stanford.edu/archives/spr2021/entries/presupposition/}, esp. §2 and §6.} A pretty reliable test for whether $\meta{P}$ is a semantic presupposition of a sentence $\meta{A}$ is whether $\meta{P}$ is a consequence of both $\meta{A}$ and $¬\meta{A}$. Strawson elevates this test to a \emph{definition} of semantic presupposition: presuppositions are entailments that persist when a sentence is embedded under negation.  So `John has stopped drinking' and its negation `John hasn't stopped drinking' both entail in English that John used to drink, and hence `John used to drink' is a semantic presupposition of `John has stopped drinking'. Here the presupposition is triggered by the aspectual verb `stopped'. 
 
@@ -1447,7 +1449,7 @@ symbolise the following sentences in \FOL:
 Using the following symbolisation key:
 \begin{ekey}
 \item[\domain] animals
-\item[𝐶\meta{x}] \gap{1} is a cat.
+\item[C] \gap{1} is a cat.
 \item[G] \gap{1} is grumpier than \gap{2}.
 \item[f] Felix 
 \item[g] Sylvester
@@ -1564,22 +1566,22 @@ Parentheses &( , )\\
 We define an \define{expression} of \FOL\ as any string of symbols of \FOL. Take any of the symbols of \FOL\ and write them down, in any order, and you have an expression.
 
 \section{Terms and Formulae}\label{s:termsandf}
-In §\ref{s:TFLSentences}, we went straight from the statement of the vocabulary of \TFL\ to the definition of a sentence of \TFL. In \FOL, we shall have to go via an intermediary stage: via the notion of a  \emph{formula}. The intuitive idea is that a formula is any sentence, or anything which can be turned into a sentence by adding quantifiers out front. But this will take some unpacking.
+In §\ref{s:TFLSentences}, we went straight from the statement of the vocabulary of \TFL\ to the definition of a sentence of \TFL. In \FOL, we shall have to go via an intermediary stage: via the notion of a \emph{formula}. The intuitive idea is that a formula is any sentence, or anything which can be turned into a sentence by adding quantifiers out front. But this will take some unpacking.
 
 We start by defining the notion of a term.
 	\factoidbox{
-		A \define{term} is any name or any variable. }
+		A \define{term} is any name or any variable.}
 So, here are some terms:
 	$$a, b, x, x_{1} x_{2}, y, y_{254}, z$$
-We next need to define \define{atomic formulae}.
+We next need to define an \define{atom}.
 	\factoidbox{
 		\begin{enumerate}
-		\item If $\meta{R}$ is any predicate other than the identity predicate `$=$', and we have 0 or more terms $\meta{t}_{1}, \meta{t}_{2}, …, \meta{t_n}$ (not necessarily distinct from one another), then $\meta{R t}_{1} \meta{t}_{2} … \meta{t}_n$ is an atomic formula. 
-		\item If $\meta{t}_{1}$ and $\meta{t}_{2}$ are terms, then $\meta{t}_{1} = \meta{t}_{2}$ is an atomic formula.
-		\item Nothing else is an atomic formula.
+		\item If $\meta{R}$ is any predicate other than the identity predicate `$=$', and we have zero or more terms $\meta{t}_{1}, \meta{t}_{2}, …, \meta{t_n}$ (not necessarily distinct from one another), then the expression $\meta{R t}_{1} \meta{t}_{2} … \meta{t}_n$ is an atom. 
+		\item If $\meta{t}_{1}$ and $\meta{t}_{2}$ are terms, then the expression $\meta{t}_{1} = \meta{t}_{2}$ is an atom.
+		\item Nothing else is an atom.
 		\end{enumerate}
 	}
-The use of script fonts here follows the conventions laid down in §\ref{s:UseMention}. So, `$\meta{R}$' is not itself a predicate of \FOL. Rather, it is a symbol of our metalanguage (augmented English) that we use to talk about any predicate of \FOL. Similarly, `$\meta{t}_{1}$' is not a term of \FOL, but a symbol of the metalanguage that we can use to talk about any term of \FOL. So here are some atomic formulae:
+The use of script fonts here follows the conventions laid down in §\ref{s:UseMention}. So, `$\meta{R}$' is not itself a predicate of \FOL. Rather, it is a symbol of our metalanguage (augmented English) that we use to talk about any predicate of \FOL. Similarly, `$\meta{t}_{1}$' is not a term of \FOL, but a symbol of the metalanguage that we can use to talk about any term of \FOL. So here are some atoms:
 	\begin{center}
 		$x = a$\\
 		$a = b$\\
@@ -1590,14 +1592,14 @@ The use of script fonts here follows the conventions laid down in §\ref{s:UseMe
 		$Sx_{1} x_{2} a b y x_{1}$\\
 		$Sby_{254} z a a z$\\
 	\end{center}
-Remember that we allow zero-place predicates too, to ensure that sentence letters of \TFL\ are grammatical expressions of \FOL\ too. According to the definition, any predicate symbol followed by no terms at all is also an atomic formula of \FOL. So `$Q$' by itself is an acceptable atomic formula.
+Remember that we allow zero-place predicates too, to ensure that sentence letters of \TFL\ are grammatical expressions of \FOL\ too. According to the definition, any predicate symbol followed by no terms at all is also an atom of \FOL. So `$Q$' by itself is an acceptable atom.
 
-Earlier, we distinguished many-place from one-place predicates. We made no distinction however in our list of acceptable symbols between predicate symbols with different numbers of places. This means that `$F$', `$Fa$', `$Fax$', and `$Faxb$' are all atomic formulae. We will not introduce any device for explicitly indicating what number of places a predicate has. Rather, we will assume that in every atomic formula of the form $\meta{A}\meta{t}_{1}…\meta{t}_{n}$, $\meta{A}$ denotes an $n$-place predicate. This means there is a potential for confusion in practice, if someone chooses to symbolise an argument using both the one-place predicate `$A$' and the two-place predicate `$A$'. Rather than forbid this entirely, we recommend choosing distinct symbols for different place predicates in any symbolisation you construct.
+Earlier, we distinguished many-place from one-place predicates. We made no distinction however in our list of acceptable symbols between predicate symbols with different numbers of places. This means that `$F$', `$Fa$', `$Fax$', and `$Faxb$' are all atoms. We will not introduce any device for explicitly indicating what number of places a predicate has. Rather, we will assume that in every atom of the form $\meta{A}\meta{t}_{1}…\meta{t}_{n}$, $\meta{A}$ denotes an $n$-place predicate. This means there is a potential for confusion in practice, if someone chooses to symbolise an argument using both the one-place predicate `$A$' and the two-place predicate `$A$'. Rather than forbid this entirely, we recommend choosing distinct symbols for different place predicates in any symbolisation you construct.
 
-Once we know what atomic formulae are, we can offer recursion clauses to define arbitrary formulae. The first few clauses are exactly the same as for \TFL.
+Once we know what atoms are, we can offer recursion clauses to define a \define{formula}. The first few clauses are exactly the same as for the definition of sentences in \TFL\ in §\ref{s.sentencesTFL}.
 	\factoidbox{
 	\begin{enumerate}
-		\item Every atomic formula is a formula. 
+		\item Every atom is a formula. 
 		\item If \meta{A} is a formula, then $\enot\meta{A}$ is a formula.
 		\item If \meta{A} and \meta{B} are formulae, then $(\meta{A}\eand\meta{B})$ is a formula.
 		\item If \meta{A} and \meta{B} are formulae, then $(\meta{A}\eor\meta{B})$ is a formula.
@@ -1622,7 +1624,7 @@ Here are some formulae:
 		$\forall y (Fa \eif Fa) $\end{center}
 
 
-We can now give a formal definition of scope, which incorporates the definition of the scope of a quantifier. Here we follow the case of \TFL, though we note that a connective can be either a connective or a quantifier:
+We can now give a formal definition of scope, which incorporates the definition of the scope of a quantifier. Here we follow the case of \TFL; in \FOL, quantifiers are also considered to be connectives:
 	\factoidbox{
 		The \define{main connective} in a formula is the connective that was introduced last, when that formula was constructed using the recursion rules.
 		
@@ -1634,16 +1636,16 @@ So we can graphically illustrate the scope of the quantifiers in the last two ex
 	$$\overbracket{\forall x \overbracket{\exists y (Fx \eiff \overbracket{\forall z (Gayz \eif Syzyayx)}^{\text{scope of `}\forall z\text{'}}}^{\text{scope of `}\exists y\text{'}})}^{\text{scope of `}\forall x\text{'}} \qquad\qquad 
 \overbracket{\forall x (Fx \eif \overbracket{\exists x Gx}^{\text{scope of `$\exists x$'}})}^{\text{scope of `$\forall x$'}}	$$
 
-Note that it follows from our recursive definition that `$\forall x Fa$' is a formula. While puzzling on its face, with that quantifier governing no variable in its scope, it nevertheless is a formula of the language. It will turn out that, because the quantifier binds no variable in its scope, it is redundant; the formula `$\forall xFa$' is logically equivalent to `$Fa$'. Eliminating such formulae from the language involves greatly increased complication in the definition of a formula for no important gain.
+Note that it follows from our recursive definition that `$\forall x Fa$' is a formula. While puzzling on its face, with that quantifier governing no variable in its scope, it nevertheless is a formula of the language. It will turn out that, because the quantifier binds no variable in its scope, it is redundant; the formula `$\forall xFa$' is logically equivalent to `$Fa$'. Thus while `$\forall x Fa$' may be a bit puzzling, it is harmless to include it among our formulae. 
 
-\section{Sentences}
+\section{Sentences in \FOL}
 Recall that we are largely concerned in logic with assertoric sentences: sentences that can be either true or false. Many formulae are not sentences. Consider the following symbolisation key:
 	\begin{ekey}
 		\item[\domain] people
 		\item[L] \gap{1} loves \gap{2}
 		\item[b] Boris
 	\end{ekey}
-Consider the atomic formula `$Lzz$'. All atomic formulae are formulae, so `$Lzz$' is a formula. But can it be true or false? You might think that it will be true just in case the person named by `$z$' loves herself, in the same way that `$Lbb$' is true just in case Boris (the person named by `$b$') loves himself. \emph{But `$z$' is a variable, and does not name anyone or any thing.} It is true that we can sometimes manage to make a claim by saying `it loves it', the best Engish rendering of `$Lzz$'. But we can only do so by making use of contextual cues to supply referents for the pronouns `it' – contextual cues that artifical languages like \FOL\ lack. (If you and I are both looking at a bee sucking nectar on a flower, we might say `it loves it' to express the claim that the bee [\emph{it}]  loves the nectar [\emph{it}]. But we don't have such a rich environment to appeal to when trying to interpret formulae of \FOL.)
+Consider the atom `$Lzz$'. All atoms are formulae, so `$Lzz$' is a formula. But can it be true or false? You might think that it will be true just in case the person named by `$z$' loves herself, in the same way that `$Lbb$' is true just in case Boris (the person named by `$b$') loves himself. \emph{But `$z$' is a variable, and does not name anyone or any thing.} It is true that we can sometimes manage to make a claim by saying `it loves it', the best Engish rendering of `$Lzz$'. But we can only do so by making use of contextual cues to supply referents for the pronouns `it' – contextual cues that artifical languages like \FOL\ lack. (If you and I are both looking at a bee sucking nectar on a flower, we might say `it loves it' to express the claim that the bee [\emph{it}]  loves the nectar [\emph{it}]. But we don't have such a rich environment to appeal to when trying to interpret formulae of \FOL.)
 
 Of course, if we put an existential quantifier out front, obtaining `$\exists zLzz$', then this would be true iff someone loves themself (i.e., someone [$z$] is such that they [$z$] love themself [$z$]). Equally, if we wrote `$\forall z Lzz$', this would be true iff everyone loves themselves. The point is that, in the absence of an explicit introduction or contextual cues, we need a quantifier to tell us how to deal with a variable. 
 
@@ -1662,9 +1664,9 @@ In our last example from the previous section, `$\forall x (Fx \eif \exists xGx)
 
 Finally we can say the following.	
 	\factoidbox{	
-		The \define{sentences} of \FOL\ are just exactly those formulae of \FOL\ that contain no free variables.
+		A \define{sentence of \FOL} is a formula that contains no free variables.
 	}
-Since an atomic formula formed by a zero-place predicate contains no terms at all, and hence cannot contain a variable, every such expression is a sentence – they are just the atomic sentences of \TFL. Any other formula which contains no variables, but only names, is also a sentence, as well as all those formulae which contain only bound variables. 
+Since an atom formed by a zero-place predicate contains no terms at all, and hence cannot contain a variable, every such expression is a sentence – they are just the atomic sentences of \TFL. Any other formula which contains no variables, but only names, is also a sentence, as well as all those formulae which contain only bound variables. 
 
 Our definition of a formula allows for examples like `$\exists x \forall x Fx$'. This is a sentence, since the variable in `$Fx$' is in the scope of a quantifier attached to `$x$'. But which one? It could make a difference whether the sentence is to be understood as saying everything is $F$, or something it. To resolve this issue, let us stipulate that a variable is bound by the quantifier which is the main connective of the smallest subformula in which the variable is bound. So in `$\exists x \forall x Fx$', the variable is bound by the universal quantifier, because it was already bound in the subformula `$\forall x Fx$'.
 
