@@ -266,7 +266,7 @@ We can start to see how interpretations can help us evaluate arguments quite viv
 If you would like a real challenge, you might try to figure out the interpretation corresponding to the Euler diagram in Figure~\ref{fig:xkcd}. 
 \begin{figure}[b]
 	\includegraphics[width=0.85\textwidth]{chat_systems.png}
-\caption{`Chat Systems', \url{https://xkcd.com/1810/}\label{fig:xkcd}}
+\caption{`Chat Systems', \httpurl{xkcd.com/1810/}\label{fig:xkcd}}
 \end{figure}
 
 \section{Representing two-place predicates: directed graphs} \label{graph}
@@ -645,7 +645,7 @@ So here is a second naïve thought. We might try to say that `$\forall x \exists
 
 Unfortunately, this is not right either. To see this, observe that in our go-to interpretation, we have only given interpretations for \emph{two} names, `$a$' and `$b$'. But the domain – all people born before the year 2000\textsc{ce} – contains many more than two people. I have no intention of trying to name \emph{all} of them!  In most interpretations, things in the domain go unnamed; we can't understand quantifiers as ranging over only actually named things without missing out some things in such interpretations.\footnote{Can we solve this issue by the brute force proposal to simply assign everything in the domain a name? That is not possible, because there are not enough names. Remember (§\ref{s:FOLSentences}) that names in \FOL\ consist of the English letters $a,…,r$ with numerical subscripts if needed. So every name in \FOL\ consists of a letter and a finite numeral. It turns out you can arrange all these names in a single, infinitely long list (basically, represent each name by a code number, and order the names by the size of the code number). The items in a list like that can be enumerated. But Cantor famously showed that some things are too many to be enumerated; any single list which attempts to include all of them would inevitably miss some. (One example: while you can enumerate all the finite sequences of itemse from a finite alphabet, you cannot enumerate all the infinite sequences of such items.) So some collections are too many for them all to have names, because we'd run out of names before labelling them all. So substitutional quantification can't handle all examples of quantification.
 
-Cantor's result, and the `diagonal argument' he used to establish it, is discussed in ch.~5 of Tim Button (2021) \emph{Set Theory: An Open Introduction}, \href{https://st.openlogicproject.org/settheory-screen.pdf}{\nolinkurl{st.openlogicproject.org/settheory-screen.pdf}}.}
+Cantor's result, and the `diagonal argument' he used to establish it, is discussed in ch.~5 of Tim Button (2021) \emph{Set Theory: An Open Introduction}, \httpurl{st.openlogicproject.org/settheory-screen.pdf}.}
 
 
 So here is a third thought. (And this thought is not naïve, but correct.) Although it is not the case that we have named \emph{everyone}, each person \emph{could} have been given a name. So we should focus on this possibility of extending an interpretation, by adding a previously uninterpreted name to our interpretation. I shall offer a few examples of how this might work, centring on our go-to interpretation, and I shall then present the formal definition. 
