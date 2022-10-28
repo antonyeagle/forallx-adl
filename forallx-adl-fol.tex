@@ -119,19 +119,26 @@ Sentence \ref{terms2a}: this is a conjunction of two simpler sentences. The simp
 
 Sentence \ref{terms2}: this is a conditional, whose antecedent is sentence \ref{terms1} and whose consequent is sentence \ref{terms2a}. So we can symbolise this with `$Ae \eif (Ag \eand Am)$'.
 
-\paragraph{Predicates without subjects} Actually we can make an elegant further assumption to incorporate \TFL\ entirely within \FOL. A predicate combines with singular terms to make sentences. But some English predicates, though they require a singular term syntactically, don't seem to involve the referent of those singular terms in their meaning. We see this in expressions like these: \begin{earg}
+\subsection{Predicates without subjects} \label{s:zpp}
+
+Actually we can make an elegant further assumption to incorporate \TFL\ entirely within \FOL. A predicate combines with singular terms to make sentences. But some English predicates, though they require a singular term syntactically, don't seem to involve the referent of those singular terms in their meaning. We see this in expressions like these: \begin{earg}
 	\item[\ex{rains}] It is snowing;
 	\item[\ex{seemss}] It seems that George is hungry;
 	\item[\ex{shell}] She'll be right.
 \end{earg} The pronouns in these cases are known as \define{dummy pronouns}. These pronouns have no obvious referent, but that poses no problem for the interpretation of the sentences. Example \ref{rains} means something like the bare verb `snowfalling', if only that were grammatical. In these cases, the predicate following the pronoun does not denote a property of individuals, because there is no way to attach it to a particular individual.  Contrast these examples:  \begin{earg}
     \item[\ex{cpa}] Coober Pedy is a harsh place. \underline{It} has underground houses.
-    	\item[\ex{cpb}] Coober Pedy is a harsh place. \underline{It} seldom rains there.
+    	\item[\ex{cpb}] Coober Pedy is a harsh place. \underline{It} is hot.
     \end{earg}
-In \ref{cpa}, `it' refers to Coober Pedy. Not so in \ref{cpb}: `It' in that example is a \define{dummy pronoun}. Yet `there' does refer to Coober Pedy. Drop the latter pronoun, and you obtain `it seldom rains'. Having already argued that `it' is a dummy pronoun in the longer sentence, it appears to remain a dummy pronoun in the shortened sentence. Try substituting some proper name for `it' in `it seldom rains' and see what nonsense you get. 
+In \ref{cpa}, `it' refers to Coober Pedy. Not so in \ref{cpb}: `It' in that example is a \define{dummy pronoun}. one which needs to be present for syntactic reasons (every English sentence requires a grammatical subject), but which doesn't make any contribution to the meaning of the sentence. (Try substituting some proper name for `it' in `it is hot' and see what nonsense you get. ) They are common with metereological reports: `it is raining', `it is dark', etc. 
 
-Such predicates, where the dummy pronoun should not be thought of as a genuine gap in the sentence, and with no other singular terms evident, have a meaning which is purely determined by the predicate. English requires a grammatical subject, but \FOL\ is not subject to a similar limitation. Rather than reproduce this feature of English, we will allow \FOL\ predicates occuring by themselves to count as grammatical sentences of \FOL. These zero-place predicates, semantically requiring no subject, are to be symbolised by capital letters `$A$' through `$Z$' (perhaps subscripted), but without needing any adjacent name to be grammatical.
+\FOL does not have the syntactic limitation of English that every sentence must include a singular term. We will allow \FOL\ predicates occuring by themselves to count as grammatical sentences of \FOL. These zero-place predicates, semantically requiring no subject, are to be symbolised by capital letters `$A$' through `$Z$' (perhaps subscripted), but without needing any adjacent name to be grammatical.
 
 Note we have thereby included all atomic sentences of \TFL\ in \FOL\ among these special predicates of \FOL. In \TFL\ we used these sentences to symbolise any sentence of English which did not include sentence connectives. In \FOL\ their use will be more limited. But nevertheless, syntactically, since \FOL\ has all the connectives of \TFL\ and all the atomic sentences, we see that \emph{every sentence of \textnormal{\TFL} is also a sentence of \textnormal{\FOL}}.
+
+Indeed, this seems obligatory: the standard way to symbolise a bare pronoun sentence will make use of a free variable (§\ref{s:fol}). An English sentence like `He is tall' doesn't manage to express a meaningful claim in the absence of some context providing a referent for `he'. So it might be symbolised `$Tx$' – a formula of \FOL\ that is not a sentence – to indicate that we are not expecting this sentence that is being symbolised to be true or false in a given intepretation. To symbolise `it is hot' as `$Hx$' would on these grounds be a mistake: `it is hot' expresses a proposition even without a referent assigned to the pronoun `it', and is true or false in a situation just depending on whether heat is present or not. So it can be adequately symbolised by a zero-place predicate `$H$'.
+
+
+ 
 
 \section{Quantifiers}\label{quant.pron}
 We are now ready to introduce quantifiers. In general, a quantifier tells us \emph{how many}. Consider these sentences:
@@ -1638,7 +1645,7 @@ So we can graphically illustrate the scope of the quantifiers in the last two ex
 
 Note that it follows from our recursive definition that `$\forall x Fa$' is a formula. While puzzling on its face, with that quantifier governing no variable in its scope, it nevertheless is a formula of the language. It will turn out that, because the quantifier binds no variable in its scope, it is redundant; the formula `$\forall xFa$' is logically equivalent to `$Fa$'. Thus while `$\forall x Fa$' may be a bit puzzling, it is harmless to include it among our formulae. 
 
-\section{Sentences in \FOL}
+\section{Sentences in \FOL} \label{s:fol}
 Recall that we are largely concerned in logic with assertoric sentences: sentences that can be either true or false. Many formulae are not sentences. Consider the following symbolisation key:
 	\begin{ekey}
 		\item[\domain] people
