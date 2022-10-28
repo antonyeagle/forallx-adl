@@ -1825,15 +1825,16 @@ There is no simple recipe for proofs, and there is no substitute for practice. H
 
 
 \paragraph{Work backwards from what you want}
-The ultimate goal is to obtain the conclusion. Look at the conclusion and ask what the introduction rule is for its main connective. This gives you an idea of what should happen \emph{just before} the last line of the proof. Then you can treat this line as if it were your goal. Ask what you could do to get to this new goal.
+The ultimate goal is to obtain the conclusion. Look at the conclusion and ask what the introduction rule is for its main connective. This gives you an idea of what should happen \emph{just before} the last line of the proof. Then you can treat this line as if it were your goal. Ask what you could do to get to this new goal. 
 
 For example: If your conclusion is a conditional $\meta{A}\eif\meta{B}$, plan to use the {\eif}I rule. This requires starting a subproof in which you assume \meta{A}. The subproof ought to end with \meta{B}. So, what can you do to get $\meta{B}$?
-
 
 \paragraph{Work forwards from what you have}
 When you are starting a proof, look at the premises; later, look at the sentences that you have obtained so far. Think about the elimination rules for the main operators of these sentences. These will tell you what your options are.
 
 For a short proof, you might be able to eliminate the premises and introduce the conclusion. A long proof is formally just a number of short proofs linked together, so you can fill the gap by alternately working back from the conclusion and forward from the premises.
+
+Often, whether the conclusion will be derived by an introduction rule or elimination rule can be ascertained partly by looking at the premises. If the subsentences of the conclusion appear as premises, then you will likely need to use an introduction rule. On the other hand, if the conclusion appears as a subsentence of one of the premises, it is likely that you will need to use an elimination rule.\footnote{Thanks to Matt Nestor for this way of putting things.}
 
 \paragraph{Try proceeding indirectly}
 If you cannot find a way to show $\meta{A}$ directly, try starting by assuming $\enot \meta{A}$. If a contradiction follows, then you will be able to obtain $\meta{A}$ by $\enot$E. This will often be a good way of proceeding when the conclusion you are aiming at has a \emph{disjunction} as its main connective.  
