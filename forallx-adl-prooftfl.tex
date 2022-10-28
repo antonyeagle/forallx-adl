@@ -34,7 +34,7 @@ In special cases, thinking about reasoning can help us understand logical implic
 
 \emph{This is a very different way of thinking about arguments.} Rather than thinking about the possible meanings of the argument using valuations or interpretations, we manipulate the sentences involved in the premises and conclusion to construct an object, the proof,  which directly demonstrates the validity of the argument. 
 
-Very abstractly, a \define{formal proof} is a sequence of sentences, such that each sentence is justified by some rule of the proof system, possibly given some previous sentence or sentences. (The sentences may also be accompanied by a `commentary' explaining how that sentence is justified.) There are lots of different systems for constructing formal proofs in \TFL and \FOL, including among others axiomatic systems, semantic tableaux, Gentzen-style natural deduction, and sequent calculus. Different systems may be more efficient, or simpler to use, or better when one is reasoning about formal proofs rather than constructing them. 
+Very abstractly, a \define{formal proof} is a sequence of sentences, such that each sentence is justified by some rule of the proof system, possibly given some previous sentence or sentences. (The sentences may also be accompanied by a `commentary' explaining how that sentence is justified.) There are lots of different systems for constructing formal proofs in \TFL\ and \FOL, including among others axiomatic systems, semantic tableaux, Gentzen-style natural deduction, and sequent calculus. Different systems may be more efficient, or simpler to use, or better when one is reasoning about formal proofs rather than constructing them. 
  All formal proof systems share two important features: \begin{itemize}
 	\item The rules are unambiguous; and
 	\item The rules apply at some stage of a proof because of the syntactic structure of the sentences involved – no consideration of valuations or interpretations is involved.
@@ -618,7 +618,7 @@ When we start a subproof, we draw another vertical line (to the right of any exi
 What will be new in this section is that some rules take us \emph{back out} of a subproof. So the rules we will now consider are quite different from the rules covered in §\ref{s:BasicTFLns}, none of which have this feature of being able to escape from a previously introduced assumption.
 
 When we are working within a subproof, we can refer to the additional assumption that we made in introducing the subproof, and to anything that we obtained from our original assumptions. (After all, those original assumptions are still in effect.) But at some point, we shall want to stop working with the additional assumption: we shall want to return from the subproof to the main proof. To indicate that we have returned to the main proof, the vertical line for the subproof comes to an end. At this point, we say that the subproof is \define{closed}. Having closed a subproof, we have set aside the additional assumption, so it will be illegitimate to draw upon anything that depends upon that additional assumption. This has been implicit in our discussion all along, but it is good to make it very clear:
-\factoidbox{\phantomsection\label{subproof.rule}Any point in a natural deduction proof is in the range of some currently active assumptions, and the natural deduction rules can be applied only to sentences which do not rely on any other assumptions than those.
+\factoidbox{\phantomsection\label{subproof.rule}Any point in a natural deduction proof is in the range of some (zero or more) currently active assumptions, and the natural deduction rules can be applied to extend the proof from that point only by appealing to prior sentences which rely at most on those same assumptions (or perhaps fewer).
 
 Equivalently, any rule can be applied to any earlier lines in a proof, \emph{except} for those lines which occur within a closed subproof. }
 Closing a subproof is called \define{discharging} the assumptions of that subproof. So we can put the point this way: \emph{at no stage of a proof can you apply a rule to a sentence that occurs only in the range of an already discharged assumption}. 
@@ -635,7 +635,7 @@ The idea of opening subproofs by making new assumptions can be used to illustrat
 	\have{q}{Q}\ae{pq}
 	\open \hypo{r}{R}
 	\have{q2}{Q}\by{R}{q}
-\end{proof} In this proof, even though the occurrence of `$Q$' on line 4 occurs within the range of the assumption `$R$', it does not intuitively depend on it. We used reiteration to show that `$R$' is still derivable from active assumptions at line 4, but it does not follow that `$R$' depends in any robust way on every assumption that is active at line 4. 
+\end{proof} In this proof, even though the occurrence of `$Q$' on line 4 occurs within the range of the assumption `$R$', it does not intuitively depend on it. We used reiteration to show that `$Q$' is still derivable from active assumptions at line 4, but it does not follow that `$Q$' depends in any robust way on every assumption that is active at line 4. 
 
 \section{Conditional Introduction}\label{condint}
 
@@ -649,7 +649,7 @@ If someone doubted that this was valid, we might try to convince them otherwise 
 	\end{quote}
 
 This kind of reasoning is vital for understanding conditional claims. As the Cambridge philosopher Frank Ramsey pointed out: \begin{quote}
-	If two people are arguing ‘If \meta{P}, will \meta{Q}?’ and are both in doubt as to \meta{P}, they are adding \meta{p} hypothetically to their stock of knowledge and arguing on that basis about \meta{q}….\footnote{F P Ramsey (1929), ‘General Propositions and Causality’, at p. 155 in F P Ramsey (1990) \emph{Philosophical Papers}, D H Mellor, ed., Cambridge University Press.}
+	If two people are arguing ‘If \meta{P}, will \meta{Q}?’ and are both in doubt as to \meta{P}, they are adding \meta{P} hypothetically to their stock of knowledge and arguing on that basis about \meta{Q}….\footnote{F P Ramsey (1929), ‘General Propositions and Causality’, at p. 155 in F P Ramsey (1990) \emph{Philosophical Papers}, D H Mellor, ed., Cambridge University Press.}
 \end{quote}
 Ramsey’s idea is that if we can reach the conclusion that \meta{C} on the basis of the hypothetical supposition that \meta{A} (generally together with some other assumptions) then we would be entitled to judge, given the other assumptions alone, that if \meta{A} turns out to be true, then \meta{C} will also turn out to be true – for short, that if \meta{A} then \meta{C}. This observation of Ramsey's – that conditionals embody the categorical content of hypothetical reasoning – has been important for many accounts of the English conditional, not all of them wholly congenial to the idea that `if' is to be understood as `$\eif$'. Yet the essence of his idea motivates the conditional introduction rule of natural deduction.
 
@@ -755,7 +755,7 @@ We now have all the rules we need to show that the argument on page \pageref{lon
 
 
 \subsection{Import-Export}\label{import.export}
-Our rules so far can be used to demonstrate two important and rather controversial principles governing the conditional. The principle of \define{importation} is the claim that from `if $P$ then, if also $Q$, then $R$' it follows that `if $P$ and also $Q$, then $R$'. The principle of \define{exportation} is the converse, that from `if $P$ and also $Q$, then $R$' it follows that `if $P$, then if also $Q$, then $R$'. First, we prove importation holds for our conditional: \begin{proof}
+Our rules so far can be used to demonstrate two important principles governing the conditional. The principle of \define{importation} is the claim that from `if $P$ then, if also $Q$, then $R$' it follows that `if $P$ and also $Q$, then $R$'. The principle of \define{exportation} is the converse, that from `if $P$ and also $Q$, then $R$' it follows that `if $P$, then if also $Q$, then $R$'. First, we prove importation holds for our conditional: \begin{proof}
 	\hypo{ipiqr}{(P \eif (Q \eif R))}
 	\open
 	\hypo{paq}{(P \eand Q)}
@@ -781,6 +781,7 @@ Second, we show exportation holds. Here, we need to open two nested subproofs:
 	\have{pqr}{(P \eif (Q \eif R))}\ci{p-qr}
 \end{proof}
 
+The principles of importation and exportation hold of the material conditional. But exportation, in particular, is quite controversial when it comes to English `if' (see §\ref{s:philosophy}).
 
 \section{Some Pitfalls of Subproofs}\label{pitfalls}
 
@@ -1450,7 +1451,16 @@ If conditional proof were a good way of arguing in English, we could convert thi
 \begin{earg}
 	\item[\ref{ski1}.] I will go skiing tomorrow;
 	\item[So:] If I break my leg tonight, I will go skiing tomorrow.
-\end{earg} This is invalid, because even if the premise is true, the conclusion seems to be actually false. If conditional proof enables us to convert a valid English argument into an invalid argument, so much the worse for conditional proof. 
+\end{earg} This is invalid, because even if the premise is true, the conclusion seems to be actually false. If conditional proof enables us to convert a valid English argument into an invalid argument, so much the worse for conditional proof.\footnote{Suspicion about conditional proof for `if' might also raise suspicion about the principles of importation and exportation (§\ref{import.export}). Indeed, if exportation is assumed to hold for `if', then `if' is the material conditional. (A version of this argument, originally due to Allan Gibbard, is discussed in §2.5 of Dorothy Edgington (2020) `Indicative Conditionals', in Edward N Zalta, ed., \emph{The Stanford Encyclopedia of Philosophy}, \httpurl{plato.stanford.edu/entries/conditionals/}.)
+
+ Let $\meta{A}$ and $\meta{B}$ be some arbitrary sentences. Consider this complex English conditional (I insert parentheses to clarify the structure): 
+\begin{earg}
+	\item[\ex{impexpa}] If ([either $\meta{B}$ or not-$\meta{A}$] and $\meta{A}$), then $\meta{B}$. 
+\end{earg}
+This sentence is, intuitively, true, no matter what $\meta{A}$ and $\meta{B}$ are. If that disjunction of $\meta{B}$ and the falsehood of \meta{A} is true along with \meta{A}, then it must be because the disjunct \meta{B} holds. But apply exportation to \ref{impexpa}, and we obtain:
+\begin{earg}
+	\item[\ex{impexpb}] If [either $\meta{B}$ or not-$\meta{A}$], then (if $\meta{A}$) then $\meta{B})$. 
+\end{earg} If every instance of \ref{impexpa} is true in English, and \ref{impexpb} follows by a valid principle governing the meaning of `if', then every instance of \ref{impexpb} is true in English. But the antecedent of \ref{impexpb} is just the truth conditions of the material conditional `$\eif$'. And we already know that `if $\meta{A}$ then $\meta{B}$' implies in English `Either $\meta{B}$ or not-$\meta{A}$'. So we would get the result that `if $\meta{A}$ then $\meta{B}$' is equivalent in English to the material conditional `either $\meta{B}$ or not-$\meta{A}$'.}
 
 There is much more to be said about this example. What is beyond doubt is that {\eif}I is a good rule for \TFL, regardless of the fortunes of conditional proof in English. It does seem that instances of conditional proof in mathematical reasoning are all acceptable, which again shows the roots of natural deduction as a formalisation of existing mathematical practice. This would suggest that \eif\ might be a good representation of mathematical uses of `if'.
 
