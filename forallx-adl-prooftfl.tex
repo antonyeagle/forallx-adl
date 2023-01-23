@@ -2267,7 +2267,12 @@ Recall that a schematic proof that makes use of {\eor}E has the structure in Fig
 
 There are pros and cons to using DS as our disjunction elimination rule. You can already see that proof by cases is much clunkier – though perhaps you are not too concerned (maybe you suspect proof by cases is not much used in natural argumentation anyway). 
 \paragraph{Pro} Using DS as an elimination rule for {\eor} has the nice feature that we eliminate a disjunction in favour of one of its disjuncts, rather than the unprecedented \meta{C} that appears as if from nowhere in the original {\eor}E rule. We also dispense with the use of subproofs in the statement of the disjunction rules.
-\paragraph{Con} Adopting DS as a basic rule destroys the nice feature of our standard rules that only one connective is used in any rule. DS needs both disjunction and negation. We cannot, therefore, consider a system which lacks negation rules but has disjunction – the rules are no longer \emph{modular}. This is not especially important for \TFL, but could be important if you go on to consider other logical systems which may vary the rules for one connective independently of all the others. DS shackles negation and disjunction together – even arguments which have, intuitively nothing to do with negation, end up having to use negation in their proof. This can be illustrated by considering proofs that $(A\eor B)\proves (B \eor A)$. The proofs themselves are left for an exercise, but you can see that the proof in a system which has DS as a basic rule makes unavoidable use of negation rules, while the proof in our standard system uses only disjunction rules.
+\paragraph{Con} Adopting DS as a basic rule destroys the nice feature of our standard rules that only one connective is used in any rule. DS needs both disjunction and negation. This has several consequences.
+\begin{enumerate}
+	\item  We cannot accept the inferentialist account of the meanings of our connectives as given by their proof rules (§\ref{inferentialism}). The fact that DS shackles negation and disjunction together means that we cannot see the rule as purely about the meaning of disjunction.
+	\item It seems desirable that if a sentence is provable from some assumptions, then there should be a proof which only makes use of rules for those connectives that actually appear in the sentence or the assumptions. This feature is known as \define{separability}.\footnote{See Julien Murzi (2020) ‘Classical Harmony and Separability’, \emph{Erkenntnis} \textbf{85} (2020): 391–415, \httpurl{https://doi.org/10.1007/s10670-018-0032-6}, at p. 395.}  Consider the sentence `$(A \eor B) \eif (B\eor A)$'; in our system, there is a proof of this sentence which involves only rules for conditional and disjunction (this is left for an exercise). The rules of our system are separable. But DS makes the rules non-separable. A proof of `$(A \eor B) \eif (B\eor A)$' in a system which has DS as a basic rule makes unavoidable use of negation rules. Thus even arguments which have intuitively nothing to do with negation end up having to use negation in their proof. 
+ 	\item We cannot consider a system which lacks negation rules but has disjunction. This is not especially important for \TFL, but could be important if you go on to consider other logical systems which may vary the rules for one connective independently of all the others.
+ \end{enumerate}.
 
 \section{Doing Without Negation Introduction} 
 
@@ -2312,9 +2317,9 @@ In this sort of system, we can understand the negation introduction rule as lite
 \practiceproblems
 \problempart Consider an alternative proof system which drops our negation introduction rule, but adopts \emph{tertium non datur} (§\ref{aprtnd}) in its place. Is this alternative system equivalent to our standard system – in particular, can you show how to emulate negation introduction using just negation elimination, \emph{tertium non datur} (and structural rules like reiteration)?
 
-\problempart Construct two proofs showing that $(A\eor B)\proves (B \eor A)$, the first using our standard natural deduction system, the second using the system which has DS in place of disjunction elimination. Comment on any points of interest.
+\problempart Construct two proofs showing that $(A\eor B)\eif (B \eor A)$, the first using our standard natural deduction system, the second using the system which has DS in place of disjunction elimination. Comment on any points of interest.
 
-
+% \problempart Construct two proofs showing that $(A\eif B)\eor (A \eif C)  \proves A \eif (B \eor C)$, the first using our standard natural deduction system, the second using the system which has DS in place of disjunction elimination. Comment on any points of interest.
 
 % \begin{multicols}{2}\noindent
 % 	\begin{proof}
