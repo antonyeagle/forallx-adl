@@ -165,7 +165,7 @@ Introducing a new assumption line for each new assumption is best practice. That
 	\have[ ]{v} \vdots
 \end{proof}
 
-For any given sentence in a proof, you can easily see the undischarged assumptions on which that sentence depends: just look at which assumptions are attached to the assumptions lines to its left. If some line in a proof is in the range of an assumption, we will say that it is an \define{active assumption} at that point in the proof. Likewise, for a given assumption you can use the assumption line to easily see which sentences are in the range of that assumption.
+For any given sentence in a proof, you can easily see the undischarged assumptions on which that sentence depends: just look at which assumptions are attached to the assumption lines to its left. If some line in a proof is in the range of an assumption, we will say that it is an \define{active assumption} at that point in the proof. Likewise, for a given assumption you can use the assumption line to easily see which sentences are in the range of that assumption.
 
 Let's consider a couple more examples of how to set up up a proof.	$$\enot (A \eor B) \ttherefore \enot A \eand \enot B.$$
 We start a proof by writing an assumption:
@@ -742,7 +742,7 @@ Let's consider another example, this one demonstrating why reiteration can be so
 
 We now have all the rules we need to show that the argument on page \pageref{longtt} is valid. Here is the six line proof,  some 175,000 times shorter  than the corresponding truth table:\phantomsection\label{ndshort}
 
-\hspace{-2.25cm}\begin{minipage}{\textwidth}\small\begin{proof}
+\hspace{-2.25cm}\begin{minipage}{\textwidth}\footnotesize\begin{proof}
 	\hypo{a1c1}{A_{1} \eif C_{1}}
 	\open
 		\hypo{ai}{(A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10})}
@@ -948,7 +948,7 @@ There can be as many lines as you like between $i$ and $j$, and as many lines as
 
 We can now prove that a biconditional is like two conjoined conditionals. Using the conditional and biconditional rules, we can prove that a biconditional entails a conjunction of conditionals, and \emph{vice versa}: 
 
-\begin{multicols}{2}\noindent
+\begin{multicols}{2}\noindent\hspace{-1cm}
 	 \begin{proof}
 	\open \hypo{pq}{(A \eiff B)}
 	\open \hypo{p}{A}
@@ -961,7 +961,7 @@ We can now prove that a biconditional is like two conjoined conditionals. Using 
 	\close
 	\have{ba}{(B\eif A)}\ci{b1-a}
 	\have{aba}{\bigl((A \eif B) \eand (B \eif A)\bigr)}\ai{ab,ba}
-\end{proof}
+\end{proof}\quad
 	\begin{proof}
 		\hypo{aba}{\bigl((A \eif B) \eand (B \eif A)\bigr)}
 		\have{ab}{(A \eif B)}\ae{aba}

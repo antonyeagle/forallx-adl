@@ -26,6 +26,7 @@ I welcome comments, notification of errors and typos, and any new ideas: [antony
 Current known issues or proposed changes to the text:
 
 * Clarify discussion of parentheses conventions to ensure no impression given that $A \wedge B$ is a sentence, only that the sentence $(A \wedge B)$ can be unambiguously reconstructed from it.
+* Update to new version of `fitch.sty`: [openlogicproject.org/2023/10/16/selingers-fitch-sty-1-0-beta/](https://openlogicproject.org/2023/10/16/selingers-fitch-sty-1-0-beta/). Check for backwards compatibility.
 
 
 <!-- None -->
