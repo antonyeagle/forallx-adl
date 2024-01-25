@@ -26,6 +26,8 @@ I welcome comments, notification of errors and typos, and any new ideas: [antony
 Current known issues or proposed changes to the text:
 
 * Clarify discussion of parentheses conventions to ensure no impression given that $A \wedge B$ is a sentence, only that the sentence $(A \wedge B)$ can be unambiguously reconstructed from it.
+	- Perhaps also remove rule that permits $(A \vee B \vee C)$ to stand indifferently for $(A \vee (B \vee C))$ and $((A \vee B) \vee C)$.
+* Consider adding to §33 a discussion of *ex falso quodlibet*.
 * Update to new version of `fitch.sty`: [openlogicproject.org/2023/10/16/selingers-fitch-sty-1-0-beta/](https://openlogicproject.org/2023/10/16/selingers-fitch-sty-1-0-beta/). Check for backwards compatibility.
 
 

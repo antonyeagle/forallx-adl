@@ -41,7 +41,7 @@ This is an important idea about \TFL\ sentence connectives. They are each associ
 		A connective is \define{truth-functional} iff the truth value of a sentence with that connective as its main connective is uniquely determined by the truth value(s) of the constituent sentence(s), i.e., its meaning is a truth-function.
 
 		\emph{Every connective in \TFL\ is truth-functional.}}
-It turns out that we don't need to know anything more about the atomic sentences of \TFL\ than their truth values to assign a truth value to those nonatomic, or \define{compound}, sentences. More generally, the truth value of any compound sentence depends only on the truth value of the subsentences that comprise it. In order to know the truth value of `$(D \eand E)$', for instance, you only need to know the truth value of `$D$' and the truth value of `$E$'. In order to know the truth value of `$\bigl( (D \eand E) \eor F\bigr)$', you need only know the truth value of `$(D \eand E)$' and `$F$'. And so on. This is fact a good part of the reason why we chose these connectives, and chose their English near-equivalents as our structural words. To determine the truth value of some \TFL\ sentence, we only need to know the truth value of its components. This is why the study of \TFL\ is termed \emph{truth-functional logic}.
+It turns out that we don't need to know anything more about the atomic sentences of \TFL\ than their truth values to assign a truth value to those nonatomic, or \define{compound}, sentences. More generally, the truth value of any compound sentence depends only on the truth value of the subsentences that comprise it. In order to know the truth value of `$(D \eand E)$', for instance, you only need to know the truth value of `$D$' and the truth value of `$E$'. In order to know the truth value of `$\bigl( (D \eand E) \eor F\bigr)$', you need only know the truth value of `$(D \eand E)$' and `$F$'. And so on. This is in fact a good part of the reason why we chose these connectives, and chose their English near-equivalents as our structural words. To determine the truth value of some \TFL\ sentence, we only need to know the truth value of its components. This is why the study of \TFL\ is termed \emph{truth-functional logic}.
 
 
 
@@ -271,7 +271,7 @@ So far, we have considered assigning truth values to \TFL\ sentences indirectly.
 A valuation is thus a function from atomic sentences to truth values. So this is a valuation: \begin{align*}
 	A, G, P, G_{7}  &\mapsto \text{T}\\ 
 	F, R, Z &\mapsto \text{F}.
-\end{align*} There is no requirement that a valuation be a \define{total function}, that is, that it assign a truth value to every atomic sentence. To be fix the truth value of a sentence \meta{A} of \TFL\ a valuation must assign a truth value to every atomic sentence \meta{A} contains.
+\end{align*} There is no requirement that a valuation be a \define{total function}, that is, that it assign a truth value to every atomic sentence. To fix the truth value of a sentence \meta{A} of \TFL\ a valuation must assign a truth value to every atomic sentence \meta{A} contains.
 
 
 A valuation is a temporary assignment of `meanings' to \TFL\ sentences, in much the same way as a symbolisation key might be. (It only assigns truth values, the only dimension of meaning that \TFL\ is sensitive to.) What is distinctive about \TFL\ is that almost all of its basic vocabulary – the atomic sentences – only get their meanings in this temporary fashion. The only parts of \TFL\ that get their meanings permanently are the connectives, which always have a fixed interpretation. 
@@ -435,7 +435,7 @@ We have a similar surrogate for necessary falsity:
 	\factoidbox{
 		$\meta{A}$ is a \define{logical falsehood} iff it is false on every valuation (among those on which it has a truth value).
 	}
-We can determine whether a sentence is a logical falsehood just by using truth tables. If the sentence is false on every row of a complete truth table, then it is false on every valuation, so it is a logical falsehood. In the example of §\ref{s:CompleteTruthTables}, `$\bigl( (C\eiff C) \eif C\bigr)  \eand \enot(C \eif C)$' is a logical falsehood. A logical falsehood is often called a \define{contradiction}.
+We can determine whether a sentence is a logical falsehood just by using truth tables. If the sentence is false on every row of a complete truth table, then it is false on every valuation, so it is a logical falsehood. In the example of §\ref{s:CompleteTruthTables}, `$\bigl( (C\eiff C) \eif C\bigr)  \eand \enot(C \eif C)$' is a logical falsehood. A logical falsehood is sometimes called a \define{contradiction}, though it is perhaps even more common to reserve that term for those logical falsehoods which have the form $\meta{(A \eand \enot A)}$.
 
 
 \section{Logical Equivalence}

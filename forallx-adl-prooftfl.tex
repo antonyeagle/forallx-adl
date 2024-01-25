@@ -210,7 +210,7 @@ What remains to do is to explain each of the rules that we can use along the way
 
 \practiceproblems
 \problempart
-If the following a correctly formed proof in our natural deduction system?
+Is the following a correctly formed proof in our natural deduction system?
 \begin{proof}
 	\hypo{a}{A}
 	\hypo{c}{((B \eiff) \eor A)}
@@ -1614,7 +1614,7 @@ To illustrate the idea, suppose I want to prove that `$\enot (G \eand \enot G)$'
 	\end{proof}
 We have therefore constructed a proof of `$\enot (G \eand \enot G)$' with no (undischarged) assumptions, showing that `$\enot (G \eand \enot G)$' is a theorem. This particular theorem is an instance of what is sometimes called the \define{law of non-contradiction}, that for any \meta{A}, $\enot(\meta{A}\eand\enot\meta{A})$. You can see how the proof above could be adapted to demonstrate the theoremhood of any instance of the law of non-contradiction. Simply substitute any sentence $\meta{A}$ for every occurence of `$G$' in the above proof, and the transformed proof will remain correct (any internal sentence connectives featuring in \meta{A} aren't addressed by the proof rules in that proof).\footnote{We have already seen a proof showing an instance of the law of excluded middle is a theorem in §\ref{negelim}, page \pageref{excmidd}.}
 
-Because every proof begins with an assumption, we can only we can only obtain a proof of a theorem if we discharge that opening assumption with a rule which allows one to close a subproof: conditional or biconditional introduction, or either of the negation rules (introduction or elimination): 
+Because every proof begins with an assumption, we can only obtain a proof of a theorem if we discharge that opening assumption with a rule which allows one to close a subproof: conditional or biconditional introduction, or either of the negation rules (introduction or elimination): 
   \begin{proof}
     \open
     \hypo{q}{Q}
@@ -1946,7 +1946,7 @@ This rule is, again, a conservative addition to our stock of proof rules. Any ap
 		\open
 		\hypo[k]{a}{\meta{A}}
 		\have{b}{\meta{B}}\ce{ab, a}
-		\have{nb1}{\enot B}\by{R}{nb}
+		\have{nb1}{\enot \meta{B}}\by{R}{nb}
 		\close
 	\have{no}{\enot\meta{A}}\ni{a-b,a-nb1}
 \end{proof}
