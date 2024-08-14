@@ -860,7 +860,7 @@ This is, in a nutshell, the idea we will use to handle quantification in \FOL. L
 }  
 If we have an interpretation, and a variable assignment, then we can evaluate every formula of \FOL\ – not only sentences. Of course, the evaluation of the open formulae will be very fragile, since even given a single background interpretation, a formula like `$Fx$' might be true relative to one variable assignment and false relative to another. 
 
-Let us start, as before, by giving rules for evaluating atoms of \FOL, given an interpretation and a variable assignment. \factoidbox{Where $\meta{R}$ is any $n$-place predicate ($n ≥ 0$), and $\meta{t}_{1},…,t_{n}$ are any terms – variables or names, then: \begin{itemize}
+Let us start, as before, by giving rules for evaluating atoms of \FOL, given an interpretation and a variable assignment. \factoidbox{Where $\meta{R}$ is any $n$-place predicate ($n ≥ 0$), and $\meta{t}_{1},…,\meta{t}_{n}$ are any terms – variables or names, then: \begin{itemize}
 	\item  $\meta{R}\meta{t}_{1}…\meta{t}_{n}$ is true on a variable assignment over an interpretation  iff:\\
 	$\meta{R}$ is true of the objects assigned to the terms $\meta{t}_{1},…,\meta{t}_{n}$  by that variable assignment and that intepretation, considered in that order.
 	\item $\meta{t}_{1}=\meta{t}_{2}$ is true on a variable assignment over an interpretation  iff:\\
