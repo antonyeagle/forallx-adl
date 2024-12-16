@@ -25,11 +25,8 @@ I welcome comments, notification of errors and typos, and any new ideas: [antony
 
 Current known issues or proposed changes to the text:
 
-* Clarify discussion of parentheses conventions to ensure no impression given that $A \wedge B$ is a sentence, only that the sentence $(A \wedge B)$ can be unambiguously reconstructed from it.
-	- Perhaps also remove rule that permits $(A \vee B \vee C)$ to stand indifferently for $(A \vee (B \vee C))$ and $((A \vee B) \vee C)$.
-* Consider adding to §33 a discussion of *ex falso quodlibet*.
-* Update to new version of `fitch.sty`: [openlogicproject.org/2023/10/16/selingers-fitch-sty-1-0-beta/](https://openlogicproject.org/2023/10/16/selingers-fitch-sty-1-0-beta/). Check for backwards compatibility.
 * In Euler diagram section (§21.7), note that one Euler diagram represents many interpretations. So not every sentence is true or false in a given diagram: e.g., though we assume every region is non-empty, we can't assume how many things are in it. So even if there is a region associated with the predicate $B$, we can't tell if $\exists x \exists y (Bx \wedge By \wedge x≠y)$ need not be uniformly true/false in every interpretation associated with the diagram. So we need to change the language to talk of interpretation*s* associated with a given diagram; and also we probaly need to finesse the talk of true in the diagram as something like 'uniformly true on every interpretation representable by the diagram'.
+* Use `natbib` to manage references, currently manual but they are getting numerous and keeping styling consistent is harder.
 
 <!-- None -->
 

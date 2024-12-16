@@ -668,8 +668,8 @@ The recursive definition of a sentence of \TFL\ can also be depicted using a \de
 
 At the beginning of this chapter, we introduced the sentences of \TFL\ in a way that was parasitic upon identifying the structure of certain English sentences. Now we can see that \TFL\ has its own syntax, which can be understood and used independently of English. Our understanding of the meaning of the sentence connectives is still tied to their English counterparts, but in §\ref{s:SchematicTruthTables} we will see that we can also understand their meaning independently from the natural language we used to motivate them. However, it remains true that what makes \TFL\ \emph{useful} is that its syntax and connectives are designed to capture, more or less, elements of the structure of natural language sentences.
 
-\section{Structure and Ambiguity}
-
+\section{Structure and Ambiguity} 
+\label{StructureAmbiguity}
 In later sections, we will see the utility of symbolising arguments to evaluate their validity. But even at this early stage, there is value in symbolising sentences, because doing so can clear up \emph{ambiguity}.
 
 Consider the following imagined regulation: `Small children must be quiet and seated or carried at all times'. This sentence has an ambiguous structure, by which I mean: there are two different grammatical structures that it might be thought to have. We can draw up a syntactic tree to show this. But equally, symbolising can bring this out. Let us use the following key:
@@ -703,7 +703,9 @@ rather more readably as follows:
 $$\bigl( (H \eif I) \eor (I \eif H) \bigr) \eand (J \eor K)$$
 The scope of each connective is now much clearer.
 
-There are systems of logic which omit parentheses, using so-called `Polish notation'. I discuss this notation briefly in Appendix \ref{app.notation}, p.~\pageref{polish}. 
+It is important to remember that these conventions are not modifications of our rules concerning which expressions are sentences (§\ref{s.sentencesTFL}). Rather, these conventions allow us to unambiguously reconstruct a sentence from an expression. `$A \vee B$' is not a sentence, but in the right circumstances it can be used to represent the sentence `$(A \vee B)$'. If you find the conventions confusing or unhelpful, you do not have to use them.
+
+There are systems of logic which omit parentheses entirely, using so-called `Polish notation'. I discuss this notation briefly in Appendix \ref{app.notation}, p.~\pageref{polish}. 
 
 \keyideas{
 	\item The class of sentences of \TFL\ has a perfectly precise recursive definition that allows us to determine in a step-by-step fashion, for any expression, whether it is a sentence or not. 

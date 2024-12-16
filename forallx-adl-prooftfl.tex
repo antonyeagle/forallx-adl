@@ -281,7 +281,7 @@ Since the order of conjuncts does not matter in a conjunction, I could equally w
 	\have[8]{a}{R}
 	\have[ ]{v}{\vdots}
 	\have[15]{b}{L}
-	\have[16]{c}{(L \eand R)} \ai{b, a}
+	\have[16]{c}{(L \eand R)} \ai{b,a}
 \end{proof}
  More generally, here is our \define{conjunction introduction} rule: if we have obtained \meta{A} and \meta{B} by some stage in a proof under some shared assumptions – whether by proof or assumption – that justifies us in introducing their conjunction, which inherits those same assumptions.  Abstractly, the rule looks like this:
 \factoidbox{
@@ -1121,7 +1121,7 @@ The only claims in logic that it is safe to say are absurd are logical falsehood
 	\have[\ ]{}{\vdots}
 	\have[k]{c}{\enot\meta{B}}
 	\close
-	\have[\ ]{}{\enot\meta{A}}\ni{a-b,a-c}	
+	\have[\ ]{}{\enot\meta{A}}\nintro{a-b,a-c}	
 	\end{proof}
 } Here, we can prove a sentence and its negation both within the range of the assumption that \meta{A}. So if \meta{A} were assumed, something contradictory would be derivable under that assumption. (We could apply conjunction introduction to lines $j$ and $k$ to make the logical falsehood explicit, but that wouldn't be strictly necessary.) Since logical falsehoods are fundamentally unacceptable as the termination of a chain of argument, we must have begun with an inappropriate starting point when we assumed \meta{A}. So, in fact, we conclude, $\enot \meta{A}$, discharging our erroneous assumption that \meta{A}. There is no need for the line with \meta{B} on it to occur before the line with $\enot\meta{B}$ on it.
 
@@ -1133,7 +1133,7 @@ Almost always the logical falsehood arises because of a clash between the claim 
 	\have{b}{B}\ce{ab,a}
 	\have{nbb}{\enot B}\by{R}{nb}
 	\close
-	\have{e}{\enot(A \eif B)}\ni{ab-b,ab-nbb}
+	\have{e}{\enot(A \eif B)}\nintro{ab-b,ab-nbb}
 \end{proof}
 
 Another example, for practice. Let's prove this argument: $$(C \eif \enot A) \therefore (A \eif \enot C).$$ \begin{proof}
@@ -1145,7 +1145,7 @@ Another example, for practice. Let's prove this argument: $$(C \eif \enot A) \th
 	\have{na}{\enot A}\ce{cna,c}
 	\have{ar}{A}\by{R}{a}
 	\close
-	\have{nc}{\enot C}\ni{c-ar,c-na}
+	\have{nc}{\enot C}\nintro{c-ar,c-na}
 	\close
 	\have{ac}{(A \eif \enot C)}\ci{a-nc}
 \end{proof}
@@ -1164,7 +1164,7 @@ The rule of negation introduction is interesting, because it is \emph{almost} it
 	\have[\ ]{}{\vdots}
 	\have[k]{c}{\enot\meta{B}}
 	\close
-	\have{}{\enot\enot\meta{A}}\ni{a-b,a-c}
+	\have{}{\enot\enot\meta{A}}\nintro{a-b,a-c}
 \end{proof} This proof terminates with a sentence that is logically equivalent to \meta{A}, discharging the assumption that $\enot\meta{A}$ because it leads to contradictory conclusions. This looks awfully close to a rule of negation elimination – if only we could find a way to replace a doubly-negated sentence $\enot\enot\meta{A}$ by the logically equivalent sentence \meta{A}, which would have eliminated the negation from the problematic assumption $\enot\meta{A}$.
 
 
@@ -1178,7 +1178,7 @@ In our system, we approach this problem by the brute force method – we allow o
 	\have[\ ]{}{\vdots}
 	\have[k]{c}{\enot\meta{B}}
 	\close
-	\have[\ ]{}{\meta{A}}\ne{a-b,a-c}	
+	\have[\ ]{}{\meta{A}}\nelim{a-b,a-c}	
 	\end{proof}
 } 
 
@@ -1191,11 +1191,11 @@ With the rule of negation elimination, we can prove some claims that are hard to
 	\have{e}{(P \eor \enot P)}\oi{p}
 	\have{ner}{\enot(P \eor \enot P)}\by{R}{ne}
 	\close
-	\have{np}{\enot P}\ni{p-e,p-ner}
+	\have{np}{\enot P}\nintro{p-e,p-ner}
 	\have{npo}{(P \eor \enot P)}\oi{np}
 	\have{ner2}{\enot(P \eor \enot P)}\by{R}{ne}
 	\close
-	\have{ec}{(P \eor \enot P)}\ne{ne-npo,ne-ner2}
+	\have{ec}{(P \eor \enot P)}\nelim{ne-npo,ne-ner2}
 \end{proof}
 One interesting feature of this proof is that one of the contradictory sentences is the assumption itself. When the assumption that \enot\meta{A} goes wrong, it might be because we have the resources to prove \meta{A}! Some interesting philosophical controversy surrounds proofs like this: see §\ref{construct}.
 
@@ -1211,11 +1211,11 @@ Here is a proof corresponding with the argument:
 				\have{e}{(P \eand D)}\ai{a,d}
 				\have{f}{(P \eand D) \eor (P \eand \enot D)}\oi{e}
 			\close
-			\have{nd}{\enot D}\ni{d-f,d-b}
+			\have{nd}{\enot D}\nintro{d-f,d-b}
 			\have{pnd}{(P \eand \enot D)}\ai{a,nd}
 			\have{ff}{\bigl((P \eand D) \eor (P \eand \enot D)\bigr)}\oi{pnd}
 		\close
-		\have{dn}{(P \eand D) \eor (P \eand \enot D)}\ne{b-ff}
+		\have{dn}{(P \eand D) \eor (P \eand \enot D)}\nelim{b-ff}
 	\end{proof} I make two comments. In line 6, the justification cites line 2 which lies outside the subproof. That is okay, since  the application of the rule lies within the range of the assumption of line 2. In line 9, the justification only cites the subproof from 2 to 8, rather than two ranges of line numbers. This is because in this application of our rule, we have the special case where the sentence such that both it and its negation can be derived from the assumption \emph{is} that assumption. It would be trivial to derive it from itself.
 
 The negation elimination rule is supported by this valid \TFL\ argument form: \begin{itemize}
@@ -1234,13 +1234,13 @@ The negation elimination rule is supported by this valid \TFL\ argument form: \b
 	\have{ab}{(A \eor B)}\oi{a}
 	\have{r}{\enot(A \eor B)}\by{R}{aob}
 	\close
-	\have{na}{\enot A}\ni{a-ab,a-r}
+	\have{na}{\enot A}\nintro{a-ab,a-r}
 	\open
 	\hypo{b}{B}
 	\have{ab2}{(A \eor B)}\oi{b}
 	\have{r2}{\enot(A \eor B)}\by{R}{aob}
 	\close
-	\have{nb}{\enot B}\ni{b-ab2,b-r2}
+	\have{nb}{\enot B}\nintro{b-ab2,b-r2}
 	\have{c}{(\enot A \eand \enot B)}\ai{na,nb}
 \end{proof} 	\caption{Proof of $\enot (A \eor B) \ttherefore (\enot A \eand \enot B)$\label{figa1}}
 \end{figure}
@@ -1255,7 +1255,7 @@ The negation elimination rule is supported by this valid \TFL\ argument form: \b
 \have{ac}{A \eand C}\ai{a,c}
 \have{a2r}{\enot(A \eand C)}\by{R}{a2}
 \close
-\have{nc}{\enot C}\ni{c-ac,c-a2r}
+\have{nc}{\enot C}\nintro{c-ac,c-a2r}
 \have{c1}{(\enot C \eor D)}\oi{nc}
 \close
 \open \hypo{b}{B}
@@ -1263,7 +1263,7 @@ The negation elimination rule is supported by this valid \TFL\ argument form: \b
 \have{bnd}{(B \eand \enot D)}\ai{b,nd}
 \have{a3r}{\enot(B \eand \enot D)}\by{R}{a3}
 \close
-\have{d}{D}\ne{nd-bnd,nd-a3r}
+\have{d}{D}\nelim{nd-bnd,nd-a3r}
 \have{c2}{(\enot C \eor D)}\oi{d}
 \close
 	\have{con}{(\enot C \eor D)}\oe{a1,a-c1,b-c2}
@@ -1285,7 +1285,7 @@ The negation elimination rule is supported by this valid \TFL\ argument form: \b
 				\have{d}{P}\ae{c}
 				\have{e}{\enot P}\ae{c}
 				\close
-			\have{q1}{Q}\ne{nq-e}
+			\have{q1}{Q}\nelim{nq-e}
 			\close
 		\have{ipq1}{P \eif Q}\ci{p1-q1}
 		\close
@@ -1309,10 +1309,10 @@ The negation elimination rule is supported by this valid \TFL\ argument form: \b
 				\have{q4}{Q}\ce{ipq4,p3}
 				\have{npvq2}{\enot P \eor Q}\oi{q4}
 				\close
-			\have{np}{\enot P}\ni{p3-nnpvq,p3-npvq2}
+			\have{np}{\enot P}\nintro{p3-nnpvq,p3-npvq2}
 			\have{npvq3}{\enot P \eor Q}\oi{np}
 			\close
-		\have{npvq4}{\enot P \eor Q}\ne{nnpvq-nnpvq,nnpvq-npvq3}
+		\have{npvq4}{\enot P \eor Q}\nelim{nnpvq-nnpvq,nnpvq-npvq3}
 		\close
 		\have{z}{((\enot P \eor Q)\eiff(P \eif Q))}\bi{npvq-ipq3,ipq4-npvq4}
 \end{proof}\caption{A complicated proof\label{fig:vi}}
@@ -1353,7 +1353,7 @@ The following `proof' is \emph{incorrect}. Explain the mistakes it makes.
 		\have{lal}{L}\ci{red}
 		\have{lla}{\enot L}\ce{red}
 	\close
-	\have{a2}{A}\ni{lala-lal,lala-lla}
+	\have{a2}{A}\nintro{lala-lal,lala-lla}
 \close
 \have{con}{A}\oe{nl-a, l-a2}
 \end{proof}
@@ -1390,7 +1390,7 @@ The following proofs are missing their commentaries (rule and line numbers). Add
 	\open
 		\hypo{nj}{\enot J}
 	\close
-	\have{j3}{J}%\ne{nj–l,nj-nl}
+	\have{j3}{J}%\nelim{nj–l,nj-nl}
 \close
 \have{conc}{J}%\oe{jol, j-j2, l-j3}
 \end{proof}
@@ -1541,7 +1541,7 @@ $$\meta{A}_{1}, \meta{A}_{2}, …, \meta{A}_{n} \proves \meta{C}.$$} Consider th
 	\have{na}{\enot A}\ce{b,nb}
 	\have{ra}{A}\by{R}{a}
 	\close
-	\have{c}{B}\ne{nb-na,nb-ra}
+	\have{c}{B}\nelim{nb-na,nb-ra}
 \end{proof} The undischarged assumptions are `$A$' and `$\enot B \eif \enot A$' – the assumption `$\enot B$' on line 3 is discharged by the application of negation elimination that leads to the last line, `$B$'. So this proof shows that $A, \enot B \eif \enot A \proves B$.
 
 The symbol `$\proves$' is known as the \emph{single turnstile}. I want to emphasise that this is different from the {double turnstile} symbol (`$\entails$') that represents entailment (§\ref{FOL.semantics}). \begin{itemize}
@@ -1610,7 +1610,7 @@ To illustrate the idea, suppose I want to prove that `$\enot (G \eand \enot G)$'
 			\have{a}{G}\ae{con}
 			\have{na}{\enot G}\ae{con}
 		\close
-		\have{lnc}{\enot (G \eand \enot G)}\ni{con-a,con-na}
+		\have{lnc}{\enot (G \eand \enot G)}\nintro{con-a,con-na}
 	\end{proof}
 We have therefore constructed a proof of `$\enot (G \eand \enot G)$' with no (undischarged) assumptions, showing that `$\enot (G \eand \enot G)$' is a theorem. This particular theorem is an instance of what is sometimes called the \define{law of non-contradiction}, that for any \meta{A}, $\enot(\meta{A}\eand\enot\meta{A})$. You can see how the proof above could be adapted to demonstrate the theoremhood of any instance of the law of non-contradiction. Simply substitute any sentence $\meta{A}$ for every occurence of `$G$' in the above proof, and the transformed proof will remain correct (any internal sentence connectives featuring in \meta{A} aren't addressed by the proof rules in that proof).\footnote{We have already seen a proof showing an instance of the law of excluded middle is a theorem in §\ref{negelim}, page \pageref{excmidd}.}
 
@@ -1624,7 +1624,7 @@ Because every proof begins with an assumption, we can only obtain a proof of a t
     \hypo{nq}{\enot Q}
     \have{qq}{Q}\by{R}{q}
     \close
-    \have{q2}{Q}\ne{nq-qq,nq-nq}
+    \have{q2}{Q}\nelim{nq-qq,nq-nq}
     \close
     \have{pq}{P \eif Q}\ci{p-q2}
     \close
@@ -1684,7 +1684,7 @@ These can be adapted to form part of a larger proof:
 		\have[\ ]{}{\vdots}
 		\have[k'+i]{nb}{\meta{\enot B}}\by{from}{a1-an}
 		\close
-		\have[k'+i+1]{nc}{\enot (\meta{A}_{1}\wedge … \wedge \meta{A}_{n})}\ni{a1an-c,a1an-nb}
+		\have[k'+i+1]{nc}{\enot (\meta{A}_{1}\wedge … \wedge \meta{A}_{n})}\nintro{a1an-c,a1an-nb}
 	\end{proof}
 Conversely, you can extract proofs of $\meta{A}_{1}\wedge … \wedge \meta{A}_{n}\proves \meta{B}$ and $\meta{A}_{1}\wedge … \wedge \meta{A}_{n}\proves \enot\meta{B}$ from the above proof. The pattern is quite general, since any theorem which is a negated conjunction will be proved by some application of negation introduction on the original conjunction, which involves showing that original conjunction to include jointly contrary sentences.
 
@@ -1911,7 +1911,7 @@ But there is nothing fundamentally new here. We can emulate the rule of disjunct
 			\have{ra}{\meta{A}}\by{R}{a}
 			\have{rna}{\enot\meta{A}}\by{R}{na}
 			\close
-		\have{b}{\meta{B}}\ne{nb-ra, nb-rna}
+		\have{b}{\meta{B}}\nelim{nb-ra, nb-rna}
 		\close
 		\open
 		\hypo{b2}{\meta{B}}
@@ -1948,7 +1948,7 @@ This rule is, again, a conservative addition to our stock of proof rules. Any ap
 		\have{b}{\meta{B}}\ce{ab, a}
 		\have{nb1}{\enot \meta{B}}\by{R}{nb}
 		\close
-	\have{no}{\enot\meta{A}}\ni{a-b,a-nb1}
+	\have{no}{\enot\meta{A}}\nintro{a-b,a-nb1}
 \end{proof}
 \caption{\emph{Modus tollens} is derivable in the standard proof system.\label{fig.mtder}}
 \end{figure}
@@ -1965,7 +1965,7 @@ Obviously we can show that $\meta{A} \proves \enot\enot\meta{A}$ by means of the
 \open
 \hypo{b}{\enot\meta{A}}
 \close
-\have{c}{\enot\enot\meta{A}}\ni{b-a,b-b}	
+\have{c}{\enot\enot\meta{A}}\nintro{b-a,b-b}	
 \end{proof}
 
 There is a proof rule that corresponds to the other direction of this equivalence, the rule of \define{double negation elimination}:
@@ -1984,7 +1984,7 @@ This rule is redundant, given the proof rules of \TFL: \begin{proof}
 	\have{ar}{\enot\enot\meta{A}}\by{R}{a}
 	\have{br}{\enot\meta{A}}\by{R}{b}
 	\close
-	\have{c}{\meta{A}}\ne{b-br,b-ar}
+	\have{c}{\meta{A}}\nelim{b-br,b-ar}
 \end{proof}
 Anything we can prove using the $\enot\enot$E rule can be proved almost as briefly using just $\enot$E.
 
@@ -1992,7 +1992,7 @@ Anything we can prove using the $\enot\enot$E rule can be proved almost as brief
 
 \section{\emph{Tertium non datur}}\label{aprtnd}
 
-Suppose that we can show that if it's sunny outside, then Bill will have brought an umbrella (for fear of burning). Suppose we can also show that, if it's not sunny outside, then Bill will have brought an umbrella (for fear of rain). Well, there is no third way for the weather to be. So, \emph{whatever the weather}, Bill will have brought an umbrella. 
+Suppose that we can show that if it's sunny outside, then Bill will have brought an umbrella (for fear of sunburn). Suppose we can also show that, if it's not sunny outside, then Bill will have brought an umbrella (for fear of rain). Well, there is no third way for the weather to be. So, \emph{whatever the weather}, Bill will have brought an umbrella. 
 
 This line of thinking motivates the following rule:
 \factoidbox{\begin{proof}
@@ -2030,21 +2030,50 @@ The rule is sometimes called \idefine{tertium non datur}, which means roughly `n
 				\have{b2}{\meta{B}}\ce{ab,aa}
 				\have{nb2}{\enot\meta{B}}\by{R}{nb}
 				\close
-			\have{na}{\enot\meta{A}}\ni{aa-nb2}
+			\have{na}{\enot\meta{A}}\nintro{aa-nb2}
 			\have{b3}{\meta{B}}\ce{nab,na}
 			\close
-		\have{b4}{\meta{B}}\ne{nb-b3}
+		\have{b4}{\meta{B}}\nelim{nb-b3}
 	\end{proof}
 	\caption{\emph{Tertium non datur} is derivable in the standard proof system.\label{fig.tndder}}
 \end{figure}
 
+\section{Explosion}\label{exfalso}
+
+The colourfully named principle of \define{explosion} is the rule that from a contradiction, anything can be derived. The name reflects the disaster that it would be if a contradiction were true. This principle is sometimes called by its medieval Latin name \idefine{ex falso quodlibet} – `from a (logical) falsehood, anything'. The rule takes the following form:
+\factoidbox{
+	\begin{proof}
+		\have[\ ]{}{\vdots}
+		\have[j]{c1}{\meta{A}}
+		\have[\ ]{}{\vdots}
+		\have[k]{b}{\enot\meta{A}}
+		\have[\ ]{}{\vdots}
+		\have[l]{c}{\meta{B}}\by{EX}{c1,b}
+	\end{proof}
+	}
+Again, explosion can be emulated using our existing rules:
+\begin{proof}
+	\have{a}{\meta{A}}
+	\have{b}{\enot\meta{A}}
+	\open
+		\hypo{c}{\enot\meta{B}}
+		\have{ar}{\meta{A}}\by{R}{a}
+		\have{br}{\enot\meta{A}}\by{R}{b}
+		\close
+	\have{d}{\meta{B}}\nelim{c-ar,c-br}
+\end{proof}
+
+The principle of explosion has been controversial, along with its semantic cousin that inconsistent premises entail anything: $\meta{A},\enot\meta{A}\vDash\meta{B}$. It is easy enough to see that these principles are acceptable in our system of logic, but it is tempting to think they might mark a flaw in \TFL. The derivation above, using negation elimination on a sentence that is completely irrelevant to the inconsistent sentences, can seem like a mere trick. 
+
+This is especially so if you are tempted by the thought that logic and reasoning have some connection (recall §§\ref{ss:reasoning},\ref{sec:arguments_and_reasoning_revisited}). Even the weakest version of a proposed connection between logic and reasoning will tell you that if you accept the premises of a valid argument for good reason, then competent deduction of the conclusion provides a reason to accept the conclusion. Once we acknowledge that we are not logically perfect, and that sometimes we have reasons to accept inconsistent claims, then this feature of \TFL\ means that we have a reason to accept any arbitrary claim $\meta{B}$. And this is absurd: that we've made a mistake in accepting some inconsistent claims $\meta{A},\enot\meta{A}$ is no reason at all to accept $\meta{B}$. So explosion as a derivation rule seems to involve a form of `natural deduction' that no human reasoner would ever follow. 
+
+It may be denied that we ever have reasons to accept inconsistent claims; but this doesn't stand up to scrutiny. We all rely on a diversity of sources that contribute to the bodies of information on which we rely, and there is no guarantee that the information delivered from one source will be entirely consistent with the information arriving from another. These gathered pieces of information may not even come together in our thought; we may quarantine them in different fragments (they may appear to us to concern different topics) and may not even notice the tension between them.\footnote{For a discussion of this phenomenon, see David Lewis (1982) `Logic for Equivocators', \emph{Noûs} \textbf{16}, pp. 431--41,	 at p. 436.} 
+
+Some have suggested that a different logic ought to be adopted, perhaps a \define{relevance logic} that aims `to make relevance … a necessary condition for the validity of a valid entailment…’.\footnote{Robert K. Meyer (1971) ‘Entailment’, \emph{Journal of Philosophy} \textbf{68}, pp. 808–18, at p. 809. See also Edwin Mares (2024) ‘Relevance Logic’, in Edward N. Zalta (ed.) \emph{The Stanford Encyclopedia of Philosophy}, \httpurl{plato.stanford.edu/entries/logic-relevance/}.} But such alternative logics have counterintuitive features of their own, including the need to introduce further truth values beyond truth and falsity! Perhaps better to again diminish the bearing of logic as a norm for reasoning: the existence of certain valid implications and acceptance natural deduction rules is no grounds for us to reason or infer in accordance with those rules.
 
 
-
-
-
-\section{De Morgan Rules}
-Our final additional rules are called De Morgan's Laws. (These are named after the nineteenth century logician August De Morgan.) The first two De Morgan rules show the provable equivalence of a negated conjunction and a disjunction of negations.
+\section{De Morgan Laws}
+Our final additional rules are called the \define{De Morgan Laws}. (These are named after the nineteenth century logician Augustus De Morgan.) The first two De Morgan laws show the provable equivalence of a negated conjunction and a disjunction of negations.
 \factoidbox{\hspace{-0.3cm}\begin{minipage}{0.35\textwidth}
 	\begin{proof}
 	\have[m]{ab}{\enot (\meta{A} \eand \meta{B})}
@@ -2056,7 +2085,7 @@ Our final additional rules are called De Morgan's Laws. (These are named after t
 	\have[\ ]{dm}{\enot (\meta{A} \eand \meta{B})}\dem{ab}
 \end{proof}
 \end{minipage}}
-The second pair of De Morgan rules are dual to the first pair: they show the provable equivalence of a negated disjunction and a conjunction of negations.
+The second pair of De Morgan laws are dual to the first pair: they show the provable equivalence of a negated disjunction and a conjunction of negations.
 \factoidbox{\hspace{-0.3cm}\begin{minipage}{0.35\textwidth}
 	\begin{proof}
 	\have[m]{ab}{\enot (\meta{A} \eor \meta{B})}
@@ -2070,7 +2099,7 @@ The second pair of De Morgan rules are dual to the first pair: they show the pro
 \end{minipage}}
 
 \newpage
-The De Morgan rules are no genuine addition to the power of our original natural deduction system. Here is a demonstration of how we could derive the first De Morgan rule:
+The De Morgan laws are no genuine addition to the power of our original natural deduction system. Here is a demonstration of how we could derive the first De Morgan rule:
  	\begin{proof}
 		\have[k]{nab}{\enot (\meta{A} \eand \meta{B})}
 		\open
@@ -2079,15 +2108,15 @@ The De Morgan rules are no genuine addition to the power of our original natural
 			\hypo{na}{\enot\meta{A}}
 			\have{navnb}{\enot\meta{A}\eor\enot\meta{B}}\oi{na}
 			\close
-		\have{a}{\meta{A}}\ne{na-navnb,na-n}
+		\have{a}{\meta{A}}\nelim{na-navnb,na-n}
 			\open
 			\hypo{nb}{\enot\meta{B}}
 			\have{nav2}{\enot\meta{A}\eor\enot\meta{B}}\oi{nb}
 			\close
-		\have{b}{\meta{B}}\ne{nb-nav2,nb-n}
+		\have{b}{\meta{B}}\nelim{nb-nav2,nb-n}
 		\have{aab}{\meta{A}\eand\meta{B}}\ai{a,b}
 		\close
-	\have{c}{\enot\meta{A}\eor\enot\meta{B}}\ne{n-aab,n-nab}
+	\have{c}{\enot\meta{A}\eor\enot\meta{B}}\nelim{n-aab,n-nab}
 	\end{proof}
 Here is a demonstration of how we could derive the second De Morgan rule:
  	\begin{proof}
@@ -2098,7 +2127,7 @@ Here is a demonstration of how we could derive the second De Morgan rule:
 			\hypo{ab}{\meta{A} \eand \meta{B}}
 			\have{a}{\meta{A}}\ae{ab}
 			\close
-		\have{naab}{\enot(\meta{A}\eand\meta{B})}\ni{ab-a,ab-na}
+		\have{naab}{\enot(\meta{A}\eand\meta{B})}\nintro{ab-a,ab-na}
 			\close
 			\open
 		\hypo{nb}{\enot\meta{B}}
@@ -2106,7 +2135,7 @@ Here is a demonstration of how we could derive the second De Morgan rule:
 			\hypo{ab2}{\meta{A} \eand \meta{B}}
 			\have{b}{\meta{B}}\ae{ab2}
 			\close
-			\have{naab2}{\enot(\meta{A}\eand\meta{B})}\ni{ab2-b,ab2-nb}
+			\have{naab2}{\enot(\meta{A}\eand\meta{B})}\nintro{ab2-b,ab2-nb}
 			\close
 		\have{c}{\enot(\meta{A}\eand\meta{B})}\oe{nab,na-naab,nb-naab2}
 	\end{proof}
@@ -2209,7 +2238,7 @@ The first alternative system results from replacing the rule of negation elimina
 	\have[\ ]{}{\vdots}
 	\have[k]{c}{\enot\meta{B}}
 	\close
-	\have{d}{\enot\enot\meta{A}}\ni{a-b,a-c}
+	\have{d}{\enot\enot\meta{A}}\nintro{a-b,a-c}
 	\have{}{\meta{A}} \dne{d}
 \end{proof}
 This proof shows that, in a system with {\enot}I and {\enot\enot}E, we do not need any separate elimination rule for a single negation – the effect of any such rule could be perfectly simulated by the above schematic proof. The addition of a single negation elimination rule would not allow us to prove any more than we already can. So in a sense, the rules of double negation elimination and negation elimination are equivalent, at least given the other rules in our system.
@@ -2254,12 +2283,12 @@ Recall that a schematic proof that makes use of {\eor}E has the structure in Fig
 	\have[\ ]{}{\vdots}
 	\have[j]{c1}{\meta{C}}
 	\close
-	\have{na}{\enot\meta{A}}\ni{a-c1,a-nc}
+	\have{na}{\enot\meta{A}}\nintro{a-c1,a-nc}
 	\have[k]{b}{\meta{B}}\by{DS}{d,na}
 	\have[\ ]{}{\vdots}
 	\have[l]{c2}{\meta{C}}
 	\close
-	\have[\ ]{c}{\meta{C}}\ne{nc-c2,nc-nc}
+	\have[\ ]{c}{\meta{C}}\nelim{nc-c2,nc-nc}
 \end{proof}
 		\caption{Schematic proof using DS to emulate {\eor}E.\label{DSb}}
 \end{minipage}
@@ -2294,12 +2323,12 @@ Strangely enough, we don't even need our negation introduction rule. Negation el
 	\hypo{na}{\enot\meta{A}}
 	\have{rna}{\enot\enot\meta{A}}\by{R}{nna}
 	\close
-	\have{a2}{\meta{A}}\ne{na-na,na-rna}
+	\have{a2}{\meta{A}}\nelim{na-na,na-rna}
 	\have{bnb2}{\meta{B}\eand\enot\meta{B}}\ce{abn,a2}
 	\have{b2}{\meta{B}}\ae{bnb2}
 	\have{nb2}{\enot\meta{B}}\ae{bnb2}
 	\close
-	\have{na2}{\enot\meta{A}}\ne{nna-b2,nna-nb2}
+	\have{na2}{\enot\meta{A}}\nelim{nna-b2,nna-nb2}
 \end{proof}
 One thing to note about this schematic proof is that it is much longer and more complicated than our negation introduction rule. It also relies essentially on rules for the conditional and conjunction, violating our desire that each of our rules be `pure' in the sense that the introduction and elimination of a connective should ideally only involve sentences with it as the main connective. So we will not be availing ourselves of the possible economy of getting rid of the negation introduction rule.
 
@@ -2345,12 +2374,12 @@ In this sort of system, we can understand the negation introduction rule as lite
 % 		\have{c1}{(B \eor A)}\oi{a}
 % 		\have{cr}{\enot(B \eor A)}\by{R}{nc}
 % 		\close
-% 		\have{na}{\enot A}\ni{a-c1,a-cr}
+% 		\have{na}{\enot A}\nintro{a-c1,a-cr}
 % 		\have{b}{B}\by{DS}{ab,na}
 % 		\have{c2}{(B \eor A)}\oi{b}
 % 		\have{nr}{\enot (B \eor A)}\by{R}{nc}
 % 		\close
-% 		\have{c}{(B \eor A)}\ne{nc-c2,nc-nr}
+% 		\have{c}{(B \eor A)}\nelim{nc-c2,nc-nr}
 % 	\end{proof}
 % \end{multicols}
 

@@ -278,7 +278,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[j]{b}{\meta{B}}
 	\have[k]{nb}{\enot\meta{B}}
 \close
-\have[\ ]{na}{\enot\meta{A}}\ni{a-b,a-nb}
+\have[\ ]{na}{\enot\meta{A}}\nintro{a-b,a-nb}
 \end{proof}
 
 
@@ -289,7 +289,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[j]{b}{\meta{B}}
 	\have[k]{nb}{\enot\meta{B}}
 \close
-\have[\ ]{na}{\meta{A}}\ne{a-b,a-nb}
+\have[\ ]{na}{\meta{A}}\nelim{a-b,a-nb}
 \end{proof}
 
 
@@ -410,6 +410,12 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 		\have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
 	\end{proof}
 
+\subsection*{Explosion}
+	\begin{proof}
+		\have{a}{\meta{A}}
+		\have{na}{\enot\meta{A}}
+		\have{b}{\meta{b}}\by{EX!}{a,na}
+	\end{proof}
 
 %
 %\subsection*{Hypothetical Syllogism}

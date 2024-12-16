@@ -25,7 +25,7 @@ Some proofs in \FOL\ don't need any new rules. Consider this: $$\enot(\forall x 
 	\have{e}{(\forall x Px \eor \exists y Py)}\oi{b}
 	\have{ar}{\enot(\forall x Px \eor \exists y Py)}\by{R}{a}
 	\close
-	\have{c}{\enot \forall x Px}\ni{b-e,b-ar}
+	\have{c}{\enot \forall x Px}\nintro{b-e,b-ar}
 \end{proof} The sentences on each line are \FOL\ sentences that are not sentences of \TFL, but the main connectives involved are just those governed by the rules we already introduced to handle \TFL\ proofs.
 
 However, not every \FOL\ sentence has a \TFL\ connective as its main connective. So we will also need some new basic rules to govern the quantifiers, and to govern the identity sign, to deal with those sentences where the main connective is a quantifier and where the sentence is an identity predication.
@@ -134,11 +134,11 @@ For another example, consider this proof of `$\exists x (Px \eor \enot Px)$' fro
 	\have{c}{(Pd \eor \enot Pd)}\oi{b}
 	\have{ar}{\enot(Pd \eor \enot Pd)}\by{R}{a}
 	\close
-	\have{c1}{Pd}\ne{b-c,b-ar}
+	\have{c1}{Pd}\nelim{b-c,b-ar}
 	\have{e}{(Pd \eor \enot Pd)}\oi{c1}
 	\have{arr}{\enot(Pd \eor \enot Pd)}\by{R}{a}
 	\close
-	\have{f}{(Pd \eor \enot Pd)}\ne{a-e,a-arr}
+	\have{f}{(Pd \eor \enot Pd)}\nelim{a-e,a-arr}
 	\have{con}{\exists x (Px \eor \enot Px)}\Ei{f}
 \end{proof}
 One final example, a proof that $\forall x \forall y (Rxy \eif Ryx) \proves \forall x (\forall y Rxy \eif \exists y Ryx)$:
@@ -275,7 +275,7 @@ Here is another proof featuring an application of $\forall$I after discharging a
 	\have{b}{Fa}\ae{a}
 	\have{c}{\enot Fa}\ae{a}
 	\close
-	\have{d}{\enot(Fa \eand \enot Fa)}\ni{a-b,a-c}
+	\have{d}{\enot(Fa \eand \enot Fa)}\nintro{a-b,a-c}
 	\have{e}{\forall x \enot(Fx \eand \enot Fx)}\Ai{d}
 \end{proof} Here we were able to derive that something could not be true of $a$, no matter what $a$ is. We cannot make a coherent assumption that $a$ is both $F$ and isn't $F$, so it doesn't really matter what `$a$' denotes. So the open sentence `$\enot(F \eand \enot Fx)$' could not be true of anything at all. That is why we are entitled to discharge that assumption, and then any subsequent use of `$a$' in the proof must be depending not on particular facts about this $a$, but about anything at all, including whatever it is that `$a$' happens to pick out. 
 
@@ -415,16 +415,16 @@ The argument then revolves around the claim that there is a barber who shaves ev
 		\have{f}{Saa}\be{d,e}
 		\have{g}{\enot Saa}\by{R}{e}
 		\close
-	\have{h}{Saa}\ne{e-f,e-g}
+	\have{h}{Saa}\nelim{e-f,e-g}
 	\have{k}{\enot Saa}\be{d,h}
 		\close
-	\have{l}{(P \eand \enot P)}\ne{i-h,i-k}
+	\have{l}{(P \eand \enot P)}\nelim{i-h,i-k}
 	\close
 	\have{m}{(P \eand \enot P)}\Ee{a,b-l}
 	\have{n}{P}\ae{m}
 	\have{o}{\enot P}\ae{m}
 	\close
-	\have{p}{\enot \exists x (Bx \eand \forall y (\enot Syy \eiff Sxy))}\ni{a-n,a-o}
+	\have{p}{\enot \exists x (Bx \eand \forall y (\enot Syy \eiff Sxy))}\nintro{a-n,a-o}
 \end{proof}
 One trick to this proof is to be sure to instantiate the universally quantified claim at line 3 by using the same name `$a$' as was already used in line 2. This is because, intuitively, the problem case for this supposed barber arises when you think about whether they shaves themselves or not. But themselves trickiest part of this proof occurs at lines 5–11. By line 4, we've already derived a contradictory biconditional. But if we just use it to derive `$Saa$' and `$\enot Saa$', the contradictory claims we obtain would end up involving the name `$a$'. That would mean we couldn't apply the $\exists$E rule, since the final line of the subproof would contain the chosen name, so we couldn't get our logical falsehood out of the subproof beginning on line 2, and hence could perform the desired \emph{reductio} on line 1 via {\enot}I. So our trick is to suppose the negation of an \emph{unrelated} logical falsehood on line 5, derive the logical falsehood from line 4 in the range of that assumption, and hence use {\enot}E to derive the logical falsehood `$P \eand \enot P$' on line 11. This doesn't contain the name `$a$', and hence can be extracted from the subproof to show that line 1 by itself suffices to derive a logical falsehood, and that shows the supposition that there is such a barber is a logical falsehood.
 
@@ -485,14 +485,14 @@ The following three `proofs' are \emph{incorrect}. Explain why they are incorrec
 	\have{d}{Td \eor \enot Td}\oi{c}
 	\have{e}{\enot(Td \eor \enot Td)}\by{R}{b}
 	\close
-	\have{f}{\enot Td}\ne{c-d,c-e}
+	\have{f}{\enot Td}\nelim{c-d,c-e}
 	\have{g}{(Td \eor \enot Td)}\oi{f}
 	\have{h}{\enot(Td \eor \enot Td)}\by{R}{b}
 	\have{c2}{((Td \eor \enot Td)\eand \enot(Td \eor \enot Td))}\ai{g,h}
 	\close
 	\have{c1}{((Td \eor \enot Td)\eand \enot(Td \eor \enot Td))}\Ee{a,b-c2}
 	\close
-	\have{con}{\enot\exists y \enot(Ty \eor \enot Ty)}\ni{a-c1}
+	\have{con}{\enot\exists y \enot(Ty \eor \enot Ty)}\nintro{a-c1}
 \end{proof}
 \end{enumerate}
 
@@ -514,7 +514,7 @@ The following three proofs are missing their commentaries (rule and line numbers
 \hypo{nram}{\enot Ram}
 \have{a2}{\enot Rma}%\Ae{p2}
 \close
-\have{r}{Ram}%\ne{nram-rma,nram-a2}
+\have{r}{Ram}%\nelim{nram-rma,nram-a2}
 \close
 \have{a3}{Ram}%\oe{a1,ram-ram,rma-r}
 		\have{a4}{\exists x Rxm}%\Ei{a3}
@@ -652,11 +652,11 @@ In §\ref{s:FOLBuildingBlocks}, we noted that $\enot\exists x\meta{A}$ is logica
 			\hypo{nb}{\enot(\meta{B}\eand\enot\meta{B})}
 			\have{nc}{\enot \meta{A}\subs{\meta{c}}{\meta{x}}}\Ae{An}
 		\close
-		\have{b}{\meta{B}\eand\enot\meta{B}}\ni{nb-nc,nb-c}
+		\have{b}{\meta{B}\eand\enot\meta{B}}\nintro{nb-nc,nb-c}
 		\close
 		\have{red2}{\meta{B}\eand\enot\meta{B}}\Ee{E,c-b}
 		\close
-		\have{cc}{\enot\exists\meta{x}\meta{A}}\ni{E-red2}
+		\have{cc}{\enot\exists\meta{x}\meta{A}}\nintro{E-red2}
 \end{proof}
 A couple of things to note about this proof. \begin{enumerate}
 \item I was hasty at line 9 – officially I ought to have applied $\eand$E to line 8, obtaining the contradictory conjuncts in the subproof, and then applied $\enot$I to the assumption opening that subproof. (But then the proof would have gone over the page.)
@@ -692,11 +692,11 @@ Here is a schematic basic proof showing that the third conversion of quantifiers
 				\have{a}{\meta{A}\subs{\meta{c}}{\meta{x}}}\Ae{Aa}
 				\have{r}{\enot\meta{A}\subs{\meta{c}}{\meta{x}}}\by{R}{nac}
 			\close
-			\have{con}{\meta{B}\eand\enot\meta{B}}\ne{nb-a,nb-r}
+			\have{con}{\meta{B}\eand\enot\meta{B}}\nelim{nb-a,nb-r}
 		\close
 		\have{con1}{\meta{B}\eand\enot\meta{B}}\Ee{nEna, nac-con}
 	\close
-	\have{dada}{\enot \forall \meta{x} \meta{A}}\ni{Aa-con1}
+	\have{dada}{\enot \forall \meta{x} \meta{A}}\nintro{Aa-con1}
 \end{proof}
 A similar schematic proof can be offered for the final CQ rule.
 
@@ -713,7 +713,7 @@ So, for example, we could consider the system which has $\exists$I and $\exists$
 	\have{d}{\enot\forall \meta{x}\meta{A}}\by{CQ$_{\exists/\enot\forall}$}{c}
 	\have{e}{\forall \meta{x}\meta{A}}\by{R}{a}
 	\close
-	\have{f}{\meta{A}\subs{\meta{c}}{\meta{x}}}\ne{b-e,b-d}
+	\have{f}{\meta{A}\subs{\meta{c}}{\meta{x}}}\nelim{b-e,b-d}
 \end{proof}
 
 A schematic proof emulating $\forall$I using our other basic rules is trickier. Here it is: 
@@ -731,11 +731,11 @@ A schematic proof emulating $\forall$I using our other basic rules is trickier. 
 	\have[n]{e}{\meta{A}\subs{\meta{c}}{\meta{x}}}\by{Original proof from}{aaa}
 	\have{r}{\enot\meta{A}\subs{\meta{c}}{\meta{x}}}\by{R}{c}
 	\close
-	\have{f}{\meta{B}\eand\enot\meta{B}}\ne{d-e,d-r}
+	\have{f}{\meta{B}\eand\enot\meta{B}}\nelim{d-e,d-r}
 	\close
 	\have{g}{\meta{B}\eand\enot\meta{B}}\Ee{b,c-f}
 	\close
-	\have{h}{\forall \meta{x}\meta{A}}\ne{a-g}
+	\have{h}{\forall \meta{x}\meta{A}}\nelim{a-g}
 \end{proof}
 To understand this schematic proof, what we need to remember is that, in order for the original $\forall$I rule to apply, we must already have a proof of $\meta{A}\subs{\meta{c}}{\meta{x}}$ which relies on assumptions $\Gamma$ that do not mention \meta{c} at all. The trick is to make use of that proof \emph{inside} an assumption about an existential witness. We don't try to perform that proof to derive $\meta{A}\subs{\meta{c}}{\meta{x}}$ and then attempt to manipulate $\enot\forall \meta{xA}$ to generate a logical falsehood. Rather, we first assume $\enot\forall \meta{xA}$, apply quantifier conversion to obtain $\exists \meta{x}\enot\meta{A}$, assume that \meta{c} witnesses that existential claim so that $\enot\meta{A}\subs{\meta{c}}{\meta{x}}$, and then use our original proof to derive $\meta{A}\subs{\meta{c}}{\meta{x}}$ at line $n$. To avoid problems with the name appearing at the bottom of the existential witness subproof, we perform the same trick of assuming the falsehood of an arbitrary logical falsehood (so long as \meta{B} doesn't include \meta{c}), and then we manage to derive from $\Gamma$ what we had hoped to: that $\forall \meta{xA}$.
 
@@ -917,7 +917,7 @@ Using this kind of approach, let us consider this argument: \begin{quote}
 	\have{j}{\enot Gb}\ae{d}
 	\have{k}{\enot Ga}\ide{h,j}
 	\close
-	\have{l}{\enot Ha}\ni{e-i,e-k}
+	\have{l}{\enot Ha}\nintro{e-i,e-k}
 	\close
 	\have{m}{\enot Ha}\Ee{b,d-l}
 	\have{n}{(Fa \eand \forall y (Fy \eiff a=y))}\ae{c}
@@ -1137,7 +1137,7 @@ Amongst philosophers, however, the most prominent substructural logic is \define
 	\have{c}{A}\Ae{ana}
 	\have{d}{\enot A}\Ae{ana}
 	\close
-	\have{e}{B}\ne{b-c,b-d}
+	\have{e}{B}\nelim{b-c,b-d}
 \end{proof} The relevant logician doesn't wish to abandon any of these rules, or at least, not the intuition behind them. But they do generally want to resist our being able to introduce a new irrelevant assumption like `$\enot B$' whenever we want. So relevant logics are a class of substructural logic which don't satisfy weakening.
 
 
