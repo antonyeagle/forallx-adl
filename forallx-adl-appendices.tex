@@ -366,8 +366,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 
 \section*{Derived rules for \TFL, §\ref{s:Derived}}
-\begin{multicols}{2}
-
+\begin{multicols}{3}
 \subsection*{Disjunctive syllogism}
 \begin{proof}
 	\have[m]{ab}{\meta{A} \eor \meta{B}}
@@ -378,8 +377,6 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \\	\have[n]{nb}{\enot \meta{B}}
 	\have[\ ]{con}{\meta{A}}\by{DS}{ab, nb}
 \end{proof}
-
-
 
 \subsection*{Modus Tollens}
 
@@ -446,7 +443,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \end{multicols}
 
 
-\newpage
+% \newpage
 \section*{Basic deduction rules for \FOL}
 
 \begin{multicols}{2}
@@ -505,23 +502,25 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \end{proof}
 \end{multicols}
 
-\section*{Derived rules for \FOL, §\ref{s:CQ}}
+\section*{Derived rules for \FOL}
 \begin{multicols}{2}
+\subsection*{Conversion of Quantifiers, §\ref{cq.rules}}
 \begin{proof}
 	\have[m]{ab}{\forall \meta{x}\enot \meta{A}}
 	\have[\ ]{ac}{\enot \exists \meta{x} \meta{A}}\by{CQ$_{\forall/\enot\exists}$}{ab}
-
+\end{proof}
+\begin{proof}
 	\have[m]{ab}{\enot \exists \meta{x}  \meta{A}}
 \\	\have[\ ]{ac}{\forall \meta{x}\enot\meta{A}}\by{CQ$_{\enot\exists/\forall}$}{ab}
 \end{proof}
 \begin{proof}
 	\have[m]{ab}{\exists \meta{x}\enot\meta{A}}
 	\have[\ ]{ac}{\enot \forall \meta{x} \meta{A}}\by{CQ$_{\exists/\enot\forall}$}{ab}
-
+\end{proof}
+\begin{proof}
 	\have[m]{ab}{\enot \forall \meta{x}  \meta{A}}
 \\	\have[\ ]{ac}{\exists \meta{x}\enot \meta{A}}\by{CQ$_{\enot\forall/\exists}$}{ab}
 \end{proof}
-
 \subsection*{Alternative identity elimination, p.\ \pageref{id.es}}
 \begin{proof}
 		\have[m]{e}{\meta{a}=\meta{b}}
