@@ -18,15 +18,13 @@ The LaTeX source code for this work is available on GitHub at [github.com/antony
 Current issues and proposed revisions
 -------------------------------------
 
-As of late 2024, this text is reached terminal stability. I do not envisage making substantive further changes beyond those noted below.
+As of late 2024, this text has reached terminal stability. I do not envisage making substantive further changes beyond those noted below.
 
 I welcome comments and notification of errors and typos: [antony.eagle@adelaide.edu.au](mailto:antony.eagle@adelaide.edu.au?subject=forallx-adl). I will update this readme with a list of issues and proposed changes even while teaching from the book, but I will not push major changes to the pdf and source until a given course has been delivered and assessed. (I will tacitly correct typos and small errors.)
 
 
-Current known issues or proposed changes to the text:
+Current known issues or proposed changes to the text: none.
 
-* In Euler diagram section (§21.7), note that one Euler diagram represents many interpretations. So not every sentence is true or false in a given diagram: e.g., though we assume every region is non-empty, we can't assume how many things are in it. So even if there is a region associated with the predicate $B$, we can't tell if $\exists x \exists y (Bx \wedge By \wedge x≠y)$ need not be uniformly true/false in every interpretation associated with the diagram. So we need to change the language to talk of interpretation*s* associated with a given diagram; and also we probaly need to finesse the talk of true in the diagram as something like 'uniformly true on every interpretation representable by the diagram'.
-* Use `natbib` to manage references, currently manual but they are getting numerous and keeping styling consistent is harder.
 
 <!-- None -->
 

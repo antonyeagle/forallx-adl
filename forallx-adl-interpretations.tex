@@ -183,7 +183,7 @@ Properties determine extensions for one-place predicates. The corresponding enti
 
 \section{Representing one-place predicates: Euler diagrams}\label{euler}
 
-One way of presenting an interpretation that is often convenient is to present its extensions \emph{diagrammatically}.
+It is often convenient to present the extensions associated with an interpretation \emph{diagrammatically}.
 
 The definition of an interpretation in §\ref{ss.int} entailed that a one-place predicate should have as its extension a collection of things drawn from the domain. If we help ourselves to the resources of set theory, the mathematical theory that treats collections and groups, then the extension of a predicate is a \define{subset} of the domain. The subsets of a given set $X$ are those sets such that everything in them is also in $X$. (So the set of children is a subset of the set of people – every member of the former is a member of the latter.) We can represent subsets graphically using a \define{Euler diagram}, without having to specify each of the items which is in the domain.
 
@@ -192,7 +192,7 @@ We begin by demarcating a region on the page to represent the domain – typical
 	\item If two predicates have extensions that overlap, the regions that represent them in the diagram should overlap.
 	\item If one predicate has an extension that is entirely within the extension of another predicate, the region associated with the first should be entirely within the region associated with the second;
 	\item If two predicates have nonoverlapping extensions, the regions that represent them should not overlap.
-	\item Every region in the diagram is assumed to contain some individuals – e.g., if two regions intersect, there are some things in the intersection. However, the size of the regions \emph{does not} represent the number of individuals in the region. (The diagram indicates that various extensions and their intersections are non-empty, but not how mant individuals they contain.) 
+	\item Every region in the diagram is assumed to contain some individuals – e.g., if two regions intersect, there are some things in the intersection. However, the size of the regions \emph{does not} represent the number of individuals in the region. (The diagram indicates that various extensions and their intersections are non-empty, but not \emph{how many} individuals they contain.) 
 \end{itemize} We then label and shade each region to enable us to tell which predicates they are associated with. We may also add labelled dots to denote individuals who may fall into various predicate extensions.
 
 These rules are quite abstract, but they are easy to apply in practice. Suppose we are given the following interpretation: \begin{ekey}
@@ -214,6 +214,8 @@ We may represent this interpretation as in Figure~\ref{fig:egglayers}. \begin{fi
 \caption{An interpretation represented diagrammatically.\label{fig:egglayers}}
 \end{figure} In this diagram, the egg-layers are a subset of the animals – not all animals reproduce by laying eggs, so they do not coincide with the whole domain. The birds are a subset of animals too, and in fact wholly within the egg-layers: all birds reproduce oviparously. The mammals are a subset of the animals, and one that overlaps with the egg-layers (the monotremes!), though neither is contained in the other, so the regions overlap without either being wholly within the other. The birds and mammals do not have any common members, so the associated regions do not overlap at all. Note that the sizes of the regions may, but need not, represent the number of things within them. In this diagram they probably don't.
 
+It is clear that this isn't the only Euler diagram associated with this interpretation. You have a lot of choice about how to draw and shade the various regions. As long as what you produce follows the rules, it doesn't matter. All that matters is that the Euler diagram you produce captures the salient facts about the interpretation you are aiming to represent. 
+
 Another example. Consider this interpretation, discussed earlier on page \pageref{poison}: 
 		\begin{ekey}
 		\item[\domain] people and plants
@@ -222,7 +224,7 @@ Another example. Consider this interpretation, discussed earlier on page \pagere
 		\item[R] \gap{1} is a rose
 		\item[T] \gap{1} has a thorn
 	\end{ekey}
-The wisdom of Bret Michaels then tells us that the Euler diagram should look like the representation in Figure~\ref{fig:poison}. \begin{figure}[b]
+The wisdom of Bret Michaels then tells us that the Euler diagram should look like the representation in Figure~\ref{fig:poison}. \begin{figure}
 	\begin{tikzpicture}
 		\draw[thick, rounded corners] (0,0) rectangle (7,4.2);
 		\node (s) at (2,2) {sad song singers};
@@ -249,10 +251,39 @@ We can start to see how interpretations can help us evaluate arguments quite viv
              \end{tikzpicture}
           \caption{Representing the argument from §\ref{s:FOLBuildingBlocks}.\label{fig:willard}}    \end{figure} 
 
-If you would like a real challenge, you might try to figure out the interpretation corresponding to the Euler diagram in Figure~\ref{fig:xkcd}. 
+There are many different Euler diagrams (different colours, sizes, and shapes of regions) that can represent a given interpretation. The converse is also true: there are many interpretations that can be represented by a single Euler diagram. Importantly, this can mean that interpretations that disagree over the truth value they assign to a given sentence can be represented by \emph{the same diagram}. 
+
+Consider the simple Euler diagram in Figure~\ref{fig:simpeuler}. This diagram can only represent interpretations in which the extensions assigned to $H$ and $D$ are non-empty, and the intersection of those extensions is also non-empty. But the diagram doesn't tell us how many things are in these non-empty extensions. (The \emph{sizes} of the regions in the diagram have no significance, so we can't deduce that information from the fact that the $H$ region is larger than the $D$ region.) Accordingly, the diagram doesn't correspond to a single interpretation – it could be used to represent both of the following interpretations:
+\begin{multicols}{2}
+	\begin{enumerate}
+	\item \begin{ekey}
+	\item[\domain] $0, 1, 2, 3$
+	\item[H] \gap{1} is prime, i.e., $\{2,3\}$
+	\item[D] \gap{1} is odd, i.e., $\{1,3\}$.
+\end{ekey} 
+\item \begin{ekey}
+	\item[\domain] $0, 1, 2, 3, 4, 5$
+	\item[H] \gap{1} is prime, i.e., $\{2,3,5\}$
+	\item[D] \gap{1} is odd, i.e., $\{1,3,5\}$.
+\end{ekey}
+\end{enumerate} 
+\end{multicols}
+These two interpretations differ in the truth value they assign to some sentences, such as $$\exists x \exists y \left(\left(\left(Hx \eand Dx\right) \eand \left(Hy \eand Dy\right)\right) \eand x \neq y\right).$$ Interpretation 1 makes this sentence false: there is only one thing in the intersection of $H$ and $D$ on that interpretation, namely, $3$. But interpretation 2 makes it true, since $3$ and $5$ are both in the intersection of $H$ and $D$. So if we were to ask, `is that sentence true in that diagram?', there is no determinate answer. The best we could say is that some of the interpretations represented by the diagram make it true, and some of them make it false. So we don't really have any coherent notion of whether a setence is `true according to a diagram' – we have only `true according to an interpretation represented by a diagram'.
+
 \begin{figure}[b]
+             \begin{tikzpicture}
+              	\draw[thick, rounded corners] (0,0) rectangle (5,4);
+		\node (e) at (2,1.4) {$H$};
+		\node (b) at (4,2.5) {$D$};
+		\filldraw[pattern color=Salmon, pattern=horizontal lines, draw =black, fill opacity=0.4] (2.3,2) circle (1.4cm);
+		\filldraw[pattern=vertical lines, pattern color=Violet, draw =black, fill opacity=0.4] (3.1,2.5) ellipse (1.1cm and 0.75cm);
+             \end{tikzpicture}
+          \caption{A simple but ambiguous Euler diagram.\label{fig:simpeuler}}    \end{figure}
+
+If you would like a real challenge, you might try to figure out (one of) the interpretation(s) corresponding to the Euler diagram in Figure~\ref{fig:xkcd}. 
+\begin{figure}
 	\includegraphics[width=0.85\textwidth]{chat_systems.png}
-\caption{`Chat Systems', \httpurl{xkcd.com/1810/}\label{fig:xkcd}}
+\caption{`Chat Systems', \httpurl{xkcd.com/1810/}.\label{fig:xkcd}}
 \end{figure}
 
 \section{Representing two-place predicates: directed graphs} \label{graph}
@@ -298,7 +329,7 @@ Let's consider some examples.
 \draw[->, thick] (atom1) .. controls (0.75,0.75) .. (atom3);
 \draw[->, thick] (atom3) .. controls (1.75,1.75) .. (atom1);
 \draw[->, thick] (atom4)+(-0.15,0.15) arc (-330:-30:.3); 
-\end{tikzpicture}\caption{A graph with `loops'  \label{fig:graph2}}
+\end{tikzpicture}\caption{A graph with `loops'. \label{fig:graph2}}
 \end{figure} 
 
 \item A third example is depicted in Figure~\ref{fig:amia}, corresponding to this interpretation: \begin{ekey}
@@ -323,7 +354,9 @@ Let's consider some examples.
  \end{figure}
 \end{itemize}
 
-If we wanted, we can extend our graphical conventions, making our diagrams more complex in order to depict more complex interpretations. For example, we could introduce another kind of arrow (maybe with a dashed shaft) to represent a further two-place predicate.\footnote{This kind of `directed multigraph' is sometimes called a \define{quiver}.} We could add names as labels attached to particular objects. To symbolise the extension of a one-place predicate, we might simply adopt the approach from §\ref{euler}, and mark a shaded region around some particular objects and stipulate that the thus encircled objects (and only them) are to fall in the extension of some predicate `$H$', say.\footnote{We needn't stop there. For example, we could introduce \define{directed hypergraphs}, where the edges can join more than two nodes.} 
+Unlike Euler diagrams, each directed graph represents only one interpretation. If the graph has been correctly constructed, any entity in the domain should have a corresponding node, and the interpretation should assign an extension to only one binary relation, the whole of which is depicted in the graph. It is easy to see there is just one interpretation of a single binary relation for a given domain and extension assigned to that relation.
+
+If we wanted, we could extend our graphical conventions, making our diagrams more complex in order to depict more complex interpretations. For example, we could introduce another kind of arrow (maybe with a dashed shaft) to represent a further two-place predicate.\footnote{This kind of `directed multigraph' is sometimes called a \define{quiver}.} We could add names as labels attached to particular objects. To symbolise the extension of a one-place predicate, we might simply adopt the approach from §\ref{euler}, and mark a shaded region around some particular objects and stipulate that the thus encircled objects (and only them) are to fall in the extension of some predicate `$H$', say.\footnote{We needn't stop there. For example, we could introduce \define{directed hypergraphs}, where the edges can join more than two nodes.} 
 
 All of these graphical innovations are used in Figure~\ref{fig:complex}, which  graphically represents the following interpretation: \begin{ekey}
 	\item[\domain] $2,3,4,5,6$
@@ -958,7 +991,7 @@ Determine whether each of the following sentences is true or false in that inter
 
 \problempart
 % \label{pr.TorF3}
-Following the diagram conventions introduced at the end of §\ref{s:Interpretations}, consider the following interpretation:	
+Following the diagram conventions introduced at the end of §\ref{s:Interpretations}, consider the interpretation represented by the following graph:	
 \begin{center}
 \begin{tikzpicture}
 \node (atom1) at (0,2) {1};
