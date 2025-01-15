@@ -25,8 +25,6 @@ I welcome comments and notification of errors and typos: [antony.eagle@adelaide.
 
 Current known issues or proposed changes to the text:
 
-* Change displayed propositions to parentheses around number – at present hard to distinguish from numbered lists.
-
 
 <!-- None -->
 

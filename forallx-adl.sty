@@ -148,7 +148,7 @@
 % Used in conjunction with {earg}, this handles the numbering and
 % references to example sentences:
 \newcounter{Example}% [chapter] continuous numbering
-\newcommand*{\ex}[1]{\refstepcounter{Example}\arabic{Example}.\label{#1}}
+\newcommand*{\ex}[1]{\refstepcounter{Example}(\arabic{Example}) \label{#1}}
 % Used in specifying partial models, this keeps the lines justified so
 % so that the = signs all line up. For example:
 %	\begin{partialmodel}
