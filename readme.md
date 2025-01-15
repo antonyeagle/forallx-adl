@@ -23,7 +23,7 @@ As of late 2024, this text has reached terminal stability. I do not envisage mak
 I welcome comments and notification of errors and typos: [antony.eagle@adelaide.edu.au](mailto:antony.eagle@adelaide.edu.au?subject=forallx-adl). I will update this readme with a list of issues and proposed changes even while teaching from the book, but I will not push major changes to the pdf and source until a given course has been delivered and assessed. (I will tacitly correct typos and small errors.)
 
 
-Current known issues or proposed changes to the text:
+Current known issues or proposed changes to the text: none.
 
 
 <!-- None -->
