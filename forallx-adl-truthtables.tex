@@ -34,20 +34,40 @@ For many of the functions we've considered so far, the order of inputs doesn't m
 
 There are many relations which are not functions. While Barack Obama can be characterised as `the father of Malia', Malia Obama cannot be characterised as `the child of Barack', since that attempted description would apply equally to her sister. A function is a special kind of relation: one where each thing relates to some unique output. We treat the idea of a relation more thoroughly in §\ref{predrel}.
 
-\section{The Idea of Truth-Functionality}
+\section{The Idea of Truth-Functionality}\label{idea_tf}
 
 The relevance of the notion of a function is that we are going to identify the meanings of the \TFL\ sentence connectives with a certain class of functions.
 
 A valid argument is one with a structure that guarantees the truth of the conclusion, given the truth of the premises (§\ref{s:validityintro}). Our interest in valid arguments leads us to be interested in the truth or falsity of sentences. \TFL\ gives rules governing the construction of complex sentences from smaller constituents for each sentence connective. The meanings of the sentence connectives in \TFL\ are likewise going to allow us to `construct', or determine, the truth-value of a complex sentence as the result of the truth values of its constituent sentences and the main connective of that sentence. 
 
-This is an important idea about \TFL\ sentence connectives. They are each associated with a rule that fixes the truth value of a complex sentence of which they are the main connective, given the truth values of the constituent sentences. But such a rule is just a function: a function that takes one or two truth values as input, and yields a truth value as output. Such a function is called a \define{truth-function}. We can now summarise our important insight about \TFL: 
+This is an important idea about \TFL\ sentence connectives. They are each associated with a rule that fixes the truth value of a complex sentence of which they are the main connective, given the truth values of the constituent sentences. But such a rule is just a function: a function that takes one or two (or more) truth values as input, and yields a truth value as output. Such a function is called a \define{truth-function}. We can now summarise our important insight about \TFL: 
 	\factoidbox{\label{def.truthfunction}
 		A connective is \define{truth-functional} iff the truth value of a sentence with that connective as its main connective is uniquely determined by the truth value(s) of the constituent sentence(s), i.e., its meaning is a truth-function.
 
 		\emph{Every connective in \TFL\ is truth-functional.}}
 It turns out that we don't need to know anything more about the atomic sentences of \TFL\ than their truth values to assign a truth value to those nonatomic, or \define{compound}, sentences. More generally, the truth value of any compound sentence depends only on the truth value of the subsentences that comprise it. In order to know the truth value of `$(D \eand E)$', for instance, you only need to know the truth value of `$D$' and the truth value of `$E$'. In order to know the truth value of `$\bigl( (D \eand E) \eor F\bigr)$', you need only know the truth value of `$(D \eand E)$' and `$F$'. And so on. This is in fact a good part of the reason why we chose these connectives, and chose their English near-equivalents as our structural words. To determine the truth value of some \TFL\ sentence, we only need to know the truth value of its components. This is why the study of \TFL\ is termed \emph{truth-functional logic}.
 
+While all of our connectives are truth-functional, not every truth function has a corresponding connective. For example, the following is a one-place truth function:
+\begin{center}
+\begin{tabular}{c|c} \toprule 
+Input & Output \\
+\midrule
+T & T\\
+F & F\\ \bottomrule
+\end{tabular}
+\end{center} This is the one-place \define{identity function}: it yields as output just whatever it was given as input. While there are uses for such a function, we don't really need a connective to express it. (That would be a connective $ø$ such that $\meta{A}$ and $ø\meta{A}$ always had the same truth value, and so are indistinguishable from the perspective of \TFL.) 
 
+Truth-functions – like functions in general, in fact – are distinguished from one another if there is some possible input on which the two functions give a different output. So we can enumerate all the possible one-place truth-functions, since there are only two possible inputs, and two possible outputs. I list them in the following table:
+\begin{center}
+\begin{tabular}{c|cccc} \toprule 
+Input & $f_{1}$ & $f_{2}$ & $f_{3}$ & $f_{4}$ \\
+\midrule
+T & T & T & F & F \\
+F & T & F & T & F \\ \bottomrule
+\end{tabular}
+\end{center} The function I've called in this table $f_{2}$ is the identity function from just above. We also have two \define{constant functions}, $f_{1}$ and $f_{4}$, which give the same output regardless of their input. And we have a function $f_{3}$ that 'flips' the truth value of the input – we'll see this one again very soon!
+
+We return to the topic of truth-functions, and the question of whether we need other connectives to handle other truth-functions, in §\ref{s:expressiveness}. But first we need to substantiate the claim that the connectives we've introduced are truth-functional.
 
 \section{Schematic Truth Tables}\label{s:SchematicTruthTables}
 
@@ -68,8 +88,9 @@ T & F\\
 F & T\\ \bottomrule
 \end{tabular}
 \end{center}
-This is a schematic table, because the input truth values are not associated with any specific \TFL\ sentence, but with arbitrarily chosen sentences which have the truth value in question. Whatever \TFL\ sentence we choose in place of \meta{A}, whether atomic or not, we know that if \meta{A} has the truth value True, then $\neg\meta{A}$ will have the truth value False.
+This is a schematic table, because the input truth values are not associated with any specific \TFL\ sentence, but with arbitrarily chosen sentences which have the truth value in question. Whatever \TFL\ sentence we choose in place of \meta{A}, whether atomic or not, we know that if \meta{A} has the truth value True, then $\neg\meta{A}$ will have the truth value False, and \emph{vice versa}.
 
+You will recognise this truth-function assigned to $\enot$ as the 'flipping' truth-function $f_{3}$ from §\ref{idea_tf}.
 
 \paragraph{Conjunction} For any sentences \meta{A} and \meta{B}, \meta{A}\eand\meta{B} is true if and only if both \meta{A} and \meta{B} are true. We can summarize this in the schematic truth table for conjunction:
 \begin{center}
@@ -262,7 +283,7 @@ For now, I shall content myself with the observation that `$\eif$' is the only p
 
 \problempart Suppose $†$ is some English one-place connective, so that `$†\meta{A}$' is a grammatical sentence. How can we test if it is not truth-functional?
 
-
+\problempart How many possible two-place truth-functions are there, i.e., how many different functions take a pair of truth values as input, and yield a truth value as output?
 
 \chapter{Complete Truth Tables}\label{s:CompleteTruthTables}
 
