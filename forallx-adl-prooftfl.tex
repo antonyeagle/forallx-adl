@@ -19,8 +19,8 @@ In the case of \TFL, this led us to develop truth tables. Each row of a complete
 
 But truth tables do not necessarily give us much \emph{insight}. Consider two arguments in \TFL:
 	\begin{align*}
-		P \eor Q, \enot P & \ttherefore Q\\
-		P \eiff Q, \enot P & \ttherefore \enot Q.
+		(P \eor Q), \enot P & \ttherefore Q\\
+		(P \eiff Q), \enot P & \ttherefore \enot Q.
 	\end{align*}
 Clearly, these are valid arguments. You can confirm that they are valid by constructing four-row truth tables. With truth tables, we only really care about the truth values assigned to whole sentences, since that is what ultimately determines whether there is an entailment. But we might say that these two arguments, proceeding from different premises with different logical connectives involved, must make use of different principles of \define{implication} – different principles about what \emph{follows from} what. What follows from a disjunction is not at all the same as what follows from a biconditional, and it might be nice to keep track of these differences. While a truth table can show \emph{that} an argument is valid, it doesn't really explain why the argument is valid. To explain why $P \eor Q, \enot P \ttherefore Q$ is valid, we have to say something about how disjunction and negation work and interact.
 
@@ -44,8 +44,8 @@ The proof system we adopt is called \define{natural deduction}. It is an attract
 
 One specific way in which natural deduction is supposed to improve over truth table techniques is in the insight into how an argument works that it can provide. Rather than just discovering that one sentence cannot be true without another being true, we see almost literally how to break down premises into their consequences, and then build up from those intermediate consequences to the conclusion, where all the steps of deconstruction and reconstruction involve the use of simple and obviously correct implications. Though this doesn't mimic human reasoning perfectly, it resembles it sufficiently well that we often seem to better understand how an argument works once we've constructed a natural deduction proof of it, even if we already knew it to be valid.  Consider this pair of valid arguments:
 	\begin{align*}
-		\enot P \eor Q,  P & \ttherefore Q\\
-		P \eif Q, P & \ttherefore Q.
+		(\enot P \eor Q),  P & \ttherefore Q\\
+		(P \eif Q), P & \ttherefore Q.
 	\end{align*} 
 From a truth-table perspective, these arguments are indistinguishable: their premises are true in the same valuations, and so are their conclusions. Yet they are distinct from an implicational point of view, since one will involve consideration of the consequences of disjunctions and negations, and the other consideration of the consequences of the conditional. The natural deduction proofs demonstrating the validity of these arguments reflect the different connectives involved, and promise us a more fine-grained analysis of how valid arguments function.
 
@@ -61,10 +61,10 @@ The use of natural deduction can be motivated by more than the search for insigh
 	$$A_1 \eif C_1 \ttherefore (A_1 \eand A_2) \eif (C_1 \eor C_2).$$
 To test this argument for validity, you might use a 16-row truth table. If you do it correctly, then you will see that there is no row on which all the premises are true and on which the conclusion is false. So you will know that the argument is valid. (But, as just mentioned, there is a sense in which you will not know \emph{why} the argument is valid.) But now consider:\phantomsection\label{longtt}
 	\begin{align*}
-		A_1 \eif C_1 \ttherefore\ & (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10}) \eif \phantom{(}\\
+		(A_1 \eif C_1) \ttherefore\ & (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10}) \eif \phantom{(}\\
 				&(C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5 \eor C_6 \eor C_7 \eor C_8 \eor C_9 \eor C_{10}).
 	\end{align*}
-This argument is also valid – as you can probably tell – but to test it requires a truth table with $2^{20} = 1048576$ rows. In principle, we can set a machine to grind through truth tables and report back when it is finished. In practice, complicated arguments in \TFL\ can become \emph{intractable} if we use truth tables. But there is a very short natural deduction proof of this argument – just 6 rows. You can see it on page \pageref{ndshort}, though it won't make much sense if you skip the intervening pages.
+This argument is also valid – as you can probably tell – but to test it requires a truth table with $2^{20} = 1,048,576$ rows. In principle, we can set a machine to grind through truth tables and report back when it is finished. In practice, complicated arguments in \TFL\ can become \emph{intractable} if we use truth tables. But there is a very short natural deduction proof of this argument – just 6 rows. You can see it on page \pageref{ndshort}, though it won't make much sense if you skip the intervening pages.
 
 When we get to \FOL, though, the problem gets dramatically worse. There is nothing like the truth table test for \FOL. To assess whether or not an argument is valid, we have to reason about \emph{all} interpretations. But there are infinitely many possible interpretations. We cannot even in principle set a machine to grind through infinitely many possible interpretations and report back when it is finished: it will \emph{never} finish. We either need to come up with some more efficient way of reasoning about all interpretations, or we need to look for something different. Since we already have some motivation for considering the role in arguments of particular premises, rather than all the premises collectively as in the truth-table approach, we will opt for the `something different' path – natural deduction.
 
@@ -73,7 +73,7 @@ When we get to \FOL, though, the problem gets dramatically worse. There is nothi
 
 % section our_system_of_natural_deduction_and_its_history (end)
 
-The modern development of natural deduction dates from research in the 1930s by Gerhard Gentzen and, independently, Stanisław Jaśkowski.\footnote{Gerhard Gentzen (1935) `Untersuchungen über das logische Schließen', translated as `Investigations into Logical Deduction' in M. E. Szabo, ed. (1969) \emph{The Collected Works of Gerhard Gentzen}, North-Holland. Stanisław Jaśkowski (1934) `On the rules of suppositions in formal logic', reprinted in Storrs McCall, ed. (1967) \emph{Polish logic 1920–39}, Oxford University Press.} However, the natural deduction system that we shall consider is based on slightly later work by Frederic Fitch.\footnote{Frederic Fitch (1952) \emph{Symbolic Logic: An introduction}, Ronald Press Company. 
+The modern development of natural deduction dates from research in the 1930s by Gerhard Gentzen and, independently, Stanisław Jaśkowski.\footnote{Gerhard Gentzen (1935) `Untersuchungen über das logische Schließen', translated as `Investigations into Logical Deduction' in M E Szabo, ed. (1969) \emph{The Collected Works of Gerhard Gentzen}, North-Holland. Stanisław Jaśkowski (1934) `On the rules of suppositions in formal logic', reprinted in Storrs McCall, ed. (1967) \emph{Polish logic 1920–39}, Oxford University Press.} However, the natural deduction system that we shall consider is based on slightly later work by Frederic Fitch.\footnote{Frederic Fitch (1952) \emph{Symbolic Logic: An introduction}, Ronald Press Company. 
 
 In the design of the present proof system, I drew on earlier versions of \forallx, but also on the natural deduction systems of Jon Barwise and John Etchemendy (1992) \emph{The Language of First-Order Logic}, CSLI; and of Volker Halbach (2010) \emph{The Logic Manual}, Oxford University Press.} 
 
@@ -117,7 +117,10 @@ Let's look as these initial assumptions. In ordinary reasoning, an assumption is
 
 Suppose we have a natural deduction proof. But what is it a proof \emph{of}? Well, the last sentence in the sequence is in some sense where we've ended up:  the result of the proof. It can be considered the conclusion of the proof. But even if there is a proof with conclusion \meta{C}, that doesn't mean that we have proved \meta{C} and should therefore come to believe it. For we have neglected the role of assumptions. Some of the proof rules discharge previously made assumptions, but not every assumption has to be discharged in a correctly formed proof. These remaining `active' or \define{undischarged} assumptions are the suppositions on which the correctness of the proof conclusion depends. So a natural deduction proof is \emph{conditional}: it establishes the conclusion, conditional on the truth of any undischarged assumptions. 
 
-This structure establishes a nice relationship between proofs and arguments. A given proof is a \define{proof of an argument} $\meta{A}_{1} … \meta{A}_{n} \ttherefore \meta{C}$ if the final sentence in the proof is \meta{C}, and each of the undischarged assumptions is among the premises of the argument $\meta{A}_{i}$. Note that if there is a proof of $\meta{A} \ttherefore \meta{C}$, that will also be a proof of $\meta{A},\meta{B} \ttherefore \meta{C}$, and any other argument with the conclusion \meta{C} and including \meta{A} as a premise. This is related to the fact that if you have a valid argument, adding extra premises can't make the argument invalid. (Likewise, if you have a correctly constructed proof, making additional assumptions can't make it incorrect.) 
+This structure establishes a nice relationship between proofs and arguments. \factoidbox{A given proof  is a \define{proof of an argument} $\meta{A}_{1} … \meta{A}_{n} \ttherefore \meta{C}$ iff \begin{enumerate}
+	\item the final sentence in the proof is \meta{C}, and 
+	\item each of the undischarged assumptions in the range of which $\meta{C}$falls is \emph{among} the premises of the argument $\meta{A}_{i}$. 
+\end{enumerate}}Note that according to this definition if there is a proof of $\meta{A} \ttherefore \meta{C}$, that will also be a proof of $\meta{A},\meta{B} \ttherefore \meta{C}$ – and indeed it will be a proof of any other argument with the conclusion \meta{C} and including \meta{A} as a premise. This is related to the fact that if you have a valid argument, adding extra premises can't make the argument invalid. (Likewise, if you have a correctly constructed proof, making additional assumptions above the first line can't make it incorrect.) 
 
 Looking above, you can see that a single assumption is already a natural deduction proof. If we assume `$P$', and stop there, we have a correctly formed proof of the argument $P \ttherefore P$. The premise is the undischarged assumption; the conclusion is the last sentence in the proof. It doesn't matter that, in this case, the undischarged assumption \emph{is} the last sentence! Since this argument is obviously valid, though trivial, we have some assurance that our simplest proofs are correct, and don't generate fallacious proofs of invalid arguments. Likewise, this proof would also be a proof of the argument $P, Q \therefore P$.
 
@@ -139,7 +142,7 @@ There is also a vertical line at the left, the \define{assumption line}. This in
 
 When a sentence is in the range of an assumption, that generally means the assumption will be playing some role in justifying that sentence. This isn't always the case, however, and we will see that not every sentence in the range of an assumption intuitively \emph{depends} on the assumption. Not every undischarged assumption is essential to the derivation of a given sentence. \phantomsection\label{nondependence} This again mirrors a feature of valid arguments: the truth of the conclusion of a a valid argument doesn't always require the truth of every premise (e.g., $A, B \vDash A$, but `$B$' isn't really playing an essential role here). 
 
-Whenever we make a new assumption, we underline it and introduce a new assumption line. So this is a proof of the argument $P, Q \ttherefore Q$: \begin{proof}
+Whenever we make a new assumption, we underline it and introduce a new assumption line. So this is a proof corresponding to the argument $P, Q \ttherefore Q$: \begin{proof}
 	\hypo{p} P
 	\open
 	\hypo{q} Q
@@ -167,27 +170,27 @@ Introducing a new assumption line for each new assumption is best practice. That
 
 For any given sentence in a proof, you can easily see the undischarged assumptions on which that sentence depends: just look at which assumptions are attached to the assumption lines to its left. If some line in a proof is in the range of an assumption, we will say that it is an \define{active assumption} at that point in the proof. Likewise, for a given assumption you can use the assumption line to easily see which sentences are in the range of that assumption.
 
-Let's consider a couple more examples of how to set up up a proof.	$$\enot (A \eor B) \ttherefore \enot A \eand \enot B.$$
+Let's consider a couple more examples of how to set up up a proof.	$$\enot (A \eor B) \ttherefore (\enot A \eand \enot B).$$
 We start a proof by writing an assumption:
 \begin{proof}
 	\hypo{a1}{\enot (A \eor B)}
-\end{proof} We are hoping to conclude that `$\enot A \eand \enot B$'; so we are hoping ultimately to conclude our proof with
+\end{proof} We are hoping to conclude that `$(\enot A \eand \enot B)$'; so we are hoping ultimately to conclude our proof with
 \begin{proof}
 \hypo{a1}{\enot (A \eor B)}
 \have[ ]{c}{\vdots}
-	\have[n]{con}{\enot A \eand \enot B}
+	\have[n]{con}{(\enot A \eand \enot B)}
 \end{proof}
 for some number $n$. It doesn't matter which line we end on, but we would obviously prefer a short proof to a long one! We don't have any rules yet, so we cannot fill in the middle of this proof.
 
 Suppose we had an argument with more than one premise:
-$$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \ttherefore \enot C\eor D.$$
+$$(A\eor B), \enot (A\eand C), \enot (B \eand \enot D) \ttherefore (\enot C\eor D).$$
 If our argument has more than one premise, we can use either single or multiple assumption lines: \begin{multicols}{2}\noindent
 \begin{proof}
-	\hypo{a1}{A \eor B}
+	\hypo{a1}{(A \eor B)}
 	\open\hypo{a2}{\enot (A\eand C)}
 	\open\hypo{a3}{\enot (B \eand \enot D)}
 \have[ ]{m}{\vdots}
-	\have[n]{con}{\enot C \eor D}
+	\have[n]{con}{(\enot C \eor D)}
 \end{proof}
 
 \begin{proof}
@@ -221,7 +224,7 @@ Is the following a correctly formed proof in our natural deduction system?
 \end{proof}
 
 \problempart
-Which of the following could, given the right rules, be turned into a proof corresponding to the argument $$\enot(P \eand Q), P \ttherefore \enot Q?$$
+Which of the following could, given the right rules, be turned into a proof representing the argument $$\enot(P \eand Q), P \ttherefore \enot Q?$$ (Bear in mind that many proofs can represent the same argument, and many arguments can be represented by the same proof.)
 \begin{multicols}{2}\noindent
 	   \begin{enumerate}
     	\item\begin{proof}
@@ -295,7 +298,7 @@ Since the order of conjuncts does not matter in a conjunction, I could equally w
 To be clear, the statement of the rule is \emph{schematic}. It is not itself a proof. `$\meta{A}$' and `$\meta{B}$' are not sentences of \TFL. Rather, they are symbols in the metalanguage, which we use when we want to talk about any sentence of \TFL\ (see §\ref{s:UseMention}). Similarly, `$m$' and `$n$' are not a numerals that will appear on any actual proof. Rather, they are symbols in the metalanguage, which we use when we want to talk about any line number of any proof. In an actual proof, the lines are numbered `$1$', `$2$', `$3$', and so forth. But when we define the rule, we use variables to emphasise that the rule may be applied at any point. The rule requires only that we have both conjuncts available to us somewhere in the proof, earlier than the line that results from the application of the rule. They can be separated from one another, and they can appear in any order. So $m$ might be less than $n$, or greater than $n$. Indeed, $m$ might even equal $n$, as in this proof:
 \begin{proof}
 	\hypo[1]{a}{P}
-	\have[2]{b}{P\eand P} \ai{a, a}
+	\have[2]{b}{(P\eand P)} \ai{a, a}
 \end{proof}
 
 Note that the rule involves extending the vertical line to cover the newly introduced sentence. This is because what has been derived depends on the same assumptions as what it was derived from, and so it must also be in the range of those assumptions. \factoidbox{All of the rules in this section justify a new claim which inherits all the assumptions of anything from which it has been derived by a natural deduction rule.} The two starting conjuncts needn't have the same assumptions, but the derived conjunction inherits their joint assumptions: 
@@ -329,68 +332,68 @@ The point is simply that, when you have a conjunction on some line of a proof, y
 
 
  One point might be worth emphasising: you can only apply this rule when conjunction is the main connective. So you cannot derive `$D$' just from `$C \eor (D \eand E)$'! Nor can you derive `$D$' directly from `$C \eand (D \eand E)$', because it is not one of the conjuncts of the main connective of this sentence. You would have to first obtain `$(D \eand E)$' by {\eand}E, and then obtain `$D$' by a second application of that rule, as in this proof: \begin{proof}
- 	\hypo{a}{C \eand (D \eand E)} 
- 	\have{b}{D \eand E}\ae{a}
+ 	\hypo{a}{(C \eand (D \eand E))} 
+ 	\have{b}{(D \eand E)}\ae{a}
  	\have{c}{D}\ae{b}
  \end{proof}
 
 Even with just these two rules, we can start to see some of the power of our formal proof system. Consider this tricky-looking argument:
 \begin{earg}
-\item[] $\bigl( (A\eor B)\eif(C\eor D) \bigr) \eand \bigl( (E \eor F) \eif (G\eor H) \bigr)$
-\item[\ttherefore] $\bigl( (E \eor F) \eif (G\eor H) \bigr) \eand \bigl( (A\eor B)\eif(C\eor D) \bigr)$
+\item[] $\Bigl(\bigl( (A\eor B)\eif(C\eor D) \bigr) \eand \bigl( (E \eor F) \eif (G\eor H) \bigr)\biggr)$
+\item[\ttherefore] $\Bigl(\bigl( (E \eor F) \eif (G\eor H) \bigr) \eand \bigl( (A\eor B)\eif(C\eor D) \bigr)\biggr)$
 \end{earg} Dealing with this argument using truth-tables would be a very tedious exercise, given that there are 8 sentence letters in the premise and we would thus require a $2^{8}=256$ line truth table! But we can deal with it swiftly using our natural deduction rules.
 
 The main connective in both the premise and conclusion of this argument is `$\eand$'. In order to provide a proof, we begin by writing down the premise, which is our assumption. We draw a line below this: everything after this line must follow from our assumptions by (successive applications of) our rules of implication. So the beginning of the proof looks like this:
 \begin{proof}
-	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+	\hypo{ab}{\Bigl(\bigl((A\eor B)\eif(C\eor D)\bigr) \eand \bigl((E \eor F) \eif (G\eor H)\bigr)\biggr)}
 \end{proof}
 From the premise, we can get each of its conjuncts by {\eand}E. The proof now looks like this:
 \begin{proof}
-	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
-	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
-	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
+	\hypo{ab}{\Bigl(\bigl((A\eor B)\eif(C\eor D)\bigr) \eand \bigl((E \eor F) \eif (G\eor H)\bigr)\biggr)}
+	\have{a}{\bigl((A\eor B)\eif(C\eor D)\bigr)} \ae{ab}
+	\have{b}{\bigl((E \eor F) \eif (G\eor H)\bigr)} \ae{ab}
 \end{proof}
 So by applying the {\eand}I rule to lines 3 and 2 (in that order), we arrive at the desired conclusion. The finished proof looks like this:
 \begin{proof}
-	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+	\hypo{ab}{\Bigl(\bigl((A\eor B)\eif(C\eor D)\bigr) \eand \bigl((E \eor F) \eif (G\eor H)\bigr)\biggr)}
 
-	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
-	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
-	\have{ba}{{[}(E \eor F) \eif (G\eor H){]} \eand {[}(A\eor B)\eif(C\eor D){]}} \ai{b,a}
+	\have{a}{\bigl((A\eor B)\eif(C\eor D)\bigr)} \ae{ab}
+	\have{b}{\bigl((E \eor F) \eif (G\eor H)\bigr)} \ae{ab}
+	\have{ba}{\Bigl(\bigl((E \eor F) \eif (G\eor H)\bigr) \eand \bigl((A\eor B)\eif(C\eor D)\bigr)\biggr)} \ai{b,a}
 \end{proof}
 This is a very simple proof, but it shows how we can chain rules of proof together into longer proofs. Our formal proof requires just four lines, a far cry from the 256 lines that would have been required had we approached the argument using the techniques from chapter \ref{ch.TruthTables}.
 
 It is worth giving another example. Way back in §\ref{s:MoreParentheticalConventions}, we noted that this argument is valid:
-	$$A \eand (B \eand C) \ttherefore (A \eand B) \eand C.$$
+	$$(A \eand (B \eand C)) \ttherefore ((A \eand B) \eand C).$$
 To provide a proof corresponding to this argument, we start by writing:
 \begin{proof}
 	\hypo{ab}{A \eand (B \eand C)}
 \end{proof}
 From the premise, we can get each of the conjuncts by applying $\eand$E twice. And we can then apply $\eand$E twice more, so our proof looks like:
 \begin{proof}
-	\hypo{ab}{A \eand (B \eand C)}
+	\hypo{ab}{(A \eand (B \eand C))}
 	\have{a}{A} \ae{ab}
-	\have{bc}{B \eand C} \ae{ab}
+	\have{bc}{(B \eand C)} \ae{ab}
 	\have{b}{B} \ae{bc}
 	\have{c}{C} \ae{bc}
 \end{proof}
 But now we can merrily reintroduce conjunctions in the order we want them, so that our final proof is:
 \begin{proof}
-	\hypo{abc}{A \eand (B \eand C)}
+	\hypo{abc}{(A \eand (B \eand C))}
 	\have{a}{A} \ae{abc}
-	\have{bc}{B \eand C} \ae{abc}
+	\have{bc}{(B \eand C)} \ae{abc}
 	\have{b}{B} \ae{bc}
 	\have{c}{C} \ae{bc}
-	\have{ab}{A \eand B}\ai{a, b}
-	\have{con}{(A \eand B) \eand C}\ai{ab, c}
+	\have{ab}{(A \eand B)}\ai{a, b}
+	\have{con}{((A \eand B) \eand C)}\ai{ab, c}
 \end{proof}
 Recall that our official definition of sentences in \TFL\ only allowed conjunctions with two conjuncts. When we discussed semantics, we became a bit more relaxed, and allowed ourselves to drop inner parentheses in long conjunctions, since the order of the parentheses did not affect the truth table. The proof just given suggests that we could also drop inner parentheses in all of our proofs. However, this is not standard, and we shall not do this. Instead, we shall return to the more austere parenthetical conventions. (Though we will allow ourselves to drop outermost parentheses most of the time, for legibility.)
 
 Our conjunction rules correspond to intuitively correct patterns of implication. But they are also demonstrably good in another sense. Each of our rules can be vindicated by considering facts about entailment. Each of these schematic entailments is easily demonstrated: \begin{itemize}
-	\item $\meta{A}, \meta{B} \entails \meta{A} \eand \meta{B}$;
-	\item 	$\meta{A} \eand \meta{B} \entails \meta{A}$;
-	\item $\meta{A} \eand \meta{B} \entails \meta{B}$.
-\end{itemize} For example, the first of these says that \meta{A} and \meta{B} separately suffice to entail the truth of their conjunction. This justifies the proof rule of conjunction introduction, since at a stage in the proof where we are assuming both \meta{A} and \meta{B} to be true, we are then permitted to conclude that $\meta{A}\eand\meta{B}$ is true – just as conjunction introduction says we can.
+	\item $\meta{A}, \meta{B} \entails (\meta{A} \eand \meta{B})$;
+	\item 	$(\meta{A} \eand \meta{B}) \entails \meta{A}$;
+	\item $(\meta{A} \eand \meta{B}) \entails \meta{B}$.
+\end{itemize} For example, the first of these says that \meta{A} and \meta{B} separately suffice to entail the truth of their conjunction. This justifies the proof rule of conjunction introduction, since at a stage in the proof where we are assuming both \meta{A} and \meta{B} to be true, we are then permitted to conclude that $(\meta{A}\eand\meta{B})$ is true – just as conjunction introduction says we can.
 
 It can be recognised, then, that our proof rules correspond to valid arguments in \TFL, and so our conjunction rules will never permit us to derive a false sentence from true sentences. There is no guarantee of course that the assumptions we make in our formal proofs are in fact true – only that if they were true, what we derive from them would also be true. So despite the fact that our proof rules are a \emph{syntactic} procedure, that rely only on recognising the main connective of a sentence and applying an appropriate rule to introduce or eliminate it, each of our rules corresponds to an acceptable entailment.
 
@@ -425,7 +428,7 @@ Here is an illustration of the rules we have so far in action, applied to this i
 \end{proof}\phantomsection\label{proof.within}
 
 The correctness of our proof rule of conditional elimination is supported by the easily demonstrated validity of the corresponding entailment: \begin{itemize}
-	\item  $\meta{A}, \meta{A}\eif\meta{B}\entails \meta{B}$.
+	\item  $(\meta{A}\eif\meta{B}), \meta{A} \entails \meta{B}$.
 \end{itemize} So applying this rule can never produce false conclusions if we began with true assumptions.
 
 \section{Biconditional Elimination}\label{bielim}
@@ -461,18 +464,20 @@ Here is an example of the biconditional rules in action, demonstrating the follo
 	\have{r}{R}\ce{qr,q}
 \end{proof}
 
-Note the way that our conjunction and conditional elimination rules can be used to parallel the biconditional elimination rules:
+Note the way that our conjunction and conditional elimination rules can be used to parallel the biconditional elimination rules, substantiating our intuition that a biconditional amounts to the left-to-right and right-to-left conditionals:
 
-\begin{tabular}{p{0.45\textwidth}p{0.45\textwidth}} \begin{proof}
+\begin{minipage}{0.4\textwidth} \begin{proof}
 	\hypo{a}{((P \eif Q)\eand (Q \eif P))}
+	\open
 	\hypo{p}{Q}
 	\have{pq}{(Q \eif P)}\ae{a}
 	\have{q}{P}\ce{pq,p}
-\end{proof} & \begin{proof}
+\end{proof} \end{minipage}
+\begin{minipage}{0.4\textwidth} \begin{proof}
 	\hypo{a}{(P \eiff Q)}
-	\hypo{p}{Q}
+	\open \hypo{p}{Q}
 	\have{q}{P}\be{a,p}
-\end{proof}\end{tabular}
+\end{proof}\end{minipage}
 
 
 
@@ -506,7 +511,7 @@ Armed with all this, I present the \define{disjunction introduction} rule(s):
 Notice that \meta{B} can be \emph{any} sentence of \TFL\ whatsoever. So the following is a perfectly good proof:
 \begin{proof}
 	\hypo{m}{M}
-	\have{mmm}{M \eor \Bigl( \bigl( (A\eiff B) \eif (C \eand D)\bigr)  \eiff \bigl( E \eand F\bigr) \Bigr)}\oi{m}
+	\have{mmm}{\biggl(M \eor \Bigl( \bigl( (A\eiff B) \eif (C \eand D)\bigr)  \eiff \bigl( E \eand F\bigr) \Bigr)\biggr)}\oi{m}
 \end{proof}
 Using a truth table to show this would have taken 128 lines. 
 
@@ -520,8 +525,8 @@ Here is an example, to show our rules in action: \begin{proof}
 \end{proof}
 
 This disjunction rule is supported by the following valid \TFL\ argument forms: \begin{itemize}
-	\item $\meta{A}\vDash\meta{A}\eor\meta{B}$; and 
-	\item $\meta{B}\vDash\meta{A}\eor\meta{B}$.
+	\item $\meta{A}\vDash(\meta{A}\eor\meta{B})$; and 
+	\item $\meta{B}\vDash(\meta{A}\eor\meta{B})$.
 \end{itemize}
 
 
@@ -564,9 +569,9 @@ The following `proof' is \emph{incorrect}. Explain the mistakes it makes.
 
 \begin{proof}
 \hypo{abc}{A \eand (B \eand C)}
-\hypo{bcd}{(B \eor C) \eif D}
+\hypo{bcd}{((B \eor C) \eif D)}
 \have{b}{B}\ae{abc}
-\have{bc}{B \eor C}\oi{b}
+\have{bc}{(B \eor C)}\oi{b}
 \have{d}{D}\ce{bc, bcd}
 \end{proof}
 
@@ -584,13 +589,13 @@ Is the following purported proof correct?
 The following proof is missing its commentary. Please supply the correct annotations on each line that needs one: 
 
 \begin{proof}
-\hypo{ps}{P \eand S}
+\hypo{ps}{(P \eand S)}
 \have{p}{P}%\ae{ps}
 \have{s}{S}%\ae{ps}
 \open
-\hypo{nsor}{S \eif R}
+\hypo{nsor}{(S \eif R)}
 \have{r}{R}%\ce{nsor, s}
-\have{re}{R \eor E}%\oi{r}
+\have{re}{(R \eor E)}%\oi{r}
 \end{proof}
 
 
