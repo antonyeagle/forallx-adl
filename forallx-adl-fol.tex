@@ -813,7 +813,7 @@ $$\forall x\bigl(\mbox{$x$ is a dog owner}\eif\exists y(\mbox{$y$ is a dog owner
 Completing the symbolisation, we end up with
 $$\forall x\bigl(\exists z(Dz \eand Oxz)\eif\exists y\bigl(\exists z(Dz \eand Oyz)\eand Fyx\bigr) \bigr)$$
 Note that we have used the same variable, `$z$', in both the antecedent and the consequent of the conditional, but that these are governed by two different quantifiers. This is ok: there is no potential confusion here, because it is obvious which quantifier governs each variable. We might graphically represent the scope of the quantifiers thus:
-$$\overbracket{\forall x\bigl(\,\overbracket{\exists z(Dz \eand Oxz)}^{\text{scope of 1st `}\exists z\text{'}}\eif \overbracket{\exists y(\,\overbracket{\exists z(Dz \eand Oyz)}^{\text{scope of 2nd `}\exists z\text{'}}\mathop{\eand} Fyx) \bigr)}^{\text{scope of `}\exists y\text{'}}}^{\text{scope of `}\forall x\text{'}}$$
+$$\overbracket{\forall x\bigl(\,\overbracket{\exists z(Dz \eand Oxz)}^{\text{scope of 1st `}\exists z\text{'}}\eif \overbracket{\exists y(\,\overbracket{\exists z(Dz \eand Oyz)}^{\text{scope of 2nd `}\exists z\text{'}}\mathop{\eand} Fyx)}^{\text{scope of `}\exists y\text{'}}\bigr)}^{\text{scope of `}\forall x\text{'}}$$
 Even in this case, however, you might want to choose different variables for every quantifier just as a practical matter, preventing any possibility of confusion for your readers.
 
 Sentence \ref{dog6} is the trickiest yet. First we paraphrase it as `For any x that is a friend of a dog owner, x owns a dog which is also owned by a friend of x'. Using our stepping-stone tactic, this becomes:
