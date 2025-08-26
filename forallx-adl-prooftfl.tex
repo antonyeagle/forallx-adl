@@ -1608,7 +1608,7 @@ to mean that there is a proof of $\meta{A}$ which ends up having no undischarged
 	}
 Just as provability is analogous to entailment (and is, we hope, coextensive with it), so theoremhood corresponds to logical truth. 
 
-To illustrate the idea, suppose I want to prove that `$\enot (G \eand \enot G)$' is a theorem. So I must start my proof without \emph{any} assumptions. However, since I want to prove a sentence whose main connective is a negation, I shall want to  immediately begin a subproof by making the additional assumption `$A \eand \enot A$' for the sake of argument, and show that this leads to contradictory consequences. All told, then, the proof looks like this:
+To illustrate the idea, suppose I want to prove that `$\enot (G \eand \enot G)$' is a theorem. So I must start my proof without \emph{any} assumptions. However, since I want to prove a sentence whose main connective is a negation, I shall want to  immediately begin a subproof by making the additional assumption `$G \eand \enot G$' for the sake of argument, and show that this leads to contradictory consequences. All told, then, the proof looks like this:
 	\begin{proof}
 		\open
 			\hypo{con}{G \eand \enot G}
@@ -1625,17 +1625,17 @@ Because every proof begins with an assumption, we can only obtain a proof of a t
     \hypo{q}{Q}
     \open
     \hypo{p}{P}
+    \have{pq}{(P \eand Q)}\ai{p,q}
+    \close
     \open
-    \hypo{nq}{\enot Q}
-    \have{qq}{Q}\by{R}{q}
+    \hypo{qp}{(P \eand Q)}
+    \have{p2}{P}\ae{qp}
     \close
-    \have{q2}{Q}\nelim{nq-qq,nq-nq}
+    \have{pq}{P \eiff (P \eand Q)}\bi{p-pq,qp-p2}
     \close
-    \have{pq}{P \eif Q}\ci{p-q2}
-    \close
-    \have{qpq}{Q \eif (P \eif Q)}\ci{q-pq}
+    \have{qpq}{Q \eif (P \eiff (P\eand Q))}\ci{q-pq}
   \end{proof}
-There is a connection to the deduction theorem here too. Any correct proof of \meta{C} with one undischarged assumption \meta{A} will demonstrate $\meta{A}\proves\meta{C}$. The deduction theorem then assures us that $\proves \meta{A}\eif\meta{C}$. We see just this in the last line of the above proof, where a proof that $Q \proves (P \eif Q)$ is converted to a proof showing that $\proves Q \eif (P \eif Q)$.
+There is a connection to the deduction theorem here too. Any correct proof of \meta{C} with one undischarged assumption \meta{A} will demonstrate $\meta{A}\proves\meta{C}$. The deduction theorem then assures us that $\proves \meta{A}\eif\meta{C}$. We see just this in the last line of the above proof, where a proof that $Q \proves (P \eiff (P\eand Q))$ is converted to a proof showing that $\proves Q \eif (P \eiff (P\eand Q))$.
 
 But we cannot say that every theorem has a negation, a conditional or a biconditional as its main connective. For one thing, we could have started with a negated disjunction or conjunction. For another, once we have a proof of a theorem, we can apply disjunction or conjunction introduction to its last line: e.g., we could extend the above proof by conjunction introduction to show that $\proves ((Q \to (P \to Q))\eand (Q \to (P \to Q)))$. 
 

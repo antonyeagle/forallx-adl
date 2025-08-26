@@ -1,5 +1,5 @@
-Forall*x* Adelaide
-==================
+`forall`$x$ Adelaide
+====================
 
 This is a derivative work created by [Antony Eagle](https://antonyeagle.org), based upon [Tim Button](http://www.homepages.ucl.ac.uk/~uctytbu/index.html)'s 2016 Cambridge version of [PD Magnus](https://www.fecundity.com/job/)'s forall*x* (version 1.29). There are pervasive substantive changes in content, theoretical approach, coverage, and appearance – it's fair to say no one will mistake this version for Magnus' original.
 
@@ -18,27 +18,11 @@ The LaTeX source code for this work is available on GitHub at [github.com/antony
 Current issues and proposed revisions
 -------------------------------------
 
-As of late 2024, this text has reached terminal stability. I do not envisage making substantive further changes beyond those noted below.
+As of late 2025, this text has reached terminal stability. I do not envisage making substantive further changes beyond the correction of errors or typos. These can be sent to me at [antony.eagle@adelaide.edu.au](mailto:antony.eagle@adelaide.edu.au?subject=forallx-adl).
 
-I welcome comments and notification of errors and typos: [antony.eagle@adelaide.edu.au](mailto:antony.eagle@adelaide.edu.au?subject=forallx-adl). I will update this readme with a list of issues and proposed changes even while teaching from the book, but I will not push major changes to the pdf and source until a given course has been delivered and assessed. (I will tacitly correct typos and small errors.)
-
-
-Current known issues or proposed changes to the text: none.
+You can find the latest release version at this DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16945666.svg)](https://doi.org/10.5281/zenodo.16945666)
 
 
-<!-- None -->
-
-
-<!-- 
-* Chapter 1 (`forallx-adl-what.tex`) 
-* Chapter 2 (`forallx-adl-tfl.tex`)
-* Chapter 3 (`forallx-adl-truthtables.tex`)
-* Chapter 4 (`forallx-adl-fol.tex`)
-* Chapter 5 (`forallx-adl-interpretations.tex`)
-* Chapter 6 (`forallx-adl-prooftfl.tex`)
-* Chapter 7 (`forallx-adl-prooffol.tex`)
-* Backmatter
- -->
 
 
 
