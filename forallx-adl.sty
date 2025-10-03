@@ -352,12 +352,12 @@
 \makepagestyle{forallxpage} %TB: design new page style
 %\makeheadrule {forallxpage}{\textwidth}{\normalrulethickness} %TB: put rule beneath page header % Æ removed rule
 \makeevenhead {forallxpage}{\small \thepage}{\small\scshape\leftmark}{}  %TB: page header consists of section name and page
-\makeoddhead {forallxpage}{}{\small\scshape\rightmark}{\small\thepage} 
+\makeoddhead {forallxpage}{}{\small\rightmark}{\small\thepage} 
 \makeatletter
 \makepsmarks{forallxpage}{
 	\nouppercaseheads
 \createmark {part} {left} {nonumber}{}{}
-	\createmark {chapter} {right} {shownumber}{§}{. \ } 
+	\createmark {chapter} {right} {shownumber}{§}{. \ \scshape} 
 } % Æ modified
 \makeatother
 
