@@ -356,7 +356,6 @@ From the premise, we can get each of its conjuncts by {\eand}E. The proof now lo
 So by applying the {\eand}I rule to lines 3 and 2 (in that order), we arrive at the desired conclusion. The finished proof looks like this:
 \begin{proof}
 	\hypo{ab}{\Bigl(\bigl((A\eor B)\eif(C\eor D)\bigr) \eand \bigl((E \eor F) \eif (G\eor H)\bigr)\biggr)}
-
 	\have{a}{\bigl((A\eor B)\eif(C\eor D)\bigr)} \ae{ab}
 	\have{b}{\bigl((E \eor F) \eif (G\eor H)\bigr)} \ae{ab}
 	\have{ba}{\Bigl(\bigl((E \eor F) \eif (G\eor H)\bigr) \eand \bigl((A\eor B)\eif(C\eor D)\bigr)\biggr)} \ai{b,a}

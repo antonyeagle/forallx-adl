@@ -925,7 +925,6 @@ Using this kind of approach, let us consider this argument: \begin{quote}
 	\have{p}{\exists x (Fx \eand \forall y (Fy \eiff x=y) \eand \enot Hx)}\Ei{o}
 	\close
 	\have{q}{\exists x (Fx \eand \forall y (Fy \eiff x=y) \eand \enot Hx)}\Ee{a,c-p}
-
 \end{proof}
 
 \keyideas{
@@ -1167,7 +1166,7 @@ The problem I'm talking about is the puzzle of \emph{vagueness}. (We briefly enc
 The left hand end is clearly red. But because the red areas shades smoothly into orange and then yellow, it seems clear that the word `red' denotes a predicate with no sharp cutoffs. It is a \define{vague expression}. Its vagueness, accordingly to many, arises because `red' and other vague words exhibit this feature: \factoidbox{A predicate `$F$' is \define{tolerant} if extremely similar things are either both $F$ or neither $F$.}
 In the case of 'red', adjacent slivers of colour in the spectrum are very similar – they are visually indistinguishable, i.e., they \emph{look the same}. And surely if two things look the same, they cannot be different colours. How could there be two distinct colours that are indistinguishable in appearance? – colours are appearance properties, most say.
 
-If `red' is tolerant, then any two adjacent slivers will be either both red, or both not red.  So where `$R$' is interpreted to mean `\gap{1} is red', and `$C$' means `\gap{1} is adjacent to \gap{2}', in the domain of slivers of colour in this spectrum, this \FOL\ sentence appears to be true: 
+If `red' is tolerant, then any two adjacent slivers will be either both red, or both not red.  So where `$R$' is interpreted to mean `\gap{1} is red', and `$A$' means `\gap{1} is adjacent to \gap{2}', in the domain of slivers of colour in this spectrum, this \FOL\ sentence appears to be true: 
      $$\forall x \forall y ((Rx \eand Axy) \eif Ry).$$
 This is an instance of the principle of Tolerance, because adjacent slivers are extremely similar. Let the slivers of colour be denoted `$a_{1},…,a_{1000}$', with `$a_{1}$' the leftmost sliver. Then the above tolerance principle, together with, `$Ra_{1}$', and many premises of the form `$Aa_{i}a_{i+1}$' will entail `$\forall x Rx$', given that there is a case of red, and we have enough adjacent cases: as we do in the spectrum.  The formal proof is long, but basically: if there is a case of red, and a case of non-red, then Tolerance tells us they cannot be linked by a sequence of adjacent cases. But in the spectrum any two slivers can be linked by a sequence of adjacent cases. 
 
