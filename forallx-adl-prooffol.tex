@@ -857,9 +857,9 @@ To see the rules in action, we shall prove some quick results. Recall that a rel
 	\have{ayya}{\forall y (a = y \eif y = a)}\Ai{abba}
 	\have{xyyx}{\forall x \forall y (x = y \eif y = x)}\Ai{ayya}
 \end{proof}
-Line 2 is just `$x=a$'$\subs{a}{x}$, as well as being of the right form for $=$I, and line 3 is just $x=a$'$\subs{b}{x}$, so the move from 2 to 3 is in conformity with the $=$E rule given the opening assumption. This is the same sequence of moves we saw in the proof above, in a more general setting,
+Line 2 is just `$x=a$'$\subs{a}{x}$, as well as being of the right form for $=$I, and line 3 is just `$x=a$'$\subs{b}{x}$, so the move from 2 to 3 is in conformity with the $=$E rule given the opening assumption. This is the same sequence of moves we saw in the proof above, in a more general setting.
 
-Having noted the symmetry of identity, note that we can use this to establish the following schematic proof that allows us to use $\meta{a}=\meta{b}$ to also move from a claim about $\meta{b}$ to a claim about $\meta{a}$, not just \emph{vice versa} as in our $=$E rule.:
+Having noted the symmetry of identity, note that we can use this to establish the following schematic proof that allows us to use $\meta{a}=\meta{b}$ to also move from a claim about $\meta{b}$ to a claim about $\meta{a}$, not just \emph{vice versa} as in our $=$E rule:
 \begin{proof}
 	\have[m]{j}{\meta{a}=\meta{b}}
 	\have{i}{\meta{a}=\meta{a}}\idi{}
@@ -872,8 +872,13 @@ Having noted the symmetry of identity, note that we can use this to establish th
 	\have[n]{a}{\meta{A}\subs{\meta{b}}{\meta{x}}}
 	\have[\ ]{ea1}{\meta{A}\subs{\meta{a}}{\meta{x}}} \by{=ES}{e,a}
 	\end{proof}
-} You can use either just the original identity elimination rule, or use it in combination with this derived rule, in your proofs.
+} 
 
+Recall the rule of Conjunction Elimination (§\ref{conjelim}), which had two versions: from $\meta{A} \eand \meta{B}$ derive \meta{A} (the `left' version) and from $\meta{A} \eand \meta{B}$ derive \meta{B} (the `right' version). Likewise we can think of Disjunction Introduction (§\ref{disjint}) as having two versions: from $\meta{C}$ derive $\meta{C}\eor \meta{D}$ (the `left' version), and   from $\meta{C}$ derive $\meta{D}\eor \meta{C}$ (the `right' version). Our derived rule $=$ES shows that our original $=$E rule could be understood in a parallel way: \begin{itemize}
+	\item There is a `left' version, where from $\meta{a}=\meta{b}$ and $\meta{A}\subs{\meta{a}}{\meta{x}}$ we derive $\meta{A}\subs{\meta{b}}{\meta{x}}$ (swapping the thing on the left for the thing on the right – this is the `official' $=$E rule); 
+	\item and there is a `right' version where from $\meta{a}=\meta{b}$ and $\meta{A}\subs{\meta{b}}{\meta{x}}$ we derive $\meta{A}\subs{\meta{a}}{\meta{x}}$ (swapping the thing on the right for the thing on the left – this is the derived $=$ES rule).
+\end{itemize} 
+Given that we don't distinguish the left and right versions of rules for conjunction and disjunction (or biconditional), you are permitted in your own proofs to use $=$E for either version of the rule – once you understand the difference between the official $=$E rule and the derived rule $=$ES, you should feel free to conflate them and call them both `$=$E' in your proof commentaries.
 
 A relation is transitive (§\ref{binary}) iff whenever it holds between x and y and between y and z, it also holds between x and z. (In the directed graph representation of the relation introduced in §\ref{graph}, if there is a path along arrows going from node a to node b via a third node, there is also a direct arrow from a to b.) Second, we shall prove that identity is transitive, that $\proves \forall x \forall y \forall z((x = y \eand y = z) \eif x = z)$.
 \begin{proof}
